@@ -166,7 +166,7 @@ function = do a <- atom
               return $ Function (a,i)
 
 literal :: Parser Literal
-literal = liftM LInt integer <|> liftM LFloat float <|>
+literal = try (liftM LFloat float) <|> liftM LInt integer <|>
           liftM LAtom atom <|> nil <|> echar <|> estring
 
 nil :: Parser Literal
