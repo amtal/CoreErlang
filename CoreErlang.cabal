@@ -1,0 +1,33 @@
+name: CoreErlang
+version: 0.0.1
+copyright: 2008, David Castro Pérez, Henrique Ferreiro García
+license: BSD3
+license-file: LICENSE
+author:	David Castro Pérez <dcastrop@udc.es>
+        Henrique Ferreiro García <hferreiro@udc.es>
+maintainer:	Henrique Ferreiro García <hferreiro@udc.es>
+            David Castro Pérez <dcastrop@udc.es>
+homepage: .
+stability: Experimental
+category: Language
+synopsis: Manipulating Core Erlang source code
+description:
+        Facilities for manipulating Core Erlang source code:
+        an abstract syntax, parser and pretty-printer.
+build-type: Simple
+cabal-version: >= 1.2
+
+extra-source-files:
+    AUTHORS LICENSE
+
+flag split-base
+
+library
+  exposed-modules:
+        Language.CoreErlang.Parser,
+        Language.CoreErlang.Pretty,
+        Language.CoreErlang.Syntax
+  if flag(split-base)
+    build-depends:	base >= 3, parsec == 2.1.0.0, pretty
+  else
+    build-depends:	base < 3, parsec == 2.1.0.0

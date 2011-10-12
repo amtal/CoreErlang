@@ -1,0 +1,31 @@
+\documentclass{article}
+
+\usepackage{hcar}
+
+\begin{document}
+
+\begin{hcarentry}{CoreErlang}
+\report{Henrique Ferreiro Garc\'{i}a}
+\participants{David Castro P\'{e}rez}
+\status{Parses and pretty-prints all of Core Erlang}
+\makeheader
+
+CoreErlang is a haskell library which consists on a parser and
+pretty-printer for the intermediate language used by Erlang. The parser uses
+the Parsec library and the pretty-printer was modelled after the
+corresponding module of the haskell-src package. It also exposes a Syntax
+module which allows easy manipulation of terms.
+
+It is able to parse and pretty print all of Core Erlang. Remaining work
+includes customizing the pretty printer and refining the syntax interface.
+
+\FurtherReading
+
+\begin{itemize}
+\item It can be downloaded from hackage at: 
+\item A darcs repository is available at: \url{http://code.haskell.org/CoreErlang}
+\end{itemize}
+
+\end{hcarentry}
+
+\end{document}
