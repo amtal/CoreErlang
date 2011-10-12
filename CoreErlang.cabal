@@ -1,5 +1,5 @@
 name: CoreErlang
-version: 0.0.1
+version: 0.0.2
 copyright: 2008, David Castro Pérez, Henrique Ferreiro García
 license: BSD3
 license-file: LICENSE
@@ -28,6 +28,6 @@ library
         Language.CoreErlang.Pretty,
         Language.CoreErlang.Syntax
   if flag(split-base)
-    build-depends:	base >= 3, parsec == 2.1.0.0, pretty
+    build-depends:	base >= 3, parsec >= 2.1.0.0, pretty
   else
-    build-depends:	base < 3, parsec == 2.1.0.0
+    build-depends:	base < 3, parsec >= 2.1.0.0
