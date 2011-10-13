@@ -28,6 +28,6 @@ library
         Language.CoreErlang.Pretty,
         Language.CoreErlang.Syntax
   if flag(split-base)
-    build-depends:	base >= 3, parsec >= 2.1.0.0, pretty
+    build-depends:	base >= 3, parsec >= 2.1.0.0, pretty, syb
   else
     build-depends:	base < 3, parsec >= 2.1.0.0
