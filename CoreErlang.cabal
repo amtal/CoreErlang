@@ -5,9 +5,8 @@ license: BSD3
 license-file: LICENSE
 author:	David Castro Pérez <dcastrop@udc.es>
         Henrique Ferreiro García <hferreiro@udc.es>
-maintainer:	Henrique Ferreiro García <hferreiro@udc.es>
-            David Castro Pérez <dcastrop@udc.es>
-homepage: .
+maintainer:	Alex Kropivny <alex.kropivny@gmail.com>
+homepage: http://github.com/amtal/CoreErlang
 stability: Experimental
 category: Language
 synopsis: Manipulating Core Erlang source code
