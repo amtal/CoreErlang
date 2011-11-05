@@ -5,8 +5,7 @@
 --                (c) David Castro Pérez 2008
 -- License     :  BSD-style (see the file LICENSE)
 --
--- Maintainer  :  Henrique Ferreiro García <hferreiro@udc.es>
---                David Castro Pérez <dcastrop@udc.es>
+-- Maintainer  :  Alex Kropivny <alex.kropivny@gmail.com>
 -- Stability   :  experimental
 -- Portability :  portable
 --
