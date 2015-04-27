@@ -75,6 +75,10 @@ newtype DocM s a = DocM (s -> a)
 instance Functor (DocM s) where
          fmap f xs = do x <- xs; return (f x)
 
+instance Applicative (DocM s) where
+         pure        = return
+         (<*>) m1 m2 = do x1 <- m1; x2 <- m2; return (x1 x2)
+
 instance Monad (DocM s) where
          (>>=) = thenDocM
          (>>) = then_DocM
