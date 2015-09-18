@@ -5,28 +5,31 @@ license: BSD3
 license-file: LICENSE
 author:	David Castro Pérez <dcastrop@udc.es>
         Henrique Ferreiro García <hferreiro@udc.es>
-maintainer:	Alex Kropivny <alex.kropivny@gmail.com>
+maintainer:	
+        Alex Kropivny <alex.kropivny@gmail.com>
 homepage: http://github.com/amtal/CoreErlang
-stability: Experimental
 category: Language
 synopsis: Manipulating Core Erlang source code
 description:
         Facilities for manipulating Core Erlang source code:
         an abstract syntax, parser and pretty-printer.
 build-type: Simple
-cabal-version: >= 1.2
+cabal-version: >= 1.6
 
 extra-source-files:
     AUTHORS LICENSE
-
-flag split-base
 
 library
   exposed-modules:
         Language.CoreErlang.Parser,
         Language.CoreErlang.Pretty,
         Language.CoreErlang.Syntax
-  if flag(split-base)
-    build-depends:	base >= 3 && < 5, parsec >= 2.1.0.0, pretty
-  else
-    build-depends:	base < 3, parsec >= 2.1.0.0
+  build-depends:       
+        base >=4.8 && <4.9, 
+        pretty >=1.1 && <1.2, 
+        parsec >=3.1 && <3.2
+  other-extensions:    DeriveDataTypeable
+
+source-repository head
+  type:     git
+  location: https://github.com/amtal/CoreErlang.git
