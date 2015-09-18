@@ -1,0 +1,5 @@
+CoreErlang is a haskell library which consists on a parser and pretty-printer for the intermediate language used by Erlang. 
+
+The parser uses the Parsec library and the pretty-printer was modelled after the corresponding module of the haskell-src package. It also exposes a Syntax module which allows easy manipulation of terms.
+
+It is able to parse and pretty print all of Core Erlang. Remaining work includes customizing the pretty printer and refining the syntax interface.
