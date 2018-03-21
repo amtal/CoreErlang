@@ -1,5 +1,5 @@
 name: CoreErlang
-version: 0.0.3
+version: 0.0.4
 copyright: 2008, David Castro Pérez, Henrique Ferreiro García
 license: BSD3
 license-file: LICENSE
@@ -25,7 +25,7 @@ library
         Language.CoreErlang.Pretty,
         Language.CoreErlang.Syntax
   build-depends:       
-        base >=4.8 && <4.10, 
+        base >=4.8 && <=4.11,
         pretty >=1.1 && <1.2, 
         parsec >=3.1 && <3.2
   other-extensions:    DeriveDataTypeable
