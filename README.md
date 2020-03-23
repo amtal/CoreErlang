@@ -8,7 +8,7 @@ It is able to parse and pretty print all of Core Erlang. Remaining work includes
 
 # Syntax
 
-*module*  ::=  **module** *Atom* [*fname<sub>i<sub>1</sub></sub>* , ... , *fname<sub>i<sub>k</sub></sub>*] **attributes** [*attr<sub>1</sub>*, ..., *attr<sub>m</sub>*] *fundef<sub>1</sub>* ... *fundef<sub>n</sub>* **end**
+*module*  ::=  **module** *Atom* [*fname<sub>i<sub>1</sub></sub>* , ... , *fname<sub>i<sub>k</sub></sub>*] **attributes** [*attr<sub>1</sub>*, ..., *attr<sub>m</sub>*]  *fundef<sub>1</sub>* ... *fundef<sub>n</sub>* **end**
 
 *attr*  ::=  *Atom* = *const*
 
@@ -34,33 +34,33 @@ It is able to parse and pretty print all of Core Erlang. Remaining work includes
 
 *expr*  ::=  *var* | *fname* | *lit* | *fun*
 
-​  | [*exprs<sub>1</sub>* | *exprs<sub>2</sub>*]
+​ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |  [*exprs<sub>1</sub>* | *exprs<sub>2</sub>*]
 
-​  | {*exprs<sub>1</sub>*, ...,  *exprs<sub>n</sub>*}
+​ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |  {*exprs<sub>1</sub>*, ...,  *exprs<sub>n</sub>*}
 
-​  | \~{*exprs<sub>1</sub>* => *exprs<sub>2</sub>* , ..., *exprs<sub>m</sub>* => *exprs<sub>n</sub>*}\~
+​ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |  \~{*exprs<sub>1</sub>* => *exprs<sub>2</sub>* , ..., *exprs<sub>m</sub>* => *exprs<sub>n</sub>*}\~
 
-​  | **let** *vars* = *exprs<sub>1</sub>* **in** *exprs<sub>2</sub>*
+​ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |  **let** *vars* = *exprs<sub>1</sub>* **in** *exprs<sub>2</sub>*
 
-​  | **case** *exprs* **of** *clause<sub>1</sub>* · · · *clause<sub>n</sub>* **end**
+​ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |  **case** *exprs* **of** *clause<sub>1</sub>* · · · *clause<sub>n</sub>* **end**
 
-​  | **letrec** *fname<sub>1</sub>* = *fun<sub>1</sub>* · · · *fname<sub>n</sub>* = *fun<sub>n</sub>* **in** *exprs*
+​ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |  **letrec** *fname<sub>1</sub>* = *fun<sub>1</sub>* · · · *fname<sub>n</sub>* = *fun<sub>n</sub>* **in** *exprs*
 
-​  | **apply** *exprs<sub>0</sub>* (*exprs<sub>1</sub>*, . . ., *exprs<sub>n</sub>*)
+​ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |  **apply** *exprs<sub>0</sub>* (*exprs<sub>1</sub>*, . . ., *exprs<sub>n</sub>*)
 
-​  | **call** *exprs′<sub>1</sub>*:*exprs′<sub>2</sub>*(*exprs<sub>1</sub>*, . . ., *exprs<sub>n</sub>*)
+​ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |  **call** *exprs′<sub>1</sub>*:*exprs′<sub>2</sub>*(*exprs<sub>1</sub>*, . . ., *exprs<sub>n</sub>*)
 
-​  | **primop** *Atom*(*exprs<sub>1</sub>*, . . ., *exprs<sub>n</sub>*)
+​ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |  **primop** *Atom*(*exprs<sub>1</sub>*, . . ., *exprs<sub>n</sub>*)
 
-​  | **receive** *clause<sub>1</sub>* · · · *clause<sub>n</sub>* **after** *exprs<sub>1</sub>* -> *exprs<sub>2</sub>*
+​ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |  **receive** *clause<sub>1</sub>* · · · *clause<sub>n</sub>* **after** *exprs<sub>1</sub>* -> *exprs<sub>2</sub>*
 
-​  | **try** *exprs<sub>1</sub>* **of** <*var<sub>1</sub>*, . . .*var<sub>n</sub>*> -> *exprs<sub>2</sub>*
+​ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |  **try** *exprs<sub>1</sub>* **of** <*var<sub>1</sub>*, . . .*var<sub>n</sub>*> -> *exprs<sub>2</sub>*
 
-​  **catch** <*var<sub>n+1</sub>*, . . .*var<sub>n+m</sub>*> -> *exprs<sub>3</sub>*
+​ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  **catch** <*var<sub>n+1</sub>*, . . .*var<sub>n+m</sub>*> -> *exprs<sub>3</sub>*
 
-​  | **do** *exprs<sub>1</sub>* *exprs<sub>2</sub>*
+​ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |  **do** *exprs<sub>1</sub>* *exprs<sub>2</sub>*
 
-​  | **catch** *exprs*
+​ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |  **catch** *exprs*
 
 *vars*  ::=  *var* | <*var<sub>1</sub>*, ..., *var<sub>n</sub>*>
 
