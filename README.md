@@ -34,9 +34,9 @@ It is able to parse and pretty print all of Core Erlang. Remaining work includes
 
 *expr*  ::=  *var* | *fname* | *lit* | *fun*
 
-​\    | [*exprs<sub>1</sub>* | *exprs<sub>2</sub>*]
+​  | [*exprs<sub>1</sub>* | *exprs<sub>2</sub>*]
 
-​\    | {*exprs<sub>1</sub>*, ...,  *exprs<sub>n</sub>*}
+​  | {*exprs<sub>1</sub>*, ...,  *exprs<sub>n</sub>*}
 
 ​  | \~{*exprs<sub>1</sub>* => *exprs<sub>2</sub>* , ..., *exprs<sub>m</sub>* => *exprs<sub>n</sub>*}\~
 
