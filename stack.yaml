@@ -1,0 +1,7 @@
+resolver: lts-13.26
+pvp-bounds: upper
+packages:
+- '.'
+
+extra-deps: []
+flags: {}

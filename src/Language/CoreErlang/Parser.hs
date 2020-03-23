@@ -9,9 +9,9 @@
 -- Stability   :  experimental
 -- Portability :  portable
 --
--- CoreErlang parser.
--- <http://www.it.uu.se/research/group/hipe/cerl/>
-
+-- Parser for Core Erlang.
+-- <http://erlang.org/doc/apps/compiler/compiler.pdf>
+--
 -----------------------------------------------------------------------------
 
 module Language.CoreErlang.Parser
@@ -136,10 +136,10 @@ amodule = do reserved "module"
              reserved "end"
              return $ Module name funs attrs fundefs
 
-exports :: Parser [Function]
+exports :: Parser [FunName]
 exports = brackets $ commaSep function
 
-attributes :: Parser [(Atom,Const)]
+attributes :: Parser [(Atom, Const)]
 attributes = do reserved "attributes"
                 brackets (commaSep $ do a <- atom
                                         symbol "="
@@ -157,12 +157,12 @@ fundef = do name <- annotated function
             body <- annotated lambda
             return $ FunDef name body
 
-function :: Parser Function
+function :: Parser FunName
 function = do a <- atom
               char '/'
               i <- decimal
               whiteSpace -- TODO: buff
-              return $ Function (a,i)
+              return $ FunName (a, i)
 
 literal :: Parser Literal
 literal = try (liftM LFloat float) <|> liftM LInt integer <|>
@@ -171,11 +171,11 @@ literal = try (liftM LFloat float) <|> liftM LInt integer <|>
 nil :: Parser Literal
 nil = brackets (return LNil)
 
-expression :: Parser Exps
-expression =  try (liftM Exps (annotated $ angles $ commaSep (annotated sexpression))) <|>
-              liftM Exp (annotated sexpression)
+expression :: Parser Exprs
+expression = try (liftM Exprs (annotated $ angles $ commaSep (annotated sexpression))) <|>
+             liftM Expr (annotated sexpression)
 
-sexpression :: Parser Exp
+sexpression :: Parser Expr
 sexpression = app <|> ecatch <|> ecase <|> elet <|>
               liftM Fun (try function) {- because of atom -} <|>
               lambda <|> letrec <|> liftM Binary (ebinary expression) <|>
@@ -184,30 +184,30 @@ sexpression = app <|> ecatch <|> ecase <|> elet <|>
               eseq <|> etry <|> liftM Tuple (tuple expression) <|>
               liftM Var variable
 
-app :: Parser Exp
+app :: Parser Expr
 app = do reserved "apply"
          e1 <- expression
          eN <- parens $ commaSep expression
          return $ App e1 eN
 
-ecatch :: Parser Exp
+ecatch :: Parser Expr
 ecatch = do reserved "catch"
             e <- expression
             return $ Catch e
 
-ebinary :: Parser a -> Parser [BitString a]
+ebinary :: Parser a -> Parser [Bitstring a]
 ebinary p = do symbol "#"
                bs <- braces (commaSep (bitstring p))
                symbol "#"
                return bs
 
-bitstring :: Parser a -> Parser (BitString a)
+bitstring :: Parser a -> Parser (Bitstring a)
 bitstring p = do symbol "#"
                  e0 <- angles p
                  es <- parens (commaSep expression)
-                 return $ BitString e0 es
+                 return $ Bitstring e0 es
 
-ecase :: Parser Exp
+ecase :: Parser Expr
 ecase = do reserved "case"
            exp <- expression
            reserved "of"
@@ -242,7 +242,7 @@ guard = do reserved "when"
            e <- expression
            return $ Guard e
 
-elet :: Parser Exp
+elet :: Parser Expr
 elet = do reserved "let"
           vars <- variables
           symbol "="
@@ -252,16 +252,16 @@ elet = do reserved "let"
           return $ Let (vars,e1) e2
 
 variables :: Parser [Var]
-variables = do { v <- variable; return [v]} <|> (angles $ commaSep variable)
+variables = do { v <- variable; return [v] } <|> (angles $ commaSep variable)
 
-lambda :: Parser Exp
+lambda :: Parser Expr
 lambda = do reserved "fun"
             vars <- parens $ commaSep variable
             symbol "->"
             expr <- expression
             return $ Lambda vars expr
 
-letrec :: Parser Exp
+letrec :: Parser Expr
 letrec = do reserved "letrec"
             defs <- many fundef
             reserved "in"
@@ -277,7 +277,7 @@ list elem = do elems <- commaSep1 elem
                                     t <- elem
                                     return $ LL elems t)
 
-modcall :: Parser Exp
+modcall :: Parser Expr
 modcall = do reserved "call"
              e1 <- expression
              symbol ":"
@@ -285,13 +285,13 @@ modcall = do reserved "call"
              eN <- parens $ commaSep expression
              return $ ModCall (e1, e2) eN
 
-op :: Parser Exp
+op :: Parser Expr
 op = do reserved "primop"
         a <- atom
         e <- parens $ commaSep expression
-        return $ Op a e
+        return $ PrimOp a e
 
-receive :: Parser Exp
+receive :: Parser Expr
 receive = do reserved "receive"
              alts <- many $ annotated clause
              to <- timeout
@@ -304,13 +304,13 @@ timeout = do reserved "after"
              e2 <- expression
              return $ TimeOut  e1 e2
 
-eseq :: Parser Exp
+eseq :: Parser Expr
 eseq =  do reserved "do"
            e1 <- expression
            e2 <- expression
            return $ Seq e1 e2
 
-etry :: Parser Exp
+etry :: Parser Expr
 etry = do reserved "try"
           e1 <- expression
           reserved "of"
@@ -341,19 +341,19 @@ annotated p = parens (do e <- p
 
 lexer :: TokenParser ()
 lexer = makeTokenParser
-            (emptyDef {
-             --    commentStart = "",
-             --    commentEnd = "",
-                   commentLine = "%",
-             --    nestedComments = True,
-                   identStart = upper <|> char '_',
-                   identLetter = namechar
-             --    opStart,
-             --    opLetter,
-             --    reservedNames,
-             --    reservedOpNames,
-             --    caseSensitive = True,
-               })
+          (emptyDef {
+           --    commentStart = "",
+           --    commentEnd = "",
+                 commentLine = "%",
+           --    nestedComments = True,
+                 identStart = upper <|> char '_',
+                 identLetter = namechar
+           --    opStart,
+           --    opLetter,
+           --    reservedNames,
+           --    reservedOpNames,
+           --    caseSensitive = True,
+             })
 
 angles = Token.angles lexer
 braces = Token.braces lexer
@@ -384,3 +384,4 @@ parseModule input = parse (do whiteSpace
                               x <- emodule
                               eof
                               return x) "" input
+
