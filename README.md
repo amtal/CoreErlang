@@ -84,7 +84,6 @@ BSD3
 
 ## Authors
 
-David Castro Pérez <dcastrop@udc.es>
-Henrique Ferreiro García <hferreiro@udc.es>
-Feng Lee <feng@emqx.io>
+- David Castro Pérez <dcastrop@udc.es>
+- Henrique Ferreiro García <hferreiro@udc.es>
 
