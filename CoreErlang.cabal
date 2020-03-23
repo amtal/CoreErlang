@@ -1,12 +1,13 @@
 name: CoreErlang
-version: 0.0.4
+version: 0.0.5
 copyright: 2008, David Castro Pérez, Henrique Ferreiro García
 license: BSD3
 license-file: LICENSE
 author:	David Castro Pérez <dcastrop@udc.es>
         Henrique Ferreiro García <hferreiro@udc.es>
-maintainer:	
+maintainer:
         Alex Kropivny <alex.kropivny@gmail.com>
+        Feng Lee <feng@emqx.io>
 homepage: http://github.com/amtal/CoreErlang
 category: Language
 synopsis: Manipulating Core Erlang source code
@@ -24,11 +25,12 @@ library
         Language.CoreErlang.Parser,
         Language.CoreErlang.Pretty,
         Language.CoreErlang.Syntax
-  build-depends:       
+  build-depends:
         base >=4.8 && <=4.11,
-        pretty >=1.1 && <1.2, 
+        pretty >=1.1 && <1.2,
         parsec >=3.1 && <3.2
-  other-extensions:    DeriveDataTypeable
+  other-extensions:
+        DeriveDataTypeable
 
 source-repository head
   type:     git

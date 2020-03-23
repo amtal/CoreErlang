@@ -3,15 +3,17 @@
 -- Module      :  Language.CoreErlang.Syntax
 -- Copyright   :  (c) Henrique Ferreiro García 2008
 --                (c) David Castro Pérez 2008
--- License     :  BSD-style (see the file LICENSE)
+-- License     :  BSD-style (see the LICENSE file)
 --
 -- Maintainer  :  Alex Kropivny <alex.kropivny@gmail.com>
 -- Stability   :  experimental
 -- Portability :  portable
 --
--- A suite of datatypes describing the abstract syntax of CoreErlang 1.0.3.
--- <http://www.it.uu.se/research/group/hipe/cerl/>
-
+-- Abstract Syntax Tree of Core Erlang.
+-- <http://erlang.org/doc/apps/compiler/compiler.pdf>
+-- <https://github.com/erlang/otp/blob/master/lib/compiler/src/cerl.erl>
+-- <https://github.com/erlang/otp/blob/master/lib/compiler/src/core_parser.hrl>
+--
 -----------------------------------------------------------------------------
 {-# LANGUAGE DeriveDataTypeable #-}
 
@@ -33,6 +35,7 @@ module Language.CoreErlang.Syntax (
     Ann(..),
   ) where
 
+import Prelude
 import Data.Data
 
 -- | This type is used to represent variables
