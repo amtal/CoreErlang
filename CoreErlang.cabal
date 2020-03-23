@@ -1,42 +1,61 @@
-name: CoreErlang
-version: 0.0.5
-copyright: 2008, David Castro Pérez, Henrique Ferreiro García
-license: BSD3
-license-file: LICENSE
-author:	David Castro Pérez <dcastrop@udc.es>
-        Henrique Ferreiro García <hferreiro@udc.es>
-maintainer:
-        Alex Kropivny <alex.kropivny@gmail.com>
-        Feng Lee <feng@emqx.io>
-homepage: http://github.com/hamler-lang/CoreErlang
-category: Language
-synopsis: Manipulating Core Erlang source code
-description:
-        Facilities for manipulating Core Erlang source code:
-        an abstract syntax, parser and pretty-printer.
-build-type: Simple
-cabal-version: >= 1.6
+cabal-version: 1.12
 
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 1f1ace413dfa81b5b1278ef46ec75f92303a09d5cf3e97b93625e33d64300a54
+
+name:           CoreErlang
+version:        0.0.5
+synopsis:       Manipulating Core Erlang source code
+description:    Facilities for manipulating Core Erlang source code: an abstract syntax, parser and pretty-printer.
+category:       Language
+homepage:       https://github.com/hamler-lang/CoreErlang
+bug-reports:    https://github.com/hamler-lang/CoreErlang/issues
+author:         David Castro Pérez <dcastrop@udc.es>, Henrique Ferreiro García <hferreiro@udc.es>
+maintainer:     Alex Kropivny <alex.kropivny@gmail.com>, Feng Lee <feng@emqx.io>
+copyright:      2008, David Castro Pérez, Henrique Ferreiro García
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
 extra-source-files:
-    LICENSE
     README.md
-
-library
-  hs-source-dirs:
-      src
-  exposed-modules:
-        Language.CoreErlang.Parser,
-        Language.CoreErlang.Pretty,
-        Language.CoreErlang.Syntax
-  build-depends:
-        base >=4.11 && <=4.13,
-        pretty >=1.1 && <1.2,
-        parsec >=3.1 && <3.2
-  other-extensions:
-        DeriveDataTypeable
-        LambdaCase
+    ChangeLog.md
 
 source-repository head
-  type:     git
-  location: https://github.com/hamler-lang/CoreErlang.git
+  type: git
+  location: https://github.com/hamler-lang/CoreErlang
 
+library
+  exposed-modules:
+      Language.CoreErlang.Parser
+      Language.CoreErlang.Pretty
+      Language.CoreErlang.Syntax
+  other-modules:
+      Paths_CoreErlang
+  hs-source-dirs:
+      src
+  default-extensions: DeriveDataTypeable LambdaCase
+  ghc-options: -Wall -O2
+  build-depends:
+      base >=4.7 && <5
+    , parsec >=3.1 && <3.2
+    , pretty >=1.1 && <1.2
+  default-language: Haskell2010
+
+test-suite test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_CoreErlang
+  hs-source-dirs:
+      test
+  default-extensions: DeriveDataTypeable LambdaCase
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      CoreErlang
+    , base >=4.7 && <5
+    , parsec >=3.1 && <3.2
+    , pretty >=1.1 && <1.2
+  default-language: Haskell2010
