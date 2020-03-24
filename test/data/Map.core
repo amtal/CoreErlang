@@ -1,0 +1,29 @@
+module 'Map' ['f'/0,
+	      'module_info'/0,
+	      'module_info'/1]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[77|[97|[112|[46|[101|[114|[108]]]]]]],1}]]
+'f'/0 =
+    %% Line 5
+    fun () ->
+	%% Line 6
+	case ~{'a'=>1,'b'=>2}~ of
+	  <~{'a':=A,'b':=B}~> when 'true' ->
+	      %% Line 7
+	      {A,B}
+	  ( <_0> when 'true' ->
+		primop 'match_fail'
+		    ({'badmatch',_0})
+	    -| ['compiler_generated'] )
+	end
+'module_info'/0 =
+    fun () ->
+	call 'erlang':'get_module_info'
+	    ('Map')
+'module_info'/1 =
+    fun (_0) ->
+	call 'erlang':'get_module_info'
+	    ('Map', _0)
+end

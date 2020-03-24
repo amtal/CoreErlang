@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 1f1ace413dfa81b5b1278ef46ec75f92303a09d5cf3e97b93625e33d64300a54
+-- hash: b3db3deceee190045700bd2b05b05433b883ae3574ebcbca447c45dda356c4a1
 
 name:           CoreErlang
 version:        0.0.5
@@ -29,10 +29,11 @@ source-repository head
 
 library
   exposed-modules:
+      Language.CoreErlang
+  other-modules:
       Language.CoreErlang.Parser
       Language.CoreErlang.Pretty
       Language.CoreErlang.Syntax
-  other-modules:
       Paths_CoreErlang
   hs-source-dirs:
       src

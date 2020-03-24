@@ -3,30 +3,27 @@
 -- Module      :  Language.CoreErlang.Parser
 -- Copyright   :  (c) Henrique Ferreiro García 2008
 --                (c) David Castro Pérez 2008
--- License     :  BSD-style (see the file LICENSE)
+-- License     :  BSD-style (see the LICENSE file)
 --
 -- Maintainer  :  Alex Kropivny <alex.kropivny@gmail.com>
 -- Stability   :  experimental
 -- Portability :  portable
 --
--- Parser for Core Erlang.
+-- Parser for CoreErlang.
 -- <http://erlang.org/doc/apps/compiler/compiler.pdf>
 --
 -----------------------------------------------------------------------------
-
+{-# OPTIONS_GHC -fno-warn-unused-do-bind #-}
 module Language.CoreErlang.Parser
     ( parseModule
     , ParseError
+    , runLex
     ) where
 
 import Language.CoreErlang.Syntax
 
 import Control.Monad ( liftM )
-import Data.Char ( isControl, chr )
-import Numeric ( readOct )
-
 import Text.ParserCombinators.Parsec
-import Text.ParserCombinators.Parsec.Expr
 import qualified Text.ParserCombinators.Parsec.Token as Token
 import Text.ParserCombinators.Parsec.Token
         ( makeTokenParser, TokenParser )
@@ -40,40 +37,8 @@ uppercase = upper
 lowercase :: Parser Char
 lowercase = lower
 
-inputchar :: Parser Char
-inputchar = noneOf "\n\r"
-
-control :: Parser Char
-control = satisfy isControl
-
 namechar :: Parser Char
 namechar = uppercase <|> lowercase <|> digit <|> oneOf "@_"
-
-escape :: Parser Char
-escape = do char '\\'
-            s <- octal <|> ctrl <|> escapechar
-            return s
-
-octal :: Parser Char
-octal = do chars <- tryOctal
-           let [(o, _)] = readOct chars
-           return (chr o)
-
-tryOctal :: Parser [Char]
-tryOctal = choice [ try (count 3 octaldigit),
-                    try (count 2 octaldigit),
-                    try (count 1 octaldigit) ]
-
-octaldigit :: Parser Char
-octaldigit = oneOf "01234567"
-
-ctrl :: Parser Char
-ctrl = char '^' >> ctrlchar
-
-ctrlchar :: Parser Char
-ctrlchar = satisfy (`elem` ['\x0040'..'\x005f'])
-
-escapechar = oneOf "bdefnrstv\"\'\\"
 
 -- Terminals
 
@@ -92,27 +57,20 @@ negative = do char '-'
               n <- decimal
               return $ negate n
 
--- float :: Parser Double
--- float = sign?digit+.digit+((E|e)sign?digit+)?
-
 atom :: Parser Atom
 atom = do char '\''
---          ((inputchar except control and \ and ')|escape)*
---          inputchar = noneOf "\n\r"
           a <- many (noneOf "\n\r\\\'")
           char '\''
           whiteSpace -- TODO: buff
           return $ Atom a
 
 echar :: Parser Literal
--- char = $((inputchar except control and space and \)|escape)
 echar = do char '$'
            c <- noneOf "\n\r\\ "
            whiteSpace -- TODO: buff
            return $ LChar c
 
 estring :: Parser Literal
--- string = "((inputchar except control and \\ and \"")|escape)*"
 estring = do char '"'
              s <- many $ noneOf "\n\r\\\""
              char '"'
@@ -149,7 +107,8 @@ attributes = do reserved "attributes"
 constant :: Parser Const
 constant = liftM CLit (try literal) <|>
            liftM CTuple (tuple constant) <|>
-           liftM CList (elist constant)
+           liftM CList (elist constant) <|>
+           liftM CMap (emap constant constant)
 
 fundef :: Parser FunDef
 fundef = do name <- annotated function
@@ -182,6 +141,7 @@ sexpression = app <|> ecatch <|> ecase <|> elet <|>
               liftM List (try $ elist expression) {- because of nil -} <|>
               liftM Lit literal <|> modcall <|> op <|> receive <|>
               eseq <|> etry <|> liftM Tuple (tuple expression) <|>
+              liftM EMap (emap expression expression) <|>
               liftM Var variable
 
 app :: Parser Expr
@@ -201,6 +161,30 @@ ebinary p = do symbol "#"
                symbol "#"
                return bs
 
+emap :: Parser k -> Parser v -> Parser (Map k v)
+emap kp vp = do symbol "~"
+                l <- braces (commaSep (emapKV kp vp))
+                symbol "~"
+                return $ Map l
+
+emapKV :: Parser k -> Parser v -> Parser (k,v)
+emapKV kp vp = do k <- kp
+                  symbol "=>"
+                  v <- vp
+                  return (k,v)
+
+pmap :: Parser k -> Parser v -> Parser (Map k v)
+pmap kp vp = do symbol "~"
+                l <- braces (commaSep (pmapKV kp vp))
+                symbol "~"
+                return $ Map l
+
+pmapKV :: Parser k -> Parser v -> Parser (k,v)
+pmapKV kp vp = do k <- kp
+                  symbol ":="
+                  v <- vp
+                  return (k,v)
+
 bitstring :: Parser a -> Parser (Bitstring a)
 bitstring p = do symbol "#"
                  e0 <- angles p
@@ -209,18 +193,18 @@ bitstring p = do symbol "#"
 
 ecase :: Parser Expr
 ecase = do reserved "case"
-           exp <- expression
+           e <- expression
            reserved "of"
            alts <- many1 (annotated clause)
            reserved "end"
-           return $ Case exp alts
+           return $ Case e alts
 
 clause :: Parser Alt
 clause = do pat <- patterns
             g <- guard
             symbol "->"
-            exp <- expression
-            return $ Alt pat g exp
+            e <- expression
+            return $ Alt pat g e
 
 patterns :: Parser Pats
 patterns = liftM Pat pattern <|>
@@ -229,7 +213,11 @@ patterns = liftM Pat pattern <|>
 pattern :: Parser Pat
 pattern = liftM PAlias (try alias) {- because of variable -} <|> liftM PVar variable <|>
           liftM PLit (try literal) {- because of nil -} <|> liftM PTuple (tuple pattern) <|>
-          liftM PList (elist pattern) <|> liftM PBinary (ebinary pattern)
+          liftM PList (elist pattern) <|> liftM PBinary (ebinary pattern) <|>
+          liftM PMap (pmap pkey pattern) -- TODO: Fixme later
+
+pkey :: Parser Key
+pkey = liftM KVar variable <|> liftM KLit literal
 
 alias :: Parser Alias
 alias = do v <- variable
@@ -272,10 +260,10 @@ elist :: Parser a -> Parser (List a)
 elist a = brackets $ list a
 
 list :: Parser a -> Parser (List a)
-list elem = do elems <- commaSep1 elem
-               option (L elems) (do symbol "|"
-                                    t <- elem
-                                    return $ LL elems t)
+list el = do elems <- commaSep1 el
+             option (L elems) (do symbol "|"
+                                  t <- el
+                                  return $ LL elems t)
 
 modcall :: Parser Expr
 modcall = do reserved "call"
@@ -320,11 +308,11 @@ etry = do reserved "try"
           reserved "catch"
           v2 <- variables
           symbol "->"
-          e3 <- expression
+          _ <- expression
           return $ Try e1 (v1,e1) (v2,e2)
 
 tuple :: Parser a -> Parser [a]
-tuple elem = braces $ commaSep elem
+tuple el = braces $ commaSep el
 
 annotation :: Parser [Const]
 annotation = do symbol "-|"
@@ -355,19 +343,34 @@ lexer = makeTokenParser
            --    caseSensitive = True,
              })
 
+angles, braces, brackets :: Parser a -> Parser a
 angles = Token.angles lexer
 braces = Token.braces lexer
 brackets = Token.brackets lexer
+
+commaSep, commaSep1 :: Parser a -> Parser [a]
 commaSep = Token.commaSep lexer
 commaSep1 = Token.commaSep1 lexer
+
+decimal :: Parser Integer
 decimal = Token.decimal lexer
+
+float :: Parser Double
 float = Token.float lexer
+
+identifier :: Parser Var
 identifier = Token.identifier lexer
-natural = Token.natural lexer
+
+parens :: Parser a -> Parser a
 parens = Token.parens lexer
+
+reserved :: String -> Parser ()
 reserved = Token.reserved lexer
-reservedOp = Token.reservedOp lexer
+
+symbol :: String -> Parser String
 symbol = Token.symbol lexer
+
+whiteSpace :: Parser ()
 whiteSpace = Token.whiteSpace lexer
 
 runLex :: Show a => Parser a -> String -> IO ()

@@ -10,6 +10,9 @@ build:
 install:
 	$(stack) install
 
+ghci:
+	$(stack) ghci $(package):lib
+
 test:
 	$(stack) test --fast $(package)
 

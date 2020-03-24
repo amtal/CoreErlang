@@ -6,17 +6,17 @@
 -- License     :  BSD-style (see the LICENSE file)
 --
 -- Maintainer  :  Alex Kropivny <alex.kropivny@gmail.com>
+--                Feng Lee <feng@emqx.io>
 -- Stability   :  experimental
 -- Portability :  portable
 --
--- Abstract Syntax Tree of Core Erlang.
+-- Abstract Syntax Tree of CoreErlang:
 -- <http://erlang.org/doc/apps/compiler/compiler.pdf>
 -- <https://github.com/erlang/otp/blob/master/lib/compiler/src/cerl.erl>
 -- <https://github.com/erlang/otp/blob/master/lib/compiler/src/core_parser.hrl>
 --
 -----------------------------------------------------------------------------
 {-# LANGUAGE DeriveDataTypeable #-}
-
 module Language.CoreErlang.Syntax
   ( -- * Modules
     Module(..)
@@ -26,7 +26,7 @@ module Language.CoreErlang.Syntax
   , Expr(..), Exprs(..), Alt(..), Guard(..), Map(..)
   , List(..), TimeOut(..), Bitstring(..), FunName(..)
     -- * Patterns
-  , Pats(..), Pat(..), Alias(..)
+  , Pats(..), Pat(..), Key(..), Alias(..)
     -- * Literals
   , Literal(..), Const(..), Atom(..)
     -- * Variables
@@ -37,9 +37,6 @@ module Language.CoreErlang.Syntax
 
 import Prelude
 import Data.Data
-
--- | This type is used to represent variables
-type Var = String
 
 -- | This type is used to represent atoms
 data Atom = Atom String
@@ -66,6 +63,7 @@ data Const
   = CLit Literal
   | CTuple [Const]
   | CList (List Const)
+  | CMap (Map Const Const)
   deriving (Eq, Ord, Show, Data, Typeable)
 
 -- | This type is used to represent lambdas
@@ -105,7 +103,7 @@ data Expr
   | Case Exprs [Ann Alt]        -- ^ @case@ /exp/ @of@ /alts/ end
   | Tuple [Exprs]               -- ^ tuple expression
   | List (List Exprs)           -- ^ list expression
-  | EMap (Map Expr Expr)        -- ^ map expression
+  | EMap (Map Exprs Exprs)      -- ^ map expression
   | Binary [Bitstring Exprs]    -- ^ binary expression
   | PrimOp Atom [Exprs]         -- ^ operator application
   | Try Exprs ([Var], Exprs) ([Var], Exprs) -- ^ try expression
@@ -140,9 +138,13 @@ data Pat
   | PLit Literal            -- ^ literal constant
   | PTuple [Pat]            -- ^ tuple pattern
   | PList (List Pat)        -- ^ list pattern
-  | PMap (Map Literal Pat)  -- ^ map pattern
+  | PMap (Map Key Pat)      -- ^ map pattern
   | PBinary [Bitstring Pat] -- ^ list of bitstring patterns
   | PAlias Alias            -- ^ alias pattern
+  deriving (Eq, Ord, Show, Data, Typeable)
+
+-- | A map key
+data Key = KVar Var | KLit Literal
   deriving (Eq, Ord, Show, Data, Typeable)
 
 -- | An alias, used in patterns
@@ -157,6 +159,9 @@ data Guard = Guard Exprs
 -- | The timeout of a receive expression
 data TimeOut = TimeOut Exprs Exprs
   deriving (Eq, Ord, Show, Data, Typeable)
+
+-- | This type is used to represent variables
+type Var = String
 
 -- | An annotation for modules, variables, ...
 data Ann a

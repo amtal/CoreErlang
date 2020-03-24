@@ -22,6 +22,8 @@ dependencies:
 library:
   source-dirs: src
   ghc-options: -Wall -O2
+  exposed-modules:
+  - Language.CoreErlang
   default-extensions:
   - DeriveDataTypeable
   - LambdaCase
