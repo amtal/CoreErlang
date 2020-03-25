@@ -1,0 +1,3924 @@
+module 'erl_expand_records' ['module'/2,
+			     'module_info'/0,
+			     'module_info'/1]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[101|[114|[108|[95|[101|[120|[112|[97|[110|[100|[95|[114|[101|[99|[111|[114|[100|[115|[46|[101|[114|[108]]]]]]]]]]]]]]]]]]]]]]]]]],1}],
+		%% Line 33
+		'record' =
+		    %% Line 33
+		    [{'exprec',[{'record_field',33,{'atom',33,'compile'},{'nil',33}}|[{'record_field',34,{'atom',34,'vcount'},{'integer',34,0}}|[{'record_field',35,{'atom',35,'calltype'},{'map',35,[]}}|[{'record_field',36,{'atom',36,'records'},{'map',36,[]}}|[{'record_field',37,{'atom',37,'strict_ra'},{'nil',37}}|[{'record_field',38,{'atom',38,'checked_ra'},{'nil',38}}]]]]]]}],
+		%% Line 41
+		'spec' =
+		    %% Line 41
+		    [{{'module',2},[{'type',41,'bounded_fun',[{'type',41,'fun',[{'type',41,'product',[{'var',41,'AbsForms'}|[{'var',41,'CompileOptions'}]]}|[{'var',41,'AbsForms2'}]]}|[[{'type',42,'constraint',[{'atom',42,'is_subtype'}|[[{'var',42,'AbsForms'}|[{'type',42,'list',[{'remote_type',42,[{'atom',42,'erl_parse'}|[{'atom',42,'abstract_form'}|[[]]]]}]}]]]]}|[{'type',43,'constraint',[{'atom',43,'is_subtype'}|[[{'var',43,'AbsForms2'}|[{'type',43,'list',[{'remote_type',43,[{'atom',43,'erl_parse'}|[{'atom',43,'abstract_form'}|[[]]]]}]}]]]]}|[{'type',44,'constraint',[{'atom',44,'is_subtype'}|[[{'var',44,'CompileOptions'}|[{'type',44,'list',[{'remote_type',44,[{'atom',44,'compile'}|[{'atom',44,'option'}|[[]]]]}]}]]]]}]]]]]}]}]]
+'module'/2 =
+    %% Line 48
+    fun (_0,_1) ->
+	let <_2> =
+	    apply %% Line 49
+		  'compiler_options'/1
+		(_0)
+	in  let <Opts> =
+		call %% Line 49
+		     'erlang':%% Line 49
+			      '++'
+		    (_2, _1)
+	    in  let <Calltype> =
+		    apply %% Line 50
+			  'init_calltype'/1
+			(_0)
+		in  let <St0> =
+			{%% Line 51
+			 'exprec',%% Line 51
+				  Opts,0,%% Line 51
+					 Calltype,~{}~,[],[]}
+		    in  %% Line 52
+			case apply 'forms'/2
+				 (_0, St0) of
+			  <{Fs,_X_St}> when 'true' ->
+			      %% Line 53
+			      Fs
+			  ( <_6> when 'true' ->
+				primop 'match_fail'
+				    ({'badmatch',_6})
+			    -| ['compiler_generated'] )
+			end
+'compiler_options'/1 =
+    %% Line 55
+    fun (_0) ->
+	let <_5> =
+	    letrec
+		'lc$^0'/1 =
+		    %% Line 56
+		    fun (_3) ->
+			case _3 of
+			  <[{'attribute',_7,'compile',C}|_2]> when 'true' ->
+			      let <_4> =
+				  apply 'lc$^0'/1
+				      (_2)
+			      in  ( [C|_4]
+				    -| ['compiler_generated'] )
+			  ( <[_1|_2]> when 'true' ->
+				apply 'lc$^0'/1
+				    (_2)
+			    -| ['compiler_generated'] )
+			  <[]> when 'true' ->
+			      []
+			  ( <_8> when 'true' ->
+				( primop 'match_fail'
+				      ({'function_clause',_8})
+				  -| [{'function_name',{'lc$^0',1}}] )
+			    -| ['compiler_generated'] )
+			end
+	    in  %% Line 56
+		apply 'lc$^0'/1
+		    (_0)
+	in  %% Line 56
+	    call 'lists':'flatten'
+		(_5)
+'init_calltype'/1 =
+    %% Line 58
+    fun (_0) ->
+	let <_5> =
+	    letrec
+		'lc$^0'/1 =
+		    %% Line 59
+		    fun (_3) ->
+			case _3 of
+			  <[{'function',_9,Name,Arity,_10}|_2]> when 'true' ->
+			      let <_4> =
+				  apply 'lc$^0'/1
+				      (_2)
+			      in  ( [{{Name,Arity},'local'}|_4]
+				    -| ['compiler_generated'] )
+			  ( <[_1|_2]> when 'true' ->
+				apply 'lc$^0'/1
+				    (_2)
+			    -| ['compiler_generated'] )
+			  <[]> when 'true' ->
+			      []
+			  ( <_11> when 'true' ->
+				( primop 'match_fail'
+				      ({'function_clause',_11})
+				  -| [{'function_name',{'lc$^0',1}}] )
+			    -| ['compiler_generated'] )
+			end
+	    in  %% Line 59
+		apply 'lc$^0'/1
+		    (_0)
+	in  let <Ctype> =
+		call %% Line 60
+		     'maps':%% Line 60
+			    'from_list'
+		    (_5)
+	    in  %% Line 61
+		apply 'init_calltype_imports'/2
+		    (_0, Ctype)
+'init_calltype_imports'/2 =
+    %% Line 63
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <[{'attribute',_11,'import',{Mod,Fs}}|T],Ctype0> when 'true' ->
+	      %% Line 64
+	      case call 'erlang':'is_atom'
+		       (Mod) of
+		<'true'> when 'true' ->
+		    let <_7> =
+			fun (_4,_3) ->
+			    %% Line 66
+			    case <> of
+			      ( <>
+				    when call 'erlang':'is_map'
+					  (_3) ->
+				    ~{_4=>{'imported',Mod}|_3}~
+				-| ['compiler_generated'] )
+			      ( <> when 'true' ->
+				    ( primop 'match_fail'
+					  ({'badmap',_3})
+				      -| [{'eval_failure','badmap'}] )
+				-| ['compiler_generated'] )
+			    end
+		    in  let <Ctype> =
+			    call %% Line 65
+				 'lists':%% Line 65
+					 'foldl'
+				(_7, %% Line 67
+				     Ctype0, %% Line 67
+					     Fs)
+			in  %% Line 68
+			    apply 'init_calltype_imports'/2
+				(T, Ctype)
+		( <_2> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_2})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 69
+	  <[_12|T],Ctype> when 'true' ->
+	      %% Line 70
+	      apply 'init_calltype_imports'/2
+		  (T, Ctype)
+	  %% Line 71
+	  <[],Ctype> when 'true' ->
+	      Ctype
+	  ( <_10,_9> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_10,_9})
+		  -| [{'function_name',{'init_calltype_imports',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'forms'/2 =
+    %% Line 73
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <[Attr = {'attribute',_16,'record',{Name,Defs}}|Fs],St0> when 'true' ->
+	      let <NDefs> =
+		  apply %% Line 74
+			'normalise_fields'/1
+		      (%% Line 74
+		       Defs)
+	      in  %% Line 75
+		  ( case St0 of
+		      ( <( {'exprec',_17,_18,_19,_rec2,_20,_21}
+			   -| ['compiler_generated'] )> when 'true' ->
+			    let <_rec0> =
+				call 'maps':'put'
+				    (Name, NDefs, _rec2)
+			    in  case St0 of
+				  <{'exprec',_23,_24,_25,_26,_27,_28}> when 'true' ->
+				      let <_8> =
+					  call 'erlang':'setelement'
+					      (5, St0, _rec0)
+				      in  %% Line 76
+					  case apply 'forms'/2
+						   (Fs, _8) of
+					    <{Fs1,St1}> when 'true' ->
+						%% Line 77
+						{[Attr|Fs1],St1}
+					    ( <_10> when 'true' ->
+						  primop 'match_fail'
+						      ({'badmatch',_10})
+					      -| ['compiler_generated'] )
+					  end
+				  ( <_29> when 'true' ->
+					( call ( 'erlang'
+						 -| ['compiler_generated'] ):( 'error'
+									       -| ['compiler_generated'] )
+					      (( {'badrecord','exprec'}
+						 -| ['compiler_generated'] ))
+					  -| ['compiler_generated'] )
+				    -| ['compiler_generated'] )
+				end
+			-| ['compiler_generated'] )
+		      ( <_22> when 'true' ->
+			    ( call ( 'erlang'
+				     -| ['compiler_generated'] ):( 'error'
+								   -| ['compiler_generated'] )
+				  (( {'badrecord','exprec'}
+				     -| ['compiler_generated'] ))
+			      -| ['compiler_generated'] )
+			-| ['compiler_generated'] )
+		    end
+		    -| ['compiler_generated'] )
+	  %% Line 78
+	  <[{'function',L,N,A,Cs0}|Fs0],St0> when 'true' ->
+	      %% Line 79
+	      case apply 'clauses'/2
+		       (Cs0, St0) of
+		<{Cs,St1}> when 'true' ->
+		    %% Line 80
+		    case apply 'forms'/2
+			     (Fs0, St1) of
+		      <{Fs,St2}> when 'true' ->
+			  %% Line 81
+			  {[{'function',L,N,A,Cs}|Fs],St2}
+		      ( <_12> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_12})
+			-| ['compiler_generated'] )
+		    end
+		( <_11> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_11})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 82
+	  <[F|Fs0],St0> when 'true' ->
+	      %% Line 83
+	      case apply 'forms'/2
+		       (Fs0, St0) of
+		<{Fs,St}> when 'true' ->
+		    %% Line 84
+		    {[F|Fs],St}
+		( <_13> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_13})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 85
+	  <[],St> when 'true' ->
+	      {[],St}
+	  ( <_15,_14> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_15,_14})
+		  -| [{'function_name',{'forms',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'clauses'/2 =
+    %% Line 87
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <[{'clause',Line,H0,G0,B0}|Cs0],St0> when 'true' ->
+	      %% Line 88
+	      case apply 'head'/2
+		       (H0, St0) of
+		<{H1,St1}> when 'true' ->
+		    %% Line 89
+		    case apply 'guard'/2
+			     (G0, St1) of
+		      <{G1,St2}> when 'true' ->
+			  %% Line 90
+			  case apply 'optimize_is_record'/3
+				   (H1, G1, St2) of
+			    <{H,G}> when 'true' ->
+				%% Line 91
+				case apply 'exprs'/2
+					 (B0, St2) of
+				  <{B,St3}> when 'true' ->
+				      %% Line 92
+				      case apply 'clauses'/2
+					       (Cs0, St3) of
+					<{Cs,St4}> when 'true' ->
+					    %% Line 93
+					    {[{'clause',Line,H,G,B}|Cs],St4}
+					( <_6> when 'true' ->
+					      primop 'match_fail'
+						  ({'badmatch',_6})
+					  -| ['compiler_generated'] )
+				      end
+				  ( <_5> when 'true' ->
+					primop 'match_fail'
+					    ({'badmatch',_5})
+				    -| ['compiler_generated'] )
+				end
+			    ( <_4> when 'true' ->
+				  primop 'match_fail'
+				      ({'badmatch',_4})
+			      -| ['compiler_generated'] )
+			  end
+		      ( <_3> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_3})
+			-| ['compiler_generated'] )
+		    end
+		( <_2> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_2})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 94
+	  <[],St> when 'true' ->
+	      {[],St}
+	  ( <_8,_7> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_8,_7})
+		  -| [{'function_name',{'clauses',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'head'/2 =
+    %% Line 96
+    fun (_0,_1) ->
+	apply 'pattern_list'/2
+	    (_0, _1)
+'pattern'/2 =
+    %% Line 98
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Var = {'var',_22,'_'},St> when 'true' ->
+	      %% Line 99
+	      {Var,St}
+	  %% Line 100
+	  <Var = {'var',_23,_24},St> when 'true' ->
+	      %% Line 101
+	      {Var,St}
+	  %% Line 102
+	  <Char = {'char',_25,_26},St> when 'true' ->
+	      %% Line 103
+	      {Char,St}
+	  %% Line 104
+	  <Int = {'integer',_27,_28},St> when 'true' ->
+	      %% Line 105
+	      {Int,St}
+	  %% Line 106
+	  <Float = {'float',_29,_30},St> when 'true' ->
+	      %% Line 107
+	      {Float,St}
+	  %% Line 108
+	  <Atom = {'atom',_31,_32},St> when 'true' ->
+	      %% Line 109
+	      {Atom,St}
+	  %% Line 110
+	  <String = {'string',_33,_34},St> when 'true' ->
+	      %% Line 111
+	      {String,St}
+	  %% Line 112
+	  <Nil = {'nil',_35},St> when 'true' ->
+	      %% Line 113
+	      {Nil,St}
+	  %% Line 114
+	  <{'cons',Line,H,T},St0> when 'true' ->
+	      %% Line 115
+	      case apply 'pattern'/2
+		       (H, St0) of
+		<{TH,St1}> when 'true' ->
+		    %% Line 116
+		    case apply 'pattern'/2
+			     (T, St1) of
+		      <{TT,St2}> when 'true' ->
+			  %% Line 117
+			  {{'cons',Line,TH,TT},St2}
+		      ( <_3> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_3})
+			-| ['compiler_generated'] )
+		    end
+		( <_2> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_2})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 118
+	  <{'tuple',Line,Ps},St0> when 'true' ->
+	      %% Line 119
+	      case apply 'pattern_list'/2
+		       (Ps, St0) of
+		<{TPs,St1}> when 'true' ->
+		    %% Line 120
+		    {{'tuple',Line,TPs},St1}
+		( <_4> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_4})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 121
+	  <{'map',Line,Ps},St0> when 'true' ->
+	      %% Line 122
+	      case apply 'pattern_list'/2
+		       (Ps, St0) of
+		<{TPs,St1}> when 'true' ->
+		    %% Line 123
+		    {{'map',Line,TPs},St1}
+		( <_5> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_5})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 124
+	  <{'map_field_exact',Line,K0,V0},St0> when 'true' ->
+	      %% Line 125
+	      case apply 'expr'/2
+		       (K0, St0) of
+		<{K,St1}> when 'true' ->
+		    %% Line 126
+		    case apply 'pattern'/2
+			     (V0, St1) of
+		      <{V,St2}> when 'true' ->
+			  %% Line 127
+			  {{'map_field_exact',Line,K,V},St2}
+		      ( <_7> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_7})
+			-| ['compiler_generated'] )
+		    end
+		( <_6> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_6})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 131
+	  <{'record_index',Line,Name,Field},St> when 'true' ->
+	      let <_8> =
+		  apply %% Line 132
+			'record_fields'/2
+		      (%% Line 132
+		       Name, %% Line 132
+			     St)
+	      in  let <_9> =
+		      apply %% Line 132
+			    'index_expr'/4
+			  (%% Line 132
+			   Line, %% Line 132
+				 Field, %% Line 132
+					Name, _8)
+		  in  %% Line 132
+		      {_9,St}
+	  %% Line 133
+	  <{'record',Line0,Name,Pfs},St0> when 'true' ->
+	      let <Fs> =
+		  apply %% Line 134
+			'record_fields'/2
+		      (%% Line 134
+		       Name, %% Line 134
+			     St0)
+	      in  let <_11> =
+		      apply %% Line 135
+			    'pattern_fields'/2
+			  (%% Line 135
+			   Fs, %% Line 135
+			       Pfs)
+		  in  %% Line 135
+		      case apply 'pattern_list'/2
+			       (_11, St0) of
+			<{TMs,St1}> when 'true' ->
+			    let <Line> =
+				apply %% Line 136
+				      'mark_record'/2
+				    (%% Line 136
+				     Line0, %% Line 136
+					    St1)
+			    in  %% Line 137
+				{{'tuple',Line,[{'atom',Line0,Name}|TMs]},St1}
+			( <_12> when 'true' ->
+			      primop 'match_fail'
+				  ({'badmatch',_12})
+			  -| ['compiler_generated'] )
+		      end
+	  %% Line 138
+	  <{'bin',Line,Es0},St0> when 'true' ->
+	      %% Line 139
+	      case apply 'pattern_bin'/2
+		       (Es0, St0) of
+		<{Es1,St1}> when 'true' ->
+		    %% Line 140
+		    {{'bin',Line,Es1},St1}
+		( <_14> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_14})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 141
+	  <{'match',Line,Pat1,Pat2},St0> when 'true' ->
+	      %% Line 142
+	      case apply 'pattern'/2
+		       (Pat2, St0) of
+		<{TH,St1}> when 'true' ->
+		    %% Line 143
+		    case apply 'pattern'/2
+			     (Pat1, St1) of
+		      <{TT,St2}> when 'true' ->
+			  %% Line 144
+			  {{'match',Line,TT,TH},St2}
+		      ( <_16> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_16})
+			-| ['compiler_generated'] )
+		    end
+		( <_15> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_15})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 145
+	  <{'op',Line,Op,A0},St0> when 'true' ->
+	      %% Line 146
+	      case apply 'pattern'/2
+		       (A0, St0) of
+		<{A,St1}> when 'true' ->
+		    %% Line 147
+		    {{'op',Line,Op,A},St1}
+		( <_17> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_17})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 148
+	  <{'op',Line,Op,L0,R0},St0> when 'true' ->
+	      %% Line 149
+	      case apply 'pattern'/2
+		       (L0, St0) of
+		<{L,St1}> when 'true' ->
+		    %% Line 150
+		    case apply 'pattern'/2
+			     (R0, St1) of
+		      <{R,St2}> when 'true' ->
+			  %% Line 151
+			  {{'op',Line,Op,L,R},St2}
+		      ( <_19> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_19})
+			-| ['compiler_generated'] )
+		    end
+		( <_18> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_18})
+		  -| ['compiler_generated'] )
+	      end
+	  ( <_21,_20> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_21,_20})
+		  -| [{'function_name',{'pattern',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'pattern_list'/2 =
+    %% Line 153
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <[P0|Ps0],St0> when 'true' ->
+	      %% Line 154
+	      case apply 'pattern'/2
+		       (P0, St0) of
+		<{P,St1}> when 'true' ->
+		    %% Line 155
+		    case apply 'pattern_list'/2
+			     (Ps0, St1) of
+		      <{Ps,St2}> when 'true' ->
+			  %% Line 156
+			  {[P|Ps],St2}
+		      ( <_3> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_3})
+			-| ['compiler_generated'] )
+		    end
+		( <_2> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_2})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 157
+	  <[],St> when 'true' ->
+	      {[],St}
+	  ( <_5,_4> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_5,_4})
+		  -| [{'function_name',{'pattern_list',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'guard'/2 =
+    %% Line 159
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <[G0|Gs0],St0> when 'true' ->
+	      %% Line 160
+	      case apply 'guard_tests'/2
+		       (G0, St0) of
+		<{G,St1}> when 'true' ->
+		    %% Line 161
+		    case apply 'guard'/2
+			     (Gs0, St1) of
+		      <{Gs,St2}> when 'true' ->
+			  %% Line 162
+			  {[G|Gs],St2}
+		      ( <_3> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_3})
+			-| ['compiler_generated'] )
+		    end
+		( <_2> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_2})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 163
+	  <[],St> when 'true' ->
+	      {[],St}
+	  ( <_5,_4> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_5,_4})
+		  -| [{'function_name',{'guard',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'guard_tests'/2 =
+    %% Line 165
+    fun (_0,_1) ->
+	%% Line 166
+	case apply 'guard_tests1'/2
+		 (_0, _1) of
+	  <{Gts1,St1}> when 'true' ->
+	      %% Line 167
+	      case St1 of
+		<{'exprec',_8,_9,_10,_11,_12,_13}> when 'true' ->
+		    let <_5> =
+			call 'erlang':'setelement'
+			    (7, St1, [])
+		    in  {Gts1,_5}
+		( <_14> when 'true' ->
+		      ( call ( 'erlang'
+			       -| ['compiler_generated'] ):( 'error'
+							     -| ['compiler_generated'] )
+			    (( {'badrecord','exprec'}
+			       -| ['compiler_generated'] ))
+			-| ['compiler_generated'] )
+		  -| ['compiler_generated'] )
+	      end
+	  ( <_2> when 'true' ->
+		primop 'match_fail'
+		    ({'badmatch',_2})
+	    -| ['compiler_generated'] )
+	end
+'guard_tests1'/2 =
+    %% Line 169
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <[Gt0|Gts0],St0> when 'true' ->
+	      %% Line 170
+	      case apply 'guard_test'/2
+		       (Gt0, St0) of
+		<{Gt1,St1}> when 'true' ->
+		    %% Line 171
+		    case apply 'guard_tests1'/2
+			     (Gts0, St1) of
+		      <{Gts1,St2}> when 'true' ->
+			  %% Line 172
+			  {[Gt1|Gts1],St2}
+		      ( <_3> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_3})
+			-| ['compiler_generated'] )
+		    end
+		( <_2> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_2})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 173
+	  <[],St> when 'true' ->
+	      {[],St}
+	  ( <_5,_4> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_5,_4})
+		  -| [{'function_name',{'guard_tests1',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'guard_test'/2 =
+    %% Line 175
+    fun (_0,_1) ->
+	let <_3> =
+	    fun () ->
+		%% Line 177
+		case apply 'guard_test1'/2
+			 (_0, _1) of
+		  <{G1,St1}> when 'true' ->
+		      %% Line 178
+		      apply 'strict_record_access'/2
+			  (G1, St1)
+		  ( <_2> when 'true' ->
+			primop 'match_fail'
+			    ({'badmatch',_2})
+		    -| ['compiler_generated'] )
+		end
+	in  %% Line 176
+	    apply 'in_guard'/1
+		(_3)
+'guard_test1'/2 =
+    %% Line 183
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <{'call',Line,{'atom',Lt,Tname},As},St> when 'true' ->
+	      let <_2> =
+		  call %% Line 184
+		       'erlang':%% Line 184
+				'length'
+		      (%% Line 184
+		       As)
+	      in  let <_3> =
+		      apply %% Line 184
+			    'normalise_test'/2
+			  (%% Line 184
+			   Tname, _2)
+		  in  let <Test> = {%% Line 184
+			   'atom',%% Line 184
+				  Lt,_3}
+		      in  %% Line 185
+			  apply 'expr'/2
+			      ({'call',Line,Test,As}, St)
+	  %% Line 186
+	  <Test,St> when 'true' ->
+	      %% Line 187
+	      apply 'expr'/2
+		  (Test, St)
+	end
+'normalise_test'/2 =
+    %% Line 189
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <'atom',1> when 'true' ->
+	      'is_atom'
+	  %% Line 190
+	  <'binary',1> when 'true' ->
+	      'is_binary'
+	  %% Line 191
+	  <'float',1> when 'true' ->
+	      'is_float'
+	  %% Line 192
+	  <'function',1> when 'true' ->
+	      'is_function'
+	  %% Line 193
+	  <'integer',1> when 'true' ->
+	      'is_integer'
+	  %% Line 194
+	  <'list',1> when 'true' ->
+	      'is_list'
+	  %% Line 195
+	  <'number',1> when 'true' ->
+	      'is_number'
+	  %% Line 196
+	  <'pid',1> when 'true' ->
+	      'is_pid'
+	  %% Line 197
+	  <'port',1> when 'true' ->
+	      'is_port'
+	  %% Line 198
+	  <'record',2> when 'true' ->
+	      'is_record'
+	  %% Line 199
+	  <'reference',1> when 'true' ->
+	      'is_reference'
+	  %% Line 200
+	  <'tuple',1> when 'true' ->
+	      'is_tuple'
+	  %% Line 201
+	  <Name,_4> when 'true' ->
+	      Name
+	end
+'is_in_guard'/0 =
+    %% Line 203
+    fun () ->
+	let <_0> =
+	    call %% Line 204
+		 'erlang':%% Line 204
+			  'get'
+		(%% Line 204
+		 'erl_expand_records_in_guard')
+	in  %% Line 204
+	    call 'erlang':'=/='
+		(_0, 'undefined')
+'in_guard'/1 =
+    %% Line 206
+    fun (_0) ->
+	%% Line 207
+	case call 'erlang':'put'
+		 ('erl_expand_records_in_guard', 'true') of
+	  <'undefined'> when 'true' ->
+	      let <Res> =
+		  apply _0
+		      ()
+	      in  %% Line 209
+		  case call 'erlang':'erase'
+			   ('erl_expand_records_in_guard') of
+		    <'true'> when 'true' ->
+			%% Line 210
+			Res
+		    ( <_3> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_3})
+		      -| ['compiler_generated'] )
+		  end
+	  ( <_1> when 'true' ->
+		primop 'match_fail'
+		    ({'badmatch',_1})
+	    -| ['compiler_generated'] )
+	end
+'record_test'/4 =
+    %% Line 215
+    fun (_0,_1,_2,_3) ->
+	%% Line 216
+	case apply 'is_in_guard'/0
+		 () of
+	  %% Line 217
+	  <'false'> when 'true' ->
+	      %% Line 218
+	      apply 'record_test_in_body'/4
+		  (_0, _1, _2, _3)
+	  %% Line 219
+	  <'true'> when 'true' ->
+	      %% Line 220
+	      apply 'record_test_in_guard'/4
+		  (_0, _1, _2, _3)
+	  ( <_4> when 'true' ->
+		primop 'match_fail'
+		    ({'case_clause',_4})
+	    -| ['compiler_generated'] )
+	end
+'record_test_in_guard'/4 =
+    %% Line 223
+    fun (_0,_1,_2,_3) ->
+	%% Line 224
+	case apply 'not_a_tuple'/1
+		 (_1) of
+	  %% Line 225
+	  <'true'> when 'true' ->
+	      %% Line 227
+	      apply 'expr'/2
+		  ({'atom',_0,'false'}, _3)
+	  %% Line 228
+	  <'false'> when 'true' ->
+	      let <Fs> =
+		  apply %% Line 229
+			'record_fields'/2
+		      (_2, _3)
+	      in  let <NLine> =
+		      apply %% Line 230
+			    'no_compiler_warning'/1
+			  (_0)
+		  in  let <_6> =
+			  call %% Line 232
+			       'erlang':%% Line 232
+					'length'
+			      (%% Line 232
+			       Fs)
+		      in  let <_7> =
+			      call %% Line 232
+				   'erlang':%% Line 232
+					    '+'
+				  (_6, %% Line 232
+				       1)
+			  in  %% Line 231
+			      apply 'expr'/2
+				  ({'call',NLine,{'remote',NLine,{'atom',NLine,'erlang'},{'atom',NLine,'is_record'}},%% Line 232
+														     [_1|[{'atom',_0,_2}|[{'integer',_0,_7}|[]]]]}, _3)
+	  ( <_8> when 'true' ->
+		primop 'match_fail'
+		    ({'case_clause',_8})
+	    -| ['compiler_generated'] )
+	end
+'not_a_tuple'/1 =
+    %% Line 236
+    fun (_0) ->
+	case _0 of
+	  <{'atom',_2,_3}> when 'true' ->
+	      'true'
+	  %% Line 237
+	  <{'integer',_4,_5}> when 'true' ->
+	      'true'
+	  %% Line 238
+	  <{'float',_6,_7}> when 'true' ->
+	      'true'
+	  %% Line 239
+	  <{'nil',_8}> when 'true' ->
+	      'true'
+	  %% Line 240
+	  <{'cons',_9,_10,_11}> when 'true' ->
+	      'true'
+	  %% Line 241
+	  <{'char',_12,_13}> when 'true' ->
+	      'true'
+	  %% Line 242
+	  <{'string',_14,_15}> when 'true' ->
+	      'true'
+	  %% Line 243
+	  <{'record_index',_16,_17,_18}> when 'true' ->
+	      'true'
+	  %% Line 244
+	  <{'bin',_19,_20}> when 'true' ->
+	      'true'
+	  %% Line 245
+	  <{'op',_21,_22,_23}> when 'true' ->
+	      'true'
+	  %% Line 246
+	  <{'op',_24,_25,_26,_27}> when 'true' ->
+	      'true'
+	  %% Line 247
+	  <_28> when 'true' ->
+	      'false'
+	end
+'record_test_in_body'/4 =
+    %% Line 249
+    fun (_0,_1,_2,_3) ->
+	let <Fs> =
+	    apply %% Line 254
+		  'record_fields'/2
+		(_2, _3)
+	in  %% Line 255
+	    case apply 'new_var'/2
+		     (_0, _3) of
+	      <{Var,St}> when 'true' ->
+		  let <NLine> =
+		      apply %% Line 256
+			    'no_compiler_warning'/1
+			  (_0)
+		  in  let <_7> =
+			  call %% Line 261
+			       'erlang':%% Line 261
+					'length'
+			      (%% Line 261
+			       Fs)
+		      in  let <_8> =
+			      call %% Line 261
+				   'erlang':%% Line 261
+					    '+'
+				  (_7, %% Line 261
+				       1)
+			  in  %% Line 257
+			      apply 'expr'/2
+				  ({'block',_0,%% Line 258
+					       [{'match',_0,Var,_1}|%% Line 259
+								    [{'call',NLine,{'remote',NLine,{'atom',NLine,'erlang'},%% Line 260
+															   {'atom',NLine,'is_record'}},%% Line 261
+																		       [Var|[{'atom',_0,_2}|[{'integer',_0,_8}|[]]]]}|%% Line 261
+																								      []]]}, %% Line 261
+																									     St)
+	      ( <_5> when 'true' ->
+		    primop 'match_fail'
+			({'badmatch',_5})
+		-| ['compiler_generated'] )
+	    end
+'exprs'/2 =
+    %% Line 263
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <[E0|Es0],St0> when 'true' ->
+	      %% Line 264
+	      case apply 'expr'/2
+		       (E0, St0) of
+		<{E,St1}> when 'true' ->
+		    %% Line 265
+		    case apply 'exprs'/2
+			     (Es0, St1) of
+		      <{Es,St2}> when 'true' ->
+			  %% Line 266
+			  {[E|Es],St2}
+		      ( <_3> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_3})
+			-| ['compiler_generated'] )
+		    end
+		( <_2> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_2})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 267
+	  <[],St> when 'true' ->
+	      {[],St}
+	  ( <_5,_4> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_5,_4})
+		  -| [{'function_name',{'exprs',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'expr'/2 =
+    %% Line 269
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Var = {'var',_77,_78},St> when 'true' ->
+	      %% Line 270
+	      {Var,St}
+	  %% Line 271
+	  <Char = {'char',_79,_80},St> when 'true' ->
+	      %% Line 272
+	      {Char,St}
+	  %% Line 273
+	  <Int = {'integer',_81,_82},St> when 'true' ->
+	      %% Line 274
+	      {Int,St}
+	  %% Line 275
+	  <Float = {'float',_83,_84},St> when 'true' ->
+	      %% Line 276
+	      {Float,St}
+	  %% Line 277
+	  <Atom = {'atom',_85,_86},St> when 'true' ->
+	      %% Line 278
+	      {Atom,St}
+	  %% Line 279
+	  <String = {'string',_87,_88},St> when 'true' ->
+	      %% Line 280
+	      {String,St}
+	  %% Line 281
+	  <Nil = {'nil',_89},St> when 'true' ->
+	      %% Line 282
+	      {Nil,St}
+	  %% Line 283
+	  <{'cons',Line,H0,T0},St0> when 'true' ->
+	      %% Line 284
+	      case apply 'expr'/2
+		       (H0, St0) of
+		<{H,St1}> when 'true' ->
+		    %% Line 285
+		    case apply 'expr'/2
+			     (T0, St1) of
+		      <{T,St2}> when 'true' ->
+			  %% Line 286
+			  {{'cons',Line,H,T},St2}
+		      ( <_3> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_3})
+			-| ['compiler_generated'] )
+		    end
+		( <_2> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_2})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 287
+	  <{'lc',Line,E0,Qs0},St0> when 'true' ->
+	      %% Line 288
+	      case apply 'lc_tq'/3
+		       (Line, Qs0, St0) of
+		<{Qs1,St1}> when 'true' ->
+		    %% Line 289
+		    case apply 'expr'/2
+			     (E0, St1) of
+		      <{E1,St2}> when 'true' ->
+			  %% Line 290
+			  {{'lc',Line,E1,Qs1},St2}
+		      ( <_5> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_5})
+			-| ['compiler_generated'] )
+		    end
+		( <_4> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_4})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 291
+	  <{'bc',Line,E0,Qs0},St0> when 'true' ->
+	      %% Line 292
+	      case apply 'lc_tq'/3
+		       (Line, Qs0, St0) of
+		<{Qs1,St1}> when 'true' ->
+		    %% Line 293
+		    case apply 'expr'/2
+			     (E0, St1) of
+		      <{E1,St2}> when 'true' ->
+			  %% Line 294
+			  {{'bc',Line,E1,Qs1},St2}
+		      ( <_7> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_7})
+			-| ['compiler_generated'] )
+		    end
+		( <_6> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_6})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 295
+	  <{'tuple',Line,Es0},St0> when 'true' ->
+	      %% Line 296
+	      case apply 'expr_list'/2
+		       (Es0, St0) of
+		<{Es1,St1}> when 'true' ->
+		    %% Line 297
+		    {{'tuple',Line,Es1},St1}
+		( <_8> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_8})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 298
+	  <{'map',Line,Es0},St0> when 'true' ->
+	      %% Line 299
+	      case apply 'expr_list'/2
+		       (Es0, St0) of
+		<{Es1,St1}> when 'true' ->
+		    %% Line 300
+		    {{'map',Line,Es1},St1}
+		( <_9> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_9})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 301
+	  <{'map',Line,Arg0,Es0},St0> when 'true' ->
+	      %% Line 302
+	      case apply 'expr'/2
+		       (Arg0, St0) of
+		<{Arg1,St1}> when 'true' ->
+		    %% Line 303
+		    case apply 'expr_list'/2
+			     (Es0, St1) of
+		      <{Es1,St2}> when 'true' ->
+			  %% Line 304
+			  {{'map',Line,Arg1,Es1},St2}
+		      ( <_11> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_11})
+			-| ['compiler_generated'] )
+		    end
+		( <_10> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_10})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 305
+	  <{'map_field_assoc',Line,K0,V0},St0> when 'true' ->
+	      %% Line 306
+	      case apply 'expr'/2
+		       (K0, St0) of
+		<{K,St1}> when 'true' ->
+		    %% Line 307
+		    case apply 'expr'/2
+			     (V0, St1) of
+		      <{V,St2}> when 'true' ->
+			  %% Line 308
+			  {{'map_field_assoc',Line,K,V},St2}
+		      ( <_13> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_13})
+			-| ['compiler_generated'] )
+		    end
+		( <_12> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_12})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 309
+	  <{'map_field_exact',Line,K0,V0},St0> when 'true' ->
+	      %% Line 310
+	      case apply 'expr'/2
+		       (K0, St0) of
+		<{K,St1}> when 'true' ->
+		    %% Line 311
+		    case apply 'expr'/2
+			     (V0, St1) of
+		      <{V,St2}> when 'true' ->
+			  %% Line 312
+			  {{'map_field_exact',Line,K,V},St2}
+		      ( <_15> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_15})
+			-| ['compiler_generated'] )
+		    end
+		( <_14> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_14})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 316
+	  <{'record_index',Line,Name,F},St> when 'true' ->
+	      let <_16> =
+		  apply %% Line 317
+			'record_fields'/2
+		      (%% Line 317
+		       Name, %% Line 317
+			     St)
+	      in  let <I> =
+		      apply %% Line 317
+			    'index_expr'/4
+			  (%% Line 317
+			   Line, %% Line 317
+				 F, %% Line 317
+				    Name, _16)
+		  in  %% Line 318
+		      apply 'expr'/2
+			  (I, St)
+	  %% Line 319
+	  <{'record',Line0,Name,Is},St> when 'true' ->
+	      let <Line> =
+		  apply %% Line 320
+			'mark_record'/2
+		      (%% Line 320
+		       Line0, %% Line 320
+			      St)
+	      in  let <_19> =
+		      apply %% Line 322
+			    'record_fields'/2
+			  (%% Line 322
+			   Name, %% Line 322
+				 St)
+		  in  let <_20> =
+			  apply %% Line 322
+				'record_inits'/2
+			      (_19, %% Line 322
+				    Is)
+		      in  %% Line 321
+			  apply 'expr'/2
+			      ({'tuple',Line,[{'atom',Line0,Name}|_20]}, %% Line 323
+									 St)
+	  %% Line 324
+	  <{'record_field',Line,R,Name,F},St> when 'true' ->
+	      %% Line 325
+	      apply 'get_record_field'/5
+		  (Line, R, F, Name, St)
+	  %% Line 326
+	  <{'record',_90,R,Name,Us},St0> when 'true' ->
+	      let <_21> =
+		  apply %% Line 327
+			'record_fields'/2
+		      (%% Line 327
+		       Name, %% Line 327
+			     St0)
+	      in  %% Line 327
+		  case apply 'record_update'/5
+			   (R, Name, _21, Us, St0) of
+		    <{Ue,St1}> when 'true' ->
+			%% Line 328
+			apply 'expr'/2
+			    (Ue, St1)
+		    ( <_22> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_22})
+		      -| ['compiler_generated'] )
+		  end
+	  %% Line 329
+	  <{'bin',Line,Es0},St0> when 'true' ->
+	      %% Line 330
+	      case apply 'expr_bin'/2
+		       (Es0, St0) of
+		<{Es1,St1}> when 'true' ->
+		    %% Line 331
+		    {{'bin',Line,Es1},St1}
+		( <_23> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_23})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 332
+	  <{'block',Line,Es0},St0> when 'true' ->
+	      %% Line 333
+	      case apply 'exprs'/2
+		       (Es0, St0) of
+		<{Es,St1}> when 'true' ->
+		    %% Line 334
+		    {{'block',Line,Es},St1}
+		( <_24> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_24})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 335
+	  <{'if',Line,Cs0},St0> when 'true' ->
+	      %% Line 336
+	      case apply 'clauses'/2
+		       (Cs0, St0) of
+		<{Cs,St1}> when 'true' ->
+		    %% Line 337
+		    {{'if',Line,Cs},St1}
+		( <_25> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_25})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 338
+	  <{'case',Line,E0,Cs0},St0> when 'true' ->
+	      %% Line 339
+	      case apply 'expr'/2
+		       (E0, St0) of
+		<{E,St1}> when 'true' ->
+		    %% Line 340
+		    case apply 'clauses'/2
+			     (Cs0, St1) of
+		      <{Cs,St2}> when 'true' ->
+			  %% Line 341
+			  {{'case',Line,E,Cs},St2}
+		      ( <_27> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_27})
+			-| ['compiler_generated'] )
+		    end
+		( <_26> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_26})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 342
+	  <{'receive',Line,Cs0},St0> when 'true' ->
+	      %% Line 343
+	      case apply 'clauses'/2
+		       (Cs0, St0) of
+		<{Cs,St1}> when 'true' ->
+		    %% Line 344
+		    {{'receive',Line,Cs},St1}
+		( <_28> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_28})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 345
+	  <{'receive',Line,Cs0,To0,ToEs0},St0> when 'true' ->
+	      %% Line 346
+	      case apply 'expr'/2
+		       (To0, St0) of
+		<{To,St1}> when 'true' ->
+		    %% Line 347
+		    case apply 'exprs'/2
+			     (ToEs0, St1) of
+		      <{ToEs,St2}> when 'true' ->
+			  %% Line 348
+			  case apply 'clauses'/2
+				   (Cs0, St2) of
+			    <{Cs,St3}> when 'true' ->
+				%% Line 349
+				{{'receive',Line,Cs,To,ToEs},St3}
+			    ( <_31> when 'true' ->
+				  primop 'match_fail'
+				      ({'badmatch',_31})
+			      -| ['compiler_generated'] )
+			  end
+		      ( <_30> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_30})
+			-| ['compiler_generated'] )
+		    end
+		( <_29> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_29})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 350
+	  <Fun0 = {'fun',Lf,{'function',F,A}},St0> when 'true' ->
+	      %% Line 351
+	      case call 'erl_internal':'bif'
+		       (F, A) of
+		%% Line 352
+		<'true'> when 'true' ->
+		    %% Line 353
+		    case apply 'new_vars'/3
+			     (A, Lf, St0) of
+		      <{As,St1}> when 'true' ->
+			  let <Cs> =
+			      [%% Line 354
+			       {'clause',Lf,As,[],[{'call',Lf,{'atom',Lf,F},As}|[]]}|%% Line 354
+										     []]
+			  in  let <Fun> = {%% Line 355
+				   'fun',%% Line 355
+					 Lf,%% Line 355
+					    {'clauses',Cs}}
+			      in  %% Line 356
+				  apply 'expr'/2
+				      (Fun, St1)
+		      ( <_32> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_32})
+			-| ['compiler_generated'] )
+		    end
+		%% Line 357
+		<'false'> when 'true' ->
+		    %% Line 358
+		    {Fun0,St0}
+		( <_35> when 'true' ->
+		      primop 'match_fail'
+			  ({'case_clause',_35})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 360
+	  <Fun = {'fun',_91,{'function',_X_M,_X_F,_X_A}},St> when 'true' ->
+	      %% Line 361
+	      {Fun,St}
+	  %% Line 362
+	  <{'fun',Line,{'clauses',Cs0}},St0> when 'true' ->
+	      %% Line 363
+	      case apply 'clauses'/2
+		       (Cs0, St0) of
+		<{Cs,St1}> when 'true' ->
+		    %% Line 364
+		    {{'fun',Line,{'clauses',Cs}},St1}
+		( <_36> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_36})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 365
+	  <{'named_fun',Line,Name,Cs0},St0> when 'true' ->
+	      %% Line 366
+	      case apply 'clauses'/2
+		       (Cs0, St0) of
+		<{Cs,St1}> when 'true' ->
+		    %% Line 367
+		    {{'named_fun',Line,Name,Cs},St1}
+		( <_37> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_37})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 368
+	  <{'call',Line,{'atom',_92,'is_record'},[A|[{'atom',_93,Name}|[]]]},St> when 'true' ->
+	      %% Line 369
+	      apply 'record_test'/4
+		  (Line, A, Name, St)
+	  %% Line 370
+	  <{'call',Line,{'remote',_94,{'atom',_95,'erlang'},{'atom',_96,'is_record'}},%% Line 371
+										      [A|[{'atom',_97,Name}|[]]]},%% Line 371
+														  St> when 'true' ->
+	      %% Line 372
+	      apply 'record_test'/4
+		  (Line, A, Name, St)
+	  %% Line 373
+	  <{'call',Line,{'tuple',_98,[{'atom',_99,'erlang'}|[{'atom',_100,'is_record'}|[]]]},%% Line 374
+											     [A|[{'atom',_101,Name}|[]]]},%% Line 374
+															  St> when 'true' ->
+	      %% Line 375
+	      apply 'record_test'/4
+		  (Line, A, Name, St)
+	  %% Line 376
+	  <{'call',Line,{'atom',_X_La,'record_info'},As0 = [_102|[_103|[]]]},St0> when 'true' ->
+	      %% Line 377
+	      case apply 'expr_list'/2
+		       (As0, St0) of
+		<{As,St1}> when 'true' ->
+		    %% Line 378
+		    apply 'record_info_call'/3
+			(Line, As, St1)
+		( <_38> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_38})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 379
+	  <{'call',Line,Atom = {'atom',_X_La,N},As0},St0> when 'true' ->
+	      %% Line 380
+	      case apply 'expr_list'/2
+		       (As0, St0) of
+		<{As,St1}> when 'true' ->
+		    let <Ar> =
+			call %% Line 381
+			     'erlang':%% Line 381
+				      'length'
+			    (%% Line 381
+			     As)
+		    in  let <NA> = {%% Line 382
+			     N,%% Line 382
+			       Ar}
+			in  %% Line 383
+			    ( case St0 of
+				( <( {'exprec',_104,_105,_rec4,_106,_107,_108}
+				     -| ['compiler_generated'] )> when 'true' ->
+				      case _rec4 of
+					%% Line 384
+					<~{NA:='local'}~> when 'true' ->
+					    %% Line 385
+					    {{'call',Line,Atom,As},St1}
+					%% Line 386
+					<~{NA:={'imported',Module}}~> when 'true' ->
+					    let <ModAtom> = {%% Line 387
+						 'atom',%% Line 387
+							Line,%% Line 387
+							     Module}
+					    in  %% Line 388
+						{{'call',Line,{'remote',Line,ModAtom,Atom},As},St1}
+					%% Line 389
+					<_110> when 'true' ->
+					    %% Line 390
+					    case call 'erl_internal':'bif'
+						     (N, Ar) of
+					      %% Line 391
+					      <'true'> when 'true' ->
+						  let <ModAtom> = {%% Line 392
+						       'atom',%% Line 392
+							      Line,%% Line 392
+								   'erlang'}
+						  in  %% Line 393
+						      {{'call',Line,{'remote',Line,ModAtom,Atom},As},St1}
+					      %% Line 394
+					      <'false'> when 'true' ->
+						  %% Line 398
+						  {{'call',Line,Atom,As},St1}
+					      ( <_46> when 'true' ->
+						    primop 'match_fail'
+							({'case_clause',_46})
+						-| ['compiler_generated'] )
+					    end
+				      end
+				  -| ['compiler_generated'] )
+				( <_109> when 'true' ->
+				      ( call ( 'erlang'
+					       -| ['compiler_generated'] ):( 'error'
+									     -| ['compiler_generated'] )
+					    (( {'badrecord','exprec'}
+					       -| ['compiler_generated'] ))
+					-| ['compiler_generated'] )
+				  -| ['compiler_generated'] )
+			      end
+			      -| ['compiler_generated'] )
+		( <_39> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_39})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 401
+	  <{'call',Line,{'remote',Lr,M,F},As0},St0> when 'true' ->
+	      %% Line 402
+	      case apply 'expr_list'/2
+		       ([M|[F|As0]], St0) of
+		<{[M1|[F1|As1]],St1}> when 'true' ->
+		    %% Line 403
+		    {{'call',Line,{'remote',Lr,M1,F1},As1},St1}
+		( <_48> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_48})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 404
+	  <{'call',Line,F,As0},St0> when 'true' ->
+	      %% Line 405
+	      case apply 'expr_list'/2
+		       ([F|As0], St0) of
+		<{[Fun1|As1],St1}> when 'true' ->
+		    %% Line 406
+		    {{'call',Line,Fun1,As1},St1}
+		( <_49> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_49})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 407
+	  <{'try',Line,Es0,Scs0,Ccs0,As0},St0> when 'true' ->
+	      %% Line 408
+	      case apply 'exprs'/2
+		       (Es0, St0) of
+		<{Es1,St1}> when 'true' ->
+		    %% Line 409
+		    case apply 'clauses'/2
+			     (Scs0, St1) of
+		      <{Scs1,St2}> when 'true' ->
+			  %% Line 410
+			  case apply 'clauses'/2
+				   (Ccs0, St2) of
+			    <{Ccs1,St3}> when 'true' ->
+				%% Line 411
+				case apply 'exprs'/2
+					 (As0, St3) of
+				  <{As1,St4}> when 'true' ->
+				      %% Line 412
+				      {{'try',Line,Es1,Scs1,Ccs1,As1},St4}
+				  ( <_53> when 'true' ->
+					primop 'match_fail'
+					    ({'badmatch',_53})
+				    -| ['compiler_generated'] )
+				end
+			    ( <_52> when 'true' ->
+				  primop 'match_fail'
+				      ({'badmatch',_52})
+			      -| ['compiler_generated'] )
+			  end
+		      ( <_51> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_51})
+			-| ['compiler_generated'] )
+		    end
+		( <_50> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_50})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 413
+	  <{'catch',Line,E0},St0> when 'true' ->
+	      %% Line 414
+	      case apply 'expr'/2
+		       (E0, St0) of
+		<{E,St1}> when 'true' ->
+		    %% Line 415
+		    {{'catch',Line,E},St1}
+		( <_54> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_54})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 416
+	  <{'match',Line,P0,E0},St0> when 'true' ->
+	      %% Line 417
+	      case apply 'expr'/2
+		       (E0, St0) of
+		<{E,St1}> when 'true' ->
+		    %% Line 418
+		    case apply 'pattern'/2
+			     (P0, St1) of
+		      <{P,St2}> when 'true' ->
+			  %% Line 419
+			  {{'match',Line,P,E},St2}
+		      ( <_56> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_56})
+			-| ['compiler_generated'] )
+		    end
+		( <_55> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_55})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 420
+	  <{'op',Line,'not',A0},St0> when 'true' ->
+	      %% Line 421
+	      case apply 'bool_operand'/2
+		       (A0, St0) of
+		<{A,St1}> when 'true' ->
+		    %% Line 422
+		    {{'op',Line,'not',A},St1}
+		( <_57> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_57})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 423
+	  <{'op',Line,Op,A0},St0> when 'true' ->
+	      %% Line 424
+	      case apply 'expr'/2
+		       (A0, St0) of
+		<{A,St1}> when 'true' ->
+		    %% Line 425
+		    {{'op',Line,Op,A},St1}
+		( <_58> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_58})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 426
+	  <{'op',Line,Op,L0,R0},St0>
+	      when let <_59> =
+		    call 'erlang':'=:='
+			(Op, 'and')
+		in  let <_60> =
+			call %% Line 427
+			     'erlang':%% Line 427
+				      '=:='
+			    (%% Line 427
+			     Op, %% Line 427
+				 'or')
+		    in  call 'erlang':'or'
+			    (_59, _60) ->
+	      %% Line 428
+	      case apply 'bool_operand'/2
+		       (L0, St0) of
+		<{L,St1}> when 'true' ->
+		    %% Line 429
+		    case apply 'bool_operand'/2
+			     (R0, St1) of
+		      <{R,St2}> when 'true' ->
+			  %% Line 430
+			  {{'op',Line,Op,L,R},St2}
+		      ( <_62> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_62})
+			-| ['compiler_generated'] )
+		    end
+		( <_61> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_61})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 431
+	  <{'op',Line,Op,L0,R0},St0>
+	      when let <_63> =
+		    call 'erlang':'=:='
+			(Op, 'andalso')
+		in  let <_64> =
+			call %% Line 432
+			     'erlang':%% Line 432
+				      '=:='
+			    (%% Line 432
+			     Op, %% Line 432
+				 'orelse')
+		    in  call 'erlang':'or'
+			    (_63, _64) ->
+	      %% Line 433
+	      case apply 'bool_operand'/2
+		       (L0, St0) of
+		<{L,St1}> when 'true' ->
+		    %% Line 434
+		    case apply 'bool_operand'/2
+			     (R0, St1) of
+		      <{R,St2}> when 'true' ->
+			  %% Line 435
+			  ( case St1 of
+			      ( <( {'exprec',_111,_112,_113,_114,_115,_rec7}
+				   -| ['compiler_generated'] )> when 'true' ->
+				    case St2 of
+				      <{'exprec',_117,_118,_119,_120,_121,_122}> when 'true' ->
+					  let <_72> =
+					      call 'erlang':'setelement'
+						  (7, St2, _rec7)
+					  in  {{'op',Line,Op,L,R},_72}
+				      ( <_123> when 'true' ->
+					    ( call ( 'erlang'
+						     -| ['compiler_generated'] ):( 'error'
+										   -| ['compiler_generated'] )
+						  (( {'badrecord','exprec'}
+						     -| ['compiler_generated'] ))
+					      -| ['compiler_generated'] )
+					-| ['compiler_generated'] )
+				    end
+				-| ['compiler_generated'] )
+			      ( <_116> when 'true' ->
+				    ( call ( 'erlang'
+					     -| ['compiler_generated'] ):( 'error'
+									   -| ['compiler_generated'] )
+					  (( {'badrecord','exprec'}
+					     -| ['compiler_generated'] ))
+				      -| ['compiler_generated'] )
+				-| ['compiler_generated'] )
+			    end
+			    -| ['compiler_generated'] )
+		      ( <_66> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_66})
+			-| ['compiler_generated'] )
+		    end
+		( <_65> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_65})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 436
+	  <{'op',Line,Op,L0,R0},St0> when 'true' ->
+	      %% Line 437
+	      case apply 'expr'/2
+		       (L0, St0) of
+		<{L,St1}> when 'true' ->
+		    %% Line 438
+		    case apply 'expr'/2
+			     (R0, St1) of
+		      <{R,St2}> when 'true' ->
+			  %% Line 439
+			  {{'op',Line,Op,L,R},St2}
+		      ( <_74> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_74})
+			-| ['compiler_generated'] )
+		    end
+		( <_73> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_73})
+		  -| ['compiler_generated'] )
+	      end
+	  ( <_76,_75> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_76,_75})
+		  -| [{'function_name',{'expr',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'expr_list'/2 =
+    %% Line 441
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <[E0|Es0],St0> when 'true' ->
+	      %% Line 442
+	      case apply 'expr'/2
+		       (E0, St0) of
+		<{E,St1}> when 'true' ->
+		    %% Line 443
+		    case apply 'expr_list'/2
+			     (Es0, St1) of
+		      <{Es,St2}> when 'true' ->
+			  %% Line 444
+			  {[E|Es],St2}
+		      ( <_3> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_3})
+			-| ['compiler_generated'] )
+		    end
+		( <_2> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_2})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 445
+	  <[],St> when 'true' ->
+	      {[],St}
+	  ( <_5,_4> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_5,_4})
+		  -| [{'function_name',{'expr_list',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'bool_operand'/2 =
+    %% Line 447
+    fun (_0,_1) ->
+	%% Line 448
+	case apply 'expr'/2
+		 (_0, _1) of
+	  <{E1,St1}> when 'true' ->
+	      %% Line 449
+	      apply 'strict_record_access'/2
+		  (E1, St1)
+	  ( <_2> when 'true' ->
+		primop 'match_fail'
+		    ({'badmatch',_2})
+	    -| ['compiler_generated'] )
+	end
+'strict_record_access'/2 =
+    %% Line 451
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <E,St = {'exprec',_19,_20,_21,_22,[],_23}> when 'true' ->
+	      %% Line 452
+	      {E,St}
+	  %% Line 453
+	  <E0,St0> when 'true' ->
+	      %% Line 454
+	      case St0 of
+		<{'exprec',_24,_25,_26,_27,StrictRA,CheckedRA}> when 'true' ->
+		    let <_8> =
+			fun (_5,_4) ->
+			    %% Line 455
+			    case <_5,_4> of
+			      <A = {Key,_X_L,_X_R,_X_Sz},_@r0 = {L,C}> when 'true' ->
+				  %% Line 456
+				  case call 'lists':'keymember'
+					   (Key, 1, C) of
+				    %% Line 457
+				    <'true'> when 'true' ->
+					_@r0
+				    %% Line 458
+				    <'false'> when 'true' ->
+					{[A|L],[A|C]}
+				    ( <_3> when 'true' ->
+					  primop 'match_fail'
+					      ({'case_clause',_3})
+				      -| ['compiler_generated'] )
+				  end
+			      ( <_7,_6> when 'true' ->
+				    ( primop 'match_fail'
+					  ({'function_clause',_7,_6})
+				      -| [{'function_name',{'-strict_record_access/2-fun-0-',2}}] )
+				-| ['compiler_generated'] )
+			    end
+		    in  %% Line 455
+			case call 'lists':'foldl'
+				 (_8, %% Line 460
+				      {[],CheckedRA}, %% Line 460
+						      StrictRA) of
+			  <{New,NC}> when 'true' ->
+			      let <_10> =
+				  case <> of
+				    %% Line 461
+				    <>
+					when call 'erlang':'=:='
+					      (New,
+					       []) ->
+					E0
+				    %% Line 461
+				    <> when 'true' ->
+					apply 'conj'/2
+					    (New, E0)
+				  end
+			      in  %% Line 462
+				  case St0 of
+				    <{'exprec',_28,_29,_30,_31,_32,_33}> when 'true' ->
+					let <_13> =
+					    call 'erlang':'setelement'
+						(7, St0, NC)
+					in  let <_15> =
+						call 'erlang':'setelement'
+						    (6, _13, [])
+					    in  %% Line 463
+						apply 'expr'/2
+						    (_10, _15)
+				    ( <_34> when 'true' ->
+					  ( call ( 'erlang'
+						   -| ['compiler_generated'] ):( 'error'
+										 -| ['compiler_generated'] )
+						(( {'badrecord','exprec'}
+						   -| ['compiler_generated'] ))
+					    -| ['compiler_generated'] )
+				      -| ['compiler_generated'] )
+				  end
+			  ( <_9> when 'true' ->
+				primop 'match_fail'
+				    ({'badmatch',_9})
+			    -| ['compiler_generated'] )
+			end
+		( <_2> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_2})
+		  -| ['compiler_generated'] )
+	      end
+	end
+'conj'/2 =
+    %% Line 467
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <[],_X_E> when 'true' ->
+	      %% Line 468
+	      'empty'
+	  %% Line 469
+	  <[{{Name,_X_Rp},L,R,Sz}|AL],E> when 'true' ->
+	      let <NL> =
+		  apply %% Line 470
+			'no_compiler_warning'/1
+		      (%% Line 470
+		       L)
+	      in  let <T1> =
+		      {%% Line 471
+		       'op',%% Line 471
+			    NL,%% Line 471
+			       'orelse',%% Line 472
+					{'call',NL,%% Line 473
+						   {'remote',NL,{'atom',NL,'erlang'},{'atom',NL,'is_record'}},%% Line 474
+													      [R|[{'atom',NL,Name}|[{'integer',NL,Sz}|[]]]]},%% Line 475
+																			     {'atom',NL,'fail'}}
+		  in  let <_5> =
+			  case %% Line 476
+			       apply 'conj'/2
+				   (AL, 'none') of
+			    %% Line 477
+			    <'empty'> when 'true' ->
+				T1
+			    %% Line 478
+			    <C> when 'true' ->
+				{'op',NL,'and',C,T1}
+			  end
+		      in  %% Line 480
+			  case E of
+			    %% Line 481
+			    <'none'> when 'true' ->
+				%% Line 482
+				case _5 of
+				  %% Line 483
+				  <{'op',_11,'and',_12,_13}> when 'true' ->
+				      _5
+				  %% Line 485
+				  <_14> when 'true' ->
+				      %% Line 491
+				      {'op',NL,'and',_5,{'atom',NL,'true'}}
+				end
+			    %% Line 493
+			    <_15> when 'true' ->
+				%% Line 494
+				{'op',NL,'and',_5,E}
+			  end
+	  ( <_10,_9> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_10,_9})
+		  -| [{'function_name',{'conj',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'lc_tq'/3 =
+    %% Line 500
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <Line,[{'generate',Lg,P0,G0}|Qs0],St0> when 'true' ->
+	      %% Line 501
+	      case apply 'expr'/2
+		       (G0, St0) of
+		<{G1,St1}> when 'true' ->
+		    %% Line 502
+		    case apply 'pattern'/2
+			     (P0, St1) of
+		      <{P1,St2}> when 'true' ->
+			  %% Line 503
+			  case apply 'lc_tq'/3
+				   (Line, Qs0, St2) of
+			    <{Qs1,St3}> when 'true' ->
+				%% Line 504
+				{[{'generate',Lg,P1,G1}|Qs1],St3}
+			    ( <_5> when 'true' ->
+				  primop 'match_fail'
+				      ({'badmatch',_5})
+			      -| ['compiler_generated'] )
+			  end
+		      ( <_4> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_4})
+			-| ['compiler_generated'] )
+		    end
+		( <_3> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_3})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 505
+	  <Line,[{'b_generate',Lg,P0,G0}|Qs0],St0> when 'true' ->
+	      %% Line 506
+	      case apply 'expr'/2
+		       (G0, St0) of
+		<{G1,St1}> when 'true' ->
+		    %% Line 507
+		    case apply 'pattern'/2
+			     (P0, St1) of
+		      <{P1,St2}> when 'true' ->
+			  %% Line 508
+			  case apply 'lc_tq'/3
+				   (Line, Qs0, St2) of
+			    <{Qs1,St3}> when 'true' ->
+				%% Line 509
+				{[{'b_generate',Lg,P1,G1}|Qs1],St3}
+			    ( <_8> when 'true' ->
+				  primop 'match_fail'
+				      ({'badmatch',_8})
+			      -| ['compiler_generated'] )
+			  end
+		      ( <_7> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_7})
+			-| ['compiler_generated'] )
+		    end
+		( <_6> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_6})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 510
+	  <Line,[F0|Qs0],St0 = {'exprec',_24,_25,Calltype,_26,_27,_28}> when 'true' ->
+	      let <IsOverriden> =
+		  fun (_10) ->
+		      %% Line 513
+		      case Calltype of
+			%% Line 514
+			<~{_10:='local'}~> when 'true' ->
+			    'true'
+			%% Line 515
+			<~{_10:={'imported',_29}}~> when 'true' ->
+			    'true'
+			%% Line 516
+			<_30> when 'true' ->
+			    'false'
+		      end
+	      in  %% Line 519
+		  case call 'erl_lint':'is_guard_test'
+			   (F0, [], IsOverriden) of
+		    %% Line 520
+		    <'true'> when 'true' ->
+			%% Line 521
+			case apply 'guard_test'/2
+				 (F0, St0) of
+			  <{F1,St1}> when 'true' ->
+			      %% Line 522
+			      case apply 'lc_tq'/3
+				       (Line, Qs0, St1) of
+				<{Qs1,St2}> when 'true' ->
+				    %% Line 523
+				    {[F1|Qs1],St2}
+				( <_14> when 'true' ->
+				      primop 'match_fail'
+					  ({'badmatch',_14})
+				  -| ['compiler_generated'] )
+			      end
+			  ( <_13> when 'true' ->
+				primop 'match_fail'
+				    ({'badmatch',_13})
+			    -| ['compiler_generated'] )
+			end
+		    %% Line 524
+		    <'false'> when 'true' ->
+			%% Line 525
+			case apply 'expr'/2
+				 (F0, St0) of
+			  <{F1,St1}> when 'true' ->
+			      %% Line 526
+			      case apply 'lc_tq'/3
+				       (Line, Qs0, St1) of
+				<{Qs1,St2}> when 'true' ->
+				    %% Line 527
+				    {[F1|Qs1],St2}
+				( <_16> when 'true' ->
+				      primop 'match_fail'
+					  ({'badmatch',_16})
+				  -| ['compiler_generated'] )
+			      end
+			  ( <_15> when 'true' ->
+				primop 'match_fail'
+				    ({'badmatch',_15})
+			    -| ['compiler_generated'] )
+			end
+		    ( <_17> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_17})
+		      -| ['compiler_generated'] )
+		  end
+	  %% Line 529
+	  <_X_Line,[],St0> when 'true' ->
+	      %% Line 530
+	      case St0 of
+		<{'exprec',_31,_32,_33,_34,_35,_36}> when 'true' ->
+		    let <_20> =
+			call 'erlang':'setelement'
+			    (7, St0, [])
+		    in  {[],_20}
+		( <_37> when 'true' ->
+		      ( call ( 'erlang'
+			       -| ['compiler_generated'] ):( 'error'
+							     -| ['compiler_generated'] )
+			    (( {'badrecord','exprec'}
+			       -| ['compiler_generated'] ))
+			-| ['compiler_generated'] )
+		  -| ['compiler_generated'] )
+	      end
+	  ( <_23,_22,_21> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_23,_22,_21})
+		  -| [{'function_name',{'lc_tq',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'normalise_fields'/1 =
+    %% Line 536
+    fun (_0) ->
+	let <_3> =
+	    fun (_1) ->
+		%% Line 537
+		case _1 of
+		  <{'record_field',Lf,Field}> when 'true' ->
+		      %% Line 538
+		      {'record_field',Lf,Field,{'atom',Lf,'undefined'}}
+		  %% Line 539
+		  <{'typed_record_field',{'record_field',Lf,Field},_X_Type}> when 'true' ->
+		      %% Line 540
+		      {'record_field',Lf,Field,{'atom',Lf,'undefined'}}
+		  %% Line 541
+		  <{'typed_record_field',Field,_X_Type}> when 'true' ->
+		      %% Line 542
+		      Field
+		  %% Line 543
+		  <F> when 'true' ->
+		      F
+		end
+	in  %% Line 537
+	    call 'lists':'map'
+		(_3, _0)
+'record_fields'/2 =
+    %% Line 549
+    fun (_0,_1) ->
+	( case _1 of
+	    ( <( {'exprec',_6,_7,_8,_rec10,_9,_10}
+		 -| ['compiler_generated'] )> when 'true' ->
+		  call 'maps':'get'
+		      (_0, _rec10)
+	      -| ['compiler_generated'] )
+	    ( <_11> when 'true' ->
+		  ( call ( 'erlang'
+			   -| ['compiler_generated'] ):( 'error'
+							 -| ['compiler_generated'] )
+			(( {'badrecord','exprec'}
+			   -| ['compiler_generated'] ))
+		    -| ['compiler_generated'] )
+	      -| ['compiler_generated'] )
+	  end
+	  -| ['compiler_generated'] )
+'find_field'/2 =
+    %% Line 551
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <F,[{'record_field',_4,{'atom',_5,_6},Val}|_7]>
+	      when call 'erlang':'=:='
+		    (_6,
+		     F) ->
+	      {'ok',Val}
+	  %% Line 552
+	  <F,[_8|Fs]> when 'true' ->
+	      apply 'find_field'/2
+		  (F, Fs)
+	  %% Line 553
+	  <_9,[]> when 'true' ->
+	      'error'
+	  ( <_3,_2> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_3,_2})
+		  -| [{'function_name',{'find_field',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'field_names'/1 =
+    %% Line 558
+    fun (_0) ->
+	let <_3> =
+	    fun (_1) ->
+		%% Line 559
+		case _1 of
+		  <{'record_field',_5,Field,_X_Val}> when 'true' ->
+		      Field
+		  ( <_2> when 'true' ->
+			( primop 'match_fail'
+			      ({'function_clause',_2})
+			  -| [{'function_name',{'-field_names/1-fun-0-',1}}] )
+		    -| ['compiler_generated'] )
+		end
+	in  %% Line 559
+	    call 'lists':'map'
+		(_3, _0)
+'index_expr'/4 =
+    %% Line 566
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <Line,{'atom',_9,F},_X_Name,Fs> when 'true' ->
+	      let <_4> =
+		  apply %% Line 567
+			'index_expr'/3
+		      (%% Line 567
+		       F, %% Line 567
+			  Fs, %% Line 567
+			      2)
+	      in  %% Line 567
+		  {'integer',Line,_4}
+	  ( <_8,_7,_6,_5> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_8,_7,_6,_5})
+		  -| [{'function_name',{'index_expr',4}}] )
+	    -| ['compiler_generated'] )
+	end
+'index_expr'/3 =
+    %% Line 569
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <F,[{'record_field',_7,{'atom',_8,_9},_10}|_11],I>
+	      when call 'erlang':'=:='
+		    (_9,
+		     F) ->
+	      I
+	  %% Line 570
+	  <F,[_12|Fs],I> when 'true' ->
+	      let <_3> =
+		  call 'erlang':'+'
+		      (I, 1)
+	      in  apply 'index_expr'/3
+		      (F, Fs, _3)
+	  ( <_6,_5,_4> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_6,_5,_4})
+		  -| [{'function_name',{'index_expr',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'get_record_field'/5 =
+    %% Line 577
+    fun (_0,_1,_2,_3,_4) ->
+	%% Line 578
+	( case _4 of
+	    ( <( {'exprec',_rec11,_13,_14,_15,_16,_17}
+		 -| ['compiler_generated'] )> when 'true' ->
+		  case apply 'strict_record_tests'/1
+			   (_rec11) of
+		    %% Line 579
+		    <'false'> when 'true' ->
+			%% Line 580
+			apply 'sloppy_get_record_field'/5
+			    (_0, _1, _2, _3, _4)
+		    %% Line 581
+		    <'true'> when 'true' ->
+			%% Line 582
+			apply 'strict_get_record_field'/5
+			    (_0, _1, _2, _3, _4)
+		    ( <_7> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_7})
+		      -| ['compiler_generated'] )
+		  end
+	      -| ['compiler_generated'] )
+	    ( <_18> when 'true' ->
+		  ( call ( 'erlang'
+			   -| ['compiler_generated'] ):( 'error'
+							 -| ['compiler_generated'] )
+			(( {'badrecord','exprec'}
+			   -| ['compiler_generated'] ))
+		    -| ['compiler_generated'] )
+	      -| ['compiler_generated'] )
+	  end
+	  -| ['compiler_generated'] )
+'strict_get_record_field'/5 =
+    %% Line 585
+    fun (_0,_1,_2,_3,_4) ->
+	case <_0,_1,_2,_3,_4> of
+	  <Line,R,Index = {'atom',_38,F},Name,St0> when 'true' ->
+	      %% Line 586
+	      case apply 'is_in_guard'/0
+		       () of
+		%% Line 587
+		<'false'> when 'true' ->
+		    %% Line 588
+		    case apply 'new_var'/2
+			     (Line, St0) of
+		      <{Var,St}> when 'true' ->
+			  let <Fs> =
+			      apply %% Line 589
+				    'record_fields'/2
+				  (%% Line 589
+				   Name, %% Line 589
+					 St)
+			  in  let <I> =
+				  apply %% Line 590
+					'index_expr'/3
+				      (%% Line 590
+				       F, %% Line 590
+					  Fs, %% Line 590
+					      2)
+			      in  let <_8> =
+				      call %% Line 591
+					   'erlang':%% Line 591
+						    'length'
+					  (%% Line 591
+					   Fs)
+				  in  let <_9> =
+					  call %% Line 591
+					       'erlang':%% Line 591
+							'+'
+					      (_8, %% Line 591
+						   1)
+				      in  let <P> =
+					      apply %% Line 591
+						    'record_pattern'/6
+						  (%% Line 591
+						   2, %% Line 591
+						      I, %% Line 591
+							 Var, _9, %% Line 591
+								  Line, %% Line 591
+									[{'atom',Line,Name}|[]])
+					  in  let <NLine> =
+						  apply %% Line 592
+							'no_compiler_warning'/1
+						      (%% Line 592
+						       Line)
+					      in  let <RLine> =
+						      apply %% Line 593
+							    'mark_record'/2
+							  (%% Line 593
+							   NLine, %% Line 593
+								  St)
+						  in  let <E> =
+							  {%% Line 594
+							   'case',%% Line 594
+								  NLine,%% Line 594
+									R,%% Line 595
+									  [{'clause',NLine,[{'tuple',RLine,P}|[]],[],[Var|[]]}|%% Line 596
+															       [{'clause',NLine,[{'var',NLine,'_'}|[]],[],%% Line 597
+																					  [{'call',NLine,{'remote',NLine,%% Line 598
+																									 {'atom',NLine,'erlang'},%% Line 599
+																												 {'atom',NLine,'error'}},%% Line 600
+																															 [{'tuple',NLine,[{'atom',NLine,'badrecord'}|[{'atom',NLine,Name}|[]]]}|[]]}|%% Line 600
+																																								     []]}|%% Line 600
+																																									  []]]}
+						      in  %% Line 601
+							  apply 'expr'/2
+							      (E, St)
+		      ( <_5> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_5})
+			-| ['compiler_generated'] )
+		    end
+		%% Line 602
+		<'true'> when 'true' ->
+		    let <Fs> =
+			apply %% Line 603
+			      'record_fields'/2
+			    (%% Line 603
+			     Name, %% Line 603
+				   St0)
+		    in  let <I> =
+			    apply %% Line 604
+				  'index_expr'/4
+				(%% Line 604
+				 Line, %% Line 604
+				       Index, %% Line 604
+					      Name, %% Line 604
+						    Fs)
+			in  %% Line 605
+			    case apply 'expr'/2
+				     (R, St0) of
+			      <{ExpR,St1}> when 'true' ->
+				  let <A0> =
+				      call %% Line 607
+					   'erl_anno':%% Line 607
+						      'new'
+					  (%% Line 607
+					   0)
+				  in  let <_20> =
+					  fun (_18) ->
+					      %% Line 608
+					      A0
+				      in  let <ExpRp> =
+					      call %% Line 608
+						   'erl_parse':%% Line 608
+							       'map_anno'
+						  (_20, %% Line 608
+							ExpR)
+					  in  let <_22> =
+						  call %% Line 609
+						       'erlang':%% Line 609
+								'length'
+						      (%% Line 609
+						       Fs)
+					      in  let <_23> =
+						      call %% Line 609
+							   'erlang':%% Line 609
+								    '+'
+							  (_22, %% Line 609
+								1)
+						  in  let <RA> =
+							  {%% Line 609
+							   {Name,ExpRp},%% Line 609
+									Line,%% Line 609
+									     ExpR,_23}
+						      in  %% Line 610
+							  ( case St1 of
+							      ( <( {'exprec',_39,_40,_41,_42,_rec14,_43}
+								   -| ['compiler_generated'] )> when 'true' ->
+								    let <_rec12> =
+									[RA|_rec14]
+								    in  case St1 of
+									  <{'exprec',_45,_46,_47,_48,_49,_50}> when 'true' ->
+									      let <_30> =
+										  call 'erlang':'setelement'
+										      (6, St1, _rec12)
+									      in  %% Line 611
+										  {{'call',Line,%% Line 612
+												{'remote',Line,{'atom',Line,'erlang'},{'atom',Line,'element'}},%% Line 613
+																			       [I|[ExpR|[]]]},_30}
+									  ( <_51> when 'true' ->
+										( call ( 'erlang'
+											 -| ['compiler_generated'] ):( 'error'
+														       -| ['compiler_generated'] )
+										      (( {'badrecord','exprec'}
+											 -| ['compiler_generated'] ))
+										  -| ['compiler_generated'] )
+									    -| ['compiler_generated'] )
+									end
+								-| ['compiler_generated'] )
+							      ( <_44> when 'true' ->
+								    ( call ( 'erlang'
+									     -| ['compiler_generated'] ):( 'error'
+													   -| ['compiler_generated'] )
+									  (( {'badrecord','exprec'}
+									     -| ['compiler_generated'] ))
+								      -| ['compiler_generated'] )
+								-| ['compiler_generated'] )
+							    end
+							    -| ['compiler_generated'] )
+			      ( <_16> when 'true' ->
+				    primop 'match_fail'
+					({'badmatch',_16})
+				-| ['compiler_generated'] )
+			    end
+		( <_32> when 'true' ->
+		      primop 'match_fail'
+			  ({'case_clause',_32})
+		  -| ['compiler_generated'] )
+	      end
+	  ( <_37,_36,_35,_34,_33> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_37,_36,_35,_34,_33})
+		  -| [{'function_name',{'strict_get_record_field',5}}] )
+	    -| ['compiler_generated'] )
+	end
+'record_pattern'/6 =
+    %% Line 616
+    fun (_0,_1,_2,_3,_4,_5) ->
+	case <_0,_1,_2,_3,_4,_5> of
+	  <I,_14,Var,Sz,Line,Acc>
+	      when call 'erlang':'=:='
+		    (_14,
+		     I) ->
+	      let <_6> =
+		  call %% Line 617
+		       'erlang':%% Line 617
+				'+'
+		      (%% Line 617
+		       I, %% Line 617
+			  1)
+	      in  %% Line 617
+		  apply 'record_pattern'/6
+		      (_6, I, Var, Sz, Line, [Var|Acc])
+	  %% Line 618
+	  <Cur,I,Var,Sz,Line,Acc>
+	      when call 'erlang':'=<'
+		    (Cur,
+		     Sz) ->
+	      let <_7> =
+		  call %% Line 619
+		       'erlang':%% Line 619
+				'+'
+		      (%% Line 619
+		       Cur, %% Line 619
+			    1)
+	      in  %% Line 619
+		  apply 'record_pattern'/6
+		      (_7, I, Var, Sz, Line, [{'var',Line,'_'}|Acc])
+	  %% Line 620
+	  <_15,_16,_17,_18,_19,Acc> when 'true' ->
+	      call 'lists':'reverse'
+		  (Acc)
+	end
+'sloppy_get_record_field'/5 =
+    %% Line 622
+    fun (_0,_1,_2,_3,_4) ->
+	let <Fs> =
+	    apply %% Line 623
+		  'record_fields'/2
+		(_3, _4)
+	in  let <I> =
+		apply %% Line 624
+		      'index_expr'/4
+		    (_0, _2, _3, %% Line 624
+				 Fs)
+	    in  %% Line 625
+		apply 'expr'/2
+		    ({'call',_0,%% Line 626
+				{'remote',_0,{'atom',_0,'erlang'},{'atom',_0,'element'}},%% Line 627
+											 [I|[_1|[]]]}, _4)
+'strict_record_tests'/1 =
+    %% Line 629
+    fun (_0) ->
+	case _0 of
+	  <['strict_record_tests'|_2]> when 'true' ->
+	      'true'
+	  %% Line 630
+	  <['no_strict_record_tests'|_3]> when 'true' ->
+	      'false'
+	  %% Line 631
+	  <[_4|Os]> when 'true' ->
+	      apply 'strict_record_tests'/1
+		  (Os)
+	  %% Line 632
+	  <[]> when 'true' ->
+	      'true'
+	  ( <_1> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_1})
+		  -| [{'function_name',{'strict_record_tests',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'strict_record_updates'/1 =
+    %% Line 634
+    fun (_0) ->
+	case _0 of
+	  <['strict_record_updates'|_2]> when 'true' ->
+	      'true'
+	  %% Line 635
+	  <['no_strict_record_updates'|_3]> when 'true' ->
+	      'false'
+	  %% Line 636
+	  <[_4|Os]> when 'true' ->
+	      apply 'strict_record_updates'/1
+		  (Os)
+	  %% Line 637
+	  <[]> when 'true' ->
+	      'false'
+	  ( <_1> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_1})
+		  -| [{'function_name',{'strict_record_updates',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'pattern_fields'/2 =
+    %% Line 644
+    fun (_0,_1) ->
+	let <Wildcard> =
+	    apply %% Line 645
+		  'record_wildcard_init'/1
+		(_1)
+	in  let <_6> =
+		fun (_4) ->
+		    %% Line 646
+		    case _4 of
+		      <{'record_field',L,{'atom',_9,F},_10}> when 'true' ->
+			  %% Line 647
+			  case apply 'find_field'/2
+				   (F, _1) of
+			    %% Line 648
+			    <{'ok',Match}> when 'true' ->
+				Match
+			    %% Line 649
+			    <'error'>
+				when call 'erlang':'=:='
+				      (Wildcard,
+				       'none') ->
+				{'var',L,'_'}
+			    %% Line 650
+			    <'error'> when 'true' ->
+				Wildcard
+			    ( <_3> when 'true' ->
+				  primop 'match_fail'
+				      ({'case_clause',_3})
+			      -| ['compiler_generated'] )
+			  end
+		      ( <_5> when 'true' ->
+			    ( primop 'match_fail'
+				  ({'function_clause',_5})
+			      -| [{'function_name',{'-pattern_fields/2-fun-0-',1}}] )
+			-| ['compiler_generated'] )
+		    end
+	    in  %% Line 646
+		call 'lists':'map'
+		    (_6, _0)
+'record_inits'/2 =
+    %% Line 659
+    fun (_0,_1) ->
+	let <WildcardInit> =
+	    apply %% Line 660
+		  'record_wildcard_init'/1
+		(_1)
+	in  let <_6> =
+		fun (_4) ->
+		    %% Line 661
+		    case _4 of
+		      <{'record_field',_9,{'atom',_10,F},D}> when 'true' ->
+			  %% Line 662
+			  case apply 'find_field'/2
+				   (F, _1) of
+			    %% Line 663
+			    <{'ok',Init}> when 'true' ->
+				Init
+			    %% Line 664
+			    <'error'>
+				when call 'erlang':'=:='
+				      (WildcardInit,
+				       'none') ->
+				D
+			    %% Line 665
+			    <'error'> when 'true' ->
+				WildcardInit
+			    ( <_3> when 'true' ->
+				  primop 'match_fail'
+				      ({'case_clause',_3})
+			      -| ['compiler_generated'] )
+			  end
+		      ( <_5> when 'true' ->
+			    ( primop 'match_fail'
+				  ({'function_clause',_5})
+			      -| [{'function_name',{'-record_inits/2-fun-0-',1}}] )
+			-| ['compiler_generated'] )
+		    end
+	    in  %% Line 661
+		call 'lists':'map'
+		    (_6, _0)
+'record_wildcard_init'/1 =
+    %% Line 669
+    fun (_0) ->
+	case _0 of
+	  <[{'record_field',_2,{'var',_3,'_'},D}|_4]> when 'true' ->
+	      D
+	  %% Line 670
+	  <[_5|Is]> when 'true' ->
+	      apply 'record_wildcard_init'/1
+		  (Is)
+	  %% Line 671
+	  <[]> when 'true' ->
+	      'none'
+	  ( <_1> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_1})
+		  -| [{'function_name',{'record_wildcard_init',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'record_update'/5 =
+    %% Line 679
+    fun (_0,_1,_2,_3,_4) ->
+	let <Line> =
+	    call %% Line 680
+		 'erlang':%% Line 680
+			  'element'
+		(%% Line 680
+		 2, _0)
+	in  %% Line 681
+	    case apply 'record_exprs'/2
+		     (_3, _4) of
+	      <{Pre,Us,St1}> when 'true' ->
+		  let <Nf> =
+		      call %% Line 682
+			   'erlang':%% Line 682
+				    'length'
+			  (_2)
+		  in  let <Nu> =
+			  call %% Line 683
+			       'erlang':%% Line 683
+					'length'
+			      (%% Line 683
+			       Us)
+		      in  let <Nc> =
+			      call %% Line 684
+				   'erlang':%% Line 684
+					    '-'
+				  (%% Line 684
+				   Nf, %% Line 684
+				       Nu)
+			  in  %% Line 688
+			      case apply 'new_var'/2
+				       (Line, St1) of
+				<{Var,St2}> when 'true' ->
+				    %% Line 690
+				    ( case St2 of
+					( <( {'exprec',_rec15,_27,_28,_29,_30,_31}
+					     -| ['compiler_generated'] )> when 'true' ->
+					      let <StrictUpdates> =
+						  apply 'strict_record_updates'/1
+						      (_rec15)
+					      in  let <_19> =
+						      case <> of
+							%% Line 695
+							<>
+							    when call 'erlang':'=:='
+								  (Nu,
+								   0) ->
+							    %% Line 696
+							    apply 'record_match'/6
+								(Var, _1, Line, _2, Us, St2)
+							%% Line 697
+							<>
+							    when let <_14> =
+								  call 'erlang':'=<'
+								      (Nu, Nc)
+							      in  let <_15> =
+								      call 'erlang':'=:='
+									  (StrictUpdates, 'false')
+								  in  call 'erlang':'and'
+									  (_14, _15) ->
+							    let <_16> =
+								apply %% Line 698
+								      'record_setel'/4
+								    (%% Line 698
+								     Var, _1, _2, %% Line 698
+										  Us)
+							    in  %% Line 698
+								{_16,St2}
+							%% Line 699
+							<> when 'true' ->
+							    let <_17> =
+								call %% Line 700
+								     'erlang':%% Line 700
+									      'hd'
+								    (%% Line 700
+								     Us)
+							    in  let <_18> =
+								    call %% Line 700
+									 'erlang':%% Line 700
+										  'element'
+									(%% Line 700
+									 2, _17)
+								in  %% Line 700
+								    apply 'record_match'/6
+									(Var, _1, _18, _2, Us, St2)
+						      end
+						  in  %% Line 693
+						      case _19 of
+							<{Update,St}> when 'true' ->
+							    let <_21> =
+								call %% Line 702
+								     'erlang':%% Line 702
+									      '++'
+								    (%% Line 702
+								     Pre, %% Line 702
+									  [{'match',Line,Var,_0}|[Update|[]]])
+							    in  %% Line 702
+								{{'block',Line,_21},St}
+							( <_20> when 'true' ->
+							      primop 'match_fail'
+								  ({'badmatch',_20})
+							  -| ['compiler_generated'] )
+						      end
+					  -| ['compiler_generated'] )
+					( <_32> when 'true' ->
+					      ( call ( 'erlang'
+						       -| ['compiler_generated'] ):( 'error'
+										     -| ['compiler_generated'] )
+						    (( {'badrecord','exprec'}
+						       -| ['compiler_generated'] ))
+						-| ['compiler_generated'] )
+					  -| ['compiler_generated'] )
+				      end
+				      -| ['compiler_generated'] )
+				( <_10> when 'true' ->
+				      primop 'match_fail'
+					  ({'badmatch',_10})
+				  -| ['compiler_generated'] )
+			      end
+	      ( <_6> when 'true' ->
+		    primop 'match_fail'
+			({'badmatch',_6})
+		-| ['compiler_generated'] )
+	    end
+'record_match'/6 =
+    %% Line 707
+    fun (_0,_1,_2,_3,_4,_5) ->
+	%% Line 708
+	case apply 'record_upd_fs'/3
+		 (_3, _4, _5) of
+	  <{Ps,News,St1}> when 'true' ->
+	      let <NLr> =
+		  apply %% Line 709
+			'no_compiler_warning'/1
+		      (_2)
+	      in  let <RLine> =
+		      apply %% Line 710
+			    'mark_record'/2
+			  (_2, %% Line 710
+			       St1)
+		  in  let <_9> =
+			  apply %% Line 715
+				'call_error'/2
+			      (%% Line 715
+			       NLr, %% Line 715
+				    {'tuple',NLr,[{'atom',NLr,'badrecord'}|[{'atom',NLr,_1}|[]]]})
+		      in  %% Line 711
+			  {{'case',_2,_0,%% Line 712
+					 [{'clause',_2,[{'tuple',RLine,[{'atom',_2,_1}|Ps]}|[]],[],%% Line 713
+												   [{'tuple',RLine,[{'atom',_2,_1}|News]}|[]]}|%% Line 714
+																	       [{'clause',NLr,[{'var',NLr,'_'}|[]],[],%% Line 715
+																						      [_9|[]]}|%% Line 716
+																							       []]]},%% Line 717
+																								     St1}
+	  ( <_6> when 'true' ->
+		primop 'match_fail'
+		    ({'badmatch',_6})
+	    -| ['compiler_generated'] )
+	end
+'record_upd_fs'/3 =
+    %% Line 719
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <[{'record_field',Lf,{'atom',_X_La,F},_X_Val}|Fs],Us,St0> when 'true' ->
+	      %% Line 720
+	      case apply 'new_var'/2
+		       (Lf, St0) of
+		<{P,St1}> when 'true' ->
+		    %% Line 721
+		    case apply 'record_upd_fs'/3
+			     (Fs, Us, St1) of
+		      <{Ps,News,St2}> when 'true' ->
+			  %% Line 722
+			  case apply 'find_field'/2
+				   (F, Us) of
+			    %% Line 723
+			    <{'ok',New}> when 'true' ->
+				{[P|Ps],[New|News],St2}
+			    %% Line 724
+			    <'error'> when 'true' ->
+				{[P|Ps],[P|News],St2}
+			    ( <_5> when 'true' ->
+				  primop 'match_fail'
+				      ({'case_clause',_5})
+			      -| ['compiler_generated'] )
+			  end
+		      ( <_4> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_4})
+			-| ['compiler_generated'] )
+		    end
+		( <_3> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_3})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 726
+	  <[],_9,St> when 'true' ->
+	      {[],[],St}
+	  ( <_8,_7,_6> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_8,_7,_6})
+		  -| [{'function_name',{'record_upd_fs',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'record_setel'/4 =
+    %% Line 732
+    fun (_0,_1,_2,_3) ->
+	let <_9> =
+	    fun (_6,_5) ->
+		%% Line 733
+		case <_6,_5> of
+		  <{'record_field',Lf,Field,Val},Acc> when 'true' ->
+		      %% Line 734
+		      case apply 'index_expr'/4
+			       (Lf, Field, _1, _2) of
+			<I = {'integer',_34,FieldIndex}> when 'true' ->
+			    %% Line 735
+			    [{FieldIndex,{I,Lf,Val}}|Acc]
+			( <_4> when 'true' ->
+			      primop 'match_fail'
+				  ({'badmatch',_4})
+			  -| ['compiler_generated'] )
+		      end
+		  ( <_8,_7> when 'true' ->
+			( primop 'match_fail'
+			      ({'function_clause',_8,_7})
+			  -| [{'function_name',{'-record_setel/4-fun-0-',2}}] )
+		    -| ['compiler_generated'] )
+		end
+	in  let <Us1> =
+		call %% Line 733
+		     'lists':%% Line 733
+			     'foldl'
+		    (_9, %% Line 736
+			 [], _3)
+	    in  let <Us2> =
+		    call %% Line 737
+			 'lists':%% Line 737
+				 'sort'
+			(%% Line 737
+			 Us1)
+		in  let <_16> =
+			letrec
+			    'lc$^1'/1 =
+				%% Line 738
+				fun (_14) ->
+				    case _14 of
+				      <[{_35,T}|_13]> when 'true' ->
+					  let <_15> =
+					      apply 'lc$^1'/1
+						  (_13)
+					  in  ( [T|_15]
+						-| ['compiler_generated'] )
+				      ( <[_12|_13]> when 'true' ->
+					    apply 'lc$^1'/1
+						(_13)
+					-| ['compiler_generated'] )
+				      <[]> when 'true' ->
+					  []
+				      ( <_36> when 'true' ->
+					    ( primop 'match_fail'
+						  ({'function_clause',_36})
+					      -| [{'function_name',{'lc$^1',1}}] )
+					-| ['compiler_generated'] )
+				    end
+			in  %% Line 738
+			    apply 'lc$^1'/1
+				(Us2)
+		    in  let <_18> =
+			    call %% Line 739
+				 'erlang':%% Line 739
+					  'hd'
+				(_16)
+			in  let <Lr> =
+				call %% Line 739
+				     'erlang':%% Line 739
+					      'element'
+				    (%% Line 739
+				     2, _18)
+			    in  let <_20> =
+				    call %% Line 740
+					 'erlang':%% Line 740
+						  'length'
+					(_2)
+				in  let <Wildcards> =
+					call %% Line 740
+					     'lists':%% Line 740
+						     'duplicate'
+					    (_20, %% Line 740
+						  {'var',Lr,'_'})
+				    in  let <NLr> =
+					    apply %% Line 741
+						  'no_compiler_warning'/1
+						(%% Line 741
+						 Lr)
+					in  let <_27> =
+						fun (_24,_23) ->
+						    %% Line 748
+						    case <_24,_23> of
+						      <{I,Lf,Val},Acc> when 'true' ->
+							  %% Line 749
+							  {'call',Lf,{'remote',Lf,{'atom',Lf,'erlang'},%% Line 750
+												       {'atom',Lf,'setelement'}},%% Line 750
+																 [I|[Acc|[Val|[]]]]}
+						      ( <_26,_25> when 'true' ->
+							    ( primop 'match_fail'
+								  ({'function_clause',_26,_25})
+							      -| [{'function_name',{'-record_setel/4-fun-2-',2}}] )
+							-| ['compiler_generated'] )
+						    end
+					    in  let <_28> =
+						    call %% Line 748
+							 'lists':%% Line 748
+								 'foldr'
+							(_27, _0, _16)
+						in  let <_29> =
+							apply %% Line 753
+							      'call_error'/2
+							    (%% Line 753
+							     NLr, %% Line 753
+								  {'tuple',NLr,[{'atom',NLr,'badrecord'}|[{'atom',NLr,_1}|[]]]})
+						    in  %% Line 746
+							{'case',Lr,_0,%% Line 747
+								      [{'clause',Lr,[{'tuple',Lr,[{'atom',Lr,_1}|Wildcards]}|[]],[],%% Line 748
+																    [_28|%% Line 751
+																	 []]}|%% Line 752
+																	      [{'clause',NLr,[{'var',NLr,'_'}|[]],[],%% Line 753
+																						     [_29|[]]}|%% Line 753
+																							       []]]}
+'record_info_call'/3 =
+    %% Line 758
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <Line,[{'atom',_X_Li,Info}|[{'atom',_X_Ln,Name}|[]]],St> when 'true' ->
+	      %% Line 759
+	      case Info of
+		%% Line 760
+		<'size'> when 'true' ->
+		    let <_3> =
+			apply %% Line 761
+			      'record_fields'/2
+			    (%% Line 761
+			     Name, %% Line 761
+				   St)
+		    in  let <_4> =
+			    call %% Line 761
+				 'erlang':%% Line 761
+					  'length'
+				(_3)
+			in  let <_5> =
+				call %% Line 761
+				     'erlang':%% Line 761
+					      '+'
+				    (%% Line 761
+				     1, _4)
+			    in  %% Line 761
+				{{'integer',Line,_5},St}
+		%% Line 762
+		<'fields'> when 'true' ->
+		    let <_6> =
+			apply %% Line 763
+			      'record_fields'/2
+			    (%% Line 763
+			     Name, %% Line 763
+				   St)
+		    in  let <_7> =
+			    apply %% Line 763
+				  'field_names'/1
+				(_6)
+			in  let <_8> =
+				apply %% Line 763
+				      'make_list'/2
+				    (_7, %% Line 763
+					 Line)
+			    in  %% Line 763
+				{_8,St}
+		( <_9> when 'true' ->
+		      primop 'match_fail'
+			  ({'case_clause',_9})
+		  -| ['compiler_generated'] )
+	      end
+	  ( <_12,_11,_10> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_12,_11,_10})
+		  -| [{'function_name',{'record_info_call',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'record_exprs'/2 =
+    %% Line 770
+    fun (_0,_1) ->
+	%% Line 771
+	apply 'record_exprs'/4
+	    (_0, _1, [], [])
+'record_exprs'/4 =
+    %% Line 773
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <[Field0 = {'record_field',Lf,Name = {'atom',_X_La,_X_F},Val}|Us],St0,Pre,Fs> when 'true' ->
+	      %% Line 774
+	      case apply 'is_simple_val'/1
+		       (Val) of
+		%% Line 775
+		<'true'> when 'true' ->
+		    %% Line 776
+		    apply 'record_exprs'/4
+			(Us, St0, Pre, [Field0|Fs])
+		%% Line 777
+		<'false'> when 'true' ->
+		    %% Line 778
+		    case apply 'new_var'/2
+			     (Lf, St0) of
+		      <{Var,St}> when 'true' ->
+			  let <Bind> =
+			      {%% Line 779
+			       'match',%% Line 779
+				       Lf,%% Line 779
+					  Var,%% Line 779
+					      Val}
+			  in  let <Field> =
+				  {%% Line 780
+				   'record_field',%% Line 780
+						  Lf,%% Line 780
+						     Name,%% Line 780
+							  Var}
+			      in  %% Line 781
+				  apply 'record_exprs'/4
+				      (Us, St, [Bind|Pre], [Field|Fs])
+		      ( <_4> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_4})
+			-| ['compiler_generated'] )
+		    end
+		( <_7> when 'true' ->
+		      primop 'match_fail'
+			  ({'case_clause',_7})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 783
+	  <[],St,Pre,Fs> when 'true' ->
+	      let <_8> =
+		  call %% Line 784
+		       'lists':%% Line 784
+			       'reverse'
+		      (%% Line 784
+		       Pre)
+	      in  %% Line 784
+		  {_8,Fs,St}
+	  ( <_12,_11,_10,_9> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_12,_11,_10,_9})
+		  -| [{'function_name',{'record_exprs',4}}] )
+	    -| ['compiler_generated'] )
+	end
+'is_simple_val'/1 =
+    %% Line 786
+    fun (_0) ->
+	case _0 of
+	  <{'var',_6,_7}> when 'true' ->
+	      'true'
+	  %% Line 787
+	  <Val> when 'true' ->
+	      %% Line 788
+	      try
+		  do  %% Line 789
+		      call 'erl_parse':'normalise'
+			  (Val)
+		      %% Line 790
+		      'true'
+	      of <_1> ->
+		  _1
+	      catch <_4,_3,_2> ->
+		  %% Line 791
+		  case <_4,_3,_2> of
+		    <( 'error'
+		       -| ['compiler_generated'] ),_8,_9> when 'true' ->
+			%% Line 792
+			'false'
+		    ( <_10,_11,_12> when 'true' ->
+			  primop 'raise'
+			      (_12, _11)
+		      -| ['compiler_generated'] )
+		  end
+	end
+'pattern_bin'/2 =
+    %% Line 797
+    fun (_0,_1) ->
+	let <_6> =
+	    fun (_3,_2) ->
+		%% Line 798
+		apply 'pattern_element'/2
+		    (_3, _2)
+	in  %% Line 798
+	    call 'lists':'foldr'
+		(_6, {[],_1}, _0)
+'pattern_element'/2 =
+    %% Line 800
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <{'bin_element',Line,Expr0,Size0,Type},{Es,St0}> when 'true' ->
+	      %% Line 801
+	      case apply 'pattern'/2
+		       (Expr0, St0) of
+		<{Expr,St1}> when 'true' ->
+		    let <_4> =
+			case %% Line 802
+			     Size0 of
+			  %% Line 803
+			  <'default'> when 'true' ->
+			      {Size0,St1}
+			  %% Line 804
+			  <_8> when 'true' ->
+			      apply 'expr'/2
+				  (Size0, St1)
+			end
+		    in  %% Line 802
+			case _4 of
+			  <{Size,St2}> when 'true' ->
+			      %% Line 806
+			      {[{'bin_element',Line,Expr,Size,Type}|Es],St2}
+			  ( <_5> when 'true' ->
+				primop 'match_fail'
+				    ({'badmatch',_5})
+			    -| ['compiler_generated'] )
+			end
+		( <_2> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_2})
+		  -| ['compiler_generated'] )
+	      end
+	  ( <_7,_6> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_7,_6})
+		  -| [{'function_name',{'pattern_element',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'expr_bin'/2 =
+    %% Line 810
+    fun (_0,_1) ->
+	let <_6> =
+	    fun (_3,_2) ->
+		%% Line 811
+		apply 'bin_element'/2
+		    (_3, _2)
+	in  %% Line 811
+	    call 'lists':'foldr'
+		(_6, {[],_1}, _0)
+'bin_element'/2 =
+    %% Line 813
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <{'bin_element',Line,Expr,Size,Type},{Es,St0}> when 'true' ->
+	      %% Line 814
+	      case apply 'expr'/2
+		       (Expr, St0) of
+		<{Expr1,St1}> when 'true' ->
+		    let <_3> =
+			case <> of
+			  %% Line 815
+			  <>
+			      when call 'erlang':'=:='
+				    (Size,
+				     'default') ->
+			      {'default',St1}
+			  %% Line 816
+			  <> when 'true' ->
+			      apply 'expr'/2
+				  (Size, St1)
+			end
+		    in  %% Line 815
+			case _3 of
+			  <{Size1,St2}> when 'true' ->
+			      %% Line 818
+			      {[{'bin_element',Line,Expr1,Size1,Type}|Es],St2}
+			  ( <_4> when 'true' ->
+				primop 'match_fail'
+				    ({'badmatch',_4})
+			    -| ['compiler_generated'] )
+			end
+		( <_2> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_2})
+		  -| ['compiler_generated'] )
+	      end
+	  ( <_6,_5> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_6,_5})
+		  -| [{'function_name',{'bin_element',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'new_vars'/3 =
+    %% Line 820
+    fun (_0,_1,_2) ->
+	apply 'new_vars'/4
+	    (_0, _1, _2, [])
+'new_vars'/4 =
+    %% Line 822
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <N,L,St0,Vs>
+	      when call 'erlang':'>'
+		    (N,
+		     0) ->
+	      %% Line 823
+	      case apply 'new_var'/2
+		       (L, St0) of
+		<{V,St1}> when 'true' ->
+		    let <_5> =
+			call %% Line 824
+			     'erlang':%% Line 824
+				      '-'
+			    (%% Line 824
+			     N, %% Line 824
+				1)
+		    in  %% Line 824
+			apply 'new_vars'/4
+			    (_5, L, St1, [V|Vs])
+		( <_4> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_4})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 825
+	  <0,_X_L,St,Vs> when 'true' ->
+	      {Vs,St}
+	  ( <_9,_8,_7,_6> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_9,_8,_7,_6})
+		  -| [{'function_name',{'new_vars',4}}] )
+	    -| ['compiler_generated'] )
+	end
+'new_var'/2 =
+    %% Line 827
+    fun (_0,_1) ->
+	%% Line 828
+	case apply 'new_var_name'/1
+		 (_1) of
+	  <{New,St1}> when 'true' ->
+	      %% Line 829
+	      {{'var',_0,New},St1}
+	  ( <_2> when 'true' ->
+		primop 'match_fail'
+		    ({'badmatch',_2})
+	    -| ['compiler_generated'] )
+	end
+'new_var_name'/1 =
+    %% Line 831
+    fun (_0) ->
+	%% Line 832
+	( case _0 of
+	    ( <( {'exprec',_12,_rec16,_13,_14,_15,_16}
+		 -| ['compiler_generated'] )> when 'true' ->
+		  let <_8> =
+		      call %% Line 833
+			   'erlang':%% Line 833
+				    'integer_to_list'
+			  (_rec16)
+		  in  let <_9> =
+			  [114|%% Line 833
+			       [101|[99|_8]]]
+		      in  let <_10> =
+			      call %% Line 833
+				   'erlang':%% Line 833
+					    'list_to_atom'
+				  (_9)
+			  in  let <_rec17> =
+				  call %% Line 833
+				       'erlang':%% Line 833
+						'+'
+				      (_rec16, %% Line 833
+					       1)
+			      in  %% Line 833
+				  case _0 of
+				    <{'exprec',_18,_19,_20,_21,_22,_23}> when 'true' ->
+					let <_7> =
+					    call 'erlang':'setelement'
+						(3, _0, _rec17)
+					in  {_10,_7}
+				    ( <_24> when 'true' ->
+					  ( call ( 'erlang'
+						   -| ['compiler_generated'] ):( 'error'
+										 -| ['compiler_generated'] )
+						(( {'badrecord','exprec'}
+						   -| ['compiler_generated'] ))
+					    -| ['compiler_generated'] )
+				      -| ['compiler_generated'] )
+				  end
+	      -| ['compiler_generated'] )
+	    ( <_17> when 'true' ->
+		  ( call ( 'erlang'
+			   -| ['compiler_generated'] ):( 'error'
+							 -| ['compiler_generated'] )
+			(( {'badrecord','exprec'}
+			   -| ['compiler_generated'] ))
+		    -| ['compiler_generated'] )
+	      -| ['compiler_generated'] )
+	  end
+	  -| ['compiler_generated'] )
+'make_list'/2 =
+    %% Line 835
+    fun (_0,_1) ->
+	let <_6> =
+	    fun (_3,_2) ->
+		%% Line 836
+		{'cons',_1,_3,_2}
+	in  %% Line 836
+	    call 'lists':'foldr'
+		(_6, {'nil',_1}, _0)
+'call_error'/2 =
+    %% Line 838
+    fun (_0,_1) ->
+	%% Line 839
+	{'call',_0,{'remote',_0,{'atom',_0,'erlang'},{'atom',_0,'error'}},[_1|[]]}
+'optimize_is_record'/3 =
+    %% Line 845
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <H0,G0,{'exprec',Opts,_10,_11,_12,_13,_14}> when 'true' ->
+	      %% Line 846
+	      case apply 'opt_rec_vars'/1
+		       (G0) of
+		%% Line 847
+		<[]> when 'true' ->
+		    %% Line 848
+		    {H0,G0}
+		%% Line 849
+		<Rs0> when 'true' ->
+		    %% Line 850
+		    case call 'lists':'member'
+			     ('dialyzer', Opts) of
+		      %% Line 851
+		      <'true'> when 'true' ->
+			  %% Line 852
+			  {H0,G0}
+		      %% Line 853
+		      <'false'> when 'true' ->
+			  %% Line 854
+			  case apply 'opt_pattern_list'/2
+				   (H0, Rs0) of
+			    <{H,Rs}> when 'true' ->
+				let <G> =
+				    apply %% Line 855
+					  'opt_remove'/2
+					(%% Line 855
+					 G0, %% Line 855
+					     Rs)
+				in  %% Line 856
+				    {H,G}
+			    ( <_3> when 'true' ->
+				  primop 'match_fail'
+				      ({'badmatch',_3})
+			      -| ['compiler_generated'] )
+			  end
+		      ( <_5> when 'true' ->
+			    primop 'match_fail'
+				({'case_clause',_5})
+			-| ['compiler_generated'] )
+		    end
+	      end
+	  ( <_9,_8,_7> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_9,_8,_7})
+		  -| [{'function_name',{'optimize_is_record',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'opt_rec_vars'/1 =
+    %% Line 877
+    fun (_0) ->
+	case _0 of
+	  <[G|Gs]> when 'true' ->
+	      let <_1> =
+		  call %% Line 878
+		       'orddict':%% Line 878
+				 'new'
+		      ()
+	      in  let <Rs> =
+		      apply %% Line 878
+			    'opt_rec_vars_1'/2
+			  (%% Line 878
+			   G, _1)
+		  in  %% Line 879
+		      apply 'opt_rec_vars'/2
+			  (Gs, Rs)
+	  %% Line 880
+	  <[]> when 'true' ->
+	      call 'orddict':'new'
+		  ()
+	  ( <_3> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_3})
+		  -| [{'function_name',{'opt_rec_vars',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'opt_rec_vars'/2 =
+    %% Line 882
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <[G|Gs],Rs0> when 'true' ->
+	      let <_2> =
+		  call %% Line 883
+		       'orddict':%% Line 883
+				 'new'
+		      ()
+	      in  let <Rs1> =
+		      apply %% Line 883
+			    'opt_rec_vars_1'/2
+			  (%% Line 883
+			   G, _2)
+		  in  let <Rs> =
+			  call %% Line 884
+			       'ordsets':%% Line 884
+					 'intersection'
+			      (%% Line 884
+			       Rs0, %% Line 884
+				    Rs1)
+		      in  %% Line 885
+			  apply 'opt_rec_vars'/2
+			      (Gs, Rs)
+	  %% Line 886
+	  <[],Rs> when 'true' ->
+	      Rs
+	  ( <_6,_5> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_6,_5})
+		  -| [{'function_name',{'opt_rec_vars',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'opt_rec_vars_1'/2 =
+    %% Line 888
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <[T|Ts],Rs0> when 'true' ->
+	      let <Rs> =
+		  apply %% Line 889
+			'opt_rec_vars_2'/2
+		      (%% Line 889
+		       T, %% Line 889
+			  Rs0)
+	      in  %% Line 890
+		  apply 'opt_rec_vars_1'/2
+		      (Ts, Rs)
+	  %% Line 891
+	  <[],Rs> when 'true' ->
+	      Rs
+	  ( <_4,_3> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_4,_3})
+		  -| [{'function_name',{'opt_rec_vars_1',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'opt_rec_vars_2'/2 =
+    %% Line 893
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <{'op',_4,'and',A1,A2},Rs> when 'true' ->
+	      %% Line 894
+	      apply 'opt_rec_vars_1'/2
+		  ([A1|[A2|[]]], Rs)
+	  %% Line 895
+	  <{'op',_5,'andalso',A1,A2},Rs> when 'true' ->
+	      %% Line 896
+	      apply 'opt_rec_vars_1'/2
+		  ([A1|[A2|[]]], Rs)
+	  %% Line 897
+	  <{'op',_6,'orelse',Arg,{'atom',_7,'fail'}},Rs> when 'true' ->
+	      %% Line 900
+	      apply 'opt_rec_vars_2'/2
+		  (Arg, Rs)
+	  %% Line 901
+	  <{'call',_8,{'remote',_9,{'atom',_10,'erlang'},{'atom',_11,'is_record'}},%% Line 902
+										   [{'var',_12,V}|[{'atom',_13,Tag}|[{'integer',_14,Sz}|[]]]]},%% Line 902
+																	       Rs> when 'true' ->
+	      %% Line 903
+	      call 'orddict':'store'
+		  (V, {Tag,Sz}, Rs)
+	  %% Line 904
+	  <{'call',_15,{'atom',_16,'is_record'},%% Line 905
+						[{'var',_17,V}|[{'atom',_18,Tag}|[{'integer',_19,Sz}|[]]]]},%% Line 905
+													    Rs> when 'true' ->
+	      %% Line 906
+	      call 'orddict':'store'
+		  (V, {Tag,Sz}, Rs)
+	  %% Line 907
+	  <_20,Rs> when 'true' ->
+	      Rs
+	end
+'opt_pattern_list'/2 =
+    %% Line 909
+    fun (_0,_1) ->
+	%% Line 910
+	apply 'opt_pattern_list'/3
+	    (_0, _1, [])
+'opt_pattern_list'/3 =
+    %% Line 912
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <[P0|Ps],Rs0,Acc> when 'true' ->
+	      %% Line 913
+	      case apply 'opt_pattern'/2
+		       (P0, Rs0) of
+		<{P,Rs}> when 'true' ->
+		    %% Line 914
+		    apply 'opt_pattern_list'/3
+			(Ps, Rs, [P|Acc])
+		( <_3> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_3})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 915
+	  <[],Rs,Acc> when 'true' ->
+	      let <_4> =
+		  call %% Line 916
+		       'lists':%% Line 916
+			       'reverse'
+		      (%% Line 916
+		       Acc)
+	      in  %% Line 916
+		  {_4,Rs}
+	  ( <_7,_6,_5> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_7,_6,_5})
+		  -| [{'function_name',{'opt_pattern_list',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'opt_pattern'/2 =
+    %% Line 918
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Var = {'var',_12,V},Rs0> when 'true' ->
+	      %% Line 919
+	      case call 'orddict':'find'
+		       (V, Rs0) of
+		%% Line 920
+		<{'ok',{Tag,Sz}}> when 'true' ->
+		    let <Rs> =
+			call %% Line 921
+			     'orddict':%% Line 921
+				       'store'
+			    (%% Line 921
+			     V, %% Line 921
+				{'remove',Tag,Sz}, %% Line 921
+						   Rs0)
+		    in  let <_3> =
+			    apply %% Line 922
+				  'opt_var'/3
+				(%% Line 922
+				 Var, %% Line 922
+				      Tag, %% Line 922
+					   Sz)
+			in  %% Line 922
+			    {_3,Rs}
+		%% Line 923
+		<_13> when 'true' ->
+		    %% Line 924
+		    {Var,Rs0}
+	      end
+	  %% Line 926
+	  <{'cons',Line,H0,T0},Rs0> when 'true' ->
+	      %% Line 927
+	      case apply 'opt_pattern'/2
+		       (H0, Rs0) of
+		<{H,Rs1}> when 'true' ->
+		    %% Line 928
+		    case apply 'opt_pattern'/2
+			     (T0, Rs1) of
+		      <{T,Rs}> when 'true' ->
+			  %% Line 929
+			  {{'cons',Line,H,T},Rs}
+		      ( <_6> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_6})
+			-| ['compiler_generated'] )
+		    end
+		( <_5> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_5})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 930
+	  <{'tuple',Line,Es0},Rs0> when 'true' ->
+	      %% Line 931
+	      case apply 'opt_pattern_list'/2
+		       (Es0, Rs0) of
+		<{Es,Rs}> when 'true' ->
+		    %% Line 932
+		    {{'tuple',Line,Es},Rs}
+		( <_7> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_7})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 933
+	  <{'match',Line,Pa0,Pb0},Rs0> when 'true' ->
+	      %% Line 934
+	      case apply 'opt_pattern'/2
+		       (Pa0, Rs0) of
+		<{Pa,Rs1}> when 'true' ->
+		    %% Line 935
+		    case apply 'opt_pattern'/2
+			     (Pb0, Rs1) of
+		      <{Pb,Rs}> when 'true' ->
+			  %% Line 936
+			  {{'match',Line,Pa,Pb},Rs}
+		      ( <_9> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_9})
+			-| ['compiler_generated'] )
+		    end
+		( <_8> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_8})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 937
+	  <P,Rs> when 'true' ->
+	      {P,Rs}
+	end
+'opt_var'/3 =
+    %% Line 939
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <Var = {'var',Line,_8},Tag,Sz> when 'true' ->
+	      let <Rp> =
+		  apply %% Line 940
+			'record_pattern'/6
+		      (%% Line 940
+		       2, %% Line 940
+			  -1, %% Line 940
+			      'ignore', %% Line 940
+					Sz, %% Line 940
+					    Line, %% Line 940
+						  [{'atom',Line,Tag}|[]])
+	      in  %% Line 941
+		  {'match',Line,{'tuple',Line,Rp},Var}
+	  ( <_7,_6,_5> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_7,_6,_5})
+		  -| [{'function_name',{'opt_var',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'opt_remove'/2 =
+    %% Line 943
+    fun (_0,_1) ->
+	%% Line 944
+	( letrec
+	      'lc$^0'/1 =
+		  fun (_4) ->
+		      case _4 of
+			<[G|_3]> when 'true' ->
+			    let <_5> =
+				apply 'opt_remove_1'/2
+				    (G, _1)
+			    in  let <_6> =
+				    apply 'lc$^0'/1
+					(_3)
+				in  ( [_5|_6]
+				      -| ['compiler_generated'] )
+			<[]> when 'true' ->
+			    []
+			( <_9> when 'true' ->
+			      ( primop 'match_fail'
+				    ({'function_clause',_9})
+				-| [{'function_name',{'lc$^0',1}}] )
+			  -| ['compiler_generated'] )
+		      end
+	  in  apply 'lc$^0'/1
+		  (_0)
+	  -| ['list_comprehension'] )
+'opt_remove_1'/2 =
+    %% Line 946
+    fun (_0,_1) ->
+	%% Line 947
+	( letrec
+	      'lc$^0'/1 =
+		  fun (_4) ->
+		      case _4 of
+			<[T|_3]> when 'true' ->
+			    let <_5> =
+				apply 'opt_remove_2'/2
+				    (T, _1)
+			    in  let <_6> =
+				    apply 'lc$^0'/1
+					(_3)
+				in  ( [_5|_6]
+				      -| ['compiler_generated'] )
+			<[]> when 'true' ->
+			    []
+			( <_9> when 'true' ->
+			      ( primop 'match_fail'
+				    ({'function_clause',_9})
+				-| [{'function_name',{'lc$^0',1}}] )
+			  -| ['compiler_generated'] )
+		      end
+	  in  apply 'lc$^0'/1
+		  (_0)
+	  -| ['list_comprehension'] )
+'opt_remove_2'/2 =
+    %% Line 949
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <{'op',L,Op = 'and',A1,A2},Rs> when 'true' ->
+	      let <_3> =
+		  apply %% Line 950
+			'opt_remove_2'/2
+		      (%% Line 950
+		       A1, %% Line 950
+			   Rs)
+	      in  let <_2> =
+		      apply %% Line 950
+			    'opt_remove_2'/2
+			  (%% Line 950
+			   A2, %% Line 950
+			       Rs)
+		  in  %% Line 950
+		      {'op',L,Op,_3,_2}
+	  %% Line 951
+	  <{'op',L,Op = 'andalso',A1,A2},Rs> when 'true' ->
+	      let <_5> =
+		  apply %% Line 952
+			'opt_remove_2'/2
+		      (%% Line 952
+		       A1, %% Line 952
+			   Rs)
+	      in  let <_4> =
+		      apply %% Line 952
+			    'opt_remove_2'/2
+			  (%% Line 952
+			   A2, %% Line 952
+			       Rs)
+		  in  %% Line 952
+		      {'op',L,Op,_5,_4}
+	  %% Line 953
+	  <{'op',L,'orelse',A1,A2},Rs> when 'true' ->
+	      let <_6> =
+		  apply %% Line 954
+			'opt_remove_2'/2
+		      (%% Line 954
+		       A1, %% Line 954
+			   Rs)
+	      in  %% Line 954
+		  {'op',L,'orelse',_6,A2}
+	  %% Line 955
+	  <%% Line 956
+	   A = {'call',Line,{'remote',_11,{'atom',_12,'erlang'},{'atom',_13,'is_record'}},%% Line 956
+											  [{'var',_14,V}|[{'atom',_15,Tag}|[{'integer',_16,Sz}|[]]]]},%% Line 956
+																		      Rs> when 'true' ->
+	      %% Line 957
+	      case call 'orddict':'find'
+		       (V, Rs) of
+		%% Line 958
+		<{'ok',{'remove',_17,_18}}>
+		    when let <_19> =
+			  call 'erlang':'=:='
+			      (_17, Tag)
+		      in  let <_20> =
+			      call 'erlang':'=:='
+				  (_18, Sz)
+			  in  call 'erlang':'and'
+				  (_19, _20) ->
+		    %% Line 959
+		    {'atom',Line,'true'}
+		%% Line 960
+		<_21> when 'true' ->
+		    %% Line 961
+		    A
+	      end
+	  %% Line 963
+	  <%% Line 964
+	   A = {'call',Line,{'atom',_22,'is_record'},%% Line 964
+						     [{'var',_23,V}|[{'atom',_24,Tag}|[{'integer',_25,Sz}|[]]]]},%% Line 964
+														 Rs> when 'true' ->
+	      %% Line 965
+	      case call 'orddict':'find'
+		       (V, Rs) of
+		%% Line 966
+		<{'ok',{'remove',_26,_27}}>
+		    when let <_28> =
+			  call 'erlang':'=:='
+			      (_26, Tag)
+		      in  let <_29> =
+			      call 'erlang':'=:='
+				  (_27, Sz)
+			  in  call 'erlang':'and'
+				  (_28, _29) ->
+		    %% Line 967
+		    {'atom',Line,'true'}
+		%% Line 968
+		<_30> when 'true' ->
+		    %% Line 969
+		    A
+	      end
+	  %% Line 971
+	  <A,_31> when 'true' ->
+	      A
+	end
+'no_compiler_warning'/1 =
+    %% Line 973
+    fun (_0) ->
+	%% Line 974
+	call 'erl_anno':'set_generated'
+	    ('true', _0)
+'mark_record'/2 =
+    %% Line 976
+    fun (_0,_1) ->
+	%% Line 977
+	( case _1 of
+	    ( <( {'exprec',_rec19,_7,_8,_9,_10,_11}
+		 -| ['compiler_generated'] )> when 'true' ->
+		  case call 'lists':'member'
+			   ('dialyzer', _rec19) of
+		    %% Line 978
+		    <'true'> when 'true' ->
+			call 'erl_anno':'set_record'
+			    ('true', _0)
+		    %% Line 979
+		    <'false'> when 'true' ->
+			_0
+		    ( <_4> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_4})
+		      -| ['compiler_generated'] )
+		  end
+	      -| ['compiler_generated'] )
+	    ( <_12> when 'true' ->
+		  ( call ( 'erlang'
+			   -| ['compiler_generated'] ):( 'error'
+							 -| ['compiler_generated'] )
+			(( {'badrecord','exprec'}
+			   -| ['compiler_generated'] ))
+		    -| ['compiler_generated'] )
+	      -| ['compiler_generated'] )
+	  end
+	  -| ['compiler_generated'] )
+'module_info'/0 =
+    fun () ->
+	call 'erlang':'get_module_info'
+	    ('erl_expand_records')
+'module_info'/1 =
+    fun (_0) ->
+	call 'erlang':'get_module_info'
+	    ('erl_expand_records', _0)
+end

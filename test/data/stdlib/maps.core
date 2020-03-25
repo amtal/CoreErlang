@@ -1,0 +1,1124 @@
+module 'maps' ['filter'/2,
+	       'find'/2,
+	       'fold'/3,
+	       'from_list'/1,
+	       'get'/2,
+	       'get'/3,
+	       'is_key'/2,
+	       'iterator'/1,
+	       'keys'/1,
+	       'map'/2,
+	       'merge'/2,
+	       'module_info'/0,
+	       'module_info'/1,
+	       'new'/0,
+	       'next'/1,
+	       'put'/3,
+	       'remove'/2,
+	       'size'/1,
+	       'take'/2,
+	       'to_list'/1,
+	       'update'/3,
+	       'update_with'/3,
+	       'update_with'/4,
+	       'values'/1,
+	       'with'/2,
+	       'without'/2]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[109|[97|[112|[115|[46|[101|[114|[108]]]]]]]]]]]],1}],
+		%% Line 35
+		'opaque' =
+		    %% Line 35
+		    [{'iterator',{'type',35,'union',[{'type',35,'tuple',[{'var',35,'Key'}|[{'var',35,'Value'}|[{'user_type',35,'iterator',[{'var',35,'Key'}|[{'var',35,'Value'}]]}]]]}|[{'atom',35,'none'}|[{'type',36,'nonempty_improper_list',[{'type',36,'integer',[]}|[{'type',36,'map',[{'type',36,'map_field_assoc',[{'var',36,'Key'}|[{'var',36,'Value'}]]}]}]]}]]]},[{'var',35,'Key'}|[{'var',35,'Value'}]]}],
+		%% Line 38
+		'type' =
+		    %% Line 38
+		    [{'iterator',{'user_type',38,'iterator',[{'type',38,'term',[]}|[{'type',38,'term',[]}]]},[]}],
+		%% Line 40
+		'export_type' =
+		    %% Line 40
+		    [{'iterator',2}|[{'iterator',0}]],
+		%% Line 42
+		'dialyzer' =
+		    %% Line 42
+		    [{'no_improper_lists',{'iterator',1}}],
+		%% Line 47
+		'spec' =
+		    %% Line 47
+		    [{{'get',2},[{'type',47,'bounded_fun',[{'type',47,'fun',[{'type',47,'product',[{'var',47,'Key'}|[{'var',47,'Map'}]]}|[{'var',47,'Value'}]]}|[[{'type',48,'constraint',[{'atom',48,'is_subtype'}|[[{'var',48,'Key'}|[{'type',48,'term',[]}]]]]}|[{'type',49,'constraint',[{'atom',49,'is_subtype'}|[[{'var',49,'Map'}|[{'type',49,'map','any'}]]]]}|[{'type',50,'constraint',[{'atom',50,'is_subtype'}|[[{'var',50,'Value'}|[{'type',50,'term',[]}]]]]}]]]]]}]}],
+		%% Line 54
+		'spec' =
+		    %% Line 54
+		    [{{'find',2},[{'type',54,'bounded_fun',[{'type',54,'fun',[{'type',54,'product',[{'var',54,'Key'}|[{'var',54,'Map'}]]}|[{'type',54,'union',[{'type',54,'tuple',[{'atom',54,'ok'}|[{'var',54,'Value'}]]}|[{'atom',54,'error'}]]}]]}|[[{'type',55,'constraint',[{'atom',55,'is_subtype'}|[[{'var',55,'Map'}|[{'type',55,'map',[{'type',55,'map_field_assoc',[{'var',55,'Key'}|[{'var',55,'Value'}]]}|[{'type',55,'map_field_assoc',[{'var',55,'_'}|[{'var',55,'_'}]]}]]}]]]]}]]]}]}],
+		%% Line 60
+		'spec' =
+		    %% Line 60
+		    [{{'from_list',1},[{'type',60,'bounded_fun',[{'type',60,'fun',[{'type',60,'product',[{'var',60,'List'}]}|[{'var',60,'Map'}]]}|[[{'type',61,'constraint',[{'atom',61,'is_subtype'}|[[{'var',61,'List'}|[{'type',61,'list',[{'type',61,'tuple',[{'var',61,'Key'}|[{'var',61,'Value'}]]}]}]]]]}|[{'type',62,'constraint',[{'atom',62,'is_subtype'}|[[{'var',62,'Key'}|[{'type',62,'term',[]}]]]]}|[{'type',63,'constraint',[{'atom',63,'is_subtype'}|[[{'var',63,'Value'}|[{'type',63,'term',[]}]]]]}|[{'type',64,'constraint',[{'atom',64,'is_subtype'}|[[{'var',64,'Map'}|[{'type',64,'map','any'}]]]]}]]]]]]}]}],
+		%% Line 70
+		'spec' =
+		    %% Line 70
+		    [{{'is_key',2},[{'type',70,'bounded_fun',[{'type',70,'fun',[{'type',70,'product',[{'var',70,'Key'}|[{'var',70,'Map'}]]}|[{'type',70,'boolean',[]}]]}|[[{'type',71,'constraint',[{'atom',71,'is_subtype'}|[[{'var',71,'Key'}|[{'type',71,'term',[]}]]]]}|[{'type',72,'constraint',[{'atom',72,'is_subtype'}|[[{'var',72,'Map'}|[{'type',72,'map','any'}]]]]}]]]]}]}],
+		%% Line 77
+		'spec' =
+		    %% Line 77
+		    [{{'keys',1},[{'type',77,'bounded_fun',[{'type',77,'fun',[{'type',77,'product',[{'var',77,'Map'}]}|[{'var',77,'Keys'}]]}|[[{'type',78,'constraint',[{'atom',78,'is_subtype'}|[[{'var',78,'Map'}|[{'type',78,'map',[{'type',78,'map_field_assoc',[{'var',78,'Key'}|[{'var',78,'_'}]]}]}]]]]}|[{'type',79,'constraint',[{'atom',79,'is_subtype'}|[[{'var',79,'Keys'}|[{'type',79,'list',[{'var',79,'Key'}]}]]]]}]]]]}]}],
+		%% Line 85
+		'spec' =
+		    %% Line 85
+		    [{{'merge',2},[{'type',85,'bounded_fun',[{'type',85,'fun',[{'type',85,'product',[{'var',85,'Map1'}|[{'var',85,'Map2'}]]}|[{'var',85,'Map3'}]]}|[[{'type',86,'constraint',[{'atom',86,'is_subtype'}|[[{'var',86,'Map1'}|[{'type',86,'map','any'}]]]]}|[{'type',87,'constraint',[{'atom',87,'is_subtype'}|[[{'var',87,'Map2'}|[{'type',87,'map','any'}]]]]}|[{'type',88,'constraint',[{'atom',88,'is_subtype'}|[[{'var',88,'Map3'}|[{'type',88,'map','any'}]]]]}]]]]]}]}],
+		%% Line 94
+		'spec' =
+		    %% Line 94
+		    [{{'put',3},[{'type',94,'bounded_fun',[{'type',94,'fun',[{'type',94,'product',[{'var',94,'Key'}|[{'var',94,'Value'}|[{'var',94,'Map1'}]]]}|[{'var',94,'Map2'}]]}|[[{'type',95,'constraint',[{'atom',95,'is_subtype'}|[[{'var',95,'Key'}|[{'type',95,'term',[]}]]]]}|[{'type',96,'constraint',[{'atom',96,'is_subtype'}|[[{'var',96,'Value'}|[{'type',96,'term',[]}]]]]}|[{'type',97,'constraint',[{'atom',97,'is_subtype'}|[[{'var',97,'Map1'}|[{'type',97,'map','any'}]]]]}|[{'type',98,'constraint',[{'atom',98,'is_subtype'}|[[{'var',98,'Map2'}|[{'type',98,'map','any'}]]]]}]]]]]]}]}],
+		%% Line 104
+		'spec' =
+		    %% Line 104
+		    [{{'remove',2},[{'type',104,'bounded_fun',[{'type',104,'fun',[{'type',104,'product',[{'var',104,'Key'}|[{'var',104,'Map1'}]]}|[{'var',104,'Map2'}]]}|[[{'type',105,'constraint',[{'atom',105,'is_subtype'}|[[{'var',105,'Key'}|[{'type',105,'term',[]}]]]]}|[{'type',106,'constraint',[{'atom',106,'is_subtype'}|[[{'var',106,'Map1'}|[{'type',106,'map','any'}]]]]}|[{'type',107,'constraint',[{'atom',107,'is_subtype'}|[[{'var',107,'Map2'}|[{'type',107,'map','any'}]]]]}]]]]]}]}],
+		%% Line 111
+		'spec' =
+		    %% Line 111
+		    [{{'take',2},[{'type',111,'bounded_fun',[{'type',111,'fun',[{'type',111,'product',[{'var',111,'Key'}|[{'var',111,'Map1'}]]}|[{'type',111,'union',[{'type',111,'tuple',[{'var',111,'Value'}|[{'var',111,'Map2'}]]}|[{'atom',111,'error'}]]}]]}|[[{'type',112,'constraint',[{'atom',112,'is_subtype'}|[[{'var',112,'Map1'}|[{'type',112,'map',[{'type',112,'map_field_assoc',[{'var',112,'Key'}|[{'var',112,'Value'}]]}|[{'type',112,'map_field_assoc',[{'var',112,'_'}|[{'var',112,'_'}]]}]]}]]]]}|[{'type',113,'constraint',[{'atom',113,'is_subtype'}|[[{'var',113,'Map2'}|[{'type',113,'map',[{'type',113,'map_field_assoc',[{'var',113,'_'}|[{'var',113,'_'}]]}]}]]]]}]]]]}]}],
+		%% Line 117
+		'spec' =
+		    %% Line 117
+		    [{{'to_list',1},[{'type',117,'bounded_fun',[{'type',117,'fun',[{'type',117,'product',[{'var',117,'Map'}]}|[{'type',117,'list',[{'type',117,'tuple',[{'var',117,'Key'}|[{'var',117,'Value'}]]}]}]]}|[[{'type',118,'constraint',[{'atom',118,'is_subtype'}|[[{'var',118,'Map'}|[{'type',118,'map',[{'type',118,'map_field_assoc',[{'var',118,'Key'}|[{'var',118,'Value'}]]}]}]]]]}]]]}]}],
+		%% Line 131
+		'spec' =
+		    %% Line 131
+		    [{{'update',3},[{'type',131,'bounded_fun',[{'type',131,'fun',[{'type',131,'product',[{'var',131,'Key'}|[{'var',131,'Value'}|[{'var',131,'Map1'}]]]}|[{'var',131,'Map2'}]]}|[[{'type',132,'constraint',[{'atom',132,'is_subtype'}|[[{'var',132,'Map1'}|[{'type',132,'map',[{'type',132,'map_field_exact',[{'var',132,'Key'}|[{'var',132,'_'}]]}|[{'type',132,'map_field_assoc',[{'var',132,'_'}|[{'var',132,'_'}]]}]]}]]]]}|[{'type',133,'constraint',[{'atom',133,'is_subtype'}|[[{'var',133,'Map2'}|[{'type',133,'map',[{'type',133,'map_field_exact',[{'var',133,'Key'}|[{'var',133,'Value'}]]}|[{'type',133,'map_field_assoc',[{'var',133,'_'}|[{'var',133,'_'}]]}]]}]]]]}]]]]}]}],
+		%% Line 138
+		'spec' =
+		    %% Line 138
+		    [{{'values',1},[{'type',138,'bounded_fun',[{'type',138,'fun',[{'type',138,'product',[{'var',138,'Map'}]}|[{'var',138,'Values'}]]}|[[{'type',139,'constraint',[{'atom',139,'is_subtype'}|[[{'var',139,'Map'}|[{'type',139,'map',[{'type',139,'map_field_assoc',[{'var',139,'_'}|[{'var',139,'Value'}]]}]}]]]]}|[{'type',140,'constraint',[{'atom',140,'is_subtype'}|[[{'var',140,'Values'}|[{'type',140,'list',[{'var',140,'Value'}]}]]]]}]]]]}]}],
+		%% Line 146
+		'spec' =
+		    %% Line 146
+		    [{{'new',0},[{'type',146,'bounded_fun',[{'type',146,'fun',[{'type',146,'product',[]}|[{'var',146,'Map'}]]}|[[{'type',147,'constraint',[{'atom',147,'is_subtype'}|[[{'var',147,'Map'}|[{'type',147,'map',[]}]]]]}]]]}]}],
+		%% Line 151
+		'spec' =
+		    %% Line 151
+		    [{{'update_with',3},[{'type',151,'bounded_fun',[{'type',151,'fun',[{'type',151,'product',[{'var',151,'Key'}|[{'var',151,'Fun'}|[{'var',151,'Map1'}]]]}|[{'var',151,'Map2'}]]}|[[{'type',152,'constraint',[{'atom',152,'is_subtype'}|[[{'var',152,'Map1'}|[{'type',152,'map',[{'type',152,'map_field_exact',[{'var',152,'Key'}|[{'var',152,'Value1'}]]}|[{'type',152,'map_field_assoc',[{'var',152,'_'}|[{'var',152,'_'}]]}]]}]]]]}|[{'type',153,'constraint',[{'atom',153,'is_subtype'}|[[{'var',153,'Map2'}|[{'type',153,'map',[{'type',153,'map_field_exact',[{'var',153,'Key'}|[{'var',153,'Value2'}]]}|[{'type',153,'map_field_assoc',[{'var',153,'_'}|[{'var',153,'_'}]]}]]}]]]]}|[{'type',154,'constraint',[{'atom',154,'is_subtype'}|[[{'var',154,'Fun'}|[{'type',154,'fun',[{'type',154,'product',[{'var',154,'Value1'}]}|[{'var',154,'Value2'}]]}]]]]}]]]]]}]}],
+		%% Line 165
+		'spec' =
+		    %% Line 165
+		    [{{'update_with',4},[{'type',165,'bounded_fun',[{'type',165,'fun',[{'type',165,'product',[{'var',165,'Key'}|[{'var',165,'Fun'}|[{'var',165,'Init'}|[{'var',165,'Map1'}]]]]}|[{'var',165,'Map2'}]]}|[[{'type',166,'constraint',[{'atom',166,'is_subtype'}|[[{'var',166,'Map1'}|[{'type',166,'map',[{'type',166,'map_field_assoc',[{'var',166,'Key'}|[{'var',166,'Value1'}]]}|[{'type',166,'map_field_assoc',[{'var',166,'_'}|[{'var',166,'_'}]]}]]}]]]]}|[{'type',167,'constraint',[{'atom',167,'is_subtype'}|[[{'var',167,'Map2'}|[{'type',167,'map',[{'type',167,'map_field_exact',[{'var',167,'Key'}|[{'type',167,'union',[{'var',167,'Value2'}|[{'var',167,'Init'}]]}]]}|[{'type',167,'map_field_assoc',[{'var',167,'_'}|[{'var',167,'_'}]]}]]}]]]]}|[{'type',168,'constraint',[{'atom',168,'is_subtype'}|[[{'var',168,'Fun'}|[{'type',168,'fun',[{'type',168,'product',[{'var',168,'Value1'}]}|[{'var',168,'Value2'}]]}]]]]}]]]]]}]}],
+		%% Line 179
+		'spec' =
+		    %% Line 179
+		    [{{'get',3},[{'type',179,'bounded_fun',[{'type',179,'fun',[{'type',179,'product',[{'var',179,'Key'}|[{'var',179,'Map'}|[{'var',179,'Default'}]]]}|[{'type',179,'union',[{'var',179,'Value'}|[{'var',179,'Default'}]]}]]}|[[{'type',180,'constraint',[{'atom',180,'is_subtype'}|[[{'var',180,'Map'}|[{'type',180,'map',[{'type',180,'map_field_assoc',[{'var',180,'Key'}|[{'var',180,'Value'}]]}|[{'type',180,'map_field_assoc',[{'var',180,'_'}|[{'var',180,'_'}]]}]]}]]]]}]]]}]}],
+		%% Line 191
+		'spec' =
+		    %% Line 191
+		    [{{'filter',2},[{'type',191,'bounded_fun',[{'type',191,'fun',[{'type',191,'product',[{'var',191,'Pred'}|[{'var',191,'MapOrIter'}]]}|[{'var',191,'Map'}]]}|[[{'type',192,'constraint',[{'atom',192,'is_subtype'}|[[{'var',192,'Pred'}|[{'type',192,'fun',[{'type',192,'product',[{'var',192,'Key'}|[{'var',192,'Value'}]]}|[{'type',192,'boolean',[]}]]}]]]]}|[{'type',193,'constraint',[{'atom',193,'is_subtype'}|[[{'var',193,'MapOrIter'}|[{'type',193,'union',[{'type',193,'map',[{'type',193,'map_field_assoc',[{'var',193,'Key'}|[{'var',193,'Value'}]]}]}|[{'user_type',193,'iterator',[{'var',193,'Key'}|[{'var',193,'Value'}]]}]]}]]]]}|[{'type',194,'constraint',[{'atom',194,'is_subtype'}|[[{'var',194,'Map'}|[{'type',194,'map',[{'type',194,'map_field_assoc',[{'var',194,'Key'}|[{'var',194,'Value'}]]}]}]]]]}]]]]]}]}],
+		%% Line 216
+		'spec' =
+		    %% Line 216
+		    [{{'fold',3},[{'type',216,'bounded_fun',[{'type',216,'fun',[{'type',216,'product',[{'var',216,'Fun'}|[{'var',216,'Init'}|[{'var',216,'MapOrIter'}]]]}|[{'var',216,'Acc'}]]}|[[{'type',217,'constraint',[{'atom',217,'is_subtype'}|[[{'var',217,'Fun'}|[{'type',217,'fun',[{'type',217,'product',[{'var',217,'Key'}|[{'var',217,'Value'}|[{'var',217,'AccIn'}]]]}|[{'var',217,'AccOut'}]]}]]]]}|[{'type',218,'constraint',[{'atom',218,'is_subtype'}|[[{'var',218,'Init'}|[{'type',218,'term',[]}]]]]}|[{'type',219,'constraint',[{'atom',219,'is_subtype'}|[[{'var',219,'Acc'}|[{'var',219,'AccOut'}]]]]}|[{'type',220,'constraint',[{'atom',220,'is_subtype'}|[[{'var',220,'AccIn'}|[{'type',220,'union',[{'var',220,'Init'}|[{'var',220,'AccOut'}]]}]]]]}|[{'type',221,'constraint',[{'atom',221,'is_subtype'}|[[{'var',221,'MapOrIter'}|[{'type',221,'union',[{'type',221,'map',[{'type',221,'map_field_assoc',[{'var',221,'Key'}|[{'var',221,'Value'}]]}]}|[{'user_type',221,'iterator',[{'var',221,'Key'}|[{'var',221,'Value'}]]}]]}]]]]}]]]]]]]}]}],
+		%% Line 238
+		'spec' =
+		    %% Line 238
+		    [{{'map',2},[{'type',238,'bounded_fun',[{'type',238,'fun',[{'type',238,'product',[{'var',238,'Fun'}|[{'var',238,'MapOrIter'}]]}|[{'var',238,'Map'}]]}|[[{'type',239,'constraint',[{'atom',239,'is_subtype'}|[[{'var',239,'Fun'}|[{'type',239,'fun',[{'type',239,'product',[{'var',239,'Key'}|[{'var',239,'Value1'}]]}|[{'var',239,'Value2'}]]}]]]]}|[{'type',240,'constraint',[{'atom',240,'is_subtype'}|[[{'var',240,'MapOrIter'}|[{'type',240,'union',[{'type',240,'map',[{'type',240,'map_field_assoc',[{'var',240,'Key'}|[{'var',240,'Value1'}]]}]}|[{'user_type',240,'iterator',[{'var',240,'Key'}|[{'var',240,'Value1'}]]}]]}]]]]}|[{'type',241,'constraint',[{'atom',241,'is_subtype'}|[[{'var',241,'Map'}|[{'type',241,'map',[{'type',241,'map_field_assoc',[{'var',241,'Key'}|[{'var',241,'Value2'}]]}]}]]]]}]]]]]}]}],
+		%% Line 258
+		'spec' =
+		    %% Line 258
+		    [{{'size',1},[{'type',258,'bounded_fun',[{'type',258,'fun',[{'type',258,'product',[{'var',258,'Map'}]}|[{'type',258,'non_neg_integer',[]}]]}|[[{'type',259,'constraint',[{'atom',259,'is_subtype'}|[[{'var',259,'Map'}|[{'type',259,'map','any'}]]]]}]]]}]}],
+		%% Line 266
+		'spec' =
+		    %% Line 266
+		    [{{'iterator',1},[{'type',266,'bounded_fun',[{'type',266,'fun',[{'type',266,'product',[{'var',266,'Map'}]}|[{'var',266,'Iterator'}]]}|[[{'type',267,'constraint',[{'atom',267,'is_subtype'}|[[{'var',267,'Map'}|[{'type',267,'map',[{'type',267,'map_field_assoc',[{'var',267,'Key'}|[{'var',267,'Value'}]]}]}]]]]}|[{'type',268,'constraint',[{'atom',268,'is_subtype'}|[[{'var',268,'Iterator'}|[{'user_type',268,'iterator',[{'var',268,'Key'}|[{'var',268,'Value'}]]}]]]]}]]]]}]}],
+		%% Line 273
+		'spec' =
+		    %% Line 273
+		    [{{'next',1},[{'type',273,'bounded_fun',[{'type',273,'fun',[{'type',273,'product',[{'var',273,'Iterator'}]}|[{'type',273,'union',[{'type',273,'tuple',[{'var',273,'Key'}|[{'var',273,'Value'}|[{'var',273,'NextIterator'}]]]}|[{'atom',273,'none'}]]}]]}|[[{'type',274,'constraint',[{'atom',274,'is_subtype'}|[[{'var',274,'Iterator'}|[{'user_type',274,'iterator',[{'var',274,'Key'}|[{'var',274,'Value'}]]}]]]]}|[{'type',275,'constraint',[{'atom',275,'is_subtype'}|[[{'var',275,'NextIterator'}|[{'user_type',275,'iterator',[{'var',275,'Key'}|[{'var',275,'Value'}]]}]]]]}]]]]}]}],
+		%% Line 285
+		'spec' =
+		    %% Line 285
+		    [{{'without',2},[{'type',285,'bounded_fun',[{'type',285,'fun',[{'type',285,'product',[{'var',285,'Ks'}|[{'var',285,'Map1'}]]}|[{'var',285,'Map2'}]]}|[[{'type',286,'constraint',[{'atom',286,'is_subtype'}|[[{'var',286,'Ks'}|[{'type',286,'list',[{'var',286,'K'}]}]]]]}|[{'type',287,'constraint',[{'atom',287,'is_subtype'}|[[{'var',287,'Map1'}|[{'type',287,'map','any'}]]]]}|[{'type',288,'constraint',[{'atom',288,'is_subtype'}|[[{'var',288,'Map2'}|[{'type',288,'map','any'}]]]]}|[{'type',289,'constraint',[{'atom',289,'is_subtype'}|[[{'var',289,'K'}|[{'type',289,'term',[]}]]]]}]]]]]]}]}],
+		%% Line 296
+		'spec' =
+		    %% Line 296
+		    [{{'with',2},[{'type',296,'bounded_fun',[{'type',296,'fun',[{'type',296,'product',[{'var',296,'Ks'}|[{'var',296,'Map1'}]]}|[{'var',296,'Map2'}]]}|[[{'type',297,'constraint',[{'atom',297,'is_subtype'}|[[{'var',297,'Ks'}|[{'type',297,'list',[{'var',297,'K'}]}]]]]}|[{'type',298,'constraint',[{'atom',298,'is_subtype'}|[[{'var',298,'Map1'}|[{'type',298,'map',[{'type',298,'map_field_assoc',[{'var',298,'K'}|[{'var',298,'V'}]]}|[{'type',298,'map_field_assoc',[{'var',298,'_'}|[{'var',298,'_'}]]}]]}]]]]}|[{'type',299,'constraint',[{'atom',299,'is_subtype'}|[[{'var',299,'Map2'}|[{'type',299,'map',[{'type',299,'map_field_assoc',[{'var',299,'K'}|[{'var',299,'V'}]]}]}]]]]}]]]]]}]}]]
+'get'/2 =
+    %% Line 52
+    fun (_0,_1) ->
+	call 'erlang':'nif_error'
+	    ('undef')
+'find'/2 =
+    %% Line 57
+    fun (_0,_1) ->
+	call 'erlang':'nif_error'
+	    ('undef')
+'from_list'/1 =
+    %% Line 66
+    fun (_0) ->
+	call 'erlang':'nif_error'
+	    ('undef')
+'is_key'/2 =
+    %% Line 74
+    fun (_0,_1) ->
+	call 'erlang':'nif_error'
+	    ('undef')
+'keys'/1 =
+    %% Line 81
+    fun (_0) ->
+	call 'erlang':'nif_error'
+	    ('undef')
+'merge'/2 =
+    %% Line 90
+    fun (_0,_1) ->
+	call 'erlang':'nif_error'
+	    ('undef')
+'put'/3 =
+    %% Line 100
+    fun (_0,_1,_2) ->
+	call 'erlang':'nif_error'
+	    ('undef')
+'remove'/2 =
+    %% Line 109
+    fun (_0,_1) ->
+	call 'erlang':'nif_error'
+	    ('undef')
+'take'/2 =
+    %% Line 115
+    fun (_0,_1) ->
+	call 'erlang':'nif_error'
+	    ('undef')
+'to_list'/1 =
+    %% Line 120
+    fun (_0) ->
+	case _0 of
+	  <Map>
+	      when call 'erlang':'is_map'
+		    (_0) ->
+	      let <_1> =
+		  call %% Line 121
+		       'erts_internal':%% Line 121
+				       'map_next'
+		      (%% Line 121
+		       0, %% Line 121
+			  Map, %% Line 121
+			       [])
+	      in  %% Line 121
+		  apply 'to_list_internal'/1
+		      (_1)
+	  %% Line 122
+	  <Map> when 'true' ->
+	      %% Line 123
+	      call 'erlang':'error'
+		  ({'badmap',Map}, [Map|[]])
+	end
+'to_list_internal'/1 =
+    %% Line 125
+    fun (_0) ->
+	case _0 of
+	  <[Iter|[Map|Acc]]>
+	      when call 'erlang':'is_integer'
+		    (Iter) ->
+	      let <_1> =
+		  call %% Line 126
+		       'erts_internal':%% Line 126
+				       'map_next'
+		      (%% Line 126
+		       Iter, %% Line 126
+			     Map, %% Line 126
+				  Acc)
+	      in  %% Line 126
+		  apply 'to_list_internal'/1
+		      (_1)
+	  %% Line 127
+	  <Acc> when 'true' ->
+	      %% Line 128
+	      Acc
+	end
+'update'/3 =
+    %% Line 135
+    fun (_0,_1,_2) ->
+	call 'erlang':'nif_error'
+	    ('undef')
+'values'/1 =
+    %% Line 142
+    fun (_0) ->
+	call 'erlang':'nif_error'
+	    ('undef')
+'new'/0 =
+    %% Line 149
+    fun () ->
+	~{}~
+'update_with'/3 =
+    %% Line 156
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <Key,Fun,Map>
+	      when try
+		    let <_3> =
+			call 'erlang':'is_function'
+			    (Fun, 1)
+		    in  let <_4> =
+			    call 'erlang':'is_map'
+				(Map)
+			in  call 'erlang':'and'
+				(_3, _4)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      %% Line 157
+	      case Map of
+		%% Line 158
+		<~{Key:=Value}~> when 'true' ->
+		    let <_5> =
+			apply Fun
+			    (Value)
+		    in  case <> of
+			  ( <>
+				when call 'erlang':'is_map'
+				      (Map) ->
+				~{Key:=_5|Map}~
+			    -| ['compiler_generated'] )
+			  ( <> when 'true' ->
+				( primop 'match_fail'
+				      ({'badmap',Map})
+				  -| [{'eval_failure','badmap'}] )
+			    -| ['compiler_generated'] )
+			end
+		%% Line 159
+		<~{}~> when 'true' ->
+		    call 'erlang':'error'
+			({'badkey',Key}, [Key|[Fun|[Map|[]]]])
+		( <_6> when 'true' ->
+		      primop 'match_fail'
+			  ({'case_clause',_6})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 161
+	  <Key,Fun,Map> when 'true' ->
+	      let <_7> =
+		  apply %% Line 162
+			'error_type'/1
+		      (%% Line 162
+		       Map)
+	      in  %% Line 162
+		  call 'erlang':'error'
+		      (_7, [Key|[Fun|[Map|[]]]])
+	end
+'update_with'/4 =
+    %% Line 170
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <Key,Fun,Init,Map>
+	      when try
+		    let <_4> =
+			call 'erlang':'is_function'
+			    (Fun, 1)
+		    in  let <_5> =
+			    call 'erlang':'is_map'
+				(Map)
+			in  call 'erlang':'and'
+				(_4, _5)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      %% Line 171
+	      case Map of
+		%% Line 172
+		<~{Key:=Value}~> when 'true' ->
+		    let <_6> =
+			apply Fun
+			    (Value)
+		    in  case <> of
+			  ( <>
+				when call 'erlang':'is_map'
+				      (Map) ->
+				~{Key:=_6|Map}~
+			    -| ['compiler_generated'] )
+			  ( <> when 'true' ->
+				( primop 'match_fail'
+				      ({'badmap',Map})
+				  -| [{'eval_failure','badmap'}] )
+			    -| ['compiler_generated'] )
+			end
+		%% Line 173
+		<~{}~> when 'true' ->
+		    case <> of
+		      ( <>
+			    when call 'erlang':'is_map'
+				  (Map) ->
+			    ~{Key=>Init|Map}~
+			-| ['compiler_generated'] )
+		      ( <> when 'true' ->
+			    ( primop 'match_fail'
+				  ({'badmap',Map})
+			      -| [{'eval_failure','badmap'}] )
+			-| ['compiler_generated'] )
+		    end
+		( <_7> when 'true' ->
+		      primop 'match_fail'
+			  ({'case_clause',_7})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 175
+	  <Key,Fun,Init,Map> when 'true' ->
+	      let <_8> =
+		  apply %% Line 176
+			'error_type'/1
+		      (%% Line 176
+		       Map)
+	      in  %% Line 176
+		  call 'erlang':'error'
+		      (_8, [Key|[Fun|[Init|[Map|[]]]]])
+	end
+'get'/3 =
+    %% Line 182
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <Key,Map,Default>
+	      when call 'erlang':'is_map'
+		    (Map) ->
+	      %% Line 183
+	      case Map of
+		%% Line 184
+		<~{Key:=Value}~> when 'true' ->
+		    Value
+		%% Line 185
+		<~{}~> when 'true' ->
+		    Default
+		( <_3> when 'true' ->
+		      primop 'match_fail'
+			  ({'case_clause',_3})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 187
+	  <Key,Map,Default> when 'true' ->
+	      %% Line 188
+	      call 'erlang':'error'
+		  ({'badmap',Map}, [Key|[Map|[Default|[]]]])
+	end
+'filter'/2 =
+    %% Line 196
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Pred,Map>
+	      when try
+		    let <_2> =
+			call 'erlang':'is_function'
+			    (Pred, 2)
+		    in  let <_3> =
+			    call 'erlang':'is_map'
+				(Map)
+			in  call 'erlang':'and'
+				(_2, _3)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      let <_4> =
+		  apply %% Line 197
+			'iterator'/1
+		      (%% Line 197
+		       Map)
+	      in  let <_5> =
+		      apply %% Line 197
+			    'filter_1'/2
+			  (%% Line 197
+			   Pred, _4)
+		  in  %% Line 197
+		      call 'maps':'from_list'
+			  (_5)
+	  %% Line 198
+	  <Pred,Iterator>
+	      when let <_12> =
+		    try
+			let <_6> =
+			    call 'erlang':'is_function'
+				(Pred, 2)
+			in  ( let <_10> =
+				  case call 'erlang':'is_tuple'
+					   (Iterator) of
+				    ( <( 'true'
+					 -| ['compiler_generated'] )> when 'true' ->
+					  let <_8> =
+					      call 'erlang':'tuple_size'
+						  (Iterator)
+					  in  call 'erlang':'=:='
+						  (_8, 3)
+				      -| ['compiler_generated'] )
+				    ( <( 'false'
+					 -| ['compiler_generated'] )> when 'true' ->
+					  'false'
+				      -| ['compiler_generated'] )
+				    ( <_7> when 'true' ->
+					  _7
+				      -| ['compiler_generated'] )
+				  end
+			      in  let <_11> =
+				      call 'erlang':'=:='
+					  (( _10
+					     -| ['compiler_generated'] ), 'true')
+				  in  call 'erlang':'and'
+					  (_6, _11)
+			      -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false'
+		in  let <_13> =
+			call 'erlang':'=:='
+			    (Iterator, 'none')
+		    in  let <_19> =
+			    try
+				let <_15> =
+				    call 'erlang':'hd'
+					(Iterator)
+				in  ( let <_18> =
+					  case call 'erlang':'is_integer'
+						   (_15) of
+					    ( <( 'true'
+						 -| ['compiler_generated'] )> when 'true' ->
+						  let <_16> =
+						      call 'erlang':'tl'
+							  (Iterator)
+						  in  call 'erlang':'is_map'
+							  (_16)
+					      -| ['compiler_generated'] )
+					    ( <( 'false'
+						 -| ['compiler_generated'] )> when 'true' ->
+						  'false'
+					      -| ['compiler_generated'] )
+					    ( <_14> when 'true' ->
+						  _14
+					      -| ['compiler_generated'] )
+					  end
+				      in  ( call 'erlang':'=:='
+						(( _18
+						   -| ['compiler_generated'] ), 'true')
+					    -| ['compiler_generated'] )
+				      -| ['compiler_generated'] )
+			    of <Try> ->
+				Try
+			    catch <T,R> ->
+				'false'
+			in  let <_20> =
+				call 'erlang':'or'
+				    (_13, _19)
+			    in  call 'erlang':'or'
+				    (_12, _20) ->
+	      let <_21> =
+		  apply %% Line 199
+			'filter_1'/2
+		      (%% Line 199
+		       Pred, %% Line 199
+			     Iterator)
+	      in  %% Line 199
+		  call 'maps':'from_list'
+		      (_21)
+	  %% Line 200
+	  <Pred,Map> when 'true' ->
+	      let <_22> =
+		  apply %% Line 201
+			'error_type'/1
+		      (%% Line 201
+		       Map)
+	      in  %% Line 201
+		  call 'erlang':'error'
+		      (_22, [Pred|[Map|[]]])
+	end
+'filter_1'/2 =
+    %% Line 203
+    fun (_0,_1) ->
+	%% Line 204
+	case apply 'next'/1
+		 (_1) of
+	  %% Line 205
+	  <{K,V,NextIter}> when 'true' ->
+	      %% Line 206
+	      case apply _0
+		       (K, V) of
+		%% Line 207
+		<'true'> when 'true' ->
+		    let <_2> =
+			apply %% Line 208
+			      'filter_1'/2
+			    (_0, %% Line 208
+				 NextIter)
+		    in  %% Line 208
+			[{K,V}|_2]
+		%% Line 209
+		<'false'> when 'true' ->
+		    %% Line 210
+		    apply 'filter_1'/2
+			(_0, NextIter)
+		( <_3> when 'true' ->
+		      primop 'match_fail'
+			  ({'case_clause',_3})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 212
+	  <'none'> when 'true' ->
+	      %% Line 213
+	      []
+	  ( <_4> when 'true' ->
+		primop 'match_fail'
+		    ({'case_clause',_4})
+	    -| ['compiler_generated'] )
+	end
+'fold'/3 =
+    %% Line 223
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <Fun,Init,Map>
+	      when try
+		    let <_3> =
+			call 'erlang':'is_function'
+			    (Fun, 3)
+		    in  let <_4> =
+			    call 'erlang':'is_map'
+				(Map)
+			in  call 'erlang':'and'
+				(_3, _4)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      let <_5> =
+		  apply %% Line 224
+			'iterator'/1
+		      (%% Line 224
+		       Map)
+	      in  %% Line 224
+		  apply 'fold_1'/3
+		      (Fun, Init, _5)
+	  %% Line 225
+	  <Fun,Init,Iterator>
+	      when let <_12> =
+		    try
+			let <_6> =
+			    call 'erlang':'is_function'
+				(Fun, 3)
+			in  ( let <_10> =
+				  case call 'erlang':'is_tuple'
+					   (Iterator) of
+				    ( <( 'true'
+					 -| ['compiler_generated'] )> when 'true' ->
+					  let <_8> =
+					      call 'erlang':'tuple_size'
+						  (Iterator)
+					  in  call 'erlang':'=:='
+						  (_8, 3)
+				      -| ['compiler_generated'] )
+				    ( <( 'false'
+					 -| ['compiler_generated'] )> when 'true' ->
+					  'false'
+				      -| ['compiler_generated'] )
+				    ( <_7> when 'true' ->
+					  _7
+				      -| ['compiler_generated'] )
+				  end
+			      in  let <_11> =
+				      call 'erlang':'=:='
+					  (( _10
+					     -| ['compiler_generated'] ), 'true')
+				  in  call 'erlang':'and'
+					  (_6, _11)
+			      -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false'
+		in  let <_13> =
+			call 'erlang':'=:='
+			    (Iterator, 'none')
+		    in  let <_19> =
+			    try
+				let <_15> =
+				    call 'erlang':'hd'
+					(Iterator)
+				in  ( let <_18> =
+					  case call 'erlang':'is_integer'
+						   (_15) of
+					    ( <( 'true'
+						 -| ['compiler_generated'] )> when 'true' ->
+						  let <_16> =
+						      call 'erlang':'tl'
+							  (Iterator)
+						  in  call 'erlang':'is_map'
+							  (_16)
+					      -| ['compiler_generated'] )
+					    ( <( 'false'
+						 -| ['compiler_generated'] )> when 'true' ->
+						  'false'
+					      -| ['compiler_generated'] )
+					    ( <_14> when 'true' ->
+						  _14
+					      -| ['compiler_generated'] )
+					  end
+				      in  ( call 'erlang':'=:='
+						(( _18
+						   -| ['compiler_generated'] ), 'true')
+					    -| ['compiler_generated'] )
+				      -| ['compiler_generated'] )
+			    of <Try> ->
+				Try
+			    catch <T,R> ->
+				'false'
+			in  let <_20> =
+				call 'erlang':'or'
+				    (_13, _19)
+			    in  call 'erlang':'or'
+				    (_12, _20) ->
+	      %% Line 226
+	      apply 'fold_1'/3
+		  (Fun, Init, Iterator)
+	  %% Line 227
+	  <Fun,Init,Map> when 'true' ->
+	      let <_21> =
+		  apply %% Line 228
+			'error_type_iter'/1
+		      (%% Line 228
+		       Map)
+	      in  %% Line 228
+		  call 'erlang':'error'
+		      (_21, [Fun|[Init|[Map|[]]]])
+	end
+'fold_1'/3 =
+    %% Line 230
+    fun (_0,_1,_2) ->
+	%% Line 231
+	case apply 'next'/1
+		 (_2) of
+	  %% Line 232
+	  <{K,V,NextIter}> when 'true' ->
+	      let <_3> =
+		  apply _0
+		      (%% Line 233
+		       K, %% Line 233
+			  V, _1)
+	      in  %% Line 233
+		  apply 'fold_1'/3
+		      (_0, _3, NextIter)
+	  %% Line 234
+	  <'none'> when 'true' ->
+	      _1
+	  ( <_4> when 'true' ->
+		primop 'match_fail'
+		    ({'case_clause',_4})
+	    -| ['compiler_generated'] )
+	end
+'map'/2 =
+    %% Line 243
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Fun,Map>
+	      when try
+		    let <_2> =
+			call 'erlang':'is_function'
+			    (Fun, 2)
+		    in  let <_3> =
+			    call 'erlang':'is_map'
+				(Map)
+			in  call 'erlang':'and'
+				(_2, _3)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      let <_4> =
+		  apply %% Line 244
+			'iterator'/1
+		      (%% Line 244
+		       Map)
+	      in  let <_5> =
+		      apply %% Line 244
+			    'map_1'/2
+			  (%% Line 244
+			   Fun, _4)
+		  in  %% Line 244
+		      call 'maps':'from_list'
+			  (_5)
+	  %% Line 245
+	  <Fun,Iterator>
+	      when let <_12> =
+		    try
+			let <_6> =
+			    call 'erlang':'is_function'
+				(Fun, 2)
+			in  ( let <_10> =
+				  case call 'erlang':'is_tuple'
+					   (Iterator) of
+				    ( <( 'true'
+					 -| ['compiler_generated'] )> when 'true' ->
+					  let <_8> =
+					      call 'erlang':'tuple_size'
+						  (Iterator)
+					  in  call 'erlang':'=:='
+						  (_8, 3)
+				      -| ['compiler_generated'] )
+				    ( <( 'false'
+					 -| ['compiler_generated'] )> when 'true' ->
+					  'false'
+				      -| ['compiler_generated'] )
+				    ( <_7> when 'true' ->
+					  _7
+				      -| ['compiler_generated'] )
+				  end
+			      in  let <_11> =
+				      call 'erlang':'=:='
+					  (( _10
+					     -| ['compiler_generated'] ), 'true')
+				  in  call 'erlang':'and'
+					  (_6, _11)
+			      -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false'
+		in  let <_13> =
+			call 'erlang':'=:='
+			    (Iterator, 'none')
+		    in  let <_19> =
+			    try
+				let <_15> =
+				    call 'erlang':'hd'
+					(Iterator)
+				in  ( let <_18> =
+					  case call 'erlang':'is_integer'
+						   (_15) of
+					    ( <( 'true'
+						 -| ['compiler_generated'] )> when 'true' ->
+						  let <_16> =
+						      call 'erlang':'tl'
+							  (Iterator)
+						  in  call 'erlang':'is_map'
+							  (_16)
+					      -| ['compiler_generated'] )
+					    ( <( 'false'
+						 -| ['compiler_generated'] )> when 'true' ->
+						  'false'
+					      -| ['compiler_generated'] )
+					    ( <_14> when 'true' ->
+						  _14
+					      -| ['compiler_generated'] )
+					  end
+				      in  ( call 'erlang':'=:='
+						(( _18
+						   -| ['compiler_generated'] ), 'true')
+					    -| ['compiler_generated'] )
+				      -| ['compiler_generated'] )
+			    of <Try> ->
+				Try
+			    catch <T,R> ->
+				'false'
+			in  let <_20> =
+				call 'erlang':'or'
+				    (_13, _19)
+			    in  call 'erlang':'or'
+				    (_12, _20) ->
+	      let <_21> =
+		  apply %% Line 246
+			'map_1'/2
+		      (%% Line 246
+		       Fun, %% Line 246
+			    Iterator)
+	      in  %% Line 246
+		  call 'maps':'from_list'
+		      (_21)
+	  %% Line 247
+	  <Fun,Map> when 'true' ->
+	      let <_22> =
+		  apply %% Line 248
+			'error_type_iter'/1
+		      (%% Line 248
+		       Map)
+	      in  %% Line 248
+		  call 'erlang':'error'
+		      (_22, [Fun|[Map|[]]])
+	end
+'map_1'/2 =
+    %% Line 250
+    fun (_0,_1) ->
+	%% Line 251
+	case apply 'next'/1
+		 (_1) of
+	  %% Line 252
+	  <{K,V,NextIter}> when 'true' ->
+	      let <_2> =
+		  apply _0
+		      (%% Line 253
+		       K, %% Line 253
+			  V)
+	      in  let <_3> =
+		      apply %% Line 253
+			    'map_1'/2
+			  (_0, %% Line 253
+			       NextIter)
+		  in  %% Line 253
+		      [{K,_2}|_3]
+	  %% Line 254
+	  <'none'> when 'true' ->
+	      %% Line 255
+	      []
+	  ( <_4> when 'true' ->
+		primop 'match_fail'
+		    ({'case_clause',_4})
+	    -| ['compiler_generated'] )
+	end
+'size'/1 =
+    %% Line 261
+    fun (_0) ->
+	case _0 of
+	  <Map>
+	      when call 'erlang':'is_map'
+		    (_0) ->
+	      %% Line 262
+	      call 'erlang':'map_size'
+		  (Map)
+	  %% Line 263
+	  <Val> when 'true' ->
+	      %% Line 264
+	      call 'erlang':'error'
+		  ({'badmap',Val}, [Val|[]])
+	end
+'iterator'/1 =
+    %% Line 270
+    fun (_0) ->
+	case _0 of
+	  <M>
+	      when call 'erlang':'is_map'
+		    (_0) ->
+	      [0|M]
+	  %% Line 271
+	  <M> when 'true' ->
+	      call 'erlang':'error'
+		  ({'badmap',M}, [M|[]])
+	end
+'next'/1 =
+    %% Line 276
+    fun (_0) ->
+	case _0 of
+	  <_@r0 = {K,V,I}> when 'true' ->
+	      %% Line 277
+	      _@r0
+	  %% Line 278
+	  <[Path|Map]>
+	      when let <_1> =
+		    call 'erlang':'is_integer'
+			(Path)
+		in  let <_2> =
+			call 'erlang':'is_map'
+			    (Map)
+		    in  call 'erlang':'and'
+			    (_1, _2) ->
+	      %% Line 279
+	      call 'erts_internal':'map_next'
+		  (Path, Map, 'iterator')
+	  %% Line 280
+	  <'none'> when 'true' ->
+	      %% Line 281
+	      'none'
+	  %% Line 282
+	  <Iter> when 'true' ->
+	      %% Line 283
+	      call 'erlang':'error'
+		  ('badarg', [Iter|[]])
+	end
+'without'/2 =
+    %% Line 291
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Ks,M>
+	      when let <_2> =
+		    call 'erlang':'is_list'
+			(Ks)
+		in  let <_3> =
+			call 'erlang':'is_map'
+			    (M)
+		    in  call 'erlang':'and'
+			    (_2, _3) ->
+	      %% Line 292
+	      call 'lists':'foldl'
+		  (fun 'maps':'remove'/2, M, Ks)
+	  %% Line 293
+	  <Ks,M> when 'true' ->
+	      let <_5> =
+		  apply %% Line 294
+			'error_type'/1
+		      (%% Line 294
+		       M)
+	      in  %% Line 294
+		  call 'erlang':'error'
+		      (_5, [Ks|[M|[]]])
+	end
+'with'/2 =
+    %% Line 301
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Ks,Map1>
+	      when let <_2> =
+		    call 'erlang':'is_list'
+			(Ks)
+		in  let <_3> =
+			call 'erlang':'is_map'
+			    (Map1)
+		    in  call 'erlang':'and'
+			    (_2, _3) ->
+	      let <_4> =
+		  apply %% Line 302
+			'with_1'/2
+		      (%% Line 302
+		       Ks, %% Line 302
+			   Map1)
+	      in  %% Line 302
+		  call 'maps':'from_list'
+		      (_4)
+	  %% Line 303
+	  <Ks,M> when 'true' ->
+	      let <_5> =
+		  apply %% Line 304
+			'error_type'/1
+		      (%% Line 304
+		       M)
+	      in  %% Line 304
+		  call 'erlang':'error'
+		      (_5, [Ks|[M|[]]])
+	end
+'with_1'/2 =
+    %% Line 306
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <[K|Ks],Map> when 'true' ->
+	      %% Line 307
+	      case Map of
+		%% Line 308
+		<~{K:=V}~> when 'true' ->
+		    let <_2> =
+			apply 'with_1'/2
+			    (Ks, Map)
+		    in  [{K,V}|_2]
+		%% Line 309
+		<~{}~> when 'true' ->
+		    apply 'with_1'/2
+			(Ks, Map)
+		( <_3> when 'true' ->
+		      primop 'match_fail'
+			  ({'case_clause',_3})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 311
+	  <[],_X_Map> when 'true' ->
+	      []
+	  ( <_5,_4> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_5,_4})
+		  -| [{'function_name',{'with_1',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'error_type'/1 =
+    %% Line 313
+    fun (_0) ->
+	case _0 of
+	  <M>
+	      when call 'erlang':'is_map'
+		    (_0) ->
+	      'badarg'
+	  %% Line 314
+	  <V> when 'true' ->
+	      {'badmap',V}
+	end
+'error_type_iter'/1 =
+    %% Line 316
+    fun (_0) ->
+	case _0 of
+	  <M>
+	      when let <_1> =
+		    call 'erlang':'is_map'
+			(_0)
+		in  let <_6> =
+			try
+			    ( let <_5> =
+				  case call 'erlang':'is_tuple'
+					   (_0) of
+				    ( <( 'true'
+					 -| ['compiler_generated'] )> when 'true' ->
+					  let <_3> =
+					      call 'erlang':'tuple_size'
+						  (_0)
+					  in  call 'erlang':'=:='
+						  (_3, 3)
+				      -| ['compiler_generated'] )
+				    ( <( 'false'
+					 -| ['compiler_generated'] )> when 'true' ->
+					  'false'
+				      -| ['compiler_generated'] )
+				    ( <_2> when 'true' ->
+					  _2
+				      -| ['compiler_generated'] )
+				  end
+			      in  ( call 'erlang':'=:='
+					(( _5
+					   -| ['compiler_generated'] ), 'true')
+				    -| ['compiler_generated'] )
+			      -| ['compiler_generated'] )
+			of <Try> ->
+			    Try
+			catch <T,R> ->
+			    'false'
+		    in  let <_7> =
+			    call 'erlang':'=:='
+				(_0, 'none')
+			in  let <_13> =
+				try
+				    let <_9> =
+					call 'erlang':'hd'
+					    (_0)
+				    in  ( let <_12> =
+					      case call 'erlang':'is_integer'
+						       (_9) of
+						( <( 'true'
+						     -| ['compiler_generated'] )> when 'true' ->
+						      let <_10> =
+							  call 'erlang':'tl'
+							      (_0)
+						      in  call 'erlang':'is_map'
+							      (_10)
+						  -| ['compiler_generated'] )
+						( <( 'false'
+						     -| ['compiler_generated'] )> when 'true' ->
+						      'false'
+						  -| ['compiler_generated'] )
+						( <_8> when 'true' ->
+						      _8
+						  -| ['compiler_generated'] )
+					      end
+					  in  ( call 'erlang':'=:='
+						    (( _12
+						       -| ['compiler_generated'] ), 'true')
+						-| ['compiler_generated'] )
+					  -| ['compiler_generated'] )
+				of <Try> ->
+				    Try
+				catch <T,R> ->
+				    'false'
+			    in  let <_14> =
+				    call 'erlang':'or'
+					(_7, _13)
+				in  let <_15> =
+					call 'erlang':'or'
+					    (_6, _14)
+				    in  call 'erlang':'or'
+					    (_1, _15) ->
+	      'badarg'
+	  %% Line 317
+	  <V> when 'true' ->
+	      {'badmap',V}
+	end
+'module_info'/0 =
+    fun () ->
+	call 'erlang':'get_module_info'
+	    ('maps')
+'module_info'/1 =
+    fun (_0) ->
+	call 'erlang':'get_module_info'
+	    ('maps', _0)
+end

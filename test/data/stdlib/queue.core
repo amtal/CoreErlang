@@ -1,0 +1,2284 @@
+module 'queue' ['cons'/2,
+		'daeh'/1,
+		'drop'/1,
+		'drop_r'/1,
+		'filter'/2,
+		'from_list'/1,
+		'get'/1,
+		'get_r'/1,
+		'head'/1,
+		'in'/2,
+		'in_r'/2,
+		'init'/1,
+		'is_empty'/1,
+		'is_queue'/1,
+		'join'/2,
+		'lait'/1,
+		'last'/1,
+		'len'/1,
+		'liat'/1,
+		'member'/2,
+		'module_info'/0,
+		'module_info'/1,
+		'new'/0,
+		'out'/1,
+		'out_r'/1,
+		'peek'/1,
+		'peek_r'/1,
+		'reverse'/1,
+		'snoc'/2,
+		'split'/2,
+		'tail'/1,
+		'to_list'/1]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[113|[117|[101|[117|[101|[46|[101|[114|[108]]]]]]]]]]]]],1}],
+		%% Line 36
+		'export_type' =
+		    %% Line 36
+		    [{'queue',0}|[{'queue',1}]],
+		%% Line 53
+		'opaque' =
+		    %% Line 53
+		    [{'queue',{'type',53,'tuple',[{'type',53,'list',[{'var',53,'Item'}]}|[{'type',53,'list',[{'var',53,'Item'}]}]]},[{'var',53,'Item'}]}],
+		%% Line 55
+		'type' =
+		    %% Line 55
+		    [{'queue',{'user_type',55,'queue',[{'var',55,'_'}]},[]}],
+		%% Line 60
+		'spec' =
+		    %% Line 60
+		    [{{'new',0},[{'type',60,'fun',[{'type',60,'product',[]}|[{'user_type',60,'queue',[]}]]}]}],
+		%% Line 64
+		'spec' =
+		    %% Line 64
+		    [{{'is_queue',1},[{'type',64,'fun',[{'type',64,'product',[{'ann_type',64,[{'var',64,'Term'}|[{'type',64,'term',[]}]]}]}|[{'type',64,'boolean',[]}]]}]}],
+		%% Line 71
+		'spec' =
+		    %% Line 71
+		    [{{'is_empty',1},[{'type',71,'fun',[{'type',71,'product',[{'ann_type',71,[{'var',71,'Q'}|[{'user_type',71,'queue',[]}]]}]}|[{'type',71,'boolean',[]}]]}]}],
+		%% Line 80
+		'spec' =
+		    %% Line 80
+		    [{{'len',1},[{'type',80,'fun',[{'type',80,'product',[{'ann_type',80,[{'var',80,'Q'}|[{'user_type',80,'queue',[]}]]}]}|[{'type',80,'non_neg_integer',[]}]]}]}],
+		%% Line 87
+		'spec' =
+		    %% Line 87
+		    [{{'to_list',1},[{'type',87,'fun',[{'type',87,'product',[{'ann_type',87,[{'var',87,'Q'}|[{'user_type',87,'queue',[{'var',87,'Item'}]}]]}]}|[{'type',87,'list',[{'var',87,'Item'}]}]]}]}],
+		%% Line 96
+		'spec' =
+		    %% Line 96
+		    [{{'from_list',1},[{'type',96,'fun',[{'type',96,'product',[{'ann_type',96,[{'var',96,'L'}|[{'type',96,'list',[{'var',96,'Item'}]}]]}]}|[{'user_type',96,'queue',[{'var',96,'Item'}]}]]}]}],
+		%% Line 105
+		'spec' =
+		    %% Line 105
+		    [{{'member',2},[{'type',105,'fun',[{'type',105,'product',[{'var',105,'Item'}|[{'ann_type',105,[{'var',105,'Q'}|[{'user_type',105,'queue',[{'var',105,'Item'}]}]]}]]}|[{'type',105,'boolean',[]}]]}]}],
+		%% Line 118
+		'spec' =
+		    %% Line 118
+		    [{{'in',2},[{'type',118,'fun',[{'type',118,'product',[{'var',118,'Item'}|[{'ann_type',118,[{'var',118,'Q1'}|[{'user_type',118,'queue',[{'var',118,'Item'}]}]]}]]}|[{'ann_type',118,[{'var',118,'Q2'}|[{'user_type',118,'queue',[{'var',118,'Item'}]}]]}]]}]}],
+		%% Line 130
+		'spec' =
+		    %% Line 130
+		    [{{'in_r',2},[{'type',130,'fun',[{'type',130,'product',[{'var',130,'Item'}|[{'ann_type',130,[{'var',130,'Q1'}|[{'user_type',130,'queue',[{'var',130,'Item'}]}]]}]]}|[{'ann_type',130,[{'var',130,'Q2'}|[{'user_type',130,'queue',[{'var',130,'Item'}]}]]}]]}]}],
+		%% Line 141
+		'spec' =
+		    %% Line 141
+		    [{{'out',1},[{'type',141,'fun',[{'type',141,'product',[{'ann_type',141,[{'var',141,'Q1'}|[{'user_type',141,'queue',[{'var',141,'Item'}]}]]}]}|[{'type',142,'union',[{'type',142,'tuple',[{'type',142,'tuple',[{'atom',142,'value'}|[{'var',142,'Item'}]]}|[{'ann_type',142,[{'var',142,'Q2'}|[{'user_type',142,'queue',[{'var',142,'Item'}]}]]}]]}|[{'type',143,'tuple',[{'atom',143,'empty'}|[{'ann_type',143,[{'var',143,'Q1'}|[{'user_type',143,'queue',[{'var',143,'Item'}]}]]}]]}]]}]]}]}],
+		%% Line 161
+		'spec' =
+		    %% Line 161
+		    [{{'out_r',1},[{'type',161,'fun',[{'type',161,'product',[{'ann_type',161,[{'var',161,'Q1'}|[{'user_type',161,'queue',[{'var',161,'Item'}]}]]}]}|[{'type',162,'union',[{'type',162,'tuple',[{'type',162,'tuple',[{'atom',162,'value'}|[{'var',162,'Item'}]]}|[{'ann_type',162,[{'var',162,'Q2'}|[{'user_type',162,'queue',[{'var',162,'Item'}]}]]}]]}|[{'type',163,'tuple',[{'atom',163,'empty'}|[{'ann_type',163,[{'var',163,'Q1'}|[{'user_type',163,'queue',[{'var',163,'Item'}]}]]}]]}]]}]]}]}],
+		%% Line 184
+		'spec' =
+		    %% Line 184
+		    [{{'get',1},[{'type',184,'fun',[{'type',184,'product',[{'ann_type',184,[{'var',184,'Q'}|[{'user_type',184,'queue',[{'var',184,'Item'}]}]]}]}|[{'var',184,'Item'}]]}]}],
+		%% Line 192
+		'spec' =
+		    %% Line 192
+		    [{{'get',2},[{'type',192,'fun',[{'type',192,'product',[{'type',192,'list',[]}|[{'type',192,'list',[]}]]}|[{'type',192,'term',[]}]]}]}],
+		%% Line 203
+		'spec' =
+		    %% Line 203
+		    [{{'get_r',1},[{'type',203,'fun',[{'type',203,'product',[{'ann_type',203,[{'var',203,'Q'}|[{'user_type',203,'queue',[{'var',203,'Item'}]}]]}]}|[{'var',203,'Item'}]]}]}],
+		%% Line 218
+		'spec' =
+		    %% Line 218
+		    [{{'peek',1},[{'type',218,'fun',[{'type',218,'product',[{'ann_type',218,[{'var',218,'Q'}|[{'user_type',218,'queue',[{'var',218,'Item'}]}]]}]}|[{'type',218,'union',[{'atom',218,'empty'}|[{'type',218,'tuple',[{'atom',218,'value'}|[{'var',218,'Item'}]]}]]}]]}]}],
+		%% Line 233
+		'spec' =
+		    %% Line 233
+		    [{{'peek_r',1},[{'type',233,'fun',[{'type',233,'product',[{'ann_type',233,[{'var',233,'Q'}|[{'user_type',233,'queue',[{'var',233,'Item'}]}]]}]}|[{'type',233,'union',[{'atom',233,'empty'}|[{'type',233,'tuple',[{'atom',233,'value'}|[{'var',233,'Item'}]]}]]}]]}]}],
+		%% Line 248
+		'spec' =
+		    %% Line 248
+		    [{{'drop',1},[{'type',248,'fun',[{'type',248,'product',[{'ann_type',248,[{'var',248,'Q1'}|[{'user_type',248,'queue',[{'var',248,'Item'}]}]]}]}|[{'ann_type',248,[{'var',248,'Q2'}|[{'user_type',248,'queue',[{'var',248,'Item'}]}]]}]]}]}],
+		%% Line 266
+		'spec' =
+		    %% Line 266
+		    [{{'drop_r',1},[{'type',266,'fun',[{'type',266,'product',[{'ann_type',266,[{'var',266,'Q1'}|[{'user_type',266,'queue',[{'var',266,'Item'}]}]]}]}|[{'ann_type',266,[{'var',266,'Q2'}|[{'user_type',266,'queue',[{'var',266,'Item'}]}]]}]]}]}],
+		%% Line 287
+		'spec' =
+		    %% Line 287
+		    [{{'reverse',1},[{'type',287,'fun',[{'type',287,'product',[{'ann_type',287,[{'var',287,'Q1'}|[{'user_type',287,'queue',[{'var',287,'Item'}]}]]}]}|[{'ann_type',287,[{'var',287,'Q2'}|[{'user_type',287,'queue',[{'var',287,'Item'}]}]]}]]}]}],
+		%% Line 297
+		'spec' =
+		    %% Line 297
+		    [{{'join',2},[{'type',297,'fun',[{'type',297,'product',[{'ann_type',297,[{'var',297,'Q1'}|[{'user_type',297,'queue',[{'var',297,'Item'}]}]]}|[{'ann_type',297,[{'var',297,'Q2'}|[{'user_type',297,'queue',[{'var',297,'Item'}]}]]}]]}|[{'ann_type',297,[{'var',297,'Q3'}|[{'user_type',297,'queue',[{'var',297,'Item'}]}]]}]]}]}],
+		%% Line 311
+		'spec' =
+		    %% Line 311
+		    [{{'split',2},[{'type',311,'fun',[{'type',311,'product',[{'ann_type',311,[{'var',311,'N'}|[{'type',311,'non_neg_integer',[]}]]}|[{'ann_type',311,[{'var',311,'Q1'}|[{'user_type',311,'queue',[{'var',311,'Item'}]}]]}]]}|[{'type',312,'tuple',[{'ann_type',312,[{'var',312,'Q2'}|[{'user_type',312,'queue',[{'var',312,'Item'}]}]]}|[{'ann_type',312,[{'var',312,'Q3'}|[{'user_type',312,'queue',[{'var',312,'Item'}]}]]}]]}]]}]}],
+		%% Line 353
+		'spec' =
+		    %% Line 353
+		    [{{'filter',2},[{'type',353,'bounded_fun',[{'type',353,'fun',[{'type',353,'product',[{'var',353,'Fun'}|[{'ann_type',353,[{'var',353,'Q1'}|[{'user_type',353,'queue',[{'var',353,'Item'}]}]]}]]}|[{'ann_type',353,[{'var',353,'Q2'}|[{'user_type',353,'queue',[{'var',353,'Item'}]}]]}]]}|[[{'type',354,'constraint',[{'atom',354,'is_subtype'}|[[{'var',354,'Fun'}|[{'type',354,'fun',[{'type',354,'product',[{'var',354,'Item'}]}|[{'type',354,'union',[{'type',354,'boolean',[]}|[{'type',354,'list',[{'var',354,'Item'}]}]]}]]}]]]]}]]]}]}],
+		%% Line 430
+		'spec' =
+		    %% Line 430
+		    [{{'cons',2},[{'type',430,'fun',[{'type',430,'product',[{'var',430,'Item'}|[{'ann_type',430,[{'var',430,'Q1'}|[{'user_type',430,'queue',[{'var',430,'Item'}]}]]}]]}|[{'ann_type',430,[{'var',430,'Q2'}|[{'user_type',430,'queue',[{'var',430,'Item'}]}]]}]]}]}],
+		%% Line 439
+		'spec' =
+		    %% Line 439
+		    [{{'head',1},[{'type',439,'fun',[{'type',439,'product',[{'ann_type',439,[{'var',439,'Q'}|[{'user_type',439,'queue',[{'var',439,'Item'}]}]]}]}|[{'var',439,'Item'}]]}]}],
+		%% Line 449
+		'spec' =
+		    %% Line 449
+		    [{{'tail',1},[{'type',449,'fun',[{'type',449,'product',[{'ann_type',449,[{'var',449,'Q1'}|[{'user_type',449,'queue',[{'var',449,'Item'}]}]]}]}|[{'ann_type',449,[{'var',449,'Q2'}|[{'user_type',449,'queue',[{'var',449,'Item'}]}]]}]]}]}],
+		%% Line 457
+		'spec' =
+		    %% Line 457
+		    [{{'snoc',2},[{'type',457,'fun',[{'type',457,'product',[{'ann_type',457,[{'var',457,'Q1'}|[{'user_type',457,'queue',[{'var',457,'Item'}]}]]}|[{'var',457,'Item'}]]}|[{'ann_type',457,[{'var',457,'Q2'}|[{'user_type',457,'queue',[{'var',457,'Item'}]}]]}]]}]}],
+		%% Line 462
+		'spec' =
+		    %% Line 462
+		    [{{'daeh',1},[{'type',462,'fun',[{'type',462,'product',[{'ann_type',462,[{'var',462,'Q'}|[{'user_type',462,'queue',[{'var',462,'Item'}]}]]}]}|[{'var',462,'Item'}]]}]}],
+		%% Line 464
+		'spec' =
+		    %% Line 464
+		    [{{'last',1},[{'type',464,'fun',[{'type',464,'product',[{'ann_type',464,[{'var',464,'Q'}|[{'user_type',464,'queue',[{'var',464,'Item'}]}]]}]}|[{'var',464,'Item'}]]}]}],
+		%% Line 468
+		'spec' =
+		    %% Line 468
+		    [{{'liat',1},[{'type',468,'fun',[{'type',468,'product',[{'ann_type',468,[{'var',468,'Q1'}|[{'user_type',468,'queue',[{'var',468,'Item'}]}]]}]}|[{'ann_type',468,[{'var',468,'Q2'}|[{'user_type',468,'queue',[{'var',468,'Item'}]}]]}]]}]}],
+		%% Line 470
+		'spec' =
+		    %% Line 470
+		    [{{'lait',1},[{'type',470,'fun',[{'type',470,'product',[{'ann_type',470,[{'var',470,'Q1'}|[{'user_type',470,'queue',[{'var',470,'Item'}]}]]}]}|[{'ann_type',470,[{'var',470,'Q2'}|[{'user_type',470,'queue',[{'var',470,'Item'}]}]]}]]}]}],
+		%% Line 472
+		'spec' =
+		    %% Line 472
+		    [{{'init',1},[{'type',472,'fun',[{'type',472,'product',[{'ann_type',472,[{'var',472,'Q1'}|[{'user_type',472,'queue',[{'var',472,'Item'}]}]]}]}|[{'ann_type',472,[{'var',472,'Q2'}|[{'user_type',472,'queue',[{'var',472,'Item'}]}]]}]]}]}],
+		%% Line 478
+		'compile' =
+		    %% Line 478
+		    [{'inline',[{'r2f',1}|[{'f2r',1}]]}]]
+'new'/0 =
+    %% Line 61
+    fun () ->
+	{[],[]}
+'is_queue'/1 =
+    %% Line 65
+    fun (_0) ->
+	case _0 of
+	  <{R,F}>
+	      when let <_1> =
+		    call 'erlang':'is_list'
+			(R)
+		in  let <_2> =
+			call 'erlang':'is_list'
+			    (F)
+		    in  call 'erlang':'and'
+			    (_1, _2) ->
+	      %% Line 66
+	      'true'
+	  %% Line 67
+	  <_4> when 'true' ->
+	      %% Line 68
+	      'false'
+	end
+'is_empty'/1 =
+    %% Line 72
+    fun (_0) ->
+	case _0 of
+	  <{[],[]}> when 'true' ->
+	      %% Line 73
+	      'true'
+	  %% Line 74
+	  <{In,Out}>
+	      when let <_1> =
+		    call 'erlang':'is_list'
+			(In)
+		in  let <_2> =
+			call 'erlang':'is_list'
+			    (Out)
+		    in  call 'erlang':'and'
+			    (_1, _2) ->
+	      %% Line 75
+	      'false'
+	  %% Line 76
+	  <Q> when 'true' ->
+	      %% Line 77
+	      call 'erlang':'error'
+		  ('badarg', [Q|[]])
+	end
+'len'/1 =
+    %% Line 81
+    fun (_0) ->
+	case _0 of
+	  <{R,F}>
+	      when let <_1> =
+		    call 'erlang':'is_list'
+			(R)
+		in  let <_2> =
+			call 'erlang':'is_list'
+			    (F)
+		    in  call 'erlang':'and'
+			    (_1, _2) ->
+	      let <_4> =
+		  call %% Line 82
+		       'erlang':%% Line 82
+				'length'
+		      (%% Line 82
+		       R)
+	      in  let <_3> =
+		      call %% Line 82
+			   'erlang':%% Line 82
+				    'length'
+			  (%% Line 82
+			   F)
+		  in  %% Line 82
+		      call 'erlang':'+'
+			  (_4, _3)
+	  %% Line 83
+	  <Q> when 'true' ->
+	      %% Line 84
+	      call 'erlang':'error'
+		  ('badarg', [Q|[]])
+	end
+'to_list'/1 =
+    %% Line 88
+    fun (_0) ->
+	case _0 of
+	  <{In,Out}>
+	      when let <_1> =
+		    call 'erlang':'is_list'
+			(In)
+		in  let <_2> =
+			call 'erlang':'is_list'
+			    (Out)
+		    in  call 'erlang':'and'
+			    (_1, _2) ->
+	      let <_3> =
+		  call %% Line 89
+		       'lists':%% Line 89
+			       'reverse'
+		      (%% Line 89
+		       In, %% Line 89
+			   [])
+	      in  %% Line 89
+		  call 'erlang':'++'
+		      (Out, _3)
+	  %% Line 90
+	  <Q> when 'true' ->
+	      %% Line 91
+	      call 'erlang':'error'
+		  ('badarg', [Q|[]])
+	end
+'from_list'/1 =
+    %% Line 97
+    fun (_0) ->
+	case _0 of
+	  <L>
+	      when call 'erlang':'is_list'
+		    (_0) ->
+	      %% Line 492
+	      ( case L of
+		  ( <( []
+		       -| ['compiler_generated'] )> when ( 'true'
+							   -| ['compiler_generated'] ) ->
+			%% Line 493
+			( {[],[]}
+			  -| ['compiler_generated'] )
+		    -| ['compiler_generated'] )
+		  %% Line 494
+		  ( <( F = ( [_7|( []
+				   -| ['compiler_generated'] )]
+			     -| ['compiler_generated'] )
+		       -| ['compiler_generated'] )> when ( 'true'
+							   -| ['compiler_generated'] ) ->
+			%% Line 495
+			( {F,( []
+			       -| ['compiler_generated'] )}
+			  -| ['compiler_generated'] )
+		    -| ['compiler_generated'] )
+		  %% Line 496
+		  ( <( [X|( ( _@r0
+			      -| ['compiler_generated'] ) = ( [Y|( []
+								   -| ['compiler_generated'] )]
+							      -| ['compiler_generated'] )
+			    -| ['compiler_generated'] )]
+		       -| ['compiler_generated'] )> when ( 'true'
+							   -| ['compiler_generated'] ) ->
+			%% Line 497
+			( {( _@r0
+			     -| ['compiler_generated'] ),( [X|( []
+								-| ['compiler_generated'] )]
+							   -| ['compiler_generated'] )}
+			  -| ['compiler_generated'] )
+		    -| ['compiler_generated'] )
+		  %% Line 498
+		  ( <List> when ( 'true'
+				  -| ['compiler_generated'] ) ->
+			( let <_1> =
+			      call %% Line 499
+				   ( 'erlang'
+				     -| ['compiler_generated'] ):%% Line 499
+								 ( 'length'
+								   -| ['compiler_generated'] )
+				  (%% Line 499
+				   List)
+			  in  ( let <_2> =
+				    call %% Line 499
+					 ( 'erlang'
+					   -| ['compiler_generated'] ):%% Line 499
+								       ( 'div'
+									 -| ['compiler_generated'] )
+					(_1, %% Line 499
+					     ( 2
+					       -| ['compiler_generated'] ))
+				in  ( let <_3> =
+					  call %% Line 499
+					       ( 'erlang'
+						 -| ['compiler_generated'] ):%% Line 499
+									     ( '+'
+									       -| ['compiler_generated'] )
+					      (_2, %% Line 499
+						   ( 1
+						     -| ['compiler_generated'] ))
+				      in  %% Line 499
+					  ( case ( call ( 'lists'
+							  -| ['compiler_generated'] ):( 'split'
+											-| ['compiler_generated'] )
+						       (_3, List)
+						   -| ['compiler_generated'] ) of
+					      ( <( {FF,RR}
+						   -| ['compiler_generated'] )> when ( 'true'
+										       -| ['compiler_generated'] ) ->
+						    ( let <_5> =
+							  call %% Line 500
+							       ( 'lists'
+								 -| ['compiler_generated'] ):%% Line 500
+											     ( 'reverse'
+											       -| ['compiler_generated'] )
+							      (%% Line 500
+							       RR, %% Line 500
+								   ( []
+								     -| ['compiler_generated'] ))
+						      in  %% Line 500
+							  ( {_5,FF}
+							    -| ['compiler_generated'] )
+						      -| ['compiler_generated'] )
+						-| ['compiler_generated'] )
+					      ( <_4> when ( 'true'
+							    -| ['compiler_generated'] ) ->
+						    ( primop ( 'match_fail'
+							       -| ['compiler_generated'] )
+							  (( {( 'badmatch'
+								-| ['compiler_generated'] ),_4}
+							     -| ['compiler_generated'] ))
+						      -| ['compiler_generated'] )
+						-| ['compiler_generated'] )
+					    end
+					    -| ['compiler_generated'] )
+				      -| ['compiler_generated'] )
+				-| ['compiler_generated'] )
+			  -| ['compiler_generated'] )
+		    -| ['compiler_generated'] )
+		end
+		-| ['compiler_generated'] )
+	  %% Line 99
+	  <L> when 'true' ->
+	      %% Line 100
+	      call 'erlang':'error'
+		  ('badarg', [L|[]])
+	end
+'member'/2 =
+    %% Line 106
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <X,{R,F}>
+	      when let <_2> =
+		    call 'erlang':'is_list'
+			(R)
+		in  let <_3> =
+			call 'erlang':'is_list'
+			    (F)
+		    in  call 'erlang':'and'
+			    (_2, _3) ->
+	      %% Line 107
+	      ( case call 'lists':'member'
+			 (X, R) of
+		  ( <( 'true'
+		       -| ['compiler_generated'] )> when 'true' ->
+			'true'
+		    -| ['compiler_generated'] )
+		  ( <( 'false'
+		       -| ['compiler_generated'] )> when 'true' ->
+			call 'lists':'member'
+			    (X, F)
+		    -| ['compiler_generated'] )
+		  ( <_4> when 'true' ->
+			( call ( 'erlang'
+				 -| ['compiler_generated'] ):( 'error'
+							       -| ['compiler_generated'] )
+			      (( {( 'badarg'
+				    -| ['compiler_generated'] ),_4}
+				 -| ['compiler_generated'] ))
+			  -| ['compiler_generated'] )
+		    -| ['compiler_generated'] )
+		end
+		-| ['compiler_generated'] )
+	  %% Line 108
+	  <X,Q> when 'true' ->
+	      %% Line 109
+	      call 'erlang':'error'
+		  ('badarg', [X|[Q|[]]])
+	end
+'in'/2 =
+    %% Line 119
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <X,{In = [_6|[]],[]}> when 'true' ->
+	      %% Line 120
+	      {[X|[]],In}
+	  %% Line 121
+	  <X,{In,Out}>
+	      when let <_2> =
+		    call 'erlang':'is_list'
+			(In)
+		in  let <_3> =
+			call 'erlang':'is_list'
+			    (Out)
+		    in  call 'erlang':'and'
+			    (_2, _3) ->
+	      %% Line 122
+	      {[X|In],Out}
+	  %% Line 123
+	  <X,Q> when 'true' ->
+	      %% Line 124
+	      call 'erlang':'error'
+		  ('badarg', [X|[Q|[]]])
+	end
+'in_r'/2 =
+    %% Line 131
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <X,{[],F = [_6|[]]}> when 'true' ->
+	      %% Line 132
+	      {F,[X|[]]}
+	  %% Line 133
+	  <X,{R,F}>
+	      when let <_2> =
+		    call 'erlang':'is_list'
+			(R)
+		in  let <_3> =
+			call 'erlang':'is_list'
+			    (F)
+		    in  call 'erlang':'and'
+			    (_2, _3) ->
+	      %% Line 134
+	      {R,[X|F]}
+	  %% Line 135
+	  <X,Q> when 'true' ->
+	      %% Line 136
+	      call 'erlang':'error'
+		  ('badarg', [X|[Q|[]]])
+	end
+'out'/1 =
+    %% Line 144
+    fun (_0) ->
+	case _0 of
+	  <Q = {[],[]}> when 'true' ->
+	      %% Line 145
+	      {'empty',Q}
+	  %% Line 146
+	  <{[V|[]],[]}> when 'true' ->
+	      %% Line 147
+	      {{'value',V},{[],[]}}
+	  %% Line 148
+	  <{[Y|In],[]}> when 'true' ->
+	      %% Line 149
+	      case call 'lists':'reverse'
+		       (In, []) of
+		<[V|Out]> when 'true' ->
+		    %% Line 150
+		    {{'value',V},{[Y|[]],Out}}
+		( <_1> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_1})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 151
+	  <{In,[V|[]]}>
+	      when call 'erlang':'is_list'
+		    (In) ->
+	      let <_2> =
+		  case %% Line 152
+		       In of
+		    %% Line 481
+		    ( <( []
+			 -| ['compiler_generated'] )> when ( 'true'
+							     -| ['compiler_generated'] ) ->
+			  %% Line 482
+			  ( {[],[]}
+			    -| ['compiler_generated'] )
+		      -| ['compiler_generated'] )
+		    %% Line 483
+		    ( <( R = ( [_7|( []
+				     -| ['compiler_generated'] )]
+			       -| ['compiler_generated'] )
+			 -| ['compiler_generated'] )> when ( 'true'
+							     -| ['compiler_generated'] ) ->
+			  %% Line 484
+			  ( {( []
+			       -| ['compiler_generated'] ),R}
+			    -| ['compiler_generated'] )
+		      -| ['compiler_generated'] )
+		    %% Line 485
+		    ( <( [X|( ( _@r0
+				-| ['compiler_generated'] ) = ( [Y|( []
+								     -| ['compiler_generated'] )]
+								-| ['compiler_generated'] )
+			      -| ['compiler_generated'] )]
+			 -| ['compiler_generated'] )> when ( 'true'
+							     -| ['compiler_generated'] ) ->
+			  %% Line 486
+			  ( {( [X|( []
+				    -| ['compiler_generated'] )]
+			       -| ['compiler_generated'] ),( _@r0
+							     -| ['compiler_generated'] )}
+			    -| ['compiler_generated'] )
+		      -| ['compiler_generated'] )
+		    %% Line 487
+		    ( <List> when ( 'true'
+				    -| ['compiler_generated'] ) ->
+			  ( let <_1> =
+				call %% Line 488
+				     ( 'erlang'
+				       -| ['compiler_generated'] ):%% Line 488
+								   ( 'length'
+								     -| ['compiler_generated'] )
+				    (%% Line 488
+				     List)
+			    in  ( let <_2> =
+				      call %% Line 488
+					   ( 'erlang'
+					     -| ['compiler_generated'] ):%% Line 488
+									 ( 'div'
+									   -| ['compiler_generated'] )
+					  (_1, %% Line 488
+					       ( 2
+						 -| ['compiler_generated'] ))
+				  in  ( let <_3> =
+					    call %% Line 488
+						 ( 'erlang'
+						   -| ['compiler_generated'] ):%% Line 488
+									       ( '+'
+										 -| ['compiler_generated'] )
+						(_2, %% Line 488
+						     ( 1
+						       -| ['compiler_generated'] ))
+					in  %% Line 488
+					    ( case ( call ( 'lists'
+							    -| ['compiler_generated'] ):( 'split'
+											  -| ['compiler_generated'] )
+							 (_3, List)
+						     -| ['compiler_generated'] ) of
+						( <( {FF,RR}
+						     -| ['compiler_generated'] )> when ( 'true'
+											 -| ['compiler_generated'] ) ->
+						      ( let <_5> =
+							    call %% Line 489
+								 ( 'lists'
+								   -| ['compiler_generated'] ):%% Line 489
+											       ( 'reverse'
+												 -| ['compiler_generated'] )
+								(%% Line 489
+								 RR, %% Line 489
+								     ( []
+								       -| ['compiler_generated'] ))
+							in  %% Line 489
+							    ( {FF,_5}
+							      -| ['compiler_generated'] )
+							-| ['compiler_generated'] )
+						  -| ['compiler_generated'] )
+						( <_4> when ( 'true'
+							      -| ['compiler_generated'] ) ->
+						      ( primop ( 'match_fail'
+								 -| ['compiler_generated'] )
+							    (( {( 'badmatch'
+								  -| ['compiler_generated'] ),_4}
+							       -| ['compiler_generated'] ))
+							-| ['compiler_generated'] )
+						  -| ['compiler_generated'] )
+					      end
+					      -| ['compiler_generated'] )
+					-| ['compiler_generated'] )
+				  -| ['compiler_generated'] )
+			    -| ['compiler_generated'] )
+		      -| ['compiler_generated'] )
+		  end
+	      in  %% Line 152
+		  {{'value',V},_2}
+	  %% Line 153
+	  <{In,[V|Out]}>
+	      when call 'erlang':'is_list'
+		    (In) ->
+	      %% Line 154
+	      {{'value',V},{In,Out}}
+	  %% Line 155
+	  <Q> when 'true' ->
+	      %% Line 156
+	      call 'erlang':'error'
+		  ('badarg', [Q|[]])
+	end
+'out_r'/1 =
+    %% Line 164
+    fun (_0) ->
+	case _0 of
+	  <Q = {[],[]}> when 'true' ->
+	      %% Line 165
+	      {'empty',Q}
+	  %% Line 166
+	  <{[],[V|[]]}> when 'true' ->
+	      %% Line 167
+	      {{'value',V},{[],[]}}
+	  %% Line 168
+	  <{[],[Y|Out]}> when 'true' ->
+	      %% Line 169
+	      case call 'lists':'reverse'
+		       (Out, []) of
+		<[V|In]> when 'true' ->
+		    %% Line 170
+		    {{'value',V},{In,[Y|[]]}}
+		( <_1> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_1})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 171
+	  <{[V|[]],Out}>
+	      when call 'erlang':'is_list'
+		    (Out) ->
+	      let <_2> =
+		  case %% Line 172
+		       Out of
+		    %% Line 492
+		    ( <( []
+			 -| ['compiler_generated'] )> when ( 'true'
+							     -| ['compiler_generated'] ) ->
+			  %% Line 493
+			  ( {[],[]}
+			    -| ['compiler_generated'] )
+		      -| ['compiler_generated'] )
+		    %% Line 494
+		    ( <( F = ( [_7|( []
+				     -| ['compiler_generated'] )]
+			       -| ['compiler_generated'] )
+			 -| ['compiler_generated'] )> when ( 'true'
+							     -| ['compiler_generated'] ) ->
+			  %% Line 495
+			  ( {F,( []
+				 -| ['compiler_generated'] )}
+			    -| ['compiler_generated'] )
+		      -| ['compiler_generated'] )
+		    %% Line 496
+		    ( <( [X|( ( _@r0
+				-| ['compiler_generated'] ) = ( [Y|( []
+								     -| ['compiler_generated'] )]
+								-| ['compiler_generated'] )
+			      -| ['compiler_generated'] )]
+			 -| ['compiler_generated'] )> when ( 'true'
+							     -| ['compiler_generated'] ) ->
+			  %% Line 497
+			  ( {( _@r0
+			       -| ['compiler_generated'] ),( [X|( []
+								  -| ['compiler_generated'] )]
+							     -| ['compiler_generated'] )}
+			    -| ['compiler_generated'] )
+		      -| ['compiler_generated'] )
+		    %% Line 498
+		    ( <List> when ( 'true'
+				    -| ['compiler_generated'] ) ->
+			  ( let <_1> =
+				call %% Line 499
+				     ( 'erlang'
+				       -| ['compiler_generated'] ):%% Line 499
+								   ( 'length'
+								     -| ['compiler_generated'] )
+				    (%% Line 499
+				     List)
+			    in  ( let <_2> =
+				      call %% Line 499
+					   ( 'erlang'
+					     -| ['compiler_generated'] ):%% Line 499
+									 ( 'div'
+									   -| ['compiler_generated'] )
+					  (_1, %% Line 499
+					       ( 2
+						 -| ['compiler_generated'] ))
+				  in  ( let <_3> =
+					    call %% Line 499
+						 ( 'erlang'
+						   -| ['compiler_generated'] ):%% Line 499
+									       ( '+'
+										 -| ['compiler_generated'] )
+						(_2, %% Line 499
+						     ( 1
+						       -| ['compiler_generated'] ))
+					in  %% Line 499
+					    ( case ( call ( 'lists'
+							    -| ['compiler_generated'] ):( 'split'
+											  -| ['compiler_generated'] )
+							 (_3, List)
+						     -| ['compiler_generated'] ) of
+						( <( {FF,RR}
+						     -| ['compiler_generated'] )> when ( 'true'
+											 -| ['compiler_generated'] ) ->
+						      ( let <_5> =
+							    call %% Line 500
+								 ( 'lists'
+								   -| ['compiler_generated'] ):%% Line 500
+											       ( 'reverse'
+												 -| ['compiler_generated'] )
+								(%% Line 500
+								 RR, %% Line 500
+								     ( []
+								       -| ['compiler_generated'] ))
+							in  %% Line 500
+							    ( {_5,FF}
+							      -| ['compiler_generated'] )
+							-| ['compiler_generated'] )
+						  -| ['compiler_generated'] )
+						( <_4> when ( 'true'
+							      -| ['compiler_generated'] ) ->
+						      ( primop ( 'match_fail'
+								 -| ['compiler_generated'] )
+							    (( {( 'badmatch'
+								  -| ['compiler_generated'] ),_4}
+							       -| ['compiler_generated'] ))
+							-| ['compiler_generated'] )
+						  -| ['compiler_generated'] )
+					      end
+					      -| ['compiler_generated'] )
+					-| ['compiler_generated'] )
+				  -| ['compiler_generated'] )
+			    -| ['compiler_generated'] )
+		      -| ['compiler_generated'] )
+		  end
+	      in  %% Line 172
+		  {{'value',V},_2}
+	  %% Line 173
+	  <{[V|In],Out}>
+	      when call 'erlang':'is_list'
+		    (Out) ->
+	      %% Line 174
+	      {{'value',V},{In,Out}}
+	  %% Line 175
+	  <Q> when 'true' ->
+	      %% Line 176
+	      call 'erlang':'error'
+		  ('badarg', [Q|[]])
+	end
+'get'/1 =
+    %% Line 185
+    fun (_0) ->
+	case _0 of
+	  <Q = {[],[]}> when 'true' ->
+	      %% Line 186
+	      call 'erlang':'error'
+		  ('empty', [Q|[]])
+	  %% Line 187
+	  <{R,F}>
+	      when let <_1> =
+		    call 'erlang':'is_list'
+			(R)
+		in  let <_2> =
+			call 'erlang':'is_list'
+			    (F)
+		    in  call 'erlang':'and'
+			    (_1, _2) ->
+	      %% Line 188
+	      apply 'get'/2
+		  (R, F)
+	  %% Line 189
+	  <Q> when 'true' ->
+	      %% Line 190
+	      call 'erlang':'error'
+		  ('badarg', [Q|[]])
+	end
+'get'/2 =
+    %% Line 193
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <R,[H|_4]>
+	      when call 'erlang':'is_list'
+		    (R) ->
+	      %% Line 194
+	      H
+	  %% Line 195
+	  <[H|[]],[]> when 'true' ->
+	      %% Line 196
+	      H
+	  %% Line 197
+	  <[_5|R],[]> when 'true' ->
+	      %% Line 198
+	      call 'lists':'last'
+		  (R)
+	  ( <_3,_2> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_3,_2})
+		  -| [{'function_name',{'get',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'get_r'/1 =
+    %% Line 204
+    fun (_0) ->
+	case _0 of
+	  <Q = {[],[]}> when 'true' ->
+	      %% Line 205
+	      call 'erlang':'error'
+		  ('empty', [Q|[]])
+	  %% Line 206
+	  <{[H|_2],F}>
+	      when call 'erlang':'is_list'
+		    (F) ->
+	      %% Line 207
+	      H
+	  %% Line 208
+	  <{[],[H|[]]}> when 'true' ->
+	      %% Line 209
+	      H
+	  %% Line 210
+	  <{[],[_3|F]}> when 'true' ->
+	      %% Line 211
+	      call 'lists':'last'
+		  (F)
+	  %% Line 212
+	  <Q> when 'true' ->
+	      %% Line 213
+	      call 'erlang':'error'
+		  ('badarg', [Q|[]])
+	end
+'peek'/1 =
+    %% Line 219
+    fun (_0) ->
+	case _0 of
+	  <{[],[]}> when 'true' ->
+	      %% Line 220
+	      'empty'
+	  %% Line 221
+	  <{R,[H|_3]}>
+	      when call 'erlang':'is_list'
+		    (R) ->
+	      %% Line 222
+	      {'value',H}
+	  %% Line 223
+	  <{[H|[]],[]}> when 'true' ->
+	      %% Line 224
+	      {'value',H}
+	  %% Line 225
+	  <{[_4|R],[]}> when 'true' ->
+	      let <_1> =
+		  call %% Line 226
+		       'lists':%% Line 226
+			       'last'
+		      (%% Line 226
+		       R)
+	      in  %% Line 226
+		  {'value',_1}
+	  %% Line 227
+	  <Q> when 'true' ->
+	      %% Line 228
+	      call 'erlang':'error'
+		  ('badarg', [Q|[]])
+	end
+'peek_r'/1 =
+    %% Line 234
+    fun (_0) ->
+	case _0 of
+	  <{[],[]}> when 'true' ->
+	      %% Line 235
+	      'empty'
+	  %% Line 236
+	  <{[H|_3],F}>
+	      when call 'erlang':'is_list'
+		    (F) ->
+	      %% Line 237
+	      {'value',H}
+	  %% Line 238
+	  <{[],[H|[]]}> when 'true' ->
+	      %% Line 239
+	      {'value',H}
+	  %% Line 240
+	  <{[],[_4|R]}> when 'true' ->
+	      let <_1> =
+		  call %% Line 241
+		       'lists':%% Line 241
+			       'last'
+		      (%% Line 241
+		       R)
+	      in  %% Line 241
+		  {'value',_1}
+	  %% Line 242
+	  <Q> when 'true' ->
+	      %% Line 243
+	      call 'erlang':'error'
+		  ('badarg', [Q|[]])
+	end
+'drop'/1 =
+    %% Line 249
+    fun (_0) ->
+	case _0 of
+	  <Q = {[],[]}> when 'true' ->
+	      %% Line 250
+	      call 'erlang':'error'
+		  ('empty', [Q|[]])
+	  %% Line 251
+	  <{[_3|[]],[]}> when 'true' ->
+	      %% Line 252
+	      {[],[]}
+	  %% Line 253
+	  <{[Y|R],[]}> when 'true' ->
+	      %% Line 254
+	      case call 'lists':'reverse'
+		       (R, []) of
+		<[_4|F]> when 'true' ->
+		    %% Line 255
+		    {[Y|[]],F}
+		( <_1> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_1})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 256
+	  <{R,[_5|[]]}>
+	      when call 'erlang':'is_list'
+		    (R) ->
+	      %% Line 481
+	      ( case R of
+		  ( <( []
+		       -| ['compiler_generated'] )> when ( 'true'
+							   -| ['compiler_generated'] ) ->
+			%% Line 482
+			( {[],[]}
+			  -| ['compiler_generated'] )
+		    -| ['compiler_generated'] )
+		  %% Line 483
+		  ( <( _9 = ( [_7|( []
+				    -| ['compiler_generated'] )]
+			      -| ['compiler_generated'] )
+		       -| ['compiler_generated'] )> when ( 'true'
+							   -| ['compiler_generated'] ) ->
+			%% Line 484
+			( {( []
+			     -| ['compiler_generated'] ),_9}
+			  -| ['compiler_generated'] )
+		    -| ['compiler_generated'] )
+		  %% Line 485
+		  ( <( [X|( ( _@r0
+			      -| ['compiler_generated'] ) = ( [Y|( []
+								   -| ['compiler_generated'] )]
+							      -| ['compiler_generated'] )
+			    -| ['compiler_generated'] )]
+		       -| ['compiler_generated'] )> when ( 'true'
+							   -| ['compiler_generated'] ) ->
+			%% Line 486
+			( {( [X|( []
+				  -| ['compiler_generated'] )]
+			     -| ['compiler_generated'] ),( _@r0
+							   -| ['compiler_generated'] )}
+			  -| ['compiler_generated'] )
+		    -| ['compiler_generated'] )
+		  %% Line 487
+		  ( <List> when ( 'true'
+				  -| ['compiler_generated'] ) ->
+			( let <_1> =
+			      call %% Line 488
+				   ( 'erlang'
+				     -| ['compiler_generated'] ):%% Line 488
+								 ( 'length'
+								   -| ['compiler_generated'] )
+				  (%% Line 488
+				   List)
+			  in  ( let <_2> =
+				    call %% Line 488
+					 ( 'erlang'
+					   -| ['compiler_generated'] ):%% Line 488
+								       ( 'div'
+									 -| ['compiler_generated'] )
+					(_1, %% Line 488
+					     ( 2
+					       -| ['compiler_generated'] ))
+				in  ( let <_3> =
+					  call %% Line 488
+					       ( 'erlang'
+						 -| ['compiler_generated'] ):%% Line 488
+									     ( '+'
+									       -| ['compiler_generated'] )
+					      (_2, %% Line 488
+						   ( 1
+						     -| ['compiler_generated'] ))
+				      in  %% Line 488
+					  ( case ( call ( 'lists'
+							  -| ['compiler_generated'] ):( 'split'
+											-| ['compiler_generated'] )
+						       (_3, List)
+						   -| ['compiler_generated'] ) of
+					      ( <( {FF,RR}
+						   -| ['compiler_generated'] )> when ( 'true'
+										       -| ['compiler_generated'] ) ->
+						    ( let <_10> =
+							  call %% Line 489
+							       ( 'lists'
+								 -| ['compiler_generated'] ):%% Line 489
+											     ( 'reverse'
+											       -| ['compiler_generated'] )
+							      (%% Line 489
+							       RR, %% Line 489
+								   ( []
+								     -| ['compiler_generated'] ))
+						      in  %% Line 489
+							  ( {FF,_10}
+							    -| ['compiler_generated'] )
+						      -| ['compiler_generated'] )
+						-| ['compiler_generated'] )
+					      ( <_4> when ( 'true'
+							    -| ['compiler_generated'] ) ->
+						    ( primop ( 'match_fail'
+							       -| ['compiler_generated'] )
+							  (( {( 'badmatch'
+								-| ['compiler_generated'] ),_4}
+							     -| ['compiler_generated'] ))
+						      -| ['compiler_generated'] )
+						-| ['compiler_generated'] )
+					    end
+					    -| ['compiler_generated'] )
+				      -| ['compiler_generated'] )
+				-| ['compiler_generated'] )
+			  -| ['compiler_generated'] )
+		    -| ['compiler_generated'] )
+		end
+		-| ['compiler_generated'] )
+	  %% Line 258
+	  <{R,[_6|F]}>
+	      when call 'erlang':'is_list'
+		    (R) ->
+	      %% Line 259
+	      {R,F}
+	  %% Line 260
+	  <Q> when 'true' ->
+	      %% Line 261
+	      call 'erlang':'error'
+		  ('badarg', [Q|[]])
+	end
+'drop_r'/1 =
+    %% Line 267
+    fun (_0) ->
+	case _0 of
+	  <Q = {[],[]}> when 'true' ->
+	      %% Line 268
+	      call 'erlang':'error'
+		  ('empty', [Q|[]])
+	  %% Line 269
+	  <{[],[_3|[]]}> when 'true' ->
+	      %% Line 270
+	      {[],[]}
+	  %% Line 271
+	  <{[],[Y|F]}> when 'true' ->
+	      %% Line 272
+	      case call 'lists':'reverse'
+		       (F, []) of
+		<[_4|R]> when 'true' ->
+		    %% Line 273
+		    {R,[Y|[]]}
+		( <_1> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_1})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 274
+	  <{[_5|[]],F}>
+	      when call 'erlang':'is_list'
+		    (F) ->
+	      %% Line 492
+	      ( case F of
+		  ( <( []
+		       -| ['compiler_generated'] )> when ( 'true'
+							   -| ['compiler_generated'] ) ->
+			%% Line 493
+			( {[],[]}
+			  -| ['compiler_generated'] )
+		    -| ['compiler_generated'] )
+		  %% Line 494
+		  ( <( _9 = ( [_7|( []
+				    -| ['compiler_generated'] )]
+			      -| ['compiler_generated'] )
+		       -| ['compiler_generated'] )> when ( 'true'
+							   -| ['compiler_generated'] ) ->
+			%% Line 495
+			( {_9,( []
+				-| ['compiler_generated'] )}
+			  -| ['compiler_generated'] )
+		    -| ['compiler_generated'] )
+		  %% Line 496
+		  ( <( [X|( ( _@r0
+			      -| ['compiler_generated'] ) = ( [Y|( []
+								   -| ['compiler_generated'] )]
+							      -| ['compiler_generated'] )
+			    -| ['compiler_generated'] )]
+		       -| ['compiler_generated'] )> when ( 'true'
+							   -| ['compiler_generated'] ) ->
+			%% Line 497
+			( {( _@r0
+			     -| ['compiler_generated'] ),( [X|( []
+								-| ['compiler_generated'] )]
+							   -| ['compiler_generated'] )}
+			  -| ['compiler_generated'] )
+		    -| ['compiler_generated'] )
+		  %% Line 498
+		  ( <List> when ( 'true'
+				  -| ['compiler_generated'] ) ->
+			( let <_1> =
+			      call %% Line 499
+				   ( 'erlang'
+				     -| ['compiler_generated'] ):%% Line 499
+								 ( 'length'
+								   -| ['compiler_generated'] )
+				  (%% Line 499
+				   List)
+			  in  ( let <_2> =
+				    call %% Line 499
+					 ( 'erlang'
+					   -| ['compiler_generated'] ):%% Line 499
+								       ( 'div'
+									 -| ['compiler_generated'] )
+					(_1, %% Line 499
+					     ( 2
+					       -| ['compiler_generated'] ))
+				in  ( let <_3> =
+					  call %% Line 499
+					       ( 'erlang'
+						 -| ['compiler_generated'] ):%% Line 499
+									     ( '+'
+									       -| ['compiler_generated'] )
+					      (_2, %% Line 499
+						   ( 1
+						     -| ['compiler_generated'] ))
+				      in  %% Line 499
+					  ( case ( call ( 'lists'
+							  -| ['compiler_generated'] ):( 'split'
+											-| ['compiler_generated'] )
+						       (_3, List)
+						   -| ['compiler_generated'] ) of
+					      ( <( {FF,RR}
+						   -| ['compiler_generated'] )> when ( 'true'
+										       -| ['compiler_generated'] ) ->
+						    ( let <_10> =
+							  call %% Line 500
+							       ( 'lists'
+								 -| ['compiler_generated'] ):%% Line 500
+											     ( 'reverse'
+											       -| ['compiler_generated'] )
+							      (%% Line 500
+							       RR, %% Line 500
+								   ( []
+								     -| ['compiler_generated'] ))
+						      in  %% Line 500
+							  ( {_10,FF}
+							    -| ['compiler_generated'] )
+						      -| ['compiler_generated'] )
+						-| ['compiler_generated'] )
+					      ( <_4> when ( 'true'
+							    -| ['compiler_generated'] ) ->
+						    ( primop ( 'match_fail'
+							       -| ['compiler_generated'] )
+							  (( {( 'badmatch'
+								-| ['compiler_generated'] ),_4}
+							     -| ['compiler_generated'] ))
+						      -| ['compiler_generated'] )
+						-| ['compiler_generated'] )
+					    end
+					    -| ['compiler_generated'] )
+				      -| ['compiler_generated'] )
+				-| ['compiler_generated'] )
+			  -| ['compiler_generated'] )
+		    -| ['compiler_generated'] )
+		end
+		-| ['compiler_generated'] )
+	  %% Line 276
+	  <{[_6|R],F}>
+	      when call 'erlang':'is_list'
+		    (F) ->
+	      %% Line 277
+	      {R,F}
+	  %% Line 278
+	  <Q> when 'true' ->
+	      %% Line 279
+	      call 'erlang':'error'
+		  ('badarg', [Q|[]])
+	end
+'reverse'/1 =
+    %% Line 288
+    fun (_0) ->
+	case _0 of
+	  <{R,F}>
+	      when let <_1> =
+		    call 'erlang':'is_list'
+			(R)
+		in  let <_2> =
+			call 'erlang':'is_list'
+			    (F)
+		    in  call 'erlang':'and'
+			    (_1, _2) ->
+	      %% Line 289
+	      {F,R}
+	  %% Line 290
+	  <Q> when 'true' ->
+	      %% Line 291
+	      call 'erlang':'error'
+		  ('badarg', [Q|[]])
+	end
+'join'/2 =
+    %% Line 298
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Q = {R,F},{[],[]}>
+	      when let <_2> =
+		    call 'erlang':'is_list'
+			(R)
+		in  let <_3> =
+			call 'erlang':'is_list'
+			    (F)
+		    in  call 'erlang':'and'
+			    (_2, _3) ->
+	      %% Line 299
+	      Q
+	  %% Line 300
+	  <{[],[]},Q = {R,F}>
+	      when let <_4> =
+		    call 'erlang':'is_list'
+			(R)
+		in  let <_5> =
+			call 'erlang':'is_list'
+			    (F)
+		    in  call 'erlang':'and'
+			    (_4, _5) ->
+	      %% Line 301
+	      Q
+	  %% Line 302
+	  <{R1,F1},{R2,F2}>
+	      when try
+		    let <_6> =
+			call 'erlang':'is_list'
+			    (R1)
+		    in  let <_7> =
+			    call 'erlang':'is_list'
+				(F1)
+			in  let <_8> =
+				call 'erlang':'is_list'
+				    (R2)
+			    in  let <_9> =
+				    call 'erlang':'is_list'
+					(F2)
+				in  let <_10> =
+					call 'erlang':'and'
+					    (_8, _9)
+				    in  let <_11> =
+					    call 'erlang':'and'
+						(_7, _10)
+					in  call 'erlang':'and'
+						(_6, _11)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      let <_12> =
+		  call %% Line 303
+		       'lists':%% Line 303
+			       'reverse'
+		      (%% Line 303
+		       R1, %% Line 303
+			   F2)
+	      in  let <_13> =
+		      call %% Line 303
+			   'erlang':%% Line 303
+				    '++'
+			  (%% Line 303
+			   F1, _12)
+		  in  %% Line 303
+		      {R2,_13}
+	  %% Line 304
+	  <Q1,Q2> when 'true' ->
+	      %% Line 305
+	      call 'erlang':'error'
+		  ('badarg', [Q1|[Q2|[]]])
+	end
+'split'/2 =
+    %% Line 313
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <0,Q = {R,F}>
+	      when let <_2> =
+		    call 'erlang':'is_list'
+			(R)
+		in  let <_3> =
+			call 'erlang':'is_list'
+			    (F)
+		    in  call 'erlang':'and'
+			    (_2, _3) ->
+	      %% Line 314
+	      {{[],[]},Q}
+	  %% Line 315
+	  <N,Q = {R,F}>
+	      when try
+		    let <_4> =
+			call 'erlang':'is_integer'
+			    (N)
+		    in  let <_5> =
+			    call 'erlang':'>='
+				(N, 1)
+			in  let <_6> =
+				call 'erlang':'is_list'
+				    (R)
+			    in  let <_7> =
+				    call 'erlang':'is_list'
+					(F)
+				in  let <_8> =
+					call 'erlang':'and'
+					    (_6, _7)
+				    in  let <_9> =
+					    call 'erlang':'and'
+						(_5, _8)
+					in  call 'erlang':'and'
+						(_4, _9)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      let <Lf> =
+		  call %% Line 316
+		       'erlang':%% Line 316
+				'length'
+		      (%% Line 316
+		       F)
+	      in  %% Line 317
+		  case <> of
+		    <>
+			when call 'erlang':'<'
+			      (N,
+			       Lf) ->
+			%% Line 318
+			case F of
+			  <[X|F1]> when 'true' ->
+			      let <_12> =
+				  call %% Line 319
+				       'erlang':%% Line 319
+						'-'
+				      (%% Line 319
+				       N, %% Line 319
+					  1)
+			      in  %% Line 319
+				  apply 'split_f1_to_r2'/5
+				      (_12, R, F1, [], [X|[]])
+			  ( <_11> when 'true' ->
+				primop 'match_fail'
+				    ({'badmatch',_11})
+			    -| ['compiler_generated'] )
+			end
+		    %% Line 320
+		    <>
+			when call 'erlang':'>'
+			      (N,
+			       Lf) ->
+			let <Lr> =
+			    call %% Line 321
+				 'erlang':%% Line 321
+					  'length'
+				(%% Line 321
+				 R)
+			in  let <_14> =
+				call %% Line 322
+				     'erlang':%% Line 322
+					      '-'
+				    (%% Line 322
+				     N, %% Line 322
+					Lf)
+			    in  let <M> =
+				    call %% Line 322
+					 'erlang':%% Line 322
+						  '-'
+					(%% Line 322
+					 Lr, _14)
+				in  %% Line 323
+				    case <> of
+				      <>
+					  when call 'erlang':'<'
+						(M,
+						 0) ->
+					  %% Line 324
+					  call 'erlang':'error'
+					      ('badarg', [N|[Q|[]]])
+				      %% Line 325
+				      <>
+					  when call 'erlang':'>'
+						(M,
+						 0) ->
+					  %% Line 326
+					  case R of
+					    <[X|R1]> when 'true' ->
+						let <_17> =
+						    call %% Line 327
+							 'erlang':%% Line 327
+								  '-'
+							(%% Line 327
+							 M, %% Line 327
+							    1)
+						in  %% Line 327
+						    apply 'split_r1_to_f2'/5
+							(_17, R1, F, [X|[]], [])
+					    ( <_16> when 'true' ->
+						  primop 'match_fail'
+						      ({'badmatch',_16})
+					      -| ['compiler_generated'] )
+					  end
+				      %% Line 328
+				      <> when 'true' ->
+					  %% Line 329
+					  {Q,{[],[]}}
+				    end
+		    %% Line 331
+		    <> when 'true' ->
+			let <_19> =
+			    case %% Line 332
+				 F of
+			      %% Line 492
+			      ( <( []
+				   -| ['compiler_generated'] )> when ( 'true'
+								       -| ['compiler_generated'] ) ->
+				    %% Line 493
+				    ( {[],[]}
+				      -| ['compiler_generated'] )
+				-| ['compiler_generated'] )
+			      %% Line 494
+			      ( <( _23 = ( [_7|( []
+						 -| ['compiler_generated'] )]
+					   -| ['compiler_generated'] )
+				   -| ['compiler_generated'] )> when ( 'true'
+								       -| ['compiler_generated'] ) ->
+				    %% Line 495
+				    ( {_23,( []
+					     -| ['compiler_generated'] )}
+				      -| ['compiler_generated'] )
+				-| ['compiler_generated'] )
+			      %% Line 496
+			      ( <( [X|( ( _@r0
+					  -| ['compiler_generated'] ) = ( [Y|( []
+									       -| ['compiler_generated'] )]
+									  -| ['compiler_generated'] )
+					-| ['compiler_generated'] )]
+				   -| ['compiler_generated'] )> when ( 'true'
+								       -| ['compiler_generated'] ) ->
+				    %% Line 497
+				    ( {( _@r0
+					 -| ['compiler_generated'] ),( [X|( []
+									    -| ['compiler_generated'] )]
+								       -| ['compiler_generated'] )}
+				      -| ['compiler_generated'] )
+				-| ['compiler_generated'] )
+			      %% Line 498
+			      ( <List> when ( 'true'
+					      -| ['compiler_generated'] ) ->
+				    ( let <_24> =
+					  call %% Line 499
+					       ( 'erlang'
+						 -| ['compiler_generated'] ):%% Line 499
+									     ( 'length'
+									       -| ['compiler_generated'] )
+					      (%% Line 499
+					       List)
+				      in  ( let <_2> =
+						call %% Line 499
+						     ( 'erlang'
+						       -| ['compiler_generated'] ):%% Line 499
+										   ( 'div'
+										     -| ['compiler_generated'] )
+						    (_24, %% Line 499
+							  ( 2
+							    -| ['compiler_generated'] ))
+					    in  ( let <_3> =
+						      call %% Line 499
+							   ( 'erlang'
+							     -| ['compiler_generated'] ):%% Line 499
+											 ( '+'
+											   -| ['compiler_generated'] )
+							  (_2, %% Line 499
+							       ( 1
+								 -| ['compiler_generated'] ))
+						  in  %% Line 499
+						      ( case ( call ( 'lists'
+								      -| ['compiler_generated'] ):( 'split'
+												    -| ['compiler_generated'] )
+								   (_3, List)
+							       -| ['compiler_generated'] ) of
+							  ( <( {FF,RR}
+							       -| ['compiler_generated'] )> when ( 'true'
+												   -| ['compiler_generated'] ) ->
+								( let <_5> =
+								      call %% Line 500
+									   ( 'lists'
+									     -| ['compiler_generated'] ):%% Line 500
+													 ( 'reverse'
+													   -| ['compiler_generated'] )
+									  (%% Line 500
+									   RR, %% Line 500
+									       ( []
+										 -| ['compiler_generated'] ))
+								  in  %% Line 500
+								      ( {_5,FF}
+									-| ['compiler_generated'] )
+								  -| ['compiler_generated'] )
+							    -| ['compiler_generated'] )
+							  ( <_4> when ( 'true'
+									-| ['compiler_generated'] ) ->
+								( primop ( 'match_fail'
+									   -| ['compiler_generated'] )
+								      (( {( 'badmatch'
+									    -| ['compiler_generated'] ),_4}
+									 -| ['compiler_generated'] ))
+								  -| ['compiler_generated'] )
+							    -| ['compiler_generated'] )
+							end
+							-| ['compiler_generated'] )
+						  -| ['compiler_generated'] )
+					    -| ['compiler_generated'] )
+				      -| ['compiler_generated'] )
+				-| ['compiler_generated'] )
+			    end
+			in  let <_18> =
+				case %% Line 332
+				     R of
+				  %% Line 481
+				  ( <( []
+				       -| ['compiler_generated'] )> when ( 'true'
+									   -| ['compiler_generated'] ) ->
+					%% Line 482
+					( {[],[]}
+					  -| ['compiler_generated'] )
+				    -| ['compiler_generated'] )
+				  %% Line 483
+				  ( <( _26 = ( [_7|( []
+						     -| ['compiler_generated'] )]
+					       -| ['compiler_generated'] )
+				       -| ['compiler_generated'] )> when ( 'true'
+									   -| ['compiler_generated'] ) ->
+					%% Line 484
+					( {( []
+					     -| ['compiler_generated'] ),_26}
+					  -| ['compiler_generated'] )
+				    -| ['compiler_generated'] )
+				  %% Line 485
+				  ( <( [X|( ( _@r1
+					      -| ['compiler_generated'] ) = ( [Y|( []
+										   -| ['compiler_generated'] )]
+									      -| ['compiler_generated'] )
+					    -| ['compiler_generated'] )]
+				       -| ['compiler_generated'] )> when ( 'true'
+									   -| ['compiler_generated'] ) ->
+					%% Line 486
+					( {( [X|( []
+						  -| ['compiler_generated'] )]
+					     -| ['compiler_generated'] ),( _@r1
+									   -| ['compiler_generated'] )}
+					  -| ['compiler_generated'] )
+				    -| ['compiler_generated'] )
+				  %% Line 487
+				  ( <List> when ( 'true'
+						  -| ['compiler_generated'] ) ->
+					( let <_27> =
+					      call %% Line 488
+						   ( 'erlang'
+						     -| ['compiler_generated'] ):%% Line 488
+										 ( 'length'
+										   -| ['compiler_generated'] )
+						  (%% Line 488
+						   List)
+					  in  ( let <_2> =
+						    call %% Line 488
+							 ( 'erlang'
+							   -| ['compiler_generated'] ):%% Line 488
+										       ( 'div'
+											 -| ['compiler_generated'] )
+							(_27, %% Line 488
+							      ( 2
+								-| ['compiler_generated'] ))
+						in  ( let <_3> =
+							  call %% Line 488
+							       ( 'erlang'
+								 -| ['compiler_generated'] ):%% Line 488
+											     ( '+'
+											       -| ['compiler_generated'] )
+							      (_2, %% Line 488
+								   ( 1
+								     -| ['compiler_generated'] ))
+						      in  %% Line 488
+							  ( case ( call ( 'lists'
+									  -| ['compiler_generated'] ):( 'split'
+													-| ['compiler_generated'] )
+								       (_3, List)
+								   -| ['compiler_generated'] ) of
+							      ( <( {FF,RR}
+								   -| ['compiler_generated'] )> when ( 'true'
+												       -| ['compiler_generated'] ) ->
+								    ( let <_5> =
+									  call %% Line 489
+									       ( 'lists'
+										 -| ['compiler_generated'] ):%% Line 489
+													     ( 'reverse'
+													       -| ['compiler_generated'] )
+									      (%% Line 489
+									       RR, %% Line 489
+										   ( []
+										     -| ['compiler_generated'] ))
+								      in  %% Line 489
+									  ( {FF,_5}
+									    -| ['compiler_generated'] )
+								      -| ['compiler_generated'] )
+								-| ['compiler_generated'] )
+							      ( <_4> when ( 'true'
+									    -| ['compiler_generated'] ) ->
+								    ( primop ( 'match_fail'
+									       -| ['compiler_generated'] )
+									  (( {( 'badmatch'
+										-| ['compiler_generated'] ),_4}
+									     -| ['compiler_generated'] ))
+								      -| ['compiler_generated'] )
+								-| ['compiler_generated'] )
+							    end
+							    -| ['compiler_generated'] )
+						      -| ['compiler_generated'] )
+						-| ['compiler_generated'] )
+					  -| ['compiler_generated'] )
+				    -| ['compiler_generated'] )
+				end
+			    in  %% Line 332
+				{_19,_18}
+		  end
+	  %% Line 334
+	  <N,Q> when 'true' ->
+	      %% Line 335
+	      call 'erlang':'error'
+		  ('badarg', [N|[Q|[]]])
+	end
+'split_f1_to_r2'/5 =
+    %% Line 338
+    fun (_0,_1,_2,_3,_4) ->
+	case <_0,_1,_2,_3,_4> of
+	  <0,R1,F1,R2,F2> when 'true' ->
+	      %% Line 339
+	      {{R2,F2},{R1,F1}}
+	  %% Line 340
+	  <N,R1,[X|F1],R2,F2> when 'true' ->
+	      let <_5> =
+		  call %% Line 341
+		       'erlang':%% Line 341
+				'-'
+		      (%% Line 341
+		       N, %% Line 341
+			  1)
+	      in  %% Line 341
+		  apply 'split_f1_to_r2'/5
+		      (_5, R1, F1, [X|R2], F2)
+	  ( <_10,_9,_8,_7,_6> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_10,_9,_8,_7,_6})
+		  -| [{'function_name',{'split_f1_to_r2',5}}] )
+	    -| ['compiler_generated'] )
+	end
+'split_r1_to_f2'/5 =
+    %% Line 344
+    fun (_0,_1,_2,_3,_4) ->
+	case <_0,_1,_2,_3,_4> of
+	  <0,R1,F1,R2,F2> when 'true' ->
+	      %% Line 345
+	      {{R1,F1},{R2,F2}}
+	  %% Line 346
+	  <N,[X|R1],F1,R2,F2> when 'true' ->
+	      let <_5> =
+		  call %% Line 347
+		       'erlang':%% Line 347
+				'-'
+		      (%% Line 347
+		       N, %% Line 347
+			  1)
+	      in  %% Line 347
+		  apply 'split_r1_to_f2'/5
+		      (_5, R1, F1, R2, [X|F2])
+	  ( <_10,_9,_8,_7,_6> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_10,_9,_8,_7,_6})
+		  -| [{'function_name',{'split_r1_to_f2',5}}] )
+	    -| ['compiler_generated'] )
+	end
+'filter'/2 =
+    %% Line 355
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Fun,{R0,F0}>
+	      when try
+		    let <_2> =
+			call 'erlang':'is_function'
+			    (Fun, 1)
+		    in  let <_3> =
+			    call 'erlang':'is_list'
+				(R0)
+			in  let <_4> =
+				call 'erlang':'is_list'
+				    (F0)
+			    in  let <_5> =
+				    call 'erlang':'and'
+					(_3, _4)
+				in  call 'erlang':'and'
+					(_2, _5)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      let <F> =
+		  apply %% Line 356
+			'filter_f'/2
+		      (%% Line 356
+		       Fun, %% Line 356
+			    F0)
+	      in  let <R> =
+		      apply %% Line 357
+			    'filter_r'/2
+			  (%% Line 357
+			   Fun, %% Line 357
+				R0)
+		  in  %% Line 358
+		      case <> of
+			<>
+			    when call 'erlang':'=:='
+				  (R,
+				   []) ->
+			    %% Line 492
+			    ( case F of
+				( <( []
+				     -| ['compiler_generated'] )> when ( 'true'
+									 -| ['compiler_generated'] ) ->
+				      %% Line 493
+				      ( {[],[]}
+					-| ['compiler_generated'] )
+				  -| ['compiler_generated'] )
+				%% Line 494
+				( <( _11 = ( [_7|( []
+						   -| ['compiler_generated'] )]
+					     -| ['compiler_generated'] )
+				     -| ['compiler_generated'] )> when ( 'true'
+									 -| ['compiler_generated'] ) ->
+				      %% Line 495
+				      ( {_11,( []
+					       -| ['compiler_generated'] )}
+					-| ['compiler_generated'] )
+				  -| ['compiler_generated'] )
+				%% Line 496
+				( <( [X|( ( _@r0
+					    -| ['compiler_generated'] ) = ( [Y|( []
+										 -| ['compiler_generated'] )]
+									    -| ['compiler_generated'] )
+					  -| ['compiler_generated'] )]
+				     -| ['compiler_generated'] )> when ( 'true'
+									 -| ['compiler_generated'] ) ->
+				      %% Line 497
+				      ( {( _@r0
+					   -| ['compiler_generated'] ),( [X|( []
+									      -| ['compiler_generated'] )]
+									 -| ['compiler_generated'] )}
+					-| ['compiler_generated'] )
+				  -| ['compiler_generated'] )
+				%% Line 498
+				( <List> when ( 'true'
+						-| ['compiler_generated'] ) ->
+				      ( let <_12> =
+					    call %% Line 499
+						 ( 'erlang'
+						   -| ['compiler_generated'] ):%% Line 499
+									       ( 'length'
+										 -| ['compiler_generated'] )
+						(%% Line 499
+						 List)
+					in  ( let <_2> =
+						  call %% Line 499
+						       ( 'erlang'
+							 -| ['compiler_generated'] ):%% Line 499
+										     ( 'div'
+										       -| ['compiler_generated'] )
+						      (_12, %% Line 499
+							    ( 2
+							      -| ['compiler_generated'] ))
+					      in  ( let <_3> =
+							call %% Line 499
+							     ( 'erlang'
+							       -| ['compiler_generated'] ):%% Line 499
+											   ( '+'
+											     -| ['compiler_generated'] )
+							    (_2, %% Line 499
+								 ( 1
+								   -| ['compiler_generated'] ))
+						    in  %% Line 499
+							( case ( call ( 'lists'
+									-| ['compiler_generated'] ):( 'split'
+												      -| ['compiler_generated'] )
+								     (_3, List)
+								 -| ['compiler_generated'] ) of
+							    ( <( {FF,RR}
+								 -| ['compiler_generated'] )> when ( 'true'
+												     -| ['compiler_generated'] ) ->
+								  ( let <_5> =
+									call %% Line 500
+									     ( 'lists'
+									       -| ['compiler_generated'] ):%% Line 500
+													   ( 'reverse'
+													     -| ['compiler_generated'] )
+									    (%% Line 500
+									     RR, %% Line 500
+										 ( []
+										   -| ['compiler_generated'] ))
+								    in  %% Line 500
+									( {_5,FF}
+									  -| ['compiler_generated'] )
+								    -| ['compiler_generated'] )
+							      -| ['compiler_generated'] )
+							    ( <_4> when ( 'true'
+									  -| ['compiler_generated'] ) ->
+								  ( primop ( 'match_fail'
+									     -| ['compiler_generated'] )
+									(( {( 'badmatch'
+									      -| ['compiler_generated'] ),_4}
+									   -| ['compiler_generated'] ))
+								    -| ['compiler_generated'] )
+							      -| ['compiler_generated'] )
+							  end
+							  -| ['compiler_generated'] )
+						    -| ['compiler_generated'] )
+					      -| ['compiler_generated'] )
+					-| ['compiler_generated'] )
+				  -| ['compiler_generated'] )
+			      end
+			      -| ['compiler_generated'] )
+			%% Line 360
+			<>
+			    when call 'erlang':'=:='
+				  (F,
+				   []) ->
+			    %% Line 481
+			    ( case R of
+				( <( []
+				     -| ['compiler_generated'] )> when ( 'true'
+									 -| ['compiler_generated'] ) ->
+				      %% Line 482
+				      ( {[],[]}
+					-| ['compiler_generated'] )
+				  -| ['compiler_generated'] )
+				%% Line 483
+				( <( _14 = ( [_7|( []
+						   -| ['compiler_generated'] )]
+					     -| ['compiler_generated'] )
+				     -| ['compiler_generated'] )> when ( 'true'
+									 -| ['compiler_generated'] ) ->
+				      %% Line 484
+				      ( {( []
+					   -| ['compiler_generated'] ),_14}
+					-| ['compiler_generated'] )
+				  -| ['compiler_generated'] )
+				%% Line 485
+				( <( [X|( ( _@r1
+					    -| ['compiler_generated'] ) = ( [Y|( []
+										 -| ['compiler_generated'] )]
+									    -| ['compiler_generated'] )
+					  -| ['compiler_generated'] )]
+				     -| ['compiler_generated'] )> when ( 'true'
+									 -| ['compiler_generated'] ) ->
+				      %% Line 486
+				      ( {( [X|( []
+						-| ['compiler_generated'] )]
+					   -| ['compiler_generated'] ),( _@r1
+									 -| ['compiler_generated'] )}
+					-| ['compiler_generated'] )
+				  -| ['compiler_generated'] )
+				%% Line 487
+				( <List> when ( 'true'
+						-| ['compiler_generated'] ) ->
+				      ( let <_15> =
+					    call %% Line 488
+						 ( 'erlang'
+						   -| ['compiler_generated'] ):%% Line 488
+									       ( 'length'
+										 -| ['compiler_generated'] )
+						(%% Line 488
+						 List)
+					in  ( let <_2> =
+						  call %% Line 488
+						       ( 'erlang'
+							 -| ['compiler_generated'] ):%% Line 488
+										     ( 'div'
+										       -| ['compiler_generated'] )
+						      (_15, %% Line 488
+							    ( 2
+							      -| ['compiler_generated'] ))
+					      in  ( let <_3> =
+							call %% Line 488
+							     ( 'erlang'
+							       -| ['compiler_generated'] ):%% Line 488
+											   ( '+'
+											     -| ['compiler_generated'] )
+							    (_2, %% Line 488
+								 ( 1
+								   -| ['compiler_generated'] ))
+						    in  %% Line 488
+							( case ( call ( 'lists'
+									-| ['compiler_generated'] ):( 'split'
+												      -| ['compiler_generated'] )
+								     (_3, List)
+								 -| ['compiler_generated'] ) of
+							    ( <( {FF,RR}
+								 -| ['compiler_generated'] )> when ( 'true'
+												     -| ['compiler_generated'] ) ->
+								  ( let <_5> =
+									call %% Line 489
+									     ( 'lists'
+									       -| ['compiler_generated'] ):%% Line 489
+													   ( 'reverse'
+													     -| ['compiler_generated'] )
+									    (%% Line 489
+									     RR, %% Line 489
+										 ( []
+										   -| ['compiler_generated'] ))
+								    in  %% Line 489
+									( {FF,_5}
+									  -| ['compiler_generated'] )
+								    -| ['compiler_generated'] )
+							      -| ['compiler_generated'] )
+							    ( <_4> when ( 'true'
+									  -| ['compiler_generated'] ) ->
+								  ( primop ( 'match_fail'
+									     -| ['compiler_generated'] )
+									(( {( 'badmatch'
+									      -| ['compiler_generated'] ),_4}
+									   -| ['compiler_generated'] ))
+								    -| ['compiler_generated'] )
+							      -| ['compiler_generated'] )
+							  end
+							  -| ['compiler_generated'] )
+						    -| ['compiler_generated'] )
+					      -| ['compiler_generated'] )
+					-| ['compiler_generated'] )
+				  -| ['compiler_generated'] )
+			      end
+			      -| ['compiler_generated'] )
+			%% Line 362
+			<> when 'true' ->
+			    %% Line 363
+			    {R,F}
+		      end
+	  %% Line 365
+	  <Fun,Q> when 'true' ->
+	      %% Line 366
+	      call 'erlang':'error'
+		  ('badarg', [Fun|[Q|[]]])
+	end
+'filter_f'/2 =
+    %% Line 369
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <_7,[]> when 'true' ->
+	      %% Line 370
+	      []
+	  %% Line 371
+	  <Fun,[X|F]> when 'true' ->
+	      %% Line 372
+	      case apply Fun
+		       (X) of
+		%% Line 373
+		<'true'> when 'true' ->
+		    let <_2> =
+			apply %% Line 374
+			      'filter_f'/2
+			    (%% Line 374
+			     Fun, %% Line 374
+				  F)
+		    in  %% Line 374
+			[X|_2]
+		%% Line 375
+		<'false'> when 'true' ->
+		    %% Line 376
+		    apply 'filter_f'/2
+			(Fun, F)
+		%% Line 377
+		<L>
+		    when call 'erlang':'is_list'
+			  (L) ->
+		    let <_3> =
+			apply %% Line 378
+			      'filter_f'/2
+			    (%% Line 378
+			     Fun, %% Line 378
+				  F)
+		    in  %% Line 378
+			call 'erlang':'++'
+			    (L, _3)
+		( <_4> when 'true' ->
+		      primop 'match_fail'
+			  ({'case_clause',_4})
+		  -| ['compiler_generated'] )
+	      end
+	  ( <_6,_5> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_6,_5})
+		  -| [{'function_name',{'filter_f',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'filter_r'/2 =
+    %% Line 383
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <_6,[]> when 'true' ->
+	      %% Line 384
+	      []
+	  %% Line 385
+	  <Fun,[X|R0]> when 'true' ->
+	      let <R> =
+		  apply %% Line 386
+			'filter_r'/2
+		      (%% Line 386
+		       Fun, %% Line 386
+			    R0)
+	      in  %% Line 387
+		  case apply Fun
+			   (X) of
+		    %% Line 388
+		    <'true'> when 'true' ->
+			%% Line 389
+			[X|R]
+		    %% Line 390
+		    <'false'> when 'true' ->
+			%% Line 391
+			R
+		    %% Line 392
+		    <L>
+			when call 'erlang':'is_list'
+			      (L) ->
+			%% Line 393
+			call 'lists':'reverse'
+			    (L, R)
+		    ( <_3> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_3})
+		      -| ['compiler_generated'] )
+		  end
+	  ( <_5,_4> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_5,_4})
+		  -| [{'function_name',{'filter_r',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'cons'/2 =
+    %% Line 431
+    fun (_0,_1) ->
+	%% Line 432
+	apply 'in_r'/2
+	    (_0, _1)
+'head'/1 =
+    %% Line 440
+    fun (_0) ->
+	case _0 of
+	  <Q = {[],[]}> when 'true' ->
+	      %% Line 441
+	      call 'erlang':'error'
+		  ('empty', [Q|[]])
+	  %% Line 442
+	  <{R,F}>
+	      when let <_1> =
+		    call 'erlang':'is_list'
+			(R)
+		in  let <_2> =
+			call 'erlang':'is_list'
+			    (F)
+		    in  call 'erlang':'and'
+			    (_1, _2) ->
+	      %% Line 443
+	      apply 'get'/2
+		  (R, F)
+	  %% Line 444
+	  <Q> when 'true' ->
+	      %% Line 445
+	      call 'erlang':'error'
+		  ('badarg', [Q|[]])
+	end
+'tail'/1 =
+    %% Line 450
+    fun (_0) ->
+	%% Line 451
+	apply 'drop'/1
+	    (_0)
+'snoc'/2 =
+    %% Line 458
+    fun (_0,_1) ->
+	%% Line 459
+	apply 'in'/2
+	    (_1, _0)
+'daeh'/1 =
+    %% Line 463
+    fun (_0) ->
+	apply 'get_r'/1
+	    (_0)
+'last'/1 =
+    %% Line 465
+    fun (_0) ->
+	apply 'get_r'/1
+	    (_0)
+'liat'/1 =
+    %% Line 469
+    fun (_0) ->
+	apply 'drop_r'/1
+	    (_0)
+'lait'/1 =
+    %% Line 471
+    fun (_0) ->
+	apply 'drop_r'/1
+	    (_0)
+'init'/1 =
+    %% Line 473
+    fun (_0) ->
+	apply 'drop_r'/1
+	    (_0)
+'r2f'/1 =
+    %% Line 481
+    fun (_0) ->
+	case _0 of
+	  <[]> when 'true' ->
+	      %% Line 482
+	      {[],[]}
+	  %% Line 483
+	  <R = [_7|[]]> when 'true' ->
+	      %% Line 484
+	      {[],R}
+	  %% Line 485
+	  <[X|_@r0 = [Y|[]]]> when 'true' ->
+	      %% Line 486
+	      {[X|[]],_@r0}
+	  %% Line 487
+	  <List> when 'true' ->
+	      let <_1> =
+		  call %% Line 488
+		       'erlang':%% Line 488
+				'length'
+		      (%% Line 488
+		       List)
+	      in  let <_2> =
+		      call %% Line 488
+			   'erlang':%% Line 488
+				    'div'
+			  (_1, %% Line 488
+			       2)
+		  in  let <_3> =
+			  call %% Line 488
+			       'erlang':%% Line 488
+					'+'
+			      (_2, %% Line 488
+				   1)
+		      in  %% Line 488
+			  case call 'lists':'split'
+				   (_3, List) of
+			    <{FF,RR}> when 'true' ->
+				let <_5> =
+				    call %% Line 489
+					 'lists':%% Line 489
+						 'reverse'
+					(%% Line 489
+					 RR, %% Line 489
+					     [])
+				in  %% Line 489
+				    {FF,_5}
+			    ( <_4> when 'true' ->
+				  primop 'match_fail'
+				      ({'badmatch',_4})
+			      -| ['compiler_generated'] )
+			  end
+	end
+'f2r'/1 =
+    %% Line 492
+    fun (_0) ->
+	case _0 of
+	  <[]> when 'true' ->
+	      %% Line 493
+	      {[],[]}
+	  %% Line 494
+	  <F = [_7|[]]> when 'true' ->
+	      %% Line 495
+	      {F,[]}
+	  %% Line 496
+	  <[X|_@r0 = [Y|[]]]> when 'true' ->
+	      %% Line 497
+	      {_@r0,[X|[]]}
+	  %% Line 498
+	  <List> when 'true' ->
+	      let <_1> =
+		  call %% Line 499
+		       'erlang':%% Line 499
+				'length'
+		      (%% Line 499
+		       List)
+	      in  let <_2> =
+		      call %% Line 499
+			   'erlang':%% Line 499
+				    'div'
+			  (_1, %% Line 499
+			       2)
+		  in  let <_3> =
+			  call %% Line 499
+			       'erlang':%% Line 499
+					'+'
+			      (_2, %% Line 499
+				   1)
+		      in  %% Line 499
+			  case call 'lists':'split'
+				   (_3, List) of
+			    <{FF,RR}> when 'true' ->
+				let <_5> =
+				    call %% Line 500
+					 'lists':%% Line 500
+						 'reverse'
+					(%% Line 500
+					 RR, %% Line 500
+					     [])
+				in  %% Line 500
+				    {_5,FF}
+			    ( <_4> when 'true' ->
+				  primop 'match_fail'
+				      ({'badmatch',_4})
+			      -| ['compiler_generated'] )
+			  end
+	end
+'module_info'/0 =
+    fun () ->
+	call 'erlang':'get_module_info'
+	    ('queue')
+'module_info'/1 =
+    fun (_0) ->
+	call 'erlang':'get_module_info'
+	    ('queue', _0)
+end

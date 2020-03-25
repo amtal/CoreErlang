@@ -1,0 +1,565 @@
+module 'systools_lib' ['file_term2binary'/2,
+		       'get_dirs'/1,
+		       'get_path'/1,
+		       'module_info'/0,
+		       'module_info'/1,
+		       'read_term'/1,
+		       'read_term_from_stream'/2,
+		       'werror'/2]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[115|[121|[115|[116|[111|[111|[108|[115|[95|[108|[105|[98|[46|[101|[114|[108]]]]]]]]]]]]]]]]]]]],1}],
+		%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[47|[117|[115|[114|[47|[108|[111|[99|[97|[108|[47|[67|[101|[108|[108|[97|[114|[47|[101|[114|[108|[97|[110|[103|[47|[50|[50|[46|[50|[47|[108|[105|[98|[47|[101|[114|[108|[97|[110|[103|[47|[108|[105|[98|[47|[107|[101|[114|[110|[101|[108|[45|[54|[46|[53|[46|[49|[47|[105|[110|[99|[108|[117|[100|[101|[47|[102|[105|[108|[101|[46|[104|[114|[108]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]],1}],
+		%% Line 25
+		'record' =
+		    %% Line 25
+		    [{'file_info',[{'typed_record_field',{'record_field',26,{'atom',26,'size'}},{'type',26,'union',[{'type',26,'non_neg_integer',[]}|[{'atom',26,'undefined'}]]}}|[{'typed_record_field',{'record_field',27,{'atom',27,'type'}},{'type',27,'union',[{'atom',27,'device'}|[{'atom',27,'directory'}|[{'atom',27,'other'}|[{'atom',27,'regular'}|[{'atom',27,'symlink'}|[{'atom',28,'undefined'}]]]]]]}}|[{'typed_record_field',{'record_field',29,{'atom',29,'access'}},{'type',29,'union',[{'atom',29,'read'}|[{'atom',29,'write'}|[{'atom',29,'read_write'}|[{'atom',29,'none'}|[{'atom',29,'undefined'}]]]]]}}|[{'typed_record_field',{'record_field',30,{'atom',30,'atime'}},{'type',30,'union',[{'remote_type',30,[{'atom',30,'file'}|[{'atom',30,'date_time'}|[[]]]]}|[{'type',30,'non_neg_integer',[]}|[{'atom',30,'undefined'}]]]}}|[{'typed_record_field',{'record_field',34,{'atom',34,'mtime'}},{'type',34,'union',[{'remote_type',34,[{'atom',34,'file'}|[{'atom',34,'date_time'}|[[]]]]}|[{'type',34,'non_neg_integer',[]}|[{'atom',34,'undefined'}]]]}}|[{'typed_record_field',{'record_field',36,{'atom',36,'ctime'}},{'type',36,'union',[{'remote_type',36,[{'atom',36,'file'}|[{'atom',36,'date_time'}|[[]]]]}|[{'type',36,'non_neg_integer',[]}|[{'atom',36,'undefined'}]]]}}|[{'typed_record_field',{'record_field',42,{'atom',42,'mode'}},{'type',42,'union',[{'type',42,'non_neg_integer',[]}|[{'atom',42,'undefined'}]]}}|[{'typed_record_field',{'record_field',46,{'atom',46,'links'}},{'type',46,'union',[{'type',46,'non_neg_integer',[]}|[{'atom',46,'undefined'}]]}}|[{'typed_record_field',{'record_field',49,{'atom',49,'major_device'}},{'type',49,'union',[{'type',49,'non_neg_integer',[]}|[{'atom',49,'undefined'}]]}}|[{'typed_record_field',{'record_field',55,{'atom',55,'minor_device'}},{'type',55,'union',[{'type',55,'non_neg_integer',[]}|[{'atom',55,'undefined'}]]}}|[{'typed_record_field',{'record_field',57,{'atom',57,'inode'}},{'type',57,'union',[{'type',57,'non_neg_integer',[]}|[{'atom',57,'undefined'}]]}}|[{'typed_record_field',{'record_field',58,{'atom',58,'uid'}},{'type',58,'union',[{'type',58,'non_neg_integer',[]}|[{'atom',58,'undefined'}]]}}|[{'typed_record_field',{'record_field',59,{'atom',59,'gid'}},{'type',59,'union',[{'type',59,'non_neg_integer',[]}|[{'atom',59,'undefined'}]]}}]]]]]]]]]]]]]}],
+		%% Line 62
+		'record' =
+		    %% Line 62
+		    [{'file_descriptor',[{'typed_record_field',{'record_field',63,{'atom',63,'module'}},{'type',63,'module',[]}}|[{'typed_record_field',{'record_field',64,{'atom',64,'data'}},{'type',64,'term',[]}}]]}],
+		%% Line 31
+		'file' =
+		    %% Line 31
+		    [{[115|[114|[99|[47|[115|[121|[115|[116|[111|[111|[108|[115|[95|[108|[105|[98|[46|[101|[114|[108]]]]]]]]]]]]]]]]]]]],31}]]
+'file_term2binary'/2 =
+    %% Line 35
+    fun (_0,_1) ->
+	%% Line 36
+	case apply 'read_term'/1
+		 (_0) of
+	  %% Line 37
+	  <{'ok',Term}> when 'true' ->
+	      let <_2> =
+		  call %% Line 38
+		       'erlang':%% Line 38
+				'term_to_binary'
+		      (%% Line 38
+		       Term)
+	      in  %% Line 38
+		  case call 'file':'write_file'
+			   (_1, _2) of
+		    %% Line 39
+		    <'ok'> when 'true' ->
+			'ok'
+		    %% Line 40
+		    <{'error',Error}> when 'true' ->
+			{'error',{'open',_1,Error}}
+		    ( <_3> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_3})
+		      -| ['compiler_generated'] )
+		  end
+	  %% Line 42
+	  <Other> when 'true' ->
+	      %% Line 43
+	      Other
+	end
+'read_term'/1 =
+    %% Line 53
+    fun (_0) ->
+	%% Line 54
+	case call 'file':'open'
+		 (_0, ['read']) of
+	  %% Line 55
+	  <{'ok',Stream}> when 'true' ->
+	      let <Res> =
+		  apply %% Line 56
+			'read_term_from_stream'/2
+		      (%% Line 56
+		       Stream, _0)
+	      in  %% Line 57
+		  case call 'file':'close'
+			   (Stream) of
+		    %% Line 58
+		    <'ok'> when 'true' ->
+			Res
+		    %% Line 59
+		    <{'error',Error}> when 'true' ->
+			{'error',{'close',_0,Error}}
+		    ( <_2> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_2})
+		      -| ['compiler_generated'] )
+		  end
+	  %% Line 61
+	  <{'error',Error}> when 'true' ->
+	      %% Line 62
+	      {'error',{'open',_0,Error}}
+	  ( <_3> when 'true' ->
+		primop 'match_fail'
+		    ({'case_clause',_3})
+	    -| ['compiler_generated'] )
+	end
+'read_term_from_stream'/2 =
+    %% Line 65
+    fun (_0,_1) ->
+	let <Encoding> =
+	    call %% Line 66
+		 'epp':%% Line 66
+		       'set_encoding'
+		(_0)
+	in  %% Line 68
+	    case call 'io':'request'
+		     (_0, {'get_until',Encoding,'','erl_scan','tokens',[1]}) of
+	      %% Line 69
+	      <{'ok',Toks,_X_EndLine}> when 'true' ->
+		  %% Line 70
+		  case call 'erl_parse':'parse_term'
+			   (Toks) of
+		    %% Line 71
+		    <_@r0 = {'ok',Term}> when 'true' ->
+			%% Line 72
+			_@r0
+		    %% Line 73
+		    <{'error',Error}> when 'true' ->
+			%% Line 74
+			{'error',{'parse',_1,Error}}
+		    ( <_4> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_4})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 76
+	      <{'error',_X_E,_X_EndLine}> when 'true' ->
+		  %% Line 77
+		  {'error',{'read',_1}}
+	      %% Line 78
+	      <{'eof',_X_EndLine}> when 'true' ->
+		  %% Line 79
+		  {'error',{'read',_1}}
+	      ( <_5> when 'true' ->
+		    primop 'match_fail'
+			({'case_clause',_5})
+		-| ['compiler_generated'] )
+	    end
+'get_dirs'/1 =
+    %% Line 95
+    fun (_0) ->
+	case _0 of
+	  <RegPath>
+	      when call 'erlang':'is_list'
+		    (_0) ->
+	      let <Names> =
+		  call %% Line 96
+		       'filename':%% Line 96
+				  'split'
+		      (%% Line 96
+		       RegPath)
+	      in  let <ExpNames> =
+		      apply %% Line 97
+			    'expand_names'/1
+			  (%% Line 97
+			   Names)
+		  in  catch
+			  %% Line 98
+			  apply 'get_dirs'/3
+			      (ExpNames, [], 'true')
+	  %% Line 99
+	  <_4> when 'true' ->
+	      %% Line 100
+	      {'error','badarg'}
+	end
+'get_path'/1 =
+    %% Line 102
+    fun (_0) ->
+	case _0 of
+	  <RegPath>
+	      when call 'erlang':'is_list'
+		    (_0) ->
+	      let <F> =
+		  fun (_2) ->
+		      %% Line 104
+		      case apply 'get_dirs'/1
+			       (_2) of
+			%% Line 105
+			<{'ok',Dirs}> when 'true' ->
+			    {'true',Dirs}
+			%% Line 106
+			<_7> when 'true' ->
+			    'false'
+		      end
+	      in  let <_5> =
+		      call %% Line 109
+			   'lists':%% Line 109
+				   'zf'
+			  (%% Line 109
+			   F, %% Line 109
+			      RegPath)
+		  in  %% Line 109
+		      apply 'flat'/2
+			  (_5, [])
+	  %% Line 110
+	  <_8> when 'true' ->
+	      %% Line 111
+	      []
+	end
+'expand_names'/1 =
+    %% Line 122
+    fun (_0) ->
+	let <_5> =
+	    fun (_3) ->
+		%% Line 123
+		case _3 of
+		  <[42]> when 'true' ->
+		      %% Line 124
+		      {'true',[91|[94|[47|[93|[43]]]]]}
+		  %% Line 125
+		  <N> when 'true' ->
+		      %% Line 126
+		      case call 'lists':'member'
+			       (42, N) of
+			%% Line 127
+			<'true'> when 'true' ->
+			    let <_1> =
+				apply 'expand'/2
+				    (N, [])
+			    in  {'true',_1}
+			%% Line 128
+			<_7> when 'true' ->
+			    {'false',N}
+		      end
+		end
+	in  %% Line 123
+	    call 'lists':'map'
+		(_5, _0)
+'expand'/2 =
+    %% Line 132
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <[42|T],Ack> when 'true' ->
+	      let <_2> =
+		  call %% Line 133
+		       'erlang':%% Line 133
+				'++'
+		      (%% Line 133
+		       [42|[93|[47|[94|[91]]]]], %% Line 133
+						 Ack)
+	      in  %% Line 133
+		  apply 'expand'/2
+		      (T, _2)
+	  %% Line 134
+	  <[H|T],Ack> when 'true' ->
+	      %% Line 135
+	      apply 'expand'/2
+		  (T, [H|Ack])
+	  %% Line 136
+	  <[],Ack> when 'true' ->
+	      %% Line 137
+	      call 'lists':'reverse'
+		  (Ack)
+	  ( <_4,_3> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_4,_3})
+		  -| [{'function_name',{'expand',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'get_dirs'/3 =
+    %% Line 147
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <[{'false',Name}|T],F,Root> when 'true' ->
+	      let <_3> =
+		  apply %% Line 148
+			'add_dir'/3
+		      (%% Line 148
+		       Name, %% Line 148
+			     F, %% Line 148
+				Root)
+	      in  %% Line 148
+		  apply 'get_dirs'/3
+		      (T, _3, 'false')
+	  %% Line 149
+	  <[{'true',RegName}|T],F,Root> when 'true' ->
+	      let <_4> =
+		  apply %% Line 150
+			'add_dirs'/3
+		      (%% Line 150
+		       RegName, %% Line 150
+				F, %% Line 150
+				   Root)
+	      in  %% Line 150
+		  apply 'get_dirs'/3
+		      (T, _4, 'false')
+	  %% Line 151
+	  <[],F,_8> when 'true' ->
+	      %% Line 152
+	      {'ok',F}
+	  ( <_7,_6,_5> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_7,_6,_5})
+		  -| [{'function_name',{'get_dirs',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'add_dir'/3 =
+    %% Line 154
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <Name,[],'true'> when 'true' ->
+	      %% Line 155
+	      case apply 'dir_p'/1
+		       (Name) of
+		%% Line 156
+		<'true'> when 'true' ->
+		    [Name|[]]
+		%% Line 157
+		<_12> when 'true' ->
+		    []
+	      end
+	  %% Line 159
+	  <Name,Dirs,_X_Root> when 'true' ->
+	      let <_8> =
+		  fun (_6) ->
+		      let <D> =
+			  call %% Line 161
+			       'filename':%% Line 161
+					  'join'
+			      (%% Line 160
+			       _6, %% Line 161
+				   Name)
+		      in  %% Line 162
+			  case apply 'dir_p'/1
+				   (D) of
+			    %% Line 163
+			    <'true'> when 'true' ->
+				{'true',D}
+			    %% Line 164
+			    <_13> when 'true' ->
+				'false'
+			  end
+	      in  %% Line 160
+		  call 'lists':'zf'
+		      (_8, %% Line 166
+			   Dirs)
+	end
+'add_dirs'/3 =
+    %% Line 168
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <RegName,_X_Dirs,'true'> when 'true' ->
+	      %% Line 169
+	      case apply 'regexp_match'/3
+		       (RegName, [46], 'true') of
+		%% Line 170
+		<{'true',AddDirs}> when 'true' ->
+		    AddDirs
+		%% Line 171
+		<_11> when 'true' ->
+		    []
+	      end
+	  %% Line 173
+	  <RegName,Dirs,Root> when 'true' ->
+	      let <Fun> =
+		  fun (_4) ->
+		      %% Line 175
+		      apply 'regexp_match'/3
+			  (RegName, _4, Root)
+	      in  let <_7> =
+		      call %% Line 177
+			   'lists':%% Line 177
+				   'zf'
+			  (%% Line 177
+			   Fun, %% Line 177
+				Dirs)
+		  in  %% Line 177
+		      apply 'flat'/2
+			  (_7, [])
+	end
+'regexp_match'/3 =
+    %% Line 186
+    fun (_0,_1,_2) ->
+	%% Line 187
+	case call 'file':'list_dir'
+		 (_1) of
+	  %% Line 188
+	  <{'ok',Files}>
+	      when try
+		    let <_3> =
+			call 'erlang':'length'
+			    (Files)
+		    in  call 'erlang':'>'
+			    (_3, 0)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      %% Line 189
+	      case call 're':'compile'
+		       (_0, ['unicode']) of
+		%% Line 190
+		<{'ok',MP}> when 'true' ->
+		    let <FR> =
+			fun (_7) ->
+			    %% Line 192
+			    case call 're':'run'
+				     (_7, MP, [{'capture','first','list'}]) of
+			      %% Line 193
+			      <{'match',[_16|[]]}>
+				  when call 'erlang':'=:='
+					(_16,
+					 _7) ->
+				  let <DirF> =
+				      apply %% Line 194
+					    'join'/3
+					  (_1, _7, _2)
+				  in  %% Line 195
+				      case apply 'dir_p'/1
+					       (DirF) of
+					%% Line 196
+					<'true'> when 'true' ->
+					    %% Line 197
+					    {'true',DirF}
+					%% Line 198
+					<_17> when 'true' ->
+					    %% Line 199
+					    'false'
+				      end
+			      %% Line 201
+			      <_18> when 'true' ->
+				  %% Line 202
+				  'false'
+			    end
+		    in  let <_10> =
+			    call %% Line 205
+				 'lists':%% Line 205
+					 'zf'
+				(%% Line 205
+				 FR, %% Line 205
+				     Files)
+			in  %% Line 205
+			    {'true',_10}
+		%% Line 206
+		<_19> when 'true' ->
+		    %% Line 207
+		    'false'
+	      end
+	  %% Line 209
+	  <_20> when 'true' ->
+	      %% Line 210
+	      'false'
+	end
+'join'/3 =
+    %% Line 214
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <_6,F,'true'> when 'true' ->
+	      F
+	  %% Line 215
+	  <Dir,F,_7> when 'true' ->
+	      call 'filename':'join'
+		  (Dir, F)
+	end
+'dir_p'/1 =
+    %% Line 217
+    fun (_0) ->
+	%% Line 218
+	case call 'file':'read_file_info'
+		 (_0) of
+	  %% Line 219
+	  <{'ok',Info = {'file_info',_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21}}>
+	      when ( try
+		      let <_5> =
+			  call 'erlang':'element'
+			      (3, Info)
+		      in  call 'erlang':'=:='
+			      (_5, 'directory')
+		  of <Try> ->
+		      Try
+		  catch <T,R> ->
+		      'false'
+		  -| ['compiler_generated'] ) ->
+	      'true'
+	  %% Line 220
+	  <_22> when 'true' ->
+	      'false'
+	end
+'flat'/2 =
+    %% Line 224
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <[H|T],Ack>
+	      when try
+		    let <_2> =
+			call 'erlang':'hd'
+			    (H)
+		    in  call 'erlang':'is_list'
+			    (_2)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      let <_3> =
+		  call %% Line 225
+		       'lists':%% Line 225
+			       'reverse'
+		      (%% Line 225
+		       H)
+	      in  let <_4> =
+		      call %% Line 225
+			   'erlang':%% Line 225
+				    '++'
+			  (_3, %% Line 225
+			       Ack)
+		  in  %% Line 225
+		      apply 'flat'/2
+			  (T, _4)
+	  %% Line 226
+	  <[[]|T],Ack> when 'true' ->
+	      %% Line 227
+	      apply 'flat'/2
+		  (T, Ack)
+	  %% Line 228
+	  <[H|T],Ack> when 'true' ->
+	      %% Line 229
+	      apply 'flat'/2
+		  (T, [H|Ack])
+	  %% Line 230
+	  <[],Ack> when 'true' ->
+	      %% Line 231
+	      call 'lists':'reverse'
+		  (Ack)
+	  ( <_6,_5> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_6,_5})
+		  -| [{'function_name',{'flat',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'werror'/2 =
+    %% Line 233
+    fun (_0,_1) ->
+	%% Line 234
+	( case call 'lists':'member'
+		   ('warnings_as_errors', _0) of
+	    ( <( 'true'
+		 -| ['compiler_generated'] )> when 'true' ->
+		  call 'erlang':'=/='
+		      (_1, [])
+	      -| ['compiler_generated'] )
+	    ( <( 'false'
+		 -| ['compiler_generated'] )> when 'true' ->
+		  'false'
+	      -| ['compiler_generated'] )
+	    ( <_2> when 'true' ->
+		  ( call ( 'erlang'
+			   -| ['compiler_generated'] ):( 'error'
+							 -| ['compiler_generated'] )
+			(( {( 'badarg'
+			      -| ['compiler_generated'] ),_2}
+			   -| ['compiler_generated'] ))
+		    -| ['compiler_generated'] )
+	      -| ['compiler_generated'] )
+	  end
+	  -| ['compiler_generated'] )
+'module_info'/0 =
+    fun () ->
+	call 'erlang':'get_module_info'
+	    ('systools_lib')
+'module_info'/1 =
+    fun (_0) ->
+	call 'erlang':'get_module_info'
+	    ('systools_lib', _0)
+end

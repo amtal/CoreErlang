@@ -1,0 +1,1480 @@
+module 'gen' ['call'/3,
+	      'call'/4,
+	      'check_response'/2,
+	      'debug_options'/2,
+	      'format_status_header'/2,
+	      'get_parent'/0,
+	      'get_proc_name'/1,
+	      'hibernate_after'/1,
+	      'init_it'/6,
+	      'init_it'/7,
+	      'module_info'/0,
+	      'module_info'/1,
+	      'name'/1,
+	      'reply'/2,
+	      'send_request'/3,
+	      'start'/5,
+	      'start'/6,
+	      'stop'/1,
+	      'stop'/3,
+	      'unregister_name'/1,
+	      'wait_response'/2]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[103|[101|[110|[46|[101|[114|[108]]]]]]]]]]],1}],
+		%% Line 21
+		'compile' =
+		    %% Line 21
+		    [{'inline',[{'get_node',1}]}],
+		%% Line 43
+		'type' =
+		    %% Line 43
+		    [{'linkage',{'type',43,'union',[{'atom',43,'monitor'}|[{'atom',43,'link'}|[{'atom',43,'nolink'}]]]},[]}],
+		%% Line 44
+		'type' =
+		    %% Line 44
+		    [{'emgr_name',{'type',44,'union',[{'type',44,'tuple',[{'atom',44,'local'}|[{'type',44,'atom',[]}]]}|[{'type',45,'tuple',[{'atom',45,'global'}|[{'type',45,'term',[]}]]}|[{'type',46,'tuple',[{'atom',46,'via'}|[{'ann_type',46,[{'var',46,'Module'}|[{'type',46,'module',[]}]]}|[{'ann_type',46,[{'var',46,'Name'}|[{'type',46,'term',[]}]]}]]]}]]]},[]}],
+		%% Line 48
+		'type' =
+		    %% Line 48
+		    [{'start_ret',{'type',48,'union',[{'type',48,'tuple',[{'atom',48,'ok'}|[{'type',48,'pid',[]}]]}|[{'atom',48,'ignore'}|[{'type',48,'tuple',[{'atom',48,'error'}|[{'type',48,'term',[]}]]}]]]},[]}],
+		%% Line 50
+		'type' =
+		    %% Line 50
+		    [{'debug_flag',{'type',50,'union',[{'atom',50,'trace'}|[{'atom',50,'log'}|[{'atom',50,'statistics'}|[{'atom',50,'debug'}|[{'type',51,'tuple',[{'atom',51,'logfile'}|[{'type',51,'string',[]}]]}]]]]]},[]}],
+		%% Line 52
+		'type' =
+		    %% Line 52
+		    [{'option',{'type',52,'union',[{'type',52,'tuple',[{'atom',52,'timeout'}|[{'type',52,'timeout',[]}]]}|[{'type',53,'tuple',[{'atom',53,'debug'}|[{'type',53,'list',[{'user_type',53,'debug_flag',[]}]}]]}|[{'type',54,'tuple',[{'atom',54,'hibernate_after'}|[{'type',54,'timeout',[]}]]}|[{'type',55,'tuple',[{'atom',55,'spawn_opt'}|[{'type',55,'list',[{'remote_type',55,[{'atom',55,'proc_lib'}|[{'atom',55,'spawn_option'}|[[]]]]}]}]]}]]]]},[]}],
+		%% Line 56
+		'type' =
+		    %% Line 56
+		    [{'options',{'type',56,'list',[{'user_type',56,'option',[]}]},[]}],
+		%% Line 58
+		'type' =
+		    %% Line 58
+		    [{'server_ref',{'type',58,'union',[{'type',58,'pid',[]}|[{'type',58,'atom',[]}|[{'type',58,'tuple',[{'type',58,'atom',[]}|[{'type',58,'node',[]}]]}|[{'type',59,'tuple',[{'atom',59,'global'}|[{'type',59,'term',[]}]]}|[{'type',59,'tuple',[{'atom',59,'via'}|[{'type',59,'module',[]}|[{'type',59,'term',[]}]]]}]]]]]},[]}],
+		%% Line 61
+		'type' =
+		    %% Line 61
+		    [{'request_id',{'type',61,'term',[]},[]}],
+		%% Line 79
+		'spec' =
+		    %% Line 79
+		    [{{'start',6},[{'type',79,'fun',[{'type',79,'product',[{'type',79,'module',[]}|[{'user_type',79,'linkage',[]}|[{'user_type',79,'emgr_name',[]}|[{'type',79,'module',[]}|[{'type',79,'term',[]}|[{'user_type',79,'options',[]}]]]]]]}|[{'user_type',80,'start_ret',[]}]]}]}],
+		%% Line 90
+		'spec' =
+		    %% Line 90
+		    [{{'start',5},[{'type',90,'fun',[{'type',90,'product',[{'type',90,'module',[]}|[{'user_type',90,'linkage',[]}|[{'type',90,'module',[]}|[{'type',90,'term',[]}|[{'user_type',90,'options',[]}]]]]]}|[{'user_type',90,'start_ret',[]}]]}]}],
+		%% Line 236
+		'spec' =
+		    %% Line 236
+		    [{{'send_request',3},[{'type',236,'fun',[{'type',236,'product',[{'ann_type',236,[{'var',236,'Name'}|[{'user_type',236,'server_ref',[]}]]}|[{'ann_type',236,[{'var',236,'Label'}|[{'type',236,'term',[]}]]}|[{'ann_type',236,[{'var',236,'Request'}|[{'type',236,'term',[]}]]}]]]}|[{'user_type',236,'request_id',[]}]]}]}],
+		%% Line 258
+		'spec' =
+		    %% Line 258
+		    [{{'wait_response',2},[{'type',258,'fun',[{'type',258,'product',[{'ann_type',258,[{'var',258,'RequestId'}|[{'user_type',258,'request_id',[]}]]}|[{'type',258,'timeout',[]}]]}|[{'type',259,'union',[{'type',259,'tuple',[{'atom',259,'reply'}|[{'ann_type',259,[{'var',259,'Reply'}|[{'type',259,'term',[]}]]}]]}|[{'atom',259,'timeout'}|[{'type',259,'tuple',[{'atom',259,'error'}|[{'type',259,'tuple',[{'type',259,'term',[]}|[{'user_type',259,'server_ref',[]}]]}]]}]]]}]]}]}],
+		%% Line 272
+		'spec' =
+		    %% Line 272
+		    [{{'check_response',2},[{'type',272,'fun',[{'type',272,'product',[{'ann_type',272,[{'var',272,'RequestId'}|[{'type',272,'term',[]}]]}|[{'ann_type',272,[{'var',272,'Key'}|[{'user_type',272,'request_id',[]}]]}]]}|[{'type',273,'union',[{'type',273,'tuple',[{'atom',273,'reply'}|[{'ann_type',273,[{'var',273,'Reply'}|[{'type',273,'term',[]}]]}]]}|[{'atom',273,'no_reply'}|[{'type',273,'tuple',[{'atom',273,'error'}|[{'type',273,'tuple',[{'type',273,'term',[]}|[{'user_type',273,'server_ref',[]}]]}]]}]]]}]]}]}]]
+'start'/6 =
+    %% Line 82
+    fun (_0,_1,_2,_3,_4,_5) ->
+	%% Line 83
+	case apply 'where'/1
+		 (_2) of
+	  %% Line 84
+	  <'undefined'> when 'true' ->
+	      %% Line 85
+	      apply 'do_spawn'/6
+		  (_0, _1, _2, _3, _4, _5)
+	  %% Line 86
+	  <Pid> when 'true' ->
+	      %% Line 87
+	      {'error',{'already_started',Pid}}
+	end
+'start'/5 =
+    %% Line 92
+    fun (_0,_1,_2,_3,_4) ->
+	%% Line 93
+	apply 'do_spawn'/5
+	    (_0, _1, _2, _3, _4)
+'do_spawn'/5 =
+    %% Line 99
+    fun (_0,_1,_2,_3,_4) ->
+	case <_0,_1,_2,_3,_4> of
+	  <GenMod,'link',Mod,Args,Options> when 'true' ->
+	      let <Time> =
+		  apply %% Line 100
+			'timeout'/1
+		      (%% Line 100
+		       Options)
+	      in  let <_7> =
+		      call %% Line 102
+			   'erlang':%% Line 102
+				    'self'
+			  ()
+		  in  let <_8> =
+			  call %% Line 102
+			       'erlang':%% Line 102
+					'self'
+			      ()
+		      in  let <_6> =
+			      apply %% Line 104
+				    'spawn_opts'/1
+				  (%% Line 104
+				   Options)
+			  in  %% Line 101
+			      call 'proc_lib':'start_link'
+				  ('gen', 'init_it', %% Line 102
+						     [GenMod|[_7|[_8|[Mod|[Args|[Options|[]]]]]]], %% Line 103
+												   Time, _6)
+	  %% Line 105
+	  <GenMod,'monitor',Mod,Args,Options> when 'true' ->
+	      let <Time> =
+		  apply %% Line 106
+			'timeout'/1
+		      (%% Line 106
+		       Options)
+	      in  let <_11> =
+		      call %% Line 108
+			   'erlang':%% Line 108
+				    'self'
+			  ()
+		  in  let <_12> =
+			  call %% Line 108
+			       'erlang':%% Line 108
+					'self'
+			      ()
+		      in  let <_10> =
+			      apply %% Line 110
+				    'spawn_opts'/1
+				  (%% Line 110
+				   Options)
+			  in  let <Ret> =
+				  call %% Line 107
+				       'proc_lib':%% Line 107
+						  'start_monitor'
+				      (%% Line 107
+				       'gen', %% Line 107
+					      'init_it', %% Line 108
+							 [GenMod|[_11|[_12|[Mod|[Args|[Options|[]]]]]]], %% Line 109
+													 Time, _10)
+			      in  %% Line 111
+				  apply 'monitor_return'/1
+				      (Ret)
+	  %% Line 112
+	  <GenMod,_22,Mod,Args,Options> when 'true' ->
+	      let <Time> =
+		  apply %% Line 113
+			'timeout'/1
+		      (%% Line 113
+		       Options)
+	      in  let <_16> =
+		      call %% Line 115
+			   'erlang':%% Line 115
+				    'self'
+			  ()
+		  in  let <_15> =
+			  apply %% Line 117
+				'spawn_opts'/1
+			      (%% Line 117
+			       Options)
+		      in  %% Line 114
+			  call 'proc_lib':'start'
+			      ('gen', 'init_it', %% Line 115
+						 [GenMod|[_16|['self'|[Mod|[Args|[Options|[]]]]]]], %% Line 116
+												    Time, _15)
+	end
+'do_spawn'/6 =
+    %% Line 119
+    fun (_0,_1,_2,_3,_4,_5) ->
+	case <_0,_1,_2,_3,_4,_5> of
+	  <GenMod,'link',Name,Mod,Args,Options> when 'true' ->
+	      let <Time> =
+		  apply %% Line 120
+			'timeout'/1
+		      (%% Line 120
+		       Options)
+	      in  let <_8> =
+		      call %% Line 122
+			   'erlang':%% Line 122
+				    'self'
+			  ()
+		  in  let <_9> =
+			  call %% Line 122
+			       'erlang':%% Line 122
+					'self'
+			      ()
+		      in  let <_7> =
+			      apply %% Line 124
+				    'spawn_opts'/1
+				  (%% Line 124
+				   Options)
+			  in  %% Line 121
+			      call 'proc_lib':'start_link'
+				  ('gen', 'init_it', %% Line 122
+						     [GenMod|[_8|[_9|[Name|[Mod|[Args|[Options|[]]]]]]]], %% Line 123
+													  Time, _7)
+	  %% Line 125
+	  <GenMod,'monitor',Name,Mod,Args,Options> when 'true' ->
+	      let <Time> =
+		  apply %% Line 126
+			'timeout'/1
+		      (%% Line 126
+		       Options)
+	      in  let <_12> =
+		      call %% Line 128
+			   'erlang':%% Line 128
+				    'self'
+			  ()
+		  in  let <_13> =
+			  call %% Line 128
+			       'erlang':%% Line 128
+					'self'
+			      ()
+		      in  let <_11> =
+			      apply %% Line 130
+				    'spawn_opts'/1
+				  (%% Line 130
+				   Options)
+			  in  let <Ret> =
+				  call %% Line 127
+				       'proc_lib':%% Line 127
+						  'start_monitor'
+				      (%% Line 127
+				       'gen', %% Line 127
+					      'init_it', %% Line 128
+							 [GenMod|[_12|[_13|[Name|[Mod|[Args|[Options|[]]]]]]]], %% Line 129
+														Time, _11)
+			      in  %% Line 131
+				  apply 'monitor_return'/1
+				      (Ret)
+	  %% Line 132
+	  <GenMod,_24,Name,Mod,Args,Options> when 'true' ->
+	      let <Time> =
+		  apply %% Line 133
+			'timeout'/1
+		      (%% Line 133
+		       Options)
+	      in  let <_17> =
+		      call %% Line 135
+			   'erlang':%% Line 135
+				    'self'
+			  ()
+		  in  let <_16> =
+			  apply %% Line 137
+				'spawn_opts'/1
+			      (%% Line 137
+			       Options)
+		      in  %% Line 134
+			  call 'proc_lib':'start'
+			      ('gen', 'init_it', %% Line 135
+						 [GenMod|[_17|['self'|[Name|[Mod|[Args|[Options|[]]]]]]]], %% Line 136
+													   Time, _16)
+	end
+'monitor_return'/1 =
+    %% Line 147
+    fun (_0) ->
+	case _0 of
+	  <{{'ok',Pid},Mon}>
+	      when let <_1> =
+		    call 'erlang':'is_pid'
+			(Pid)
+		in  let <_2> =
+			call 'erlang':'is_reference'
+			    (Mon)
+		    in  call 'erlang':'and'
+			    (_1, _2) ->
+	      %% Line 149
+	      {'ok',{Pid,Mon}}
+	  %% Line 150
+	  <{Error,Mon}>
+	      when call 'erlang':'is_reference'
+		    (Mon) ->
+	      do  %% Line 153
+		  receive
+		    %% Line 154
+		    <{'DOWN',_4,'process',_X_Pid,_X_Reason}>
+			when call 'erlang':'=:='
+			      (_4,
+			       Mon) ->
+			'ok'
+		  after 'infinity' ->
+		    'ok'
+		  %% Line 157
+		  Error
+	  ( <_3> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_3})
+		  -| [{'function_name',{'monitor_return',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'init_it'/6 =
+    %% Line 166
+    fun (_0,_1,_2,_3,_4,_5) ->
+	let <_6> =
+	    call %% Line 167
+		 'erlang':%% Line 167
+			  'self'
+		()
+	in  %% Line 167
+	    apply 'init_it2'/7
+		(_0, _1, _2, _6, _3, _4, _5)
+'init_it'/7 =
+    %% Line 169
+    fun (_0,_1,_2,_3,_4,_5,_6) ->
+	%% Line 170
+	case apply 'register_name'/1
+		 (_3) of
+	  %% Line 171
+	  <'true'> when 'true' ->
+	      %% Line 172
+	      apply 'init_it2'/7
+		  (_0, _1, _2, _3, _4, _5, _6)
+	  %% Line 173
+	  <{'false',Pid}> when 'true' ->
+	      %% Line 174
+	      call 'proc_lib':'init_ack'
+		  (_1, {'error',{'already_started',Pid}})
+	  ( <_7> when 'true' ->
+		primop 'match_fail'
+		    ({'case_clause',_7})
+	    -| ['compiler_generated'] )
+	end
+'init_it2'/7 =
+    %% Line 177
+    fun (_0,_1,_2,_3,_4,_5,_6) ->
+	%% Line 178
+	call _0:'init_it'
+	    (_1, _2, _3, _4, _5, _6)
+'call'/3 =
+    %% Line 189
+    fun (_0,_1,_2) ->
+	%% Line 190
+	apply 'call'/4
+	    (_0, _1, _2, 5000)
+'call'/4 =
+    %% Line 193
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <Process,Label,Request,Timeout>
+	      when try
+		    let <_4> =
+			call 'erlang':'is_pid'
+			    (Process)
+		    in  ( let <_9> =
+			      case %% Line 194
+				   call 'erlang':'=:='
+				       (Timeout, 'infinity') of
+				%% Line 194
+				( <( 'true'
+				     -| ['compiler_generated'] )> when 'true' ->
+				      'true'
+				  -| ['compiler_generated'] )
+				%% Line 194
+				( <( 'false'
+				     -| ['compiler_generated'] )> when 'true' ->
+				      ( case call 'erlang':'is_integer'
+						 (Timeout) of
+					  ( <( 'true'
+					       -| ['compiler_generated'] )> when 'true' ->
+						call 'erlang':'>='
+						    (Timeout, 0)
+					    -| ['compiler_generated'] )
+					  ( <( 'false'
+					       -| ['compiler_generated'] )> when 'true' ->
+						'false'
+					    -| ['compiler_generated'] )
+					  ( <_6> when 'true' ->
+						_6
+					    -| ['compiler_generated'] )
+					end
+					-| ['compiler_generated'] )
+				  -| ['compiler_generated'] )
+				%% Line 194
+				( <_5> when 'true' ->
+				      _5
+				  -| ['compiler_generated'] )
+			      end
+			  in  let <_10> =
+				  call 'erlang':'=:='
+				      (%% Line 194
+				       ( _9
+					 -| ['compiler_generated'] ), 'true')
+			      in  call 'erlang':'and'
+				      (_4, _10)
+			  -| ['compiler_generated'] )
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      %% Line 195
+	      apply 'do_call'/4
+		  (Process, Label, Request, Timeout)
+	  %% Line 196
+	  <Process,Label,Request,Timeout>
+	      when let <_11> =
+		    call %% Line 197
+			 'erlang':%% Line 197
+				  '=:='
+			(%% Line 197
+			 Timeout, %% Line 197
+				  'infinity')
+		in  let <_12> =
+			call %% Line 197
+			     'erlang':%% Line 197
+				      'is_integer'
+			    (%% Line 197
+			     Timeout)
+		    in  let <_13> =
+			    call %% Line 197
+				 'erlang':%% Line 197
+					  '>='
+				(%% Line 197
+				 Timeout, %% Line 197
+					  0)
+			in  let <_14> =
+				call %% Line 197
+				     'erlang':%% Line 197
+					      'and'
+				    (_12, _13)
+			    in  %% Line 197
+				call 'erlang':'or'
+				    (_11, _14) ->
+	      let <Fun> =
+		  fun (_15) ->
+		      %% Line 198
+		      apply 'do_call'/4
+			  (_15, Label, Request, Timeout)
+	      in  %% Line 199
+		  apply 'do_for_proc'/2
+		      (Process, Fun)
+	  ( <_21,_20,_19,_18> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_21,_20,_19,_18})
+		  -| [{'function_name',{'call',4}}] )
+	    -| ['compiler_generated'] )
+	end
+'do_call'/4 =
+    %% Line 201
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <Process,Label,Request,Timeout>
+	      when let <_4> =
+		    call 'erlang':'is_atom'
+			(Process)
+		in  call 'erlang':'=:='
+			(_4, 'false') ->
+	      let <Mref> =
+		  call %% Line 202
+		       'erlang':%% Line 202
+				'monitor'
+		      (%% Line 202
+		       'process', %% Line 202
+				  Process)
+	      in  let <_6> =
+		      call %% Line 208
+			   'erlang':%% Line 208
+				    'self'
+			  ()
+		  in  do  %% Line 208
+			  call 'erlang':'send'
+			      (Process, {Label,{_6,Mref},Request}, ['noconnect'])
+			  %% Line 210
+			  receive
+			    %% Line 211
+			    <{_12,Reply}>
+				when call 'erlang':'=:='
+				      (_12,
+				       Mref) ->
+				do  %% Line 212
+				    call 'erlang':'demonitor'
+					(Mref, ['flush'])
+				    %% Line 213
+				    {'ok',Reply}
+			    %% Line 214
+			    <{'DOWN',_13,_14,_15,'noconnection'}>
+				when call 'erlang':'=:='
+				      (_13,
+				       Mref) ->
+				let <Node> =
+				    case %% Line 215
+					 Process of
+				      %% Line 230
+				      ( <( {_X_S,N}
+					   -| ['compiler_generated'] )>
+					    when ( call ( 'erlang'
+						       -| ['compiler_generated'] ):( 'is_atom'
+										     -| ['compiler_generated'] )
+						    (N)
+						-| ['compiler_generated'] ) ->
+					    %% Line 231
+					    N
+					-| ['compiler_generated'] )
+				      %% Line 232
+				      ( <_21>
+					    when ( call ( 'erlang'
+						       -| ['compiler_generated'] ):( 'is_pid'
+										     -| ['compiler_generated'] )
+						    (Process)
+						-| ['compiler_generated'] ) ->
+					    %% Line 233
+					    ( call ( 'erlang'
+						     -| ['compiler_generated'] ):( 'node'
+										   -| ['compiler_generated'] )
+						  (Process)
+					      -| ['compiler_generated'] )
+					-| ['compiler_generated'] )
+				      ( <_22> when ( 'true'
+						     -| ['compiler_generated'] ) ->
+					    %% Line 229
+					    ( primop ( 'match_fail'
+						       -| ['compiler_generated'] )
+						  (( {( 'case_clause'
+							-| ['compiler_generated'] ),_22}
+						     -| ['compiler_generated'] ))
+					      -| ['compiler_generated'] )
+					-| ['compiler_generated'] )
+				    end
+				in  %% Line 216
+				    call 'erlang':'exit'
+					({'nodedown',Node})
+			    %% Line 217
+			    <{'DOWN',_16,_17,_18,Reason}>
+				when call 'erlang':'=:='
+				      (_16,
+				       Mref) ->
+				%% Line 218
+				call 'erlang':'exit'
+				    (Reason)
+			  after %% Line 219
+				Timeout ->
+			    do  %% Line 220
+				call 'erlang':'demonitor'
+				    (Mref, ['flush'])
+				%% Line 221
+				call 'erlang':'exit'
+				    ('timeout')
+	  ( <_11,_10,_9,_8> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_11,_10,_9,_8})
+		  -| [{'function_name',{'do_call',4}}] )
+	    -| ['compiler_generated'] )
+	end
+'get_node'/1 =
+    %% Line 224
+    fun (_0) ->
+	%% Line 229
+	case _0 of
+	  %% Line 230
+	  <{_X_S,N}>
+	      when call 'erlang':'is_atom'
+		    (N) ->
+	      %% Line 231
+	      N
+	  %% Line 232
+	  <_3>
+	      when call 'erlang':'is_pid'
+		    (_0) ->
+	      %% Line 233
+	      call 'erlang':'node'
+		  (_0)
+	  ( <_1> when 'true' ->
+		primop 'match_fail'
+		    ({'case_clause',_1})
+	    -| ['compiler_generated'] )
+	end
+'send_request'/3 =
+    %% Line 237
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <Process,Label,Request>
+	      when call 'erlang':'is_pid'
+		    (Process) ->
+	      %% Line 238
+	      apply 'do_send_request'/3
+		  (Process, Label, Request)
+	  %% Line 239
+	  <Process,Label,Request> when 'true' ->
+	      let <Fun> =
+		  fun (_3) ->
+		      %% Line 240
+		      apply 'do_send_request'/3
+			  (_3, Label, Request)
+	      in  %% Line 241
+		  try
+		      apply 'do_for_proc'/2
+			  (Process, Fun)
+		  of <_6> ->
+		      _6
+		  catch <_9,_8,_7> ->
+		      %% Line 242
+		      case <_9,_8,_7> of
+			<( 'exit'
+			   -| ['compiler_generated'] ),Reason,_15> when 'true' ->
+			    let <Mref> =
+				call %% Line 244
+				     'erlang':%% Line 244
+					      'make_ref'
+				    ()
+			    in  let <_11> =
+				    call %% Line 245
+					 'erlang':%% Line 245
+						  'self'
+					()
+				in  do  %% Line 245
+					call 'erlang':'!'
+					    (_11, {'DOWN',Mref,'process',Process,Reason})
+					%% Line 246
+					Mref
+			( <_17,_18,_19> when 'true' ->
+			      primop 'raise'
+				  (_19, _18)
+			  -| ['compiler_generated'] )
+		      end
+	end
+'do_send_request'/3 =
+    %% Line 249
+    fun (_0,_1,_2) ->
+	let <Mref> =
+	    call %% Line 250
+		 'erlang':%% Line 250
+			  'monitor'
+		(%% Line 250
+		 'process', _0)
+	in  let <_4> =
+		call %% Line 251
+		     'erlang':%% Line 251
+			      'self'
+		    ()
+	    in  do  %% Line 251
+		    call 'erlang':'send'
+			(_0, {_1,{_4,{'$gen_request_id',Mref}},_2}, ['noconnect'])
+		    %% Line 252
+		    Mref
+'wait_response'/2 =
+    %% Line 260
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Mref,Timeout>
+	      when %% Line 261
+		call 'erlang':'is_reference'
+		    (Mref) ->
+	      %% Line 262
+	      receive
+		%% Line 263
+		<{{'$gen_request_id',_4},Reply}>
+		    when call 'erlang':'=:='
+			  (_4,
+			   Mref) ->
+		    do  %% Line 264
+			call 'erlang':'demonitor'
+			    (Mref, ['flush'])
+			%% Line 265
+			{'reply',Reply}
+		%% Line 266
+		<{'DOWN',_5,_6,Object,Reason}>
+		    when call 'erlang':'=:='
+			  (_5,
+			   Mref) ->
+		    %% Line 267
+		    {'error',{Reason,Object}}
+	      after %% Line 268
+		    Timeout ->
+		%% Line 269
+		'timeout'
+	  ( <_3,_2> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_3,_2})
+		  -| [{'function_name',{'wait_response',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'check_response'/2 =
+    %% Line 274
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Msg,Mref>
+	      when %% Line 275
+		call 'erlang':'is_reference'
+		    (Mref) ->
+	      %% Line 276
+	      case Msg of
+		%% Line 277
+		<{{'$gen_request_id',_5},Reply}>
+		    when call 'erlang':'=:='
+			  (_5,
+			   Mref) ->
+		    do  %% Line 278
+			call 'erlang':'demonitor'
+			    (Mref, ['flush'])
+			%% Line 279
+			{'reply',Reply}
+		%% Line 280
+		<{'DOWN',_6,_7,Object,Reason}>
+		    when call 'erlang':'=:='
+			  (_6,
+			   Mref) ->
+		    %% Line 281
+		    {'error',{Reason,Object}}
+		%% Line 282
+		<_8> when 'true' ->
+		    %% Line 283
+		    'no_reply'
+	      end
+	  ( <_4,_3> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_4,_3})
+		  -| [{'function_name',{'check_response',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'reply'/2 =
+    %% Line 289
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <{To,Tag},Reply> when 'true' ->
+	      let <Msg> = {%% Line 290
+		   Tag,%% Line 290
+		       Reply}
+	      in  %% Line 291
+		  try
+		      call 'erlang':'!'
+			  (To, Msg)
+		  of <_3> ->
+		      _3
+		  catch <_6,_5,_4> ->
+		      Msg
+	  ( <_8,_7> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_8,_7})
+		  -| [{'function_name',{'reply',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'stop'/1 =
+    %% Line 296
+    fun (_0) ->
+	%% Line 297
+	apply 'stop'/3
+	    (_0, 'normal', 'infinity')
+'stop'/3 =
+    %% Line 299
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <Process,Reason,Timeout>
+	      when let <_3> =
+		    call %% Line 300
+			 'erlang':%% Line 300
+				  '=:='
+			(%% Line 300
+			 Timeout, %% Line 300
+				  'infinity')
+		in  let <_4> =
+			call %% Line 300
+			     'erlang':%% Line 300
+				      'is_integer'
+			    (%% Line 300
+			     Timeout)
+		    in  let <_5> =
+			    call %% Line 300
+				 'erlang':%% Line 300
+					  '>='
+				(%% Line 300
+				 Timeout, %% Line 300
+					  0)
+			in  let <_6> =
+				call %% Line 300
+				     'erlang':%% Line 300
+					      'and'
+				    (_4, _5)
+			    in  %% Line 300
+				call 'erlang':'or'
+				    (_3, _6) ->
+	      let <Fun> =
+		  fun (_7) ->
+		      %% Line 301
+		      call 'proc_lib':'stop'
+			  (_7, Reason, Timeout)
+	      in  %% Line 302
+		  apply 'do_for_proc'/2
+		      (Process, Fun)
+	  ( <_12,_11,_10> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_12,_11,_10})
+		  -| [{'function_name',{'stop',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'do_for_proc'/2 =
+    %% Line 311
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Pid,Fun>
+	      when call 'erlang':'is_pid'
+		    (Pid) ->
+	      %% Line 312
+	      apply Fun
+		  (Pid)
+	  %% Line 314
+	  <Name,Fun>
+	      when call 'erlang':'is_atom'
+		    (Name) ->
+	      %% Line 315
+	      case call 'erlang':'whereis'
+		       (Name) of
+		%% Line 316
+		<Pid>
+		    when call 'erlang':'is_pid'
+			  (Pid) ->
+		    %% Line 317
+		    apply Fun
+			(Pid)
+		%% Line 318
+		<'undefined'> when 'true' ->
+		    %% Line 319
+		    call 'erlang':'exit'
+			('noproc')
+		( <_2> when 'true' ->
+		      primop 'match_fail'
+			  ({'case_clause',_2})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 322
+	  <Process,Fun>
+	      when %% Line 324
+		try
+		    let <_5> =
+			call 'erlang':'tuple_size'
+			    (Process)
+		    in  let <_8> =
+			    case call 'erlang':'=:='
+				     (_5, 2) of
+			      ( <( 'true'
+				   -| ['compiler_generated'] )> when 'true' ->
+				    let <_6> =
+					call 'erlang':'element'
+					    (1, Process)
+				    in  call 'erlang':'=:='
+					    (_6, 'global')
+				-| ['compiler_generated'] )
+			      ( <( 'false'
+				   -| ['compiler_generated'] )> when 'true' ->
+				    'false'
+				-| ['compiler_generated'] )
+			      ( <_4> when 'true' ->
+				    _4
+				-| ['compiler_generated'] )
+			    end
+			in  ( let <_14> =
+				  case _8 of
+				    ( <( 'true'
+					 -| ['compiler_generated'] )> when 'true' ->
+					  'true'
+				      -| ['compiler_generated'] )
+				    ( <( 'false'
+					 -| ['compiler_generated'] )> when 'true' ->
+					  let <_10> =
+					      call %% Line 325
+						   'erlang':%% Line 325
+							    'tuple_size'
+						  (%% Line 325
+						   Process)
+					  in  %% Line 325
+					      ( case call 'erlang':'=:='
+							 (_10, 3) of
+						  ( <( 'true'
+						       -| ['compiler_generated'] )> when 'true' ->
+							let <_11> =
+							    call 'erlang':'element'
+								(1, Process)
+							in  call 'erlang':'=:='
+								(_11, 'via')
+						    -| ['compiler_generated'] )
+						  ( <( 'false'
+						       -| ['compiler_generated'] )> when 'true' ->
+							'false'
+						    -| ['compiler_generated'] )
+						  ( <_9> when 'true' ->
+							_9
+						    -| ['compiler_generated'] )
+						end
+						-| ['compiler_generated'] )
+				      -| ['compiler_generated'] )
+				    ( <_3> when 'true' ->
+					  _3
+				      -| ['compiler_generated'] )
+				  end
+			      in  ( call 'erlang':'=:='
+					(( _14
+					   -| ['compiler_generated'] ), 'true')
+				    -| ['compiler_generated'] )
+			      -| ['compiler_generated'] )
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      %% Line 326
+	      case apply 'where'/1
+		       (Process) of
+		%% Line 327
+		<Pid>
+		    when call 'erlang':'is_pid'
+			  (Pid) ->
+		    let <Node> =
+			call %% Line 328
+			     'erlang':%% Line 328
+				      'node'
+			    (%% Line 328
+			     Pid)
+		    in  %% Line 329
+			try
+			    apply Fun
+				(Pid)
+			of <_16> ->
+			    _16
+			catch <_19,_18,_17> ->
+			    %% Line 331
+			    case <_19,_18,_17> of
+			      <( 'exit'
+				 -| ['compiler_generated'] ),( {( 'nodedown'
+								  -| ['compiler_generated'] ),_25}
+							       -| ['compiler_generated'] ),_26>
+				  when call 'erlang':'=:='
+					(_25,
+					 Node) ->
+				  %% Line 334
+				  call 'erlang':'exit'
+				      ('noproc')
+			      ( <_27,_28,_29> when 'true' ->
+				    primop 'raise'
+					(_29, _28)
+				-| ['compiler_generated'] )
+			    end
+		%% Line 336
+		<'undefined'> when 'true' ->
+		    %% Line 337
+		    call 'erlang':'exit'
+			('noproc')
+		( <_20> when 'true' ->
+		      primop 'match_fail'
+			  ({'case_clause',_20})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 340
+	  <{Name,Node},Fun>
+	      when try
+		    let <_21> =
+			call 'erlang':'node'
+			    ()
+		    in  call 'erlang':'=:='
+			    (Node, _21)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      %% Line 341
+	      apply 'do_for_proc'/2
+		  (Name, Fun)
+	  %% Line 343
+	  <Process = {_X_Name,Node},Fun>
+	      when call 'erlang':'is_atom'
+		    (Node) ->
+	      %% Line 344
+	      case <> of
+		%% Line 345
+		<>
+		    when try
+			  let <_22> =
+			      call 'erlang':'node'
+				  ()
+			  in  call 'erlang':'=:='
+				  (_22, 'nonode@nohost')
+		      of <Try> ->
+			  Try
+		      catch <T,R> ->
+			  'false' ->
+		    %% Line 346
+		    call 'erlang':'exit'
+			({'nodedown',Node})
+		%% Line 347
+		<> when 'true' ->
+		    %% Line 348
+		    apply Fun
+			(Process)
+	      end
+	  ( <_24,_23> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_24,_23})
+		  -| [{'function_name',{'do_for_proc',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'where'/1 =
+    %% Line 355
+    fun (_0) ->
+	case _0 of
+	  <{'global',Name}> when 'true' ->
+	      call 'global':'whereis_name'
+		  (Name)
+	  %% Line 356
+	  <{'via',Module,Name}> when 'true' ->
+	      call Module:'whereis_name'
+		  (Name)
+	  %% Line 357
+	  <{'local',Name}> when 'true' ->
+	      call 'erlang':'whereis'
+		  (Name)
+	  ( <_1> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_1})
+		  -| [{'function_name',{'where',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'register_name'/1 =
+    %% Line 359
+    fun (_0) ->
+	case _0 of
+	  <LN = {'local',Name}> when 'true' ->
+	      %% Line 360
+	      try
+		  let <_1> =
+		      call 'erlang':'self'
+			  ()
+		  in  call 'erlang':'register'
+			  (Name, _1)
+	      of <_2> ->
+		  case _2 of
+		    %% Line 361
+		    <'true'> when 'true' ->
+			'true'
+		    ( <_3> when 'true' ->
+			  primop 'match_fail'
+			      ({'try_clause',_3})
+		      -| ['compiler_generated'] )
+		  end
+	      catch <_6,_5,_4> ->
+		  %% Line 363
+		  case <_6,_5,_4> of
+		    <( 'error'
+		       -| ['compiler_generated'] ),_15,_16> when 'true' ->
+			let <_7> =
+			    apply %% Line 364
+				  'where'/1
+				(%% Line 364
+				 LN)
+			in  %% Line 364
+			    {'false',_7}
+		    ( <_17,_18,_19> when 'true' ->
+			  primop 'raise'
+			      (_19, _18)
+		      -| ['compiler_generated'] )
+		  end
+	  %% Line 366
+	  <GN = {'global',Name}> when 'true' ->
+	      let <_8> =
+		  call %% Line 367
+		       'erlang':%% Line 367
+				'self'
+		      ()
+	      in  %% Line 367
+		  case call 'global':'register_name'
+			   (Name, _8) of
+		    %% Line 368
+		    <'yes'> when 'true' ->
+			'true'
+		    %% Line 369
+		    <'no'> when 'true' ->
+			let <_9> =
+			    apply 'where'/1
+				(GN)
+			in  {'false',_9}
+		    ( <_10> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_10})
+		      -| ['compiler_generated'] )
+		  end
+	  %% Line 371
+	  <GN = {'via',Module,Name}> when 'true' ->
+	      let <_11> =
+		  call %% Line 372
+		       'erlang':%% Line 372
+				'self'
+		      ()
+	      in  %% Line 372
+		  case call Module:'register_name'
+			   (Name, _11) of
+		    %% Line 373
+		    <'yes'> when 'true' ->
+			%% Line 374
+			'true'
+		    %% Line 375
+		    <'no'> when 'true' ->
+			let <_12> =
+			    apply %% Line 376
+				  'where'/1
+				(%% Line 376
+				 GN)
+			in  %% Line 376
+			    {'false',_12}
+		    ( <_13> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_13})
+		      -| ['compiler_generated'] )
+		  end
+	  ( <_14> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_14})
+		  -| [{'function_name',{'register_name',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'name'/1 =
+    %% Line 379
+    fun (_0) ->
+	case _0 of
+	  <{'local',Name}> when 'true' ->
+	      Name
+	  %% Line 380
+	  <{'global',Name}> when 'true' ->
+	      Name
+	  %% Line 381
+	  <{'via',_2,Name}> when 'true' ->
+	      Name
+	  %% Line 382
+	  <Pid>
+	      when call 'erlang':'is_pid'
+		    (_0) ->
+	      Pid
+	  ( <_1> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_1})
+		  -| [{'function_name',{'name',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'unregister_name'/1 =
+    %% Line 384
+    fun (_0) ->
+	case _0 of
+	  <{'local',Name}> when 'true' ->
+	      %% Line 385
+	      try
+		  call 'erlang':'unregister'
+		      (Name)
+	      of <_1> ->
+		  %% Line 386
+		  'ok'
+	      catch <_5,_4,_3> ->
+		  %% Line 388
+		  'ok'
+	  %% Line 390
+	  <{'global',Name}> when 'true' ->
+	      do  %% Line 391
+		  ( call ( 'global'
+			   -| ['result_not_wanted'] ):( 'unregister_name'
+							-| ['result_not_wanted'] )
+			(Name)
+		    -| ['result_not_wanted'] )
+		  %% Line 392
+		  'ok'
+	  %% Line 393
+	  <{'via',Mod,Name}> when 'true' ->
+	      do  %% Line 394
+		  ( call Mod:( 'unregister_name'
+			       -| ['result_not_wanted'] )
+			(Name)
+		    -| ['result_not_wanted'] )
+		  %% Line 395
+		  'ok'
+	  %% Line 396
+	  <Pid>
+	      when call 'erlang':'is_pid'
+		    (_0) ->
+	      %% Line 397
+	      'ok'
+	  ( <_8> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_8})
+		  -| [{'function_name',{'unregister_name',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'get_proc_name'/1 =
+    %% Line 399
+    fun (_0) ->
+	case _0 of
+	  <Pid>
+	      when call 'erlang':'is_pid'
+		    (_0) ->
+	      %% Line 400
+	      Pid
+	  %% Line 401
+	  <{'local',Name}> when 'true' ->
+	      let <_1> =
+		  call %% Line 402
+		       'erlang':%% Line 402
+				'self'
+		      ()
+	      in  %% Line 402
+		  case call 'erlang':'process_info'
+			   (_1, 'registered_name') of
+		    %% Line 403
+		    <{'registered_name',_8}>
+			when call 'erlang':'=:='
+			      (_8,
+			       Name) ->
+			%% Line 404
+			Name
+		    %% Line 405
+		    <{'registered_name',_X_Name}> when 'true' ->
+			%% Line 406
+			call 'erlang':'exit'
+			    ('process_not_registered')
+		    %% Line 407
+		    <[]> when 'true' ->
+			%% Line 408
+			call 'erlang':'exit'
+			    ('process_not_registered')
+		    ( <_2> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_2})
+		      -| ['compiler_generated'] )
+		  end
+	  %% Line 410
+	  <{'global',Name}> when 'true' ->
+	      %% Line 411
+	      case call 'global':'whereis_name'
+		       (Name) of
+		%% Line 412
+		<'undefined'> when 'true' ->
+		    %% Line 413
+		    call 'erlang':'exit'
+			('process_not_registered_globally')
+		%% Line 414
+		<Pid>
+		    when try
+			  let <_3> =
+			      call 'erlang':'self'
+				  ()
+			  in  call 'erlang':'=:='
+				  (Pid, _3)
+		      of <Try> ->
+			  Try
+		      catch <T,R> ->
+			  'false' ->
+		    %% Line 415
+		    Name
+		%% Line 416
+		<_X_Pid> when 'true' ->
+		    %% Line 417
+		    call 'erlang':'exit'
+			('process_not_registered_globally')
+	      end
+	  %% Line 419
+	  <{'via',Mod,Name}> when 'true' ->
+	      %% Line 420
+	      case call Mod:'whereis_name'
+		       (Name) of
+		%% Line 421
+		<'undefined'> when 'true' ->
+		    %% Line 422
+		    call 'erlang':'exit'
+			({'process_not_registered_via',Mod})
+		%% Line 423
+		<Pid>
+		    when try
+			  let <_5> =
+			      call 'erlang':'self'
+				  ()
+			  in  call 'erlang':'=:='
+				  (Pid, _5)
+		      of <Try> ->
+			  Try
+		      catch <T,R> ->
+			  'false' ->
+		    %% Line 424
+		    Name
+		%% Line 425
+		<_X_Pid> when 'true' ->
+		    %% Line 426
+		    call 'erlang':'exit'
+			({'process_not_registered_via',Mod})
+	      end
+	  ( <_7> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_7})
+		  -| [{'function_name',{'get_proc_name',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'get_parent'/0 =
+    %% Line 429
+    fun () ->
+	%% Line 430
+	case call 'erlang':'get'
+		 ('$ancestors') of
+	  %% Line 431
+	  <[Parent|_1]>
+	      when call 'erlang':'is_pid'
+		    (Parent) ->
+	      %% Line 432
+	      Parent
+	  %% Line 433
+	  <[Parent|_2]>
+	      when call 'erlang':'is_atom'
+		    (Parent) ->
+	      %% Line 434
+	      apply 'name_to_pid'/1
+		  (Parent)
+	  %% Line 435
+	  <_3> when 'true' ->
+	      %% Line 436
+	      call 'erlang':'exit'
+		  ('process_was_not_started_by_proc_lib')
+	end
+'name_to_pid'/1 =
+    %% Line 439
+    fun (_0) ->
+	%% Line 440
+	case call 'erlang':'whereis'
+		 (_0) of
+	  %% Line 441
+	  <'undefined'> when 'true' ->
+	      %% Line 442
+	      case call 'global':'whereis_name'
+		       (_0) of
+		%% Line 443
+		<'undefined'> when 'true' ->
+		    %% Line 444
+		    call 'erlang':'exit'
+			('could_not_find_registered_name')
+		%% Line 445
+		<Pid> when 'true' ->
+		    %% Line 446
+		    Pid
+	      end
+	  %% Line 448
+	  <Pid> when 'true' ->
+	      %% Line 449
+	      Pid
+	end
+'timeout'/1 =
+    %% Line 453
+    fun (_0) ->
+	%% Line 454
+	case call 'lists':'keyfind'
+		 ('timeout', 1, _0) of
+	  %% Line 455
+	  <{_3,Time}> when 'true' ->
+	      %% Line 456
+	      Time
+	  %% Line 457
+	  <'false'> when 'true' ->
+	      %% Line 458
+	      'infinity'
+	  ( <_1> when 'true' ->
+		primop 'match_fail'
+		    ({'case_clause',_1})
+	    -| ['compiler_generated'] )
+	end
+'spawn_opts'/1 =
+    %% Line 461
+    fun (_0) ->
+	%% Line 462
+	case call 'lists':'keyfind'
+		 ('spawn_opt', 1, _0) of
+	  %% Line 463
+	  <{_3,Opts}> when 'true' ->
+	      %% Line 464
+	      Opts
+	  %% Line 465
+	  <'false'> when 'true' ->
+	      %% Line 466
+	      []
+	  ( <_1> when 'true' ->
+		primop 'match_fail'
+		    ({'case_clause',_1})
+	    -| ['compiler_generated'] )
+	end
+'hibernate_after'/1 =
+    %% Line 469
+    fun (_0) ->
+	%% Line 470
+	case call 'lists':'keyfind'
+		 ('hibernate_after', 1, _0) of
+	  %% Line 471
+	  <{_3,HibernateAfterTimeout}> when 'true' ->
+	      %% Line 472
+	      HibernateAfterTimeout
+	  %% Line 473
+	  <'false'> when 'true' ->
+	      %% Line 474
+	      'infinity'
+	  ( <_1> when 'true' ->
+		primop 'match_fail'
+		    ({'case_clause',_1})
+	    -| ['compiler_generated'] )
+	end
+'debug_options'/2 =
+    %% Line 477
+    fun (_0,_1) ->
+	%% Line 478
+	case call 'lists':'keyfind'
+		 ('debug', 1, _1) of
+	  %% Line 479
+	  <{_9,Options}> when 'true' ->
+	      %% Line 480
+	      try
+		  call 'sys':'debug_options'
+		      (Options)
+	      of <_2> ->
+		  _2
+	      catch <_5,_4,_3> ->
+		  do  %% Line 482
+		      call 'error_logger':'format'
+			  (%% Line 483
+			   [126|[116|[112|[58|[32|[105|[103|[110|[111|[114|[105|[110|[103|[32|[101|[114|[114|[111|[110|[101|[111|[117|[115|[32|[100|[101|[98|[117|[103|[32|[111|[112|[116|[105|[111|[110|[115|[32|[45|[32|[126|[116|[112|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], %% Line 484
+																																				 [_0|[Options|[]]])
+		      %% Line 485
+		      []
+	  %% Line 487
+	  <'false'> when 'true' ->
+	      %% Line 488
+	      []
+	  ( <_6> when 'true' ->
+		primop 'match_fail'
+		    ({'case_clause',_6})
+	    -| ['compiler_generated'] )
+	end
+'format_status_header'/2 =
+    %% Line 491
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <TagLine,Pid>
+	      when call 'erlang':'is_pid'
+		    (Pid) ->
+	      let <_2> =
+		  call %% Line 492
+		       'erlang':%% Line 492
+				'pid_to_list'
+		      (%% Line 492
+		       Pid)
+	      in  %% Line 492
+		  call 'lists':'concat'
+		      ([TagLine|[[32]|[_2|[]]]])
+	  %% Line 493
+	  <TagLine,RegName>
+	      when call 'erlang':'is_atom'
+		    (RegName) ->
+	      %% Line 494
+	      call 'lists':'concat'
+		  ([TagLine|[[32]|[RegName|[]]]])
+	  %% Line 495
+	  <TagLine,Name> when 'true' ->
+	      %% Line 496
+	      {TagLine,Name}
+	end
+'module_info'/0 =
+    fun () ->
+	call 'erlang':'get_module_info'
+	    ('gen')
+'module_info'/1 =
+    fun (_0) ->
+	call 'erlang':'get_module_info'
+	    ('gen', _0)
+end

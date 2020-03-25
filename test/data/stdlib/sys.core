@@ -1,0 +1,1783 @@
+module 'sys' ['change_code'/4,
+	      'change_code'/5,
+	      'debug_options'/1,
+	      'get_debug'/3,
+	      'get_log'/1,
+	      'get_state'/1,
+	      'get_state'/2,
+	      'get_status'/1,
+	      'get_status'/2,
+	      'handle_debug'/4,
+	      'handle_system_msg'/6,
+	      'handle_system_msg'/7,
+	      'install'/2,
+	      'install'/3,
+	      'log'/2,
+	      'log'/3,
+	      'log_to_file'/2,
+	      'log_to_file'/3,
+	      'module_info'/0,
+	      'module_info'/1,
+	      'no_debug'/1,
+	      'no_debug'/2,
+	      'print_log'/1,
+	      'remove'/2,
+	      'remove'/3,
+	      'replace_state'/2,
+	      'replace_state'/3,
+	      'resume'/1,
+	      'resume'/2,
+	      'statistics'/2,
+	      'statistics'/3,
+	      'suspend'/1,
+	      'suspend'/2,
+	      'suspend_loop_hib'/6,
+	      'terminate'/2,
+	      'terminate'/3,
+	      'trace'/2,
+	      'trace'/3]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[115|[121|[115|[46|[101|[114|[108]]]]]]]]]]],1}],
+		%% Line 39
+		'export_type' =
+		    %% Line 39
+		    [{'dbg_opt',0}|[{'dbg_fun',0}|[{'debug_option',0}]]],
+		%% Line 41
+		'type' =
+		    %% Line 41
+		    [{'name',{'type',41,'union',[{'type',41,'pid',[]}|[{'type',41,'atom',[]}|[{'type',42,'tuple',[{'atom',42,'global'}|[{'type',42,'term',[]}]]}|[{'type',43,'tuple',[{'atom',43,'via'}|[{'type',43,'module',[]}|[{'type',43,'term',[]}]]]}]]]]},[]}],
+		%% Line 44
+		'type' =
+		    %% Line 44
+		    [{'system_event',{'type',44,'union',[{'type',44,'tuple',[{'atom',44,'in'}|[{'ann_type',44,[{'var',44,'Msg'}|[{'var',44,'_'}]]}]]}|[{'type',45,'tuple',[{'atom',45,'in'}|[{'ann_type',45,[{'var',45,'Msg'}|[{'var',45,'_'}]]}|[{'ann_type',45,[{'var',45,'State'}|[{'var',45,'_'}]]}]]]}|[{'type',46,'tuple',[{'atom',46,'out'}|[{'ann_type',46,[{'var',46,'Msg'}|[{'var',46,'_'}]]}|[{'ann_type',46,[{'var',46,'To'}|[{'var',46,'_'}]]}]]]}|[{'type',47,'tuple',[{'atom',47,'out'}|[{'ann_type',47,[{'var',47,'Msg'}|[{'var',47,'_'}]]}|[{'ann_type',47,[{'var',47,'To'}|[{'var',47,'_'}]]}|[{'ann_type',47,[{'var',47,'State'}|[{'var',47,'_'}]]}]]]]}|[{'type',48,'tuple',[{'atom',48,'noreply'}|[{'ann_type',48,[{'var',48,'State'}|[{'var',48,'_'}]]}]]}|[{'type',49,'tuple',[{'atom',49,'continue'}|[{'ann_type',49,[{'var',49,'Continuation'}|[{'var',49,'_'}]]}]]}|[{'type',50,'tuple',[{'atom',50,'code_change'}|[{'ann_type',50,[{'var',50,'Event'}|[{'var',50,'_'}]]}|[{'ann_type',50,[{'var',50,'State'}|[{'var',50,'_'}]]}]]]}|[{'type',51,'tuple',[{'atom',51,'postpone'}|[{'ann_type',51,[{'var',51,'Event'}|[{'var',51,'_'}]]}|[{'ann_type',51,[{'var',51,'State'}|[{'var',51,'_'}]]}|[{'ann_type',51,[{'var',51,'NextState'}|[{'var',51,'_'}]]}]]]]}|[{'type',52,'tuple',[{'atom',52,'consume'}|[{'ann_type',52,[{'var',52,'Event'}|[{'var',52,'_'}]]}|[{'ann_type',52,[{'var',52,'State'}|[{'var',52,'_'}]]}|[{'ann_type',52,[{'var',52,'NextState'}|[{'var',52,'_'}]]}]]]]}|[{'type',53,'tuple',[{'atom',53,'start_timer'}|[{'ann_type',53,[{'var',53,'Action'}|[{'var',53,'_'}]]}|[{'ann_type',53,[{'var',53,'State'}|[{'var',53,'_'}]]}]]]}|[{'type',54,'tuple',[{'atom',54,'insert_timeout'}|[{'ann_type',54,[{'var',54,'Event'}|[{'var',54,'_'}]]}|[{'ann_type',54,[{'var',54,'State'}|[{'var',54,'_'}]]}]]]}|[{'type',55,'tuple',[{'atom',55,'enter'}|[{'ann_type',55,[{'var',55,'State'}|[{'var',55,'_'}]]}]]}|[{'type',56,'tuple',[{'atom',56,'terminate'}|[{'ann_type',56,[{'var',56,'Reason'}|[{'var',56,'_'}]]}|[{'ann_type',56,[{'var',56,'State'}|[{'var',56,'_'}]]}]]]}|[{'type',57,'term',[]}]]]]]]]]]]]]]]},[]}],
+		%% Line 58
+		'opaque' =
+		    %% Line 58
+		    [{'dbg_opt',{'type',58,'union',[{'type',58,'tuple',[{'atom',58,'trace'}|[{'atom',58,'true'}]]}|[{'type',59,'tuple',[{'atom',59,'log'}|[{'type',60,'tuple',[{'ann_type',60,[{'var',60,'N'}|[{'type',60,'non_neg_integer',[]}]]}|[{'type',61,'list',[{'type',61,'tuple',[{'ann_type',61,[{'var',61,'Event'}|[{'user_type',61,'system_event',[]}]]}|[{'ann_type',62,[{'var',62,'FuncState'}|[{'var',62,'_'}]]}|[{'ann_type',63,[{'var',63,'FormFunc'}|[{'user_type',63,'format_fun',[]}]]}]]]}]}]]}]]}|[{'type',64,'tuple',[{'atom',64,'statistics'}|[{'type',64,'tuple',[{'remote_type',64,[{'atom',64,'file'}|[{'atom',64,'date_time'}|[[]]]]}|[{'type',65,'tuple',[{'atom',65,'reductions'}|[{'type',65,'non_neg_integer',[]}]]}|[{'ann_type',66,[{'var',66,'MessagesIn'}|[{'type',66,'non_neg_integer',[]}]]}|[{'ann_type',67,[{'var',67,'MessagesOut'}|[{'type',67,'non_neg_integer',[]}]]}]]]]}]]}|[{'type',68,'tuple',[{'atom',68,'log_to_file'}|[{'remote_type',68,[{'atom',68,'file'}|[{'atom',68,'io_device'}|[[]]]]}]]}|[{'type',69,'tuple',[{'ann_type',69,[{'var',69,'Func'}|[{'user_type',69,'dbg_fun',[]}]]}|[{'ann_type',69,[{'var',69,'FuncState'}|[{'type',69,'term',[]}]]}]]}|[{'type',70,'tuple',[{'ann_type',70,[{'var',70,'FuncId'}|[{'type',70,'term',[]}]]}|[{'ann_type',70,[{'var',70,'Func'}|[{'user_type',70,'dbg_fun',[]}]]}|[{'ann_type',70,[{'var',70,'FuncState'}|[{'type',70,'term',[]}]]}]]]}]]]]]]},[]}],
+		%% Line 71
+		'type' =
+		    %% Line 71
+		    [{'dbg_fun',{'type',71,'fun',[{'type',71,'product',[{'ann_type',71,[{'var',71,'FuncState'}|[{'var',71,'_'}]]}|[{'ann_type',72,[{'var',72,'Event'}|[{'user_type',72,'system_event',[]}]]}|[{'ann_type',73,[{'var',73,'ProcState'}|[{'var',73,'_'}]]}]]]}|[{'type',73,'union',[{'atom',73,'done'}|[{'ann_type',73,[{'var',73,'NewFuncState'}|[{'var',73,'_'}]]}]]}]]},[]}],
+		%% Line 75
+		'type' =
+		    %% Line 75
+		    [{'format_fun',{'type',75,'fun',[{'type',75,'product',[{'ann_type',75,[{'var',75,'Device'}|[{'type',75,'union',[{'remote_type',75,[{'atom',75,'io'}|[{'atom',75,'device'}|[[]]]]}|[{'remote_type',75,[{'atom',75,'file'}|[{'atom',75,'io_device'}|[[]]]]}]]}]]}|[{'ann_type',76,[{'var',76,'Event'}|[{'user_type',76,'system_event',[]}]]}|[{'ann_type',77,[{'var',77,'Extra'}|[{'type',77,'term',[]}]]}]]]}|[{'type',77,'any',[]}]]},[]}],
+		%% Line 79
+		'type' =
+		    %% Line 79
+		    [{'debug_option',{'type',80,'union',[{'atom',80,'trace'}|[{'atom',81,'log'}|[{'type',82,'tuple',[{'atom',82,'log'}|[{'ann_type',82,[{'var',82,'N'}|[{'type',82,'pos_integer',[]}]]}]]}|[{'atom',83,'statistics'}|[{'type',84,'tuple',[{'atom',84,'log_to_file'}|[{'ann_type',84,[{'var',84,'FileName'}|[{'remote_type',84,[{'atom',84,'file'}|[{'atom',84,'name'}|[[]]]]}]]}]]}|[{'type',85,'tuple',[{'atom',85,'install'}|[{'type',86,'union',[{'type',86,'tuple',[{'ann_type',86,[{'var',86,'Func'}|[{'user_type',86,'dbg_fun',[]}]]}|[{'ann_type',86,[{'var',86,'FuncState'}|[{'type',86,'term',[]}]]}]]}|[{'type',87,'tuple',[{'ann_type',87,[{'var',87,'FuncId'}|[{'type',87,'term',[]}]]}|[{'ann_type',87,[{'var',87,'Func'}|[{'user_type',87,'dbg_fun',[]}]]}|[{'ann_type',87,[{'var',87,'FuncState'}|[{'type',87,'term',[]}]]}]]]}]]}]]}]]]]]]},[]}],
+		%% Line 92
+		'spec' =
+		    %% Line 92
+		    [{{'suspend',1},[{'type',92,'bounded_fun',[{'type',92,'fun',[{'type',92,'product',[{'var',92,'Name'}]}|[{'atom',92,'ok'}]]}|[[{'type',93,'constraint',[{'atom',93,'is_subtype'}|[[{'var',93,'Name'}|[{'user_type',93,'name',[]}]]]]}]]]}]}],
+		%% Line 96
+		'spec' =
+		    %% Line 96
+		    [{{'suspend',2},[{'type',96,'bounded_fun',[{'type',96,'fun',[{'type',96,'product',[{'var',96,'Name'}|[{'var',96,'Timeout'}]]}|[{'atom',96,'ok'}]]}|[[{'type',97,'constraint',[{'atom',97,'is_subtype'}|[[{'var',97,'Name'}|[{'user_type',97,'name',[]}]]]]}|[{'type',98,'constraint',[{'atom',98,'is_subtype'}|[[{'var',98,'Timeout'}|[{'type',98,'timeout',[]}]]]]}]]]]}]}],
+		%% Line 101
+		'spec' =
+		    %% Line 101
+		    [{{'resume',1},[{'type',101,'bounded_fun',[{'type',101,'fun',[{'type',101,'product',[{'var',101,'Name'}]}|[{'atom',101,'ok'}]]}|[[{'type',102,'constraint',[{'atom',102,'is_subtype'}|[[{'var',102,'Name'}|[{'user_type',102,'name',[]}]]]]}]]]}]}],
+		%% Line 105
+		'spec' =
+		    %% Line 105
+		    [{{'resume',2},[{'type',105,'bounded_fun',[{'type',105,'fun',[{'type',105,'product',[{'var',105,'Name'}|[{'var',105,'Timeout'}]]}|[{'atom',105,'ok'}]]}|[[{'type',106,'constraint',[{'atom',106,'is_subtype'}|[[{'var',106,'Name'}|[{'user_type',106,'name',[]}]]]]}|[{'type',107,'constraint',[{'atom',107,'is_subtype'}|[[{'var',107,'Timeout'}|[{'type',107,'timeout',[]}]]]]}]]]]}]}],
+		%% Line 110
+		'spec' =
+		    %% Line 110
+		    [{{'get_status',1},[{'type',110,'bounded_fun',[{'type',110,'fun',[{'type',110,'product',[{'var',110,'Name'}]}|[{'var',110,'Status'}]]}|[[{'type',111,'constraint',[{'atom',111,'is_subtype'}|[[{'var',111,'Name'}|[{'user_type',111,'name',[]}]]]]}|[{'type',112,'constraint',[{'atom',112,'is_subtype'}|[[{'var',112,'Status'}|[{'type',112,'tuple',[{'atom',112,'status'}|[{'ann_type',112,[{'var',112,'Pid'}|[{'type',112,'pid',[]}]]}|[{'type',112,'tuple',[{'atom',112,'module'}|[{'ann_type',112,[{'var',112,'Module'}|[{'type',112,'module',[]}]]}]]}|[{'type',112,'list',[{'var',112,'SItem'}]}]]]]}]]]]}|[{'type',113,'constraint',[{'atom',113,'is_subtype'}|[[{'var',113,'SItem'}|[{'type',113,'union',[{'ann_type',113,[{'var',113,'PDict'}|[{'type',113,'list',[{'type',113,'tuple',[{'ann_type',113,[{'var',113,'Key'}|[{'type',113,'term',[]}]]}|[{'ann_type',113,[{'var',113,'Value'}|[{'type',113,'term',[]}]]}]]}]}]]}|[{'ann_type',114,[{'var',114,'SysState'}|[{'type',114,'union',[{'atom',114,'running'}|[{'atom',114,'suspended'}]]}]]}|[{'ann_type',115,[{'var',115,'Parent'}|[{'type',115,'pid',[]}]]}|[{'ann_type',116,[{'var',116,'Dbg'}|[{'type',116,'list',[{'user_type',116,'dbg_opt',[]}]}]]}|[{'ann_type',117,[{'var',117,'Misc'}|[{'type',117,'term',[]}]]}]]]]]}]]]]}]]]]]}]}],
+		%% Line 120
+		'spec' =
+		    %% Line 120
+		    [{{'get_status',2},[{'type',120,'bounded_fun',[{'type',120,'fun',[{'type',120,'product',[{'var',120,'Name'}|[{'var',120,'Timeout'}]]}|[{'var',120,'Status'}]]}|[[{'type',121,'constraint',[{'atom',121,'is_subtype'}|[[{'var',121,'Name'}|[{'user_type',121,'name',[]}]]]]}|[{'type',122,'constraint',[{'atom',122,'is_subtype'}|[[{'var',122,'Timeout'}|[{'type',122,'timeout',[]}]]]]}|[{'type',123,'constraint',[{'atom',123,'is_subtype'}|[[{'var',123,'Status'}|[{'type',123,'tuple',[{'atom',123,'status'}|[{'ann_type',123,[{'var',123,'Pid'}|[{'type',123,'pid',[]}]]}|[{'type',123,'tuple',[{'atom',123,'module'}|[{'ann_type',123,[{'var',123,'Module'}|[{'type',123,'module',[]}]]}]]}|[{'type',123,'list',[{'var',123,'SItem'}]}]]]]}]]]]}|[{'type',124,'constraint',[{'atom',124,'is_subtype'}|[[{'var',124,'SItem'}|[{'type',124,'union',[{'ann_type',124,[{'var',124,'PDict'}|[{'type',124,'list',[{'type',124,'tuple',[{'ann_type',124,[{'var',124,'Key'}|[{'type',124,'term',[]}]]}|[{'ann_type',124,[{'var',124,'Value'}|[{'type',124,'term',[]}]]}]]}]}]]}|[{'ann_type',125,[{'var',125,'SysState'}|[{'type',125,'union',[{'atom',125,'running'}|[{'atom',125,'suspended'}]]}]]}|[{'ann_type',126,[{'var',126,'Parent'}|[{'type',126,'pid',[]}]]}|[{'ann_type',127,[{'var',127,'Dbg'}|[{'type',127,'list',[{'user_type',127,'dbg_opt',[]}]}]]}|[{'ann_type',128,[{'var',128,'Misc'}|[{'type',128,'term',[]}]]}]]]]]}]]]]}]]]]]]}]}],
+		%% Line 131
+		'spec' =
+		    %% Line 131
+		    [{{'get_state',1},[{'type',131,'bounded_fun',[{'type',131,'fun',[{'type',131,'product',[{'var',131,'Name'}]}|[{'var',131,'State'}]]}|[[{'type',132,'constraint',[{'atom',132,'is_subtype'}|[[{'var',132,'Name'}|[{'user_type',132,'name',[]}]]]]}|[{'type',133,'constraint',[{'atom',133,'is_subtype'}|[[{'var',133,'State'}|[{'type',133,'term',[]}]]]]}]]]]}]}],
+		%% Line 140
+		'spec' =
+		    %% Line 140
+		    [{{'get_state',2},[{'type',140,'bounded_fun',[{'type',140,'fun',[{'type',140,'product',[{'var',140,'Name'}|[{'var',140,'Timeout'}]]}|[{'var',140,'State'}]]}|[[{'type',141,'constraint',[{'atom',141,'is_subtype'}|[[{'var',141,'Name'}|[{'user_type',141,'name',[]}]]]]}|[{'type',142,'constraint',[{'atom',142,'is_subtype'}|[[{'var',142,'Timeout'}|[{'type',142,'timeout',[]}]]]]}|[{'type',143,'constraint',[{'atom',143,'is_subtype'}|[[{'var',143,'State'}|[{'type',143,'term',[]}]]]]}]]]]]}]}],
+		%% Line 150
+		'spec' =
+		    %% Line 150
+		    [{{'replace_state',2},[{'type',150,'bounded_fun',[{'type',150,'fun',[{'type',150,'product',[{'var',150,'Name'}|[{'var',150,'StateFun'}]]}|[{'var',150,'NewState'}]]}|[[{'type',151,'constraint',[{'atom',151,'is_subtype'}|[[{'var',151,'Name'}|[{'user_type',151,'name',[]}]]]]}|[{'type',152,'constraint',[{'atom',152,'is_subtype'}|[[{'var',152,'StateFun'}|[{'type',152,'fun',[{'type',152,'product',[{'ann_type',152,[{'var',152,'State'}|[{'type',152,'term',[]}]]}]}|[{'ann_type',152,[{'var',152,'NewState'}|[{'type',152,'term',[]}]]}]]}]]]]}|[{'type',153,'constraint',[{'atom',153,'is_subtype'}|[[{'var',153,'NewState'}|[{'type',153,'term',[]}]]]]}]]]]]}]}],
+		%% Line 160
+		'spec' =
+		    %% Line 160
+		    [{{'replace_state',3},[{'type',160,'bounded_fun',[{'type',160,'fun',[{'type',160,'product',[{'var',160,'Name'}|[{'var',160,'StateFun'}|[{'var',160,'Timeout'}]]]}|[{'var',160,'NewState'}]]}|[[{'type',161,'constraint',[{'atom',161,'is_subtype'}|[[{'var',161,'Name'}|[{'user_type',161,'name',[]}]]]]}|[{'type',162,'constraint',[{'atom',162,'is_subtype'}|[[{'var',162,'StateFun'}|[{'type',162,'fun',[{'type',162,'product',[{'ann_type',162,[{'var',162,'State'}|[{'type',162,'term',[]}]]}]}|[{'ann_type',162,[{'var',162,'NewState'}|[{'type',162,'term',[]}]]}]]}]]]]}|[{'type',163,'constraint',[{'atom',163,'is_subtype'}|[[{'var',163,'Timeout'}|[{'type',163,'timeout',[]}]]]]}|[{'type',164,'constraint',[{'atom',164,'is_subtype'}|[[{'var',164,'NewState'}|[{'type',164,'term',[]}]]]]}]]]]]]}]}],
+		%% Line 171
+		'spec' =
+		    %% Line 171
+		    [{{'change_code',4},[{'type',171,'bounded_fun',[{'type',171,'fun',[{'type',171,'product',[{'var',171,'Name'}|[{'var',171,'Module'}|[{'var',171,'OldVsn'}|[{'var',171,'Extra'}]]]]}|[{'type',171,'union',[{'atom',171,'ok'}|[{'type',171,'tuple',[{'atom',171,'error'}|[{'var',171,'Reason'}]]}]]}]]}|[[{'type',172,'constraint',[{'atom',172,'is_subtype'}|[[{'var',172,'Name'}|[{'user_type',172,'name',[]}]]]]}|[{'type',173,'constraint',[{'atom',173,'is_subtype'}|[[{'var',173,'Module'}|[{'type',173,'module',[]}]]]]}|[{'type',174,'constraint',[{'atom',174,'is_subtype'}|[[{'var',174,'OldVsn'}|[{'type',174,'union',[{'atom',174,'undefined'}|[{'type',174,'term',[]}]]}]]]]}|[{'type',175,'constraint',[{'atom',175,'is_subtype'}|[[{'var',175,'Extra'}|[{'type',175,'term',[]}]]]]}|[{'type',176,'constraint',[{'atom',176,'is_subtype'}|[[{'var',176,'Reason'}|[{'type',176,'term',[]}]]]]}]]]]]]]}]}],
+		%% Line 180
+		'spec' =
+		    %% Line 180
+		    [{{'change_code',5},[{'type',180,'bounded_fun',[{'type',180,'fun',[{'type',180,'product',[{'var',180,'Name'}|[{'var',180,'Module'}|[{'var',180,'OldVsn'}|[{'var',180,'Extra'}|[{'var',180,'Timeout'}]]]]]}|[{'type',181,'union',[{'atom',181,'ok'}|[{'type',181,'tuple',[{'atom',181,'error'}|[{'var',181,'Reason'}]]}]]}]]}|[[{'type',182,'constraint',[{'atom',182,'is_subtype'}|[[{'var',182,'Name'}|[{'user_type',182,'name',[]}]]]]}|[{'type',183,'constraint',[{'atom',183,'is_subtype'}|[[{'var',183,'Module'}|[{'type',183,'module',[]}]]]]}|[{'type',184,'constraint',[{'atom',184,'is_subtype'}|[[{'var',184,'OldVsn'}|[{'type',184,'union',[{'atom',184,'undefined'}|[{'type',184,'term',[]}]]}]]]]}|[{'type',185,'constraint',[{'atom',185,'is_subtype'}|[[{'var',185,'Extra'}|[{'type',185,'term',[]}]]]]}|[{'type',186,'constraint',[{'atom',186,'is_subtype'}|[[{'var',186,'Timeout'}|[{'type',186,'timeout',[]}]]]]}|[{'type',187,'constraint',[{'atom',187,'is_subtype'}|[[{'var',187,'Reason'}|[{'type',187,'term',[]}]]]]}]]]]]]]]}]}],
+		%% Line 191
+		'spec' =
+		    %% Line 191
+		    [{{'terminate',2},[{'type',191,'bounded_fun',[{'type',191,'fun',[{'type',191,'product',[{'var',191,'Name'}|[{'var',191,'Reason'}]]}|[{'atom',191,'ok'}]]}|[[{'type',192,'constraint',[{'atom',192,'is_subtype'}|[[{'var',192,'Name'}|[{'user_type',192,'name',[]}]]]]}|[{'type',193,'constraint',[{'atom',193,'is_subtype'}|[[{'var',193,'Reason'}|[{'type',193,'term',[]}]]]]}]]]]}]}],
+		%% Line 197
+		'spec' =
+		    %% Line 197
+		    [{{'terminate',3},[{'type',197,'bounded_fun',[{'type',197,'fun',[{'type',197,'product',[{'var',197,'Name'}|[{'var',197,'Reason'}|[{'var',197,'Timeout'}]]]}|[{'atom',197,'ok'}]]}|[[{'type',198,'constraint',[{'atom',198,'is_subtype'}|[[{'var',198,'Name'}|[{'user_type',198,'name',[]}]]]]}|[{'type',199,'constraint',[{'atom',199,'is_subtype'}|[[{'var',199,'Reason'}|[{'type',199,'term',[]}]]]]}|[{'type',200,'constraint',[{'atom',200,'is_subtype'}|[[{'var',200,'Timeout'}|[{'type',200,'timeout',[]}]]]]}]]]]]}]}],
+		%% Line 208
+		'spec' =
+		    %% Line 208
+		    [{{'log',2},[{'type',208,'bounded_fun',[{'type',208,'fun',[{'type',208,'product',[{'var',208,'Name'}|[{'var',208,'Flag'}]]}|[{'type',208,'union',[{'atom',208,'ok'}|[{'type',208,'tuple',[{'atom',208,'ok'}|[{'type',208,'list',[{'user_type',208,'system_event',[]}]}]]}]]}]]}|[[{'type',209,'constraint',[{'atom',209,'is_subtype'}|[[{'var',209,'Name'}|[{'user_type',209,'name',[]}]]]]}|[{'type',210,'constraint',[{'atom',210,'is_subtype'}|[[{'var',210,'Flag'}|[{'type',210,'union',[{'atom',210,'true'}|[{'type',211,'tuple',[{'atom',211,'true'}|[{'ann_type',211,[{'var',211,'N'}|[{'type',211,'pos_integer',[]}]]}]]}|[{'atom',212,'false'}|[{'atom',212,'get'}|[{'atom',212,'print'}]]]]]}]]]]}]]]]}]}],
+		%% Line 216
+		'spec' =
+		    %% Line 216
+		    [{{'log',3},[{'type',216,'bounded_fun',[{'type',216,'fun',[{'type',216,'product',[{'var',216,'Name'}|[{'var',216,'Flag'}|[{'var',216,'Timeout'}]]]}|[{'type',216,'union',[{'atom',216,'ok'}|[{'type',216,'tuple',[{'atom',216,'ok'}|[{'type',216,'list',[{'user_type',216,'system_event',[]}]}]]}]]}]]}|[[{'type',217,'constraint',[{'atom',217,'is_subtype'}|[[{'var',217,'Name'}|[{'user_type',217,'name',[]}]]]]}|[{'type',218,'constraint',[{'atom',218,'is_subtype'}|[[{'var',218,'Flag'}|[{'type',218,'union',[{'atom',218,'true'}|[{'type',219,'tuple',[{'atom',219,'true'}|[{'ann_type',219,[{'var',219,'N'}|[{'type',219,'pos_integer',[]}]]}]]}|[{'atom',220,'false'}|[{'atom',220,'get'}|[{'atom',220,'print'}]]]]]}]]]]}|[{'type',221,'constraint',[{'atom',221,'is_subtype'}|[[{'var',221,'Timeout'}|[{'type',221,'timeout',[]}]]]]}]]]]]}]}],
+		%% Line 225
+		'spec' =
+		    %% Line 225
+		    [{{'trace',2},[{'type',225,'bounded_fun',[{'type',225,'fun',[{'type',225,'product',[{'var',225,'Name'}|[{'var',225,'Flag'}]]}|[{'atom',225,'ok'}]]}|[[{'type',226,'constraint',[{'atom',226,'is_subtype'}|[[{'var',226,'Name'}|[{'user_type',226,'name',[]}]]]]}|[{'type',227,'constraint',[{'atom',227,'is_subtype'}|[[{'var',227,'Flag'}|[{'type',227,'boolean',[]}]]]]}]]]]}]}],
+		%% Line 231
+		'spec' =
+		    %% Line 231
+		    [{{'trace',3},[{'type',231,'bounded_fun',[{'type',231,'fun',[{'type',231,'product',[{'var',231,'Name'}|[{'var',231,'Flag'}|[{'var',231,'Timeout'}]]]}|[{'atom',231,'ok'}]]}|[[{'type',232,'constraint',[{'atom',232,'is_subtype'}|[[{'var',232,'Name'}|[{'user_type',232,'name',[]}]]]]}|[{'type',233,'constraint',[{'atom',233,'is_subtype'}|[[{'var',233,'Flag'}|[{'type',233,'boolean',[]}]]]]}|[{'type',234,'constraint',[{'atom',234,'is_subtype'}|[[{'var',234,'Timeout'}|[{'type',234,'timeout',[]}]]]]}]]]]]}]}],
+		%% Line 238
+		'spec' =
+		    %% Line 238
+		    [{{'log_to_file',2},[{'type',238,'bounded_fun',[{'type',238,'fun',[{'type',238,'product',[{'var',238,'Name'}|[{'var',238,'Flag'}]]}|[{'type',238,'union',[{'atom',238,'ok'}|[{'type',238,'tuple',[{'atom',238,'error'}|[{'atom',238,'open_file'}]]}]]}]]}|[[{'type',239,'constraint',[{'atom',239,'is_subtype'}|[[{'var',239,'Name'}|[{'user_type',239,'name',[]}]]]]}|[{'type',240,'constraint',[{'atom',240,'is_subtype'}|[[{'var',240,'Flag'}|[{'type',240,'union',[{'ann_type',240,[{'var',240,'FileName'}|[{'type',240,'string',[]}]]}|[{'atom',240,'false'}]]}]]]]}]]]]}]}],
+		%% Line 244
+		'spec' =
+		    %% Line 244
+		    [{{'log_to_file',3},[{'type',244,'bounded_fun',[{'type',244,'fun',[{'type',244,'product',[{'var',244,'Name'}|[{'var',244,'Flag'}|[{'var',244,'Timeout'}]]]}|[{'type',244,'union',[{'atom',244,'ok'}|[{'type',244,'tuple',[{'atom',244,'error'}|[{'atom',244,'open_file'}]]}]]}]]}|[[{'type',245,'constraint',[{'atom',245,'is_subtype'}|[[{'var',245,'Name'}|[{'user_type',245,'name',[]}]]]]}|[{'type',246,'constraint',[{'atom',246,'is_subtype'}|[[{'var',246,'Flag'}|[{'type',246,'union',[{'ann_type',246,[{'var',246,'FileName'}|[{'type',246,'string',[]}]]}|[{'atom',246,'false'}]]}]]]]}|[{'type',247,'constraint',[{'atom',247,'is_subtype'}|[[{'var',247,'Timeout'}|[{'type',247,'timeout',[]}]]]]}]]]]]}]}],
+		%% Line 251
+		'spec' =
+		    %% Line 251
+		    [{{'statistics',2},[{'type',251,'bounded_fun',[{'type',251,'fun',[{'type',251,'product',[{'var',251,'Name'}|[{'var',251,'Flag'}]]}|[{'type',251,'union',[{'atom',251,'ok'}|[{'type',251,'tuple',[{'atom',251,'ok'}|[{'var',251,'Statistics'}]]}]]}]]}|[[{'type',252,'constraint',[{'atom',252,'is_subtype'}|[[{'var',252,'Name'}|[{'user_type',252,'name',[]}]]]]}|[{'type',253,'constraint',[{'atom',253,'is_subtype'}|[[{'var',253,'Flag'}|[{'type',253,'union',[{'atom',253,'true'}|[{'atom',253,'false'}|[{'atom',253,'get'}]]]}]]]]}|[{'type',254,'constraint',[{'atom',254,'is_subtype'}|[[{'var',254,'Statistics'}|[{'type',254,'union',[{'type',254,'list',[{'var',254,'StatisticsTuple'}]}|[{'atom',254,'no_statistics'}]]}]]]]}|[{'type',255,'constraint',[{'atom',255,'is_subtype'}|[[{'var',255,'StatisticsTuple'}|[{'type',255,'union',[{'type',255,'tuple',[{'atom',255,'start_time'}|[{'var',255,'DateTime1'}]]}|[{'type',256,'tuple',[{'atom',256,'current_time'}|[{'var',256,'DateTime2'}]]}|[{'type',257,'tuple',[{'atom',257,'reductions'}|[{'type',257,'non_neg_integer',[]}]]}|[{'type',258,'tuple',[{'atom',258,'messages_in'}|[{'type',258,'non_neg_integer',[]}]]}|[{'type',259,'tuple',[{'atom',259,'messages_out'}|[{'type',259,'non_neg_integer',[]}]]}]]]]]}]]]]}|[{'type',260,'constraint',[{'atom',260,'is_subtype'}|[[{'var',260,'DateTime1'}|[{'remote_type',260,[{'atom',260,'file'}|[{'atom',260,'date_time'}|[[]]]]}]]]]}|[{'type',261,'constraint',[{'atom',261,'is_subtype'}|[[{'var',261,'DateTime2'}|[{'remote_type',261,[{'atom',261,'file'}|[{'atom',261,'date_time'}|[[]]]]}]]]]}]]]]]]]]}]}],
+		%% Line 265
+		'spec' =
+		    %% Line 265
+		    [{{'statistics',3},[{'type',265,'bounded_fun',[{'type',265,'fun',[{'type',265,'product',[{'var',265,'Name'}|[{'var',265,'Flag'}|[{'var',265,'Timeout'}]]]}|[{'type',265,'union',[{'atom',265,'ok'}|[{'type',265,'tuple',[{'atom',265,'ok'}|[{'var',265,'Statistics'}]]}]]}]]}|[[{'type',266,'constraint',[{'atom',266,'is_subtype'}|[[{'var',266,'Name'}|[{'user_type',266,'name',[]}]]]]}|[{'type',267,'constraint',[{'atom',267,'is_subtype'}|[[{'var',267,'Flag'}|[{'type',267,'union',[{'atom',267,'true'}|[{'atom',267,'false'}|[{'atom',267,'get'}]]]}]]]]}|[{'type',268,'constraint',[{'atom',268,'is_subtype'}|[[{'var',268,'Statistics'}|[{'type',268,'union',[{'type',268,'list',[{'var',268,'StatisticsTuple'}]}|[{'atom',268,'no_statistics'}]]}]]]]}|[{'type',269,'constraint',[{'atom',269,'is_subtype'}|[[{'var',269,'StatisticsTuple'}|[{'type',269,'union',[{'type',269,'tuple',[{'atom',269,'start_time'}|[{'var',269,'DateTime1'}]]}|[{'type',270,'tuple',[{'atom',270,'current_time'}|[{'var',270,'DateTime2'}]]}|[{'type',271,'tuple',[{'atom',271,'reductions'}|[{'type',271,'non_neg_integer',[]}]]}|[{'type',272,'tuple',[{'atom',272,'messages_in'}|[{'type',272,'non_neg_integer',[]}]]}|[{'type',273,'tuple',[{'atom',273,'messages_out'}|[{'type',273,'non_neg_integer',[]}]]}]]]]]}]]]]}|[{'type',274,'constraint',[{'atom',274,'is_subtype'}|[[{'var',274,'DateTime1'}|[{'remote_type',274,[{'atom',274,'file'}|[{'atom',274,'date_time'}|[[]]]]}]]]]}|[{'type',275,'constraint',[{'atom',275,'is_subtype'}|[[{'var',275,'DateTime2'}|[{'remote_type',275,[{'atom',275,'file'}|[{'atom',275,'date_time'}|[[]]]]}]]]]}|[{'type',276,'constraint',[{'atom',276,'is_subtype'}|[[{'var',276,'Timeout'}|[{'type',276,'timeout',[]}]]]]}]]]]]]]]]}]}],
+		%% Line 280
+		'spec' =
+		    %% Line 280
+		    [{{'no_debug',1},[{'type',280,'bounded_fun',[{'type',280,'fun',[{'type',280,'product',[{'var',280,'Name'}]}|[{'atom',280,'ok'}]]}|[[{'type',281,'constraint',[{'atom',281,'is_subtype'}|[[{'var',281,'Name'}|[{'user_type',281,'name',[]}]]]]}]]]}]}],
+		%% Line 284
+		'spec' =
+		    %% Line 284
+		    [{{'no_debug',2},[{'type',284,'bounded_fun',[{'type',284,'fun',[{'type',284,'product',[{'var',284,'Name'}|[{'var',284,'Timeout'}]]}|[{'atom',284,'ok'}]]}|[[{'type',285,'constraint',[{'atom',285,'is_subtype'}|[[{'var',285,'Name'}|[{'user_type',285,'name',[]}]]]]}|[{'type',286,'constraint',[{'atom',286,'is_subtype'}|[[{'var',286,'Timeout'}|[{'type',286,'timeout',[]}]]]]}]]]]}]}],
+		%% Line 289
+		'spec' =
+		    %% Line 289
+		    [{{'install',2},[{'type',289,'bounded_fun',[{'type',289,'fun',[{'type',289,'product',[{'var',289,'Name'}|[{'var',289,'FuncSpec'}]]}|[{'atom',289,'ok'}]]}|[[{'type',290,'constraint',[{'atom',290,'is_subtype'}|[[{'var',290,'Name'}|[{'user_type',290,'name',[]}]]]]}|[{'type',291,'constraint',[{'atom',291,'is_subtype'}|[[{'var',291,'FuncSpec'}|[{'type',291,'union',[{'type',291,'tuple',[{'var',291,'Func'}|[{'var',291,'FuncState'}]]}|[{'type',291,'tuple',[{'var',291,'FuncId'}|[{'var',291,'Func'}|[{'var',291,'FuncState'}]]]}]]}]]]]}|[{'type',292,'constraint',[{'atom',292,'is_subtype'}|[[{'var',292,'FuncId'}|[{'type',292,'term',[]}]]]]}|[{'type',293,'constraint',[{'atom',293,'is_subtype'}|[[{'var',293,'Func'}|[{'user_type',293,'dbg_fun',[]}]]]]}|[{'type',294,'constraint',[{'atom',294,'is_subtype'}|[[{'var',294,'FuncState'}|[{'type',294,'term',[]}]]]]}]]]]]]]}]}],
+		%% Line 300
+		'spec' =
+		    %% Line 300
+		    [{{'install',3},[{'type',300,'bounded_fun',[{'type',300,'fun',[{'type',300,'product',[{'var',300,'Name'}|[{'var',300,'FuncSpec'}|[{'var',300,'Timeout'}]]]}|[{'atom',300,'ok'}]]}|[[{'type',301,'constraint',[{'atom',301,'is_subtype'}|[[{'var',301,'Name'}|[{'user_type',301,'name',[]}]]]]}|[{'type',302,'constraint',[{'atom',302,'is_subtype'}|[[{'var',302,'FuncSpec'}|[{'type',302,'union',[{'type',302,'tuple',[{'var',302,'Func'}|[{'var',302,'FuncState'}]]}|[{'type',302,'tuple',[{'var',302,'FuncId'}|[{'var',302,'Func'}|[{'var',302,'FuncState'}]]]}]]}]]]]}|[{'type',303,'constraint',[{'atom',303,'is_subtype'}|[[{'var',303,'FuncId'}|[{'type',303,'term',[]}]]]]}|[{'type',304,'constraint',[{'atom',304,'is_subtype'}|[[{'var',304,'Func'}|[{'user_type',304,'dbg_fun',[]}]]]]}|[{'type',305,'constraint',[{'atom',305,'is_subtype'}|[[{'var',305,'FuncState'}|[{'type',305,'term',[]}]]]]}|[{'type',306,'constraint',[{'atom',306,'is_subtype'}|[[{'var',306,'Timeout'}|[{'type',306,'timeout',[]}]]]]}]]]]]]]]}]}],
+		%% Line 312
+		'spec' =
+		    %% Line 312
+		    [{{'remove',2},[{'type',312,'bounded_fun',[{'type',312,'fun',[{'type',312,'product',[{'var',312,'Name'}|[{'type',312,'union',[{'var',312,'Func'}|[{'var',312,'FuncId'}]]}]]}|[{'atom',312,'ok'}]]}|[[{'type',313,'constraint',[{'atom',313,'is_subtype'}|[[{'var',313,'Name'}|[{'user_type',313,'name',[]}]]]]}|[{'type',314,'constraint',[{'atom',314,'is_subtype'}|[[{'var',314,'Func'}|[{'user_type',314,'dbg_fun',[]}]]]]}|[{'type',315,'constraint',[{'atom',315,'is_subtype'}|[[{'var',315,'FuncId'}|[{'type',315,'term',[]}]]]]}]]]]]}]}],
+		%% Line 319
+		'spec' =
+		    %% Line 319
+		    [{{'remove',3},[{'type',319,'bounded_fun',[{'type',319,'fun',[{'type',319,'product',[{'var',319,'Name'}|[{'type',319,'union',[{'var',319,'Func'}|[{'var',319,'FuncId'}]]}|[{'var',319,'Timeout'}]]]}|[{'atom',319,'ok'}]]}|[[{'type',320,'constraint',[{'atom',320,'is_subtype'}|[[{'var',320,'Name'}|[{'user_type',320,'name',[]}]]]]}|[{'type',321,'constraint',[{'atom',321,'is_subtype'}|[[{'var',321,'Func'}|[{'user_type',321,'dbg_fun',[]}]]]]}|[{'type',322,'constraint',[{'atom',322,'is_subtype'}|[[{'var',322,'FuncId'}|[{'type',322,'term',[]}]]]]}|[{'type',323,'constraint',[{'atom',323,'is_subtype'}|[[{'var',323,'Timeout'}|[{'type',323,'timeout',[]}]]]]}]]]]]]}]}],
+		%% Line 369
+		'spec' =
+		    %% Line 369
+		    [{{'handle_system_msg',6},[{'type',369,'bounded_fun',[{'type',369,'fun',[{'type',369,'product',[{'var',369,'Msg'}|[{'var',369,'From'}|[{'var',369,'Parent'}|[{'var',369,'Module'}|[{'var',369,'Debug'}|[{'var',369,'Misc'}]]]]]]}|[{'type',370,'no_return',[]}]]}|[[{'type',371,'constraint',[{'atom',371,'is_subtype'}|[[{'var',371,'Msg'}|[{'type',371,'term',[]}]]]]}|[{'type',372,'constraint',[{'atom',372,'is_subtype'}|[[{'var',372,'From'}|[{'type',372,'tuple',[{'type',372,'pid',[]}|[{'ann_type',372,[{'var',372,'Tag'}|[{'var',372,'_'}]]}]]}]]]]}|[{'type',373,'constraint',[{'atom',373,'is_subtype'}|[[{'var',373,'Parent'}|[{'type',373,'pid',[]}]]]]}|[{'type',374,'constraint',[{'atom',374,'is_subtype'}|[[{'var',374,'Module'}|[{'type',374,'module',[]}]]]]}|[{'type',375,'constraint',[{'atom',375,'is_subtype'}|[[{'var',375,'Debug'}|[{'type',375,'list',[{'user_type',375,'dbg_opt',[]}]}]]]]}|[{'type',376,'constraint',[{'atom',376,'is_subtype'}|[[{'var',376,'Misc'}|[{'type',376,'term',[]}]]]]}]]]]]]]]}]}],
+		%% Line 402
+		'spec' =
+		    %% Line 402
+		    [{{'handle_debug',4},[{'type',402,'bounded_fun',[{'type',402,'fun',[{'type',402,'product',[{'var',402,'Debug'}|[{'var',402,'FormFunc'}|[{'var',402,'Extra'}|[{'var',402,'Event'}]]]]}|[{'type',402,'list',[{'user_type',402,'dbg_opt',[]}]}]]}|[[{'type',403,'constraint',[{'atom',403,'is_subtype'}|[[{'var',403,'Debug'}|[{'type',403,'list',[{'user_type',403,'dbg_opt',[]}]}]]]]}|[{'type',404,'constraint',[{'atom',404,'is_subtype'}|[[{'var',404,'FormFunc'}|[{'user_type',404,'format_fun',[]}]]]]}|[{'type',405,'constraint',[{'atom',405,'is_subtype'}|[[{'var',405,'Extra'}|[{'type',405,'term',[]}]]]]}|[{'type',406,'constraint',[{'atom',406,'is_subtype'}|[[{'var',406,'Event'}|[{'user_type',406,'system_event',[]}]]]]}]]]]]]}]}],
+		%% Line 637
+		'spec' =
+		    %% Line 637
+		    [{{'get_debug',3},[{'type',637,'bounded_fun',[{'type',637,'fun',[{'type',637,'product',[{'var',637,'Item'}|[{'var',637,'Debug'}|[{'var',637,'Default'}]]]}|[{'type',637,'term',[]}]]}|[[{'type',638,'constraint',[{'atom',638,'is_subtype'}|[[{'var',638,'Item'}|[{'type',638,'union',[{'atom',638,'log'}|[{'atom',638,'statistics'}]]}]]]]}|[{'type',639,'constraint',[{'atom',639,'is_subtype'}|[[{'var',639,'Debug'}|[{'type',639,'list',[{'user_type',639,'dbg_opt',[]}]}]]]]}|[{'type',640,'constraint',[{'atom',640,'is_subtype'}|[[{'var',640,'Default'}|[{'type',640,'term',[]}]]]]}]]]]]}]}],
+		%% Line 651
+		'spec' =
+		    %% Line 651
+		    [{{'print_log',1},[{'type',651,'bounded_fun',[{'type',651,'fun',[{'type',651,'product',[{'var',651,'Debug'}]}|[{'atom',651,'ok'}]]}|[[{'type',652,'constraint',[{'atom',652,'is_subtype'}|[[{'var',652,'Debug'}|[{'type',652,'list',[{'user_type',652,'dbg_opt',[]}]}]]]]}]]]}]}],
+		%% Line 657
+		'spec' =
+		    %% Line 657
+		    [{{'get_log',1},[{'type',657,'bounded_fun',[{'type',657,'fun',[{'type',657,'product',[{'var',657,'Debug'}]}|[{'type',657,'list',[{'user_type',657,'system_event',[]}]}]]}|[[{'type',658,'constraint',[{'atom',658,'is_subtype'}|[[{'var',658,'Debug'}|[{'type',658,'list',[{'user_type',658,'dbg_opt',[]}]}]]]]}]]]}]}],
+		%% Line 748
+		'spec' =
+		    %% Line 748
+		    [{{'debug_options',1},[{'type',748,'fun',[{'type',748,'product',[{'type',748,'list',[{'ann_type',748,[{'var',748,'Opt'}|[{'user_type',748,'debug_option',[]}]]}]}]}|[{'type',748,'list',[{'user_type',748,'dbg_opt',[]}]}]]}]}]]
+'suspend'/1 =
+    %% Line 94
+    fun (_0) ->
+	apply 'send_system_msg'/2
+	    (_0, 'suspend')
+'suspend'/2 =
+    %% Line 99
+    fun (_0,_1) ->
+	apply 'send_system_msg'/3
+	    (_0, 'suspend', _1)
+'resume'/1 =
+    %% Line 103
+    fun (_0) ->
+	apply 'send_system_msg'/2
+	    (_0, 'resume')
+'resume'/2 =
+    %% Line 108
+    fun (_0,_1) ->
+	apply 'send_system_msg'/3
+	    (_0, 'resume', _1)
+'get_status'/1 =
+    %% Line 118
+    fun (_0) ->
+	apply 'send_system_msg'/2
+	    (_0, 'get_status')
+'get_status'/2 =
+    %% Line 129
+    fun (_0,_1) ->
+	apply 'send_system_msg'/3
+	    (_0, 'get_status', _1)
+'get_state'/1 =
+    %% Line 134
+    fun (_0) ->
+	%% Line 135
+	case apply 'send_system_msg'/2
+		 (_0, 'get_state') of
+	  %% Line 136
+	  <{'error',Reason}> when 'true' ->
+	      call 'erlang':'error'
+		  (Reason)
+	  %% Line 137
+	  <State> when 'true' ->
+	      State
+	end
+'get_state'/2 =
+    %% Line 144
+    fun (_0,_1) ->
+	%% Line 145
+	case apply 'send_system_msg'/3
+		 (_0, 'get_state', _1) of
+	  %% Line 146
+	  <{'error',Reason}> when 'true' ->
+	      call 'erlang':'error'
+		  (Reason)
+	  %% Line 147
+	  <State> when 'true' ->
+	      State
+	end
+'replace_state'/2 =
+    %% Line 154
+    fun (_0,_1) ->
+	%% Line 155
+	case apply 'send_system_msg'/2
+		 (_0, {'replace_state',_1}) of
+	  %% Line 156
+	  <{'error',Reason}> when 'true' ->
+	      call 'erlang':'error'
+		  (Reason)
+	  %% Line 157
+	  <State> when 'true' ->
+	      State
+	end
+'replace_state'/3 =
+    %% Line 165
+    fun (_0,_1,_2) ->
+	%% Line 166
+	case apply 'send_system_msg'/3
+		 (_0, {'replace_state',_1}, _2) of
+	  %% Line 167
+	  <{'error',Reason}> when 'true' ->
+	      call 'erlang':'error'
+		  (Reason)
+	  %% Line 168
+	  <State> when 'true' ->
+	      State
+	end
+'change_code'/4 =
+    %% Line 177
+    fun (_0,_1,_2,_3) ->
+	%% Line 178
+	apply 'send_system_msg'/2
+	    (_0, {'change_code',_1,_2,_3})
+'change_code'/5 =
+    %% Line 188
+    fun (_0,_1,_2,_3,_4) ->
+	%% Line 189
+	apply 'send_system_msg'/3
+	    (_0, {'change_code',_1,_2,_3}, _4)
+'terminate'/2 =
+    %% Line 194
+    fun (_0,_1) ->
+	%% Line 195
+	apply 'send_system_msg'/2
+	    (_0, {'terminate',_1})
+'terminate'/3 =
+    %% Line 201
+    fun (_0,_1,_2) ->
+	%% Line 202
+	apply 'send_system_msg'/3
+	    (_0, {'terminate',_1}, _2)
+'log'/2 =
+    %% Line 213
+    fun (_0,_1) ->
+	%% Line 214
+	apply 'send_system_msg'/2
+	    (_0, {'debug',{'log',_1}})
+'log'/3 =
+    %% Line 222
+    fun (_0,_1,_2) ->
+	%% Line 223
+	apply 'send_system_msg'/3
+	    (_0, {'debug',{'log',_1}}, _2)
+'trace'/2 =
+    %% Line 228
+    fun (_0,_1) ->
+	%% Line 229
+	apply 'send_system_msg'/2
+	    (_0, {'debug',{'trace',_1}})
+'trace'/3 =
+    %% Line 235
+    fun (_0,_1,_2) ->
+	%% Line 236
+	apply 'send_system_msg'/3
+	    (_0, {'debug',{'trace',_1}}, _2)
+'log_to_file'/2 =
+    %% Line 241
+    fun (_0,_1) ->
+	%% Line 242
+	apply 'send_system_msg'/2
+	    (_0, {'debug',{'log_to_file',_1}})
+'log_to_file'/3 =
+    %% Line 248
+    fun (_0,_1,_2) ->
+	%% Line 249
+	apply 'send_system_msg'/3
+	    (_0, {'debug',{'log_to_file',_1}}, _2)
+'statistics'/2 =
+    %% Line 262
+    fun (_0,_1) ->
+	%% Line 263
+	apply 'send_system_msg'/2
+	    (_0, {'debug',{'statistics',_1}})
+'statistics'/3 =
+    %% Line 277
+    fun (_0,_1,_2) ->
+	%% Line 278
+	apply 'send_system_msg'/3
+	    (_0, {'debug',{'statistics',_1}}, _2)
+'no_debug'/1 =
+    %% Line 282
+    fun (_0) ->
+	apply 'send_system_msg'/2
+	    (_0, {'debug','no_debug'})
+'no_debug'/2 =
+    %% Line 287
+    fun (_0,_1) ->
+	apply 'send_system_msg'/3
+	    (_0, {'debug','no_debug'}, _1)
+'install'/2 =
+    %% Line 295
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Name,_@r0 = {Func,FuncState}> when 'true' ->
+	      %% Line 296
+	      apply 'send_system_msg'/2
+		  (Name, {'debug',{'install',_@r0}})
+	  %% Line 297
+	  <Name,_@r1 = {FuncId,Func,FuncState}> when 'true' ->
+	      %% Line 298
+	      apply 'send_system_msg'/2
+		  (Name, {'debug',{'install',_@r1}})
+	  ( <_3,_2> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_3,_2})
+		  -| [{'function_name',{'install',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'install'/3 =
+    %% Line 307
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <Name,_@r0 = {Func,FuncState},Timeout> when 'true' ->
+	      %% Line 308
+	      apply 'send_system_msg'/3
+		  (Name, {'debug',{'install',_@r0}}, Timeout)
+	  %% Line 309
+	  <Name,_@r1 = {FuncId,Func,FuncState},Timeout> when 'true' ->
+	      %% Line 310
+	      apply 'send_system_msg'/3
+		  (Name, {'debug',{'install',_@r1}}, Timeout)
+	  ( <_5,_4,_3> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_5,_4,_3})
+		  -| [{'function_name',{'install',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'remove'/2 =
+    %% Line 316
+    fun (_0,_1) ->
+	%% Line 317
+	apply 'send_system_msg'/2
+	    (_0, {'debug',{'remove',_1}})
+'remove'/3 =
+    %% Line 324
+    fun (_0,_1,_2) ->
+	%% Line 325
+	apply 'send_system_msg'/3
+	    (_0, {'debug',{'remove',_1}}, _2)
+'send_system_msg'/2 =
+    %% Line 331
+    fun (_0,_1) ->
+	let <_2> =
+	    catch
+		%% Line 332
+		call 'gen':'call'
+		    (_0, 'system', _1)
+	in  %% Line 332
+	    case _2 of
+	      %% Line 333
+	      <{'ok',Res}> when 'true' ->
+		  Res
+	      %% Line 334
+	      <{'EXIT',Reason}> when 'true' ->
+		  let <_3> =
+		      apply 'mfa'/2
+			  (_0, _1)
+		  in  call 'erlang':'exit'
+			  ({Reason,_3})
+	      ( <_4> when 'true' ->
+		    primop 'match_fail'
+			({'case_clause',_4})
+		-| ['compiler_generated'] )
+	    end
+'send_system_msg'/3 =
+    %% Line 337
+    fun (_0,_1,_2) ->
+	let <_3> =
+	    catch
+		%% Line 338
+		call 'gen':'call'
+		    (_0, 'system', _1, _2)
+	in  %% Line 338
+	    case _3 of
+	      %% Line 339
+	      <{'ok',Res}> when 'true' ->
+		  Res
+	      %% Line 340
+	      <{'EXIT',Reason}> when 'true' ->
+		  let <_4> =
+		      apply 'mfa'/3
+			  (_0, _1, _2)
+		  in  call 'erlang':'exit'
+			  ({Reason,_4})
+	      ( <_5> when 'true' ->
+		    primop 'match_fail'
+			({'case_clause',_5})
+		-| ['compiler_generated'] )
+	    end
+'mfa'/2 =
+    %% Line 343
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Name,{'debug',{Func,Arg2}}> when 'true' ->
+	      %% Line 344
+	      {'sys',Func,[Name|[Arg2|[]]]}
+	  %% Line 345
+	  <Name,{'change_code',Mod,Vsn,Extra}> when 'true' ->
+	      %% Line 346
+	      {'sys','change_code',[Name|[Mod|[Vsn|[Extra|[]]]]]}
+	  %% Line 347
+	  <Name,{'terminate',Reason}> when 'true' ->
+	      %% Line 348
+	      {'sys','terminate',[Name|[Reason|[]]]}
+	  %% Line 349
+	  <Name,Atom> when 'true' ->
+	      %% Line 350
+	      {'sys',Atom,[Name|[]]}
+	end
+'mfa'/3 =
+    %% Line 352
+    fun (_0,_1,_2) ->
+	%% Line 353
+	case apply 'mfa'/2
+		 (_0, _1) of
+	  <{M,F,A}> when 'true' ->
+	      let <_4> =
+		  call %% Line 354
+		       'erlang':%% Line 354
+				'++'
+		      (%% Line 354
+		       A, %% Line 354
+			  [_2|[]])
+	      in  %% Line 354
+		  {M,F,_4}
+	  ( <_3> when 'true' ->
+		primop 'match_fail'
+		    ({'badmatch',_3})
+	    -| ['compiler_generated'] )
+	end
+'handle_system_msg'/6 =
+    %% Line 377
+    fun (_0,_1,_2,_3,_4,_5) ->
+	%% Line 378
+	apply 'handle_system_msg'/8
+	    ('running', _0, _1, _2, _3, _4, _5, 'false')
+'handle_system_msg'/7 =
+    %% Line 380
+    fun (_0,_1,_2,_3,_4,_5,_6) ->
+	%% Line 381
+	apply 'handle_system_msg'/8
+	    ('running', _0, _1, _2, _3, _4, _5, _6)
+'handle_system_msg'/8 =
+    %% Line 383
+    fun (_0,_1,_2,_3,_4,_5,_6,_7) ->
+	%% Line 384
+	case apply 'do_cmd'/6
+		 (_0, _1, _3, _4, _5, _6) of
+	  %% Line 385
+	  <{'suspended',Reply,NDebug,NMisc}> when 'true' ->
+	      do  %% Line 386
+		  ( call ( 'gen'
+			   -| ['result_not_wanted'] ):( 'reply'
+							-| ['result_not_wanted'] )
+			(_2, Reply)
+		    -| ['result_not_wanted'] )
+		  %% Line 387
+		  apply 'suspend_loop'/6
+		      ('suspended', _3, _4, NDebug, NMisc, _7)
+	  %% Line 388
+	  <{'running',Reply,NDebug,NMisc}> when 'true' ->
+	      do  %% Line 389
+		  ( call ( 'gen'
+			   -| ['result_not_wanted'] ):( 'reply'
+							-| ['result_not_wanted'] )
+			(_2, Reply)
+		    -| ['result_not_wanted'] )
+		  %% Line 390
+		  call _4:'system_continue'
+		      (_3, NDebug, NMisc)
+	  %% Line 391
+	  <{{'terminating',Reason},Reply,NDebug,NMisc}> when 'true' ->
+	      do  %% Line 392
+		  ( call ( 'gen'
+			   -| ['result_not_wanted'] ):( 'reply'
+							-| ['result_not_wanted'] )
+			(_2, Reply)
+		    -| ['result_not_wanted'] )
+		  %% Line 393
+		  call _4:'system_terminate'
+		      (Reason, _3, NDebug, NMisc)
+	  ( <_11> when 'true' ->
+		primop 'match_fail'
+		    ({'case_clause',_11})
+	    -| ['compiler_generated'] )
+	end
+'handle_debug'/4 =
+    %% Line 407
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <[DbgOpt = {'trace','true'}|T],FormFunc,State,Event> when 'true' ->
+	      do  %% Line 408
+		  apply 'print_event'/1
+		      ({Event,State,FormFunc})
+		  let <_4> =
+		      apply %% Line 409
+			    'handle_debug'/4
+			  (%% Line 409
+			   T, %% Line 409
+			      FormFunc, %% Line 409
+					State, %% Line 409
+					       Event)
+		  in  %% Line 409
+		      [DbgOpt|_4]
+	  %% Line 410
+	  <[{'log',NLog}|T],FormFunc,State,Event> when 'true' ->
+	      let <Item> = {%% Line 411
+		   Event,%% Line 411
+			 State,%% Line 411
+			       FormFunc}
+	      in  let <_6> =
+		      apply %% Line 412
+			    'nlog_put'/2
+			  (%% Line 412
+			   Item, %% Line 412
+				 NLog)
+		  in  let <_7> =
+			  apply %% Line 412
+				'handle_debug'/4
+			      (%% Line 412
+			       T, %% Line 412
+				  FormFunc, %% Line 412
+					    State, %% Line 412
+						   Event)
+		      in  %% Line 412
+			  [{'log',_6}|_7]
+	  %% Line 413
+	  <[DbgOpt = {'log_to_file',Fd}|T],FormFunc,State,Event> when 'true' ->
+	      do  %% Line 414
+		  apply 'print_event'/2
+		      (Fd, {Event,State,FormFunc})
+		  let <_8> =
+		      apply %% Line 415
+			    'handle_debug'/4
+			  (%% Line 415
+			   T, %% Line 415
+			      FormFunc, %% Line 415
+					State, %% Line 415
+					       Event)
+		  in  %% Line 415
+		      [DbgOpt|_8]
+	  %% Line 416
+	  <[{'statistics',StatData}|T],FormFunc,State,Event> when 'true' ->
+	      let <NStatData> =
+		  apply %% Line 417
+			'stat'/2
+		      (%% Line 417
+		       Event, %% Line 417
+			      StatData)
+	      in  let <_10> =
+		      apply %% Line 418
+			    'handle_debug'/4
+			  (%% Line 418
+			   T, %% Line 418
+			      FormFunc, %% Line 418
+					State, %% Line 418
+					       Event)
+		  in  %% Line 418
+		      [{'statistics',NStatData}|_10]
+	  %% Line 419
+	  <[{FuncId,{Func,FuncState}}|T],FormFunc,State,Event> when 'true' ->
+	      %% Line 420
+	      try
+		  apply Func
+		      (FuncState, Event, State)
+	      of <_11> ->
+		  case _11 of
+		    %% Line 421
+		    <'done'> when 'true' ->
+			apply 'handle_debug'/4
+			    (T, FormFunc, State, Event)
+		    %% Line 422
+		    <NFuncState> when 'true' ->
+			let <_12> =
+			    apply %% Line 424
+				  'handle_debug'/4
+				(%% Line 424
+				 T, %% Line 424
+				    FormFunc, %% Line 424
+					      State, %% Line 424
+						     Event)
+			in  %% Line 423
+			    [{FuncId,{Func,NFuncState}}|_12]
+		  end
+	      catch <_16,_15,_14> ->
+		  %% Line 426
+		  case <_16,_15,_14> of
+		    <( 'throw'
+		       -| ['compiler_generated'] ),( 'done'
+						     -| ['compiler_generated'] ),_29> when 'true' ->
+			apply 'handle_debug'/4
+			    (T, FormFunc, State, Event)
+		    %% Line 427
+		    <( 'throw'
+		       -| ['compiler_generated'] ),NFuncState,_30> when 'true' ->
+			let <_17> =
+			    apply %% Line 429
+				  'handle_debug'/4
+				(%% Line 429
+				 T, %% Line 429
+				    FormFunc, %% Line 429
+					      State, %% Line 429
+						     Event)
+			in  %% Line 428
+			    [{FuncId,{Func,NFuncState}}|_17]
+		    %% Line 430
+		    <_31,_32,_33> when 'true' ->
+			apply 'handle_debug'/4
+			    (T, FormFunc, State, Event)
+		  end
+	  %% Line 432
+	  <[{Func,FuncState}|T],FormFunc,State,Event> when 'true' ->
+	      %% Line 433
+	      try
+		  apply Func
+		      (FuncState, Event, State)
+	      of <_18> ->
+		  case _18 of
+		    %% Line 434
+		    <'done'> when 'true' ->
+			apply 'handle_debug'/4
+			    (T, FormFunc, State, Event)
+		    %% Line 435
+		    <NFuncState> when 'true' ->
+			let <_19> =
+			    apply %% Line 436
+				  'handle_debug'/4
+				(%% Line 436
+				 T, %% Line 436
+				    FormFunc, %% Line 436
+					      State, %% Line 436
+						     Event)
+			in  %% Line 436
+			    [{Func,NFuncState}|_19]
+		  end
+	      catch <_23,_22,_21> ->
+		  %% Line 438
+		  case <_23,_22,_21> of
+		    <( 'throw'
+		       -| ['compiler_generated'] ),( 'done'
+						     -| ['compiler_generated'] ),_34> when 'true' ->
+			apply 'handle_debug'/4
+			    (T, FormFunc, State, Event)
+		    %% Line 439
+		    <( 'throw'
+		       -| ['compiler_generated'] ),NFuncState,_35> when 'true' ->
+			let <_24> =
+			    apply %% Line 440
+				  'handle_debug'/4
+				(%% Line 440
+				 T, %% Line 440
+				    FormFunc, %% Line 440
+					      State, %% Line 440
+						     Event)
+			in  %% Line 440
+			    [{Func,NFuncState}|_24]
+		    %% Line 441
+		    <_36,_37,_38> when 'true' ->
+			apply 'handle_debug'/4
+			    (T, FormFunc, State, Event)
+		  end
+	  %% Line 443
+	  <[],_X_FormFunc,_X_State,_X_Event> when 'true' ->
+	      %% Line 444
+	      []
+	  ( <_28,_27,_26,_25> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_28,_27,_26,_25})
+		  -| [{'function_name',{'handle_debug',4}}] )
+	    -| ['compiler_generated'] )
+	end
+'suspend_loop'/6 =
+    %% Line 450
+    fun (_0,_1,_2,_3,_4,_5) ->
+	%% Line 451
+	case _5 of
+	  %% Line 452
+	  <'true'> when 'true' ->
+	      %% Line 453
+	      apply 'suspend_loop_hib'/6
+		  (_0, _1, _2, _3, _4, _5)
+	  %% Line 454
+	  <_13> when 'true' ->
+	      %% Line 455
+	      receive
+		%% Line 456
+		<{'system',From,Msg}> when 'true' ->
+		    %% Line 457
+		    apply 'handle_system_msg'/8
+			(_0, Msg, From, _1, _2, _3, _4, _5)
+		%% Line 458
+		<{'EXIT',_14,Reason}>
+		    when call 'erlang':'=:='
+			  (_14,
+			   _1) ->
+		    %% Line 459
+		    call _2:'system_terminate'
+			(Reason, _1, _3, _4)
+	      after 'infinity' ->
+		'true'
+	end
+'suspend_loop_hib'/6 =
+    %% Line 463
+    fun (_0,_1,_2,_3,_4,_5) ->
+	%% Line 464
+	receive
+	  %% Line 465
+	  <{'system',From,Msg}> when 'true' ->
+	      %% Line 466
+	      apply 'handle_system_msg'/8
+		  (_0, Msg, From, _1, _2, _3, _4, _5)
+	  %% Line 467
+	  <{'EXIT',_12,Reason}>
+	      when call 'erlang':'=:='
+		    (_12,
+		     _1) ->
+	      %% Line 468
+	      call _2:'system_terminate'
+		  (Reason, _1, _3, _4)
+	after %% Line 469
+	      0 ->
+	  %% Line 470
+	  call 'proc_lib':'hibernate'
+	      ('sys', 'suspend_loop_hib', [_0|[_1|[_2|%% Line 471
+						      [_3|[_4|[_5|[]]]]]]])
+'do_cmd'/6 =
+    %% Line 475
+    fun (_0,_1,_2,_3,_4,_5) ->
+	case <_0,_1,_2,_3,_4,_5> of
+	  <_17,'suspend',_X_Parent,_X_Mod,Debug,Misc> when 'true' ->
+	      %% Line 476
+	      {'suspended','ok',Debug,Misc}
+	  %% Line 477
+	  <_18,'resume',_X_Parent,_X_Mod,Debug,Misc> when 'true' ->
+	      %% Line 478
+	      {'running','ok',Debug,Misc}
+	  %% Line 479
+	  <SysState,'get_state',_X_Parent,Mod,Debug,Misc> when 'true' ->
+	      let <_6> =
+		  apply %% Line 480
+			'do_get_state'/2
+		      (%% Line 480
+		       Mod, %% Line 480
+			    Misc)
+	      in  %% Line 480
+		  {SysState,_6,Debug,Misc}
+	  %% Line 481
+	  <SysState,{'replace_state',StateFun},_X_Parent,Mod,Debug,Misc> when 'true' ->
+	      %% Line 482
+	      case apply 'do_replace_state'/3
+		       (StateFun, Mod, Misc) of
+		<{Res,NMisc}> when 'true' ->
+		    %% Line 483
+		    {SysState,Res,Debug,NMisc}
+		( <_7> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_7})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 484
+	  <SysState,'get_status',Parent,Mod,Debug,Misc> when 'true' ->
+	      let <Res> =
+		  apply %% Line 485
+			'get_status'/5
+		      (%% Line 485
+		       SysState, %% Line 485
+				 Parent, %% Line 485
+					 Mod, %% Line 485
+					      Debug, %% Line 485
+						     Misc)
+	      in  %% Line 486
+		  {SysState,Res,Debug,Misc}
+	  %% Line 487
+	  <SysState,{'debug',What},_X_Parent,_X_Mod,Debug,Misc> when 'true' ->
+	      %% Line 488
+	      case apply 'debug_cmd'/2
+		       (What, Debug) of
+		<{Res,NDebug}> when 'true' ->
+		    %% Line 489
+		    {SysState,Res,NDebug,Misc}
+		( <_9> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_9})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 490
+	  <_19,{'terminate',Reason},_X_Parent,_X_Mod,Debug,Misc> when 'true' ->
+	      %% Line 491
+	      {{'terminating',Reason},'ok',Debug,Misc}
+	  %% Line 492
+	  <'suspended',{'change_code',Module,Vsn,Extra},_X_Parent,%% Line 493
+								  Mod,%% Line 493
+								      Debug,%% Line 493
+									    Misc> when 'true' ->
+	      %% Line 494
+	      case apply 'do_change_code'/5
+		       (Mod, Module, Vsn, Extra, Misc) of
+		<{Res,NMisc}> when 'true' ->
+		    %% Line 495
+		    {'suspended',Res,Debug,NMisc}
+		( <_10> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_10})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 496
+	  <SysState,Other,_X_Parent,_X_Mod,Debug,Misc> when 'true' ->
+	      %% Line 497
+	      {SysState,{'error',{'unknown_system_msg',Other}},Debug,Misc}
+	end
+'do_get_state'/2 =
+    %% Line 499
+    fun (_0,_1) ->
+	%% Line 500
+	case call 'erlang':'function_exported'
+		 (_0, 'system_get_state', 1) of
+	  %% Line 501
+	  <'true'> when 'true' ->
+	      %% Line 502
+	      try
+		  %% Line 503
+		  case call _0:'system_get_state'
+			   (_1) of
+		    <{'ok',State}> when 'true' ->
+			%% Line 504
+			State
+		    ( <_2> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_2})
+		      -| ['compiler_generated'] )
+		  end
+	      of <_3> ->
+		  _3
+	      catch <_6,_5,_4> ->
+		  %% Line 507
+		  {'error',{'callback_failed',{_0,'system_get_state'},{_6,_5}}}
+	  %% Line 509
+	  <'false'> when 'true' ->
+	      _1
+	  ( <_7> when 'true' ->
+		primop 'match_fail'
+		    ({'case_clause',_7})
+	    -| ['compiler_generated'] )
+	end
+'do_replace_state'/3 =
+    %% Line 513
+    fun (_0,_1,_2) ->
+	%% Line 514
+	case call 'erlang':'function_exported'
+		 (_1, 'system_replace_state', 2) of
+	  %% Line 515
+	  <'true'> when 'true' ->
+	      %% Line 516
+	      try
+		  %% Line 517
+		  case call _1:'system_replace_state'
+			   (_0, _2) of
+		    <{'ok',State,NMisc}> when 'true' ->
+			%% Line 518
+			{State,NMisc}
+		    ( <_3> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_3})
+		      -| ['compiler_generated'] )
+		  end
+	      of <_4> ->
+		  _4
+	      catch <_7,_6,_5> ->
+		  %% Line 521
+		  {{'error',{'callback_failed',{_1,'system_replace_state'},{_7,_6}}},_2}
+	  %% Line 523
+	  <'false'> when 'true' ->
+	      %% Line 524
+	      try
+		  let <NMisc> =
+		      apply _0
+			  (_2)
+		  in  %% Line 526
+		      {NMisc,NMisc}
+	      of <_9> ->
+		  _9
+	      catch <_12,_11,_10> ->
+		  %% Line 529
+		  {{'error',{'callback_failed',_0,{_12,_11}}},_2}
+	  ( <_13> when 'true' ->
+		primop 'match_fail'
+		    ({'case_clause',_13})
+	    -| ['compiler_generated'] )
+	end
+'get_status'/5 =
+    %% Line 533
+    fun (_0,_1,_2,_3,_4) ->
+	let <PDict> =
+	    call %% Line 534
+		 'erlang':%% Line 534
+			  'get'
+		()
+	in  let <_8> =
+		case %% Line 536
+		     call 'erlang':'function_exported'
+			 (_2, 'format_status', 2) of
+		  %% Line 537
+		  <'true'> when 'true' ->
+		      let <FmtArgs> =
+			  [%% Line 538
+			   PDict|%% Line 538
+				 [_0|[_1|[_3|[_4|[]]]]]]
+		      in  %% Line 539
+			  call _2:'format_status'
+			      ('normal', FmtArgs)
+		  %% Line 540
+		  <_16> when 'true' ->
+		      _4
+		end
+	    in  let <_10> =
+		    call %% Line 543
+			 'erlang':%% Line 543
+				  'self'
+			()
+		in  %% Line 543
+		    {'status',_10,{'module',_2},%% Line 544
+						[PDict|[_0|[_1|[_3|[_8|[]]]]]]}
+'debug_cmd'/2 =
+    %% Line 553
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <{'trace','true'},Debug> when 'true' ->
+	      let <_2> =
+		  apply %% Line 554
+			'install_debug'/3
+		      (%% Line 554
+		       'trace', %% Line 554
+				'true', %% Line 554
+					Debug)
+	      in  %% Line 554
+		  {'ok',_2}
+	  %% Line 555
+	  <{'trace','false'},Debug> when 'true' ->
+	      let <_3> =
+		  apply %% Line 556
+			'remove_debug'/2
+		      (%% Line 556
+		       'trace', %% Line 556
+				Debug)
+	      in  %% Line 556
+		  {'ok',_3}
+	  %% Line 557
+	  <{'log','true'},Debug> when 'true' ->
+	      let <_4> =
+		  apply %% Line 558
+			'nlog_new'/0
+		      ()
+	      in  let <NLog> =
+		      apply %% Line 558
+			    'get_debug'/3
+			  (%% Line 558
+			   'log', %% Line 558
+				  Debug, _4)
+		  in  let <_6> =
+			  apply %% Line 559
+				'nlog_new'/1
+			      (%% Line 559
+			       NLog)
+		      in  let <_7> =
+			      apply %% Line 559
+				    'install_debug'/3
+				  (%% Line 559
+				   'log', _6, %% Line 559
+					      Debug)
+			  in  %% Line 559
+			      {'ok',_7}
+	  %% Line 560
+	  <{'log',{'true',N}},Debug>
+	      when let <_8> =
+		    call 'erlang':'is_integer'
+			(N)
+		in  let <_9> =
+			call 'erlang':'=<'
+			    (1, N)
+		    in  call 'erlang':'and'
+			    (_8, _9) ->
+	      let <_10> =
+		  apply %% Line 561
+			'nlog_new'/1
+		      (%% Line 561
+		       N)
+	      in  let <NLog> =
+		      apply %% Line 561
+			    'get_debug'/3
+			  (%% Line 561
+			   'log', %% Line 561
+				  Debug, _10)
+		  in  let <_12> =
+			  apply %% Line 562
+				'nlog_new'/2
+			      (%% Line 562
+			       N, %% Line 562
+				  NLog)
+		      in  let <_13> =
+			      apply %% Line 562
+				    'install_debug'/3
+				  (%% Line 562
+				   'log', _12, %% Line 562
+					       Debug)
+			  in  %% Line 562
+			      {'ok',_13}
+	  %% Line 563
+	  <{'log','false'},Debug> when 'true' ->
+	      let <_14> =
+		  apply %% Line 564
+			'remove_debug'/2
+		      (%% Line 564
+		       'log', %% Line 564
+			      Debug)
+	      in  %% Line 564
+		  {'ok',_14}
+	  %% Line 565
+	  <{'log','print'},Debug> when 'true' ->
+	      do  %% Line 566
+		  apply 'print_log'/1
+		      (Debug)
+		  %% Line 567
+		  {'ok',Debug}
+	  %% Line 568
+	  <{'log','get'},Debug> when 'true' ->
+	      let <_15> =
+		  apply %% Line 569
+			'nlog_new'/0
+		      ()
+	      in  let <NLog> =
+		      apply %% Line 569
+			    'get_debug'/3
+			  (%% Line 569
+			   'log', %% Line 569
+				  Debug, _15)
+		  in  let <_22> =
+			  letrec
+			      'lc$^0'/1 =
+				  %% Line 570
+				  fun (_20) ->
+				      case _20 of
+					<[{Event,_X_State,_X_FormFunc}|_18]> when 'true' ->
+					    let <_21> =
+						apply 'lc$^0'/1
+						    (_18)
+					    in  ( [Event|_21]
+						  -| ['compiler_generated'] )
+					( <[_17|_18]> when 'true' ->
+					      apply 'lc$^0'/1
+						  (_18)
+					  -| ['compiler_generated'] )
+					<[]> when 'true' ->
+					    []
+					( <_37> when 'true' ->
+					      ( primop 'match_fail'
+						    ({'function_clause',_37})
+						-| [{'function_name',{'lc$^0',1}}] )
+					  -| ['compiler_generated'] )
+				      end
+			  in  let <_19> =
+				  apply %% Line 570
+					'nlog_get'/1
+				      (%% Line 570
+				       NLog)
+			      in  %% Line 570
+				  apply 'lc$^0'/1
+				      (_19)
+		      in  %% Line 570
+			  {{'ok',_22},Debug}
+	  %% Line 571
+	  <{'log_to_file','false'},Debug> when 'true' ->
+	      let <NDebug> =
+		  apply %% Line 572
+			'close_log_file'/1
+		      (%% Line 572
+		       Debug)
+	      in  %% Line 573
+		  {'ok',NDebug}
+	  %% Line 574
+	  <{'log_to_file',FileName},Debug> when 'true' ->
+	      let <NDebug> =
+		  apply %% Line 575
+			'close_log_file'/1
+		      (%% Line 575
+		       Debug)
+	      in  %% Line 576
+		  case call 'file':'open'
+			   (FileName, ['write'|[{'encoding','utf8'}]]) of
+		    %% Line 577
+		    <{'ok',Fd}> when 'true' ->
+			let <_25> =
+			    apply %% Line 578
+				  'install_debug'/3
+				(%% Line 578
+				 'log_to_file', %% Line 578
+						Fd, %% Line 578
+						    NDebug)
+			in  %% Line 578
+			    {'ok',_25}
+		    %% Line 579
+		    <_X_Error> when 'true' ->
+			%% Line 580
+			{{'error','open_file'},NDebug}
+		  end
+	  %% Line 582
+	  <{'statistics','true'},Debug> when 'true' ->
+	      let <_27> =
+		  apply %% Line 583
+			'init_stat'/0
+		      ()
+	      in  let <_28> =
+		      apply %% Line 583
+			    'install_debug'/3
+			  (%% Line 583
+			   'statistics', _27, %% Line 583
+					      Debug)
+		  in  %% Line 583
+		      {'ok',_28}
+	  %% Line 584
+	  <{'statistics','false'},Debug> when 'true' ->
+	      let <_29> =
+		  apply %% Line 585
+			'remove_debug'/2
+		      (%% Line 585
+		       'statistics', %% Line 585
+				     Debug)
+	      in  %% Line 585
+		  {'ok',_29}
+	  %% Line 586
+	  <{'statistics','get'},Debug> when 'true' ->
+	      let <_30> =
+		  apply %% Line 587
+			'get_debug'/3
+		      (%% Line 587
+		       'statistics', %% Line 587
+				     Debug, %% Line 587
+					    [])
+	      in  let <_31> =
+		      apply %% Line 587
+			    'get_stat'/1
+			  (_30)
+		  in  %% Line 587
+		      {{'ok',_31},Debug}
+	  %% Line 588
+	  <'no_debug',Debug> when 'true' ->
+	      do  %% Line 589
+		  apply 'close_log_file'/1
+		      (Debug)
+		  %% Line 590
+		  {'ok',[]}
+	  %% Line 591
+	  <{'install',{Func,FuncState}},Debug> when 'true' ->
+	      let <_32> =
+		  apply %% Line 592
+			'install_debug'/3
+		      (%% Line 592
+		       Func, %% Line 592
+			     FuncState, %% Line 592
+					Debug)
+	      in  %% Line 592
+		  {'ok',_32}
+	  %% Line 593
+	  <{'install',{FuncId,Func,FuncState}},Debug> when 'true' ->
+	      let <_33> =
+		  apply %% Line 594
+			'install_debug'/3
+		      (%% Line 594
+		       FuncId, %% Line 594
+			       {Func,FuncState}, %% Line 594
+						 Debug)
+	      in  %% Line 594
+		  {'ok',_33}
+	  %% Line 595
+	  <{'remove',FuncOrFuncId},Debug> when 'true' ->
+	      let <_34> =
+		  apply %% Line 596
+			'remove_debug'/2
+		      (%% Line 596
+		       FuncOrFuncId, %% Line 596
+				     Debug)
+	      in  %% Line 596
+		  {'ok',_34}
+	  %% Line 597
+	  <_X_Unknown,Debug> when 'true' ->
+	      %% Line 598
+	      {'unknown_debug',Debug}
+	end
+'do_change_code'/5 =
+    %% Line 601
+    fun (_0,_1,_2,_3,_4) ->
+	let <_5> =
+	    catch
+		%% Line 602
+		call _0:'system_code_change'
+		    (_4, _1, _2, _3)
+	in  %% Line 602
+	    case _5 of
+	      %% Line 603
+	      <_@r0 = {'ok',NMisc}> when 'true' ->
+		  _@r0
+	      %% Line 604
+	      <Else> when 'true' ->
+		  {{'error',Else},_4}
+	    end
+'print_event'/1 =
+    %% Line 607
+    fun (_0) ->
+	apply 'print_event'/2
+	    ('standard_io', _0)
+'print_event'/2 =
+    %% Line 609
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Dev,{Event,State,FormFunc}> when 'true' ->
+	      %% Line 610
+	      apply FormFunc
+		  (Dev, Event, State)
+	  ( <_3,_2> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_3,_2})
+		  -| [{'function_name',{'print_event',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'init_stat'/0 =
+    %% Line 612
+    fun () ->
+	let <_2> =
+	    call 'erlang':'localtime'
+		()
+	in  let <_0> =
+		call 'erlang':'self'
+		    ()
+	    in  let <_1> =
+		    call 'erlang':'process_info'
+			(_0, 'reductions')
+		in  {_2,_1,0,0}
+'get_stat'/1 =
+    %% Line 614
+    fun (_0) ->
+	case _0 of
+	  <{Time,{'reductions',Reds},In,Out}> when 'true' ->
+	      let <_1> =
+		  call %% Line 615
+		       'erlang':%% Line 615
+				'self'
+		      ()
+	      in  %% Line 615
+		  case call 'erlang':'process_info'
+			   (_1, 'reductions') of
+		    <{'reductions',Reds2}> when 'true' ->
+			let <_3> =
+			    call %% Line 616
+				 'erlang':%% Line 616
+					  'localtime'
+				()
+			in  let <_4> =
+				call %% Line 617
+				     'erlang':%% Line 617
+					      '-'
+				    (%% Line 617
+				     Reds2, %% Line 617
+					    Reds)
+			    in  %% Line 616
+				[{'start_time',Time}|[{'current_time',_3}|%% Line 617
+									  [{'reductions',_4}|[{'messages_in',In}|[{'messages_out',Out}|[]]]]]]
+		    ( <_2> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_2})
+		      -| ['compiler_generated'] )
+		  end
+	  %% Line 618
+	  <_6> when 'true' ->
+	      %% Line 619
+	      'no_statistics'
+	end
+'stat'/2 =
+    %% Line 621
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <{'in',_X_Msg},{Time,Reds,In,Out}> when 'true' ->
+	      let <_2> =
+		  call 'erlang':'+'
+		      (In, 1)
+	      in  {Time,Reds,_2,Out}
+	  %% Line 622
+	  <{'in',_X_Msg,_X_From},{Time,Reds,In,Out}> when 'true' ->
+	      let <_3> =
+		  call 'erlang':'+'
+		      (In, 1)
+	      in  {Time,Reds,_3,Out}
+	  %% Line 623
+	  <{'out',_X_Msg,_X_To},{Time,Reds,In,Out}> when 'true' ->
+	      let <_4> =
+		  call 'erlang':'+'
+		      (Out, 1)
+	      in  {Time,Reds,In,_4}
+	  %% Line 624
+	  <{'out',_X_Msg,_X_To,_X_State},{Time,Reds,In,Out}> when 'true' ->
+	      let <_5> =
+		  call 'erlang':'+'
+		      (Out, 1)
+	      in  {Time,Reds,In,_5}
+	  %% Line 625
+	  <_8,StatData> when 'true' ->
+	      StatData
+	end
+'install_debug'/3 =
+    %% Line 630
+    fun (_0,_1,_2) ->
+	%% Line 631
+	case call 'lists':'keysearch'
+		 (_0, 1, _2) of
+	  %% Line 632
+	  <'false'> when 'true' ->
+	      [{_0,_1}|_2]
+	  %% Line 633
+	  <_7> when 'true' ->
+	      _2
+	end
+'remove_debug'/2 =
+    %% Line 635
+    fun (_0,_1) ->
+	call 'lists':'keydelete'
+	    (_0, 1, _1)
+'get_debug'/3 =
+    %% Line 641
+    fun (_0,_1,_2) ->
+	%% Line 642
+	apply 'get_debug2'/3
+	    (_0, _1, _2)
+'get_debug2'/3 =
+    %% Line 645
+    fun (_0,_1,_2) ->
+	%% Line 646
+	case call 'lists':'keysearch'
+		 (_0, 1, _1) of
+	  %% Line 647
+	  <{'value',{_7,Data}}>
+	      when call 'erlang':'=:='
+		    (_7,
+		     _0) ->
+	      Data
+	  %% Line 648
+	  <_8> when 'true' ->
+	      _2
+	end
+'print_log'/1 =
+    %% Line 653
+    fun (_0) ->
+	let <_1> =
+	    apply %% Line 654
+		  'nlog_new'/0
+		()
+	in  let <NLog> =
+		apply %% Line 654
+		      'get_debug'/3
+		    (%% Line 654
+		     'log', _0, _1)
+	    in  let <_4> = 'print_event'/1
+		in  let <_3> =
+			apply %% Line 655
+			      'nlog_get'/1
+			    (%% Line 655
+			     NLog)
+		    in  %% Line 655
+			call 'lists':'foreach'
+			    (_4, _3)
+'get_log'/1 =
+    %% Line 659
+    fun (_0) ->
+	let <_1> =
+	    apply %% Line 660
+		  'nlog_new'/0
+		()
+	in  let <NLog> =
+		apply %% Line 660
+		      'get_debug'/3
+		    (%% Line 660
+		     'log', _0, _1)
+	    in  %% Line 661
+		( letrec
+		      'lc$^0'/1 =
+			  fun (_6) ->
+			      case _6 of
+				<[{Event,_X_State,_X_FormFunc}|_4]> when 'true' ->
+				    let <_7> =
+					apply 'lc$^0'/1
+					    (_4)
+				    in  ( [Event|_7]
+					  -| ['compiler_generated'] )
+				( <[_3|_4]> when 'true' ->
+				      apply 'lc$^0'/1
+					  (_4)
+				  -| ['compiler_generated'] )
+				<[]> when 'true' ->
+				    []
+				( <_9> when 'true' ->
+				      ( primop 'match_fail'
+					    ({'function_clause',_9})
+					-| [{'function_name',{'lc$^0',1}}] )
+				  -| ['compiler_generated'] )
+			      end
+		  in  let <_5> =
+			  apply 'nlog_get'/1
+			      (NLog)
+		      in  apply 'lc$^0'/1
+			      (_5)
+		  -| ['list_comprehension'] )
+'close_log_file'/1 =
+    %% Line 663
+    fun (_0) ->
+	%% Line 664
+	case apply 'get_debug2'/3
+		 ('log_to_file', _0, []) of
+	  %% Line 665
+	  <[]> when 'true' ->
+	      _0
+	  %% Line 667
+	  <Fd> when 'true' ->
+	      %% Line 668
+	      case call 'file':'close'
+		       (Fd) of
+		<'ok'> when 'true' ->
+		    %% Line 669
+		    apply 'remove_debug'/2
+			('log_to_file', _0)
+		( <_1> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_1})
+		  -| ['compiler_generated'] )
+	      end
+	end
+'nlog_new'/0 =
+    %% Line 696
+    fun () ->
+	%% Line 697
+	apply 'nlog_new'/1
+	    (10)
+'nlog_new'/1 =
+    %% Line 699
+    fun (_0) ->
+	case _0 of
+	  <NLog = [_2|_3]> when 'true' ->
+	      %% Line 700
+	      apply 'nlog_new'/2
+		  (10, NLog)
+	  %% Line 701
+	  <N> when 'true' ->
+	      %% Line 702
+	      [N|[]]
+	end
+'nlog_new'/2 =
+    %% Line 704
+    fun (_0,_1) ->
+	let <_8> =
+	    fun (_5,_4) ->
+		%% Line 706
+		apply 'nlog_put'/2
+		    (_5, _4)
+	in  let <_3> =
+		apply %% Line 707
+		      'nlog_new'/1
+		    (_0)
+	    in  let <_2> =
+		    apply %% Line 708
+			  'nlog_get'/1
+			(_1)
+		in  %% Line 705
+		    call 'lists':'foldl'
+			(_8, _3, _2)
+'nlog_put'/2 =
+    %% Line 711
+    fun (_0,_1) ->
+	%% Line 712
+	case _1 of
+	  %% Line 713
+	  <[R|FF]>
+	      when call 'erlang':'is_list'
+		    (R) ->
+	      %% Line 715
+	      case FF of
+		%% Line 716
+		<[_8|F]> when 'true' ->
+		    %% Line 718
+		    [[_0|R]|F]
+		%% Line 719
+		<[]> when 'true' ->
+		    %% Line 722
+		    case call 'lists':'reverse'
+			     (R, [_0|[]]) of
+		      <[_9|F]> when 'true' ->
+			  %% Line 723
+			  [[]|F]
+		      ( <_2> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_2})
+			-| ['compiler_generated'] )
+		    end
+		( <_3> when 'true' ->
+		      primop 'match_fail'
+			  ({'case_clause',_3})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 725
+	  <[1|R]> when 'true' ->
+	      %% Line 727
+	      [[_0|R]|[]]
+	  %% Line 728
+	  <[J|R]> when 'true' ->
+	      let <_4> =
+		  call %% Line 730
+		       'erlang':%% Line 730
+				'-'
+		      (%% Line 730
+		       J, %% Line 730
+			  1)
+	      in  %% Line 730
+		  [_4|[_0|R]]
+	  ( <_5> when 'true' ->
+		primop 'match_fail'
+		    ({'case_clause',_5})
+	    -| ['compiler_generated'] )
+	end
+'nlog_get'/1 =
+    %% Line 733
+    fun (_0) ->
+	case _0 of
+	  <[[]|F]> when 'true' ->
+	      %% Line 734
+	      F
+	  %% Line 735
+	  <[R = [_3|_4]|F]> when 'true' ->
+	      let <_1> =
+		  call %% Line 736
+		       'lists':%% Line 736
+			       'reverse'
+		      (%% Line 736
+		       R)
+	      in  %% Line 736
+		  call 'erlang':'++'
+		      (F, _1)
+	  %% Line 737
+	  <[_X_J|R]> when 'true' ->
+	      %% Line 738
+	      call 'lists':'reverse'
+		  (R)
+	  ( <_2> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_2})
+		  -| [{'function_name',{'nlog_get',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'debug_options'/1 =
+    %% Line 749
+    fun (_0) ->
+	%% Line 750
+	apply 'debug_options'/2
+	    (_0, [])
+'debug_options'/2 =
+    %% Line 752
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <['trace'|T],Debug> when 'true' ->
+	      let <_2> =
+		  apply %% Line 753
+			'install_debug'/3
+		      (%% Line 753
+		       'trace', %% Line 753
+				'true', %% Line 753
+					Debug)
+	      in  %% Line 753
+		  apply 'debug_options'/2
+		      (T, _2)
+	  %% Line 754
+	  <['log'|T],Debug> when 'true' ->
+	      let <_3> =
+		  apply %% Line 755
+			'nlog_new'/0
+		      ()
+	      in  let <_4> =
+		      apply %% Line 755
+			    'install_debug'/3
+			  (%% Line 755
+			   'log', _3, %% Line 755
+				      Debug)
+		  in  %% Line 755
+		      apply 'debug_options'/2
+			  (T, _4)
+	  %% Line 756
+	  <[{'log',N}|T],Debug>
+	      when let <_5> =
+		    call 'erlang':'is_integer'
+			(N)
+		in  let <_6> =
+			call 'erlang':'>'
+			    (N, 0)
+		    in  call 'erlang':'and'
+			    (_5, _6) ->
+	      let <_7> =
+		  apply %% Line 757
+			'nlog_new'/1
+		      (%% Line 757
+		       N)
+	      in  let <_8> =
+		      apply %% Line 757
+			    'install_debug'/3
+			  (%% Line 757
+			   'log', _7, %% Line 757
+				      Debug)
+		  in  %% Line 757
+		      apply 'debug_options'/2
+			  (T, _8)
+	  %% Line 758
+	  <['statistics'|T],Debug> when 'true' ->
+	      let <_9> =
+		  apply %% Line 759
+			'init_stat'/0
+		      ()
+	      in  let <_10> =
+		      apply %% Line 759
+			    'install_debug'/3
+			  (%% Line 759
+			   'statistics', _9, %% Line 759
+					     Debug)
+		  in  %% Line 759
+		      apply 'debug_options'/2
+			  (T, _10)
+	  %% Line 760
+	  <[{'log_to_file',FileName}|T],Debug> when 'true' ->
+	      %% Line 761
+	      case call 'file':'open'
+		       (FileName, ['write'|[{'encoding','utf8'}]]) of
+		%% Line 762
+		<{'ok',Fd}> when 'true' ->
+		    let <_11> =
+			apply %% Line 763
+			      'install_debug'/3
+			    (%% Line 763
+			     'log_to_file', %% Line 763
+					    Fd, %% Line 763
+						Debug)
+		    in  %% Line 763
+			apply 'debug_options'/2
+			    (T, _11)
+		%% Line 764
+		<_X_Error> when 'true' ->
+		    %% Line 765
+		    apply 'debug_options'/2
+			(T, Debug)
+	      end
+	  %% Line 767
+	  <[{'install',{Func,FuncState}}|T],Debug> when 'true' ->
+	      let <_13> =
+		  apply %% Line 768
+			'install_debug'/3
+		      (%% Line 768
+		       Func, %% Line 768
+			     FuncState, %% Line 768
+					Debug)
+	      in  %% Line 768
+		  apply 'debug_options'/2
+		      (T, _13)
+	  %% Line 769
+	  <[{'install',{FuncId,Func,FuncState}}|T],Debug> when 'true' ->
+	      let <_14> =
+		  apply %% Line 770
+			'install_debug'/3
+		      (%% Line 770
+		       FuncId, %% Line 770
+			       {Func,FuncState}, %% Line 770
+						 Debug)
+	      in  %% Line 770
+		  apply 'debug_options'/2
+		      (T, _14)
+	  %% Line 771
+	  <[_17|T],Debug> when 'true' ->
+	      %% Line 772
+	      apply 'debug_options'/2
+		  (T, Debug)
+	  %% Line 773
+	  <[],Debug> when 'true' ->
+	      %% Line 774
+	      Debug
+	  ( <_16,_15> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_16,_15})
+		  -| [{'function_name',{'debug_options',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'module_info'/0 =
+    fun () ->
+	call 'erlang':'get_module_info'
+	    ('sys')
+'module_info'/1 =
+    fun (_0) ->
+	call 'erlang':'get_module_info'
+	    ('sys', _0)
+end

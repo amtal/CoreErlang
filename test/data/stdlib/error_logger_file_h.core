@@ -1,0 +1,703 @@
+module 'error_logger_file_h' ['code_change'/3,
+			      'handle_call'/2,
+			      'handle_event'/2,
+			      'handle_info'/2,
+			      'init'/1,
+			      'module_info'/0,
+			      'module_info'/1,
+			      'terminate'/2]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[101|[114|[114|[111|[114|[95|[108|[111|[103|[103|[101|[114|[95|[102|[105|[108|[101|[95|[104|[46|[101|[114|[108]]]]]]]]]]]]]]]]]]]]]]]]]]],1}],
+		%% Line 22
+		'behaviour' =
+		    %% Line 22
+		    ['gen_event'],
+		%% Line 37
+		'record' =
+		    %% Line 37
+		    [{'st',[{'record_field',38,{'atom',38,'fd'}}|[{'record_field',39,{'atom',39,'filename'}}|[{'record_field',40,{'atom',40,'prev_handler'}}|[{'typed_record_field',{'record_field',41,{'atom',41,'depth'},{'atom',41,'unlimited'}},{'type',41,'union',[{'atom',41,'unlimited'}|[{'type',41,'non_neg_integer',[]}]]}}]]]]}]]
+'init'/1 =
+    %% Line 44
+    fun (_0) ->
+	case _0 of
+	  <{File,{'error_logger',Buf}}> when 'true' ->
+	      %% Line 45
+	      case apply 'init'/2
+		       (File, 'error_logger') of
+		%% Line 46
+		<_@r0 = {'ok',State}> when 'true' ->
+		    do  %% Line 47
+			apply 'write_events'/2
+			    (State, Buf)
+			%% Line 48
+			_@r0
+		%% Line 49
+		<Error> when 'true' ->
+		    %% Line 50
+		    Error
+	      end
+	  %% Line 53
+	  <File> when 'true' ->
+	      %% Line 54
+	      apply 'init'/2
+		  (File, [])
+	end
+'init'/2 =
+    %% Line 56
+    fun (_0,_1) ->
+	do  %% Line 57
+	    call 'erlang':'process_flag'
+		('trap_exit', 'true')
+	    %% Line 58
+	    case call 'file':'open'
+		     (_0, ['write'|[{'encoding','utf8'}]]) of
+	      %% Line 59
+	      <{'ok',Fd}> when 'true' ->
+		  let <Depth> =
+		      call %% Line 60
+			   'error_logger':%% Line 60
+					  'get_format_depth'
+			  ()
+		  in  let <State> =
+			  {%% Line 61
+			   'st',%% Line 61
+				Fd,_0,_1,%% Line 62
+					 Depth}
+		      in  %% Line 63
+			  {'ok',State}
+	      %% Line 64
+	      <Error> when 'true' ->
+		  %% Line 65
+		  Error
+	    end
+'handle_event'/2 =
+    %% Line 68
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <{_X_Type,GL,_X_Msg},State>
+	      when try
+		    let <_3> =
+			call 'erlang':'node'
+			    (GL)
+		    in  let <_2> =
+			    call 'erlang':'node'
+				()
+			in  call 'erlang':'=/='
+				(_3, _2)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      %% Line 69
+	      {'ok',State}
+	  %% Line 70
+	  <Event,State> when 'true' ->
+	      do  %% Line 71
+		  apply 'write_event'/2
+		      (State, Event)
+		  %% Line 72
+		  {'ok',State}
+	end
+'handle_info'/2 =
+    %% Line 74
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <{'EXIT',Fd,_X_Reason},{'st',_5,_6,PrevHandler,_7}>
+	      when call 'erlang':'=:='
+		    (_5,
+		     Fd) ->
+	      %% Line 75
+	      case PrevHandler of
+		%% Line 76
+		<[]> when 'true' ->
+		    %% Line 77
+		    'remove_handler'
+		%% Line 78
+		<_8> when 'true' ->
+		    %% Line 79
+		    {'swap_handler','install_prev',[],PrevHandler,'go_back'}
+	      end
+	  %% Line 81
+	  <_9,State> when 'true' ->
+	      %% Line 82
+	      {'ok',State}
+	end
+'handle_call'/2 =
+    %% Line 84
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <'filename',State = {'st',_4,File,_5,_6}> when 'true' ->
+	      %% Line 85
+	      {'ok',File,State}
+	  %% Line 86
+	  <_X_Query,State> when 'true' ->
+	      %% Line 87
+	      {'ok',{'error','bad_query'},State}
+	end
+'terminate'/2 =
+    %% Line 89
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <_X_Reason,{'st',Fd,_4,_5,_6}> when 'true' ->
+	      %% Line 90
+	      call 'file':'close'
+		  (Fd)
+	  ( <_3,_2> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_3,_2})
+		  -| [{'function_name',{'terminate',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'code_change'/3 =
+    %% Line 92
+    fun (_0,_1,_2) ->
+	%% Line 93
+	{'ok',_1}
+'write_events'/2 =
+    %% Line 99
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <State,[Ev|Es]> when 'true' ->
+	      do  %% Line 101
+		  apply 'write_events'/2
+		      (State, Es)
+		  %% Line 102
+		  apply 'write_event'/2
+		      (State, Ev)
+	  %% Line 103
+	  <_X_State,[]> when 'true' ->
+	      %% Line 104
+	      'ok'
+	  ( <_3,_2> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_3,_2})
+		  -| [{'function_name',{'write_events',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'write_event'/2 =
+    %% Line 106
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <State = {'st',Fd,_14,_15,_16},Event> when 'true' ->
+	      %% Line 107
+	      case apply 'parse_event'/1
+		       (Event) of
+		%% Line 108
+		<'ignore'> when 'true' ->
+		    %% Line 109
+		    'ok'
+		%% Line 110
+		<{Head,Pid,FormatList}> when 'true' ->
+		    let <Time> =
+			call %% Line 111
+			     'erlang':%% Line 111
+				      'universaltime'
+			    ()
+		    in  let <Header> =
+			    apply %% Line 112
+				  'header'/2
+				(%% Line 112
+				 Time, %% Line 112
+				       Head)
+			in  let <Body> =
+				apply %% Line 113
+				      'format_body'/2
+				    (%% Line 113
+				     State, %% Line 113
+					    FormatList)
+			    in  let <_9> =
+				    case <> of
+				      %% Line 115
+				      <>
+					  when try
+						let <_6> =
+						    call 'erlang':'node'
+							(Pid)
+						in  let <_5> =
+							call 'erlang':'node'
+							    ()
+						    in  call 'erlang':'=/='
+							    (_6, _5)
+					    of <Try> ->
+						Try
+					    catch <T,R> ->
+						'false' ->
+					  let <_7> =
+					      call %% Line 116
+						   'erlang':%% Line 116
+							    'node'
+						  (%% Line 116
+						   Pid)
+					  in  let <_8> =
+						  call %% Line 116
+						       'erlang':%% Line 116
+								'atom_to_list'
+						      (_7)
+					      in  %% Line 116
+						  [[42|[42|[32|[97|[116|[32|[110|[111|[100|[101|[32]]]]]]]]]]]|[_8|[[32|[42|[42|[10]]]]]]]
+				      %% Line 117
+				      <> when 'true' ->
+					  %% Line 118
+					  []
+				    end
+				in  %% Line 120
+				    call 'io':'put_chars'
+					(Fd, [Header|[_9|[Body|[]]]])
+		( <_11> when 'true' ->
+		      primop 'match_fail'
+			  ({'case_clause',_11})
+		  -| ['compiler_generated'] )
+	      end
+	  ( <_13,_12> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_13,_12})
+		  -| [{'function_name',{'write_event',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'format_body'/2 =
+    %% Line 123
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <State,[{Format,Args}|T]> when 'true' ->
+	      let <_7> =
+		  try
+		      %% Line 124
+		      apply 'format'/3
+			  (State, Format, Args)
+		  of <_2> ->
+		      _2
+		  catch <_6,_5,_4> ->
+		      %% Line 129
+		      apply 'format'/3
+			  (State, [69|[82|[82|[79|[82|[58|[32|[126|[116|[112|[32|[45|[32|[126|[116|[112|[10]]]]]]]]]]]]]]]]], [Format|[Args|[]]])
+	      in  let <_9> =
+		      apply %% Line 131
+			    'format_body'/2
+			  (%% Line 131
+			   State, %% Line 131
+				  T)
+		  in  %% Line 131
+		      [_7|_9]
+	  %% Line 132
+	  <_X_State,[]> when 'true' ->
+	      %% Line 133
+	      []
+	  ( <_11,_10> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_11,_10})
+		  -| [{'function_name',{'format_body',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'format'/3 =
+    %% Line 135
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <{'st',_8,_9,_10,'unlimited'},Format,Args> when 'true' ->
+	      %% Line 136
+	      call 'io_lib':'format'
+		  (Format, Args)
+	  %% Line 137
+	  <{'st',_11,_12,_13,Depth},Format0,Args> when 'true' ->
+	      let <Format1> =
+		  call %% Line 138
+		       'io_lib':%% Line 138
+				'scan_format'
+		      (%% Line 138
+		       Format0, %% Line 138
+				Args)
+	      in  let <Format> =
+		      apply %% Line 139
+			    'limit_format'/2
+			  (%% Line 139
+			   Format1, %% Line 139
+				    Depth)
+		  in  %% Line 140
+		      call 'io_lib':'build_text'
+			  (Format)
+	  ( <_7,_6,_5> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_7,_6,_5})
+		  -| [{'function_name',{'format',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'limit_format'/2 =
+    %% Line 142
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <[M0 = ~{'control_char':=C0}~|T],Depth>
+	      when let <_2> =
+		    call 'erlang':'=:='
+			(C0, 112)
+		in  let <_3> =
+			call %% Line 143
+			     'erlang':%% Line 143
+				      '=:='
+			    (%% Line 143
+			     C0, %% Line 143
+				 119)
+		    in  call 'erlang':'or'
+			    (_2, _3) ->
+	      let <C> =
+		  call %% Line 144
+		       'erlang':%% Line 144
+				'-'
+		      (%% Line 144
+		       C0, %% Line 144
+			   32)
+	      in  %% Line 145
+		  case M0 of
+		    <~{'args':=Args}~> when 'true' ->
+			let <_7> =
+			    call %% Line 146
+				 'erlang':%% Line 146
+					  '++'
+				(%% Line 146
+				 Args, %% Line 146
+				       [Depth|[]])
+			in  %% Line 146
+			    case <> of
+			      ( <>
+				    when call 'erlang':'is_map'
+					  (M0) ->
+				    let <_8> =
+					~{'control_char':=C,'args':=_7|M0}~
+				    in  let <_10> =
+					    apply %% Line 147
+						  'limit_format'/2
+						(%% Line 147
+						 T, %% Line 147
+						    Depth)
+					in  %% Line 147
+					    [_8|_10]
+				-| ['compiler_generated'] )
+			      ( <> when 'true' ->
+				    ( primop 'match_fail'
+					  ({'badmap',M0})
+				      -| [{'eval_failure','badmap'}] )
+				-| ['compiler_generated'] )
+			    end
+		    ( <_6> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_6})
+		      -| ['compiler_generated'] )
+		  end
+	  %% Line 148
+	  <[H|T],Depth> when 'true' ->
+	      let <_11> =
+		  apply %% Line 149
+			'limit_format'/2
+		      (%% Line 149
+		       T, %% Line 149
+			  Depth)
+	      in  %% Line 149
+		  [H|_11]
+	  %% Line 150
+	  <[],_14> when 'true' ->
+	      %% Line 151
+	      []
+	  ( <_13,_12> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_13,_12})
+		  -| [{'function_name',{'limit_format',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'parse_event'/1 =
+    %% Line 153
+    fun (_0) ->
+	case _0 of
+	  <{'error',_X_GL,{Pid,Format,Args}}> when 'true' ->
+	      %% Line 154
+	      {[69|[82|[82|[79|[82|[32|[82|[69|[80|[79|[82|[84]]]]]]]]]]]],Pid,[{Format,Args}|[]]}
+	  %% Line 155
+	  <{'info_msg',_X_GL,{Pid,Format,Args}}> when 'true' ->
+	      %% Line 156
+	      {[73|[78|[70|[79|[32|[82|[69|[80|[79|[82|[84]]]]]]]]]]],Pid,[{Format,Args}|[]]}
+	  %% Line 157
+	  <{'warning_msg',_X_GL,{Pid,Format,Args}}> when 'true' ->
+	      %% Line 158
+	      {[87|[65|[82|[78|[73|[78|[71|[32|[82|[69|[80|[79|[82|[84]]]]]]]]]]]]]],Pid,[{Format,Args}|[]]}
+	  %% Line 159
+	  <{'error_report',_X_GL,{Pid,'std_error',Args}}> when 'true' ->
+	      let <_1> =
+		  apply %% Line 160
+			'format_term'/1
+		      (%% Line 160
+		       Args)
+	      in  %% Line 160
+		  {[69|[82|[82|[79|[82|[32|[82|[69|[80|[79|[82|[84]]]]]]]]]]]],Pid,_1}
+	  %% Line 161
+	  <{'info_report',_X_GL,{Pid,'std_info',Args}}> when 'true' ->
+	      let <_2> =
+		  apply %% Line 162
+			'format_term'/1
+		      (%% Line 162
+		       Args)
+	      in  %% Line 162
+		  {[73|[78|[70|[79|[32|[82|[69|[80|[79|[82|[84]]]]]]]]]]],Pid,_2}
+	  %% Line 163
+	  <{'warning_report',_X_GL,{Pid,'std_warning',Args}}> when 'true' ->
+	      let <_3> =
+		  apply %% Line 164
+			'format_term'/1
+		      (%% Line 164
+		       Args)
+	      in  %% Line 164
+		  {[87|[65|[82|[78|[73|[78|[71|[32|[82|[69|[80|[79|[82|[84]]]]]]]]]]]]]],Pid,_3}
+	  %% Line 165
+	  <_5> when 'true' ->
+	      'ignore'
+	end
+'format_term'/1 =
+    %% Line 167
+    fun (_0) ->
+	case _0 of
+	  <Term>
+	      when call 'erlang':'is_list'
+		    (_0) ->
+	      let <_1> =
+		  call %% Line 168
+		       'lists':%% Line 168
+			       'flatten'
+		      (%% Line 168
+		       Term)
+	      in  %% Line 168
+		  case apply 'string_p'/1
+			   (_1) of
+		    %% Line 169
+		    <'true'> when 'true' ->
+			%% Line 170
+			[{[126|[116|[115|[10]]]],[Term|[]]}|[]]
+		    %% Line 171
+		    <'false'> when 'true' ->
+			%% Line 172
+			apply 'format_term_list'/1
+			    (Term)
+		    ( <_2> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_2})
+		      -| ['compiler_generated'] )
+		  end
+	  %% Line 174
+	  <Term> when 'true' ->
+	      %% Line 175
+	      [{[126|[116|[112|[10]]]],[Term|[]]}|[]]
+	end
+'format_term_list'/1 =
+    %% Line 177
+    fun (_0) ->
+	case _0 of
+	  <[{Tag,Data}|T]> when 'true' ->
+	      let <_1> =
+		  apply %% Line 178
+			'format_term_list'/1
+		      (%% Line 178
+		       T)
+	      in  %% Line 178
+		  [{[32|[32|[32|[32|[126|[116|[112|[58|[32|[126|[116|[112|[10]]]]]]]]]]]]],[Tag|[Data|[]]]}|_1]
+	  %% Line 179
+	  <[Data|T]> when 'true' ->
+	      let <_2> =
+		  apply %% Line 180
+			'format_term_list'/1
+		      (%% Line 180
+		       T)
+	      in  %% Line 180
+		  [{[32|[32|[32|[32|[126|[116|[112|[10]]]]]]]],[Data|[]]}|_2]
+	  %% Line 181
+	  <[]> when 'true' ->
+	      %% Line 182
+	      []
+	  ( <_3> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_3})
+		  -| [{'function_name',{'format_term_list',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'string_p'/1 =
+    %% Line 184
+    fun (_0) ->
+	case _0 of
+	  <[]> when 'true' ->
+	      %% Line 185
+	      'false'
+	  %% Line 186
+	  <FlatList> when 'true' ->
+	      %% Line 187
+	      call 'io_lib':'printable_list'
+		  (FlatList)
+	end
+'get_utc_config'/0 =
+    %% Line 189
+    fun () ->
+	%% Line 192
+	case call 'application':'get_env'
+		 ('sasl', 'utc_log') of
+	  %% Line 193
+	  <{'ok',Val}> when 'true' ->
+	      Val
+	  %% Line 194
+	  <'undefined'> when 'true' ->
+	      %% Line 195
+	      case call 'application':'get_env'
+		       ('stdlib', 'utc_log') of
+		%% Line 196
+		<{'ok',Val}> when 'true' ->
+		    Val
+		%% Line 197
+		<'undefined'> when 'true' ->
+		    'false'
+		( <_0> when 'true' ->
+		      primop 'match_fail'
+			  ({'case_clause',_0})
+		  -| ['compiler_generated'] )
+	      end
+	  ( <_1> when 'true' ->
+		primop 'match_fail'
+		    ({'case_clause',_1})
+	    -| ['compiler_generated'] )
+	end
+'header'/2 =
+    %% Line 201
+    fun (_0,_1) ->
+	%% Line 202
+	case apply 'get_utc_config'/0
+		 () of
+	  %% Line 203
+	  <'true'> when 'true' ->
+	      %% Line 204
+	      apply 'header'/3
+		  (_0, _1, [85|[84|[67|[32]]]])
+	  %% Line 205
+	  <_6> when 'true' ->
+	      let <_2> =
+		  call %% Line 206
+		       'calendar':%% Line 206
+				  'universal_time_to_local_time'
+		      (_0)
+	      in  %% Line 206
+		  apply 'header'/3
+		      (_2, _1, [])
+	end
+'header'/3 =
+    %% Line 209
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <{{Y,Mo,D},{H,Mi,S}},Title,UTC> when 'true' ->
+	      let <_3> =
+		  apply %% Line 211
+			'month'/1
+		      (%% Line 211
+		       Mo)
+	      in  let <_4> =
+		      apply %% Line 211
+			    't'/1
+			  (%% Line 211
+			   H)
+		  in  let <_5> =
+			  apply %% Line 211
+				't'/1
+			      (%% Line 211
+			       Mi)
+		      in  let <_6> =
+			      apply %% Line 211
+				    't'/1
+				  (%% Line 211
+				   S)
+			  in  %% Line 210
+			      call 'io_lib':'format'
+				  ([126|[110|[61|[126|[116|[115|[61|[61|[61|[61|[32|[126|[112|[45|[126|[115|[45|[126|[112|[58|[58|[126|[115|[58|[126|[115|[58|[126|[115|[32|[126|[115|[61|[61|[61|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], %% Line 211
+																														  [Title|[D|[_3|[Y|[_4|[_5|[_6|[UTC|[]]]]]]]]])
+	  ( <_9,_8,_7> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_9,_8,_7})
+		  -| [{'function_name',{'header',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'t'/1 =
+    %% Line 213
+    fun (_0) ->
+	case _0 of
+	  <X>
+	      when call 'erlang':'is_integer'
+		    (_0) ->
+	      let <_1> =
+		  call %% Line 214
+		       'erlang':%% Line 214
+				'integer_to_list'
+		      (%% Line 214
+		       X)
+	      in  %% Line 214
+		  apply 't1'/1
+		      (_1)
+	  ( <_2> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_2})
+		  -| [{'function_name',{'t',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'t1'/1 =
+    %% Line 216
+    fun (_0) ->
+	case _0 of
+	  <_@r0 = [X|[]]> when 'true' ->
+	      [48|_@r0]
+	  %% Line 217
+	  <X> when 'true' ->
+	      X
+	end
+'month'/1 =
+    %% Line 219
+    fun (_0) ->
+	case _0 of
+	  <1> when 'true' ->
+	      [74|[97|[110]]]
+	  %% Line 220
+	  <2> when 'true' ->
+	      [70|[101|[98]]]
+	  %% Line 221
+	  <3> when 'true' ->
+	      [77|[97|[114]]]
+	  %% Line 222
+	  <4> when 'true' ->
+	      [65|[112|[114]]]
+	  %% Line 223
+	  <5> when 'true' ->
+	      [77|[97|[121]]]
+	  %% Line 224
+	  <6> when 'true' ->
+	      [74|[117|[110]]]
+	  %% Line 225
+	  <7> when 'true' ->
+	      [74|[117|[108]]]
+	  %% Line 226
+	  <8> when 'true' ->
+	      [65|[117|[103]]]
+	  %% Line 227
+	  <9> when 'true' ->
+	      [83|[101|[112]]]
+	  %% Line 228
+	  <10> when 'true' ->
+	      [79|[99|[116]]]
+	  %% Line 229
+	  <11> when 'true' ->
+	      [78|[111|[118]]]
+	  %% Line 230
+	  <12> when 'true' ->
+	      [68|[101|[99]]]
+	  ( <_1> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_1})
+		  -| [{'function_name',{'month',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'module_info'/0 =
+    fun () ->
+	call 'erlang':'get_module_info'
+	    ('error_logger_file_h')
+'module_info'/1 =
+    fun (_0) ->
+	call 'erlang':'get_module_info'
+	    ('error_logger_file_h', _0)
+end

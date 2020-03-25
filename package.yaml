@@ -38,6 +38,9 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - CoreErlang
+    - hspec
+    - tasty
+    - tasty-hspec
     default-extensions:
     - DeriveDataTypeable
     - LambdaCase
