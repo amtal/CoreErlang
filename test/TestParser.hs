@@ -25,7 +25,7 @@ testFun f = do
     specify f $ do
       r <- parseFile f
       case r of
-        Left _       -> return ()
+        Left r       -> expectationFailure (show r)
         Right annMod -> return ()
         --moduleName annMod `shouldBe` (Atom "jsx")
 
