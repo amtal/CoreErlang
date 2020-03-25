@@ -41,6 +41,7 @@ tests:
     - hspec
     - tasty
     - tasty-hspec
+    - directory
     default-extensions:
     - DeriveDataTypeable
     - LambdaCase
