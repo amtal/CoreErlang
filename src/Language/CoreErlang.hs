@@ -1,6 +1,6 @@
 -----------------------------------------------------------------------------
 -- |
--- Module      :  Language.CoreErlang.Pretty
+-- Module      :  Language.CoreErlang
 -- Copyright   :  (c) Feng Lee 2020
 -- License     :  BSD-style (see the LICENSE file)
 --
