@@ -1,0 +1,184 @@
+module 'jsx_encoder' ['encode'/1,
+		      'encode'/2,
+		      'encoder'/3,
+		      'module_info'/0,
+		      'module_info'/1]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[106|[115|[120|[95|[101|[110|[99|[111|[100|[101|[114|[46|[101|[114|[108]]]]]]]]]]]]]]],1}],
+		%% Line 28
+		'spec' =
+		    %% Line 28
+		    [{{'encoder',3},[{'type',28,'fun',[{'type',28,'product',[{'ann_type',28,[{'var',28,'Handler'}|[{'type',28,'module',[]}]]}|[{'ann_type',28,[{'var',28,'State'}|[{'type',28,'any',[]}]]}|[{'ann_type',28,[{'var',28,'Config'}|[{'type',28,'list',[]}]]}]]]}|[{'remote_type',28,[{'atom',28,'jsx'}|[{'atom',28,'encoder'}|[[]]]]}]]}]}],
+		%% Line 35
+		'spec' =
+		    %% Line 35
+		    [{{'encode',1},[{'type',35,'fun',[{'type',35,'product',[{'ann_type',35,[{'var',35,'Term'}|[{'type',35,'any',[]}]]}]}|[{'type',35,'any',[]}]]}]}],
+		%% Line 40
+		'spec' =
+		    %% Line 40
+		    [{{'encode',2},[{'type',40,'fun',[{'type',40,'product',[{'ann_type',40,[{'var',40,'Term'}|[{'type',40,'any',[]}]]}|[{'ann_type',40,[{'var',40,'EntryPoint'}|[{'type',40,'module',[]}]]}]]}|[{'type',40,'any',[]}]]}]}]]
+'encoder'/3 =
+    %% Line 30
+    fun (_0,_1,_2) ->
+	let <Parser> =
+	    call %% Line 31
+		 'jsx':%% Line 31
+		       'parser'
+		(_0, _1, _2)
+	in  %% Line 32
+	    ( fun (_6) ->
+		  let <_4> =
+		      apply 'encode'/1
+			  (_6)
+		  in  let <_5> =
+			  call 'erlang':'++'
+			      (_4, ['end_json'])
+		      in  apply Parser
+			      (_5)
+	      -| [{'id',{0,0,'-encoder/3-fun-0-'}}] )
+'encode'/1 =
+    %% Line 37
+    fun (_0) ->
+	apply 'encode'/2
+	    (_0, 'jsx_encoder')
+'encode'/2 =
+    %% Line 43
+    fun (_0,_1) ->
+	apply 'encode_'/2
+	    (_0, _1)
+'encode_'/2 =
+    %% Line 54
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <[],_X_EntryPoint> when 'true' ->
+	      ['start_array'|['end_array']]
+	  %% Line 55
+	  <[{}],_X_EntryPoint> when 'true' ->
+	      ['start_object'|['end_object']]
+	  %% Line 58
+	  <[DateTime = {{_8,_9,_10},{_11,_12,_13}}|Rest],EntryPoint> when 'true' ->
+	      let <_2> =
+		  apply %% Line 59
+			'unhitch'/2
+		      (%% Line 59
+		       Rest, %% Line 59
+			     EntryPoint)
+	      in  let <_3> =
+		      [%% Line 59
+		       DateTime|_2]
+		  in  %% Line 59
+		      ['start_array'|_3]
+	  %% Line 60
+	  <Term = [{_14,_15}|_16],EntryPoint> when 'true' ->
+	      let <_4> =
+		  apply %% Line 61
+			'unzip'/2
+		      (%% Line 61
+		       Term, %% Line 61
+			     EntryPoint)
+	      in  %% Line 61
+		  ['start_object'|_4]
+	  %% Line 62
+	  <Term,EntryPoint>
+	      when call 'erlang':'is_list'
+		    (Term) ->
+	      let <_5> =
+		  apply %% Line 63
+			'unhitch'/2
+		      (%% Line 63
+		       Term, %% Line 63
+			     EntryPoint)
+	      in  %% Line 63
+		  ['start_array'|_5]
+	  %% Line 65
+	  <Else,_X_EntryPoint> when 'true' ->
+	      [Else|[]]
+	end
+'unzip'/2 =
+    %% Line 68
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <[{K,V}|Rest],EntryPoint>
+	      when let <_2> =
+		    call 'erlang':'is_integer'
+			(K)
+		in  let <_3> =
+			call 'erlang':'is_binary'
+			    (K)
+		    in  let <_4> =
+			    call 'erlang':'is_atom'
+				(K)
+			in  let <_5> =
+				call 'erlang':'or'
+				    (_3, _4)
+			    in  call 'erlang':'or'
+				    (_2, _5) ->
+	      let <_7> =
+		  call %% Line 69
+		       EntryPoint:%% Line 69
+				  'encode'
+		      (%% Line 69
+		       V, %% Line 69
+			  EntryPoint)
+	      in  let <_6> =
+		      apply %% Line 69
+			    'unzip'/2
+			  (%% Line 69
+			   Rest, %% Line 69
+				 EntryPoint)
+		  in  let <_8> =
+			  call %% Line 69
+			       'erlang':%% Line 69
+					'++'
+			      (_7, _6)
+		      in  %% Line 69
+			  [K|_8]
+	  %% Line 70
+	  <[],_11> when 'true' ->
+	      ['end_object']
+	  %% Line 71
+	  <_12,_13> when 'true' ->
+	      call 'erlang':'error'
+		  ('badarg')
+	end
+'unhitch'/2 =
+    %% Line 74
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <[V|Rest],EntryPoint> when 'true' ->
+	      let <_3> =
+		  call %% Line 75
+		       EntryPoint:%% Line 75
+				  'encode'
+		      (%% Line 75
+		       V, %% Line 75
+			  EntryPoint)
+	      in  let <_2> =
+		      apply %% Line 75
+			    'unhitch'/2
+			  (%% Line 75
+			   Rest, %% Line 75
+				 EntryPoint)
+		  in  %% Line 75
+		      call 'erlang':'++'
+			  (_3, _2)
+	  %% Line 76
+	  <[],_6> when 'true' ->
+	      ['end_array']
+	  ( <_5,_4> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_5,_4})
+		  -| [{'function_name',{'unhitch',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'module_info'/0 =
+    fun () ->
+	call 'erlang':'get_module_info'
+	    ('jsx_encoder')
+'module_info'/1 =
+    fun (_0) ->
+	call 'erlang':'get_module_info'
+	    ('jsx_encoder', _0)
+end

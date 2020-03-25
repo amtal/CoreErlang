@@ -1,0 +1,734 @@
+module 'jsx_config' ['config_to_list'/1,
+		     'extract_config'/1,
+		     'module_info'/0,
+		     'module_info'/1,
+		     'parse_config'/1,
+		     'valid_flags'/0]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[106|[115|[120|[95|[99|[111|[110|[102|[105|[103|[46|[101|[114|[108]]]]]]]]]]]]]],1}],
+		%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[106|[115|[120|[95|[99|[111|[110|[102|[105|[103|[46|[104|[114|[108]]]]]]]]]]]]]],1}],
+		%% Line 1
+		'record' =
+		    %% Line 1
+		    [{'config',[{'typed_record_field',{'record_field',2,{'atom',2,'dirty_strings'},{'atom',2,'false'}},{'type',2,'boolean',[]}}|[{'typed_record_field',{'record_field',3,{'atom',3,'escaped_forward_slashes'},{'atom',3,'false'}},{'type',3,'boolean',[]}}|[{'typed_record_field',{'record_field',4,{'atom',4,'escaped_strings'},{'atom',4,'false'}},{'type',4,'boolean',[]}}|[{'typed_record_field',{'record_field',5,{'atom',5,'multi_term'},{'atom',5,'false'}},{'type',5,'boolean',[]}}|[{'typed_record_field',{'record_field',6,{'atom',6,'strict_comments'},{'atom',6,'false'}},{'type',6,'boolean',[]}}|[{'typed_record_field',{'record_field',7,{'atom',7,'strict_commas'},{'atom',7,'false'}},{'type',7,'boolean',[]}}|[{'typed_record_field',{'record_field',8,{'atom',8,'strict_utf8'},{'atom',8,'false'}},{'type',8,'boolean',[]}}|[{'typed_record_field',{'record_field',9,{'atom',9,'strict_single_quotes'},{'atom',9,'false'}},{'type',9,'boolean',[]}}|[{'typed_record_field',{'record_field',10,{'atom',10,'strict_escapes'},{'atom',10,'false'}},{'type',10,'boolean',[]}}|[{'typed_record_field',{'record_field',11,{'atom',11,'strict_control_codes'},{'atom',11,'false'}},{'type',11,'boolean',[]}}|[{'typed_record_field',{'record_field',12,{'atom',12,'stream'},{'atom',12,'false'}},{'type',12,'boolean',[]}}|[{'typed_record_field',{'record_field',13,{'atom',13,'return_tail'},{'atom',13,'false'}},{'type',13,'boolean',[]}}|[{'typed_record_field',{'record_field',14,{'atom',14,'uescape'},{'atom',14,'false'}},{'type',14,'boolean',[]}}|[{'typed_record_field',{'record_field',15,{'atom',15,'unescaped_jsonp'},{'atom',15,'false'}},{'type',15,'boolean',[]}}|[{'typed_record_field',{'record_field',16,{'atom',16,'error_handler'},{'atom',16,'false'}},{'type',16,'union',[{'atom',16,'false'}|[{'remote_type',16,[{'atom',16,'jsx_config'}|[{'atom',16,'handler'}|[[]]]]}]]}}|[{'typed_record_field',{'record_field',17,{'atom',17,'incomplete_handler'},{'atom',17,'false'}},{'type',17,'union',[{'atom',17,'false'}|[{'remote_type',17,[{'atom',17,'jsx_config'}|[{'atom',17,'handler'}|[[]]]]}]]}}]]]]]]]]]]]]]]]]}],
+		%% Line 35
+		'file' =
+		    %% Line 35
+		    [{[106|[115|[120|[95|[99|[111|[110|[102|[105|[103|[46|[101|[114|[108]]]]]]]]]]]]]],35}],
+		%% Line 36
+		'type' =
+		    %% Line 36
+		    [{'handler_type',{'type',37,'fun',[{'type',37,'product',[{'type',37,'union',[{'remote_type',37,[{'atom',37,'jsx'}|[{'atom',37,'json_text'}|[[]]]]}|[{'atom',37,'end_stream'}|[{'remote_type',38,[{'atom',38,'jsx'}|[{'atom',38,'json_term'}|[[]]]]}]]]}|[{'type',39,'union',[{'type',39,'tuple',[{'atom',39,'decoder'}|[{'type',39,'any',[]}|[{'type',39,'module',[]}|[{'type',39,'union',[{'atom',39,'null'}|[{'type',39,'list',[]}]]}|[{'type',39,'list',[]}]]]]]}|[{'type',40,'tuple',[{'atom',40,'parser'}|[{'type',40,'any',[]}|[{'type',40,'module',[]}|[{'type',40,'list',[]}]]]]}|[{'type',41,'tuple',[{'atom',41,'encoder'}|[{'type',41,'any',[]}|[{'type',41,'module',[]}]]]}]]]}|[{'type',42,'list',[{'type',42,'union',[{'type',42,'tuple',[{'atom',42,'pre_encode'}|[{'type',42,'fun',[{'type',42,'product',[{'type',42,'any',[]}]}|[{'type',42,'any',[]}]]}]]}|[{'type',43,'tuple',[{'atom',43,'error_handler'}|[{'var',43,'Handler'}]]}|[{'type',44,'tuple',[{'atom',44,'incomplete_handler'}|[{'var',44,'Handler'}]]}|[{'type',45,'atom',[]}]]]]}]}]]]}|[{'type',45,'any',[]}]]},[{'var',36,'Handler'}]}],
+		%% Line 46
+		'type' =
+		    %% Line 46
+		    [{'handler',{'user_type',46,'handler_type',[{'user_type',46,'handler',[]}]},[]}],
+		%% Line 47
+		'export_type' =
+		    %% Line 47
+		    [{'handler',0}],
+		%% Line 49
+		'type' =
+		    %% Line 49
+		    [{'config',{'type',49,'record',[{'atom',49,'config'}]},[]}],
+		%% Line 50
+		'export_type' =
+		    %% Line 50
+		    [{'config',0}],
+		%% Line 53
+		'spec' =
+		    %% Line 53
+		    [{{'parse_config',1},[{'type',53,'fun',[{'type',53,'product',[{'ann_type',53,[{'var',53,'Config'}|[{'remote_type',53,[{'atom',53,'proplists'}|[{'atom',53,'proplist'}|[[]]]]}]]}]}|[{'user_type',53,'config',[]}]]}]}],
+		%% Line 119
+		'spec' =
+		    %% Line 119
+		    [{{'config_to_list',1},[{'type',119,'fun',[{'type',119,'product',[{'ann_type',119,[{'var',119,'Config'}|[{'user_type',119,'config',[]}]]}]}|[{'remote_type',119,[{'atom',119,'proplists'}|[{'atom',119,'proplist'}|[[]]]]}]]}]}],
+		%% Line 156
+		'spec' =
+		    %% Line 156
+		    [{{'valid_flags',0},[{'type',156,'fun',[{'type',156,'product',[]}|[{'type',156,'list',[{'type',156,'atom',[]}]}]]}]}],
+		%% Line 175
+		'spec' =
+		    %% Line 175
+		    [{{'extract_config',1},[{'type',175,'fun',[{'type',175,'product',[{'ann_type',175,[{'var',175,'Config'}|[{'remote_type',175,[{'atom',175,'proplists'}|[{'atom',175,'proplist'}|[[]]]]}]]}]}|[{'remote_type',175,[{'atom',175,'proplists'}|[{'atom',175,'proplist'}|[[]]]]}]]}]}]]
+'parse_config'/1 =
+    %% Line 55
+    fun (_0) ->
+	apply 'parse_config'/2
+	    (_0, {'config','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false'})
+'parse_config'/2 =
+    %% Line 57
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <[],Config> when 'true' ->
+	      Config
+	  %% Line 58
+	  <['escaped_forward_slashes'|Rest],Config> when 'true' ->
+	      %% Line 59
+	      case Config of
+		<{'config',_48,_49,_50,_51,_52,_53,_54,_55,_56,_57,_58,_59,_60,_61,_62,_63}> when 'true' ->
+		    let <_4> =
+			call 'erlang':'setelement'
+			    (3, Config, 'true')
+		    in  apply 'parse_config'/2
+			    (Rest, _4)
+		( <_64> when 'true' ->
+		      ( call ( 'erlang'
+			       -| ['compiler_generated'] ):( 'error'
+							     -| ['compiler_generated'] )
+			    (( {'badrecord','config'}
+			       -| ['compiler_generated'] ))
+			-| ['compiler_generated'] )
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 60
+	  <['escaped_strings'|Rest],Config> when 'true' ->
+	      %% Line 61
+	      case Config of
+		<{'config',_65,_66,_67,_68,_69,_70,_71,_72,_73,_74,_75,_76,_77,_78,_79,_80}> when 'true' ->
+		    let <_7> =
+			call 'erlang':'setelement'
+			    (4, Config, 'true')
+		    in  apply 'parse_config'/2
+			    (Rest, _7)
+		( <_81> when 'true' ->
+		      ( call ( 'erlang'
+			       -| ['compiler_generated'] ):( 'error'
+							     -| ['compiler_generated'] )
+			    (( {'badrecord','config'}
+			       -| ['compiler_generated'] ))
+			-| ['compiler_generated'] )
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 62
+	  <['unescaped_jsonp'|Rest],Config> when 'true' ->
+	      %% Line 63
+	      case Config of
+		<{'config',_82,_83,_84,_85,_86,_87,_88,_89,_90,_91,_92,_93,_94,_95,_96,_97}> when 'true' ->
+		    let <_10> =
+			call 'erlang':'setelement'
+			    (15, Config, 'true')
+		    in  apply 'parse_config'/2
+			    (Rest, _10)
+		( <_98> when 'true' ->
+		      ( call ( 'erlang'
+			       -| ['compiler_generated'] ):( 'error'
+							     -| ['compiler_generated'] )
+			    (( {'badrecord','config'}
+			       -| ['compiler_generated'] ))
+			-| ['compiler_generated'] )
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 64
+	  <['dirty_strings'|Rest],Config> when 'true' ->
+	      %% Line 65
+	      case Config of
+		<{'config',_99,_100,_101,_102,_103,_104,_105,_106,_107,_108,_109,_110,_111,_112,_113,_114}> when 'true' ->
+		    let <_13> =
+			call 'erlang':'setelement'
+			    (2, Config, 'true')
+		    in  apply 'parse_config'/2
+			    (Rest, _13)
+		( <_115> when 'true' ->
+		      ( call ( 'erlang'
+			       -| ['compiler_generated'] ):( 'error'
+							     -| ['compiler_generated'] )
+			    (( {'badrecord','config'}
+			       -| ['compiler_generated'] ))
+			-| ['compiler_generated'] )
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 66
+	  <['multi_term'|Rest],Config> when 'true' ->
+	      %% Line 67
+	      case Config of
+		<{'config',_116,_117,_118,_119,_120,_121,_122,_123,_124,_125,_126,_127,_128,_129,_130,_131}> when 'true' ->
+		    let <_16> =
+			call 'erlang':'setelement'
+			    (5, Config, 'true')
+		    in  apply 'parse_config'/2
+			    (Rest, _16)
+		( <_132> when 'true' ->
+		      ( call ( 'erlang'
+			       -| ['compiler_generated'] ):( 'error'
+							     -| ['compiler_generated'] )
+			    (( {'badrecord','config'}
+			       -| ['compiler_generated'] ))
+			-| ['compiler_generated'] )
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 68
+	  <['return_tail'|Rest],Config> when 'true' ->
+	      %% Line 69
+	      case Config of
+		<{'config',_133,_134,_135,_136,_137,_138,_139,_140,_141,_142,_143,_144,_145,_146,_147,_148}> when 'true' ->
+		    let <_19> =
+			call 'erlang':'setelement'
+			    (13, Config, 'true')
+		    in  apply 'parse_config'/2
+			    (Rest, _19)
+		( <_149> when 'true' ->
+		      ( call ( 'erlang'
+			       -| ['compiler_generated'] ):( 'error'
+							     -| ['compiler_generated'] )
+			    (( {'badrecord','config'}
+			       -| ['compiler_generated'] ))
+			-| ['compiler_generated'] )
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 71
+	  <['repeat_keys'|Rest],Config> when 'true' ->
+	      %% Line 72
+	      apply 'parse_config'/2
+		  (Rest, Config)
+	  %% Line 73
+	  <['uescape'|Rest],Config> when 'true' ->
+	      %% Line 74
+	      case Config of
+		<{'config',_150,_151,_152,_153,_154,_155,_156,_157,_158,_159,_160,_161,_162,_163,_164,_165}> when 'true' ->
+		    let <_22> =
+			call 'erlang':'setelement'
+			    (14, Config, 'true')
+		    in  apply 'parse_config'/2
+			    (Rest, _22)
+		( <_166> when 'true' ->
+		      ( call ( 'erlang'
+			       -| ['compiler_generated'] ):( 'error'
+							     -| ['compiler_generated'] )
+			    (( {'badrecord','config'}
+			       -| ['compiler_generated'] ))
+			-| ['compiler_generated'] )
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 75
+	  <['strict'|Rest],Config> when 'true' ->
+	      %% Line 77
+	      case Config of
+		<{'config',_167,_168,_169,_170,_171,_172,_173,_174,_175,_176,_177,_178,_179,_180,_181,_182}> when 'true' ->
+		    let <_24> =
+			call %% Line 82
+			     'erlang':%% Line 82
+				      'setelement'
+			    (%% Line 82
+			     11, Config, %% Line 82
+					 'true')
+		    in  let <_25> =
+			    call %% Line 81
+				 'erlang':%% Line 81
+					  'setelement'
+				(%% Line 81
+				 10, _24, %% Line 81
+					  'true')
+			in  let <_26> =
+				call %% Line 80
+				     'erlang':%% Line 80
+					      'setelement'
+				    (%% Line 80
+				     9, _25, %% Line 80
+					     'true')
+			    in  let <_27> =
+				    call %% Line 79
+					 'erlang':%% Line 79
+						  'setelement'
+					(%% Line 79
+					 8, _26, %% Line 79
+						 'true')
+				in  let <_28> =
+					call %% Line 78
+					     'erlang':%% Line 78
+						      'setelement'
+					    (%% Line 78
+					     7, _27, %% Line 78
+						     'true')
+				    in  let <_30> =
+					    call 'erlang':'setelement'
+						(6, _28, 'true')
+					in  apply 'parse_config'/2
+						(Rest, _30)
+		( <_183> when 'true' ->
+		      ( call ( 'erlang'
+			       -| ['compiler_generated'] ):( 'error'
+							     -| ['compiler_generated'] )
+			    (( {'badrecord','config'}
+			       -| ['compiler_generated'] ))
+			-| ['compiler_generated'] )
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 84
+	  <[{'strict',Strict}|Rest],Config> when 'true' ->
+	      %% Line 85
+	      apply 'parse_strict'/3
+		  (Strict, Rest, Config)
+	  %% Line 86
+	  <['stream'|Rest],Config> when 'true' ->
+	      %% Line 87
+	      case Config of
+		<{'config',_184,_185,_186,_187,_188,_189,_190,_191,_192,_193,_194,_195,_196,_197,_198,_199}> when 'true' ->
+		    let <_33> =
+			call 'erlang':'setelement'
+			    (12, Config, 'true')
+		    in  apply 'parse_config'/2
+			    (Rest, _33)
+		( <_200> when 'true' ->
+		      ( call ( 'erlang'
+			       -| ['compiler_generated'] ):( 'error'
+							     -| ['compiler_generated'] )
+			    (( {'badrecord','config'}
+			       -| ['compiler_generated'] ))
+			-| ['compiler_generated'] )
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 88
+	  <Options = [{'error_handler',ErrorHandler}|Rest],Config>
+	      when call 'erlang':'is_function'
+		    (ErrorHandler,
+		     3) ->
+	      %% Line 89
+	      ( case Config of
+		  ( <( {'config',_201,_202,_203,_204,_205,_206,_207,_208,_209,_210,_211,_212,_213,_214,_rec9,_215}
+		       -| ['compiler_generated'] )> when 'true' ->
+			case _rec9 of
+			  %% Line 90
+			  <'false'> when 'true' ->
+			      case Config of
+				<{'config',_217,_218,_219,_220,_221,_222,_223,_224,_225,_226,_227,_228,_229,_230,_231,_232}> when 'true' ->
+				    let <_38> =
+					call 'erlang':'setelement'
+					    (16, Config, ErrorHandler)
+				    in  apply 'parse_config'/2
+					    (Rest, _38)
+				( <_233> when 'true' ->
+				      ( call ( 'erlang'
+					       -| ['compiler_generated'] ):( 'error'
+									     -| ['compiler_generated'] )
+					    (( {'badrecord','config'}
+					       -| ['compiler_generated'] ))
+					-| ['compiler_generated'] )
+				  -| ['compiler_generated'] )
+			      end
+			  %% Line 91
+			  <_234> when 'true' ->
+			      call 'erlang':'error'
+				  ('badarg', [Options|[Config|[]]])
+			end
+		    -| ['compiler_generated'] )
+		  ( <_216> when 'true' ->
+			( call ( 'erlang'
+				 -| ['compiler_generated'] ):( 'error'
+							       -| ['compiler_generated'] )
+			      (( {'badrecord','config'}
+				 -| ['compiler_generated'] ))
+			  -| ['compiler_generated'] )
+		    -| ['compiler_generated'] )
+		end
+		-| ['compiler_generated'] )
+	  %% Line 93
+	  <Options = [{'incomplete_handler',IncompleteHandler}|Rest],Config>
+	      when call 'erlang':'is_function'
+		    (IncompleteHandler,
+		     3) ->
+	      %% Line 94
+	      ( case Config of
+		  ( <( {'config',_235,_236,_237,_238,_239,_240,_241,_242,_243,_244,_245,_246,_247,_248,_249,_rec11}
+		       -| ['compiler_generated'] )> when 'true' ->
+			case _rec11 of
+			  %% Line 95
+			  <'false'> when 'true' ->
+			      case Config of
+				<{'config',_251,_252,_253,_254,_255,_256,_257,_258,_259,_260,_261,_262,_263,_264,_265,_266}> when 'true' ->
+				    let <_44> =
+					call 'erlang':'setelement'
+					    (17, Config, IncompleteHandler)
+				    in  apply 'parse_config'/2
+					    (Rest, _44)
+				( <_267> when 'true' ->
+				      ( call ( 'erlang'
+					       -| ['compiler_generated'] ):( 'error'
+									     -| ['compiler_generated'] )
+					    (( {'badrecord','config'}
+					       -| ['compiler_generated'] ))
+					-| ['compiler_generated'] )
+				  -| ['compiler_generated'] )
+			      end
+			  %% Line 96
+			  <_268> when 'true' ->
+			      call 'erlang':'error'
+				  ('badarg', [Options|[Config|[]]])
+			end
+		    -| ['compiler_generated'] )
+		  ( <_250> when 'true' ->
+			( call ( 'erlang'
+				 -| ['compiler_generated'] ):( 'error'
+							       -| ['compiler_generated'] )
+			      (( {'badrecord','config'}
+				 -| ['compiler_generated'] ))
+			  -| ['compiler_generated'] )
+		    -| ['compiler_generated'] )
+		end
+		-| ['compiler_generated'] )
+	  %% Line 98
+	  <_X_Options,_X_Config> when 'true' ->
+	      call 'erlang':'error'
+		  ('badarg')
+	end
+'parse_strict'/3 =
+    %% Line 101
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <[],Rest,Config> when 'true' ->
+	      apply 'parse_config'/2
+		  (Rest, Config)
+	  %% Line 102
+	  <['comments'|Strict],Rest,Config> when 'true' ->
+	      %% Line 103
+	      case Config of
+		<{'config',_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,_35,_36,_37,_38,_39}> when 'true' ->
+		    let <_5> =
+			call 'erlang':'setelement'
+			    (6, Config, 'true')
+		    in  apply 'parse_strict'/3
+			    (Strict, Rest, _5)
+		( <_40> when 'true' ->
+		      ( call ( 'erlang'
+			       -| ['compiler_generated'] ):( 'error'
+							     -| ['compiler_generated'] )
+			    (( {'badrecord','config'}
+			       -| ['compiler_generated'] ))
+			-| ['compiler_generated'] )
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 104
+	  <['trailing_commas'|Strict],Rest,Config> when 'true' ->
+	      %% Line 105
+	      case Config of
+		<{'config',_41,_42,_43,_44,_45,_46,_47,_48,_49,_50,_51,_52,_53,_54,_55,_56}> when 'true' ->
+		    let <_8> =
+			call 'erlang':'setelement'
+			    (7, Config, 'true')
+		    in  apply 'parse_strict'/3
+			    (Strict, Rest, _8)
+		( <_57> when 'true' ->
+		      ( call ( 'erlang'
+			       -| ['compiler_generated'] ):( 'error'
+							     -| ['compiler_generated'] )
+			    (( {'badrecord','config'}
+			       -| ['compiler_generated'] ))
+			-| ['compiler_generated'] )
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 106
+	  <['utf8'|Strict],Rest,Config> when 'true' ->
+	      %% Line 107
+	      case Config of
+		<{'config',_58,_59,_60,_61,_62,_63,_64,_65,_66,_67,_68,_69,_70,_71,_72,_73}> when 'true' ->
+		    let <_11> =
+			call 'erlang':'setelement'
+			    (8, Config, 'true')
+		    in  apply 'parse_strict'/3
+			    (Strict, Rest, _11)
+		( <_74> when 'true' ->
+		      ( call ( 'erlang'
+			       -| ['compiler_generated'] ):( 'error'
+							     -| ['compiler_generated'] )
+			    (( {'badrecord','config'}
+			       -| ['compiler_generated'] ))
+			-| ['compiler_generated'] )
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 108
+	  <['single_quotes'|Strict],Rest,Config> when 'true' ->
+	      %% Line 109
+	      case Config of
+		<{'config',_75,_76,_77,_78,_79,_80,_81,_82,_83,_84,_85,_86,_87,_88,_89,_90}> when 'true' ->
+		    let <_14> =
+			call 'erlang':'setelement'
+			    (9, Config, 'true')
+		    in  apply 'parse_strict'/3
+			    (Strict, Rest, _14)
+		( <_91> when 'true' ->
+		      ( call ( 'erlang'
+			       -| ['compiler_generated'] ):( 'error'
+							     -| ['compiler_generated'] )
+			    (( {'badrecord','config'}
+			       -| ['compiler_generated'] ))
+			-| ['compiler_generated'] )
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 110
+	  <['escapes'|Strict],Rest,Config> when 'true' ->
+	      %% Line 111
+	      case Config of
+		<{'config',_92,_93,_94,_95,_96,_97,_98,_99,_100,_101,_102,_103,_104,_105,_106,_107}> when 'true' ->
+		    let <_17> =
+			call 'erlang':'setelement'
+			    (10, Config, 'true')
+		    in  apply 'parse_strict'/3
+			    (Strict, Rest, _17)
+		( <_108> when 'true' ->
+		      ( call ( 'erlang'
+			       -| ['compiler_generated'] ):( 'error'
+							     -| ['compiler_generated'] )
+			    (( {'badrecord','config'}
+			       -| ['compiler_generated'] ))
+			-| ['compiler_generated'] )
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 112
+	  <['control_codes'|Strict],Rest,Config> when 'true' ->
+	      %% Line 113
+	      case Config of
+		<{'config',_109,_110,_111,_112,_113,_114,_115,_116,_117,_118,_119,_120,_121,_122,_123,_124}> when 'true' ->
+		    let <_20> =
+			call 'erlang':'setelement'
+			    (11, Config, 'true')
+		    in  apply 'parse_strict'/3
+			    (Strict, Rest, _20)
+		( <_125> when 'true' ->
+		      ( call ( 'erlang'
+			       -| ['compiler_generated'] ):( 'error'
+							     -| ['compiler_generated'] )
+			    (( {'badrecord','config'}
+			       -| ['compiler_generated'] ))
+			-| ['compiler_generated'] )
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 114
+	  <_X_Strict,_X_Rest,_X_Config> when 'true' ->
+	      %% Line 115
+	      call 'erlang':'error'
+		  ('badarg')
+	end
+'config_to_list'/1 =
+    %% Line 121
+    fun (_0) ->
+	let <_10> =
+	    fun (_8) ->
+		%% Line 123
+		case _8 of
+		  <_@r0 = {'error_handler',F}> when 'true' ->
+		      _@r0
+		  %% Line 124
+		  <_@r1 = {'incomplete_handler',F}> when 'true' ->
+		      _@r1
+		  %% Line 125
+		  <{Key,'true'}> when 'true' ->
+		      Key
+		  ( <_9> when 'true' ->
+			( primop 'match_fail'
+			      ({'function_clause',_9})
+			  -| [{'function_name',{'-config_to_list/1-fun-1-',1}}] )
+		    -| ['compiler_generated'] )
+		end
+	in  let <_6> =
+		fun (_4) ->
+		    %% Line 128
+		    case _4 of
+		      <{_13,'false'}> when 'true' ->
+			  'false'
+		      <_14> when 'true' ->
+			  'true'
+		    end
+	    in  let <_1> =
+		    call %% Line 129
+			 'erlang':%% Line 129
+				  'tuple_to_list'
+			(_0)
+		in  let <_2> =
+			call %% Line 129
+			     'erlang':%% Line 129
+				      'tl'
+			    (_1)
+		    in  let <_3> =
+			    call %% Line 129
+				 'lists':%% Line 129
+					 'zip'
+				(%% Line 129
+				 ['dirty_strings'|['escaped_forward_slashes'|['escaped_strings'|['multi_term'|['strict_comments'|['strict_commas'|['strict_utf8'|['strict_single_quotes'|['strict_escapes'|['strict_control_codes'|['stream'|['return_tail'|['uescape'|['unescaped_jsonp'|['error_handler'|['incomplete_handler']]]]]]]]]]]]]]]], _2)
+			in  let <_7> =
+				call %% Line 127
+				     'lists':%% Line 127
+					     'filter'
+				    (_6, _3)
+			    in  let <_11> =
+				    call %% Line 122
+					 'lists':%% Line 122
+						 'map'
+					(_10, _7)
+				in  %% Line 122
+				    apply 'reduce_config'/1
+					(_11)
+'reduce_config'/1 =
+    %% Line 134
+    fun (_0) ->
+	apply 'reduce_config'/3
+	    (_0, [], [])
+'reduce_config'/3 =
+    %% Line 136
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <[],Output,Strict> when 'true' ->
+	      %% Line 137
+	      case call 'erlang':'length'
+		       (Strict) of
+		%% Line 138
+		<0> when 'true' ->
+		    call 'lists':'reverse'
+			(Output)
+		%% Line 139
+		<5> when 'true' ->
+		    let <_3> =
+			call 'lists':'reverse'
+			    (Output)
+		    in  call 'erlang':'++'
+			    (_3, ['strict'])
+		%% Line 140
+		<_16> when 'true' ->
+		    let <_5> =
+			call 'lists':'reverse'
+			    (Output)
+		    in  let <_4> =
+			    call 'lists':'reverse'
+				(Strict)
+			in  call 'erlang':'++'
+				(_5, [{'strict',_4}|[]])
+	      end
+	  %% Line 142
+	  <['strict_comments'|Input],Output,Strict> when 'true' ->
+	      let <_7> =
+		  ['comments'|%% Line 143
+			      Strict]
+	      in  %% Line 143
+		  apply 'reduce_config'/3
+		      (Input, Output, _7)
+	  %% Line 144
+	  <['strict_utf8'|Input],Output,Strict> when 'true' ->
+	      let <_8> =
+		  ['utf8'|%% Line 145
+			  Strict]
+	      in  %% Line 145
+		  apply 'reduce_config'/3
+		      (Input, Output, _8)
+	  %% Line 146
+	  <['strict_single_quotes'|Input],Output,Strict> when 'true' ->
+	      let <_9> =
+		  ['single_quotes'|%% Line 147
+				   Strict]
+	      in  %% Line 147
+		  apply 'reduce_config'/3
+		      (Input, Output, _9)
+	  %% Line 148
+	  <['strict_escapes'|Input],Output,Strict> when 'true' ->
+	      let <_10> =
+		  ['escapes'|%% Line 149
+			     Strict]
+	      in  %% Line 149
+		  apply 'reduce_config'/3
+		      (Input, Output, _10)
+	  %% Line 150
+	  <['strict_control_codes'|Input],Output,Strict> when 'true' ->
+	      let <_11> =
+		  ['control_codes'|%% Line 151
+				   Strict]
+	      in  %% Line 151
+		  apply 'reduce_config'/3
+		      (Input, Output, _11)
+	  %% Line 152
+	  <[Else|Input],Output,Strict> when 'true' ->
+	      let <_12> =
+		  [%% Line 153
+		   Else|%% Line 153
+			Output]
+	      in  %% Line 153
+		  apply 'reduce_config'/3
+		      (Input, _12, Strict)
+	  ( <_15,_14,_13> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_15,_14,_13})
+		  -| [{'function_name',{'reduce_config',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'valid_flags'/0 =
+    %% Line 158
+    fun () ->
+	%% Line 159
+	['escaped_forward_slashes'|['escaped_strings'|['unescaped_jsonp'|['dirty_strings'|['multi_term'|['return_tail'|['repeat_keys'|['strict'|['stream'|['uescape'|['error_handler'|['incomplete_handler']]]]]]]]]]]]
+'extract_config'/1 =
+    %% Line 177
+    fun (_0) ->
+	%% Line 178
+	apply 'extract_parser_config'/2
+	    (_0, [])
+'extract_parser_config'/2 =
+    %% Line 180
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <[],Acc> when 'true' ->
+	      Acc
+	  %% Line 181
+	  <[_@r0 = {K,V}|Rest],Acc> when 'true' ->
+	      let <_2> =
+		  apply %% Line 182
+			'valid_flags'/0
+		      ()
+	      in  %% Line 182
+		  case call 'lists':'member'
+			   (K, _2) of
+		    %% Line 183
+		    <'true'> when 'true' ->
+			let <_3> =
+			    [_@r0|Acc]
+			in  apply 'extract_parser_config'/2
+				(Rest, _3)
+		    %% Line 184
+		    <'false'> when 'true' ->
+			apply 'extract_parser_config'/2
+			    (Rest, Acc)
+		    ( <_4> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_4})
+		      -| ['compiler_generated'] )
+		  end
+	  %% Line 186
+	  <[K|Rest],Acc> when 'true' ->
+	      let <_5> =
+		  apply %% Line 187
+			'valid_flags'/0
+		      ()
+	      in  %% Line 187
+		  case call 'lists':'member'
+			   (K, _5) of
+		    %% Line 188
+		    <'true'> when 'true' ->
+			let <_6> =
+			    [K|Acc]
+			in  apply 'extract_parser_config'/2
+				(Rest, _6)
+		    %% Line 189
+		    <'false'> when 'true' ->
+			apply 'extract_parser_config'/2
+			    (Rest, Acc)
+		    ( <_7> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_7})
+		      -| ['compiler_generated'] )
+		  end
+	  ( <_9,_8> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_9,_8})
+		  -| [{'function_name',{'extract_parser_config',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'module_info'/0 =
+    fun () ->
+	call 'erlang':'get_module_info'
+	    ('jsx_config')
+'module_info'/1 =
+    fun (_0) ->
+	call 'erlang':'get_module_info'
+	    ('jsx_config', _0)
+end

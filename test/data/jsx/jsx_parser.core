@@ -1,0 +1,3366 @@
+module 'jsx_parser' ['handle_event'/2,
+		     'init'/1,
+		     'module_info'/0,
+		     'module_info'/1,
+		     'parser'/3,
+		     'resume'/5]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[106|[115|[120|[95|[112|[97|[114|[115|[101|[114|[46|[101|[114|[108]]]]]]]]]]]]]],1}],
+		%% Line 30
+		'spec' =
+		    %% Line 30
+		    [{{'parser',3},[{'type',30,'fun',[{'type',30,'product',[{'ann_type',30,[{'var',30,'Handler'}|[{'type',30,'module',[]}]]}|[{'ann_type',30,[{'var',30,'State'}|[{'type',30,'any',[]}]]}|[{'ann_type',30,[{'var',30,'Config'}|[{'type',30,'list',[]}]]}]]]}|[{'remote_type',30,[{'atom',30,'jsx'}|[{'atom',30,'parser'}|[[]]]]}]]}]}],
+		%% Line 38
+		'spec' =
+		    %% Line 38
+		    [{{'resume',5},[{'type',38,'fun',[{'type',38,'product',[{'ann_type',39,[{'var',39,'Rest'}|[{'remote_type',39,[{'atom',39,'jsx'}|[{'atom',39,'token'}|[[]]]]}]]}|[{'ann_type',40,[{'var',40,'State'}|[{'type',40,'atom',[]}]]}|[{'ann_type',41,[{'var',41,'Handler'}|[{'type',41,'module',[]}]]}|[{'ann_type',42,[{'var',42,'Stack'}|[{'type',42,'list',[{'type',42,'atom',[]}]}]]}|[{'ann_type',43,[{'var',43,'Config'}|[{'remote_type',43,[{'atom',43,'jsx'}|[{'atom',43,'config'}|[[]]]]}]]}]]]]]}|[{'type',44,'union',[{'remote_type',44,[{'atom',44,'jsx'}|[{'atom',44,'parser'}|[[]]]]}|[{'type',44,'tuple',[{'atom',44,'incomplete'}|[{'remote_type',44,[{'atom',44,'jsx'}|[{'atom',44,'parser'}|[[]]]]}]]}]]}]]}]}],
+		%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[106|[115|[120|[95|[99|[111|[110|[102|[105|[103|[46|[104|[114|[108]]]]]]]]]]]]]],1}],
+		%% Line 1
+		'record' =
+		    %% Line 1
+		    [{'config',[{'typed_record_field',{'record_field',2,{'atom',2,'dirty_strings'},{'atom',2,'false'}},{'type',2,'boolean',[]}}|[{'typed_record_field',{'record_field',3,{'atom',3,'escaped_forward_slashes'},{'atom',3,'false'}},{'type',3,'boolean',[]}}|[{'typed_record_field',{'record_field',4,{'atom',4,'escaped_strings'},{'atom',4,'false'}},{'type',4,'boolean',[]}}|[{'typed_record_field',{'record_field',5,{'atom',5,'multi_term'},{'atom',5,'false'}},{'type',5,'boolean',[]}}|[{'typed_record_field',{'record_field',6,{'atom',6,'strict_comments'},{'atom',6,'false'}},{'type',6,'boolean',[]}}|[{'typed_record_field',{'record_field',7,{'atom',7,'strict_commas'},{'atom',7,'false'}},{'type',7,'boolean',[]}}|[{'typed_record_field',{'record_field',8,{'atom',8,'strict_utf8'},{'atom',8,'false'}},{'type',8,'boolean',[]}}|[{'typed_record_field',{'record_field',9,{'atom',9,'strict_single_quotes'},{'atom',9,'false'}},{'type',9,'boolean',[]}}|[{'typed_record_field',{'record_field',10,{'atom',10,'strict_escapes'},{'atom',10,'false'}},{'type',10,'boolean',[]}}|[{'typed_record_field',{'record_field',11,{'atom',11,'strict_control_codes'},{'atom',11,'false'}},{'type',11,'boolean',[]}}|[{'typed_record_field',{'record_field',12,{'atom',12,'stream'},{'atom',12,'false'}},{'type',12,'boolean',[]}}|[{'typed_record_field',{'record_field',13,{'atom',13,'return_tail'},{'atom',13,'false'}},{'type',13,'boolean',[]}}|[{'typed_record_field',{'record_field',14,{'atom',14,'uescape'},{'atom',14,'false'}},{'type',14,'boolean',[]}}|[{'typed_record_field',{'record_field',15,{'atom',15,'unescaped_jsonp'},{'atom',15,'false'}},{'type',15,'boolean',[]}}|[{'typed_record_field',{'record_field',16,{'atom',16,'error_handler'},{'atom',16,'false'}},{'type',16,'union',[{'atom',16,'false'}|[{'remote_type',16,[{'atom',16,'jsx_config'}|[{'atom',16,'handler'}|[[]]]]}]]}}|[{'typed_record_field',{'record_field',17,{'atom',17,'incomplete_handler'},{'atom',17,'false'}},{'type',17,'union',[{'atom',17,'false'}|[{'remote_type',17,[{'atom',17,'jsx_config'}|[{'atom',17,'handler'}|[[]]]]}]]}}]]]]]]]]]]]]]]]]}],
+		%% Line 57
+		'file' =
+		    %% Line 57
+		    [{[106|[115|[120|[95|[112|[97|[114|[115|[101|[114|[46|[101|[114|[108]]]]]]]]]]]]]],57}],
+		%% Line 633
+		'spec' =
+		    %% Line 633
+		    [{{'init',1},[{'type',633,'fun',[{'type',633,'product',[{'remote_type',633,[{'atom',633,'proplists'}|[{'atom',633,'proplist'}|[[]]]]}]}|[{'type',633,'list',[]}]]}]}],
+		%% Line 638
+		'spec' =
+		    %% Line 638
+		    [{{'handle_event',2},[{'type',638,'fun',[{'type',638,'product',[{'ann_type',638,[{'var',638,'Event'}|[{'type',638,'any',[]}]]}|[{'ann_type',638,[{'var',638,'Acc'}|[{'type',638,'list',[]}]]}]]}|[{'type',638,'list',[]}]]}]}]]
+'parser'/3 =
+    %% Line 32
+    fun (_0,_1,_2) ->
+	%% Line 33
+	( fun (_5) ->
+	      let <_4> =
+		  call _0:'init'
+		      (_1)
+	      in  let <_3> =
+		      call 'jsx_config':'parse_config'
+			  (_2)
+		  in  apply 'value'/4
+			  (_5, {_0,_4}, [], _3)
+	  -| [{'id',{0,0,'-parser/3-fun-0-'}}] )
+'resume'/5 =
+    %% Line 46
+    fun (_0,_1,_2,_3,_4) ->
+	%% Line 47
+	case _1 of
+	  %% Line 48
+	  <'value'> when 'true' ->
+	      apply 'value'/4
+		  (_0, _2, _3, _4)
+	  %% Line 49
+	  <'object'> when 'true' ->
+	      apply 'object'/4
+		  (_0, _2, _3, _4)
+	  %% Line 50
+	  <'array'> when 'true' ->
+	      apply 'array'/4
+		  (_0, _2, _3, _4)
+	  %% Line 51
+	  <'maybe_done'> when 'true' ->
+	      apply 'maybe_done'/4
+		  (_0, _2, _3, _4)
+	  %% Line 52
+	  <'done'> when 'true' ->
+	      apply 'done'/4
+		  (_0, _2, _3, _4)
+	  ( <_5> when 'true' ->
+		primop 'match_fail'
+		    ({'case_clause',_5})
+	    -| ['compiler_generated'] )
+	end
+'incomplete'/4 =
+    %% Line 71
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <State,Handler,Stack,Config = {'config',_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,'false',_33,_34,_35,_36,_37}> when 'true' ->
+	      %% Line 72
+	      ( case Config of
+		  ( <( {'config',_38,_39,_40,_41,_42,_43,_44,_45,_46,_47,_48,_49,_50,_51,_rec0,_52}
+		       -| ['compiler_generated'] )> when 'true' ->
+			case _rec0 of
+			  <'false'> when 'true' ->
+			      call 'erlang':'error'
+				  ('badarg')
+			  <F> when 'true' ->
+			      let <_6> =
+				  call 'jsx_config':'config_to_list'
+				      (Config)
+			      in  apply F
+				      ([], {'parser',State,Handler,Stack}, _6)
+			end
+		    -| ['compiler_generated'] )
+		  ( <_53> when 'true' ->
+			( call ( 'erlang'
+				 -| ['compiler_generated'] ):( 'error'
+							       -| ['compiler_generated'] )
+			      (( {'badrecord','config'}
+				 -| ['compiler_generated'] ))
+			  -| ['compiler_generated'] )
+		    -| ['compiler_generated'] )
+		end
+		-| ['compiler_generated'] )
+	  %% Line 73
+	  <State,Handler,Stack,Config = {'config',_54,_55,_56,_57,_58,_59,_60,_61,_62,_63,_64,_65,_66,_67,_68,'false'}> when 'true' ->
+	      let <_17> =
+		  fun (_15) ->
+		      %% Line 74
+		      case _15 of
+			<End>
+			    when let <_8> =
+				  call 'erlang':'=:='
+				      (_15, 'end_stream')
+			      in  let <_9> =
+				      call 'erlang':'=:='
+					  (_15, 'end_json')
+				  in  call 'erlang':'or'
+					  (_8, _9) ->
+			    %% Line 75
+			    case apply 'resume'/5
+				     (['end_json'], State, Handler, Stack, Config) of
+			      %% Line 76
+			      <{'incomplete',_69}> when 'true' ->
+				  ( case Config of
+				      ( <( {'config',_70,_71,_72,_73,_74,_75,_76,_77,_78,_79,_80,_81,_82,_83,_rec1,_84}
+					   -| ['compiler_generated'] )> when 'true' ->
+					    case _rec1 of
+					      <'false'> when 'true' ->
+						  call 'erlang':'error'
+						      ('badarg')
+					      <F> when 'true' ->
+						  let <_12> =
+						      call 'jsx_config':'config_to_list'
+							  (Config)
+						  in  apply F
+							  ([], {'parser',State,Handler,Stack}, _12)
+					    end
+					-| ['compiler_generated'] )
+				      ( <_85> when 'true' ->
+					    ( call ( 'erlang'
+						     -| ['compiler_generated'] ):( 'error'
+										   -| ['compiler_generated'] )
+						  (( {'badrecord','config'}
+						     -| ['compiler_generated'] ))
+					      -| ['compiler_generated'] )
+					-| ['compiler_generated'] )
+				    end
+				    -| ['compiler_generated'] )
+			      %% Line 77
+			      <Else> when 'true' ->
+				  Else
+			    end
+			%% Line 79
+			<Tokens> when 'true' ->
+			    %% Line 80
+			    apply 'resume'/5
+				(Tokens, State, Handler, Stack, Config)
+		      end
+	      in  %% Line 74
+		  {'incomplete',_17}
+	  %% Line 83
+	  <State,Handler,Stack,Config = {'config',_86,_87,_88,_89,_90,_91,_92,_93,_94,_95,_96,_97,_98,_99,_100,F}> when 'true' ->
+	      let <_18> =
+		  call %% Line 84
+		       'jsx_config':%% Line 84
+				    'config_to_list'
+		      (%% Line 84
+		       Config)
+	      in  %% Line 84
+		  apply F
+		      ([], {'parser',State,Handler,Stack}, _18)
+	  ( <_22,_21,_20,_19> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_22,_21,_20,_19})
+		  -| [{'function_name',{'incomplete',4}}] )
+	    -| ['compiler_generated'] )
+	end
+'handle_event'/3 =
+    %% Line 87
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <Event,{Handler,State},_X_Config> when 'true' ->
+	      let <_3> =
+		  call Handler:'handle_event'
+		      (Event, State)
+	      in  {Handler,_3}
+	  ( <_6,_5,_4> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_6,_5,_4})
+		  -| [{'function_name',{'handle_event',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'value'/4 =
+    %% Line 90
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <[String|Tokens],Handler,Stack,Config>
+	      when call 'erlang':'is_binary'
+		    (String) ->
+	      %% Line 91
+	      try
+		  apply 'clean_string'/2
+		      (String, Config)
+	      of <_4> ->
+		  let <_5> =
+		      apply %% Line 92
+			    'handle_event'/3
+			  (%% Line 92
+			   {'string',_4}, %% Line 92
+					  Handler, %% Line 92
+						   Config)
+		  in  %% Line 92
+		      apply 'maybe_done'/4
+			  (Tokens, _5, Stack, Config)
+	      catch <_9,_8,_7> ->
+		  %% Line 93
+		  case <_9,_8,_7> of
+		    <( 'error'
+		       -| ['compiler_generated'] ),( 'badarg'
+						     -| ['compiler_generated'] ),_74> when 'true' ->
+			%% Line 94
+			( case Config of
+			    ( <( {'config',_75,_76,_77,_78,_79,_80,_81,_82,_83,_84,_85,_86,_87,_88,_rec2,_89}
+				 -| ['compiler_generated'] )> when 'true' ->
+				  case _rec2 of
+				    <'false'> when 'true' ->
+					call 'erlang':'error'
+					    ('badarg')
+				    <F> when 'true' ->
+					let <_12> =
+					    call 'jsx_config':'config_to_list'
+						(Config)
+					in  apply F
+						([{'string',String}|Tokens], {'parser','value',Handler,Stack}, _12)
+				  end
+			      -| ['compiler_generated'] )
+			    ( <_90> when 'true' ->
+				  ( call ( 'erlang'
+					   -| ['compiler_generated'] ):( 'error'
+									 -| ['compiler_generated'] )
+					(( {'badrecord','config'}
+					   -| ['compiler_generated'] ))
+				    -| ['compiler_generated'] )
+			      -| ['compiler_generated'] )
+			  end
+			  -| ['compiler_generated'] )
+		    ( <_111,_112,_113> when 'true' ->
+			  primop 'raise'
+			      (_113, _112)
+		      -| ['compiler_generated'] )
+		  end
+	  %% Line 96
+	  <['true'|Tokens],Handler,Stack,Config> when 'true' ->
+	      let <_14> =
+		  apply %% Line 97
+			'handle_event'/3
+		      (%% Line 97
+		       {'literal','true'}, %% Line 97
+					   Handler, %% Line 97
+						    Config)
+	      in  %% Line 97
+		  apply 'maybe_done'/4
+		      (Tokens, _14, Stack, Config)
+	  %% Line 98
+	  <['false'|Tokens],Handler,Stack,Config> when 'true' ->
+	      let <_15> =
+		  apply %% Line 99
+			'handle_event'/3
+		      (%% Line 99
+		       {'literal','false'}, %% Line 99
+					    Handler, %% Line 99
+						     Config)
+	      in  %% Line 99
+		  apply 'maybe_done'/4
+		      (Tokens, _15, Stack, Config)
+	  %% Line 100
+	  <['null'|Tokens],Handler,Stack,Config> when 'true' ->
+	      let <_16> =
+		  apply %% Line 101
+			'handle_event'/3
+		      (%% Line 101
+		       {'literal','null'}, %% Line 101
+					   Handler, %% Line 101
+						    Config)
+	      in  %% Line 101
+		  apply 'maybe_done'/4
+		      (Tokens, _16, Stack, Config)
+	  %% Line 102
+	  <['start_object'|Tokens],Handler,Stack,Config> when 'true' ->
+	      let <_17> =
+		  apply %% Line 103
+			'handle_event'/3
+		      (%% Line 103
+		       'start_object', %% Line 103
+				       Handler, %% Line 103
+						Config)
+	      in  %% Line 103
+		  apply 'object'/4
+		      (Tokens, _17, ['object'|Stack], Config)
+	  %% Line 104
+	  <['start_array'|Tokens],Handler,Stack,Config> when 'true' ->
+	      let <_18> =
+		  apply %% Line 105
+			'handle_event'/3
+		      (%% Line 105
+		       'start_array', %% Line 105
+				      Handler, %% Line 105
+					       Config)
+	      in  %% Line 105
+		  apply 'array'/4
+		      (Tokens, _18, ['array'|Stack], Config)
+	  %% Line 106
+	  <[Number|Tokens],Handler,Stack,Config>
+	      when call 'erlang':'is_integer'
+		    (Number) ->
+	      let <_19> =
+		  apply %% Line 107
+			'handle_event'/3
+		      (%% Line 107
+		       {'integer',Number}, %% Line 107
+					   Handler, %% Line 107
+						    Config)
+	      in  %% Line 107
+		  apply 'maybe_done'/4
+		      (Tokens, _19, Stack, Config)
+	  %% Line 108
+	  <[Number|Tokens],Handler,Stack,Config>
+	      when call 'erlang':'is_float'
+		    (Number) ->
+	      let <_20> =
+		  apply %% Line 109
+			'handle_event'/3
+		      (%% Line 109
+		       {'float',Number}, %% Line 109
+					 Handler, %% Line 109
+						  Config)
+	      in  %% Line 109
+		  apply 'maybe_done'/4
+		      (Tokens, _20, Stack, Config)
+	  %% Line 110
+	  <[{'raw',Raw}|Tokens],Handler,Stack,Config>
+	      when call 'erlang':'is_binary'
+		    (Raw) ->
+	      let <_21> =
+		  call %% Line 111
+		       'jsx':%% Line 111
+			     'decoder'
+		      (%% Line 111
+		       'jsx_parser', %% Line 111
+				     [], %% Line 111
+					 [])
+	      in  let <_22> =
+		      apply _21
+			  (%% Line 111
+			   Raw)
+		  in  let <_23> =
+			  call %% Line 111
+			       'erlang':%% Line 111
+					'++'
+			      (_22, %% Line 111
+				    Tokens)
+		      in  %% Line 111
+			  apply 'value'/4
+			      (_23, Handler, Stack, Config)
+	  %% Line 112
+	  <[Timestamp = {_91,_92,_93}|Tokens],Handler,Stack,Config> when 'true' ->
+	      %% Line 113
+	      case call 'calendar':'now_to_datetime'
+		       (%% Line 114
+			Timestamp) of
+		<{{Year,Month,Day},{Hour,Min,Sec}}> when 'true' ->
+		    let <_25> =
+			call %% Line 115
+			     'io_lib':%% Line 115
+				      'format'
+			    (%% Line 116
+			     [126|[52|[46|[49|[48|[46|[48|[66|[45|[126|[50|[46|[49|[48|[46|[48|[66|[45|[126|[50|[46|[49|[48|[46|[48|[66|[84|[126|[50|[46|[49|[48|[46|[48|[66|[58|[126|[50|[46|[49|[48|[46|[48|[66|[58|[126|[50|[46|[49|[48|[46|[48|[66|[90]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], %% Line 117
+																																						  [Year|[Month|[Day|[Hour|[Min|[Sec|[]]]]]]])
+		    in  let <_26> =
+			    call %% Line 115
+				 'unicode':%% Line 115
+					   'characters_to_binary'
+				(_25)
+			in  %% Line 115
+			    apply 'value'/4
+				([{'string',_26}|%% Line 118
+						 Tokens], %% Line 119
+							  Handler, %% Line 120
+								   Stack, %% Line 121
+									  Config)
+		( <_24> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_24})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 123
+	  <[{{Year,Month,Day},{Hour,Min,Sec}}|Tokens],Handler,Stack,Config>
+	      when %% Line 124
+		try
+		    let <_27> =
+			call 'erlang':'is_integer'
+			    (Year)
+		    in  let <_28> =
+			    call 'erlang':'is_integer'
+				(Month)
+			in  let <_29> =
+				call 'erlang':'is_integer'
+				    (Day)
+			    in  let <_30> =
+				    call 'erlang':'is_integer'
+					(Hour)
+				in  let <_31> =
+					call 'erlang':'is_integer'
+					    (Min)
+				    in  let <_32> =
+					    call 'erlang':'is_integer'
+						(Sec)
+					in  let <_33> =
+						call 'erlang':'and'
+						    (_31, _32)
+					    in  let <_34> =
+						    call 'erlang':'and'
+							(_30, _33)
+						in  let <_35> =
+							call 'erlang':'and'
+							    (_29, _34)
+						    in  let <_36> =
+							    call 'erlang':'and'
+								(_28, _35)
+							in  call 'erlang':'and'
+								(_27, _36)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      let <_37> =
+		  call %% Line 125
+		       'io_lib':%% Line 125
+				'format'
+		      (%% Line 126
+		       [126|[52|[46|[49|[48|[46|[48|[66|[45|[126|[50|[46|[49|[48|[46|[48|[66|[45|[126|[50|[46|[49|[48|[46|[48|[66|[84|[126|[50|[46|[49|[48|[46|[48|[66|[58|[126|[50|[46|[49|[48|[46|[48|[66|[58|[126|[50|[46|[49|[48|[46|[48|[66|[90]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], %% Line 127
+																																					    [Year|[Month|[Day|[Hour|[Min|[Sec|[]]]]]]])
+	      in  let <_38> =
+		      call %% Line 125
+			   'unicode':%% Line 125
+				     'characters_to_binary'
+			  (_37)
+		  in  %% Line 125
+		      apply 'value'/4
+			  ([{'string',_38}|%% Line 128
+					   Tokens], %% Line 129
+						    Handler, %% Line 130
+							     Stack, %% Line 131
+								    Config)
+	  %% Line 133
+	  <[{{Year,Month,Day},{Hour,Min,Sec}}|Tokens],Handler,Stack,Config>
+	      when %% Line 134
+		try
+		    let <_39> =
+			call 'erlang':'is_integer'
+			    (Year)
+		    in  let <_40> =
+			    call 'erlang':'is_integer'
+				(Month)
+			in  let <_41> =
+				call 'erlang':'is_integer'
+				    (Day)
+			    in  let <_42> =
+				    call 'erlang':'is_integer'
+					(Hour)
+				in  let <_43> =
+					call 'erlang':'is_integer'
+					    (Min)
+				    in  let <_44> =
+					    call 'erlang':'is_float'
+						(Sec)
+					in  let <_45> =
+						call 'erlang':'and'
+						    (_43, _44)
+					    in  let <_46> =
+						    call 'erlang':'and'
+							(_42, _45)
+						in  let <_47> =
+							call 'erlang':'and'
+							    (_41, _46)
+						    in  let <_48> =
+							    call 'erlang':'and'
+								(_40, _47)
+							in  call 'erlang':'and'
+								(_39, _48)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      let <_49> =
+		  call %% Line 135
+		       'io_lib':%% Line 135
+				'format'
+		      (%% Line 136
+		       [126|[52|[46|[49|[48|[46|[48|[66|[45|[126|[50|[46|[49|[48|[46|[48|[66|[45|[126|[50|[46|[49|[48|[46|[48|[66|[84|[126|[50|[46|[49|[48|[46|[48|[66|[58|[126|[50|[46|[49|[48|[46|[48|[66|[58|[126|[57|[46|[54|[46|[48|[102|[90]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], %% Line 137
+																																					[Year|[Month|[Day|[Hour|[Min|[Sec|[]]]]]]])
+	      in  let <_50> =
+		      call %% Line 135
+			   'unicode':%% Line 135
+				     'characters_to_binary'
+			  (_49)
+		  in  %% Line 135
+		      apply 'value'/4
+			  ([{'string',_50}|%% Line 138
+					   Tokens], %% Line 139
+						    Handler, %% Line 140
+							     Stack, %% Line 141
+								    Config)
+	  %% Line 143
+	  <[{'literal',Value}|Tokens],Handler,Stack,Config>
+	      when let <_51> =
+		    call %% Line 144
+			 'erlang':%% Line 144
+				  '=:='
+			(%% Line 144
+			 Value, %% Line 144
+				'true')
+		in  let <_52> =
+			call %% Line 144
+			     'erlang':%% Line 144
+				      '=:='
+			    (%% Line 144
+			     Value, %% Line 144
+				    'false')
+		    in  let <_53> =
+			    call %% Line 144
+				 'erlang':%% Line 144
+					  '=:='
+				(%% Line 144
+				 Value, %% Line 144
+					'null')
+			in  let <_54> =
+				call %% Line 144
+				     'erlang':%% Line 144
+					      'or'
+				    (_52, _53)
+			    in  %% Line 144
+				call 'erlang':'or'
+				    (_51, _54) ->
+	      let <_55> =
+		  [%% Line 145
+		   Value|%% Line 145
+			 Tokens]
+	      in  %% Line 145
+		  apply 'value'/4
+		      (_55, Handler, Stack, Config)
+	  %% Line 146
+	  <[{'integer',Value}|Tokens],Handler,Stack,Config>
+	      when %% Line 147
+		call 'erlang':'is_integer'
+		    (Value) ->
+	      let <_56> =
+		  [%% Line 148
+		   Value|%% Line 148
+			 Tokens]
+	      in  %% Line 148
+		  apply 'value'/4
+		      (_56, Handler, Stack, Config)
+	  %% Line 149
+	  <[{'float',Value}|Tokens],Handler,Stack,Config>
+	      when %% Line 150
+		call 'erlang':'is_float'
+		    (Value) ->
+	      let <_57> =
+		  [%% Line 151
+		   Value|%% Line 151
+			 Tokens]
+	      in  %% Line 151
+		  apply 'value'/4
+		      (_57, Handler, Stack, Config)
+	  %% Line 152
+	  <[{'string',Value}|Tokens],Handler,Stack,Config>
+	      when let <_58> =
+		    call %% Line 153
+			 'erlang':%% Line 153
+				  'is_binary'
+			(%% Line 153
+			 Value)
+		in  let <_59> =
+			call %% Line 153
+			     'erlang':%% Line 153
+				      'is_atom'
+			    (%% Line 153
+			     Value)
+		    in  %% Line 153
+			call 'erlang':'or'
+			    (_58, _59) ->
+	      let <_60> =
+		  [%% Line 154
+		   Value|%% Line 154
+			 Tokens]
+	      in  %% Line 154
+		  apply 'value'/4
+		      (_60, Handler, Stack, Config)
+	  %% Line 155
+	  <[{'number',Value}|Tokens],Handler,Stack,Config>
+	      when let <_61> =
+		    call %% Line 156
+			 'erlang':%% Line 156
+				  'is_float'
+			(%% Line 156
+			 Value)
+		in  let <_62> =
+			call %% Line 156
+			     'erlang':%% Line 156
+				      'is_integer'
+			    (%% Line 156
+			     Value)
+		    in  %% Line 156
+			call 'erlang':'or'
+			    (_61, _62) ->
+	      let <_63> =
+		  [%% Line 157
+		   Value|%% Line 157
+			 Tokens]
+	      in  %% Line 157
+		  apply 'value'/4
+		      (_63, Handler, Stack, Config)
+	  %% Line 158
+	  <[String|Tokens],Handler,Stack,Config>
+	      when call 'erlang':'is_atom'
+		    (String) ->
+	      let <_64> =
+		  call %% Line 159
+		       'erlang':%% Line 159
+				'atom_to_binary'
+		      (%% Line 159
+		       String, %% Line 159
+			       'utf8')
+	      in  let <_65> =
+		      [%% Line 159
+		       {'string',_64}|%% Line 159
+				      Tokens]
+		  in  %% Line 159
+		      apply 'value'/4
+			  (_65, Handler, Stack, Config)
+	  %% Line 160
+	  <[],Handler,Stack,Config> when 'true' ->
+	      %% Line 161
+	      apply 'incomplete'/4
+		  ('value', Handler, Stack, Config)
+	  %% Line 162
+	  <BadTokens,Handler,Stack,Config>
+	      when call 'erlang':'is_list'
+		    (BadTokens) ->
+	      %% Line 163
+	      ( case Config of
+		  ( <( {'config',_94,_95,_96,_97,_98,_99,_100,_101,_102,_103,_104,_105,_106,_107,_rec3,_108}
+		       -| ['compiler_generated'] )> when 'true' ->
+			case _rec3 of
+			  <'false'> when 'true' ->
+			      call 'erlang':'error'
+				  ('badarg')
+			  <F> when 'true' ->
+			      let <_68> =
+				  call 'jsx_config':'config_to_list'
+				      (Config)
+			      in  apply F
+				      (BadTokens, {'parser','value',Handler,Stack}, _68)
+			end
+		    -| ['compiler_generated'] )
+		  ( <_109> when 'true' ->
+			( call ( 'erlang'
+				 -| ['compiler_generated'] ):( 'error'
+							       -| ['compiler_generated'] )
+			      (( {'badrecord','config'}
+				 -| ['compiler_generated'] ))
+			  -| ['compiler_generated'] )
+		    -| ['compiler_generated'] )
+		end
+		-| ['compiler_generated'] )
+	  %% Line 164
+	  <Token,Handler,Stack,Config> when 'true' ->
+	      %% Line 165
+	      apply 'value'/4
+		  ([Token|[]], Handler, Stack, Config)
+	end
+'object'/4 =
+    %% Line 168
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <['end_object'|Tokens],Handler,['object'|Stack],Config> when 'true' ->
+	      let <_4> =
+		  apply %% Line 169
+			'handle_event'/3
+		      (%% Line 169
+		       'end_object', %% Line 169
+				     Handler, %% Line 169
+					      Config)
+	      in  %% Line 169
+		  apply 'maybe_done'/4
+		      (Tokens, _4, Stack, Config)
+	  %% Line 170
+	  <[{'key',Key}|Tokens],Handler,Stack,Config>
+	      when let <_5> =
+		    call %% Line 171
+			 'erlang':%% Line 171
+				  'is_atom'
+			(%% Line 171
+			 Key)
+		in  let <_6> =
+			call %% Line 171
+			     'erlang':%% Line 171
+				      'is_binary'
+			    (%% Line 171
+			     Key)
+		    in  let <_7> =
+			    call %% Line 171
+				 'erlang':%% Line 171
+					  'is_integer'
+				(%% Line 171
+				 Key)
+			in  let <_8> =
+				call %% Line 171
+				     'erlang':%% Line 171
+					      'or'
+				    (_6, _7)
+			    in  %% Line 171
+				call 'erlang':'or'
+				    (_5, _8) ->
+	      %% Line 172
+	      apply 'object'/4
+		  ([Key|Tokens], Handler, Stack, Config)
+	  %% Line 173
+	  <[Key|Tokens],Handler,_@r0 = ['object'|Stack],Config>
+	      when let <_9> =
+		    call %% Line 174
+			 'erlang':%% Line 174
+				  'is_atom'
+			(%% Line 174
+			 Key)
+		in  let <_10> =
+			call %% Line 174
+			     'erlang':%% Line 174
+				      'is_binary'
+			    (%% Line 174
+			     Key)
+		    in  let <_11> =
+			    call %% Line 174
+				 'erlang':%% Line 174
+					  'is_integer'
+				(%% Line 174
+				 Key)
+			in  let <_12> =
+				call %% Line 174
+				     'erlang':%% Line 174
+					      'or'
+				    (_10, _11)
+			    in  %% Line 174
+				call 'erlang':'or'
+				    (_9, _12) ->
+	      %% Line 175
+	      try
+		  let <_13> =
+		      apply 'fix_key'/1
+			  (Key)
+		  in  apply 'clean_string'/2
+			  (_13, Config)
+	      of <_14> ->
+		  let <_15> =
+		      apply %% Line 179
+			    'handle_event'/3
+			  (%% Line 179
+			   {'key',_14}, %% Line 179
+					Handler, %% Line 179
+						 Config)
+		  in  %% Line 177
+		      apply 'value'/4
+			  (%% Line 178
+			   Tokens, _15, %% Line 180
+					_@r0, %% Line 181
+					      Config)
+	      catch <_19,_18,_17> ->
+		  %% Line 183
+		  case <_19,_18,_17> of
+		    <( 'error'
+		       -| ['compiler_generated'] ),( 'badarg'
+						     -| ['compiler_generated'] ),_28> when 'true' ->
+			%% Line 184
+			( case Config of
+			    ( <( {'config',_29,_30,_31,_32,_33,_34,_35,_36,_37,_38,_39,_40,_41,_42,_rec4,_43}
+				 -| ['compiler_generated'] )> when 'true' ->
+				  case _rec4 of
+				    <'false'> when 'true' ->
+					call 'erlang':'error'
+					    ('badarg')
+				    <F> when 'true' ->
+					let <_22> =
+					    call 'jsx_config':'config_to_list'
+						(Config)
+					in  apply F
+						([{'string',Key}|Tokens], {'parser','object',Handler,Stack}, _22)
+				  end
+			      -| ['compiler_generated'] )
+			    ( <_44> when 'true' ->
+				  ( call ( 'erlang'
+					   -| ['compiler_generated'] ):( 'error'
+									 -| ['compiler_generated'] )
+					(( {'badrecord','config'}
+					   -| ['compiler_generated'] ))
+				    -| ['compiler_generated'] )
+			      -| ['compiler_generated'] )
+			  end
+			  -| ['compiler_generated'] )
+		    ( <_46,_47,_48> when 'true' ->
+			  primop 'raise'
+			      (_48, _47)
+		      -| ['compiler_generated'] )
+		  end
+	  %% Line 186
+	  <[],Handler,Stack,Config> when 'true' ->
+	      %% Line 187
+	      apply 'incomplete'/4
+		  ('object', Handler, Stack, Config)
+	  %% Line 188
+	  <Token,Handler,Stack,Config> when 'true' ->
+	      %% Line 189
+	      apply 'object'/4
+		  ([Token|[]], Handler, Stack, Config)
+	end
+'array'/4 =
+    %% Line 192
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <['end_array'|Tokens],Handler,['array'|Stack],Config> when 'true' ->
+	      let <_4> =
+		  apply %% Line 193
+			'handle_event'/3
+		      (%% Line 193
+		       'end_array', %% Line 193
+				    Handler, %% Line 193
+					     Config)
+	      in  %% Line 193
+		  apply 'maybe_done'/4
+		      (Tokens, _4, Stack, Config)
+	  %% Line 194
+	  <[],Handler,Stack,Config> when 'true' ->
+	      %% Line 195
+	      apply 'incomplete'/4
+		  ('array', Handler, Stack, Config)
+	  %% Line 196
+	  <Tokens,Handler,Stack,Config>
+	      when call 'erlang':'is_list'
+		    (Tokens) ->
+	      %% Line 197
+	      apply 'value'/4
+		  (Tokens, Handler, Stack, Config)
+	  %% Line 198
+	  <Token,Handler,Stack,Config> when 'true' ->
+	      %% Line 199
+	      apply 'array'/4
+		  ([Token|[]], Handler, Stack, Config)
+	end
+'maybe_done'/4 =
+    %% Line 202
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <['end_json'],Handler,[],Config> when 'true' ->
+	      %% Line 203
+	      apply 'done'/4
+		  (['end_json'], Handler, [], Config)
+	  %% Line 204
+	  <Tokens,Handler,Stack = ['object'|_12],Config>
+	      when call 'erlang':'is_list'
+		    (Tokens) ->
+	      %% Line 205
+	      apply 'object'/4
+		  (Tokens, Handler, Stack, Config)
+	  %% Line 206
+	  <Tokens,Handler,Stack = ['array'|_13],Config>
+	      when call 'erlang':'is_list'
+		    (Tokens) ->
+	      %% Line 207
+	      apply 'array'/4
+		  (Tokens, Handler, Stack, Config)
+	  %% Line 208
+	  <[],Handler,Stack,Config> when 'true' ->
+	      %% Line 209
+	      apply 'incomplete'/4
+		  ('maybe_done', Handler, Stack, Config)
+	  %% Line 210
+	  <BadTokens,Handler,Stack,Config>
+	      when call 'erlang':'is_list'
+		    (BadTokens) ->
+	      %% Line 211
+	      ( case Config of
+		  ( <( {'config',_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_rec5,_28}
+		       -| ['compiler_generated'] )> when 'true' ->
+			case _rec5 of
+			  <'false'> when 'true' ->
+			      call 'erlang':'error'
+				  ('badarg')
+			  <F> when 'true' ->
+			      let <_6> =
+				  call 'jsx_config':'config_to_list'
+				      (Config)
+			      in  apply F
+				      (BadTokens, {'parser','maybe_done',Handler,Stack}, _6)
+			end
+		    -| ['compiler_generated'] )
+		  ( <_29> when 'true' ->
+			( call ( 'erlang'
+				 -| ['compiler_generated'] ):( 'error'
+							       -| ['compiler_generated'] )
+			      (( {'badrecord','config'}
+				 -| ['compiler_generated'] ))
+			  -| ['compiler_generated'] )
+		    -| ['compiler_generated'] )
+		end
+		-| ['compiler_generated'] )
+	  %% Line 212
+	  <Token,Handler,Stack,Config> when 'true' ->
+	      %% Line 213
+	      apply 'maybe_done'/4
+		  ([Token|[]], Handler, Stack, Config)
+	end
+'done'/4 =
+    %% Line 216
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <[],Handler,[],Config = {'config',_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,'true',_25,_26,_27,_28,_29}> when 'true' ->
+	      %% Line 217
+	      apply 'incomplete'/4
+		  ('done', Handler, [], Config)
+	  %% Line 218
+	  <Tokens,Handler,[],Config>
+	      when let <_4> =
+		    call 'erlang':'=:='
+			(Tokens, ['end_json'])
+		in  let <_5> =
+			call 'erlang':'=:='
+			    (Tokens, [])
+		    in  call 'erlang':'or'
+			    (_4, _5) ->
+	      %% Line 219
+	      case apply 'handle_event'/3
+		       ('end_json', Handler, Config) of
+		<{_30,State}> when 'true' ->
+		    %% Line 220
+		    State
+		( <_6> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_6})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 221
+	  <BadTokens,Handler,Stack,Config>
+	      when call 'erlang':'is_list'
+		    (BadTokens) ->
+	      %% Line 222
+	      ( case Config of
+		  ( <( {'config',_31,_32,_33,_34,_35,_36,_37,_38,_39,_40,_41,_42,_43,_44,_rec6,_45}
+		       -| ['compiler_generated'] )> when 'true' ->
+			case _rec6 of
+			  <'false'> when 'true' ->
+			      call 'erlang':'error'
+				  ('badarg')
+			  <F> when 'true' ->
+			      let <_9> =
+				  call 'jsx_config':'config_to_list'
+				      (Config)
+			      in  apply F
+				      (BadTokens, {'parser','done',Handler,Stack}, _9)
+			end
+		    -| ['compiler_generated'] )
+		  ( <_46> when 'true' ->
+			( call ( 'erlang'
+				 -| ['compiler_generated'] ):( 'error'
+							       -| ['compiler_generated'] )
+			      (( {'badrecord','config'}
+				 -| ['compiler_generated'] ))
+			  -| ['compiler_generated'] )
+		    -| ['compiler_generated'] )
+		end
+		-| ['compiler_generated'] )
+	  %% Line 223
+	  <Token,Handler,Stack,Config> when 'true' ->
+	      %% Line 224
+	      apply 'done'/4
+		  ([Token|[]], Handler, Stack, Config)
+	end
+'fix_key'/1 =
+    %% Line 227
+    fun (_0) ->
+	case _0 of
+	  <Key>
+	      when call 'erlang':'is_atom'
+		    (_0) ->
+	      call 'erlang':'atom_to_binary'
+		  (Key, 'utf8')
+	  %% Line 228
+	  <Key>
+	      when call 'erlang':'is_integer'
+		    (_0) ->
+	      let <_1> =
+		  call 'erlang':'integer_to_list'
+		      (Key)
+	      in  call 'erlang':'list_to_binary'
+		      (_1)
+	  %% Line 229
+	  <Key>
+	      when call 'erlang':'is_binary'
+		    (_0) ->
+	      Key
+	  ( <_2> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_2})
+		  -| [{'function_name',{'fix_key',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'clean_string'/2 =
+    %% Line 232
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Bin,{'config','true',_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18}> when 'true' ->
+	      Bin
+	  %% Line 233
+	  <Bin,Config> when 'true' ->
+	      apply 'clean'/3
+		  (Bin, [], Config)
+	end
+'clean'/3 =
+    %% Line 237
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <#{#<0>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_3> =
+		  apply %% Line 238
+			'maybe_replace'/2
+		      (%% Line 238
+		       0, %% Line 238
+			  Config)
+	      in  %% Line 238
+		  apply 'clean'/3
+		      (Rest, [Acc|[_3|[]]], Config)
+	  %% Line 239
+	  <#{#<1>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_4> =
+		  apply %% Line 240
+			'maybe_replace'/2
+		      (%% Line 240
+		       1, %% Line 240
+			  Config)
+	      in  %% Line 240
+		  apply 'clean'/3
+		      (Rest, [Acc|[_4|[]]], Config)
+	  %% Line 241
+	  <#{#<2>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_5> =
+		  apply %% Line 242
+			'maybe_replace'/2
+		      (%% Line 242
+		       2, %% Line 242
+			  Config)
+	      in  %% Line 242
+		  apply 'clean'/3
+		      (Rest, [Acc|[_5|[]]], Config)
+	  %% Line 243
+	  <#{#<3>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_6> =
+		  apply %% Line 244
+			'maybe_replace'/2
+		      (%% Line 244
+		       3, %% Line 244
+			  Config)
+	      in  %% Line 244
+		  apply 'clean'/3
+		      (Rest, [Acc|[_6|[]]], Config)
+	  %% Line 245
+	  <#{#<4>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_7> =
+		  apply %% Line 246
+			'maybe_replace'/2
+		      (%% Line 246
+		       4, %% Line 246
+			  Config)
+	      in  %% Line 246
+		  apply 'clean'/3
+		      (Rest, [Acc|[_7|[]]], Config)
+	  %% Line 247
+	  <#{#<5>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_8> =
+		  apply %% Line 248
+			'maybe_replace'/2
+		      (%% Line 248
+		       5, %% Line 248
+			  Config)
+	      in  %% Line 248
+		  apply 'clean'/3
+		      (Rest, [Acc|[_8|[]]], Config)
+	  %% Line 249
+	  <#{#<6>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_9> =
+		  apply %% Line 250
+			'maybe_replace'/2
+		      (%% Line 250
+		       6, %% Line 250
+			  Config)
+	      in  %% Line 250
+		  apply 'clean'/3
+		      (Rest, [Acc|[_9|[]]], Config)
+	  %% Line 251
+	  <#{#<7>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_10> =
+		  apply %% Line 252
+			'maybe_replace'/2
+		      (%% Line 252
+		       7, %% Line 252
+			  Config)
+	      in  %% Line 252
+		  apply 'clean'/3
+		      (Rest, [Acc|[_10|[]]], Config)
+	  %% Line 253
+	  <#{#<8>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_11> =
+		  apply %% Line 254
+			'maybe_replace'/2
+		      (%% Line 254
+		       8, %% Line 254
+			  Config)
+	      in  %% Line 254
+		  apply 'clean'/3
+		      (Rest, [Acc|[_11|[]]], Config)
+	  %% Line 255
+	  <#{#<9>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_12> =
+		  apply %% Line 256
+			'maybe_replace'/2
+		      (%% Line 256
+		       9, %% Line 256
+			  Config)
+	      in  %% Line 256
+		  apply 'clean'/3
+		      (Rest, [Acc|[_12|[]]], Config)
+	  %% Line 257
+	  <#{#<10>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_13> =
+		  apply %% Line 258
+			'maybe_replace'/2
+		      (%% Line 258
+		       10, %% Line 258
+			   Config)
+	      in  %% Line 258
+		  apply 'clean'/3
+		      (Rest, [Acc|[_13|[]]], Config)
+	  %% Line 259
+	  <#{#<11>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_14> =
+		  apply %% Line 260
+			'maybe_replace'/2
+		      (%% Line 260
+		       11, %% Line 260
+			   Config)
+	      in  %% Line 260
+		  apply 'clean'/3
+		      (Rest, [Acc|[_14|[]]], Config)
+	  %% Line 261
+	  <#{#<12>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_15> =
+		  apply %% Line 262
+			'maybe_replace'/2
+		      (%% Line 262
+		       12, %% Line 262
+			   Config)
+	      in  %% Line 262
+		  apply 'clean'/3
+		      (Rest, [Acc|[_15|[]]], Config)
+	  %% Line 263
+	  <#{#<13>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_16> =
+		  apply %% Line 264
+			'maybe_replace'/2
+		      (%% Line 264
+		       13, %% Line 264
+			   Config)
+	      in  %% Line 264
+		  apply 'clean'/3
+		      (Rest, [Acc|[_16|[]]], Config)
+	  %% Line 265
+	  <#{#<14>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_17> =
+		  apply %% Line 266
+			'maybe_replace'/2
+		      (%% Line 266
+		       14, %% Line 266
+			   Config)
+	      in  %% Line 266
+		  apply 'clean'/3
+		      (Rest, [Acc|[_17|[]]], Config)
+	  %% Line 267
+	  <#{#<15>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_18> =
+		  apply %% Line 268
+			'maybe_replace'/2
+		      (%% Line 268
+		       15, %% Line 268
+			   Config)
+	      in  %% Line 268
+		  apply 'clean'/3
+		      (Rest, [Acc|[_18|[]]], Config)
+	  %% Line 269
+	  <#{#<16>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_19> =
+		  apply %% Line 270
+			'maybe_replace'/2
+		      (%% Line 270
+		       16, %% Line 270
+			   Config)
+	      in  %% Line 270
+		  apply 'clean'/3
+		      (Rest, [Acc|[_19|[]]], Config)
+	  %% Line 271
+	  <#{#<17>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_20> =
+		  apply %% Line 272
+			'maybe_replace'/2
+		      (%% Line 272
+		       17, %% Line 272
+			   Config)
+	      in  %% Line 272
+		  apply 'clean'/3
+		      (Rest, [Acc|[_20|[]]], Config)
+	  %% Line 273
+	  <#{#<18>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_21> =
+		  apply %% Line 274
+			'maybe_replace'/2
+		      (%% Line 274
+		       18, %% Line 274
+			   Config)
+	      in  %% Line 274
+		  apply 'clean'/3
+		      (Rest, [Acc|[_21|[]]], Config)
+	  %% Line 275
+	  <#{#<19>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_22> =
+		  apply %% Line 276
+			'maybe_replace'/2
+		      (%% Line 276
+		       19, %% Line 276
+			   Config)
+	      in  %% Line 276
+		  apply 'clean'/3
+		      (Rest, [Acc|[_22|[]]], Config)
+	  %% Line 277
+	  <#{#<20>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_23> =
+		  apply %% Line 278
+			'maybe_replace'/2
+		      (%% Line 278
+		       20, %% Line 278
+			   Config)
+	      in  %% Line 278
+		  apply 'clean'/3
+		      (Rest, [Acc|[_23|[]]], Config)
+	  %% Line 279
+	  <#{#<21>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_24> =
+		  apply %% Line 280
+			'maybe_replace'/2
+		      (%% Line 280
+		       21, %% Line 280
+			   Config)
+	      in  %% Line 280
+		  apply 'clean'/3
+		      (Rest, [Acc|[_24|[]]], Config)
+	  %% Line 281
+	  <#{#<22>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_25> =
+		  apply %% Line 282
+			'maybe_replace'/2
+		      (%% Line 282
+		       22, %% Line 282
+			   Config)
+	      in  %% Line 282
+		  apply 'clean'/3
+		      (Rest, [Acc|[_25|[]]], Config)
+	  %% Line 283
+	  <#{#<23>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_26> =
+		  apply %% Line 284
+			'maybe_replace'/2
+		      (%% Line 284
+		       23, %% Line 284
+			   Config)
+	      in  %% Line 284
+		  apply 'clean'/3
+		      (Rest, [Acc|[_26|[]]], Config)
+	  %% Line 285
+	  <#{#<24>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_27> =
+		  apply %% Line 286
+			'maybe_replace'/2
+		      (%% Line 286
+		       24, %% Line 286
+			   Config)
+	      in  %% Line 286
+		  apply 'clean'/3
+		      (Rest, [Acc|[_27|[]]], Config)
+	  %% Line 287
+	  <#{#<25>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_28> =
+		  apply %% Line 288
+			'maybe_replace'/2
+		      (%% Line 288
+		       25, %% Line 288
+			   Config)
+	      in  %% Line 288
+		  apply 'clean'/3
+		      (Rest, [Acc|[_28|[]]], Config)
+	  %% Line 289
+	  <#{#<26>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_29> =
+		  apply %% Line 290
+			'maybe_replace'/2
+		      (%% Line 290
+		       26, %% Line 290
+			   Config)
+	      in  %% Line 290
+		  apply 'clean'/3
+		      (Rest, [Acc|[_29|[]]], Config)
+	  %% Line 291
+	  <#{#<27>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_30> =
+		  apply %% Line 292
+			'maybe_replace'/2
+		      (%% Line 292
+		       27, %% Line 292
+			   Config)
+	      in  %% Line 292
+		  apply 'clean'/3
+		      (Rest, [Acc|[_30|[]]], Config)
+	  %% Line 293
+	  <#{#<28>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_31> =
+		  apply %% Line 294
+			'maybe_replace'/2
+		      (%% Line 294
+		       28, %% Line 294
+			   Config)
+	      in  %% Line 294
+		  apply 'clean'/3
+		      (Rest, [Acc|[_31|[]]], Config)
+	  %% Line 295
+	  <#{#<29>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_32> =
+		  apply %% Line 296
+			'maybe_replace'/2
+		      (%% Line 296
+		       29, %% Line 296
+			   Config)
+	      in  %% Line 296
+		  apply 'clean'/3
+		      (Rest, [Acc|[_32|[]]], Config)
+	  %% Line 297
+	  <#{#<30>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_33> =
+		  apply %% Line 298
+			'maybe_replace'/2
+		      (%% Line 298
+		       30, %% Line 298
+			   Config)
+	      in  %% Line 298
+		  apply 'clean'/3
+		      (Rest, [Acc|[_33|[]]], Config)
+	  %% Line 299
+	  <#{#<31>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_34> =
+		  apply %% Line 300
+			'maybe_replace'/2
+		      (%% Line 300
+		       31, %% Line 300
+			   Config)
+	      in  %% Line 300
+		  apply 'clean'/3
+		      (Rest, [Acc|[_34|[]]], Config)
+	  %% Line 301
+	  <#{#<34>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_35> =
+		  apply %% Line 302
+			'maybe_replace'/2
+		      (%% Line 302
+		       34, %% Line 302
+			   Config)
+	      in  %% Line 302
+		  apply 'clean'/3
+		      (Rest, [Acc|[_35|[]]], Config)
+	  %% Line 303
+	  <#{#<47>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_36> =
+		  apply %% Line 304
+			'maybe_replace'/2
+		      (%% Line 304
+		       47, %% Line 304
+			   Config)
+	      in  %% Line 304
+		  apply 'clean'/3
+		      (Rest, [Acc|[_36|[]]], Config)
+	  %% Line 305
+	  <#{#<92>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_37> =
+		  apply %% Line 306
+			'maybe_replace'/2
+		      (%% Line 306
+		       92, %% Line 306
+			   Config)
+	      in  %% Line 306
+		  apply 'clean'/3
+		      (Rest, [Acc|[_37|[]]], Config)
+	  %% Line 307
+	  <Bin = #{#<X>('undefined','undefined','utf8',['unsigned'|['big']]),
+		   #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config = {'config',_59,_60,_61,_62,_63,_64,_65,_66,_67,_68,_69,_70,'true',_71,_72,_73}> when 'true' ->
+	      %% Line 308
+	      case X of
+		%% Line 309
+		<_74>
+		    when call 'erlang':'<'
+			  (X,
+			   128) ->
+		    apply 'start_count'/3
+			(Bin, Acc, Config)
+		%% Line 310
+		<_77> when 'true' ->
+		    let <_38> =
+			apply 'json_escape_sequence'/1
+			    (X)
+		    in  apply 'clean'/3
+			    (Rest, [Acc|[_38|[]]], Config)
+	      end
+	  %% Line 313
+	  <#{#<226>(8,1,'integer',['unsigned'|['big']]),
+	     #<128>(8,1,'integer',['unsigned'|['big']]),
+	     #<168>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_40> =
+		  apply %% Line 314
+			'maybe_replace'/2
+		      (%% Line 314
+		       8232, %% Line 314
+			     Config)
+	      in  %% Line 314
+		  apply 'clean'/3
+		      (Rest, [Acc|[_40|[]]], Config)
+	  %% Line 316
+	  <#{#<226>(8,1,'integer',['unsigned'|['big']]),
+	     #<128>(8,1,'integer',['unsigned'|['big']]),
+	     #<169>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_41> =
+		  apply %% Line 317
+			'maybe_replace'/2
+		      (%% Line 317
+		       8233, %% Line 317
+			     Config)
+	      in  %% Line 317
+		  apply 'clean'/3
+		      (Rest, [Acc|[_41|[]]], Config)
+	  %% Line 318
+	  <Bin = #{#<_78>('undefined','undefined','utf8',['unsigned'|['big']]),
+		   #<_79>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      apply 'start_count'/3
+		  (Bin, Acc, Config)
+	  %% Line 320
+	  <#{#<237>(8,1,'integer',['unsigned'|['big']]),
+	     #<X>(8,1,'integer',['unsigned'|['big']]),
+	     #<_80>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config>
+	      when call 'erlang':'>='
+		    (X,
+		     160) ->
+	      let <_42> =
+		  apply %% Line 321
+			'maybe_replace'/2
+		      (%% Line 321
+		       'surrogate', %% Line 321
+				    Config)
+	      in  %% Line 321
+		  apply 'clean'/3
+		      (Rest, [Acc|[_42|[]]], Config)
+	  %% Line 323
+	  <#{#<X>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config>
+	      when let <_43> =
+		    call 'erlang':'>='
+			(X, 192)
+		in  let <_44> =
+			call 'erlang':'=<'
+			    (X, 223)
+		    in  call 'erlang':'and'
+			    (_43, _44) ->
+	      let <_46> =
+		  apply %% Line 324
+			'strip_continuations'/2
+		      (%% Line 324
+		       Rest, %% Line 324
+			     1)
+	      in  let <_45> =
+		      apply %% Line 324
+			    'maybe_replace'/2
+			  (%% Line 324
+			   'badutf', %% Line 324
+				     Config)
+		  in  %% Line 324
+		      apply 'clean'/3
+			  (_46, [Acc|[_45|[]]], Config)
+	  %% Line 326
+	  <#{#<X>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config>
+	      when let <_47> =
+		    call 'erlang':'>='
+			(X, 224)
+		in  let <_48> =
+			call 'erlang':'=<'
+			    (X, 239)
+		    in  call 'erlang':'and'
+			    (_47, _48) ->
+	      let <_50> =
+		  apply %% Line 327
+			'strip_continuations'/2
+		      (%% Line 327
+		       Rest, %% Line 327
+			     2)
+	      in  let <_49> =
+		      apply %% Line 327
+			    'maybe_replace'/2
+			  (%% Line 327
+			   'badutf', %% Line 327
+				     Config)
+		  in  %% Line 327
+		      apply 'clean'/3
+			  (_50, [Acc|[_49|[]]], Config)
+	  %% Line 329
+	  <#{#<X>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config>
+	      when let <_51> =
+		    call 'erlang':'>='
+			(X, 240)
+		in  let <_52> =
+			call 'erlang':'=<'
+			    (X, 247)
+		    in  call 'erlang':'and'
+			    (_51, _52) ->
+	      let <_54> =
+		  apply %% Line 330
+			'strip_continuations'/2
+		      (%% Line 330
+		       Rest, %% Line 330
+			     3)
+	      in  let <_53> =
+		      apply %% Line 330
+			    'maybe_replace'/2
+			  (%% Line 330
+			   'badutf', %% Line 330
+				     Config)
+		  in  %% Line 330
+		      apply 'clean'/3
+			  (_54, [Acc|[_53|[]]], Config)
+	  %% Line 331
+	  <#{#<_81>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,Acc,Config> when 'true' ->
+	      let <_55> =
+		  apply %% Line 332
+			'maybe_replace'/2
+		      (%% Line 332
+		       'badutf', %% Line 332
+				 Config)
+	      in  %% Line 332
+		  apply 'clean'/3
+		      (Rest, [Acc|[_55|[]]], Config)
+	  %% Line 333
+	  <#{}#,Acc,_82> when 'true' ->
+	      call 'erlang':'iolist_to_binary'
+		  (Acc)
+	  ( <_58,_57,_56> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_58,_57,_56})
+		  -| [{'function_name',{'clean',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'start_count'/3 =
+    %% Line 336
+    fun (_0,_1,_2) ->
+	let <Size> =
+	    apply %% Line 337
+		  'count'/3
+		(_0, %% Line 337
+		     0, _2)
+	in  %% Line 338
+	    case _0 of
+	      <#{#<Clean>(Size,8,'binary',['unsigned'|['big']]),
+		 #<Rest>('all',8,'binary',['unsigned'|['big']])}#> when 'true' ->
+		  %% Line 339
+		  apply 'clean'/3
+		      (Rest, [_1|[Clean|[]]], _2)
+	      ( <_4> when 'true' ->
+		    primop 'match_fail'
+			({'badmatch',_4})
+		-| ['compiler_generated'] )
+	    end
+'count'/3 =
+    %% Line 343
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <#{#<0>(8,1,'integer',['unsigned'|['big']]),
+	     #<_103>('all',8,'binary',['unsigned'|['big']])}#,N,_104> when 'true' ->
+	      N
+	  %% Line 344
+	  <#{#<1>(8,1,'integer',['unsigned'|['big']]),
+	     #<_105>('all',8,'binary',['unsigned'|['big']])}#,N,_106> when 'true' ->
+	      N
+	  %% Line 345
+	  <#{#<2>(8,1,'integer',['unsigned'|['big']]),
+	     #<_107>('all',8,'binary',['unsigned'|['big']])}#,N,_108> when 'true' ->
+	      N
+	  %% Line 346
+	  <#{#<3>(8,1,'integer',['unsigned'|['big']]),
+	     #<_109>('all',8,'binary',['unsigned'|['big']])}#,N,_110> when 'true' ->
+	      N
+	  %% Line 347
+	  <#{#<4>(8,1,'integer',['unsigned'|['big']]),
+	     #<_111>('all',8,'binary',['unsigned'|['big']])}#,N,_112> when 'true' ->
+	      N
+	  %% Line 348
+	  <#{#<5>(8,1,'integer',['unsigned'|['big']]),
+	     #<_113>('all',8,'binary',['unsigned'|['big']])}#,N,_114> when 'true' ->
+	      N
+	  %% Line 349
+	  <#{#<6>(8,1,'integer',['unsigned'|['big']]),
+	     #<_115>('all',8,'binary',['unsigned'|['big']])}#,N,_116> when 'true' ->
+	      N
+	  %% Line 350
+	  <#{#<7>(8,1,'integer',['unsigned'|['big']]),
+	     #<_117>('all',8,'binary',['unsigned'|['big']])}#,N,_118> when 'true' ->
+	      N
+	  %% Line 351
+	  <#{#<8>(8,1,'integer',['unsigned'|['big']]),
+	     #<_119>('all',8,'binary',['unsigned'|['big']])}#,N,_120> when 'true' ->
+	      N
+	  %% Line 352
+	  <#{#<9>(8,1,'integer',['unsigned'|['big']]),
+	     #<_121>('all',8,'binary',['unsigned'|['big']])}#,N,_122> when 'true' ->
+	      N
+	  %% Line 353
+	  <#{#<10>(8,1,'integer',['unsigned'|['big']]),
+	     #<_123>('all',8,'binary',['unsigned'|['big']])}#,N,_124> when 'true' ->
+	      N
+	  %% Line 354
+	  <#{#<11>(8,1,'integer',['unsigned'|['big']]),
+	     #<_125>('all',8,'binary',['unsigned'|['big']])}#,N,_126> when 'true' ->
+	      N
+	  %% Line 355
+	  <#{#<12>(8,1,'integer',['unsigned'|['big']]),
+	     #<_127>('all',8,'binary',['unsigned'|['big']])}#,N,_128> when 'true' ->
+	      N
+	  %% Line 356
+	  <#{#<13>(8,1,'integer',['unsigned'|['big']]),
+	     #<_129>('all',8,'binary',['unsigned'|['big']])}#,N,_130> when 'true' ->
+	      N
+	  %% Line 357
+	  <#{#<14>(8,1,'integer',['unsigned'|['big']]),
+	     #<_131>('all',8,'binary',['unsigned'|['big']])}#,N,_132> when 'true' ->
+	      N
+	  %% Line 358
+	  <#{#<15>(8,1,'integer',['unsigned'|['big']]),
+	     #<_133>('all',8,'binary',['unsigned'|['big']])}#,N,_134> when 'true' ->
+	      N
+	  %% Line 359
+	  <#{#<16>(8,1,'integer',['unsigned'|['big']]),
+	     #<_135>('all',8,'binary',['unsigned'|['big']])}#,N,_136> when 'true' ->
+	      N
+	  %% Line 360
+	  <#{#<17>(8,1,'integer',['unsigned'|['big']]),
+	     #<_137>('all',8,'binary',['unsigned'|['big']])}#,N,_138> when 'true' ->
+	      N
+	  %% Line 361
+	  <#{#<18>(8,1,'integer',['unsigned'|['big']]),
+	     #<_139>('all',8,'binary',['unsigned'|['big']])}#,N,_140> when 'true' ->
+	      N
+	  %% Line 362
+	  <#{#<19>(8,1,'integer',['unsigned'|['big']]),
+	     #<_141>('all',8,'binary',['unsigned'|['big']])}#,N,_142> when 'true' ->
+	      N
+	  %% Line 363
+	  <#{#<20>(8,1,'integer',['unsigned'|['big']]),
+	     #<_143>('all',8,'binary',['unsigned'|['big']])}#,N,_144> when 'true' ->
+	      N
+	  %% Line 364
+	  <#{#<21>(8,1,'integer',['unsigned'|['big']]),
+	     #<_145>('all',8,'binary',['unsigned'|['big']])}#,N,_146> when 'true' ->
+	      N
+	  %% Line 365
+	  <#{#<22>(8,1,'integer',['unsigned'|['big']]),
+	     #<_147>('all',8,'binary',['unsigned'|['big']])}#,N,_148> when 'true' ->
+	      N
+	  %% Line 366
+	  <#{#<23>(8,1,'integer',['unsigned'|['big']]),
+	     #<_149>('all',8,'binary',['unsigned'|['big']])}#,N,_150> when 'true' ->
+	      N
+	  %% Line 367
+	  <#{#<24>(8,1,'integer',['unsigned'|['big']]),
+	     #<_151>('all',8,'binary',['unsigned'|['big']])}#,N,_152> when 'true' ->
+	      N
+	  %% Line 368
+	  <#{#<25>(8,1,'integer',['unsigned'|['big']]),
+	     #<_153>('all',8,'binary',['unsigned'|['big']])}#,N,_154> when 'true' ->
+	      N
+	  %% Line 369
+	  <#{#<26>(8,1,'integer',['unsigned'|['big']]),
+	     #<_155>('all',8,'binary',['unsigned'|['big']])}#,N,_156> when 'true' ->
+	      N
+	  %% Line 370
+	  <#{#<27>(8,1,'integer',['unsigned'|['big']]),
+	     #<_157>('all',8,'binary',['unsigned'|['big']])}#,N,_158> when 'true' ->
+	      N
+	  %% Line 371
+	  <#{#<28>(8,1,'integer',['unsigned'|['big']]),
+	     #<_159>('all',8,'binary',['unsigned'|['big']])}#,N,_160> when 'true' ->
+	      N
+	  %% Line 372
+	  <#{#<29>(8,1,'integer',['unsigned'|['big']]),
+	     #<_161>('all',8,'binary',['unsigned'|['big']])}#,N,_162> when 'true' ->
+	      N
+	  %% Line 373
+	  <#{#<30>(8,1,'integer',['unsigned'|['big']]),
+	     #<_163>('all',8,'binary',['unsigned'|['big']])}#,N,_164> when 'true' ->
+	      N
+	  %% Line 374
+	  <#{#<31>(8,1,'integer',['unsigned'|['big']]),
+	     #<_165>('all',8,'binary',['unsigned'|['big']])}#,N,_166> when 'true' ->
+	      N
+	  %% Line 375
+	  <#{#<32>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_3> =
+		  call %% Line 376
+		       'erlang':%% Line 376
+				'+'
+		      (%% Line 376
+		       N, %% Line 376
+			  1)
+	      in  %% Line 376
+		  apply 'count'/3
+		      (Rest, _3, Config)
+	  %% Line 377
+	  <#{#<33>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_4> =
+		  call %% Line 378
+		       'erlang':%% Line 378
+				'+'
+		      (%% Line 378
+		       N, %% Line 378
+			  1)
+	      in  %% Line 378
+		  apply 'count'/3
+		      (Rest, _4, Config)
+	  %% Line 379
+	  <#{#<34>(8,1,'integer',['unsigned'|['big']]),
+	     #<_167>('all',8,'binary',['unsigned'|['big']])}#,N,_168> when 'true' ->
+	      N
+	  %% Line 380
+	  <#{#<35>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_5> =
+		  call %% Line 381
+		       'erlang':%% Line 381
+				'+'
+		      (%% Line 381
+		       N, %% Line 381
+			  1)
+	      in  %% Line 381
+		  apply 'count'/3
+		      (Rest, _5, Config)
+	  %% Line 382
+	  <#{#<36>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_6> =
+		  call %% Line 383
+		       'erlang':%% Line 383
+				'+'
+		      (%% Line 383
+		       N, %% Line 383
+			  1)
+	      in  %% Line 383
+		  apply 'count'/3
+		      (Rest, _6, Config)
+	  %% Line 384
+	  <#{#<37>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_7> =
+		  call %% Line 385
+		       'erlang':%% Line 385
+				'+'
+		      (%% Line 385
+		       N, %% Line 385
+			  1)
+	      in  %% Line 385
+		  apply 'count'/3
+		      (Rest, _7, Config)
+	  %% Line 386
+	  <#{#<38>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_8> =
+		  call %% Line 387
+		       'erlang':%% Line 387
+				'+'
+		      (%% Line 387
+		       N, %% Line 387
+			  1)
+	      in  %% Line 387
+		  apply 'count'/3
+		      (Rest, _8, Config)
+	  %% Line 388
+	  <#{#<39>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_9> =
+		  call %% Line 389
+		       'erlang':%% Line 389
+				'+'
+		      (%% Line 389
+		       N, %% Line 389
+			  1)
+	      in  %% Line 389
+		  apply 'count'/3
+		      (Rest, _9, Config)
+	  %% Line 390
+	  <#{#<40>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_10> =
+		  call %% Line 391
+		       'erlang':%% Line 391
+				'+'
+		      (%% Line 391
+		       N, %% Line 391
+			  1)
+	      in  %% Line 391
+		  apply 'count'/3
+		      (Rest, _10, Config)
+	  %% Line 392
+	  <#{#<41>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_11> =
+		  call %% Line 393
+		       'erlang':%% Line 393
+				'+'
+		      (%% Line 393
+		       N, %% Line 393
+			  1)
+	      in  %% Line 393
+		  apply 'count'/3
+		      (Rest, _11, Config)
+	  %% Line 394
+	  <#{#<42>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_12> =
+		  call %% Line 395
+		       'erlang':%% Line 395
+				'+'
+		      (%% Line 395
+		       N, %% Line 395
+			  1)
+	      in  %% Line 395
+		  apply 'count'/3
+		      (Rest, _12, Config)
+	  %% Line 396
+	  <#{#<43>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_13> =
+		  call %% Line 397
+		       'erlang':%% Line 397
+				'+'
+		      (%% Line 397
+		       N, %% Line 397
+			  1)
+	      in  %% Line 397
+		  apply 'count'/3
+		      (Rest, _13, Config)
+	  %% Line 398
+	  <#{#<44>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_14> =
+		  call %% Line 399
+		       'erlang':%% Line 399
+				'+'
+		      (%% Line 399
+		       N, %% Line 399
+			  1)
+	      in  %% Line 399
+		  apply 'count'/3
+		      (Rest, _14, Config)
+	  %% Line 400
+	  <#{#<45>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_15> =
+		  call %% Line 401
+		       'erlang':%% Line 401
+				'+'
+		      (%% Line 401
+		       N, %% Line 401
+			  1)
+	      in  %% Line 401
+		  apply 'count'/3
+		      (Rest, _15, Config)
+	  %% Line 402
+	  <#{#<46>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_16> =
+		  call %% Line 403
+		       'erlang':%% Line 403
+				'+'
+		      (%% Line 403
+		       N, %% Line 403
+			  1)
+	      in  %% Line 403
+		  apply 'count'/3
+		      (Rest, _16, Config)
+	  %% Line 404
+	  <#{#<47>(8,1,'integer',['unsigned'|['big']]),
+	     #<_169>('all',8,'binary',['unsigned'|['big']])}#,N,_170> when 'true' ->
+	      N
+	  %% Line 405
+	  <#{#<48>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_17> =
+		  call %% Line 406
+		       'erlang':%% Line 406
+				'+'
+		      (%% Line 406
+		       N, %% Line 406
+			  1)
+	      in  %% Line 406
+		  apply 'count'/3
+		      (Rest, _17, Config)
+	  %% Line 407
+	  <#{#<49>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_18> =
+		  call %% Line 408
+		       'erlang':%% Line 408
+				'+'
+		      (%% Line 408
+		       N, %% Line 408
+			  1)
+	      in  %% Line 408
+		  apply 'count'/3
+		      (Rest, _18, Config)
+	  %% Line 409
+	  <#{#<50>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_19> =
+		  call %% Line 410
+		       'erlang':%% Line 410
+				'+'
+		      (%% Line 410
+		       N, %% Line 410
+			  1)
+	      in  %% Line 410
+		  apply 'count'/3
+		      (Rest, _19, Config)
+	  %% Line 411
+	  <#{#<51>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_20> =
+		  call %% Line 412
+		       'erlang':%% Line 412
+				'+'
+		      (%% Line 412
+		       N, %% Line 412
+			  1)
+	      in  %% Line 412
+		  apply 'count'/3
+		      (Rest, _20, Config)
+	  %% Line 413
+	  <#{#<52>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_21> =
+		  call %% Line 414
+		       'erlang':%% Line 414
+				'+'
+		      (%% Line 414
+		       N, %% Line 414
+			  1)
+	      in  %% Line 414
+		  apply 'count'/3
+		      (Rest, _21, Config)
+	  %% Line 415
+	  <#{#<53>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_22> =
+		  call %% Line 416
+		       'erlang':%% Line 416
+				'+'
+		      (%% Line 416
+		       N, %% Line 416
+			  1)
+	      in  %% Line 416
+		  apply 'count'/3
+		      (Rest, _22, Config)
+	  %% Line 417
+	  <#{#<54>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_23> =
+		  call %% Line 418
+		       'erlang':%% Line 418
+				'+'
+		      (%% Line 418
+		       N, %% Line 418
+			  1)
+	      in  %% Line 418
+		  apply 'count'/3
+		      (Rest, _23, Config)
+	  %% Line 419
+	  <#{#<55>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_24> =
+		  call %% Line 420
+		       'erlang':%% Line 420
+				'+'
+		      (%% Line 420
+		       N, %% Line 420
+			  1)
+	      in  %% Line 420
+		  apply 'count'/3
+		      (Rest, _24, Config)
+	  %% Line 421
+	  <#{#<56>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_25> =
+		  call %% Line 422
+		       'erlang':%% Line 422
+				'+'
+		      (%% Line 422
+		       N, %% Line 422
+			  1)
+	      in  %% Line 422
+		  apply 'count'/3
+		      (Rest, _25, Config)
+	  %% Line 423
+	  <#{#<57>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_26> =
+		  call %% Line 424
+		       'erlang':%% Line 424
+				'+'
+		      (%% Line 424
+		       N, %% Line 424
+			  1)
+	      in  %% Line 424
+		  apply 'count'/3
+		      (Rest, _26, Config)
+	  %% Line 425
+	  <#{#<58>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_27> =
+		  call %% Line 426
+		       'erlang':%% Line 426
+				'+'
+		      (%% Line 426
+		       N, %% Line 426
+			  1)
+	      in  %% Line 426
+		  apply 'count'/3
+		      (Rest, _27, Config)
+	  %% Line 427
+	  <#{#<59>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_28> =
+		  call %% Line 428
+		       'erlang':%% Line 428
+				'+'
+		      (%% Line 428
+		       N, %% Line 428
+			  1)
+	      in  %% Line 428
+		  apply 'count'/3
+		      (Rest, _28, Config)
+	  %% Line 429
+	  <#{#<60>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_29> =
+		  call %% Line 430
+		       'erlang':%% Line 430
+				'+'
+		      (%% Line 430
+		       N, %% Line 430
+			  1)
+	      in  %% Line 430
+		  apply 'count'/3
+		      (Rest, _29, Config)
+	  %% Line 431
+	  <#{#<61>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_30> =
+		  call %% Line 432
+		       'erlang':%% Line 432
+				'+'
+		      (%% Line 432
+		       N, %% Line 432
+			  1)
+	      in  %% Line 432
+		  apply 'count'/3
+		      (Rest, _30, Config)
+	  %% Line 433
+	  <#{#<62>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_31> =
+		  call %% Line 434
+		       'erlang':%% Line 434
+				'+'
+		      (%% Line 434
+		       N, %% Line 434
+			  1)
+	      in  %% Line 434
+		  apply 'count'/3
+		      (Rest, _31, Config)
+	  %% Line 435
+	  <#{#<63>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_32> =
+		  call %% Line 436
+		       'erlang':%% Line 436
+				'+'
+		      (%% Line 436
+		       N, %% Line 436
+			  1)
+	      in  %% Line 436
+		  apply 'count'/3
+		      (Rest, _32, Config)
+	  %% Line 437
+	  <#{#<64>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_33> =
+		  call %% Line 438
+		       'erlang':%% Line 438
+				'+'
+		      (%% Line 438
+		       N, %% Line 438
+			  1)
+	      in  %% Line 438
+		  apply 'count'/3
+		      (Rest, _33, Config)
+	  %% Line 439
+	  <#{#<65>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_34> =
+		  call %% Line 440
+		       'erlang':%% Line 440
+				'+'
+		      (%% Line 440
+		       N, %% Line 440
+			  1)
+	      in  %% Line 440
+		  apply 'count'/3
+		      (Rest, _34, Config)
+	  %% Line 441
+	  <#{#<66>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_35> =
+		  call %% Line 442
+		       'erlang':%% Line 442
+				'+'
+		      (%% Line 442
+		       N, %% Line 442
+			  1)
+	      in  %% Line 442
+		  apply 'count'/3
+		      (Rest, _35, Config)
+	  %% Line 443
+	  <#{#<67>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_36> =
+		  call %% Line 444
+		       'erlang':%% Line 444
+				'+'
+		      (%% Line 444
+		       N, %% Line 444
+			  1)
+	      in  %% Line 444
+		  apply 'count'/3
+		      (Rest, _36, Config)
+	  %% Line 445
+	  <#{#<68>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_37> =
+		  call %% Line 446
+		       'erlang':%% Line 446
+				'+'
+		      (%% Line 446
+		       N, %% Line 446
+			  1)
+	      in  %% Line 446
+		  apply 'count'/3
+		      (Rest, _37, Config)
+	  %% Line 447
+	  <#{#<69>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_38> =
+		  call %% Line 448
+		       'erlang':%% Line 448
+				'+'
+		      (%% Line 448
+		       N, %% Line 448
+			  1)
+	      in  %% Line 448
+		  apply 'count'/3
+		      (Rest, _38, Config)
+	  %% Line 449
+	  <#{#<70>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_39> =
+		  call %% Line 450
+		       'erlang':%% Line 450
+				'+'
+		      (%% Line 450
+		       N, %% Line 450
+			  1)
+	      in  %% Line 450
+		  apply 'count'/3
+		      (Rest, _39, Config)
+	  %% Line 451
+	  <#{#<71>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_40> =
+		  call %% Line 452
+		       'erlang':%% Line 452
+				'+'
+		      (%% Line 452
+		       N, %% Line 452
+			  1)
+	      in  %% Line 452
+		  apply 'count'/3
+		      (Rest, _40, Config)
+	  %% Line 453
+	  <#{#<72>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_41> =
+		  call %% Line 454
+		       'erlang':%% Line 454
+				'+'
+		      (%% Line 454
+		       N, %% Line 454
+			  1)
+	      in  %% Line 454
+		  apply 'count'/3
+		      (Rest, _41, Config)
+	  %% Line 455
+	  <#{#<73>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_42> =
+		  call %% Line 456
+		       'erlang':%% Line 456
+				'+'
+		      (%% Line 456
+		       N, %% Line 456
+			  1)
+	      in  %% Line 456
+		  apply 'count'/3
+		      (Rest, _42, Config)
+	  %% Line 457
+	  <#{#<74>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_43> =
+		  call %% Line 458
+		       'erlang':%% Line 458
+				'+'
+		      (%% Line 458
+		       N, %% Line 458
+			  1)
+	      in  %% Line 458
+		  apply 'count'/3
+		      (Rest, _43, Config)
+	  %% Line 459
+	  <#{#<75>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_44> =
+		  call %% Line 460
+		       'erlang':%% Line 460
+				'+'
+		      (%% Line 460
+		       N, %% Line 460
+			  1)
+	      in  %% Line 460
+		  apply 'count'/3
+		      (Rest, _44, Config)
+	  %% Line 461
+	  <#{#<76>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_45> =
+		  call %% Line 462
+		       'erlang':%% Line 462
+				'+'
+		      (%% Line 462
+		       N, %% Line 462
+			  1)
+	      in  %% Line 462
+		  apply 'count'/3
+		      (Rest, _45, Config)
+	  %% Line 463
+	  <#{#<77>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_46> =
+		  call %% Line 464
+		       'erlang':%% Line 464
+				'+'
+		      (%% Line 464
+		       N, %% Line 464
+			  1)
+	      in  %% Line 464
+		  apply 'count'/3
+		      (Rest, _46, Config)
+	  %% Line 465
+	  <#{#<78>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_47> =
+		  call %% Line 466
+		       'erlang':%% Line 466
+				'+'
+		      (%% Line 466
+		       N, %% Line 466
+			  1)
+	      in  %% Line 466
+		  apply 'count'/3
+		      (Rest, _47, Config)
+	  %% Line 467
+	  <#{#<79>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_48> =
+		  call %% Line 468
+		       'erlang':%% Line 468
+				'+'
+		      (%% Line 468
+		       N, %% Line 468
+			  1)
+	      in  %% Line 468
+		  apply 'count'/3
+		      (Rest, _48, Config)
+	  %% Line 469
+	  <#{#<80>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_49> =
+		  call %% Line 470
+		       'erlang':%% Line 470
+				'+'
+		      (%% Line 470
+		       N, %% Line 470
+			  1)
+	      in  %% Line 470
+		  apply 'count'/3
+		      (Rest, _49, Config)
+	  %% Line 471
+	  <#{#<81>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_50> =
+		  call %% Line 472
+		       'erlang':%% Line 472
+				'+'
+		      (%% Line 472
+		       N, %% Line 472
+			  1)
+	      in  %% Line 472
+		  apply 'count'/3
+		      (Rest, _50, Config)
+	  %% Line 473
+	  <#{#<82>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_51> =
+		  call %% Line 474
+		       'erlang':%% Line 474
+				'+'
+		      (%% Line 474
+		       N, %% Line 474
+			  1)
+	      in  %% Line 474
+		  apply 'count'/3
+		      (Rest, _51, Config)
+	  %% Line 475
+	  <#{#<83>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_52> =
+		  call %% Line 476
+		       'erlang':%% Line 476
+				'+'
+		      (%% Line 476
+		       N, %% Line 476
+			  1)
+	      in  %% Line 476
+		  apply 'count'/3
+		      (Rest, _52, Config)
+	  %% Line 477
+	  <#{#<84>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_53> =
+		  call %% Line 478
+		       'erlang':%% Line 478
+				'+'
+		      (%% Line 478
+		       N, %% Line 478
+			  1)
+	      in  %% Line 478
+		  apply 'count'/3
+		      (Rest, _53, Config)
+	  %% Line 479
+	  <#{#<85>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_54> =
+		  call %% Line 480
+		       'erlang':%% Line 480
+				'+'
+		      (%% Line 480
+		       N, %% Line 480
+			  1)
+	      in  %% Line 480
+		  apply 'count'/3
+		      (Rest, _54, Config)
+	  %% Line 481
+	  <#{#<86>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_55> =
+		  call %% Line 482
+		       'erlang':%% Line 482
+				'+'
+		      (%% Line 482
+		       N, %% Line 482
+			  1)
+	      in  %% Line 482
+		  apply 'count'/3
+		      (Rest, _55, Config)
+	  %% Line 483
+	  <#{#<87>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_56> =
+		  call %% Line 484
+		       'erlang':%% Line 484
+				'+'
+		      (%% Line 484
+		       N, %% Line 484
+			  1)
+	      in  %% Line 484
+		  apply 'count'/3
+		      (Rest, _56, Config)
+	  %% Line 485
+	  <#{#<88>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_57> =
+		  call %% Line 486
+		       'erlang':%% Line 486
+				'+'
+		      (%% Line 486
+		       N, %% Line 486
+			  1)
+	      in  %% Line 486
+		  apply 'count'/3
+		      (Rest, _57, Config)
+	  %% Line 487
+	  <#{#<89>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_58> =
+		  call %% Line 488
+		       'erlang':%% Line 488
+				'+'
+		      (%% Line 488
+		       N, %% Line 488
+			  1)
+	      in  %% Line 488
+		  apply 'count'/3
+		      (Rest, _58, Config)
+	  %% Line 489
+	  <#{#<90>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_59> =
+		  call %% Line 490
+		       'erlang':%% Line 490
+				'+'
+		      (%% Line 490
+		       N, %% Line 490
+			  1)
+	      in  %% Line 490
+		  apply 'count'/3
+		      (Rest, _59, Config)
+	  %% Line 491
+	  <#{#<91>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_60> =
+		  call %% Line 492
+		       'erlang':%% Line 492
+				'+'
+		      (%% Line 492
+		       N, %% Line 492
+			  1)
+	      in  %% Line 492
+		  apply 'count'/3
+		      (Rest, _60, Config)
+	  %% Line 493
+	  <#{#<92>(8,1,'integer',['unsigned'|['big']]),
+	     #<_171>('all',8,'binary',['unsigned'|['big']])}#,N,_172> when 'true' ->
+	      N
+	  %% Line 494
+	  <#{#<93>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_61> =
+		  call %% Line 495
+		       'erlang':%% Line 495
+				'+'
+		      (%% Line 495
+		       N, %% Line 495
+			  1)
+	      in  %% Line 495
+		  apply 'count'/3
+		      (Rest, _61, Config)
+	  %% Line 496
+	  <#{#<94>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_62> =
+		  call %% Line 497
+		       'erlang':%% Line 497
+				'+'
+		      (%% Line 497
+		       N, %% Line 497
+			  1)
+	      in  %% Line 497
+		  apply 'count'/3
+		      (Rest, _62, Config)
+	  %% Line 498
+	  <#{#<95>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_63> =
+		  call %% Line 499
+		       'erlang':%% Line 499
+				'+'
+		      (%% Line 499
+		       N, %% Line 499
+			  1)
+	      in  %% Line 499
+		  apply 'count'/3
+		      (Rest, _63, Config)
+	  %% Line 500
+	  <#{#<96>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_64> =
+		  call %% Line 501
+		       'erlang':%% Line 501
+				'+'
+		      (%% Line 501
+		       N, %% Line 501
+			  1)
+	      in  %% Line 501
+		  apply 'count'/3
+		      (Rest, _64, Config)
+	  %% Line 502
+	  <#{#<97>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_65> =
+		  call %% Line 503
+		       'erlang':%% Line 503
+				'+'
+		      (%% Line 503
+		       N, %% Line 503
+			  1)
+	      in  %% Line 503
+		  apply 'count'/3
+		      (Rest, _65, Config)
+	  %% Line 504
+	  <#{#<98>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_66> =
+		  call %% Line 505
+		       'erlang':%% Line 505
+				'+'
+		      (%% Line 505
+		       N, %% Line 505
+			  1)
+	      in  %% Line 505
+		  apply 'count'/3
+		      (Rest, _66, Config)
+	  %% Line 506
+	  <#{#<99>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_67> =
+		  call %% Line 507
+		       'erlang':%% Line 507
+				'+'
+		      (%% Line 507
+		       N, %% Line 507
+			  1)
+	      in  %% Line 507
+		  apply 'count'/3
+		      (Rest, _67, Config)
+	  %% Line 508
+	  <#{#<100>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_68> =
+		  call %% Line 509
+		       'erlang':%% Line 509
+				'+'
+		      (%% Line 509
+		       N, %% Line 509
+			  1)
+	      in  %% Line 509
+		  apply 'count'/3
+		      (Rest, _68, Config)
+	  %% Line 510
+	  <#{#<101>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_69> =
+		  call %% Line 511
+		       'erlang':%% Line 511
+				'+'
+		      (%% Line 511
+		       N, %% Line 511
+			  1)
+	      in  %% Line 511
+		  apply 'count'/3
+		      (Rest, _69, Config)
+	  %% Line 512
+	  <#{#<102>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_70> =
+		  call %% Line 513
+		       'erlang':%% Line 513
+				'+'
+		      (%% Line 513
+		       N, %% Line 513
+			  1)
+	      in  %% Line 513
+		  apply 'count'/3
+		      (Rest, _70, Config)
+	  %% Line 514
+	  <#{#<103>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_71> =
+		  call %% Line 515
+		       'erlang':%% Line 515
+				'+'
+		      (%% Line 515
+		       N, %% Line 515
+			  1)
+	      in  %% Line 515
+		  apply 'count'/3
+		      (Rest, _71, Config)
+	  %% Line 516
+	  <#{#<104>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_72> =
+		  call %% Line 517
+		       'erlang':%% Line 517
+				'+'
+		      (%% Line 517
+		       N, %% Line 517
+			  1)
+	      in  %% Line 517
+		  apply 'count'/3
+		      (Rest, _72, Config)
+	  %% Line 518
+	  <#{#<105>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_73> =
+		  call %% Line 519
+		       'erlang':%% Line 519
+				'+'
+		      (%% Line 519
+		       N, %% Line 519
+			  1)
+	      in  %% Line 519
+		  apply 'count'/3
+		      (Rest, _73, Config)
+	  %% Line 520
+	  <#{#<106>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_74> =
+		  call %% Line 521
+		       'erlang':%% Line 521
+				'+'
+		      (%% Line 521
+		       N, %% Line 521
+			  1)
+	      in  %% Line 521
+		  apply 'count'/3
+		      (Rest, _74, Config)
+	  %% Line 522
+	  <#{#<107>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_75> =
+		  call %% Line 523
+		       'erlang':%% Line 523
+				'+'
+		      (%% Line 523
+		       N, %% Line 523
+			  1)
+	      in  %% Line 523
+		  apply 'count'/3
+		      (Rest, _75, Config)
+	  %% Line 524
+	  <#{#<108>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_76> =
+		  call %% Line 525
+		       'erlang':%% Line 525
+				'+'
+		      (%% Line 525
+		       N, %% Line 525
+			  1)
+	      in  %% Line 525
+		  apply 'count'/3
+		      (Rest, _76, Config)
+	  %% Line 526
+	  <#{#<109>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_77> =
+		  call %% Line 527
+		       'erlang':%% Line 527
+				'+'
+		      (%% Line 527
+		       N, %% Line 527
+			  1)
+	      in  %% Line 527
+		  apply 'count'/3
+		      (Rest, _77, Config)
+	  %% Line 528
+	  <#{#<110>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_78> =
+		  call %% Line 529
+		       'erlang':%% Line 529
+				'+'
+		      (%% Line 529
+		       N, %% Line 529
+			  1)
+	      in  %% Line 529
+		  apply 'count'/3
+		      (Rest, _78, Config)
+	  %% Line 530
+	  <#{#<111>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_79> =
+		  call %% Line 531
+		       'erlang':%% Line 531
+				'+'
+		      (%% Line 531
+		       N, %% Line 531
+			  1)
+	      in  %% Line 531
+		  apply 'count'/3
+		      (Rest, _79, Config)
+	  %% Line 532
+	  <#{#<112>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_80> =
+		  call %% Line 533
+		       'erlang':%% Line 533
+				'+'
+		      (%% Line 533
+		       N, %% Line 533
+			  1)
+	      in  %% Line 533
+		  apply 'count'/3
+		      (Rest, _80, Config)
+	  %% Line 534
+	  <#{#<113>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_81> =
+		  call %% Line 535
+		       'erlang':%% Line 535
+				'+'
+		      (%% Line 535
+		       N, %% Line 535
+			  1)
+	      in  %% Line 535
+		  apply 'count'/3
+		      (Rest, _81, Config)
+	  %% Line 536
+	  <#{#<114>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_82> =
+		  call %% Line 537
+		       'erlang':%% Line 537
+				'+'
+		      (%% Line 537
+		       N, %% Line 537
+			  1)
+	      in  %% Line 537
+		  apply 'count'/3
+		      (Rest, _82, Config)
+	  %% Line 538
+	  <#{#<115>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_83> =
+		  call %% Line 539
+		       'erlang':%% Line 539
+				'+'
+		      (%% Line 539
+		       N, %% Line 539
+			  1)
+	      in  %% Line 539
+		  apply 'count'/3
+		      (Rest, _83, Config)
+	  %% Line 540
+	  <#{#<116>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_84> =
+		  call %% Line 541
+		       'erlang':%% Line 541
+				'+'
+		      (%% Line 541
+		       N, %% Line 541
+			  1)
+	      in  %% Line 541
+		  apply 'count'/3
+		      (Rest, _84, Config)
+	  %% Line 542
+	  <#{#<117>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_85> =
+		  call %% Line 543
+		       'erlang':%% Line 543
+				'+'
+		      (%% Line 543
+		       N, %% Line 543
+			  1)
+	      in  %% Line 543
+		  apply 'count'/3
+		      (Rest, _85, Config)
+	  %% Line 544
+	  <#{#<118>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_86> =
+		  call %% Line 545
+		       'erlang':%% Line 545
+				'+'
+		      (%% Line 545
+		       N, %% Line 545
+			  1)
+	      in  %% Line 545
+		  apply 'count'/3
+		      (Rest, _86, Config)
+	  %% Line 546
+	  <#{#<119>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_87> =
+		  call %% Line 547
+		       'erlang':%% Line 547
+				'+'
+		      (%% Line 547
+		       N, %% Line 547
+			  1)
+	      in  %% Line 547
+		  apply 'count'/3
+		      (Rest, _87, Config)
+	  %% Line 548
+	  <#{#<120>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_88> =
+		  call %% Line 549
+		       'erlang':%% Line 549
+				'+'
+		      (%% Line 549
+		       N, %% Line 549
+			  1)
+	      in  %% Line 549
+		  apply 'count'/3
+		      (Rest, _88, Config)
+	  %% Line 550
+	  <#{#<121>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_89> =
+		  call %% Line 551
+		       'erlang':%% Line 551
+				'+'
+		      (%% Line 551
+		       N, %% Line 551
+			  1)
+	      in  %% Line 551
+		  apply 'count'/3
+		      (Rest, _89, Config)
+	  %% Line 552
+	  <#{#<122>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_90> =
+		  call %% Line 553
+		       'erlang':%% Line 553
+				'+'
+		      (%% Line 553
+		       N, %% Line 553
+			  1)
+	      in  %% Line 553
+		  apply 'count'/3
+		      (Rest, _90, Config)
+	  %% Line 554
+	  <#{#<123>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_91> =
+		  call %% Line 555
+		       'erlang':%% Line 555
+				'+'
+		      (%% Line 555
+		       N, %% Line 555
+			  1)
+	      in  %% Line 555
+		  apply 'count'/3
+		      (Rest, _91, Config)
+	  %% Line 556
+	  <#{#<124>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_92> =
+		  call %% Line 557
+		       'erlang':%% Line 557
+				'+'
+		      (%% Line 557
+		       N, %% Line 557
+			  1)
+	      in  %% Line 557
+		  apply 'count'/3
+		      (Rest, _92, Config)
+	  %% Line 558
+	  <#{#<125>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_93> =
+		  call %% Line 559
+		       'erlang':%% Line 559
+				'+'
+		      (%% Line 559
+		       N, %% Line 559
+			  1)
+	      in  %% Line 559
+		  apply 'count'/3
+		      (Rest, _93, Config)
+	  %% Line 560
+	  <#{#<126>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_94> =
+		  call %% Line 561
+		       'erlang':%% Line 561
+				'+'
+		      (%% Line 561
+		       N, %% Line 561
+			  1)
+	      in  %% Line 561
+		  apply 'count'/3
+		      (Rest, _94, Config)
+	  %% Line 562
+	  <#{#<127>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      let <_95> =
+		  call %% Line 563
+		       'erlang':%% Line 563
+				'+'
+		      (%% Line 563
+		       N, %% Line 563
+			  1)
+	      in  %% Line 563
+		  apply 'count'/3
+		      (Rest, _95, Config)
+	  %% Line 564
+	  <#{#<_173>('undefined','undefined','utf8',['unsigned'|['big']]),
+	     #<_174>('all',8,'binary',['unsigned'|['big']])}#,N,{'config',_175,_176,_177,_178,_179,_180,_181,_182,_183,_184,_185,_186,'true',_187,_188,_189}> when 'true' ->
+	      N
+	  %% Line 565
+	  <#{#<X>('undefined','undefined','utf8',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N,Config> when 'true' ->
+	      %% Line 566
+	      case X of
+		%% Line 567
+		<_190>
+		    when call 'erlang':'<'
+			  (X,
+			   2048) ->
+		    let <_96> =
+			call 'erlang':'+'
+			    (N, 2)
+		    in  apply 'count'/3
+			    (Rest, _96, Config)
+		%% Line 568
+		<8232> when 'true' ->
+		    N
+		%% Line 569
+		<8233> when 'true' ->
+		    N
+		%% Line 570
+		<_193>
+		    when call 'erlang':'<'
+			  (X,
+			   65536) ->
+		    let <_97> =
+			call 'erlang':'+'
+			    (N, 3)
+		    in  apply 'count'/3
+			    (Rest, _97, Config)
+		%% Line 571
+		<_196> when 'true' ->
+		    let <_98> =
+			call 'erlang':'+'
+			    (N, 4)
+		    in  apply 'count'/3
+			    (Rest, _98, Config)
+	      end
+	  %% Line 573
+	  <#{#<_197>(8,1,'integer',['unsigned'|['big']]),
+	     #<_198>('all',8,'binary',['unsigned'|['big']])}#,N,_199> when 'true' ->
+	      N
+	  %% Line 574
+	  <#{}#,N,_200> when 'true' ->
+	      N
+	  ( <_102,_101,_100> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_102,_101,_100})
+		  -| [{'function_name',{'count',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'strip_continuations'/2 =
+    %% Line 577
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Bin,0> when 'true' ->
+	      Bin
+	  %% Line 578
+	  <#{#<X>(8,1,'integer',['unsigned'|['big']]),
+	     #<Rest>('all',8,'binary',['unsigned'|['big']])}#,N>
+	      when let <_2> =
+		    call 'erlang':'>='
+			(X, 128)
+		in  let <_3> =
+			call 'erlang':'=<'
+			    (X, 191)
+		    in  call 'erlang':'and'
+			    (_2, _3) ->
+	      let <_4> =
+		  call %% Line 579
+		       'erlang':%% Line 579
+				'-'
+		      (%% Line 579
+		       N, %% Line 579
+			  1)
+	      in  %% Line 579
+		  apply 'strip_continuations'/2
+		      (Rest, _4)
+	  %% Line 581
+	  <Bin,_7> when 'true' ->
+	      Bin
+	end
+'maybe_replace'/2 =
+    %% Line 584
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <8,{'config',_12,_13,'true',_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26}> when 'true' ->
+	      #{#<92>(8,1,'integer',['unsigned'|['big']]),
+		#<98>(8,1,'integer',['unsigned'|['big']])}#
+	  %% Line 585
+	  <9,{'config',_27,_28,'true',_29,_30,_31,_32,_33,_34,_35,_36,_37,_38,_39,_40,_41}> when 'true' ->
+	      #{#<92>(8,1,'integer',['unsigned'|['big']]),
+		#<116>(8,1,'integer',['unsigned'|['big']])}#
+	  %% Line 586
+	  <10,{'config',_42,_43,'true',_44,_45,_46,_47,_48,_49,_50,_51,_52,_53,_54,_55,_56}> when 'true' ->
+	      #{#<92>(8,1,'integer',['unsigned'|['big']]),
+		#<110>(8,1,'integer',['unsigned'|['big']])}#
+	  %% Line 587
+	  <12,{'config',_57,_58,'true',_59,_60,_61,_62,_63,_64,_65,_66,_67,_68,_69,_70,_71}> when 'true' ->
+	      #{#<92>(8,1,'integer',['unsigned'|['big']]),
+		#<102>(8,1,'integer',['unsigned'|['big']])}#
+	  %% Line 588
+	  <13,{'config',_72,_73,'true',_74,_75,_76,_77,_78,_79,_80,_81,_82,_83,_84,_85,_86}> when 'true' ->
+	      #{#<92>(8,1,'integer',['unsigned'|['big']]),
+		#<114>(8,1,'integer',['unsigned'|['big']])}#
+	  %% Line 589
+	  <34,{'config',_87,_88,'true',_89,_90,_91,_92,_93,_94,_95,_96,_97,_98,_99,_100,_101}> when 'true' ->
+	      #{#<92>(8,1,'integer',['unsigned'|['big']]),
+		#<34>(8,1,'integer',['unsigned'|['big']])}#
+	  %% Line 590
+	  <47,Config = {'config',_102,_103,'true',_104,_105,_106,_107,_108,_109,_110,_111,_112,_113,_114,_115,_116}> when 'true' ->
+	      %% Line 591
+	      ( case Config of
+		  ( <( {'config',_117,_rec7,_118,_119,_120,_121,_122,_123,_124,_125,_126,_127,_128,_129,_130,_131}
+		       -| ['compiler_generated'] )> when 'true' ->
+			case _rec7 of
+			  %% Line 592
+			  <'true'> when 'true' ->
+			      #{#<92>(8,1,'integer',['unsigned'|['big']]),
+				#<47>(8,1,'integer',['unsigned'|['big']])}#
+			  %% Line 593
+			  <'false'> when 'true' ->
+			      #{#<47>(8,1,'integer',['unsigned'|['big']])}#
+			  ( <_4> when 'true' ->
+				primop 'match_fail'
+				    ({'case_clause',_4})
+			    -| ['compiler_generated'] )
+			end
+		    -| ['compiler_generated'] )
+		  ( <_132> when 'true' ->
+			( call ( 'erlang'
+				 -| ['compiler_generated'] ):( 'error'
+							       -| ['compiler_generated'] )
+			      (( {'badrecord','config'}
+				 -| ['compiler_generated'] ))
+			  -| ['compiler_generated'] )
+		    -| ['compiler_generated'] )
+		end
+		-| ['compiler_generated'] )
+	  %% Line 595
+	  <92,{'config',_133,_134,'true',_135,_136,_137,_138,_139,_140,_141,_142,_143,_144,_145,_146,_147}> when 'true' ->
+	      #{#<92>(8,1,'integer',['unsigned'|['big']]),
+		#<92>(8,1,'integer',['unsigned'|['big']])}#
+	  %% Line 596
+	  <X,{'config',_148,_149,'true',_150,_151,_152,_153,_154,_155,_156,_157,_158,_159,_160,_161,_162}>
+	      when call 'erlang':'<'
+		    (X,
+		     32) ->
+	      %% Line 597
+	      apply 'json_escape_sequence'/1
+		  (X)
+	  %% Line 598
+	  <X,Config = {'config',_163,_164,'true',_165,_166,_167,_168,_169,_170,_171,_172,_173,_174,_175,_176,_177}>
+	      when let <_5> =
+		    call 'erlang':'=='
+			(X, 8232)
+		in  let <_6> =
+			call 'erlang':'=='
+			    (X, 8233)
+		    in  call 'erlang':'or'
+			    (_5, _6) ->
+	      %% Line 599
+	      ( case Config of
+		  ( <( {'config',_178,_179,_180,_181,_182,_183,_184,_185,_186,_187,_188,_189,_190,_rec8,_191,_192}
+		       -| ['compiler_generated'] )> when 'true' ->
+			case _rec8 of
+			  %% Line 600
+			  <'true'> when 'true' ->
+			      #{#<X>('undefined','undefined','utf8',['unsigned'|['big']])}#
+			  %% Line 601
+			  <'false'> when 'true' ->
+			      apply 'json_escape_sequence'/1
+				  (X)
+			  ( <_9> when 'true' ->
+				primop 'match_fail'
+				    ({'case_clause',_9})
+			    -| ['compiler_generated'] )
+			end
+		    -| ['compiler_generated'] )
+		  ( <_193> when 'true' ->
+			( call ( 'erlang'
+				 -| ['compiler_generated'] ):( 'error'
+							       -| ['compiler_generated'] )
+			      (( {'badrecord','config'}
+				 -| ['compiler_generated'] ))
+			  -| ['compiler_generated'] )
+		    -| ['compiler_generated'] )
+		end
+		-| ['compiler_generated'] )
+	  %% Line 603
+	  <Atom,{'config',_194,_195,_196,_197,_198,_199,'true',_200,_201,_202,_203,_204,_205,_206,_207,_208}>
+	      when call 'erlang':'is_atom'
+		    (Atom) ->
+	      %% Line 604
+	      call 'erlang':'error'
+		  ('badarg')
+	  %% Line 605
+	  <'surrogate',_X_Config> when 'true' ->
+	      %% Line 606
+	      #{#<239>(8,1,'integer',['unsigned'|['big']]),
+		#<191>(8,1,'integer',['unsigned'|['big']]),
+		#<189>(8,1,'integer',['unsigned'|['big']])}#
+	  %% Line 607
+	  <'badutf',_X_Config> when 'true' ->
+	      %% Line 608
+	      #{#<239>(8,1,'integer',['unsigned'|['big']]),
+		#<191>(8,1,'integer',['unsigned'|['big']]),
+		#<189>(8,1,'integer',['unsigned'|['big']])}#
+	  %% Line 609
+	  <X,_X_Config> when 'true' ->
+	      %% Line 610
+	      #{#<X>('undefined','undefined','utf8',['unsigned'|['big']])}#
+	end
+'json_escape_sequence'/1 =
+    %% Line 614
+    fun (_0) ->
+	case _0 of
+	  <X>
+	      when call 'erlang':'<'
+		    (_0,
+		     65536) ->
+	      %% Line 615
+	      case #{#<X>(16,1,'integer',['unsigned'|['big']])}# of
+		<#{#<A>(4,1,'integer',['unsigned'|['big']]),
+		   #<B>(4,1,'integer',['unsigned'|['big']]),
+		   #<C>(4,1,'integer',['unsigned'|['big']]),
+		   #<D>(4,1,'integer',['unsigned'|['big']])}#> when 'true' ->
+		    let <_5> =
+			apply %% Line 616
+			      'to_hex'/1
+			    (%% Line 616
+			     A)
+		    in  let <_4> =
+			    apply %% Line 616
+				  'to_hex'/1
+				(%% Line 616
+				 B)
+			in  let <_3> =
+				apply %% Line 616
+				      'to_hex'/1
+				    (%% Line 616
+				     C)
+			    in  let <_2> =
+				    apply %% Line 616
+					  'to_hex'/1
+					(%% Line 616
+					 D)
+				in  %% Line 616
+				    #{#<92>(8,1,'integer',['unsigned'|['big']]),
+				      #<117>(8,1,'integer',['unsigned'|['big']]),
+				      #<_5>(8,1,'integer',['unsigned'|['big']]),
+				      #<_4>(8,1,'integer',['unsigned'|['big']]),
+				      #<_3>(8,1,'integer',['unsigned'|['big']]),
+				      #<_2>(8,1,'integer',['unsigned'|['big']])}#
+		( <_1> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_1})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 617
+	  <X> when 'true' ->
+	      let <Adjusted> =
+		  call %% Line 618
+		       'erlang':%% Line 618
+				'-'
+		      (%% Line 618
+		       X, %% Line 618
+			  65536)
+	      in  %% Line 619
+		  case #{#<Adjusted>(20,1,'integer',['unsigned'|['big']])}# of
+		    <#{#<A>(10,1,'integer',['unsigned'|['big']]),
+		       #<B>(10,1,'integer',['unsigned'|['big']])}#> when 'true' ->
+			let <_8> =
+			    call %% Line 620
+				 'erlang':%% Line 620
+					  '+'
+				(%% Line 620
+				 A, %% Line 620
+				    55296)
+			in  let <_9> =
+				apply %% Line 620
+				      'json_escape_sequence'/1
+				    (_8)
+			    in  let <_10> =
+				    call %% Line 620
+					 'erlang':%% Line 620
+						  '+'
+					(%% Line 620
+					 B, %% Line 620
+					    56320)
+				in  let <_11> =
+					apply %% Line 620
+					      'json_escape_sequence'/1
+					    (_10)
+				    in  %% Line 620
+					[_9|[_11|[]]]
+		    ( <_7> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_7})
+		      -| ['compiler_generated'] )
+		  end
+	end
+'to_hex'/1 =
+    %% Line 623
+    fun (_0) ->
+	case _0 of
+	  <10> when 'true' ->
+	      97
+	  %% Line 624
+	  <11> when 'true' ->
+	      98
+	  %% Line 625
+	  <12> when 'true' ->
+	      99
+	  %% Line 626
+	  <13> when 'true' ->
+	      100
+	  %% Line 627
+	  <14> when 'true' ->
+	      101
+	  %% Line 628
+	  <15> when 'true' ->
+	      102
+	  %% Line 629
+	  <X> when 'true' ->
+	      call 'erlang':'+'
+		  (X, 48)
+	end
+'init'/1 =
+    %% Line 635
+    fun (_0) ->
+	case _0 of
+	  <[]> when 'true' ->
+	      []
+	  ( <_1> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_1})
+		  -| [{'function_name',{'init',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'handle_event'/2 =
+    %% Line 640
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <'end_json',State> when 'true' ->
+	      call 'lists':'reverse'
+		  (State)
+	  %% Line 641
+	  <Event,State> when 'true' ->
+	      [Event|State]
+	end
+'module_info'/0 =
+    fun () ->
+	call 'erlang':'get_module_info'
+	    ('jsx_parser')
+'module_info'/1 =
+    fun (_0) ->
+	call 'erlang':'get_module_info'
+	    ('jsx_parser', _0)
+end

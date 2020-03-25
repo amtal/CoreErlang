@@ -1,0 +1,875 @@
+module 'jsx_to_json' ['finish'/1,
+		      'format'/2,
+		      'get_key'/1,
+		      'get_value'/1,
+		      'handle_event'/2,
+		      'init'/1,
+		      'insert'/2,
+		      'module_info'/0,
+		      'module_info'/1,
+		      'start_array'/1,
+		      'start_json'/0,
+		      'start_json'/1,
+		      'start_object'/1,
+		      'to_json'/2]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[106|[115|[120|[95|[116|[111|[95|[106|[115|[111|[110|[46|[101|[114|[108]]]]]]]]]]]]]]],1}],
+		%% Line 32
+		'record' =
+		    %% Line 32
+		    [{'config',[{'record_field',33,{'atom',33,'space'},{'integer',33,0}}|[{'record_field',34,{'atom',34,'indent'},{'integer',34,0}}|[{'record_field',35,{'atom',35,'depth'},{'integer',35,0}}|[{'record_field',36,{'atom',36,'newline'},{'bin',36,[{'bin_element',36,{'char',36,10},'default','default'}]}}]]]]}],
+		%% Line 39
+		'type' =
+		    %% Line 39
+		    [{'config',{'type',39,'list',[]},[]}],
+		%% Line 40
+		'export_type' =
+		    %% Line 40
+		    [{'config',0}],
+		%% Line 43
+		'spec' =
+		    %% Line 43
+		    [{{'to_json',2},[{'type',43,'fun',[{'type',43,'product',[{'ann_type',43,[{'var',43,'Source'}|[{'type',43,'any',[]}]]}|[{'ann_type',43,[{'var',43,'Config'}|[{'user_type',43,'config',[]}]]}]]}|[{'type',43,'binary',[]}]]}]}],
+		%% Line 49
+		'spec' =
+		    %% Line 49
+		    [{{'format',2},[{'type',49,'fun',[{'type',49,'product',[{'ann_type',49,[{'var',49,'Source'}|[{'type',49,'binary',[]}]]}|[{'ann_type',49,[{'var',49,'Config'}|[{'user_type',49,'config',[]}]]}]]}|[{'type',49,'binary',[]}]]}]}],
+		%% Line 93
+		'type' =
+		    %% Line 93
+		    [{'state',{'type',93,'tuple',[{'remote_type',93,[{'atom',93,'unicode'}|[{'atom',93,'charlist'}|[[]]]]}|[{'type',93,'record',[{'atom',93,'config'}]}]]},[]}],
+		%% Line 94
+		'spec' =
+		    %% Line 94
+		    [{{'init',1},[{'type',94,'fun',[{'type',94,'product',[{'ann_type',94,[{'var',94,'Config'}|[{'remote_type',94,[{'atom',94,'proplists'}|[{'atom',94,'proplist'}|[[]]]]}]]}]}|[{'user_type',94,'state',[]}]]}]}],
+		%% Line 99
+		'spec' =
+		    %% Line 99
+		    [{{'handle_event',2},[{'type',99,'fun',[{'type',99,'product',[{'ann_type',99,[{'var',99,'Event'}|[{'type',99,'any',[]}]]}|[{'ann_type',99,[{'var',99,'State'}|[{'user_type',99,'state',[]}]]}]]}|[{'user_type',99,'state',[]}]]}]}]]
+'to_json'/2 =
+    %% Line 45
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Source,Config>
+	      when call 'erlang':'is_list'
+		    (Config) ->
+	      let <_2> =
+		  call %% Line 46
+		       'erlang':%% Line 46
+				'++'
+		      (%% Line 46
+		       Config, %% Line 46
+			       ['escaped_strings'])
+	      in  let <_3> =
+		      call %% Line 46
+			   'jsx_config':%% Line 46
+					'extract_config'
+			  (_2)
+		  in  let <_4> =
+			  call %% Line 46
+			       'jsx':%% Line 46
+				     'encoder'
+			      (%% Line 46
+			       'jsx_to_json', %% Line 46
+					      Config, _3)
+		      in  %% Line 46
+			  apply _4
+			      (Source)
+	  ( <_6,_5> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_6,_5})
+		  -| [{'function_name',{'to_json',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'format'/2 =
+    %% Line 51
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Source,Config>
+	      when try
+		    ( let <_4> =
+			  case call 'erlang':'is_binary'
+				   (Source) of
+			    ( <( 'true'
+				 -| ['compiler_generated'] )> when 'true' ->
+				  call 'erlang':'is_list'
+				      (Config)
+			      -| ['compiler_generated'] )
+			    ( <( 'false'
+				 -| ['compiler_generated'] )> when 'true' ->
+				  'false'
+			      -| ['compiler_generated'] )
+			    ( <_2> when 'true' ->
+				  _2
+			      -| ['compiler_generated'] )
+			  end
+		      in  ( call 'erlang':'=:='
+				(( _4
+				   -| ['compiler_generated'] ), 'true')
+			    -| ['compiler_generated'] )
+		      -| ['compiler_generated'] )
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      let <_5> =
+		  call %% Line 52
+		       'erlang':%% Line 52
+				'++'
+		      (%% Line 52
+		       Config, %% Line 52
+			       ['escaped_strings'])
+	      in  let <_6> =
+		      call %% Line 52
+			   'jsx_config':%% Line 52
+					'extract_config'
+			  (_5)
+		  in  let <_7> =
+			  call %% Line 52
+			       'jsx':%% Line 52
+				     'decoder'
+			      (%% Line 52
+			       'jsx_to_json', %% Line 52
+					      Config, _6)
+		      in  %% Line 52
+			  apply _7
+			      (Source)
+	  %% Line 53
+	  <_10,_11> when 'true' ->
+	      call 'erlang':'error'
+		  ('badarg')
+	end
+'parse_config'/1 =
+    %% Line 56
+    fun (_0) ->
+	apply 'parse_config'/2
+	    (_0, {'config',0,0,0,#{#<10>(8,1,'integer',['unsigned'|['big']])}#})
+'parse_config'/2 =
+    %% Line 58
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <[{'space',Val}|Rest],Config>
+	      when let <_2> =
+		    call 'erlang':'is_integer'
+			(Val)
+		in  let <_3> =
+			call 'erlang':'>'
+			    (Val, 0)
+		    in  call 'erlang':'and'
+			    (_2, _3) ->
+	      %% Line 59
+	      case Config of
+		<{'config',_27,_28,_29,_30}> when 'true' ->
+		    let <_6> =
+			call 'erlang':'setelement'
+			    (2, Config, Val)
+		    in  apply 'parse_config'/2
+			    (Rest, _6)
+		( <_31> when 'true' ->
+		      ( call ( 'erlang'
+			       -| ['compiler_generated'] ):( 'error'
+							     -| ['compiler_generated'] )
+			    (( {'badrecord','config'}
+			       -| ['compiler_generated'] ))
+			-| ['compiler_generated'] )
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 60
+	  <['space'|Rest],Config> when 'true' ->
+	      %% Line 61
+	      case Config of
+		<{'config',_32,_33,_34,_35}> when 'true' ->
+		    let <_9> =
+			call 'erlang':'setelement'
+			    (2, Config, 1)
+		    in  apply 'parse_config'/2
+			    (Rest, _9)
+		( <_36> when 'true' ->
+		      ( call ( 'erlang'
+			       -| ['compiler_generated'] ):( 'error'
+							     -| ['compiler_generated'] )
+			    (( {'badrecord','config'}
+			       -| ['compiler_generated'] ))
+			-| ['compiler_generated'] )
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 62
+	  <[{'indent',Val}|Rest],Config>
+	      when let <_10> =
+		    call 'erlang':'is_integer'
+			(Val)
+		in  let <_11> =
+			call 'erlang':'>'
+			    (Val, 0)
+		    in  call 'erlang':'and'
+			    (_10, _11) ->
+	      %% Line 63
+	      case Config of
+		<{'config',_37,_38,_39,_40}> when 'true' ->
+		    let <_14> =
+			call 'erlang':'setelement'
+			    (3, Config, Val)
+		    in  apply 'parse_config'/2
+			    (Rest, _14)
+		( <_41> when 'true' ->
+		      ( call ( 'erlang'
+			       -| ['compiler_generated'] ):( 'error'
+							     -| ['compiler_generated'] )
+			    (( {'badrecord','config'}
+			       -| ['compiler_generated'] ))
+			-| ['compiler_generated'] )
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 64
+	  <['indent'|Rest],Config> when 'true' ->
+	      %% Line 65
+	      case Config of
+		<{'config',_42,_43,_44,_45}> when 'true' ->
+		    let <_17> =
+			call 'erlang':'setelement'
+			    (3, Config, 1)
+		    in  apply 'parse_config'/2
+			    (Rest, _17)
+		( <_46> when 'true' ->
+		      ( call ( 'erlang'
+			       -| ['compiler_generated'] ):( 'error'
+							     -| ['compiler_generated'] )
+			    (( {'badrecord','config'}
+			       -| ['compiler_generated'] ))
+			-| ['compiler_generated'] )
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 66
+	  <[{'newline',Val}|Rest],Config>
+	      when call 'erlang':'is_binary'
+		    (Val) ->
+	      %% Line 67
+	      case Config of
+		<{'config',_47,_48,_49,_50}> when 'true' ->
+		    let <_20> =
+			call 'erlang':'setelement'
+			    (5, Config, Val)
+		    in  apply 'parse_config'/2
+			    (Rest, _20)
+		( <_51> when 'true' ->
+		      ( call ( 'erlang'
+			       -| ['compiler_generated'] ):( 'error'
+							     -| ['compiler_generated'] )
+			    (( {'badrecord','config'}
+			       -| ['compiler_generated'] ))
+			-| ['compiler_generated'] )
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 68
+	  <Options = [{K,_52}|Rest],Config> when 'true' ->
+	      let <_21> =
+		  call %% Line 69
+		       'jsx_config':%% Line 69
+				    'valid_flags'
+		      ()
+	      in  %% Line 69
+		  case call 'lists':'member'
+			   (K, _21) of
+		    %% Line 70
+		    <'true'> when 'true' ->
+			apply 'parse_config'/2
+			    (Rest, Config)
+		    %% Line 71
+		    <'false'> when 'true' ->
+			call 'erlang':'error'
+			    ('badarg', [Options|[Config|[]]])
+		    ( <_22> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_22})
+		      -| ['compiler_generated'] )
+		  end
+	  %% Line 73
+	  <Options = [K|Rest],Config> when 'true' ->
+	      let <_23> =
+		  call %% Line 74
+		       'jsx_config':%% Line 74
+				    'valid_flags'
+		      ()
+	      in  %% Line 74
+		  case call 'lists':'member'
+			   (K, _23) of
+		    %% Line 75
+		    <'true'> when 'true' ->
+			apply 'parse_config'/2
+			    (Rest, Config)
+		    %% Line 76
+		    <'false'> when 'true' ->
+			call 'erlang':'error'
+			    ('badarg', [Options|[Config|[]]])
+		    ( <_24> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_24})
+		      -| ['compiler_generated'] )
+		  end
+	  %% Line 78
+	  <[],Config> when 'true' ->
+	      %% Line 79
+	      Config
+	  ( <_26,_25> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_26,_25})
+		  -| [{'function_name',{'parse_config',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'init'/1 =
+    %% Line 96
+    fun (_0) ->
+	let <_1> =
+	    apply 'parse_config'/1
+		(_0)
+	in  {[],_1}
+'handle_event'/2 =
+    %% Line 101
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <'end_json',State> when 'true' ->
+	      apply 'get_value'/1
+		  (State)
+	  %% Line 103
+	  <'start_object',State> when 'true' ->
+	      apply 'start_object'/1
+		  (State)
+	  %% Line 104
+	  <'end_object',State> when 'true' ->
+	      apply 'finish'/1
+		  (State)
+	  %% Line 106
+	  <'start_array',State> when 'true' ->
+	      apply 'start_array'/1
+		  (State)
+	  %% Line 107
+	  <'end_array',State> when 'true' ->
+	      apply 'finish'/1
+		  (State)
+	  %% Line 109
+	  <{Type,Event},State = {_5,Config}> when 'true' ->
+	      let <_2> =
+		  apply 'encode'/3
+		      (Type, Event, Config)
+	      in  apply 'insert'/2
+		      (_2, State)
+	  ( <_4,_3> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_4,_3})
+		  -| [{'function_name',{'handle_event',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'encode'/3 =
+    %% Line 112
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <'string',String,_X_Config> when 'true' ->
+	      %% Line 113
+	      [#{#<34>(8,1,'integer',['unsigned'|['big']])}#|[String|[#{#<34>(8,1,'integer',['unsigned'|['big']])}#]]]
+	  %% Line 114
+	  <'key',Key,_X_Config> when 'true' ->
+	      %% Line 115
+	      [#{#<34>(8,1,'integer',['unsigned'|['big']])}#|[Key|[#{#<34>(8,1,'integer',['unsigned'|['big']])}#]]]
+	  %% Line 116
+	  <'literal',Literal,_X_Config> when 'true' ->
+	      %% Line 117
+	      call 'erlang':'atom_to_list'
+		  (Literal)
+	  %% Line 118
+	  <'integer',Integer,_X_Config> when 'true' ->
+	      %% Line 119
+	      call 'erlang':'integer_to_list'
+		  (Integer)
+	  %% Line 120
+	  <'float',Float,_X_Config> when 'true' ->
+	      %% Line 121
+	      call 'io_lib':'format'
+		  ([126|[112]], [Float|[]])
+	  ( <_5,_4,_3> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_5,_4,_3})
+		  -| [{'function_name',{'encode',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'space'/1 =
+    %% Line 124
+    fun (_0) ->
+	%% Line 125
+	( case _0 of
+	    ( <( {'config',_rec5,_5,_6,_7}
+		 -| ['compiler_generated'] )> when 'true' ->
+		  case _rec5 of
+		    %% Line 126
+		    <0> when 'true' ->
+			#{}#
+		    %% Line 127
+		    <X>
+			when call 'erlang':'>'
+			      (_rec5,
+			       0) ->
+			call 'binary':'copy'
+			    (#{#<32>(8,1,'integer',['unsigned'|['big']])}#, X)
+		    ( <_3> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_3})
+		      -| ['compiler_generated'] )
+		  end
+	      -| ['compiler_generated'] )
+	    ( <_8> when 'true' ->
+		  ( call ( 'erlang'
+			   -| ['compiler_generated'] ):( 'error'
+							 -| ['compiler_generated'] )
+			(( {'badrecord','config'}
+			   -| ['compiler_generated'] ))
+		    -| ['compiler_generated'] )
+	      -| ['compiler_generated'] )
+	  end
+	  -| ['compiler_generated'] )
+'indent'/1 =
+    %% Line 131
+    fun (_0) ->
+	%% Line 132
+	( case _0 of
+	    ( <( {'config',_11,_rec6,_12,_13}
+		 -| ['compiler_generated'] )> when 'true' ->
+		  case _rec6 of
+		    %% Line 133
+		    <0> when 'true' ->
+			#{}#
+		    %% Line 134
+		    <X>
+			when call 'erlang':'>'
+			      (_rec6,
+			       0) ->
+			( case _0 of
+			    ( <( {'config',_15,_16,_17,_rec8}
+				 -| ['compiler_generated'] )> when 'true' ->
+				  ( case _0 of
+				      ( <( {'config',_19,_20,_rec7,_21}
+					   -| ['compiler_generated'] )> when 'true' ->
+					    let <_5> =
+						call 'erlang':'*'
+						    (X, _rec7)
+					    in  let <_6> =
+						    call 'binary':'copy'
+							(#{#<32>(8,1,'integer',['unsigned'|['big']])}#, _5)
+						in  #{#<_rec8>('all',8,'binary',['unsigned'|['big']]),
+						      #<_6>('all',8,'binary',['unsigned'|['big']])}#
+					-| ['compiler_generated'] )
+				      ( <_22> when 'true' ->
+					    ( call ( 'erlang'
+						     -| ['compiler_generated'] ):( 'error'
+										   -| ['compiler_generated'] )
+						  (( {'badrecord','config'}
+						     -| ['compiler_generated'] ))
+					      -| ['compiler_generated'] )
+					-| ['compiler_generated'] )
+				    end
+				    -| ['compiler_generated'] )
+			      -| ['compiler_generated'] )
+			    ( <_18> when 'true' ->
+				  ( call ( 'erlang'
+					   -| ['compiler_generated'] ):( 'error'
+									 -| ['compiler_generated'] )
+					(( {'badrecord','config'}
+					   -| ['compiler_generated'] ))
+				    -| ['compiler_generated'] )
+			      -| ['compiler_generated'] )
+			  end
+			  -| ['compiler_generated'] )
+		    ( <_9> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_9})
+		      -| ['compiler_generated'] )
+		  end
+	      -| ['compiler_generated'] )
+	    ( <_14> when 'true' ->
+		  ( call ( 'erlang'
+			   -| ['compiler_generated'] ):( 'error'
+							 -| ['compiler_generated'] )
+			(( {'badrecord','config'}
+			   -| ['compiler_generated'] ))
+		    -| ['compiler_generated'] )
+	      -| ['compiler_generated'] )
+	  end
+	  -| ['compiler_generated'] )
+'indent_or_space'/1 =
+    %% Line 138
+    fun (_0) ->
+	%% Line 139
+	( case _0 of
+	    ( <( {'config',_5,_rec9,_6,_7}
+		 -| ['compiler_generated'] )> when 'true' ->
+		  case <> of
+		    %% Line 140
+		    <>
+			when call 'erlang':'>'
+			      (_rec9,
+			       0) ->
+			apply 'indent'/1
+			    (_0)
+		    %% Line 141
+		    <> when 'true' ->
+			apply 'space'/1
+			    (_0)
+		  end
+	      -| ['compiler_generated'] )
+	    ( <_8> when 'true' ->
+		  ( call ( 'erlang'
+			   -| ['compiler_generated'] ):( 'error'
+							 -| ['compiler_generated'] )
+			(( {'badrecord','config'}
+			   -| ['compiler_generated'] ))
+		    -| ['compiler_generated'] )
+	      -| ['compiler_generated'] )
+	  end
+	  -| ['compiler_generated'] )
+'start_json'/0 =
+    %% Line 157
+    fun () ->
+	{[],{'config',0,0,0,#{#<10>(8,1,'integer',['unsigned'|['big']])}#}}
+'start_json'/1 =
+    %% Line 159
+    fun (_0) ->
+	case _0 of
+	  <Config>
+	      when call 'erlang':'is_list'
+		    (_0) ->
+	      let <_1> =
+		  apply 'parse_config'/1
+		      (Config)
+	      in  {[],_1}
+	  ( <_2> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_2})
+		  -| [{'function_name',{'start_json',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'start_object'/1 =
+    %% Line 162
+    fun (_0) ->
+	case _0 of
+	  <{Stack,Config = {'config',_7,_8,Depth,_9}}> when 'true' ->
+	      let <_5> =
+		  [{'object',#{#<123>(8,1,'integer',['unsigned'|['big']])}#}|%% Line 163
+									     Stack]
+	      in  let <_rec10> =
+		      call %% Line 163
+			   'erlang':%% Line 163
+				    '+'
+			  (%% Line 163
+			   Depth, %% Line 163
+				  1)
+		  in  %% Line 163
+		      case Config of
+			<{'config',_10,_11,_12,_13}> when 'true' ->
+			    let <_4> =
+				call 'erlang':'setelement'
+				    (4, Config, _rec10)
+			    in  {_5,_4}
+			( <_14> when 'true' ->
+			      ( call ( 'erlang'
+				       -| ['compiler_generated'] ):( 'error'
+								     -| ['compiler_generated'] )
+				    (( {'badrecord','config'}
+				       -| ['compiler_generated'] ))
+				-| ['compiler_generated'] )
+			  -| ['compiler_generated'] )
+		      end
+	  ( <_6> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_6})
+		  -| [{'function_name',{'start_object',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'start_array'/1 =
+    %% Line 166
+    fun (_0) ->
+	case _0 of
+	  <{Stack,Config = {'config',_7,_8,Depth,_9}}> when 'true' ->
+	      let <_5> =
+		  [{'array',#{#<91>(8,1,'integer',['unsigned'|['big']])}#}|%% Line 167
+									   Stack]
+	      in  let <_rec12> =
+		      call %% Line 167
+			   'erlang':%% Line 167
+				    '+'
+			  (%% Line 167
+			   Depth, %% Line 167
+				  1)
+		  in  %% Line 167
+		      case Config of
+			<{'config',_10,_11,_12,_13}> when 'true' ->
+			    let <_4> =
+				call 'erlang':'setelement'
+				    (4, Config, _rec12)
+			    in  {_5,_4}
+			( <_14> when 'true' ->
+			      ( call ( 'erlang'
+				       -| ['compiler_generated'] ):( 'error'
+								     -| ['compiler_generated'] )
+				    (( {'badrecord','config'}
+				       -| ['compiler_generated'] ))
+				-| ['compiler_generated'] )
+			  -| ['compiler_generated'] )
+		      end
+	  ( <_6> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_6})
+		  -| [{'function_name',{'start_array',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'finish'/1 =
+    %% Line 170
+    fun (_0) ->
+	case _0 of
+	  <{Stack,Config = {'config',_7,_8,Depth,_9}}> when 'true' ->
+	      let <_rec14> =
+		  call %% Line 171
+		       'erlang':%% Line 171
+				'-'
+		      (%% Line 171
+		       Depth, %% Line 171
+			      1)
+	      in  %% Line 171
+		  case Config of
+		    <{'config',_10,_11,_12,_13}> when 'true' ->
+			let <_4> =
+			    call 'erlang':'setelement'
+				(4, Config, _rec14)
+			in  %% Line 172
+			    apply 'finish_'/1
+				({Stack,_4})
+		    ( <_14> when 'true' ->
+			  ( call ( 'erlang'
+				   -| ['compiler_generated'] ):( 'error'
+								 -| ['compiler_generated'] )
+				(( {'badrecord','config'}
+				   -| ['compiler_generated'] ))
+			    -| ['compiler_generated'] )
+		      -| ['compiler_generated'] )
+		  end
+	  ( <_6> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_6})
+		  -| [{'function_name',{'finish',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'finish_'/1 =
+    %% Line 174
+    fun (_0) ->
+	case _0 of
+	  <{[{'object',#{#<123>(8,1,'integer',['unsigned'|['big']])}#}|[]],Config}> when 'true' ->
+	      {#{#<123>(8,1,'integer',['unsigned'|['big']]),
+		 #<125>(8,1,'integer',['unsigned'|['big']])}#,Config}
+	  %% Line 175
+	  <{[{'array',#{#<91>(8,1,'integer',['unsigned'|['big']])}#}|[]],Config}> when 'true' ->
+	      {#{#<91>(8,1,'integer',['unsigned'|['big']]),
+		 #<93>(8,1,'integer',['unsigned'|['big']])}#,Config}
+	  %% Line 176
+	  <{[{'object',#{#<123>(8,1,'integer',['unsigned'|['big']])}#}|Rest],Config}> when 'true' ->
+	      apply 'insert'/2
+		  (#{#<123>(8,1,'integer',['unsigned'|['big']]),
+		     #<125>(8,1,'integer',['unsigned'|['big']])}#, {Rest,Config})
+	  %% Line 177
+	  <{[{'array',#{#<91>(8,1,'integer',['unsigned'|['big']])}#}|Rest],Config}> when 'true' ->
+	      apply 'insert'/2
+		  (#{#<91>(8,1,'integer',['unsigned'|['big']]),
+		     #<93>(8,1,'integer',['unsigned'|['big']])}#, {Rest,Config})
+	  %% Line 178
+	  <{[{'object',Object}|[]],Config}> when 'true' ->
+	      let <_1> =
+		  apply %% Line 179
+			'indent'/1
+		      (%% Line 179
+		       Config)
+	      in  %% Line 179
+		  {[Object|[_1|[#{#<125>(8,1,'integer',['unsigned'|['big']])}#]]],Config}
+	  %% Line 180
+	  <{[{'object',Object}|Rest],Config}> when 'true' ->
+	      let <_2> =
+		  apply %% Line 181
+			'indent'/1
+		      (%% Line 181
+		       Config)
+	      in  %% Line 181
+		  apply 'insert'/2
+		      ([Object|[_2|[#{#<125>(8,1,'integer',['unsigned'|['big']])}#]]], {Rest,Config})
+	  %% Line 182
+	  <{[{'array',Array}|[]],Config}> when 'true' ->
+	      let <_3> =
+		  apply %% Line 183
+			'indent'/1
+		      (%% Line 183
+		       Config)
+	      in  %% Line 183
+		  {[Array|[_3|[#{#<93>(8,1,'integer',['unsigned'|['big']])}#]]],Config}
+	  %% Line 184
+	  <{[{'array',Array}|Rest],Config}> when 'true' ->
+	      let <_4> =
+		  apply %% Line 185
+			'indent'/1
+		      (%% Line 185
+		       Config)
+	      in  %% Line 185
+		  apply 'insert'/2
+		      ([Array|[_4|[#{#<93>(8,1,'integer',['unsigned'|['big']])}#]]], {Rest,Config})
+	  %% Line 186
+	  <_6> when 'true' ->
+	      call 'erlang':'error'
+		  ('badarg')
+	end
+'insert'/2 =
+    %% Line 189
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Value,{[],Config}> when 'true' ->
+	      %% Line 190
+	      {Value,Config}
+	  %% Line 192
+	  <Key,{[{'object',Object}|Rest],Config}> when 'true' ->
+	      let <_2> =
+		  [%% Line 193
+		   {'object',Key,Object}|%% Line 193
+					 Rest]
+	      in  %% Line 193
+		  {_2,Config}
+	  %% Line 194
+	  <Value,{[{'object',Key,#{#<123>(8,1,'integer',['unsigned'|['big']])}#}|Rest],Config}> when 'true' ->
+	      let <_3> =
+		  apply %% Line 198
+			'indent'/1
+		      (%% Line 198
+		       Config)
+	      in  let <_4> =
+		      apply %% Line 201
+			    'space'/1
+			  (%% Line 201
+			   Config)
+		  in  let <_5> =
+			  [%% Line 196
+			   {'object',[%% Line 197
+				      #{#<123>(8,1,'integer',['unsigned'|['big']])}#|%% Line 198
+										     [_3|%% Line 199
+											 [Key|%% Line 200
+											      [#{#<58>(8,1,'integer',['unsigned'|['big']])}#|%% Line 201
+																	     [_4|%% Line 202
+																		 [Value|%% Line 203
+																			[]]]]]]]}|%% Line 203
+																				  Rest]
+		      in  %% Line 195
+			  {_5,%% Line 204
+			      Config}
+	  %% Line 206
+	  <Value,{[{'object',Key,Object}|Rest],Config}> when 'true' ->
+	      let <_6> =
+		  apply %% Line 211
+			'indent_or_space'/1
+		      (%% Line 211
+		       Config)
+	      in  let <_7> =
+		      apply %% Line 214
+			    'space'/1
+			  (%% Line 214
+			   Config)
+		  in  let <_8> =
+			  [%% Line 208
+			   {'object',[%% Line 209
+				      Object|%% Line 210
+					     [#{#<44>(8,1,'integer',['unsigned'|['big']])}#|%% Line 211
+											    [_6|%% Line 212
+												[Key|%% Line 213
+												     [#{#<58>(8,1,'integer',['unsigned'|['big']])}#|%% Line 214
+																		    [_7|%% Line 215
+																			[Value|%% Line 216
+																			       []]]]]]]]}|%% Line 216
+																					  Rest]
+		      in  %% Line 207
+			  {_8,%% Line 217
+			      Config}
+	  %% Line 219
+	  <Value,{[{'array',#{#<91>(8,1,'integer',['unsigned'|['big']])}#}|Rest],Config}> when 'true' ->
+	      let <_9> =
+		  apply %% Line 220
+			'indent'/1
+		      (%% Line 220
+		       Config)
+	      in  let <_10> =
+		      [%% Line 220
+		       {'array',[#{#<91>(8,1,'integer',['unsigned'|['big']])}#|[_9|[Value|[]]]]}|%% Line 220
+												 Rest]
+		  in  %% Line 220
+		      {_10,Config}
+	  %% Line 221
+	  <Value,{[{'array',Array}|Rest],Config}> when 'true' ->
+	      let <_11> =
+		  apply %% Line 225
+			'indent_or_space'/1
+		      (%% Line 225
+		       Config)
+	      in  let <_12> =
+		      [%% Line 223
+		       {'array',[Array|%% Line 224
+				       [#{#<44>(8,1,'integer',['unsigned'|['big']])}#|%% Line 225
+										      [_11|%% Line 226
+											   [Value|%% Line 227
+												  []]]]]}|%% Line 227
+													  Rest]
+		  in  %% Line 222
+		      {_12,%% Line 228
+			   Config}
+	  %% Line 230
+	  <_15,_16> when 'true' ->
+	      call 'erlang':'error'
+		  ('badarg')
+	end
+'get_key'/1 =
+    %% Line 233
+    fun (_0) ->
+	case _0 of
+	  <{[{'object',Key,_2}|_3],_4}> when 'true' ->
+	      Key
+	  %% Line 234
+	  <_5> when 'true' ->
+	      call 'erlang':'error'
+		  ('badarg')
+	end
+'get_value'/1 =
+    %% Line 237
+    fun (_0) ->
+	case _0 of
+	  <{Value,_X_Config}> when 'true' ->
+	      %% Line 238
+	      try
+		  call 'unicode':'characters_to_binary'
+		      (Value)
+	      of <_1> ->
+		  _1
+	      catch <_4,_3,_2> ->
+		  %% Line 239
+		  case <_4,_3,_2> of
+		    <( 'error'
+		       -| ['compiler_generated'] ),_6,_7> when 'true' ->
+			call 'erlang':'error'
+			    ('badarg')
+		    ( <_9,_10,_11> when 'true' ->
+			  primop 'raise'
+			      (_11, _10)
+		      -| ['compiler_generated'] )
+		  end
+	  %% Line 241
+	  <_8> when 'true' ->
+	      call 'erlang':'error'
+		  ('badarg')
+	end
+'module_info'/0 =
+    fun () ->
+	call 'erlang':'get_module_info'
+	    ('jsx_to_json')
+'module_info'/1 =
+    fun (_0) ->
+	call 'erlang':'get_module_info'
+	    ('jsx_to_json', _0)
+end
