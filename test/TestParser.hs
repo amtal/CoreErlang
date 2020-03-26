@@ -21,18 +21,15 @@ moduleName (Ann (Module name _ _ _) _)  = name
 
 testFun :: FilePath -> Spec
 testFun f = do
-  context "testParser" $ do
-    specify f $ do
-      r <- parseFile f
-      case r of
-        Left r       -> expectationFailure (show r)
-        Right annMod -> return ()
-        --moduleName annMod `shouldBe` (Atom "jsx")
-
+  specify f $ do
+    r <- parseFile f
+    case r of
+      Left r       -> expectationFailure (show r)
+      Right annMod -> return ()
+      --moduleName annMod `shouldBe` (Atom "jsx")
 
 isCoreFile :: String -> Bool
 isCoreFile fname = (== "eroc") $ take 4 $ reverse $ fname
-
 
 getCoreFiles :: FilePath -> IO [FilePath]
 getCoreFiles basePath = do
@@ -46,8 +43,4 @@ getCoreFiles basePath = do
               then return [tp]
                    else return []
   return $ concat r
-
-
-
-
 
