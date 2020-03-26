@@ -4,7 +4,6 @@
 -- Copyright   :  (c) Henrique Ferreiro García 2008
 --                (c) David Castro Pérez 2008
 -- License     :  BSD-style (see the LICENSE file)
---
 -- Maintainer  :  Alex Kropivny <alex.kropivny@gmail.com>
 --                Feng Lee <feng@emqx.io>
 -- Stability   :  experimental
@@ -30,7 +29,7 @@ module Language.CoreErlang.Syntax
     -- * Literals
   , Literal(..), Const(..), Atom(..)
     -- * Variables
-  , Var
+  , Var(..)
     -- * Annotations
   , Ann(..)
   ) where
@@ -91,9 +90,10 @@ data Exprs
 
 -- | CoreErlang expression.
 data Expr
-  = Var Var                     -- ^ variable
+  = EVar Var                    -- ^ variable
   | Lit Literal                 -- ^ literal constant
   | Fun FunName                 -- ^ function name
+  | ExtFun Atom FunName         -- ^ external function name
   | App Exprs [Exprs]           -- ^ application
   | ModCall (Exprs, Exprs) [Exprs]  -- ^ module call
   | Lambda [Var] Exprs          -- ^ lambda expression
@@ -128,8 +128,8 @@ data Alt = Alt Pats Guard Exprs
   deriving (Eq, Ord, Show, Data, Typeable)
 
 data Pats
-  = Pat Pat    -- ^ single pattern
-  | Pats [Pat] -- ^ list of patterns
+  = Pat (Ann Pat)        -- ^ single pattern
+  | Pats (Ann [Ann Pat]) -- ^ list of patterns
   deriving (Eq, Ord, Show, Data, Typeable)
 
 -- | A pattern, to be matched against a value.
@@ -161,7 +161,8 @@ data TimeOut = TimeOut Exprs Exprs
   deriving (Eq, Ord, Show, Data, Typeable)
 
 -- | This type is used to represent variables
-type Var = String
+data Var = Var (Ann String)
+  deriving (Eq, Ord, Show, Data, Typeable)
 
 -- | An annotation for modules, variables, ...
 data Ann a
