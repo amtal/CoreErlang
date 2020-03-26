@@ -4,7 +4,6 @@
 -- Copyright   :  (c) Henrique Ferreiro García 2008
 --                (c) David Castro Pérez 2008
 -- License     :  BSD-style (see the LICENSE file)
---
 -- Maintainer  :  Alex Kropivny <alex.kropivny@gmail.com>
 --             :  Feng Lee <feng@emqx.io>
 -- Stability   :  experimental
@@ -254,18 +253,19 @@ instance Pretty Exprs where
 
 instance Pretty Expr where
   pretty = \case
-    (Var v) -> text v
+    (EVar v) -> pretty v
     (Lit l) -> pretty l
     (Fun f) -> pretty f
+    (ExtFun m f) -> text "fun" <+> pretty m <> char ':' <> pretty f
     (App e exps) -> text "apply" <+> pretty e <> parenList (map pretty exps)
     (ModCall (e1,e2) exps) -> sep [text "call" <+>
                                    pretty e1 <> char ':' <> pretty e2,
                                    parenList (map pretty exps)]
-    (Lambda vars e) -> sep [text "fun" <> parenList (map text vars) <+> text "->",
+    (Lambda vars e) -> sep [text "fun" <> parenList (map pretty vars) <+> text "->",
                             ppBody lambdaIndent [pretty e]]
     (Seq e1 e2) -> sep [text "do", pretty e1, pretty e2]
     (Let (vars,e1) e2) -> text "let" <+>
-                          angleList (map text vars) <+>
+                          angleList (map pretty vars) <+>
                           char '=' <+> pretty e1
                           $$$ text "in" <+> pretty e2
     (LetRec fundefs e) -> sep [text "letrec" <+> ppBody letrecIndent (map pretty fundefs),
@@ -280,9 +280,9 @@ instance Pretty Expr where
     (Binary bs) -> char '#' <> braceList (map pretty bs) <> char '#'
     (Try e (vars1,exps1) (vars2,exps2)) -> text "try"
                                            $$$ ppBody caseIndent [pretty e]
-                                           $$$ text "of" <+> angleList (map text vars1) <+> text "->"
+                                           $$$ text "of" <+> angleList (map pretty vars1) <+> text "->"
                                            $$$ ppBody altIndent [pretty exps1]
-                                           $$$ text "catch" <+> angleList (map text vars2) <+> text "->"
+                                           $$$ text "catch" <+> angleList (map pretty vars2) <+> text "->"
                                            $$$ ppBody altIndent [pretty exps2]
     (Rec alts tout) -> text "receive"
                        $$$ ppBody caseIndent (map pretty alts)
@@ -300,12 +300,14 @@ instance Pretty Alt where
            $$$ ppBody altIndent [pretty exps]
 
 instance Pretty Pats where
-  pretty (Pat p) = pretty p
-  pretty (Pats p) = angleList (map pretty p)
+  pretty = \case
+    (Pat p) -> pretty p
+    (Pats (Constr p)) -> angleList (map pretty p)
+    (Pats (Ann p cs)) -> parens (angleList (map pretty p) $$$ ppAnn cs)
 
 instance Pretty Pat where
   pretty = \case
-    (PVar v) -> text v
+    (PVar v) -> pretty v
     (PLit l) -> pretty l
     (PTuple p) -> braceList $ map pretty p
     (PList l) -> pretty l
@@ -317,11 +319,11 @@ instance (Pretty k, Pretty v) => Pretty (Map k v) where
   pretty m = ppMap "=>" m
 
 instance Pretty Key where
-  pretty (KVar v) = text v
+  pretty (KVar v) = pretty v
   pretty (KLit l) = pretty l
 
 instance Pretty Alias where
-  pretty (Alias v p) = ppAssign (Var v,p) -- FIXME: hack!
+  pretty (Alias v p) = ppAssign (v,p) -- FIXME: hack!
 
 instance Pretty Guard where
   pretty (Guard e) = text "when" <+> pretty e
@@ -333,7 +335,15 @@ instance Pretty TimeOut where
 instance Pretty a => Pretty (Bitstring a) where
   pretty (Bitstring e es) = text "#<" <> pretty e <> char '>' <> parenList (map pretty es)
 
+----------------------- Var ------------------------
+
+instance Pretty Var where
+  pretty (Var v) = case v of
+    (Constr s) -> text s
+    (Ann s cs) -> parens (text s $$$ ppAnn cs)
+
 ----------------------- Annotations ------------------------
+
 instance Pretty a => Pretty (Ann a) where
   pretty (Constr a) = pretty a
   pretty (Ann a cs) = parens (pretty a $$$ ppAnn cs)

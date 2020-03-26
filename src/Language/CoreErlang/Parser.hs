@@ -3,9 +3,9 @@
 -- Module      :  Language.CoreErlang.Parser
 -- Copyright   :  (c) Henrique Ferreiro García 2008
 --                (c) David Castro Pérez 2008
+--                (c) Feng Lee 2020
 -- License     :  BSD-style (see the LICENSE file)
---
--- Maintainer  :  Alex Kropivny <alex.kropivny@gmail.com>
+-- Maintainer  :  Feng Lee <feng@emqx.io>
 -- Stability   :  experimental
 -- Portability :  portable
 --
@@ -83,7 +83,7 @@ estring = do
   return $ LString s
 
 variable :: Parser Var
-variable = identifier
+variable = liftM Var (annotated identifier)
 
 -- Non-terminals
 
@@ -101,7 +101,7 @@ amodule = do
   return $ Module name funs attrs fundefs
 
 exports :: Parser [FunName]
-exports = brackets $ commaSep function
+exports = brackets $ commaSep fname
 
 attributes :: Parser [(Atom,Const)]
 attributes = do
@@ -123,13 +123,13 @@ constant = liftM CLit (try literal) <|>
 
 fundef :: Parser FunDef
 fundef = do
-  name <- annotated function
+  name <- annotated fname
   symbol "="
   body <- annotated lambda
   return $ FunDef name body
 
-function :: Parser FunName
-function = do
+fname :: Parser FunName
+fname = do
   a <- atom
   char '/'
   i <- decimal
@@ -149,13 +149,14 @@ expression = try (liftM Exprs (annotated $ angles $ commaSep (annotated sexpress
 
 sexpression :: Parser Expr
 sexpression = app <|> ecatch <|> ecase <|> elet <|>
-              liftM Fun (try function) {- because of atom -} <|>
-              lambda <|> letrec <|> liftM Binary (ebinary expression) <|>
+              liftM Fun (try fname) {- because of atom -} <|>
+              (try extfun) <|> lambda <|> letrec <|>
+              liftM Binary (ebinary expression) <|>
               liftM List (try $ elist expression) {- because of nil -} <|>
               liftM Lit literal <|> modcall <|> op <|> receive <|>
               eseq <|> etry <|> liftM Tuple (tuple expression) <|>
               liftM EMap (emap "=>" expression expression) <|>
-              liftM Var variable
+              liftM EVar variable
 
 app :: Parser Expr
 app = do
@@ -216,8 +217,8 @@ clause = do
   return $ Alt pat g e
 
 patterns :: Parser Pats
-patterns = liftM Pat pattern <|>
-           liftM Pats (angles $ commaSep pattern)
+patterns = try (liftM Pats (annotated $ angles $ commaSep (annotated pattern))) <|>
+           liftM Pat (annotated pattern)
 
 pattern :: Parser Pat
 pattern = liftM PAlias (try alias) {- because of variable -} <|> liftM PVar variable <|>
@@ -261,6 +262,14 @@ lambda = do
   symbol "->"
   expr <- expression
   return $ Lambda vars expr
+
+extfun :: Parser Expr
+extfun = do
+  reserved "fun"
+  m <- atom
+  symbol ":"
+  f <- fname
+  return $ ExtFun m f
 
 letrec :: Parser Expr
 letrec = do
@@ -380,7 +389,7 @@ decimal = Token.decimal lexer
 float :: Parser Double
 float = Token.float lexer
 
-identifier :: Parser Var
+identifier :: Parser String
 identifier = Token.identifier lexer
 
 parens :: Parser a -> Parser a
