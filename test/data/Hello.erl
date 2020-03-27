@@ -1,12 +1,9 @@
 -module('Hello').
 
--export([add/2]).
--export([sub/2]).
+-export([id/1, add/2, sub/2]).
 
--compile({inline, [sub/2]}).
+id(X) -> X.
 
--import('X', [hi/1]).
+add(X, Y) -> X + Y.
 
-add(X,Y) -> X + Y.
-
-sub(A,B) -> A - B.
+sub(X, Y) -> X - Y.
