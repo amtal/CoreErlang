@@ -261,7 +261,7 @@ lambda = do
   vars <- parens $ commaSep variable
   symbol "->"
   expr <- expression
-  return $ Lambda vars expr
+  return $ Lam vars expr
 
 extfun :: Parser Expr
 extfun = do

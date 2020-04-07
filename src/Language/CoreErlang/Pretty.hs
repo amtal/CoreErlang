@@ -257,12 +257,12 @@ instance Pretty Expr where
     (Lit l) -> pretty l
     (Fun f) -> pretty f
     (ExtFun m f) -> text "fun" <+> pretty m <> char ':' <> pretty f
+    (Lam vars e) -> sep [text "fun" <> parenList (map pretty vars) <+> text "->",
+                         ppBody lambdaIndent [pretty e]]
     (App e exps) -> text "apply" <+> pretty e <> parenList (map pretty exps)
     (ModCall (e1,e2) exps) -> sep [text "call" <+>
                                    pretty e1 <> char ':' <> pretty e2,
                                    parenList (map pretty exps)]
-    (Lambda vars e) -> sep [text "fun" <> parenList (map pretty vars) <+> text "->",
-                            ppBody lambdaIndent [pretty e]]
     (Seq e1 e2) -> sep [text "do", pretty e1, pretty e2]
     (Let (vars,e1) e2) -> text "let" <+>
                           angleList (map pretty vars) <+>
