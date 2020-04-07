@@ -94,9 +94,9 @@ data Expr
   | Lit Literal                 -- ^ literal constant
   | Fun FunName                 -- ^ function name
   | ExtFun Atom FunName         -- ^ external function name
+  | Lam [Var] Exprs             -- ^ lambda expression
   | App Exprs [Exprs]           -- ^ application
   | ModCall (Exprs, Exprs) [Exprs]  -- ^ module call
-  | Lambda [Var] Exprs          -- ^ lambda expression
   | Seq Exprs Exprs             -- ^ sequencing
   | Let ([Var], Exprs) Exprs    -- ^ local declaration
   | LetRec [FunDef] Exprs       -- ^ letrec expression
