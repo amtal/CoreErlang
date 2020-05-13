@@ -30,6 +30,8 @@ module Language.CoreErlang.Syntax
   , Literal(..), Const(..), Atom(..)
     -- * Variables
   , Var(..)
+  , VarMap(..)
+  , UpdateMap(..)
     -- * Annotations
   , Ann(..)
   ) where
@@ -104,6 +106,8 @@ data Expr
   | Tuple [Exprs]               -- ^ tuple expression
   | List (List Exprs)           -- ^ list expression
   | EMap (Map Exprs Exprs)      -- ^ map expression
+  | VMap (VarMap Exprs Exprs)      -- ^ map expression
+  | UMap (UpdateMap Exprs Exprs)
   | Binary [Bitstring Exprs]    -- ^ binary expression
   | PrimOp Atom [Exprs]         -- ^ operator application
   | Try Exprs ([Var], Exprs) ([Var], Exprs) -- ^ try expression
@@ -121,6 +125,12 @@ data List a = L [a] | LL [a] a
 
 -- | An erlang map
 data Map k v = Map [(k, v)]
+  deriving (Eq, Ord, Show, Data, Typeable)
+
+data VarMap k v = VarMap [(k,v)] Expr
+  deriving (Eq, Ord, Show, Data, Typeable)
+
+data UpdateMap k v = UpdateMap [(k,v)] Expr
   deriving (Eq, Ord, Show, Data, Typeable)
 
 -- | An /alt/ in a @case@ expression

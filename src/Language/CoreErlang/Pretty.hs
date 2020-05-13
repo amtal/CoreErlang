@@ -1,4 +1,9 @@
+{-# LANGUAGE LambdaCase #-}
+
 -----------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------
+
 -- |
 -- Module      :  Language.CoreErlang.Pretty
 -- Copyright   :  (c) Henrique Ferreiro García 2008
@@ -10,66 +15,86 @@
 -- Portability :  portable
 --
 -- Pretty printer for CoreErlang.
---
------------------------------------------------------------------------------
-{-# LANGUAGE LambdaCase #-}
 module Language.CoreErlang.Pretty
   ( -- * Pretty printing
-    Pretty
-  , prettyPrintStyleMode, prettyPrintWithMode, prettyPrint
-    -- * Pretty-printing styles (from -- "Text.PrettyPrint.HughesPJ")
-  , P.Style(..), P.style, P.Mode(..)
-    -- * CoreErlang formatting modes
-  , PPMode(..), Indent, PPLayout(..), defaultMode
-  , render
-  ) where
+    Pretty,
+    prettyPrintStyleMode,
+    prettyPrintWithMode,
+    prettyPrint,
 
-import Prelude hiding ((<>))
+    -- * Pretty-printing styles (from -- "Text.PrettyPrint.HughesPJ")
+    P.Style (..),
+    P.style,
+    P.Mode (..),
+
+    -- * CoreErlang formatting modes
+    PPMode (..),
+    Indent,
+    PPLayout (..),
+    defaultMode,
+    render,
+  )
+where
+
 import Language.CoreErlang.Syntax
 import qualified Text.PrettyPrint as P
+import Prelude hiding ((<>))
 
 infixl 5 $$$
 
 -----------------------------------------------------------------------------
 
 -- | Varieties of layout we can use.
-data PPLayout = PPDefault  -- ^ classical layout
-              | PPNoLayout -- ^ everything on a single line
-  deriving Eq
+data PPLayout
+  = -- | classical layout
+    PPDefault
+  | -- | everything on a single line
+    PPNoLayout
+  deriving (Eq)
 
 type Indent = Int
 
 -- | Pretty-printing parameters.
-data PPMode = PPMode
-  { altIndent :: Indent     -- ^ indentation of the alternatives
-                            -- in a @case@ expression
-  , caseIndent :: Indent    -- ^ indentation of the declarations
-                            -- in a @case@ expression
-  , fundefIndent :: Indent  -- ^ indentation of the declarations
-                            -- in a function definition
-  , lambdaIndent :: Indent  -- ^ indentation of the declarations
-                            -- in a @lambda@ expression
-  , letIndent :: Indent     -- ^ indentation of the declarations
-                            -- in a @let@ expression
-  , letrecIndent :: Indent  -- ^ indentation of the declarations
-                            -- in a @letrec@ expression
-  , onsideIndent :: Indent  -- ^ indentation added for continuation
-                            -- lines that would otherwise be offside
-  , layout :: PPLayout      -- ^ Pretty-printing style to use
-  }
+data PPMode
+  = PPMode
+      { -- | indentation of the alternatives
+        -- in a @case@ expression
+        altIndent :: Indent,
+        -- | indentation of the declarations
+        -- in a @case@ expression
+        caseIndent :: Indent,
+        -- | indentation of the declarations
+        -- in a function definition
+        fundefIndent :: Indent,
+        -- | indentation of the declarations
+        -- in a @lambda@ expression
+        lambdaIndent :: Indent,
+        -- | indentation of the declarations
+        -- in a @let@ expression
+        letIndent :: Indent,
+        -- | indentation of the declarations
+        -- in a @letrec@ expression
+        letrecIndent :: Indent,
+        -- | indentation added for continuation
+        -- lines that would otherwise be offside
+        onsideIndent :: Indent,
+        -- | Pretty-printing style to use
+        layout :: PPLayout
+      }
 
 -- | The default mode: pretty-print using sensible defaults.
 defaultMode :: PPMode
-defaultMode = PPMode
-  { altIndent = 4
-  , caseIndent = 4
-  , fundefIndent = 4
-  , lambdaIndent = 4
-  , letIndent = 4
-  , letrecIndent = 4
-  , onsideIndent = 4
-  , layout = PPDefault
-  }
+defaultMode =
+  PPMode
+    { altIndent = 4,
+      caseIndent = 4,
+      fundefIndent = 4,
+      lambdaIndent = 4,
+      letIndent = 4,
+      letrecIndent = 4,
+      onsideIndent = 4,
+      layout = PPDefault
+    }
 
 -- | Pretty printing monad
 newtype DocM s a = DocM (s -> a)
@@ -78,7 +103,7 @@ instance Functor (DocM s) where
   fmap f xs = do x <- xs; return (f x)
 
 instance Applicative (DocM s) where
-  pure        = return
+  pure = return
   (<*>) m1 m2 = do x1 <- m1; x2 <- m2; return (x1 x2)
 
 instance Monad (DocM s) where
@@ -87,9 +112,13 @@ instance Monad (DocM s) where
   return = retDocM
 
 {-# INLINE thenDocM #-}
+
 {-# INLINE then_DocM #-}
+
 {-# INLINE retDocM #-}
+
 {-# INLINE unDocM #-}
+
 {-# INLINE getPPEnv #-}
 
 thenDocM :: DocM s a -> (a -> DocM s b) -> DocM s b
@@ -117,8 +146,10 @@ type Doc = DocM PPMode P.Doc
 class Pretty a where
   -- | Pretty-print something in isolation.
   pretty :: a -> Doc
+
   -- | Pretty-print something in a precedence context.
   prettyPrec :: Int -> a -> Doc
+
   pretty = prettyPrec 0
   prettyPrec _ = pretty
 
@@ -148,22 +179,24 @@ parens, brackets, braces :: Doc -> Doc
 parens d = d >>= return . P.parens
 brackets d = d >>= return . P.brackets
 braces d = d >>= return . P.braces
+
 -- quotes d = d >>= return . P.quotes
 -- doubleQuotes d = d >>= return . P.doubleQuotes
 
 -- Constants
 comma :: Doc
 comma = return P.comma
+
 -- semi = return P.semi
 -- colon = return P.colon
 -- space = return P.space
 -- equals = return P.equals
 
 -- Combinators
-(<>),(<+>),($$) :: Doc -> Doc -> Doc
-aM <> bM = do { a <- aM; b <- bM; return $ a P.<> b}
-aM <+> bM = do { a <- aM; b <- bM; return $ a P.<+> b}
-aM $$ bM = do { a <- aM; b <- bM; return $ a P.$$ b}
+(<>), (<+>), ($$) :: Doc -> Doc -> Doc
+aM <> bM = do a <- aM; b <- bM; return $ a P.<> b
+aM <+> bM = do a <- aM; b <- bM; return $ a P.<+> b
+aM $$ bM = do a <- aM; b <- bM; return $ a P.$$ b
 
 hcat, hsep, vcat, sep, fsep :: [Doc] -> Doc
 hcat dl = sequence dl >>= return . P.hcat
@@ -175,10 +208,10 @@ fsep dl = sequence dl >>= return . P.fsep
 -- Yuk, had to cut-n-paste this one from Pretty.hs
 punctuate :: Doc -> [Doc] -> [Doc]
 punctuate _ [] = []
-punctuate p (d1:ds) = go d1 ds
+punctuate p (d1 : ds) = go d1 ds
   where
     go d [] = [d]
-    go d (e:es) = (d <> p) : go e es
+    go d (e : es) = (d <> p) : go e es
 
 -- | render the document with a given style and mode.
 renderStyleMode :: P.Style -> PPMode -> Doc -> String
@@ -213,9 +246,11 @@ instance Pretty Module where
 --------------------------  Module Header ------------------------------
 
 ppModuleHeader :: Atom -> [FunName] -> [(Atom, Const)] -> Doc
-ppModuleHeader m exports attrs = myFsep [
-  text "module" <+> pretty m <+> (bracketList $ map pretty exports),
-  text "attributes" <+> bracketList (map ppAssign attrs)]
+ppModuleHeader m exports attrs =
+  myFsep
+    [ text "module" <+> pretty m <+> (bracketList $ map pretty exports),
+      text "attributes" <+> bracketList (map ppAssign attrs)
+    ]
 
 instance Pretty FunName where
   pretty (FunName (name, arity)) = pretty name <> char '/' <> integer arity
@@ -229,14 +264,15 @@ instance Pretty Const where
 
 -------------------------  Declarations ------------------------------
 instance Pretty FunDef where
-  pretty (FunDef function e) = (pretty function <+> char '=')
-                                 $$$ ppBody fundefIndent [pretty e]
+  pretty (FunDef function e) =
+    (pretty function <+> char '=')
+      $$$ ppBody fundefIndent [pretty e]
 
 ------------------------- Expressions -------------------------
 instance Pretty Literal where
   pretty = \case
     (LChar c) -> char c
-    (LString  s) -> text (show s)
+    (LString s) -> text (show s)
     (LInt i) -> integer i
     (LFloat f) -> double f
     (LAtom a) -> pretty a
@@ -257,37 +293,55 @@ instance Pretty Expr where
     (Lit l) -> pretty l
     (Fun f) -> pretty f
     (ExtFun m f) -> text "fun" <+> pretty m <> char ':' <> pretty f
-    (Lam vars e) -> sep [text "fun" <> parenList (map pretty vars) <+> text "->",
-                         ppBody lambdaIndent [pretty e]]
+    (Lam vars e) ->
+      sep
+        [ text "fun" <> parenList (map pretty vars) <+> text "->",
+          ppBody lambdaIndent [pretty e]
+        ]
     (App e exps) -> text "apply" <+> pretty e <> parenList (map pretty exps)
-    (ModCall (e1,e2) exps) -> sep [text "call" <+>
-                                   pretty e1 <> char ':' <> pretty e2,
-                                   parenList (map pretty exps)]
+    (ModCall (e1, e2) exps) ->
+      sep
+        [ text "call"
+            <+> pretty e1 <> char ':' <> pretty e2,
+          parenList (map pretty exps)
+        ]
     (Seq e1 e2) -> sep [text "do", pretty e1, pretty e2]
-    (Let (vars,e1) e2) -> text "let" <+>
-                          angleList (map pretty vars) <+>
-                          char '=' <+> pretty e1
-                          $$$ text "in" <+> pretty e2
-    (LetRec fundefs e) -> sep [text "letrec" <+> ppBody letrecIndent (map pretty fundefs),
-                               text "in", pretty e]
-    (Case e alts) -> sep [text "case", pretty e, text "of"]
-                         $$$ ppBody caseIndent (map pretty alts)
-                         $$$ text "end"
+    (Let (vars, e1) e2) ->
+      text "let"
+        <+> angleList (map pretty vars)
+        <+> char '='
+        <+> pretty e1
+        $$$ text "in"
+        <+> pretty e2
+    (LetRec fundefs e) ->
+      sep
+        [ text "letrec" <+> ppBody letrecIndent (map pretty fundefs),
+          text "in",
+          pretty e
+        ]
+    (Case e alts) ->
+      sep [text "case", pretty e, text "of"]
+        $$$ ppBody caseIndent (map pretty alts)
+        $$$ text "end"
     (Tuple exps) -> braceList $ map pretty exps
     (List l) -> pretty l
     (EMap m) -> ppMap "=>" m
+    (VMap m) -> ppVarMap "=>" m
+    (UMap m) -> ppUpdateMap ":=" m
     (PrimOp a exps) -> text "primop" <+> pretty a <> parenList (map pretty exps)
     (Binary bs) -> char '#' <> braceList (map pretty bs) <> char '#'
-    (Try e (vars1,exps1) (vars2,exps2)) -> text "try"
-                                           $$$ ppBody caseIndent [pretty e]
-                                           $$$ text "of" <+> angleList (map pretty vars1) <+> text "->"
-                                           $$$ ppBody altIndent [pretty exps1]
-                                           $$$ text "catch" <+> angleList (map pretty vars2) <+> text "->"
-                                           $$$ ppBody altIndent [pretty exps2]
-    (Rec alts tout) -> text "receive"
-                       $$$ ppBody caseIndent (map pretty alts)
-                       $$$ text "after"
-                       $$$ ppBody caseIndent [pretty tout]
+    (Try e (vars1, exps1) (vars2, exps2)) ->
+      text "try"
+        $$$ ppBody caseIndent [pretty e]
+        $$$ text "of" <+> angleList (map pretty vars1) <+> text "->"
+        $$$ ppBody altIndent [pretty exps1]
+        $$$ text "catch" <+> angleList (map pretty vars2) <+> text "->"
+        $$$ ppBody altIndent [pretty exps2]
+    (Rec alts tout) ->
+      text "receive"
+        $$$ ppBody caseIndent (map pretty alts)
+        $$$ text "after"
+        $$$ ppBody caseIndent [pretty tout]
     (Catch e) -> sep [text "catch", pretty e]
 
 instance Pretty a => Pretty (List a) where
@@ -297,7 +351,7 @@ instance Pretty a => Pretty (List a) where
 instance Pretty Alt where
   pretty (Alt pats guard exps) =
     myFsep [pretty pats, pretty guard <+> text "->"]
-           $$$ ppBody altIndent [pretty exps]
+      $$$ ppBody altIndent [pretty exps]
 
 instance Pretty Pats where
   pretty = \case
@@ -318,19 +372,29 @@ instance Pretty Pat where
 instance (Pretty k, Pretty v) => Pretty (Map k v) where
   pretty m = ppMap "=>" m
 
+instance (Pretty k, Pretty v) => Pretty (VarMap k v) where
+  pretty m = ppVarMap "=>" m
+
+instance (Pretty k, Pretty v) => Pretty (UpdateMap k v) where
+  pretty m = ppUpdateMap ":=" m
+
+
+
+
 instance Pretty Key where
   pretty (KVar v) = pretty v
   pretty (KLit l) = pretty l
 
 instance Pretty Alias where
-  pretty (Alias v p) = ppAssign (v,p) -- FIXME: hack!
+  pretty (Alias v p) = ppAssign (v, p) -- FIXME: hack!
 
 instance Pretty Guard where
   pretty (Guard e) = text "when" <+> pretty e
 
 instance Pretty TimeOut where
-  pretty (TimeOut e1 e2) = pretty e1 <+> text "->"
-                           $$$ ppBody altIndent [pretty e2]
+  pretty (TimeOut e1 e2) =
+    pretty e1 <+> text "->"
+      $$$ ppBody altIndent [pretty e2]
 
 instance Pretty a => Pretty (Bitstring a) where
   pretty (Bitstring e es) = text "#<" <> pretty e <> char '>' <> parenList (map pretty es)
@@ -352,6 +416,9 @@ instance Pretty a => Pretty (Ann a) where
 angles :: Doc -> Doc
 angles p = char '<' <> p <> char '>'
 
+myEmptyList :: [Doc] -> Doc
+myEmptyList = myFsepSimple . punctuate comma
+
 angleList :: [Doc] -> Doc
 angleList = angles . myFsepSimple . punctuate comma
 
@@ -369,20 +436,41 @@ topLevel :: Doc -> [Doc] -> Doc
 topLevel header dl = do
   e <- fmap layout getPPEnv
   let s = case e of
-            PPDefault -> header $$ vcat dl
-            PPNoLayout -> header <+> hsep dl
+        PPDefault -> header $$ vcat dl
+        PPNoLayout -> header <+> hsep dl
   s $$$ text "end"
 
-ppAssign :: (Pretty a, Pretty b) => (a,b) -> Doc
-ppAssign (a,b) = pretty a <+> char '=' <+> pretty b
+ppAssign :: (Pretty a, Pretty b) => (a, b) -> Doc
+ppAssign (a, b) = pretty a <+> char '=' <+> pretty b
 
 ppTuple :: Pretty a => [a] -> Doc
 ppTuple t = braceList (map pretty t)
 
-ppMap :: (Pretty k, Pretty v) => String -> (Map k v)  -> Doc
+ppMap :: (Pretty k, Pretty v) => String -> (Map k v) -> Doc
 ppMap s (Map l) = char '~' <> braceList (map (ppKV s) l) <> char '~'
 
-ppKV :: (Pretty k, Pretty v) => String -> (k, v)  -> Doc
+ppVarMap :: (Pretty k, Pretty v) => String -> (VarMap k v) -> Doc
+ppVarMap s (VarMap l e) =
+  char '~'
+    <> char '{'
+    <> myEmptyList (map (ppKV s) l)
+    <> char '|'
+    <> pretty e
+    <> char '}'
+    <> char '~'
+
+ppUpdateMap :: (Pretty k, Pretty v) => String -> (UpdateMap k v) -> Doc
+ppUpdateMap s (UpdateMap l e) =
+  char '~'
+    <> char '{'
+    <> myEmptyList (map (ppKV s) l)
+    <> char '|'
+    <> pretty e
+    <> char '}'
+    <> char '~'
+
+
+ppKV :: (Pretty k, Pretty v) => String -> (k, v) -> Doc
 ppKV s (k, v) = pretty k <> text s <> pretty v
 
 ppBody :: (PPMode -> Int) -> [Doc] -> Doc
@@ -391,7 +479,7 @@ ppBody f dl = do
   i <- fmap f getPPEnv
   case e of
     PPDefault -> nest i . vcat $ dl
-    _         -> hsep dl
+    _ -> hsep dl
 
 ($$$) :: Doc -> Doc -> Doc
 a $$$ b = layoutChoice (a $$) (a <+>) b
@@ -403,11 +491,12 @@ myFsepSimple = layoutChoice fsep hsep
 -- which is necessary to avoid triggering the offside rule.
 myFsep :: [Doc] -> Doc
 myFsep = layoutChoice fsep' hsep
-  where fsep' [] = empty
-        fsep' (d:ds) = do
-          e <- getPPEnv
-          let n = onsideIndent e
-          nest n (fsep (nest (-n) d:ds))
+  where
+    fsep' [] = empty
+    fsep' (d : ds) = do
+      e <- getPPEnv
+      let n = onsideIndent e
+      nest n (fsep (nest (- n) d : ds))
 
 layoutChoice :: (a -> Doc) -> (a -> Doc) -> a -> Doc
 layoutChoice a b dl = do
@@ -418,4 +507,3 @@ layoutChoice a b dl = do
 
 ppAnn :: (Pretty a) => [a] -> Doc
 ppAnn cs = text "-|" <+> bracketList (map pretty cs)
-
