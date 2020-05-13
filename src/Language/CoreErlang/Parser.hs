@@ -424,7 +424,7 @@ annotated' :: Parser a -> Parser a
 annotated' p = parens
   ( do
       e <- p
-      cs <- annotation
+      _ <- annotation
       return $ e
   )
   <|> do
