@@ -39,6 +39,7 @@ where
 import Language.CoreErlang.Syntax
 import qualified Text.PrettyPrint as P
 import Prelude hiding ((<>))
+import Data.Char as C
 
 infixl 5 $$$
 
@@ -166,7 +167,7 @@ text :: String -> Doc
 text = return . P.text
 
 char :: Char -> Doc
-char = return . P.char
+char = return . P.integer . toInteger . C.ord
 
 integer :: Integer -> Doc
 integer = return . P.integer
