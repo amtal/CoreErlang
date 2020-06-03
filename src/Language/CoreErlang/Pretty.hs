@@ -167,7 +167,7 @@ text :: String -> Doc
 text = return . P.text
 
 char :: Char -> Doc
-char = return . P.integer . toInteger . C.ord
+char = return . P.char
 
 integer :: Integer -> Doc
 integer = return . P.integer
@@ -272,7 +272,7 @@ instance Pretty FunDef where
 ------------------------- Expressions -------------------------
 instance Pretty Literal where
   pretty = \case
-    (LChar c) -> char c
+    (LChar c) -> return . P.integer . toInteger . C.ord $ c
     (LString s) -> text (show s)
     (LInt i) -> integer i
     (LFloat f) -> double f
