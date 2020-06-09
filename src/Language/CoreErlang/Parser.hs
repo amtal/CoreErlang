@@ -23,6 +23,8 @@ module Language.CoreErlang.Parser
   )
 where
 
+import Data.Char (chr)
+import Numeric ( readOct )
 import Control.Monad (liftM)
 import Language.CoreErlang.Syntax
 import Text.ParserCombinators.Parsec
@@ -44,30 +46,73 @@ lowercase = annotated' lower
 namechar :: Parser Char
 namechar = annotated' $ uppercase <|> lowercase <|> digit <|> oneOf "@_"
 
+escape :: Parser Char
+escape = do char '\\'
+            s <- octal <|> ctrl <|> escapechar
+            return s
+
+octal :: Parser Char
+octal = do chars <- tryOctal
+           let [(o, _)] = readOct chars
+           return (chr o)
+
+tryOctal :: Parser [Char]
+tryOctal = choice [ try (count 3 octaldigit),
+                    try (count 2 octaldigit),
+                    try (count 1 octaldigit) ]
+
+octaldigit :: Parser Char
+octaldigit = oneOf "01234567"
+
+ctrl :: Parser Char
+ctrl = char '^' >> ctrlchar
+
+ctrlchar :: Parser Char
+ctrlchar = satisfy (`elem` ['\x0040'..'\x005f'])
+
+escapechar = oneOf "bdefnrstv\"\'\\"
 -- Terminals
 
 integer :: Parser Integer
-integer = annotated' $ do
+integer = do
   i <- positive <|> negative <|> decimal
   whiteSpace -- TODO: buff
   return $ i
 
 positive :: Parser Integer
-positive = annotated' $ do
+positive = do
   char '+'
   p <- decimal
   return p
 
 negative :: Parser Integer
-negative = annotated' $ do
+negative = do
   char '-'
   n <- decimal
   return $ negate n
 
+positiveF :: Parser Double
+positiveF = do
+  char '+'
+  p <- float
+  return p
+
+negativeF :: Parser Double
+negativeF = do
+  char '-'
+  n <- float
+  return $ negate n
+
+sFloat :: Parser Double
+sFloat = do
+  i <- positiveF <|> negativeF <|> float
+  whiteSpace -- TODO: buff
+  return $ i
+
 atom :: Parser Atom
 atom = annotated' $ do
   char '\''
-  a <- many (noneOf "\r\n\\\'")
+  a <- many (noneOf "\r\n\\\'" <|> escape)
   char '\''
   whiteSpace -- TODO: buff
   return $ Atom a
@@ -75,19 +120,19 @@ atom = annotated' $ do
 echar :: Parser Literal
 echar = annotated' $ do
   char '$'
-  c <- noneOf "\n\r\\ "
+  c <- noneOf "\n\r\\ " <|> escape
   whiteSpace -- TODO: buff
   return $ LChar c
 
 estring :: Parser Literal
 estring = annotated' $ do
   char '"'
-  s <- many $ noneOf "\n\r\\\""
+  s <- many $ noneOf "\n\r\\\"" <|> escape
   char '"'
   return $ LString s
 
 variable :: Parser Var
-variable = annotated' $ liftM Var (annotated identifier)
+variable = liftM Var (annotated identifier)
 
 -- Non-terminals
 
@@ -145,11 +190,11 @@ fname = annotated' $ do
 literal :: Parser Literal
 literal =
   annotated' $
-    try (annotated' $ liftM LFloat float) <|> annotated' (liftM LInt integer)
-      <|> annotated' (liftM LAtom atom)
-      <|> annotated' nil
-      <|> annotated' echar
-      <|> annotated' estring
+     try (liftM LFloat sFloat) <|> (liftM LInt integer)
+      <|> liftM LAtom atom
+      <|> nil
+      <|> echar
+      <|> estring
 
 nil :: Parser Literal
 nil = brackets (return LNil)
@@ -269,7 +314,7 @@ clause =annotated' $  do
 
 patterns :: Parser Pats
 patterns = annotated' $
-  try (liftM Pats (annotated $ angles $ commaSep (annotated pattern)))
+  try (liftM Pats (annotated $ angles $ commaSep (annotated pattern')))
     <|> liftM Pat (annotated pattern)
 
 pattern :: Parser Pat
@@ -281,11 +326,20 @@ pattern = annotated' $
     <|> liftM PBinary (ebinary pattern)
     <|> liftM PMap (emap ":=" pkey pattern) -- TODO: Fixme later
 
+pattern' :: Parser Pat
+pattern' =
+  liftM PAlias (try alias {- because of variable -}) <|> liftM PVar variable
+    <|> liftM PLit (try literal {- because of nil -})
+    <|> liftM PTuple (tuple pattern)
+    <|> liftM PList (elist pattern)
+    <|> liftM PBinary (ebinary pattern)
+    <|> liftM PMap (emap ":=" pkey pattern)
+
 pkey :: Parser Key
 pkey = annotated' $ liftM KVar variable <|> liftM KLit literal
 
 alias :: Parser Alias
-alias = annotated' $ do
+alias = do
   v <- variable
   symbol "="
   p <- pattern
@@ -335,7 +389,7 @@ letrec =annotated' $ do
   return $ LetRec defs e
 
 elist :: Parser a -> Parser (List a)
-elist a = brackets $ list a
+elist a = annotated' $ brackets $ list a
 
 list :: Parser a -> Parser (List a)
 list el = do
@@ -349,7 +403,7 @@ list el = do
     )
 
 modcall :: Parser Expr
-modcall =annotated' $ do
+modcall = annotated' $ do
   reserved "call"
   e1 <- expression
   symbol ":"
@@ -401,12 +455,12 @@ etry = annotated' $ do
   return $ Try e1 (v1, e1) (v2, e2)
 
 tuple :: Parser a -> Parser [a]
-tuple el = annotated' $ braces $ commaSep $ annotated' $ el
+tuple el = annotated' $ braces $ commaSep el
 
 annotation :: Parser [Const]
 annotation = do
   symbol "-|"
-  cs <- brackets $ many constant
+  cs <- brackets $ (commaSep constant)
   return $ cs
 
 annotated :: Parser a -> Parser (Ann a)
@@ -459,16 +513,16 @@ commaSep = Token.commaSep lexer
 commaSep1 = Token.commaSep1 lexer
 
 decimal :: Parser Integer
-decimal = annotated' $ Token.decimal lexer
+decimal = Token.decimal lexer
 
 float :: Parser Double
-float = annotated' $ Token.float lexer
+float = Token.float lexer
 
 identifier :: Parser String
-identifier = annotated' $ Token.identifier lexer
+identifier = Token.identifier lexer
 ------------------------------------
 parens :: Parser a -> Parser a
-parens =   Token.parens lexer
+parens =  Token.parens lexer
 
 reserved :: String -> Parser ()
 reserved = annotated' . Token.reserved lexer
