@@ -18,6 +18,7 @@
 -- <http://erlang.org/doc/apps/compiler/compiler.pdf>
 module Language.CoreErlang.Parser
   ( parseModule,
+    parseModuleHead,
     ParseError,
     runLex,
   )
@@ -135,6 +136,13 @@ variable :: Parser Var
 variable = liftM Var (annotated identifier)
 
 -- Non-terminals
+amodulehead :: Parser (Ann ModuleHead)
+amodulehead = annotated $ annotated' $ do
+  reserved "module"
+  name <- atom
+  funs <- exports
+  attrs <- attributes
+  return $ ModuleHead name funs attrs
 
 emodule :: Parser (Ann Module)
 emodule = annotated amodule
@@ -546,6 +554,11 @@ runLex p file = do
     input
   return ()
 
+parseModuleHead :: String -> Either ParseError (Ann ModuleHead)
+parseModuleHead input = parse (do
+    whiteSpace
+    x <- amodulehead
+    return x) "" input
 -- | Parse of a string, which should contain a complete CoreErlang module
 parseModule :: String -> Either ParseError (Ann Module)
 parseModule input =

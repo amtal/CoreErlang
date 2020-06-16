@@ -19,6 +19,7 @@
 module Language.CoreErlang.Syntax
   ( -- * Modules
     Module(..)
+  , ModuleHead(..)
     -- * Declarations
   , FunDef(..)
     -- * Expressions
@@ -57,6 +58,9 @@ type Attrs = [(Atom, Const)]
 type FunDefs = [FunDef]
 -- | A CoreErlang source module.
 data Module = Module Name Exports Attrs FunDefs
+  deriving (Eq, Ord, Show, Data, Typeable)
+
+data ModuleHead = ModuleHead Name Exports Attrs
   deriving (Eq, Ord, Show, Data, Typeable)
 
 -- | This type is used to represent constants
@@ -179,4 +183,3 @@ data Ann a
   = Constr a      -- ^ core erlang construct
   | Ann a [Const] -- ^ core erlang annotated construct
   deriving (Eq, Ord, Show, Data, Typeable)
-
