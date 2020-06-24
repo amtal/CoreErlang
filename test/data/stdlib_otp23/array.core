@@ -1,0 +1,4440 @@
+module 'array' ['default'/1,
+		'fix'/1,
+		'foldl'/3,
+		'foldr'/3,
+		'from_list'/1,
+		'from_list'/2,
+		'from_orddict'/1,
+		'from_orddict'/2,
+		'get'/2,
+		'is_array'/1,
+		'is_fix'/1,
+		'map'/2,
+		'module_info'/0,
+		'module_info'/1,
+		'new'/0,
+		'new'/1,
+		'new'/2,
+		'relax'/1,
+		'reset'/2,
+		'resize'/1,
+		'resize'/2,
+		'set'/3,
+		'size'/1,
+		'sparse_foldl'/3,
+		'sparse_foldr'/3,
+		'sparse_map'/2,
+		'sparse_size'/1,
+		'sparse_to_list'/1,
+		'sparse_to_orddict'/1,
+		'to_list'/1,
+		'to_orddict'/1]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[97|[114|[114|[97|[121|[46|[101|[114|[108]]]]]]]]]]]]],1}],
+		%% Line 84
+		'export_type' =
+		    %% Line 84
+		    [{'array',0}|[{'array',1}]],
+		%% Line 145
+		'type' =
+		    %% Line 145
+		    [{'element_tuple',{'type',146,'union',[{'type',146,'tuple',[{'var',146,'T'}|[{'var',146,'T'}|[{'var',146,'T'}|[{'var',146,'T'}|[{'var',146,'T'}|[{'var',146,'T'}|[{'var',146,'T'}|[{'var',146,'T'}|[{'var',146,'T'}|[{'var',146,'T'}]]]]]]]]]]}|[{'type',147,'tuple',[{'user_type',147,'element_tuple',[{'var',147,'T'}]}|[{'user_type',147,'element_tuple',[{'var',147,'T'}]}|[{'user_type',147,'element_tuple',[{'var',147,'T'}]}|[{'user_type',148,'element_tuple',[{'var',148,'T'}]}|[{'user_type',148,'element_tuple',[{'var',148,'T'}]}|[{'user_type',148,'element_tuple',[{'var',148,'T'}]}|[{'user_type',149,'element_tuple',[{'var',149,'T'}]}|[{'user_type',149,'element_tuple',[{'var',149,'T'}]}|[{'user_type',149,'element_tuple',[{'var',149,'T'}]}|[{'user_type',150,'element_tuple',[{'var',150,'T'}]}|[{'type',150,'non_neg_integer',[]}]]]]]]]]]]]}]]},[{'var',145,'T'}]}],
+		%% Line 152
+		'type' =
+		    %% Line 152
+		    [{'elements',{'type',152,'union',[{'type',152,'non_neg_integer',[]}|[{'user_type',153,'element_tuple',[{'var',153,'T'}]}|[{'type',154,'nil',[]}]]]},[{'var',152,'T'}]}],
+		%% Line 156
+		'record' =
+		    %% Line 156
+		    [{'array',[{'typed_record_field',{'record_field',156,{'atom',156,'size'}},{'type',156,'non_neg_integer',[]}}|[{'typed_record_field',{'record_field',157,{'atom',157,'max'}},{'type',157,'non_neg_integer',[]}}|[{'record_field',159,{'atom',159,'default'}}|[{'typed_record_field',{'record_field',160,{'atom',160,'elements'}},{'user_type',160,'elements',[{'var',160,'_'}]}}]]]]}],
+		%% Line 163
+		'type' =
+		    %% Line 163
+		    [{'array',{'user_type',163,'array',[{'type',163,'term',[]}]},[]}],
+		%% Line 165
+		'opaque' =
+		    %% Line 165
+		    [{'array',{'type',166,'record',[{'atom',166,'array'}|[{'type',166,'field_type',[{'atom',166,'default'}|[{'var',166,'Type'}]]}|[{'type',166,'field_type',[{'atom',166,'elements'}|[{'user_type',166,'elements',[{'var',166,'Type'}]}]]}]]]},[{'var',165,'Type'}]}],
+		%% Line 172
+		'type' =
+		    %% Line 172
+		    [{'array_indx',{'type',172,'non_neg_integer',[]},[]}],
+		%% Line 174
+		'type' =
+		    %% Line 174
+		    [{'array_opt',{'type',174,'union',[{'type',174,'tuple',[{'atom',174,'fixed'}|[{'type',174,'boolean',[]}]]}|[{'atom',174,'fixed'}|[{'type',175,'tuple',[{'atom',175,'default'}|[{'ann_type',175,[{'var',175,'Type'}|[{'type',175,'term',[]}]]}]]}|[{'type',176,'tuple',[{'atom',176,'size'}|[{'ann_type',176,[{'var',176,'N'}|[{'type',176,'non_neg_integer',[]}]]}]]}|[{'ann_type',177,[{'var',177,'N'}|[{'type',177,'non_neg_integer',[]}]]}]]]]]},[]}],
+		%% Line 178
+		'type' =
+		    %% Line 178
+		    [{'array_opts',{'type',178,'union',[{'user_type',178,'array_opt',[]}|[{'type',178,'list',[{'user_type',178,'array_opt',[]}]}]]},[]}],
+		%% Line 180
+		'type' =
+		    %% Line 180
+		    [{'indx_pair',{'type',180,'tuple',[{'ann_type',180,[{'var',180,'Index'}|[{'user_type',180,'array_indx',[]}]]}|[{'var',180,'Type'}]]},[{'var',180,'Type'}]}],
+		%% Line 181
+		'type' =
+		    %% Line 181
+		    [{'indx_pairs',{'type',181,'list',[{'user_type',181,'indx_pair',[{'var',181,'Type'}]}]},[{'var',181,'Type'}]}],
+		%% Line 191
+		'spec' =
+		    %% Line 191
+		    [{{'new',0},[{'type',191,'fun',[{'type',191,'product',[]}|[{'user_type',191,'array',[]}]]}]}],
+		%% Line 234
+		'spec' =
+		    %% Line 234
+		    [{{'new',1},[{'type',234,'fun',[{'type',234,'product',[{'ann_type',234,[{'var',234,'Options'}|[{'user_type',234,'array_opts',[]}]]}]}|[{'user_type',234,'array',[]}]]}]}],
+		%% Line 254
+		'spec' =
+		    %% Line 254
+		    [{{'new',2},[{'type',254,'fun',[{'type',254,'product',[{'ann_type',254,[{'var',254,'Size'}|[{'type',254,'non_neg_integer',[]}]]}|[{'ann_type',254,[{'var',254,'Options'}|[{'user_type',254,'array_opts',[]}]]}]]}|[{'user_type',254,'array',[]}]]}]}],
+		%% Line 294
+		'spec' =
+		    %% Line 294
+		    [{{'find_max',2},[{'type',294,'fun',[{'type',294,'product',[{'type',294,'integer',[]}|[{'type',294,'non_neg_integer',[]}]]}|[{'type',294,'non_neg_integer',[]}]]}]}],
+		%% Line 307
+		'spec' =
+		    %% Line 307
+		    [{{'is_array',1},[{'type',307,'fun',[{'type',307,'product',[{'ann_type',307,[{'var',307,'X'}|[{'type',307,'term',[]}]]}]}|[{'type',307,'boolean',[]}]]}]}],
+		%% Line 322
+		'spec' =
+		    %% Line 322
+		    [{{'size',1},[{'type',322,'fun',[{'type',322,'product',[{'ann_type',322,[{'var',322,'Array'}|[{'user_type',322,'array',[]}]]}]}|[{'type',322,'non_neg_integer',[]}]]}]}],
+		%% Line 332
+		'spec' =
+		    %% Line 332
+		    [{{'default',1},[{'type',332,'fun',[{'type',332,'product',[{'ann_type',332,[{'var',332,'Array'}|[{'user_type',332,'array',[{'var',332,'Type'}]}]]}]}|[{'ann_type',332,[{'var',332,'Value'}|[{'var',332,'Type'}]]}]]}]}],
+		%% Line 415
+		'spec' =
+		    %% Line 415
+		    [{{'fix',1},[{'type',415,'fun',[{'type',415,'product',[{'ann_type',415,[{'var',415,'Array'}|[{'user_type',415,'array',[{'var',415,'Type'}]}]]}]}|[{'user_type',415,'array',[{'var',415,'Type'}]}]]}]}],
+		%% Line 425
+		'spec' =
+		    %% Line 425
+		    [{{'is_fix',1},[{'type',425,'fun',[{'type',425,'product',[{'ann_type',425,[{'var',425,'Array'}|[{'user_type',425,'array',[]}]]}]}|[{'type',425,'boolean',[]}]]}]}],
+		%% Line 463
+		'spec' =
+		    %% Line 463
+		    [{{'relax',1},[{'type',463,'fun',[{'type',463,'product',[{'ann_type',463,[{'var',463,'Array'}|[{'user_type',463,'array',[{'var',463,'Type'}]}]]}]}|[{'user_type',463,'array',[{'var',463,'Type'}]}]]}]}],
+		%% Line 488
+		'spec' =
+		    %% Line 488
+		    [{{'resize',2},[{'type',488,'fun',[{'type',488,'product',[{'ann_type',488,[{'var',488,'Size'}|[{'type',488,'non_neg_integer',[]}]]}|[{'ann_type',488,[{'var',488,'Array'}|[{'user_type',488,'array',[{'var',488,'Type'}]}]]}]]}|[{'user_type',489,'array',[{'var',489,'Type'}]}]]}]}],
+		%% Line 520
+		'spec' =
+		    %% Line 520
+		    [{{'resize',1},[{'type',520,'fun',[{'type',520,'product',[{'ann_type',520,[{'var',520,'Array'}|[{'user_type',520,'array',[{'var',520,'Type'}]}]]}]}|[{'user_type',520,'array',[{'var',520,'Type'}]}]]}]}],
+		%% Line 570
+		'spec' =
+		    %% Line 570
+		    [{{'set',3},[{'type',570,'fun',[{'type',570,'product',[{'ann_type',570,[{'var',570,'I'}|[{'user_type',570,'array_indx',[]}]]}|[{'ann_type',570,[{'var',570,'Value'}|[{'var',570,'Type'}]]}|[{'ann_type',570,[{'var',570,'Array'}|[{'user_type',570,'array',[{'var',570,'Type'}]}]]}]]]}|[{'user_type',570,'array',[{'var',570,'Type'}]}]]}]}],
+		%% Line 633
+		'spec' =
+		    %% Line 633
+		    [{{'get',2},[{'type',633,'fun',[{'type',633,'product',[{'ann_type',633,[{'var',633,'I'}|[{'user_type',633,'array_indx',[]}]]}|[{'ann_type',633,[{'var',633,'Array'}|[{'user_type',633,'array',[{'var',633,'Type'}]}]]}]]}|[{'ann_type',633,[{'var',633,'Value'}|[{'var',633,'Type'}]]}]]}]}],
+		%% Line 673
+		'spec' =
+		    %% Line 673
+		    [{{'reset',2},[{'type',673,'fun',[{'type',673,'product',[{'ann_type',673,[{'var',673,'I'}|[{'user_type',673,'array_indx',[]}]]}|[{'ann_type',673,[{'var',673,'Array'}|[{'user_type',673,'array',[{'var',673,'Type'}]}]]}]]}|[{'user_type',673,'array',[{'var',673,'Type'}]}]]}]}],
+		%% Line 759
+		'spec' =
+		    %% Line 759
+		    [{{'to_list',1},[{'type',759,'fun',[{'type',759,'product',[{'ann_type',759,[{'var',759,'Array'}|[{'user_type',759,'array',[{'var',759,'Type'}]}]]}]}|[{'type',759,'list',[{'ann_type',759,[{'var',759,'Value'}|[{'var',759,'Type'}]]}]}]]}]}],
+		%% Line 832
+		'spec' =
+		    %% Line 832
+		    [{{'sparse_to_list',1},[{'type',832,'fun',[{'type',832,'product',[{'ann_type',832,[{'var',832,'Array'}|[{'user_type',832,'array',[{'var',832,'Type'}]}]]}]}|[{'type',832,'list',[{'ann_type',832,[{'var',832,'Value'}|[{'var',832,'Type'}]]}]}]]}]}],
+		%% Line 899
+		'spec' =
+		    %% Line 899
+		    [{{'from_list',1},[{'type',899,'fun',[{'type',899,'product',[{'ann_type',899,[{'var',899,'List'}|[{'type',899,'list',[{'ann_type',899,[{'var',899,'Value'}|[{'var',899,'Type'}]]}]}]]}]}|[{'user_type',899,'array',[{'var',899,'Type'}]}]]}]}],
+		%% Line 911
+		'spec' =
+		    %% Line 911
+		    [{{'from_list',2},[{'type',911,'fun',[{'type',911,'product',[{'ann_type',911,[{'var',911,'List'}|[{'type',911,'list',[{'ann_type',911,[{'var',911,'Value'}|[{'var',911,'Type'}]]}]}]]}|[{'ann_type',911,[{'var',911,'Default'}|[{'type',911,'term',[]}]]}]]}|[{'user_type',911,'array',[{'var',911,'Type'}]}]]}]}],
+		%% Line 1010
+		'spec' =
+		    %% Line 1010
+		    [{{'to_orddict',1},[{'type',1010,'fun',[{'type',1010,'product',[{'ann_type',1010,[{'var',1010,'Array'}|[{'user_type',1010,'array',[{'var',1010,'Type'}]}]]}]}|[{'user_type',1010,'indx_pairs',[{'ann_type',1010,[{'var',1010,'Value'}|[{'var',1010,'Type'}]]}]}]]}]}],
+		%% Line 1047
+		'spec' =
+		    %% Line 1047
+		    [{{'push_pairs',4},[{'type',1047,'fun',[{'type',1047,'product',[{'type',1047,'non_neg_integer',[]}|[{'user_type',1047,'array_indx',[]}|[{'type',1047,'term',[]}|[{'user_type',1047,'indx_pairs',[{'var',1047,'Type'}]}]]]]}|[{'user_type',1048,'indx_pairs',[{'var',1048,'Type'}]}]]}]}],
+		%% Line 1055
+		'spec' =
+		    %% Line 1055
+		    [{{'push_tuple_pairs',4},[{'type',1055,'fun',[{'type',1055,'product',[{'type',1055,'non_neg_integer',[]}|[{'user_type',1055,'array_indx',[]}|[{'type',1055,'term',[]}|[{'user_type',1055,'indx_pairs',[{'var',1055,'Type'}]}]]]]}|[{'user_type',1056,'indx_pairs',[{'var',1056,'Type'}]}]]}]}],
+		%% Line 1102
+		'spec' =
+		    %% Line 1102
+		    [{{'sparse_to_orddict',1},[{'type',1102,'fun',[{'type',1102,'product',[{'ann_type',1102,[{'var',1102,'Array'}|[{'user_type',1102,'array',[{'var',1102,'Type'}]}]]}]}|[{'user_type',1102,'indx_pairs',[{'ann_type',1102,[{'var',1102,'Value'}|[{'var',1102,'Type'}]]}]}]]}]}],
+		%% Line 1139
+		'spec' =
+		    %% Line 1139
+		    [{{'sparse_push_tuple_pairs',5},[{'type',1139,'fun',[{'type',1139,'product',[{'type',1139,'non_neg_integer',[]}|[{'user_type',1139,'array_indx',[]}|[{'var',1140,'_'}|[{'var',1140,'_'}|[{'user_type',1140,'indx_pairs',[{'var',1140,'Type'}]}]]]]]}|[{'user_type',1140,'indx_pairs',[{'var',1140,'Type'}]}]]}]}],
+		%% Line 1182
+		'spec' =
+		    %% Line 1182
+		    [{{'from_orddict',1},[{'type',1182,'fun',[{'type',1182,'product',[{'ann_type',1182,[{'var',1182,'Orddict'}|[{'user_type',1182,'indx_pairs',[{'ann_type',1182,[{'var',1182,'Value'}|[{'var',1182,'Type'}]]}]}]]}]}|[{'user_type',1182,'array',[{'var',1182,'Type'}]}]]}]}],
+		%% Line 1196
+		'spec' =
+		    %% Line 1196
+		    [{{'from_orddict',2},[{'type',1196,'fun',[{'type',1196,'product',[{'ann_type',1196,[{'var',1196,'Orddict'}|[{'user_type',1196,'indx_pairs',[{'ann_type',1196,[{'var',1196,'Value'}|[{'var',1196,'Type'}]]}]}]]}|[{'ann_type',1196,[{'var',1196,'Default'}|[{'var',1196,'Type'}]]}]]}|[{'user_type',1197,'array',[{'var',1197,'Type'}]}]]}]}],
+		%% Line 1392
+		'spec' =
+		    %% Line 1392
+		    [{{'map',2},[{'type',1392,'bounded_fun',[{'type',1392,'fun',[{'type',1392,'product',[{'var',1392,'Function'}|[{'ann_type',1392,[{'var',1392,'Array'}|[{'user_type',1392,'array',[{'var',1392,'Type1'}]}]]}]]}|[{'user_type',1392,'array',[{'var',1392,'Type2'}]}]]}|[[{'type',1393,'constraint',[{'atom',1393,'is_subtype'}|[[{'var',1393,'Function'}|[{'type',1393,'fun',[{'type',1393,'product',[{'ann_type',1393,[{'var',1393,'Index'}|[{'user_type',1393,'array_indx',[]}]]}|[{'var',1393,'Type1'}]]}|[{'var',1393,'Type2'}]]}]]]]}]]]}]}],
+		%% Line 1431
+		'spec' =
+		    %% Line 1431
+		    [{{'map_3',7},[{'type',1431,'fun',[{'type',1431,'product',[{'type',1431,'pos_integer',[]}|[{'var',1431,'_'}|[{'user_type',1431,'array_indx',[]}|[{'type',1432,'fun',[{'type',1432,'product',[{'user_type',1432,'array_indx',[]}|[{'var',1432,'_'}]]}|[{'var',1432,'_'}]]}|[{'var',1432,'_'}|[{'type',1432,'non_neg_integer',[]}|[{'type',1432,'list',[{'var',1432,'X'}]}]]]]]]]}|[{'type',1432,'list',[{'var',1432,'X'}]}]]}]}],
+		%% Line 1484
+		'spec' =
+		    %% Line 1484
+		    [{{'sparse_map',2},[{'type',1484,'bounded_fun',[{'type',1484,'fun',[{'type',1484,'product',[{'var',1484,'Function'}|[{'ann_type',1484,[{'var',1484,'Array'}|[{'user_type',1484,'array',[{'var',1484,'Type1'}]}]]}]]}|[{'user_type',1484,'array',[{'var',1484,'Type2'}]}]]}|[[{'type',1485,'constraint',[{'atom',1485,'is_subtype'}|[[{'var',1485,'Function'}|[{'type',1485,'fun',[{'type',1485,'product',[{'ann_type',1485,[{'var',1485,'Index'}|[{'user_type',1485,'array_indx',[]}]]}|[{'var',1485,'Type1'}]]}|[{'var',1485,'Type2'}]]}]]]]}]]]}]}],
+		%% Line 1523
+		'spec' =
+		    %% Line 1523
+		    [{{'sparse_map_3',6},[{'type',1523,'fun',[{'type',1523,'product',[{'type',1523,'pos_integer',[]}|[{'var',1523,'_'}|[{'user_type',1523,'array_indx',[]}|[{'type',1524,'fun',[{'type',1524,'product',[{'user_type',1524,'array_indx',[]}|[{'var',1524,'_'}]]}|[{'var',1524,'_'}]]}|[{'var',1524,'_'}|[{'type',1524,'list',[{'var',1524,'X'}]}]]]]]]}|[{'type',1524,'list',[{'var',1524,'X'}]}]]}]}],
+		%% Line 1580
+		'spec' =
+		    %% Line 1580
+		    [{{'foldl',3},[{'type',1580,'bounded_fun',[{'type',1580,'fun',[{'type',1580,'product',[{'var',1580,'Function'}|[{'ann_type',1580,[{'var',1580,'InitialAcc'}|[{'var',1580,'A'}]]}|[{'ann_type',1580,[{'var',1580,'Array'}|[{'user_type',1580,'array',[{'var',1580,'Type'}]}]]}]]]}|[{'var',1580,'B'}]]}|[[{'type',1581,'constraint',[{'atom',1581,'is_subtype'}|[[{'var',1581,'Function'}|[{'type',1581,'fun',[{'type',1581,'product',[{'ann_type',1581,[{'var',1581,'Index'}|[{'user_type',1581,'array_indx',[]}]]}|[{'ann_type',1581,[{'var',1581,'Value'}|[{'var',1581,'Type'}]]}|[{'ann_type',1581,[{'var',1581,'Acc'}|[{'var',1581,'A'}]]}]]]}|[{'var',1581,'B'}]]}]]]]}]]]}]}],
+		%% Line 1606
+		'spec' =
+		    %% Line 1606
+		    [{{'foldl_3',6},[{'type',1606,'fun',[{'type',1606,'product',[{'type',1606,'pos_integer',[]}|[{'var',1606,'_'}|[{'var',1606,'A'}|[{'user_type',1606,'array_indx',[]}|[{'type',1607,'fun',[{'type',1607,'product',[{'user_type',1607,'array_indx',[]}|[{'var',1607,'_'}|[{'var',1607,'A'}]]]}|[{'var',1607,'B'}]]}|[{'type',1607,'integer',[]}]]]]]]}|[{'var',1607,'B'}]]}]}],
+		%% Line 1652
+		'spec' =
+		    %% Line 1652
+		    [{{'sparse_foldl',3},[{'type',1652,'bounded_fun',[{'type',1652,'fun',[{'type',1652,'product',[{'var',1652,'Function'}|[{'ann_type',1652,[{'var',1652,'InitialAcc'}|[{'var',1652,'A'}]]}|[{'ann_type',1652,[{'var',1652,'Array'}|[{'user_type',1652,'array',[{'var',1652,'Type'}]}]]}]]]}|[{'var',1652,'B'}]]}|[[{'type',1653,'constraint',[{'atom',1653,'is_subtype'}|[[{'var',1653,'Function'}|[{'type',1653,'fun',[{'type',1653,'product',[{'ann_type',1653,[{'var',1653,'Index'}|[{'user_type',1653,'array_indx',[]}]]}|[{'ann_type',1653,[{'var',1653,'Value'}|[{'var',1653,'Type'}]]}|[{'ann_type',1653,[{'var',1653,'Acc'}|[{'var',1653,'A'}]]}]]]}|[{'var',1653,'B'}]]}]]]]}]]]}]}],
+		%% Line 1729
+		'spec' =
+		    %% Line 1729
+		    [{{'foldr',3},[{'type',1729,'bounded_fun',[{'type',1729,'fun',[{'type',1729,'product',[{'var',1729,'Function'}|[{'ann_type',1729,[{'var',1729,'InitialAcc'}|[{'var',1729,'A'}]]}|[{'ann_type',1729,[{'var',1729,'Array'}|[{'user_type',1729,'array',[{'var',1729,'Type'}]}]]}]]]}|[{'var',1729,'B'}]]}|[[{'type',1730,'constraint',[{'atom',1730,'is_subtype'}|[[{'var',1730,'Function'}|[{'type',1730,'fun',[{'type',1730,'product',[{'ann_type',1730,[{'var',1730,'Index'}|[{'user_type',1730,'array_indx',[]}]]}|[{'ann_type',1730,[{'var',1730,'Value'}|[{'var',1730,'Type'}]]}|[{'ann_type',1730,[{'var',1730,'Acc'}|[{'var',1730,'A'}]]}]]]}|[{'var',1730,'B'}]]}]]]]}]]]}]}],
+		%% Line 1760
+		'spec' =
+		    %% Line 1760
+		    [{{'foldr_3',5},[{'type',1760,'fun',[{'type',1760,'product',[{'user_type',1760,'array_indx',[]}|[{'type',1760,'term',[]}|[{'type',1760,'integer',[]}|[{'var',1760,'A'}|[{'type',1761,'fun',[{'type',1761,'product',[{'user_type',1761,'array_indx',[]}|[{'var',1761,'_'}|[{'var',1761,'A'}]]]}|[{'var',1761,'B'}]]}]]]]]}|[{'var',1761,'B'}]]}]}],
+		%% Line 1807
+		'spec' =
+		    %% Line 1807
+		    [{{'sparse_foldr',3},[{'type',1807,'bounded_fun',[{'type',1807,'fun',[{'type',1807,'product',[{'var',1807,'Function'}|[{'ann_type',1807,[{'var',1807,'InitialAcc'}|[{'var',1807,'A'}]]}|[{'ann_type',1807,[{'var',1807,'Array'}|[{'user_type',1807,'array',[{'var',1807,'Type'}]}]]}]]]}|[{'var',1807,'B'}]]}|[[{'type',1808,'constraint',[{'atom',1808,'is_subtype'}|[[{'var',1808,'Function'}|[{'type',1808,'fun',[{'type',1808,'product',[{'ann_type',1808,[{'var',1808,'Index'}|[{'user_type',1808,'array_indx',[]}]]}|[{'ann_type',1808,[{'var',1808,'Value'}|[{'var',1808,'Type'}]]}|[{'ann_type',1808,[{'var',1808,'Acc'}|[{'var',1808,'A'}]]}]]]}|[{'var',1808,'B'}]]}]]]]}]]]}]}],
+		%% Line 1839
+		'spec' =
+		    %% Line 1839
+		    [{{'sparse_foldr_3',6},[{'type',1839,'fun',[{'type',1839,'product',[{'user_type',1839,'array_indx',[]}|[{'var',1839,'_'}|[{'user_type',1839,'array_indx',[]}|[{'var',1839,'A'}|[{'type',1840,'fun',[{'type',1840,'product',[{'user_type',1840,'array_indx',[]}|[{'var',1840,'_'}|[{'var',1840,'A'}]]]}|[{'var',1840,'B'}]]}|[{'var',1840,'_'}]]]]]]}|[{'var',1840,'B'}]]}]}],
+		%% Line 1858
+		'spec' =
+		    %% Line 1858
+		    [{{'sparse_size',1},[{'type',1858,'fun',[{'type',1858,'product',[{'ann_type',1858,[{'var',1858,'Array'}|[{'user_type',1858,'array',[]}]]}]}|[{'type',1858,'non_neg_integer',[]}]]}]}]]
+'new'/0 =
+    %% Line 193
+    ( fun () ->
+	  %% Line 194
+	  apply 'new'/1
+	      ([])
+      -| [{'function',{'new',0}}] )
+'new'/1 =
+    %% Line 236
+    ( fun (_0) ->
+	  %% Line 237
+	  apply 'new_0'/3
+	      (( _0
+		 -| [{'function',{'new',1}}] ), 0, 'false')
+      -| [{'function',{'new',1}}] )
+'new'/2 =
+    %% Line 256
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <Size,Options>
+		  when let <_2> =
+			call 'erlang':'is_integer'
+			    (Size)
+		    in  let <_3> =
+			    call 'erlang':'>='
+				(Size, 0)
+			in  call 'erlang':'and'
+				(_2, _3) ->
+		  %% Line 257
+		  apply 'new_0'/3
+		      (Options, Size, 'true')
+	      %% Line 258
+	      <_6,_7> when 'true' ->
+		  %% Line 259
+		  call 'erlang':'error'
+		      ('badarg')
+	    end
+	    -| [{'function',{'new',2}}] )
+      -| [{'function',{'new',2}}] )
+'new_0'/3 =
+    %% Line 261
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <Options,Size,Fixed>
+		  when call 'erlang':'is_list'
+			(Options) ->
+		  %% Line 262
+		  apply 'new_1'/4
+		      (Options, Size, Fixed, 'undefined')
+	      %% Line 263
+	      <Options,Size,Fixed> when 'true' ->
+		  %% Line 264
+		  apply 'new_1'/4
+		      ([Options|[]], Size, Fixed, 'undefined')
+	    end
+	    -| [{'function',{'new_0',3}}] )
+      -| [{'function',{'new_0',3}}] )
+'new_1'/4 =
+    %% Line 266
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <['fixed'|Options],Size,_12,Default> when 'true' ->
+		  %% Line 267
+		  apply 'new_1'/4
+		      (Options, Size, 'true', Default)
+	      %% Line 268
+	      <[{'fixed',Fixed}|Options],Size,_13,Default>
+		  when %% Line 269
+		    call 'erlang':'is_boolean'
+			(Fixed) ->
+		  %% Line 270
+		  apply 'new_1'/4
+		      (Options, Size, Fixed, Default)
+	      %% Line 271
+	      <[{'default',Default}|Options],Size,Fixed,_14> when 'true' ->
+		  %% Line 272
+		  apply 'new_1'/4
+		      (Options, Size, Fixed, Default)
+	      %% Line 273
+	      <[{'size',Size}|Options],_15,_16,Default>
+		  when let <_4> =
+			call %% Line 274
+			     'erlang':%% Line 274
+				      'is_integer'
+			    (%% Line 274
+			     Size)
+		    in  let <_5> =
+			    call %% Line 274
+				 'erlang':%% Line 274
+					  '>='
+				(%% Line 274
+				 Size, %% Line 274
+				       0)
+			in  %% Line 274
+			    call 'erlang':'and'
+				(_4, _5) ->
+		  %% Line 275
+		  apply 'new_1'/4
+		      (Options, Size, 'true', Default)
+	      %% Line 276
+	      <[Size|Options],_17,_18,Default>
+		  when let <_6> =
+			call %% Line 277
+			     'erlang':%% Line 277
+				      'is_integer'
+			    (%% Line 277
+			     Size)
+		    in  let <_7> =
+			    call %% Line 277
+				 'erlang':%% Line 277
+					  '>='
+				(%% Line 277
+				 Size, %% Line 277
+				       0)
+			in  %% Line 277
+			    call 'erlang':'and'
+				(_6, _7) ->
+		  %% Line 278
+		  apply 'new_1'/4
+		      (Options, Size, 'true', Default)
+	      %% Line 279
+	      <[],Size,Fixed,Default> when 'true' ->
+		  %% Line 280
+		  apply 'new'/3
+		      (Size, Fixed, Default)
+	      %% Line 281
+	      <_X_Options,_X_Size,_X_Fixed,_X_Default> when 'true' ->
+		  %% Line 282
+		  call 'erlang':'error'
+		      ('badarg')
+	    end
+	    -| [{'function',{'new_1',4}}] )
+      -| [{'function',{'new_1',4}}] )
+'new'/3 =
+    %% Line 284
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <0,'false','undefined'> when 'true' ->
+		  %% Line 286
+		  {'array',0,10,'undefined',10}
+	      %% Line 287
+	      <Size,Fixed,Default> when 'true' ->
+		  let <_3> =
+		      call %% Line 288
+			   'erlang':%% Line 288
+				    '-'
+			  (%% Line 288
+			   Size, %% Line 288
+				 1)
+		  in  let <E> =
+			  apply %% Line 288
+				'find_max'/2
+			      (_3, %% Line 288
+				   10)
+		      in  let <_5> =
+			      case <> of
+				%% Line 289
+				<>
+				    when ( call 'erlang':'=:='
+					    (Fixed,
+					     'true')
+					-| ['compiler_generated'] ) ->
+				    0
+				%% Line 290
+				<> when 'true' ->
+				    E
+			      end
+			  in  %% Line 292
+			      {'array',Size,_5,Default,E}
+	    end
+	    -| [{'function',{'new',3}}] )
+      -| [{'function',{'new',3}}] )
+'find_max'/2 =
+    %% Line 296
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <I,M>
+		  when call 'erlang':'>='
+			(I,
+			 M) ->
+		  let <_2> =
+		      call %% Line 297
+			   'erlang':%% Line 297
+				    '*'
+			  (%% Line 297
+			   M, %% Line 297
+			      10)
+		  in  %% Line 297
+		      apply 'find_max'/2
+			  (I, _2)
+	      %% Line 298
+	      <_X_I,M> when 'true' ->
+		  %% Line 299
+		  M
+	    end
+	    -| [{'function',{'find_max',2}}] )
+      -| [{'function',{'find_max',2}}] )
+'is_array'/1 =
+    %% Line 309
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'is_array',1}}] ) of
+	      <{'array',Size,Max,_4,_5}>
+		  when let <_1> =
+			call %% Line 310
+			     'erlang':%% Line 310
+				      'is_integer'
+			    (%% Line 310
+			     Size)
+		    in  let <_2> =
+			    call %% Line 310
+				 'erlang':%% Line 310
+					  'is_integer'
+				(%% Line 310
+				 Max)
+			in  %% Line 310
+			    call 'erlang':'and'
+				(_1, _2) ->
+		  %% Line 311
+		  'true'
+	      %% Line 312
+	      <_6> when 'true' ->
+		  %% Line 313
+		  'false'
+	    end
+	    -| [{'function',{'is_array',1}}] )
+      -| [{'function',{'is_array',1}}] )
+'size'/1 =
+    %% Line 324
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'size',1}}] ) of
+	      <{'array',N,_2,_3,_4}> when 'true' ->
+		  N
+	      %% Line 325
+	      <_5> when 'true' ->
+		  call 'erlang':'error'
+		      ('badarg')
+	    end
+	    -| [{'function',{'size',1}}] )
+      -| [{'function',{'size',1}}] )
+'default'/1 =
+    %% Line 334
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'default',1}}] ) of
+	      <{'array',_2,_3,D,_4}> when 'true' ->
+		  D
+	      %% Line 335
+	      <_5> when 'true' ->
+		  call 'erlang':'error'
+		      ('badarg')
+	    end
+	    -| [{'function',{'default',1}}] )
+      -| [{'function',{'default',1}}] )
+'fix'/1 =
+    %% Line 417
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'fix',1}}] ) of
+	      <A = {'array',_4,_5,_6,_7}> when 'true' ->
+		  %% Line 418
+		  case A of
+		    <{'array',_8,_9,_10,_11}> when 'true' ->
+			call 'erlang':'setelement'
+			    (3, A, 0)
+		    ( <_12> when 'true' ->
+			  ( call ( 'erlang'
+				   -| ['compiler_generated'] ):( 'error'
+								 -| ['compiler_generated'] )
+				(( {'badrecord','array'}
+				   -| ['compiler_generated'] ))
+			    -| ['compiler_generated'] )
+		      -| ['compiler_generated'] )
+		  end
+	      ( <_3> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_3})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'fix',1}}] )
+      -| [{'function',{'fix',1}}] )
+'is_fix'/1 =
+    %% Line 427
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'is_fix',1}}] ) of
+	      <{'array',_2,0,_3,_4}> when 'true' ->
+		  'true'
+	      %% Line 428
+	      <{'array',_5,_6,_7,_8}> when 'true' ->
+		  'false'
+	      ( <_1> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_1})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'is_fix',1}}] )
+      -| [{'function',{'is_fix',1}}] )
+'relax'/1 =
+    %% Line 465
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'relax',1}}] ) of
+	      <A = {'array',N,_6,_7,_8}> when 'true' ->
+		  let <_1> =
+		      call %% Line 466
+			   'erlang':%% Line 466
+				    '-'
+			  (%% Line 466
+			   N, %% Line 466
+			      1)
+		  in  let <_rec1> =
+			  apply %% Line 466
+				'find_max'/2
+			      (_1, %% Line 466
+				   10)
+		      in  %% Line 466
+			  case A of
+			    <{'array',_9,_10,_11,_12}> when 'true' ->
+				call 'erlang':'setelement'
+				    (3, A, _rec1)
+			    ( <_13> when 'true' ->
+				  ( call ( 'erlang'
+					   -| ['compiler_generated'] ):( 'error'
+									 -| ['compiler_generated'] )
+					(( {'badrecord','array'}
+					   -| ['compiler_generated'] ))
+				    -| ['compiler_generated'] )
+			      -| ['compiler_generated'] )
+			  end
+	      ( <_5> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_5})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'relax',1}}] )
+      -| [{'function',{'relax',1}}] )
+'resize'/2 =
+    %% Line 491
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <Size,A = {'array',N,M,_16,E}>
+		  when let <_2> =
+			call %% Line 492
+			     'erlang':%% Line 492
+				      'is_integer'
+			    (%% Line 492
+			     Size)
+		    in  let <_3> =
+			    call %% Line 492
+				 'erlang':%% Line 492
+					  '>='
+				(%% Line 492
+				 Size, %% Line 492
+				       0)
+			in  %% Line 492
+			    call 'erlang':'and'
+				(_2, _3) ->
+		  %% Line 493
+		  case <> of
+		    <>
+			when call 'erlang':'>'
+			      (Size,
+			       N) ->
+			let <_6> =
+			    call %% Line 494
+				 'erlang':%% Line 494
+					  '-'
+				(%% Line 494
+				 Size, %% Line 494
+				       1)
+			in  let <_5> =
+				case <> of
+				  %% Line 495
+				  <>
+				      when call 'erlang':'>'
+					    (M,
+					     0) ->
+				      M
+				  %% Line 496
+				  <> when 'true' ->
+				      let <_4> =
+					  call 'erlang':'-'
+					      (N, 1)
+				      in  apply 'find_max'/2
+					      (_4, 10)
+				end
+			    in  %% Line 494
+				case apply 'grow'/3
+					 (_6, E, _5) of
+				  <{E1,M1}> when 'true' ->
+				      let <_8> =
+					  case <> of
+					    %% Line 499
+					    <>
+						when call 'erlang':'>'
+						      (M,
+						       0) ->
+						M1
+					    %% Line 500
+					    <> when 'true' ->
+						M
+					  end
+				      in  %% Line 502
+					  case A of
+					    <{'array',_rec5,_rec6,_rec7,_rec8}> when 'true' ->
+						{'array',Size,_8,_rec7,E1}
+					    ( <_17> when 'true' ->
+						  ( call ( 'erlang'
+							   -| ['compiler_generated'] ):( 'error'
+											 -| ['compiler_generated'] )
+							(( {'badrecord','array'}
+							   -| ['compiler_generated'] ))
+						    -| ['compiler_generated'] )
+					      -| ['compiler_generated'] )
+					  end
+				  ( <_7> when 'true' ->
+					primop 'match_fail'
+					    ({'badmatch',_7})
+				    -| ['compiler_generated'] )
+				end
+		    %% Line 503
+		    <>
+			when call 'erlang':'<'
+			      (Size,
+			       N) ->
+			%% Line 505
+			case A of
+			  <{'array',_18,_19,_20,_21}> when 'true' ->
+			      call 'erlang':'setelement'
+				  (2, A, Size)
+			  ( <_22> when 'true' ->
+				( call ( 'erlang'
+					 -| ['compiler_generated'] ):( 'error'
+								       -| ['compiler_generated'] )
+				      (( {'badrecord','array'}
+					 -| ['compiler_generated'] ))
+				  -| ['compiler_generated'] )
+			    -| ['compiler_generated'] )
+			end
+		    %% Line 506
+		    <> when 'true' ->
+			%% Line 507
+			A
+		  end
+	      %% Line 509
+	      <_X_Size,_23> when 'true' ->
+		  %% Line 510
+		  call 'erlang':'error'
+		      ('badarg')
+	    end
+	    -| [{'function',{'resize',2}}] )
+      -| [{'function',{'resize',2}}] )
+'resize'/1 =
+    %% Line 522
+    ( fun (_0) ->
+	  let <_1> =
+	      apply %% Line 523
+		    'sparse_size'/1
+		  (( _0
+		     -| [{'function',{'resize',1}}] ))
+	  in  %% Line 523
+	      apply 'resize'/2
+		  (_1, ( _0
+			 -| [{'function',{'resize',1}}] ))
+      -| [{'function',{'resize',1}}] )
+'set'/3 =
+    %% Line 572
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <I,Value,A = {'array',N,M,D,E}>
+		  when let <_3> =
+			call %% Line 573
+			     'erlang':%% Line 573
+				      'is_integer'
+			    (%% Line 573
+			     I)
+		    in  let <_4> =
+			    call %% Line 573
+				 'erlang':%% Line 573
+					  '>='
+				(%% Line 573
+				 I, %% Line 573
+				    0)
+			in  %% Line 573
+			    call 'erlang':'and'
+				(_3, _4) ->
+		  %% Line 574
+		  case <> of
+		    <>
+			when call 'erlang':'<'
+			      (I,
+			       N) ->
+			let <_rec10> =
+			    apply %% Line 575
+				  'set_1'/4
+				(%% Line 575
+				 I, %% Line 575
+				    E, %% Line 575
+				       Value, %% Line 575
+					      D)
+			in  %% Line 575
+			    case A of
+			      <{'array',_21,_22,_23,_24}> when 'true' ->
+				  call 'erlang':'setelement'
+				      (5, A, _rec10)
+			      ( <_25> when 'true' ->
+				    ( call ( 'erlang'
+					     -| ['compiler_generated'] ):( 'error'
+									   -| ['compiler_generated'] )
+					  (( {'badrecord','array'}
+					     -| ['compiler_generated'] ))
+				      -| ['compiler_generated'] )
+				-| ['compiler_generated'] )
+			    end
+		    %% Line 576
+		    <>
+			when call 'erlang':'<'
+			      (I,
+			       M) ->
+			let <_rec12> =
+			    call %% Line 578
+				 'erlang':%% Line 578
+					  '+'
+				(%% Line 578
+				 I, %% Line 578
+				    1)
+			in  let <_rec13> =
+				apply %% Line 578
+				      'set_1'/4
+				    (%% Line 578
+				     I, %% Line 578
+					E, %% Line 578
+					   Value, %% Line 578
+						  D)
+			    in  %% Line 578
+				case A of
+				  <{'array',_26,_27,_28,_29}> when 'true' ->
+				      let <_11> =
+					  call 'erlang':'setelement'
+					      (5, A, _rec13)
+				      in  call 'erlang':'setelement'
+					      (2, _11, _rec12)
+				  ( <_30> when 'true' ->
+					( call ( 'erlang'
+						 -| ['compiler_generated'] ):( 'error'
+									       -| ['compiler_generated'] )
+					      (( {'badrecord','array'}
+						 -| ['compiler_generated'] ))
+					  -| ['compiler_generated'] )
+				    -| ['compiler_generated'] )
+				end
+		    %% Line 579
+		    <>
+			when call 'erlang':'>'
+			      (M,
+			       0) ->
+			%% Line 580
+			case apply 'grow'/3
+				 (I, E, M) of
+			  <{E1,M1}> when 'true' ->
+			      let <_rec15> =
+				  call %% Line 581
+				       'erlang':%% Line 581
+						'+'
+				      (%% Line 581
+				       I, %% Line 581
+					  1)
+			      in  let <_rec16> =
+				      apply %% Line 582
+					    'set_1'/4
+					  (%% Line 582
+					   I, %% Line 582
+					      E1, %% Line 582
+						  Value, %% Line 582
+							 D)
+				  in  %% Line 582
+				      case A of
+					<{'array',_rec18,_rec19,_rec20,_rec21}> when 'true' ->
+					    {'array',_rec15,M1,_rec20,_rec16}
+					( <_31> when 'true' ->
+					      ( call ( 'erlang'
+						       -| ['compiler_generated'] ):( 'error'
+										     -| ['compiler_generated'] )
+						    (( {'badrecord','array'}
+						       -| ['compiler_generated'] ))
+						-| ['compiler_generated'] )
+					  -| ['compiler_generated'] )
+				      end
+			  ( <_13> when 'true' ->
+				primop 'match_fail'
+				    ({'badmatch',_13})
+			    -| ['compiler_generated'] )
+			end
+		    %% Line 583
+		    <> when 'true' ->
+			%% Line 584
+			call 'erlang':'error'
+			    ('badarg')
+		  end
+	      %% Line 586
+	      <_X_I,_X_V,_X_A> when 'true' ->
+		  %% Line 587
+		  call 'erlang':'error'
+		      ('badarg')
+	    end
+	    -| [{'function',{'set',3}}] )
+      -| [{'function',{'set',3}}] )
+'set_1'/4 =
+    %% Line 591
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <I,E = {_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,S},X,D> when 'true' ->
+		  let <_4> =
+		      call %% Line 592
+			   'erlang':%% Line 592
+				    'div'
+			  (%% Line 592
+			   I, %% Line 592
+			      S)
+		  in  let <I1> =
+			  call %% Line 592
+			       'erlang':%% Line 592
+					'+'
+			      (_4, %% Line 592
+				   1)
+		      in  let <_7> =
+			      call %% Line 593
+				   'erlang':%% Line 593
+					    'rem'
+				  (%% Line 593
+				   I, %% Line 593
+				      S)
+			  in  let <_6> =
+				  call %% Line 593
+				       'erlang':%% Line 593
+						'element'
+				      (%% Line 593
+				       I1, %% Line 593
+					   E)
+			      in  let <_8> =
+				      apply %% Line 593
+					    'set_1'/4
+					  (_7, _6, %% Line 593
+						   X, %% Line 593
+						      D)
+				  in  %% Line 593
+				      call 'erlang':'setelement'
+					  (I1, E, _8)
+	      %% Line 594
+	      <I,E,X,D>
+		  when call 'erlang':'is_integer'
+			(E) ->
+		  %% Line 595
+		  apply 'expand'/4
+		      (I, E, X, D)
+	      %% Line 596
+	      <I,E,X,_X_D> when 'true' ->
+		  let <_9> =
+		      call %% Line 597
+			   'erlang':%% Line 597
+				    '+'
+			  (%% Line 597
+			   I, %% Line 597
+			      1)
+		  in  %% Line 597
+		      call 'erlang':'setelement'
+			  (_9, E, X)
+	    end
+	    -| [{'function',{'set_1',4}}] )
+      -| [{'function',{'set_1',4}}] )
+'grow'/3 =
+    %% Line 602
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <I,E,_X_M>
+		  when call 'erlang':'is_integer'
+			(E) ->
+		  let <M1> =
+		      apply %% Line 603
+			    'find_max'/2
+			  (%% Line 603
+			   I, %% Line 603
+			      E)
+		  in  %% Line 604
+		      {M1,M1}
+	      %% Line 605
+	      <I,E,M> when 'true' ->
+		  %% Line 606
+		  apply 'grow_1'/3
+		      (I, E, M)
+	    end
+	    -| [{'function',{'grow',3}}] )
+      -| [{'function',{'grow',3}}] )
+'grow_1'/3 =
+    %% Line 608
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <I,E,M>
+		  when call 'erlang':'>='
+			(I,
+			 M) ->
+		  let <_5> =
+		      call %% Line 609
+			   'erlang':%% Line 609
+				    'make_tuple'
+			  (%% Line 609
+			   11, %% Line 609
+			       M)
+		  in  let <_6> =
+			  call %% Line 609
+			       'erlang':%% Line 609
+					'setelement'
+			      (%% Line 609
+			       1, _5, %% Line 609
+				      E)
+		      in  let <_3> =
+			      call %% Line 609
+				   'erlang':%% Line 609
+					    '*'
+				  (%% Line 609
+				   M, %% Line 609
+				      10)
+			  in  %% Line 609
+			      apply 'grow_1'/3
+				  (I, _6, _3)
+	      %% Line 610
+	      <_X_I,E,M> when 'true' ->
+		  %% Line 611
+		  {E,M}
+	    end
+	    -| [{'function',{'grow_1',3}}] )
+      -| [{'function',{'grow_1',3}}] )
+'expand'/4 =
+    %% Line 616
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <I,S,X,D>
+		  when call 'erlang':'>'
+			(S,
+			 10) ->
+		  let <S1> =
+		      call %% Line 617
+			   'erlang':%% Line 617
+				    'div'
+			  (%% Line 617
+			   S, %% Line 617
+			      10)
+		  in  let <_9> =
+			  call %% Line 618
+			       'erlang':%% Line 618
+					'div'
+			      (%% Line 618
+			       I, %% Line 618
+				  S1)
+		      in  let <_10> =
+			      call %% Line 618
+				   'erlang':%% Line 618
+					    '+'
+				  (_9, %% Line 618
+				       1)
+			  in  let <_8> =
+				  call %% Line 618
+				       'erlang':%% Line 618
+						'make_tuple'
+				      (%% Line 618
+				       11, %% Line 618
+					   S1)
+			      in  let <_5> =
+				      call %% Line 619
+					   'erlang':%% Line 619
+						    'rem'
+					  (%% Line 619
+					   I, %% Line 619
+					      S1)
+				  in  let <_6> =
+					  apply %% Line 619
+						'expand'/4
+					      (_5, %% Line 619
+						   S1, %% Line 619
+						       X, %% Line 619
+							  D)
+				      in  %% Line 618
+					  call 'erlang':'setelement'
+					      (_10, _8, _6)
+	      %% Line 620
+	      <I,_X_S,X,D> when 'true' ->
+		  let <_12> =
+		      call %% Line 621
+			   'erlang':%% Line 621
+				    '+'
+			  (%% Line 621
+			   I, %% Line 621
+			      1)
+		  in  let <_11> =
+			  call %% Line 621
+			       'erlang':%% Line 621
+					'make_tuple'
+			      (%% Line 621
+			       10, %% Line 621
+				   D)
+		      in  %% Line 621
+			  call 'erlang':'setelement'
+			      (_12, _11, X)
+	    end
+	    -| [{'function',{'expand',4}}] )
+      -| [{'function',{'expand',4}}] )
+'get'/2 =
+    %% Line 635
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <I,{'array',N,M,D,E}>
+		  when let <_2> =
+			call %% Line 636
+			     'erlang':%% Line 636
+				      'is_integer'
+			    (%% Line 636
+			     I)
+		    in  let <_3> =
+			    call %% Line 636
+				 'erlang':%% Line 636
+					  '>='
+				(%% Line 636
+				 I, %% Line 636
+				    0)
+			in  %% Line 636
+			    call 'erlang':'and'
+				(_2, _3) ->
+		  %% Line 637
+		  case <> of
+		    <>
+			when call 'erlang':'<'
+			      (I,
+			       N) ->
+			%% Line 638
+			apply 'get_1'/3
+			    (I, E, D)
+		    %% Line 639
+		    <>
+			when call 'erlang':'>'
+			      (M,
+			       0) ->
+			%% Line 640
+			D
+		    %% Line 641
+		    <> when 'true' ->
+			%% Line 642
+			call 'erlang':'error'
+			    ('badarg')
+		  end
+	      %% Line 644
+	      <_X_I,_X_A> when 'true' ->
+		  %% Line 645
+		  call 'erlang':'error'
+		      ('badarg')
+	    end
+	    -| [{'function',{'get',2}}] )
+      -| [{'function',{'get',2}}] )
+'get_1'/3 =
+    %% Line 651
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <I,E = {_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,S},D> when 'true' ->
+		  let <_6> =
+		      call %% Line 652
+			   'erlang':%% Line 652
+				    'rem'
+			  (%% Line 652
+			   I, %% Line 652
+			      S)
+		  in  let <_3> =
+			  call %% Line 652
+			       'erlang':%% Line 652
+					'div'
+			      (%% Line 652
+			       I, %% Line 652
+				  S)
+		      in  let <_4> =
+			      call %% Line 652
+				   'erlang':%% Line 652
+					    '+'
+				  (_3, %% Line 652
+				       1)
+			  in  let <_5> =
+				  call %% Line 652
+				       'erlang':%% Line 652
+						'element'
+				      (_4, %% Line 652
+					   E)
+			      in  %% Line 652
+				  apply 'get_1'/3
+				      (_6, _5, D)
+	      %% Line 653
+	      <_X_I,E,D>
+		  when call 'erlang':'is_integer'
+			(E) ->
+		  %% Line 654
+		  D
+	      %% Line 655
+	      <I,E,_X_D> when 'true' ->
+		  let <_7> =
+		      call %% Line 656
+			   'erlang':%% Line 656
+				    '+'
+			  (%% Line 656
+			   I, %% Line 656
+			      1)
+		  in  %% Line 656
+		      call 'erlang':'element'
+			  (_7, E)
+	    end
+	    -| [{'function',{'get_1',3}}] )
+      -| [{'function',{'get_1',3}}] )
+'reset'/2 =
+    %% Line 675
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <I,A = {'array',N,M,D,E}>
+		  when let <_2> =
+			call %% Line 676
+			     'erlang':%% Line 676
+				      'is_integer'
+			    (%% Line 676
+			     I)
+		    in  let <_3> =
+			    call %% Line 676
+				 'erlang':%% Line 676
+					  '>='
+				(%% Line 676
+				 I, %% Line 676
+				    0)
+			in  %% Line 676
+			    call 'erlang':'and'
+				(_2, _3) ->
+		  %% Line 677
+		  case <> of
+		    <>
+			when call 'erlang':'<'
+			      (I,
+			       N) ->
+			%% Line 678
+			try
+			    let <_rec22> =
+				apply 'reset_1'/3
+				    (I, E, D)
+			    in  case A of
+				  <{'array',_13,_14,_15,_16}> when 'true' ->
+				      call 'erlang':'setelement'
+					  (5, A, _rec22)
+				  ( <_17> when 'true' ->
+					( call ( 'erlang'
+						 -| ['compiler_generated'] ):( 'error'
+									       -| ['compiler_generated'] )
+					      (( {'badrecord','array'}
+						 -| ['compiler_generated'] ))
+					  -| ['compiler_generated'] )
+				    -| ['compiler_generated'] )
+				end
+			of <_7> ->
+			    _7
+			catch <_10,_9,_8> ->
+			    %% Line 679
+			    case <_10,_9,_8> of
+			      <( 'throw'
+				 -| ['compiler_generated'] ),( 'default'
+							       -| ['compiler_generated'] ),_18> when 'true' ->
+				  A
+			      ( <_19,_20,_21> when 'true' ->
+				    primop 'raise'
+					(_21, _20)
+				-| ['compiler_generated'] )
+			    end
+		    %% Line 681
+		    <>
+			when call 'erlang':'>'
+			      (M,
+			       0) ->
+			%% Line 682
+			A
+		    %% Line 683
+		    <> when 'true' ->
+			%% Line 684
+			call 'erlang':'error'
+			    ('badarg')
+		  end
+	      %% Line 686
+	      <_X_I,_X_A> when 'true' ->
+		  %% Line 687
+		  call 'erlang':'error'
+		      ('badarg')
+	    end
+	    -| [{'function',{'reset',2}}] )
+      -| [{'function',{'reset',2}}] )
+'reset_1'/3 =
+    %% Line 689
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <I,E = {_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,S},D> when 'true' ->
+		  let <_3> =
+		      call %% Line 690
+			   'erlang':%% Line 690
+				    'div'
+			  (%% Line 690
+			   I, %% Line 690
+			      S)
+		  in  let <I1> =
+			  call %% Line 690
+			       'erlang':%% Line 690
+					'+'
+			      (_3, %% Line 690
+				   1)
+		      in  let <_6> =
+			      call %% Line 691
+				   'erlang':%% Line 691
+					    'rem'
+				  (%% Line 691
+				   I, %% Line 691
+				      S)
+			  in  let <_5> =
+				  call %% Line 691
+				       'erlang':%% Line 691
+						'element'
+				      (%% Line 691
+				       I1, %% Line 691
+					   E)
+			      in  let <_7> =
+				      apply %% Line 691
+					    'reset_1'/3
+					  (_6, _5, %% Line 691
+						   D)
+				  in  %% Line 691
+				      call 'erlang':'setelement'
+					  (I1, E, _7)
+	      %% Line 692
+	      <_X_I,E,_X_D>
+		  when call 'erlang':'is_integer'
+			(E) ->
+		  %% Line 693
+		  call 'erlang':'throw'
+		      ('default')
+	      %% Line 694
+	      <I,E,D> when 'true' ->
+		  let <Indx> =
+		      call %% Line 695
+			   'erlang':%% Line 695
+				    '+'
+			  (%% Line 695
+			   I, %% Line 695
+			      1)
+		  in  %% Line 696
+		      case call 'erlang':'element'
+			       (Indx, E) of
+			%% Line 697
+			<_24>
+			    when call 'erlang':'=:='
+				  (_24,
+				   D) ->
+			    call 'erlang':'throw'
+				('default')
+			%% Line 698
+			<_25> when 'true' ->
+			    let <_9> =
+				call 'erlang':'+'
+				    (I, 1)
+			    in  call 'erlang':'setelement'
+				    (_9, E, D)
+		      end
+	    end
+	    -| [{'function',{'reset_1',3}}] )
+      -| [{'function',{'reset_1',3}}] )
+'to_list'/1 =
+    %% Line 761
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'to_list',1}}] ) of
+	      <{'array',0,_3,_4,_5}> when 'true' ->
+		  %% Line 762
+		  []
+	      %% Line 763
+	      <{'array',N,_6,D,E}> when 'true' ->
+		  let <_1> =
+		      call %% Line 764
+			   'erlang':%% Line 764
+				    '-'
+			  (%% Line 764
+			   N, %% Line 764
+			      1)
+		  in  %% Line 764
+		      apply 'to_list_1'/3
+			  (E, D, _1)
+	      %% Line 765
+	      <_7> when 'true' ->
+		  %% Line 766
+		  call 'erlang':'error'
+		      ('badarg')
+	    end
+	    -| [{'function',{'to_list',1}}] )
+      -| [{'function',{'to_list',1}}] )
+'to_list_1'/3 =
+    %% Line 770
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <E = {_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,S},D,I> when 'true' ->
+		  let <N> =
+		      call %% Line 771
+			   'erlang':%% Line 771
+				    'div'
+			  (%% Line 771
+			   I, %% Line 771
+			      S)
+		  in  let <_5> =
+			  call %% Line 772
+			       'erlang':%% Line 772
+					'+'
+			      (%% Line 772
+			       N, %% Line 772
+				  1)
+		      in  let <_6> =
+			      call %% Line 772
+				   'erlang':%% Line 772
+					    'element'
+				  (_5, %% Line 772
+				       E)
+			  in  let <_4> =
+				  call %% Line 772
+				       'erlang':%% Line 772
+						'rem'
+				      (%% Line 772
+				       I, %% Line 772
+					  S)
+			      in  let <_7> =
+				      apply %% Line 772
+					    'to_list_1'/3
+					  (_6, %% Line 772
+					       D, _4)
+				  in  %% Line 772
+				      apply 'to_list_3'/4
+					  (N, D, _7, E)
+	      %% Line 773
+	      <E,D,I>
+		  when call 'erlang':'is_integer'
+			(E) ->
+		  let <_8> =
+		      call %% Line 774
+			   'erlang':%% Line 774
+				    '+'
+			  (%% Line 774
+			   I, %% Line 774
+			      1)
+		  in  %% Line 774
+		      apply 'push'/3
+			  (_8, D, [])
+	      %% Line 775
+	      <E,_X_D,I> when 'true' ->
+		  let <_9> =
+		      call %% Line 776
+			   'erlang':%% Line 776
+				    '+'
+			  (%% Line 776
+			   I, %% Line 776
+			      1)
+		  in  %% Line 776
+		      apply 'push_tuple'/3
+			  (_9, E, [])
+	    end
+	    -| [{'function',{'to_list_1',3}}] )
+      -| [{'function',{'to_list_1',3}}] )
+'to_list_2'/3 =
+    %% Line 780
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <E = {_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_X_S},D,L> when 'true' ->
+		  %% Line 781
+		  apply 'to_list_3'/4
+		      (10, D, L, E)
+	      %% Line 782
+	      <E,D,L>
+		  when call 'erlang':'is_integer'
+			(E) ->
+		  %% Line 783
+		  apply 'push'/3
+		      (E, D, L)
+	      %% Line 784
+	      <E,_X_D,L> when 'true' ->
+		  %% Line 785
+		  apply 'push_tuple'/3
+		      (10, E, L)
+	    end
+	    -| [{'function',{'to_list_2',3}}] )
+      -| [{'function',{'to_list_2',3}}] )
+'to_list_3'/4 =
+    %% Line 787
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <0,_X_D,L,_X_E> when 'true' ->
+		  %% Line 788
+		  L
+	      %% Line 789
+	      <N,D,L,E> when 'true' ->
+		  let <_6> =
+		      call %% Line 790
+			   'erlang':%% Line 790
+				    '-'
+			  (%% Line 790
+			   N, %% Line 790
+			      1)
+		  in  let <_4> =
+			  call %% Line 790
+			       'erlang':%% Line 790
+					'element'
+			      (%% Line 790
+			       N, %% Line 790
+				  E)
+		      in  let <_5> =
+			      apply %% Line 790
+				    'to_list_2'/3
+				  (_4, %% Line 790
+				       D, %% Line 790
+					  L)
+			  in  %% Line 790
+			      apply 'to_list_3'/4
+				  (_6, D, _5, E)
+	    end
+	    -| [{'function',{'to_list_3',4}}] )
+      -| [{'function',{'to_list_3',4}}] )
+'push'/3 =
+    %% Line 792
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <0,_X_E,L> when 'true' ->
+		  %% Line 793
+		  L
+	      %% Line 794
+	      <N,E,L> when 'true' ->
+		  let <_3> =
+		      call %% Line 795
+			   'erlang':%% Line 795
+				    '-'
+			  (%% Line 795
+			   N, %% Line 795
+			      1)
+		  in  %% Line 795
+		      apply 'push'/3
+			  (_3, E, [E|L])
+	    end
+	    -| [{'function',{'push',3}}] )
+      -| [{'function',{'push',3}}] )
+'push_tuple'/3 =
+    %% Line 797
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <0,_X_T,L> when 'true' ->
+		  %% Line 798
+		  L
+	      %% Line 799
+	      <N,T,L> when 'true' ->
+		  let <_4> =
+		      call %% Line 800
+			   'erlang':%% Line 800
+				    '-'
+			  (%% Line 800
+			   N, %% Line 800
+			      1)
+		  in  let <_3> =
+			  call %% Line 800
+			       'erlang':%% Line 800
+					'element'
+			      (%% Line 800
+			       N, %% Line 800
+				  T)
+		      in  %% Line 800
+			  apply 'push_tuple'/3
+			      (_4, T, [_3|L])
+	    end
+	    -| [{'function',{'push_tuple',3}}] )
+      -| [{'function',{'push_tuple',3}}] )
+'sparse_to_list'/1 =
+    %% Line 834
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'sparse_to_list',1}}] ) of
+	      <{'array',0,_3,_4,_5}> when 'true' ->
+		  %% Line 835
+		  []
+	      %% Line 836
+	      <{'array',N,_6,D,E}> when 'true' ->
+		  let <_1> =
+		      call %% Line 837
+			   'erlang':%% Line 837
+				    '-'
+			  (%% Line 837
+			   N, %% Line 837
+			      1)
+		  in  %% Line 837
+		      apply 'sparse_to_list_1'/3
+			  (E, D, _1)
+	      %% Line 838
+	      <_7> when 'true' ->
+		  %% Line 839
+		  call 'erlang':'error'
+		      ('badarg')
+	    end
+	    -| [{'function',{'sparse_to_list',1}}] )
+      -| [{'function',{'sparse_to_list',1}}] )
+'sparse_to_list_1'/3 =
+    %% Line 843
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <E = {_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,S},D,I> when 'true' ->
+		  let <N> =
+		      call %% Line 844
+			   'erlang':%% Line 844
+				    'div'
+			  (%% Line 844
+			   I, %% Line 844
+			      S)
+		  in  let <_5> =
+			  call %% Line 846
+			       'erlang':%% Line 846
+					'+'
+			      (%% Line 846
+			       N, %% Line 846
+				  1)
+		      in  let <_6> =
+			      call %% Line 846
+				   'erlang':%% Line 846
+					    'element'
+				  (_5, %% Line 846
+				       E)
+			  in  let <_4> =
+				  call %% Line 846
+				       'erlang':%% Line 846
+						'rem'
+				      (%% Line 846
+				       I, %% Line 846
+					  S)
+			      in  let <_7> =
+				      apply %% Line 846
+					    'sparse_to_list_1'/3
+					  (_6, %% Line 846
+					       D, _4)
+				  in  %% Line 845
+				      apply 'sparse_to_list_3'/4
+					  (N, D, _7, %% Line 847
+						     E)
+	      %% Line 848
+	      <E,_X_D,_X_I>
+		  when call 'erlang':'is_integer'
+			(E) ->
+		  %% Line 849
+		  []
+	      %% Line 850
+	      <E,D,I> when 'true' ->
+		  let <_8> =
+		      call %% Line 851
+			   'erlang':%% Line 851
+				    '+'
+			  (%% Line 851
+			   I, %% Line 851
+			      1)
+		  in  %% Line 851
+		      apply 'sparse_push_tuple'/4
+			  (_8, D, E, [])
+	    end
+	    -| [{'function',{'sparse_to_list_1',3}}] )
+      -| [{'function',{'sparse_to_list_1',3}}] )
+'sparse_to_list_2'/3 =
+    %% Line 853
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <E = {_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_X_S},D,L> when 'true' ->
+		  %% Line 854
+		  apply 'sparse_to_list_3'/4
+		      (10, D, L, E)
+	      %% Line 855
+	      <E,_X_D,L>
+		  when call 'erlang':'is_integer'
+			(E) ->
+		  %% Line 856
+		  L
+	      %% Line 857
+	      <E,D,L> when 'true' ->
+		  %% Line 858
+		  apply 'sparse_push_tuple'/4
+		      (10, D, E, L)
+	    end
+	    -| [{'function',{'sparse_to_list_2',3}}] )
+      -| [{'function',{'sparse_to_list_2',3}}] )
+'sparse_to_list_3'/4 =
+    %% Line 860
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <0,_X_D,L,_X_E> when 'true' ->
+		  %% Line 861
+		  L
+	      %% Line 862
+	      <N,D,L,E> when 'true' ->
+		  let <_6> =
+		      call %% Line 863
+			   'erlang':%% Line 863
+				    '-'
+			  (%% Line 863
+			   N, %% Line 863
+			      1)
+		  in  let <_4> =
+			  call %% Line 863
+			       'erlang':%% Line 863
+					'element'
+			      (%% Line 863
+			       N, %% Line 863
+				  E)
+		      in  let <_5> =
+			      apply %% Line 863
+				    'sparse_to_list_2'/3
+				  (_4, %% Line 863
+				       D, %% Line 863
+					  L)
+			  in  %% Line 863
+			      apply 'sparse_to_list_3'/4
+				  (_6, D, _5, E)
+	    end
+	    -| [{'function',{'sparse_to_list_3',4}}] )
+      -| [{'function',{'sparse_to_list_3',4}}] )
+'sparse_push_tuple'/4 =
+    %% Line 865
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <0,_X_D,_X_T,L> when 'true' ->
+		  %% Line 866
+		  L
+	      %% Line 867
+	      <N,D,T,L> when 'true' ->
+		  %% Line 868
+		  case call 'erlang':'element'
+			   (N, T) of
+		    %% Line 869
+		    <_11>
+			when call 'erlang':'=:='
+			      (_11,
+			       D) ->
+			let <_4> =
+			    call 'erlang':'-'
+				(N, 1)
+			in  apply 'sparse_push_tuple'/4
+				(_4, D, T, L)
+		    %% Line 870
+		    <E> when 'true' ->
+			let <_5> =
+			    call 'erlang':'-'
+				(N, 1)
+			in  apply 'sparse_push_tuple'/4
+				(_5, D, T, [E|L])
+		  end
+	    end
+	    -| [{'function',{'sparse_push_tuple',4}}] )
+      -| [{'function',{'sparse_push_tuple',4}}] )
+'from_list'/1 =
+    %% Line 901
+    ( fun (_0) ->
+	  %% Line 902
+	  apply 'from_list'/2
+	      (( _0
+		 -| [{'function',{'from_list',1}}] ), 'undefined')
+      -| [{'function',{'from_list',1}}] )
+'from_list'/2 =
+    %% Line 913
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <[],Default> when 'true' ->
+		  %% Line 914
+		  apply 'new'/1
+		      ({'default',Default})
+	      %% Line 915
+	      <List,Default>
+		  when call 'erlang':'is_list'
+			(List) ->
+		  %% Line 916
+		  case apply 'from_list_1'/6
+			   (10, List, Default, 0, [], []) of
+		    <{E,N,M}> when 'true' ->
+			%% Line 917
+			{'array',N,M,Default,E}
+		    ( <_2> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_2})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 918
+	      <_5,_6> when 'true' ->
+		  %% Line 919
+		  call 'erlang':'error'
+		      ('badarg')
+	    end
+	    -| [{'function',{'from_list',2}}] )
+      -| [{'function',{'from_list',2}}] )
+'from_list_1'/6 =
+    %% Line 928
+    ( fun (_0,_1,_2,_3,_4,_5) ->
+	  ( case <_0,_1,_2,_3,_4,_5> of
+	      <0,Xs,D,N,As,Es> when 'true' ->
+		  let <_6> =
+		      call %% Line 929
+			   'lists':%% Line 929
+				   'reverse'
+			  (%% Line 929
+			   As)
+		  in  let <E> =
+			  call %% Line 929
+			       'erlang':%% Line 929
+					'list_to_tuple'
+			      (_6)
+		      in  %% Line 930
+			  case Xs of
+			    %% Line 931
+			    <[]> when 'true' ->
+				%% Line 932
+				case Es of
+				  %% Line 933
+				  <[]> when 'true' ->
+				      %% Line 934
+				      {E,N,10}
+				  %% Line 935
+				  <_20> when 'true' ->
+				      %% Line 936
+				      apply 'from_list_2_0'/3
+					  (N, [E|Es], 10)
+				end
+			    %% Line 938
+			    <[_21|_22]> when 'true' ->
+				%% Line 939
+				apply 'from_list_1'/6
+				    (10, Xs, D, N, [], [E|Es])
+			    %% Line 940
+			    <_23> when 'true' ->
+				%% Line 941
+				call 'erlang':'error'
+				    ('badarg')
+			  end
+	      %% Line 943
+	      <I,Xs,D,N,As,Es> when 'true' ->
+		  %% Line 944
+		  case Xs of
+		    %% Line 945
+		    <[X|Xs1]> when 'true' ->
+			let <_11> =
+			    call %% Line 946
+				 'erlang':%% Line 946
+					  '-'
+				(%% Line 946
+				 I, %% Line 946
+				    1)
+			in  let <_10> =
+				call %% Line 946
+				     'erlang':%% Line 946
+					      '+'
+				    (%% Line 946
+				     N, %% Line 946
+					1)
+			    in  %% Line 946
+				apply 'from_list_1'/6
+				    (_11, Xs1, D, _10, [X|As], Es)
+		    %% Line 947
+		    <_24> when 'true' ->
+			let <_12> =
+			    call %% Line 948
+				 'erlang':%% Line 948
+					  '-'
+				(%% Line 948
+				 I, %% Line 948
+				    1)
+			in  %% Line 948
+			    apply 'from_list_1'/6
+				(_12, Xs, D, N, [D|As], Es)
+		  end
+	    end
+	    -| [{'function',{'from_list_1',6}}] )
+      -| [{'function',{'from_list_1',6}}] )
+'from_list_2_0'/3 =
+    %% Line 952
+    ( fun (_0,_1,_2) ->
+	  let <_3> =
+	      call %% Line 953
+		   'erlang':%% Line 953
+			    '-'
+		  (_0, %% Line 953
+		       1)
+	  in  let <_4> =
+		  call %% Line 953
+		       'erlang':%% Line 953
+				'div'
+		      (_3, _2)
+	      in  let <_5> =
+		      call %% Line 953
+			   'erlang':%% Line 953
+				    '+'
+			  (_4, %% Line 953
+			       1)
+		  in  let <_6> =
+			  apply %% Line 953
+				'pad'/4
+			      (_5, %% Line 953
+				   10, _2, _1)
+		      in  %% Line 953
+			  apply 'from_list_2'/6
+			      (10, _6, _2, _0, %% Line 954
+					       [_2|[]], %% Line 954
+							[])
+      -| [{'function',{'from_list_2_0',3}}] )
+'from_list_2'/6 =
+    %% Line 956
+    ( fun (_0,_1,_2,_3,_4,_5) ->
+	  ( case <_0,_1,_2,_3,_4,_5> of
+	      <0,Xs,S,N,As,Es> when 'true' ->
+		  let <E> =
+		      call %% Line 957
+			   'erlang':%% Line 957
+				    'list_to_tuple'
+			  (%% Line 957
+			   As)
+		  in  %% Line 958
+		      case Xs of
+			%% Line 959
+			<[]> when 'true' ->
+			    %% Line 960
+			    case Es of
+			      %% Line 961
+			      <[]> when 'true' ->
+				  let <_7> =
+				      call %% Line 962
+					   'erlang':%% Line 962
+						    '*'
+					  (%% Line 962
+					   S, %% Line 962
+					      10)
+				  in  %% Line 962
+				      {E,N,_7}
+			      %% Line 963
+			      <_19> when 'true' ->
+				  let <_9> =
+				      call %% Line 964
+					   'lists':%% Line 964
+						   'reverse'
+					  (%% Line 964
+					   [E|Es])
+				  in  let <_8> =
+					  call %% Line 965
+					       'erlang':%% Line 965
+							'*'
+					      (%% Line 965
+					       S, %% Line 965
+						  10)
+				      in  %% Line 964
+					  apply 'from_list_2_0'/3
+					      (N, _9, _8)
+			    end
+			%% Line 967
+			<_20> when 'true' ->
+			    %% Line 968
+			    apply 'from_list_2'/6
+				(10, Xs, S, N, [S|[]], [E|Es])
+		      end
+	      %% Line 970
+	      <I,[X|Xs],S,N,As,Es> when 'true' ->
+		  let <_12> =
+		      call %% Line 971
+			   'erlang':%% Line 971
+				    '-'
+			  (%% Line 971
+			   I, %% Line 971
+			      1)
+		  in  %% Line 971
+		      apply 'from_list_2'/6
+			  (_12, Xs, S, N, [X|As], Es)
+	      ( <_18,_17,_16,_15,_14,_13> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_18,_17,_16,_15,_14,_13})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'from_list_2',6}}] )
+      -| [{'function',{'from_list_2',6}}] )
+'pad'/4 =
+    %% Line 976
+    ( fun (_0,_1,_2,_3) ->
+	  let <_4> =
+	      call %% Line 977
+		   'erlang':%% Line 977
+			    'rem'
+		  (_0, _1)
+	  in  let <_5> =
+		  call %% Line 977
+		       'erlang':%% Line 977
+				'-'
+		      (_1, _4)
+	      in  let <_6> =
+		      call %% Line 977
+			   'erlang':%% Line 977
+				    'rem'
+			  (_5, _1)
+		  in  %% Line 977
+		      apply 'push'/3
+			  (_6, _2, _3)
+      -| [{'function',{'pad',4}}] )
+'to_orddict'/1 =
+    %% Line 1012
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'to_orddict',1}}] ) of
+	      <{'array',0,_3,_4,_5}> when 'true' ->
+		  %% Line 1013
+		  []
+	      %% Line 1014
+	      <{'array',N,_6,D,E}> when 'true' ->
+		  let <I> =
+		      call %% Line 1015
+			   'erlang':%% Line 1015
+				    '-'
+			  (%% Line 1015
+			   N, %% Line 1015
+			      1)
+		  in  %% Line 1016
+		      apply 'to_orddict_1'/4
+			  (E, I, D, I)
+	      %% Line 1017
+	      <_7> when 'true' ->
+		  %% Line 1018
+		  call 'erlang':'error'
+		      ('badarg')
+	    end
+	    -| [{'function',{'to_orddict',1}}] )
+      -| [{'function',{'to_orddict',1}}] )
+'to_orddict_1'/4 =
+    %% Line 1022
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <E = {_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,S},R,D,I> when 'true' ->
+		  let <N> =
+		      call %% Line 1023
+			   'erlang':%% Line 1023
+				    'div'
+			  (%% Line 1023
+			   I, %% Line 1023
+			      S)
+		  in  let <I1> =
+			  call %% Line 1024
+			       'erlang':%% Line 1024
+					'rem'
+			      (%% Line 1024
+			       I, %% Line 1024
+				  S)
+		      in  let <_9> =
+			      call %% Line 1025
+				   'erlang':%% Line 1025
+					    '-'
+				  (%% Line 1025
+				   R, %% Line 1025
+				      I1)
+			  in  let <_10> =
+				  call %% Line 1025
+				       'erlang':%% Line 1025
+						'-'
+				      (_9, %% Line 1025
+					   1)
+			      in  let <_6> =
+				      call %% Line 1026
+					   'erlang':%% Line 1026
+						    '+'
+					  (%% Line 1026
+					   N, %% Line 1026
+					      1)
+				  in  let <_7> =
+					  call %% Line 1026
+					       'erlang':%% Line 1026
+							'element'
+					      (_6, %% Line 1026
+						   E)
+				      in  let <_8> =
+					      apply %% Line 1026
+						    'to_orddict_1'/4
+						  (_7, %% Line 1026
+						       R, %% Line 1026
+							  D, %% Line 1026
+							     I1)
+					  in  %% Line 1025
+					      apply 'to_orddict_3'/6
+						  (N, _10, D, _8, %% Line 1027
+								  E, %% Line 1027
+								     S)
+	      %% Line 1028
+	      <E,R,D,I>
+		  when call 'erlang':'is_integer'
+			(E) ->
+		  let <_11> =
+		      call %% Line 1029
+			   'erlang':%% Line 1029
+				    '+'
+			  (%% Line 1029
+			   I, %% Line 1029
+			      1)
+		  in  %% Line 1029
+		      apply 'push_pairs'/4
+			  (_11, R, D, [])
+	      %% Line 1030
+	      <E,R,_X_D,I> when 'true' ->
+		  let <_12> =
+		      call %% Line 1031
+			   'erlang':%% Line 1031
+				    '+'
+			  (%% Line 1031
+			   I, %% Line 1031
+			      1)
+		  in  %% Line 1031
+		      apply 'push_tuple_pairs'/4
+			  (_12, R, E, [])
+	    end
+	    -| [{'function',{'to_orddict_1',4}}] )
+      -| [{'function',{'to_orddict_1',4}}] )
+'to_orddict_2'/4 =
+    %% Line 1033
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <E = {_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,S},R,D,L> when 'true' ->
+		  %% Line 1034
+		  apply 'to_orddict_3'/6
+		      (10, R, D, L, E, S)
+	      %% Line 1035
+	      <E,R,D,L>
+		  when call 'erlang':'is_integer'
+			(E) ->
+		  %% Line 1036
+		  apply 'push_pairs'/4
+		      (E, R, D, L)
+	      %% Line 1037
+	      <E,R,_X_D,L> when 'true' ->
+		  %% Line 1038
+		  apply 'push_tuple_pairs'/4
+		      (10, R, E, L)
+	    end
+	    -| [{'function',{'to_orddict_2',4}}] )
+      -| [{'function',{'to_orddict_2',4}}] )
+'to_orddict_3'/6 =
+    %% Line 1040
+    ( fun (_0,_1,_2,_3,_4,_5) ->
+	  ( case <_0,_1,_2,_3,_4,_5> of
+	      <0,_X_R,_X_D,L,_X_E,_X_S> when 'true' ->
+		  %% Line 1041
+		  L
+	      %% Line 1042
+	      <N,R,D,L,E,S> when 'true' ->
+		  let <_9> =
+		      call %% Line 1043
+			   'erlang':%% Line 1043
+				    '-'
+			  (%% Line 1043
+			   N, %% Line 1043
+			      1)
+		  in  let <_8> =
+			  call %% Line 1043
+			       'erlang':%% Line 1043
+					'-'
+			      (%% Line 1043
+			       R, %% Line 1043
+				  S)
+		      in  let <_6> =
+			      call %% Line 1044
+				   'erlang':%% Line 1044
+					    'element'
+				  (%% Line 1044
+				   N, %% Line 1044
+				      E)
+			  in  let <_7> =
+				  apply %% Line 1044
+					'to_orddict_2'/4
+				      (_6, %% Line 1044
+					   R, %% Line 1044
+					      D, %% Line 1044
+						 L)
+			      in  %% Line 1043
+				  apply 'to_orddict_3'/6
+				      (_9, _8, D, _7, %% Line 1045
+						      E, %% Line 1045
+							 S)
+	    end
+	    -| [{'function',{'to_orddict_3',6}}] )
+      -| [{'function',{'to_orddict_3',6}}] )
+'push_pairs'/4 =
+    %% Line 1050
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <0,_X_I,_X_E,L> when 'true' ->
+		  %% Line 1051
+		  L
+	      %% Line 1052
+	      <N,I,E,L> when 'true' ->
+		  let <_5> =
+		      call %% Line 1053
+			   'erlang':%% Line 1053
+				    '-'
+			  (%% Line 1053
+			   N, %% Line 1053
+			      1)
+		  in  let <_4> =
+			  call %% Line 1053
+			       'erlang':%% Line 1053
+					'-'
+			      (%% Line 1053
+			       I, %% Line 1053
+				  1)
+		      in  %% Line 1053
+			  apply 'push_pairs'/4
+			      (_5, _4, E, [{I,E}|L])
+	    end
+	    -| [{'function',{'push_pairs',4}}] )
+      -| [{'function',{'push_pairs',4}}] )
+'push_tuple_pairs'/4 =
+    %% Line 1058
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <0,_X_I,_X_T,L> when 'true' ->
+		  %% Line 1059
+		  L
+	      %% Line 1060
+	      <N,I,T,L> when 'true' ->
+		  let <_6> =
+		      call %% Line 1061
+			   'erlang':%% Line 1061
+				    '-'
+			  (%% Line 1061
+			   N, %% Line 1061
+			      1)
+		  in  let <_5> =
+			  call %% Line 1061
+			       'erlang':%% Line 1061
+					'-'
+			      (%% Line 1061
+			       I, %% Line 1061
+				  1)
+		      in  let <_4> =
+			      call %% Line 1061
+				   'erlang':%% Line 1061
+					    'element'
+				  (%% Line 1061
+				   N, %% Line 1061
+				      T)
+			  in  %% Line 1061
+			      apply 'push_tuple_pairs'/4
+				  (_6, _5, T, [{I,_4}|L])
+	    end
+	    -| [{'function',{'push_tuple_pairs',4}}] )
+      -| [{'function',{'push_tuple_pairs',4}}] )
+'sparse_to_orddict'/1 =
+    %% Line 1104
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'sparse_to_orddict',1}}] ) of
+	      <{'array',0,_3,_4,_5}> when 'true' ->
+		  %% Line 1105
+		  []
+	      %% Line 1106
+	      <{'array',N,_6,D,E}> when 'true' ->
+		  let <I> =
+		      call %% Line 1107
+			   'erlang':%% Line 1107
+				    '-'
+			  (%% Line 1107
+			   N, %% Line 1107
+			      1)
+		  in  %% Line 1108
+		      apply 'sparse_to_orddict_1'/4
+			  (E, I, D, I)
+	      %% Line 1109
+	      <_7> when 'true' ->
+		  %% Line 1110
+		  call 'erlang':'error'
+		      ('badarg')
+	    end
+	    -| [{'function',{'sparse_to_orddict',1}}] )
+      -| [{'function',{'sparse_to_orddict',1}}] )
+'sparse_to_orddict_1'/4 =
+    %% Line 1114
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <E = {_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,S},R,D,I> when 'true' ->
+		  let <N> =
+		      call %% Line 1115
+			   'erlang':%% Line 1115
+				    'div'
+			  (%% Line 1115
+			   I, %% Line 1115
+			      S)
+		  in  let <I1> =
+			  call %% Line 1116
+			       'erlang':%% Line 1116
+					'rem'
+			      (%% Line 1116
+			       I, %% Line 1116
+				  S)
+		      in  let <_9> =
+			      call %% Line 1117
+				   'erlang':%% Line 1117
+					    '-'
+				  (%% Line 1117
+				   R, %% Line 1117
+				      I1)
+			  in  let <_10> =
+				  call %% Line 1117
+				       'erlang':%% Line 1117
+						'-'
+				      (_9, %% Line 1117
+					   1)
+			      in  let <_6> =
+				      call %% Line 1118
+					   'erlang':%% Line 1118
+						    '+'
+					  (%% Line 1118
+					   N, %% Line 1118
+					      1)
+				  in  let <_7> =
+					  call %% Line 1118
+					       'erlang':%% Line 1118
+							'element'
+					      (_6, %% Line 1118
+						   E)
+				      in  let <_8> =
+					      apply %% Line 1118
+						    'sparse_to_orddict_1'/4
+						  (_7, %% Line 1118
+						       R, %% Line 1118
+							  D, %% Line 1118
+							     I1)
+					  in  %% Line 1117
+					      apply 'sparse_to_orddict_3'/6
+						  (N, _10, D, _8, %% Line 1119
+								  E, %% Line 1119
+								     S)
+	      %% Line 1120
+	      <E,_X_R,_X_D,_X_I>
+		  when call 'erlang':'is_integer'
+			(E) ->
+		  %% Line 1121
+		  []
+	      %% Line 1122
+	      <E,R,D,I> when 'true' ->
+		  let <_11> =
+		      call %% Line 1123
+			   'erlang':%% Line 1123
+				    '+'
+			  (%% Line 1123
+			   I, %% Line 1123
+			      1)
+		  in  %% Line 1123
+		      apply 'sparse_push_tuple_pairs'/5
+			  (_11, R, D, E, [])
+	    end
+	    -| [{'function',{'sparse_to_orddict_1',4}}] )
+      -| [{'function',{'sparse_to_orddict_1',4}}] )
+'sparse_to_orddict_2'/4 =
+    %% Line 1125
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <E = {_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,S},R,D,L> when 'true' ->
+		  %% Line 1126
+		  apply 'sparse_to_orddict_3'/6
+		      (10, R, D, L, E, S)
+	      %% Line 1127
+	      <E,_X_R,_X_D,L>
+		  when call 'erlang':'is_integer'
+			(E) ->
+		  %% Line 1128
+		  L
+	      %% Line 1129
+	      <E,R,D,L> when 'true' ->
+		  %% Line 1130
+		  apply 'sparse_push_tuple_pairs'/5
+		      (10, R, D, E, L)
+	    end
+	    -| [{'function',{'sparse_to_orddict_2',4}}] )
+      -| [{'function',{'sparse_to_orddict_2',4}}] )
+'sparse_to_orddict_3'/6 =
+    %% Line 1132
+    ( fun (_0,_1,_2,_3,_4,_5) ->
+	  ( case <_0,_1,_2,_3,_4,_5> of
+	      <0,_X_R,_X_D,L,_X_E,_X_S> when 'true' ->
+		  %% Line 1133
+		  L
+	      %% Line 1134
+	      <N,R,D,L,E,S> when 'true' ->
+		  let <_9> =
+		      call %% Line 1135
+			   'erlang':%% Line 1135
+				    '-'
+			  (%% Line 1135
+			   N, %% Line 1135
+			      1)
+		  in  let <_8> =
+			  call %% Line 1135
+			       'erlang':%% Line 1135
+					'-'
+			      (%% Line 1135
+			       R, %% Line 1135
+				  S)
+		      in  let <_6> =
+			      call %% Line 1136
+				   'erlang':%% Line 1136
+					    'element'
+				  (%% Line 1136
+				   N, %% Line 1136
+				      E)
+			  in  let <_7> =
+				  apply %% Line 1136
+					'sparse_to_orddict_2'/4
+				      (_6, %% Line 1136
+					   R, %% Line 1136
+					      D, %% Line 1136
+						 L)
+			      in  %% Line 1135
+				  apply 'sparse_to_orddict_3'/6
+				      (_9, _8, D, _7, %% Line 1137
+						      E, %% Line 1137
+							 S)
+	    end
+	    -| [{'function',{'sparse_to_orddict_3',6}}] )
+      -| [{'function',{'sparse_to_orddict_3',6}}] )
+'sparse_push_tuple_pairs'/5 =
+    %% Line 1142
+    ( fun (_0,_1,_2,_3,_4) ->
+	  ( case <_0,_1,_2,_3,_4> of
+	      <0,_X_I,_X_D,_X_T,L> when 'true' ->
+		  %% Line 1143
+		  L
+	      %% Line 1144
+	      <N,I,D,T,L> when 'true' ->
+		  %% Line 1145
+		  case call 'erlang':'element'
+			   (N, T) of
+		    %% Line 1146
+		    <_15>
+			when call 'erlang':'=:='
+			      (_15,
+			       D) ->
+			let <_6> =
+			    call 'erlang':'-'
+				(N, 1)
+			in  let <_5> =
+				call 'erlang':'-'
+				    (I, 1)
+			    in  apply 'sparse_push_tuple_pairs'/5
+				    (_6, _5, D, T, L)
+		    %% Line 1147
+		    <E> when 'true' ->
+			let <_8> =
+			    call 'erlang':'-'
+				(N, 1)
+			in  let <_7> =
+				call 'erlang':'-'
+				    (I, 1)
+			    in  apply 'sparse_push_tuple_pairs'/5
+				    (_8, _7, D, T, [{I,E}|L])
+		  end
+	    end
+	    -| [{'function',{'sparse_push_tuple_pairs',5}}] )
+      -| [{'function',{'sparse_push_tuple_pairs',5}}] )
+'from_orddict'/1 =
+    %% Line 1184
+    ( fun (_0) ->
+	  %% Line 1185
+	  apply 'from_orddict'/2
+	      (( _0
+		 -| [{'function',{'from_orddict',1}}] ), 'undefined')
+      -| [{'function',{'from_orddict',1}}] )
+'from_orddict'/2 =
+    %% Line 1199
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <[],Default> when 'true' ->
+		  %% Line 1200
+		  apply 'new'/1
+		      ({'default',Default})
+	      %% Line 1201
+	      <List,Default>
+		  when call 'erlang':'is_list'
+			(List) ->
+		  %% Line 1202
+		  case apply 'from_orddict_0'/5
+			   (List, 0, 10, Default, []) of
+		    <{E,N,M}> when 'true' ->
+			%% Line 1203
+			{'array',N,M,Default,E}
+		    ( <_2> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_2})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 1204
+	      <_5,_6> when 'true' ->
+		  %% Line 1205
+		  call 'erlang':'error'
+		      ('badarg')
+	    end
+	    -| [{'function',{'from_orddict',2}}] )
+      -| [{'function',{'from_orddict',2}}] )
+'from_orddict_0'/5 =
+    %% Line 1216
+    ( fun (_0,_1,_2,_3,_4) ->
+	  ( case <_0,_1,_2,_3,_4> of
+	      <[],N,_X_Max,_X_D,Es> when 'true' ->
+		  %% Line 1218
+		  case Es of
+		    %% Line 1219
+		    <[E|[]]> when 'true' ->
+			%% Line 1220
+			{E,N,10}
+		    %% Line 1221
+		    <_20> when 'true' ->
+			%% Line 1222
+			apply 'collect_leafs'/3
+			    (N, Es, 10)
+		  end
+	      %% Line 1225
+	      <Xs = [{Ix1,_21}|_22],Ix,Max0,D,Es0>
+		  when let <_6> =
+			call %% Line 1226
+			     'erlang':%% Line 1226
+				      '>'
+			    (%% Line 1226
+			     Ix1, %% Line 1226
+				  Max0)
+		    in  let <_7> =
+			    call %% Line 1226
+				 'erlang':%% Line 1226
+					  'is_integer'
+				(%% Line 1226
+				 Ix1)
+			in  %% Line 1226
+			    call 'erlang':'and'
+				(_6, _7) ->
+		  let <Hole> =
+		      call %% Line 1228
+			   'erlang':%% Line 1228
+				    '-'
+			  (%% Line 1228
+			   Ix1, %% Line 1228
+				Ix)
+		  in  let <_9> =
+			  call %% Line 1229
+			       'erlang':%% Line 1229
+					'rem'
+			      (%% Line 1229
+			       Hole, %% Line 1229
+				     10)
+		      in  let <Step> =
+			      call %% Line 1229
+				   'erlang':%% Line 1229
+					    '-'
+				  (%% Line 1229
+				   Hole, _9)
+			  in  let <Next> =
+				  call %% Line 1230
+				       'erlang':%% Line 1230
+						'+'
+				      (%% Line 1230
+				       Ix, %% Line 1230
+					   Step)
+			      in  let <_12> =
+				      call %% Line 1231
+					   'erlang':%% Line 1231
+						    '+'
+					  (%% Line 1231
+					   Next, %% Line 1231
+						 10)
+				  in  %% Line 1231
+				      apply 'from_orddict_0'/5
+					  (Xs, Next, _12, D, [Step|Es0])
+	      %% Line 1232
+	      <Xs0 = [{_23,_24}|_25],Ix0,Max,D,Es> when 'true' ->
+		  %% Line 1234
+		  case apply 'from_orddict_1'/6
+			   (Ix0, Max, Xs0, Ix0, D, []) of
+		    <{Xs,E,Ix}> when 'true' ->
+			let <_14> =
+			    call %% Line 1235
+				 'erlang':%% Line 1235
+					  '+'
+				(%% Line 1235
+				 Ix, %% Line 1235
+				     10)
+			in  %% Line 1235
+			    apply 'from_orddict_0'/5
+				(Xs, Ix, _14, D, [E|Es])
+		    ( <_13> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_13})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 1236
+	      <Xs,_26,_27,_28,_29> when 'true' ->
+		  %% Line 1237
+		  call 'erlang':'error'
+		      ({'badarg',Xs})
+	    end
+	    -| [{'function',{'from_orddict_0',5}}] )
+      -| [{'function',{'from_orddict_0',5}}] )
+'from_orddict_1'/6 =
+    %% Line 1239
+    ( fun (_0,_1,_2,_3,_4,_5) ->
+	  ( case <_0,_1,_2,_3,_4,_5> of
+	      <Ix,_20,Xs,N,_X_D,As>
+		  when call 'erlang':'=:='
+			(_20,
+			 Ix) ->
+		  let <_6> =
+		      call %% Line 1241
+			   'lists':%% Line 1241
+				   'reverse'
+			  (%% Line 1241
+			   As)
+		  in  let <E> =
+			  call %% Line 1241
+			       'erlang':%% Line 1241
+					'list_to_tuple'
+			      (_6)
+		      in  %% Line 1242
+			  {Xs,E,N}
+	      %% Line 1243
+	      <Ix,Max,Xs,N0,D,As> when 'true' ->
+		  %% Line 1244
+		  case Xs of
+		    %% Line 1245
+		    <[{_21,Val}|Xs1]>
+			when call 'erlang':'=:='
+			      (_21,
+			       Ix) ->
+			let <N> =
+			    call %% Line 1246
+				 'erlang':%% Line 1246
+					  '+'
+				(%% Line 1246
+				 Ix, %% Line 1246
+				     1)
+			in  %% Line 1247
+			    apply 'from_orddict_1'/6
+				(N, Max, Xs1, N, D, [Val|As])
+		    %% Line 1248
+		    <[{Ix1,_22}|_23]>
+			when let <_9> =
+			      call 'erlang':'is_integer'
+				  (Ix1)
+			  in  let <_10> =
+				  call 'erlang':'>'
+				      (Ix1, Ix)
+			      in  call 'erlang':'and'
+				      (_9, _10) ->
+			let <N> =
+			    call %% Line 1249
+				 'erlang':%% Line 1249
+					  '+'
+				(%% Line 1249
+				 Ix, %% Line 1249
+				     1)
+			in  %% Line 1250
+			    apply 'from_orddict_1'/6
+				(N, Max, Xs, N, D, [D|As])
+		    %% Line 1251
+		    <[_24|_25]> when 'true' ->
+			%% Line 1252
+			call 'erlang':'error'
+			    ({'badarg',Xs})
+		    %% Line 1253
+		    <_26> when 'true' ->
+			let <_12> =
+			    call %% Line 1254
+				 'erlang':%% Line 1254
+					  '+'
+				(%% Line 1254
+				 Ix, %% Line 1254
+				     1)
+			in  %% Line 1254
+			    apply 'from_orddict_1'/6
+				(_12, Max, Xs, N0, D, [D|As])
+		  end
+	    end
+	    -| [{'function',{'from_orddict_1',6}}] )
+      -| [{'function',{'from_orddict_1',6}}] )
+'collect_leafs'/3 =
+    %% Line 1258
+    ( fun (_0,_1,_2) ->
+	  let <_3> =
+	      call %% Line 1259
+		   'erlang':%% Line 1259
+			    '-'
+		  (_0, %% Line 1259
+		       1)
+	  in  let <_4> =
+		  call %% Line 1259
+		       'erlang':%% Line 1259
+				'div'
+		      (_3, _2)
+	      in  let <I> =
+		      call %% Line 1259
+			   'erlang':%% Line 1259
+				    '+'
+			  (_4, %% Line 1259
+			       1)
+		  in  let <_6> =
+			  call %% Line 1260
+			       'erlang':%% Line 1260
+					'rem'
+			      (%% Line 1260
+			       I, %% Line 1260
+				  10)
+		      in  let <_7> =
+			      call %% Line 1260
+				   'erlang':%% Line 1260
+					    '-'
+				  (%% Line 1260
+				   10, _6)
+			  in  let <_8> =
+				  call %% Line 1260
+				       'erlang':%% Line 1260
+						'rem'
+				      (_7, %% Line 1260
+					   10)
+			      in  let <Pad> =
+				      call %% Line 1260
+					   'erlang':%% Line 1260
+						    '*'
+					  (_8, _2)
+				  in  %% Line 1261
+				      case Pad of
+					%% Line 1262
+					<0> when 'true' ->
+					    %% Line 1263
+					    apply 'collect_leafs'/6
+						(10, _1, _2, _0, [_2|[]], [])
+					%% Line 1264
+					<_14> when 'true' ->
+					    %% Line 1265
+					    apply 'collect_leafs'/6
+						(10, [Pad|_1], _2, _0, [_2|[]], [])
+				      end
+      -| [{'function',{'collect_leafs',3}}] )
+'collect_leafs'/6 =
+    %% Line 1268
+    ( fun (_0,_1,_2,_3,_4,_5) ->
+	  ( case <_0,_1,_2,_3,_4,_5> of
+	      <0,Xs,S,N,As,Es> when 'true' ->
+		  let <E> =
+		      call %% Line 1269
+			   'erlang':%% Line 1269
+				    'list_to_tuple'
+			  (%% Line 1269
+			   As)
+		  in  %% Line 1270
+		      case Xs of
+			%% Line 1271
+			<[]> when 'true' ->
+			    %% Line 1272
+			    case Es of
+			      %% Line 1273
+			      <[]> when 'true' ->
+				  let <_7> =
+				      call %% Line 1274
+					   'erlang':%% Line 1274
+						    '*'
+					  (%% Line 1274
+					   S, %% Line 1274
+					      10)
+				  in  %% Line 1274
+				      {E,N,_7}
+			      %% Line 1275
+			      <_31> when 'true' ->
+				  let <_9> =
+				      call %% Line 1276
+					   'lists':%% Line 1276
+						   'reverse'
+					  (%% Line 1276
+					   [E|Es])
+				  in  let <_8> =
+					  call %% Line 1277
+					       'erlang':%% Line 1277
+							'*'
+					      (%% Line 1277
+					       S, %% Line 1277
+						  10)
+				      in  %% Line 1276
+					  apply 'collect_leafs'/3
+					      (N, _9, _8)
+			    end
+			%% Line 1279
+			<_32> when 'true' ->
+			    %% Line 1280
+			    apply 'collect_leafs'/6
+				(10, Xs, S, N, [S|[]], [E|Es])
+		      end
+	      %% Line 1282
+	      <I,[X|Xs],S,N,As0,Es0>
+		  when %% Line 1283
+		    call 'erlang':'is_integer'
+			(X) ->
+		  let <Step0> =
+		      call %% Line 1285
+			   'erlang':%% Line 1285
+				    'div'
+			  (%% Line 1285
+			   X, %% Line 1285
+			      S)
+		  in  %% Line 1286
+		      case <> of
+			%% Line 1287
+			<>
+			    when call 'erlang':'<'
+				  (Step0,
+				   I) ->
+			    let <As> =
+				apply %% Line 1288
+				      'push'/3
+				    (%% Line 1288
+				     Step0, %% Line 1288
+					    S, %% Line 1288
+					       As0)
+			    in  let <_14> =
+				    call %% Line 1289
+					 'erlang':%% Line 1289
+						  '-'
+					(%% Line 1289
+					 I, %% Line 1289
+					    Step0)
+				in  %% Line 1289
+				    apply 'collect_leafs'/6
+					(_14, Xs, S, N, As, Es0)
+			%% Line 1290
+			<>
+			    when call 'erlang':'=:='
+				  (I,
+				   10) ->
+			    let <Step> =
+				call %% Line 1291
+				     'erlang':%% Line 1291
+					      'rem'
+				    (%% Line 1291
+				     Step0, %% Line 1291
+					    10)
+			    in  let <As> =
+				    apply %% Line 1292
+					  'push'/3
+					(%% Line 1292
+					 Step, %% Line 1292
+					       S, %% Line 1292
+						  As0)
+				in  let <_17> =
+					call %% Line 1293
+					     'erlang':%% Line 1293
+						      '-'
+					    (%% Line 1293
+					     I, %% Line 1293
+						Step)
+				    in  %% Line 1293
+					apply 'collect_leafs'/6
+					    (_17, Xs, S, N, As, [X|Es0])
+			%% Line 1294
+			<>
+			    when call 'erlang':'=:='
+				  (I,
+				   Step0) ->
+			    let <As> =
+				apply %% Line 1295
+				      'push'/3
+				    (%% Line 1295
+				     I, %% Line 1295
+					S, %% Line 1295
+					   As0)
+			    in  %% Line 1296
+				apply 'collect_leafs'/6
+				    (0, Xs, S, N, As, Es0)
+			%% Line 1297
+			<> when 'true' ->
+			    let <As> =
+				apply %% Line 1298
+				      'push'/3
+				    (%% Line 1298
+				     I, %% Line 1298
+					S, %% Line 1298
+					   As0)
+			    in  let <Step> =
+				    call %% Line 1299
+					 'erlang':%% Line 1299
+						  '-'
+					(%% Line 1299
+					 Step0, %% Line 1299
+						I)
+				in  let <_21> =
+					call %% Line 1300
+					     'erlang':%% Line 1300
+						      '*'
+					    (%% Line 1300
+					     Step, %% Line 1300
+						   S)
+				    in  %% Line 1300
+					apply 'collect_leafs'/6
+					    (0, [_21|Xs], S, N, As, Es0)
+		      end
+	      %% Line 1302
+	      <I,[X|Xs],S,N,As,Es> when 'true' ->
+		  let <_22> =
+		      call %% Line 1303
+			   'erlang':%% Line 1303
+				    '-'
+			  (%% Line 1303
+			   I, %% Line 1303
+			      1)
+		  in  %% Line 1303
+		      apply 'collect_leafs'/6
+			  (_22, Xs, S, N, [X|As], Es)
+	      %% Line 1304
+	      <10,[],S,N,[_33|[]],Es> when 'true' ->
+		  let <_24> =
+		      call %% Line 1305
+			   'lists':%% Line 1305
+				   'reverse'
+			  (%% Line 1305
+			   Es)
+		  in  let <_23> =
+			  call %% Line 1305
+			       'erlang':%% Line 1305
+					'*'
+			      (%% Line 1305
+			       S, %% Line 1305
+				  10)
+		      in  %% Line 1305
+			  apply 'collect_leafs'/3
+			      (N, _24, _23)
+	      ( <_30,_29,_28,_27,_26,_25> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_30,_29,_28,_27,_26,_25})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'collect_leafs',6}}] )
+      -| [{'function',{'collect_leafs',6}}] )
+'map'/2 =
+    %% Line 1395
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <Function,Array = {'array',N,_13,D,E}>
+		  when %% Line 1396
+		    try
+			let <_2> =
+			    call 'erlang':'is_function'
+				(Function, 2)
+			in  ( call 'erlang':'=:='
+				  (_2, 'true')
+			      -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 1397
+		  case <> of
+		    <>
+			when call 'erlang':'>'
+			      (N,
+			       0) ->
+			%% Line 1398
+			case Array of
+			  <{'array',_14,_15,_16,_17}> when 'true' ->
+			      let <_5> =
+				  call 'erlang':'setelement'
+				      (5, Array, [])
+			      in  let <_7> =
+				      call %% Line 1399
+					   'erlang':%% Line 1399
+						    '-'
+					  (%% Line 1399
+					   N, %% Line 1399
+					      1)
+				  in  let <_rec25> =
+					  apply %% Line 1399
+						'map_1'/5
+					      (_7, %% Line 1399
+						   E, %% Line 1399
+						      0, %% Line 1399
+							 Function, %% Line 1399
+								   D)
+				      in  %% Line 1399
+					  case _5 of
+					    <{'array',_19,_20,_21,_22}> when 'true' ->
+						call 'erlang':'setelement'
+						    (5, _5, _rec25)
+					    ( <_23> when 'true' ->
+						  ( call ( 'erlang'
+							   -| ['compiler_generated'] ):( 'error'
+											 -| ['compiler_generated'] )
+							(( {'badrecord','array'}
+							   -| ['compiler_generated'] ))
+						    -| ['compiler_generated'] )
+					      -| ['compiler_generated'] )
+					  end
+			  ( <_18> when 'true' ->
+				( call ( 'erlang'
+					 -| ['compiler_generated'] ):( 'error'
+								       -| ['compiler_generated'] )
+				      (( {'badrecord','array'}
+					 -| ['compiler_generated'] ))
+				  -| ['compiler_generated'] )
+			    -| ['compiler_generated'] )
+			end
+		    %% Line 1400
+		    <> when 'true' ->
+			%% Line 1401
+			Array
+		  end
+	      %% Line 1403
+	      <_24,_25> when 'true' ->
+		  %% Line 1404
+		  call 'erlang':'error'
+		      ('badarg')
+	    end
+	    -| [{'function',{'map',2}}] )
+      -| [{'function',{'map',2}}] )
+'map_1'/5 =
+    %% Line 1411
+    ( fun (_0,_1,_2,_3,_4) ->
+	  ( case <_0,_1,_2,_3,_4> of
+	      <N,E = {_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,S},Ix,F,D> when 'true' ->
+		  let <_6> =
+		      call %% Line 1413
+			   'erlang':%% Line 1413
+				    'div'
+			  (%% Line 1413
+			   N, %% Line 1413
+			      S)
+		  in  let <_7> =
+			  call %% Line 1413
+			       'erlang':%% Line 1413
+					'+'
+			      (_6, %% Line 1413
+				   1)
+		      in  let <_5> =
+			      call %% Line 1413
+				   'erlang':%% Line 1413
+					    'rem'
+				  (%% Line 1413
+				   N, %% Line 1413
+				      S)
+			  in  let <_8> =
+				  apply %% Line 1412
+					'map_2'/9
+				      (%% Line 1412
+				       1, %% Line 1412
+					  E, %% Line 1412
+					     Ix, %% Line 1412
+						 F, %% Line 1412
+						    D, %% Line 1412
+						       [], _7, _5, %% Line 1413
+								   S)
+			      in  let <_9> =
+				      call %% Line 1412
+					   'lists':%% Line 1412
+						   'reverse'
+					  (%% Line 1412
+					   [S|_8])
+				  in  %% Line 1412
+				      call 'erlang':'list_to_tuple'
+					  (_9)
+	      %% Line 1414
+	      <N,E,Ix,F,D>
+		  when call 'erlang':'is_integer'
+			(E) ->
+		  let <_10> =
+		      apply %% Line 1415
+			    'unfold'/2
+			  (%% Line 1415
+			   E, %% Line 1415
+			      D)
+		  in  %% Line 1415
+		      apply 'map_1'/5
+			  (N, _10, Ix, F, D)
+	      %% Line 1416
+	      <N,E,Ix,F,D> when 'true' ->
+		  let <_11> =
+		      call %% Line 1417
+			   'erlang':%% Line 1417
+				    '+'
+			  (%% Line 1417
+			   N, %% Line 1417
+			      1)
+		  in  let <_12> =
+			  apply %% Line 1417
+				'map_3'/7
+			      (%% Line 1417
+			       1, %% Line 1417
+				  E, %% Line 1417
+				     Ix, %% Line 1417
+					 F, %% Line 1417
+					    D, _11, %% Line 1417
+						    [])
+		      in  let <_13> =
+			      call %% Line 1417
+				   'lists':%% Line 1417
+					   'reverse'
+				  (_12)
+			  in  %% Line 1417
+			      call 'erlang':'list_to_tuple'
+				  (_13)
+	    end
+	    -| [{'function',{'map_1',5}}] )
+      -| [{'function',{'map_1',5}}] )
+'map_2'/9 =
+    %% Line 1419
+    ( fun (_0,_1,_2,_3,_4,_5,_6,_7,_8) ->
+	  ( case <_0,_1,_2,_3,_4,_5,_6,_7,_8> of
+	      <I,E,Ix,F,D,L,_26,R,_X_S>
+		  when call 'erlang':'=:='
+			(_26,
+			 I) ->
+		  let <_11> =
+		      call %% Line 1420
+			   'erlang':%% Line 1420
+				    '+'
+			  (%% Line 1420
+			   I, %% Line 1420
+			      1)
+		  in  let <_9> =
+			  call %% Line 1420
+			       'erlang':%% Line 1420
+					'element'
+			      (%% Line 1420
+			       I, %% Line 1420
+				  E)
+		      in  let <_10> =
+			      apply %% Line 1420
+				    'map_1'/5
+				  (%% Line 1420
+				   R, _9, %% Line 1420
+					  Ix, %% Line 1420
+					      F, %% Line 1420
+						 D)
+			  in  %% Line 1420
+			      apply 'map_2_1'/3
+				  (_11, E, [_10|L])
+	      %% Line 1421
+	      <I,E,Ix,F,D,L,N,R,S> when 'true' ->
+		  let <_16> =
+		      call %% Line 1422
+			   'erlang':%% Line 1422
+				    '+'
+			  (%% Line 1422
+			   I, %% Line 1422
+			      1)
+		  in  let <_15> =
+			  call %% Line 1422
+			       'erlang':%% Line 1422
+					'+'
+			      (%% Line 1422
+			       Ix, %% Line 1422
+				   S)
+		      in  let <_13> =
+			      call %% Line 1423
+				   'erlang':%% Line 1423
+					    '-'
+				  (%% Line 1423
+				   S, %% Line 1423
+				      1)
+			  in  let <_12> =
+				  call %% Line 1423
+				       'erlang':%% Line 1423
+						'element'
+				      (%% Line 1423
+				       I, %% Line 1423
+					  E)
+			      in  let <_14> =
+				      apply %% Line 1423
+					    'map_1'/5
+					  (_13, _12, %% Line 1423
+						     Ix, %% Line 1423
+							 F, %% Line 1423
+							    D)
+				  in  %% Line 1422
+				      apply 'map_2'/9
+					  (_16, E, _15, F, D, %% Line 1423
+							      [_14|L], %% Line 1424
+								       N, %% Line 1424
+									  R, %% Line 1424
+									     S)
+	    end
+	    -| [{'function',{'map_2',9}}] )
+      -| [{'function',{'map_2',9}}] )
+'map_2_1'/3 =
+    %% Line 1426
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <I,E,L>
+		  when call 'erlang':'=<'
+			(I,
+			 10) ->
+		  let <_4> =
+		      call %% Line 1427
+			   'erlang':%% Line 1427
+				    '+'
+			  (%% Line 1427
+			   I, %% Line 1427
+			      1)
+		  in  let <_3> =
+			  call %% Line 1427
+			       'erlang':%% Line 1427
+					'element'
+			      (%% Line 1427
+			       I, %% Line 1427
+				  E)
+		      in  %% Line 1427
+			  apply 'map_2_1'/3
+			      (_4, E, [_3|L])
+	      %% Line 1428
+	      <_X_I,_X_E,L> when 'true' ->
+		  %% Line 1429
+		  L
+	    end
+	    -| [{'function',{'map_2_1',3}}] )
+      -| [{'function',{'map_2_1',3}}] )
+'map_3'/7 =
+    %% Line 1434
+    ( fun (_0,_1,_2,_3,_4,_5,_6) ->
+	  ( case <_0,_1,_2,_3,_4,_5,_6> of
+	      <I,E,Ix,F,D,N,L>
+		  when call 'erlang':'=<'
+			(I,
+			 N) ->
+		  let <_10> =
+		      call %% Line 1435
+			   'erlang':%% Line 1435
+				    '+'
+			  (%% Line 1435
+			   I, %% Line 1435
+			      1)
+		  in  let <_9> =
+			  call %% Line 1435
+			       'erlang':%% Line 1435
+					'+'
+			      (%% Line 1435
+			       Ix, %% Line 1435
+				   1)
+		      in  let <_7> =
+			      call %% Line 1435
+				   'erlang':%% Line 1435
+					    'element'
+				  (%% Line 1435
+				   I, %% Line 1435
+				      E)
+			  in  let <_8> =
+				  apply %% Line 1435
+					F
+				      (%% Line 1435
+				       Ix, _7)
+			      in  %% Line 1435
+				  apply 'map_3'/7
+				      (_10, E, _9, F, D, N, [_8|L])
+	      %% Line 1436
+	      <I,E,Ix,F,D,N,L>
+		  when call 'erlang':'=<'
+			(I,
+			 10) ->
+		  let <_12> =
+		      call %% Line 1437
+			   'erlang':%% Line 1437
+				    '+'
+			  (%% Line 1437
+			   I, %% Line 1437
+			      1)
+		  in  let <_11> =
+			  call %% Line 1437
+			       'erlang':%% Line 1437
+					'+'
+			      (%% Line 1437
+			       Ix, %% Line 1437
+				   1)
+		      in  %% Line 1437
+			  apply 'map_3'/7
+			      (_12, E, _11, F, D, N, [D|L])
+	      %% Line 1438
+	      <_X_I,_X_E,_X_Ix,_X_F,_X_D,_X_N,L> when 'true' ->
+		  %% Line 1439
+		  L
+	    end
+	    -| [{'function',{'map_3',7}}] )
+      -| [{'function',{'map_3',7}}] )
+'unfold'/2 =
+    %% Line 1442
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <S,_X_D>
+		  when call 'erlang':'>'
+			(S,
+			 10) ->
+		  let <_2> =
+		      call %% Line 1443
+			   'erlang':%% Line 1443
+				    'div'
+			  (%% Line 1443
+			   S, %% Line 1443
+			      10)
+		  in  %% Line 1443
+		      call 'erlang':'make_tuple'
+			  (11, _2)
+	      %% Line 1444
+	      <_X_S,D> when 'true' ->
+		  %% Line 1445
+		  call 'erlang':'make_tuple'
+		      (10, D)
+	    end
+	    -| [{'function',{'unfold',2}}] )
+      -| [{'function',{'unfold',2}}] )
+'sparse_map'/2 =
+    %% Line 1487
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <Function,Array = {'array',N,_13,D,E}>
+		  when %% Line 1488
+		    try
+			let <_2> =
+			    call 'erlang':'is_function'
+				(Function, 2)
+			in  ( call 'erlang':'=:='
+				  (_2, 'true')
+			      -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 1489
+		  case <> of
+		    <>
+			when call 'erlang':'>'
+			      (N,
+			       0) ->
+			%% Line 1490
+			case Array of
+			  <{'array',_14,_15,_16,_17}> when 'true' ->
+			      let <_5> =
+				  call 'erlang':'setelement'
+				      (5, Array, [])
+			      in  let <_7> =
+				      call %% Line 1491
+					   'erlang':%% Line 1491
+						    '-'
+					  (%% Line 1491
+					   N, %% Line 1491
+					      1)
+				  in  let <_rec28> =
+					  apply %% Line 1491
+						'sparse_map_1'/5
+					      (_7, %% Line 1491
+						   E, %% Line 1491
+						      0, %% Line 1491
+							 Function, %% Line 1491
+								   D)
+				      in  %% Line 1491
+					  case _5 of
+					    <{'array',_19,_20,_21,_22}> when 'true' ->
+						call 'erlang':'setelement'
+						    (5, _5, _rec28)
+					    ( <_23> when 'true' ->
+						  ( call ( 'erlang'
+							   -| ['compiler_generated'] ):( 'error'
+											 -| ['compiler_generated'] )
+							(( {'badrecord','array'}
+							   -| ['compiler_generated'] ))
+						    -| ['compiler_generated'] )
+					      -| ['compiler_generated'] )
+					  end
+			  ( <_18> when 'true' ->
+				( call ( 'erlang'
+					 -| ['compiler_generated'] ):( 'error'
+								       -| ['compiler_generated'] )
+				      (( {'badrecord','array'}
+					 -| ['compiler_generated'] ))
+				  -| ['compiler_generated'] )
+			    -| ['compiler_generated'] )
+			end
+		    %% Line 1492
+		    <> when 'true' ->
+			%% Line 1493
+			Array
+		  end
+	      %% Line 1495
+	      <_24,_25> when 'true' ->
+		  %% Line 1496
+		  call 'erlang':'error'
+		      ('badarg')
+	    end
+	    -| [{'function',{'sparse_map',2}}] )
+      -| [{'function',{'sparse_map',2}}] )
+'sparse_map_1'/5 =
+    %% Line 1501
+    ( fun (_0,_1,_2,_3,_4) ->
+	  ( case <_0,_1,_2,_3,_4> of
+	      <N,E = {_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,S},Ix,F,D> when 'true' ->
+		  let <_6> =
+		      call %% Line 1503
+			   'erlang':%% Line 1503
+				    'div'
+			  (%% Line 1503
+			   N, %% Line 1503
+			      S)
+		  in  let <_7> =
+			  call %% Line 1503
+			       'erlang':%% Line 1503
+					'+'
+			      (_6, %% Line 1503
+				   1)
+		      in  let <_5> =
+			      call %% Line 1504
+				   'erlang':%% Line 1504
+					    'rem'
+				  (%% Line 1504
+				   N, %% Line 1504
+				      S)
+			  in  let <_8> =
+				  apply %% Line 1502
+					'sparse_map_2'/9
+				      (%% Line 1502
+				       1, %% Line 1502
+					  E, %% Line 1502
+					     Ix, %% Line 1502
+						 F, %% Line 1502
+						    D, %% Line 1502
+						       [], _7, _5, %% Line 1504
+								   S)
+			      in  let <_9> =
+				      call %% Line 1502
+					   'lists':%% Line 1502
+						   'reverse'
+					  (%% Line 1502
+					   [S|_8])
+				  in  %% Line 1502
+				      call 'erlang':'list_to_tuple'
+					  (_9)
+	      %% Line 1505
+	      <_X_N,E,_X_Ix,_X_F,_X_D>
+		  when call 'erlang':'is_integer'
+			(E) ->
+		  %% Line 1506
+		  E
+	      %% Line 1507
+	      <_X_N,E,Ix,F,D> when 'true' ->
+		  let <_10> =
+		      apply %% Line 1508
+			    'sparse_map_3'/6
+			  (%% Line 1508
+			   1, %% Line 1508
+			      E, %% Line 1508
+				 Ix, %% Line 1508
+				     F, %% Line 1508
+					D, %% Line 1508
+					   [])
+		  in  let <_11> =
+			  call %% Line 1508
+			       'lists':%% Line 1508
+				       'reverse'
+			      (_10)
+		      in  %% Line 1508
+			  call 'erlang':'list_to_tuple'
+			      (_11)
+	    end
+	    -| [{'function',{'sparse_map_1',5}}] )
+      -| [{'function',{'sparse_map_1',5}}] )
+'sparse_map_2'/9 =
+    %% Line 1510
+    ( fun (_0,_1,_2,_3,_4,_5,_6,_7,_8) ->
+	  ( case <_0,_1,_2,_3,_4,_5,_6,_7,_8> of
+	      <I,E,Ix,F,D,L,_26,R,_X_S>
+		  when call 'erlang':'=:='
+			(_26,
+			 I) ->
+		  let <_11> =
+		      call %% Line 1511
+			   'erlang':%% Line 1511
+				    '+'
+			  (%% Line 1511
+			   I, %% Line 1511
+			      1)
+		  in  let <_9> =
+			  call %% Line 1512
+			       'erlang':%% Line 1512
+					'element'
+			      (%% Line 1512
+			       I, %% Line 1512
+				  E)
+		      in  let <_10> =
+			      apply %% Line 1512
+				    'sparse_map_1'/5
+				  (%% Line 1512
+				   R, _9, %% Line 1512
+					  Ix, %% Line 1512
+					      F, %% Line 1512
+						 D)
+			  in  %% Line 1511
+			      apply 'sparse_map_2_1'/3
+				  (_11, E, %% Line 1512
+					   [_10|L])
+	      %% Line 1513
+	      <I,E,Ix,F,D,L,N,R,S> when 'true' ->
+		  let <_16> =
+		      call %% Line 1514
+			   'erlang':%% Line 1514
+				    '+'
+			  (%% Line 1514
+			   I, %% Line 1514
+			      1)
+		  in  let <_15> =
+			  call %% Line 1514
+			       'erlang':%% Line 1514
+					'+'
+			      (%% Line 1514
+			       Ix, %% Line 1514
+				   S)
+		      in  let <_13> =
+			      call %% Line 1515
+				   'erlang':%% Line 1515
+					    '-'
+				  (%% Line 1515
+				   S, %% Line 1515
+				      1)
+			  in  let <_12> =
+				  call %% Line 1515
+				       'erlang':%% Line 1515
+						'element'
+				      (%% Line 1515
+				       I, %% Line 1515
+					  E)
+			      in  let <_14> =
+				      apply %% Line 1515
+					    'sparse_map_1'/5
+					  (_13, _12, %% Line 1515
+						     Ix, %% Line 1515
+							 F, %% Line 1515
+							    D)
+				  in  %% Line 1514
+				      apply 'sparse_map_2'/9
+					  (_16, E, _15, F, D, %% Line 1515
+							      [_14|L], %% Line 1516
+								       N, %% Line 1516
+									  R, %% Line 1516
+									     S)
+	    end
+	    -| [{'function',{'sparse_map_2',9}}] )
+      -| [{'function',{'sparse_map_2',9}}] )
+'sparse_map_2_1'/3 =
+    %% Line 1518
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <I,E,L>
+		  when call 'erlang':'=<'
+			(I,
+			 10) ->
+		  let <_4> =
+		      call %% Line 1519
+			   'erlang':%% Line 1519
+				    '+'
+			  (%% Line 1519
+			   I, %% Line 1519
+			      1)
+		  in  let <_3> =
+			  call %% Line 1519
+			       'erlang':%% Line 1519
+					'element'
+			      (%% Line 1519
+			       I, %% Line 1519
+				  E)
+		      in  %% Line 1519
+			  apply 'sparse_map_2_1'/3
+			      (_4, E, [_3|L])
+	      %% Line 1520
+	      <_X_I,_X_E,L> when 'true' ->
+		  %% Line 1521
+		  L
+	    end
+	    -| [{'function',{'sparse_map_2_1',3}}] )
+      -| [{'function',{'sparse_map_2_1',3}}] )
+'sparse_map_3'/6 =
+    %% Line 1526
+    ( fun (_0,_1,_2,_3,_4,_5) ->
+	  ( case <_0,_1,_2,_3,_4,_5> of
+	      <I,T,Ix,F,D,L>
+		  when call 'erlang':'=<'
+			(I,
+			 10) ->
+		  %% Line 1527
+		  case call 'erlang':'element'
+			   (I, T) of
+		    %% Line 1528
+		    <_18>
+			when call 'erlang':'=:='
+			      (_18,
+			       D) ->
+			let <_7> =
+			    call 'erlang':'+'
+				(I, 1)
+			in  let <_6> =
+				call 'erlang':'+'
+				    (Ix, 1)
+			    in  apply 'sparse_map_3'/6
+				    (_7, T, _6, F, D, [D|L])
+		    %% Line 1529
+		    <E> when 'true' ->
+			let <_10> =
+			    call 'erlang':'+'
+				(I, 1)
+			in  let <_9> =
+				call 'erlang':'+'
+				    (Ix, 1)
+			    in  let <_8> =
+				    apply F
+					(Ix, E)
+				in  apply 'sparse_map_3'/6
+					(_10, T, _9, F, D, [_8|L])
+		  end
+	      %% Line 1531
+	      <_X_I,_X_E,_X_Ix,_X_F,_X_D,L> when 'true' ->
+		  %% Line 1532
+		  L
+	    end
+	    -| [{'function',{'sparse_map_3',6}}] )
+      -| [{'function',{'sparse_map_3',6}}] )
+'foldl'/3 =
+    %% Line 1583
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <Function,A,{'array',N,_8,D,E}>
+		  when %% Line 1584
+		    try
+			let <_3> =
+			    call 'erlang':'is_function'
+				(Function, 3)
+			in  ( call 'erlang':'=:='
+				  (_3, 'true')
+			      -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 1585
+		  case <> of
+		    <>
+			when call 'erlang':'>'
+			      (N,
+			       0) ->
+			let <_4> =
+			    call %% Line 1586
+				 'erlang':%% Line 1586
+					  '-'
+				(%% Line 1586
+				 N, %% Line 1586
+				    1)
+			in  %% Line 1586
+			    apply 'foldl_1'/6
+				(_4, E, A, 0, Function, D)
+		    %% Line 1587
+		    <> when 'true' ->
+			%% Line 1588
+			A
+		  end
+	      %% Line 1590
+	      <_9,_10,_11> when 'true' ->
+		  %% Line 1591
+		  call 'erlang':'error'
+		      ('badarg')
+	    end
+	    -| [{'function',{'foldl',3}}] )
+      -| [{'function',{'foldl',3}}] )
+'foldl_1'/6 =
+    %% Line 1593
+    ( fun (_0,_1,_2,_3,_4,_5) ->
+	  ( case <_0,_1,_2,_3,_4,_5> of
+	      <N,E = {_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,S},A,Ix,F,D> when 'true' ->
+		  let <_7> =
+		      call %% Line 1594
+			   'erlang':%% Line 1594
+				    'div'
+			  (%% Line 1594
+			   N, %% Line 1594
+			      S)
+		  in  let <_8> =
+			  call %% Line 1594
+			       'erlang':%% Line 1594
+					'+'
+			      (_7, %% Line 1594
+				   1)
+		      in  let <_6> =
+			      call %% Line 1594
+				   'erlang':%% Line 1594
+					    'rem'
+				  (%% Line 1594
+				   N, %% Line 1594
+				      S)
+			  in  %% Line 1594
+			      apply 'foldl_2'/9
+				  (1, E, A, Ix, F, D, _8, _6, S)
+	      %% Line 1595
+	      <N,E,A,Ix,F,D>
+		  when call 'erlang':'is_integer'
+			(E) ->
+		  let <_9> =
+		      apply %% Line 1596
+			    'unfold'/2
+			  (%% Line 1596
+			   E, %% Line 1596
+			      D)
+		  in  %% Line 1596
+		      apply 'foldl_1'/6
+			  (N, _9, A, Ix, F, D)
+	      %% Line 1597
+	      <N,E,A,Ix,F,_X_D> when 'true' ->
+		  let <_10> =
+		      call %% Line 1598
+			   'erlang':%% Line 1598
+				    '+'
+			  (%% Line 1598
+			   N, %% Line 1598
+			      1)
+		  in  %% Line 1598
+		      apply 'foldl_3'/6
+			  (1, E, A, Ix, F, _10)
+	    end
+	    -| [{'function',{'foldl_1',6}}] )
+      -| [{'function',{'foldl_1',6}}] )
+'foldl_2'/9 =
+    %% Line 1600
+    ( fun (_0,_1,_2,_3,_4,_5,_6,_7,_8) ->
+	  ( case <_0,_1,_2,_3,_4,_5,_6,_7,_8> of
+	      <I,E,A,Ix,F,D,_24,R,_X_S>
+		  when call 'erlang':'=:='
+			(_24,
+			 I) ->
+		  let <_9> =
+		      call %% Line 1601
+			   'erlang':%% Line 1601
+				    'element'
+			  (%% Line 1601
+			   I, %% Line 1601
+			      E)
+		  in  %% Line 1601
+		      apply 'foldl_1'/6
+			  (R, _9, A, Ix, F, D)
+	      %% Line 1602
+	      <I,E,A,Ix,F,D,N,R,S> when 'true' ->
+		  let <_14> =
+		      call %% Line 1603
+			   'erlang':%% Line 1603
+				    '+'
+			  (%% Line 1603
+			   I, %% Line 1603
+			      1)
+		  in  let <_12> =
+			  call %% Line 1603
+			       'erlang':%% Line 1603
+					'-'
+			      (%% Line 1603
+			       S, %% Line 1603
+				  1)
+		      in  let <_11> =
+			      call %% Line 1603
+				   'erlang':%% Line 1603
+					    'element'
+				  (%% Line 1603
+				   I, %% Line 1603
+				      E)
+			  in  let <_13> =
+				  apply %% Line 1603
+					'foldl_1'/6
+				      (_12, _11, %% Line 1603
+						 A, %% Line 1603
+						    Ix, %% Line 1603
+							F, %% Line 1603
+							   D)
+			      in  let <_10> =
+				      call %% Line 1604
+					   'erlang':%% Line 1604
+						    '+'
+					  (%% Line 1604
+					   Ix, %% Line 1604
+					       S)
+				  in  %% Line 1603
+				      apply 'foldl_2'/9
+					  (_14, E, _13, _10, %% Line 1604
+							     F, %% Line 1604
+								D, %% Line 1604
+								   N, %% Line 1604
+								      R, %% Line 1604
+									 S)
+	    end
+	    -| [{'function',{'foldl_2',9}}] )
+      -| [{'function',{'foldl_2',9}}] )
+'foldl_3'/6 =
+    %% Line 1609
+    ( fun (_0,_1,_2,_3,_4,_5) ->
+	  ( case <_0,_1,_2,_3,_4,_5> of
+	      <I,E,A,Ix,F,N>
+		  when call 'erlang':'=<'
+			(I,
+			 N) ->
+		  let <_9> =
+		      call %% Line 1610
+			   'erlang':%% Line 1610
+				    '+'
+			  (%% Line 1610
+			   I, %% Line 1610
+			      1)
+		  in  let <_7> =
+			  call %% Line 1610
+			       'erlang':%% Line 1610
+					'element'
+			      (%% Line 1610
+			       I, %% Line 1610
+				  E)
+		      in  let <_8> =
+			      apply %% Line 1610
+				    F
+				  (%% Line 1610
+				   Ix, _7, %% Line 1610
+					   A)
+			  in  let <_6> =
+				  call %% Line 1610
+				       'erlang':%% Line 1610
+						'+'
+				      (%% Line 1610
+				       Ix, %% Line 1610
+					   1)
+			      in  %% Line 1610
+				  apply 'foldl_3'/6
+				      (_9, E, _8, _6, F, N)
+	      %% Line 1611
+	      <_X_I,_X_E,A,_X_Ix,_X_F,_X_N> when 'true' ->
+		  %% Line 1612
+		  A
+	    end
+	    -| [{'function',{'foldl_3',6}}] )
+      -| [{'function',{'foldl_3',6}}] )
+'sparse_foldl'/3 =
+    %% Line 1655
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <Function,A,{'array',N,_8,D,E}>
+		  when %% Line 1656
+		    try
+			let <_3> =
+			    call 'erlang':'is_function'
+				(Function, 3)
+			in  ( call 'erlang':'=:='
+				  (_3, 'true')
+			      -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 1657
+		  case <> of
+		    <>
+			when call 'erlang':'>'
+			      (N,
+			       0) ->
+			let <_4> =
+			    call %% Line 1658
+				 'erlang':%% Line 1658
+					  '-'
+				(%% Line 1658
+				 N, %% Line 1658
+				    1)
+			in  %% Line 1658
+			    apply 'sparse_foldl_1'/6
+				(_4, E, A, 0, Function, D)
+		    %% Line 1659
+		    <> when 'true' ->
+			%% Line 1660
+			A
+		  end
+	      %% Line 1662
+	      <_9,_10,_11> when 'true' ->
+		  %% Line 1663
+		  call 'erlang':'error'
+		      ('badarg')
+	    end
+	    -| [{'function',{'sparse_foldl',3}}] )
+      -| [{'function',{'sparse_foldl',3}}] )
+'sparse_foldl_1'/6 =
+    %% Line 1668
+    ( fun (_0,_1,_2,_3,_4,_5) ->
+	  ( case <_0,_1,_2,_3,_4,_5> of
+	      <N,E = {_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,S},A,Ix,F,D> when 'true' ->
+		  let <_7> =
+		      call %% Line 1669
+			   'erlang':%% Line 1669
+				    'div'
+			  (%% Line 1669
+			   N, %% Line 1669
+			      S)
+		  in  let <_8> =
+			  call %% Line 1669
+			       'erlang':%% Line 1669
+					'+'
+			      (_7, %% Line 1669
+				   1)
+		      in  let <_6> =
+			      call %% Line 1669
+				   'erlang':%% Line 1669
+					    'rem'
+				  (%% Line 1669
+				   N, %% Line 1669
+				      S)
+			  in  %% Line 1669
+			      apply 'sparse_foldl_2'/9
+				  (1, E, A, Ix, F, D, _8, _6, S)
+	      %% Line 1670
+	      <_X_N,E,A,_X_Ix,_X_F,_X_D>
+		  when call 'erlang':'is_integer'
+			(E) ->
+		  %% Line 1671
+		  A
+	      %% Line 1672
+	      <N,E,A,Ix,F,D> when 'true' ->
+		  let <_9> =
+		      call %% Line 1673
+			   'erlang':%% Line 1673
+				    '+'
+			  (%% Line 1673
+			   N, %% Line 1673
+			      1)
+		  in  %% Line 1673
+		      apply 'sparse_foldl_3'/7
+			  (1, E, A, Ix, F, D, _9)
+	    end
+	    -| [{'function',{'sparse_foldl_1',6}}] )
+      -| [{'function',{'sparse_foldl_1',6}}] )
+'sparse_foldl_2'/9 =
+    %% Line 1675
+    ( fun (_0,_1,_2,_3,_4,_5,_6,_7,_8) ->
+	  ( case <_0,_1,_2,_3,_4,_5,_6,_7,_8> of
+	      <I,E,A,Ix,F,D,_24,R,_X_S>
+		  when call 'erlang':'=:='
+			(_24,
+			 I) ->
+		  let <_9> =
+		      call %% Line 1676
+			   'erlang':%% Line 1676
+				    'element'
+			  (%% Line 1676
+			   I, %% Line 1676
+			      E)
+		  in  %% Line 1676
+		      apply 'sparse_foldl_1'/6
+			  (R, _9, A, Ix, F, D)
+	      %% Line 1677
+	      <I,E,A,Ix,F,D,N,R,S> when 'true' ->
+		  let <_14> =
+		      call %% Line 1678
+			   'erlang':%% Line 1678
+				    '+'
+			  (%% Line 1678
+			   I, %% Line 1678
+			      1)
+		  in  let <_12> =
+			  call %% Line 1678
+			       'erlang':%% Line 1678
+					'-'
+			      (%% Line 1678
+			       S, %% Line 1678
+				  1)
+		      in  let <_11> =
+			      call %% Line 1678
+				   'erlang':%% Line 1678
+					    'element'
+				  (%% Line 1678
+				   I, %% Line 1678
+				      E)
+			  in  let <_13> =
+				  apply %% Line 1678
+					'sparse_foldl_1'/6
+				      (_12, _11, %% Line 1678
+						 A, %% Line 1678
+						    Ix, %% Line 1678
+							F, %% Line 1678
+							   D)
+			      in  let <_10> =
+				      call %% Line 1679
+					   'erlang':%% Line 1679
+						    '+'
+					  (%% Line 1679
+					   Ix, %% Line 1679
+					       S)
+				  in  %% Line 1678
+				      apply 'sparse_foldl_2'/9
+					  (_14, E, _13, _10, %% Line 1679
+							     F, %% Line 1679
+								D, %% Line 1679
+								   N, %% Line 1679
+								      R, %% Line 1679
+									 S)
+	    end
+	    -| [{'function',{'sparse_foldl_2',9}}] )
+      -| [{'function',{'sparse_foldl_2',9}}] )
+'sparse_foldl_3'/7 =
+    %% Line 1681
+    ( fun (_0,_1,_2,_3,_4,_5,_6) ->
+	  ( case <_0,_1,_2,_3,_4,_5,_6> of
+	      <I,T,A,Ix,F,D,N>
+		  when call 'erlang':'=<'
+			(I,
+			 N) ->
+		  %% Line 1682
+		  case call 'erlang':'element'
+			   (I, T) of
+		    %% Line 1683
+		    <_20>
+			when call 'erlang':'=:='
+			      (_20,
+			       D) ->
+			let <_8> =
+			    call 'erlang':'+'
+				(I, 1)
+			in  let <_7> =
+				call 'erlang':'+'
+				    (Ix, 1)
+			    in  apply 'sparse_foldl_3'/7
+				    (_8, T, A, _7, F, D, N)
+		    %% Line 1684
+		    <E> when 'true' ->
+			let <_11> =
+			    call 'erlang':'+'
+				(I, 1)
+			in  let <_10> =
+				apply F
+				    (Ix, E, A)
+			    in  let <_9> =
+				    call 'erlang':'+'
+					(Ix, 1)
+				in  apply 'sparse_foldl_3'/7
+					(_11, T, _10, _9, F, D, N)
+		  end
+	      %% Line 1686
+	      <_X_I,_X_T,A,_X_Ix,_X_F,_X_D,_X_N> when 'true' ->
+		  %% Line 1687
+		  A
+	    end
+	    -| [{'function',{'sparse_foldl_3',7}}] )
+      -| [{'function',{'sparse_foldl_3',7}}] )
+'foldr'/3 =
+    %% Line 1732
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <Function,A,{'array',N,_8,D,E}>
+		  when %% Line 1733
+		    try
+			let <_3> =
+			    call 'erlang':'is_function'
+				(Function, 3)
+			in  ( call 'erlang':'=:='
+				  (_3, 'true')
+			      -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 1734
+		  case <> of
+		    <>
+			when call 'erlang':'>'
+			      (N,
+			       0) ->
+			let <I> =
+			    call %% Line 1735
+				 'erlang':%% Line 1735
+					  '-'
+				(%% Line 1735
+				 N, %% Line 1735
+				    1)
+			in  %% Line 1736
+			    apply 'foldr_1'/6
+				(I, E, I, A, Function, D)
+		    %% Line 1737
+		    <> when 'true' ->
+			%% Line 1738
+			A
+		  end
+	      %% Line 1740
+	      <_9,_10,_11> when 'true' ->
+		  %% Line 1741
+		  call 'erlang':'error'
+		      ('badarg')
+	    end
+	    -| [{'function',{'foldr',3}}] )
+      -| [{'function',{'foldr',3}}] )
+'foldr_1'/6 =
+    %% Line 1745
+    ( fun (_0,_1,_2,_3,_4,_5) ->
+	  ( case <_0,_1,_2,_3,_4,_5> of
+	      <I,E = {_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,S},Ix,A,F,D> when 'true' ->
+		  let <_8> =
+		      call %% Line 1746
+			   'erlang':%% Line 1746
+				    'div'
+			  (%% Line 1746
+			   I, %% Line 1746
+			      S)
+		  in  let <_9> =
+			  call %% Line 1746
+			       'erlang':%% Line 1746
+					'+'
+			      (_8, %% Line 1746
+				   1)
+		      in  let <_7> =
+			      call %% Line 1746
+				   'erlang':%% Line 1746
+					    'rem'
+				  (%% Line 1746
+				   I, %% Line 1746
+				      S)
+			  in  let <_6> =
+				  call %% Line 1746
+				       'erlang':%% Line 1746
+						'-'
+				      (%% Line 1746
+				       S, %% Line 1746
+					  1)
+			      in  %% Line 1746
+				  apply 'foldr_2'/8
+				      (_9, E, Ix, A, F, D, _7, _6)
+	      %% Line 1747
+	      <I,E,Ix,A,F,D>
+		  when call 'erlang':'is_integer'
+			(E) ->
+		  let <_10> =
+		      apply %% Line 1748
+			    'unfold'/2
+			  (%% Line 1748
+			   E, %% Line 1748
+			      D)
+		  in  %% Line 1748
+		      apply 'foldr_1'/6
+			  (I, _10, Ix, A, F, D)
+	      %% Line 1749
+	      <I,E,Ix,A,F,_X_D> when 'true' ->
+		  let <I1> =
+		      call %% Line 1750
+			   'erlang':%% Line 1750
+				    '+'
+			  (%% Line 1750
+			   I, %% Line 1750
+			      1)
+		  in  let <_12> =
+			  call %% Line 1751
+			       'erlang':%% Line 1751
+					'-'
+			      (%% Line 1751
+			       Ix, %% Line 1751
+				   I1)
+		      in  %% Line 1751
+			  apply 'foldr_3'/5
+			      (I1, E, _12, A, F)
+	    end
+	    -| [{'function',{'foldr_1',6}}] )
+      -| [{'function',{'foldr_1',6}}] )
+'foldr_2'/8 =
+    %% Line 1753
+    ( fun (_0,_1,_2,_3,_4,_5,_6,_7) ->
+	  ( case <_0,_1,_2,_3,_4,_5,_6,_7> of
+	      <0,_X_E,_X_Ix,A,_X_F,_X_D,_X_R,_X_R0> when 'true' ->
+		  %% Line 1754
+		  A
+	      %% Line 1755
+	      <I,E,Ix,A,F,D,R,R0> when 'true' ->
+		  let <_12> =
+		      call %% Line 1756
+			   'erlang':%% Line 1756
+				    '-'
+			  (%% Line 1756
+			   I, %% Line 1756
+			      1)
+		  in  let <_10> =
+			  call %% Line 1756
+			       'erlang':%% Line 1756
+					'-'
+			      (%% Line 1756
+			       Ix, %% Line 1756
+				   R)
+		      in  let <_11> =
+			      call %% Line 1756
+				   'erlang':%% Line 1756
+					    '-'
+				  (_10, %% Line 1756
+					1)
+			  in  let <_8> =
+				  call %% Line 1757
+				       'erlang':%% Line 1757
+						'element'
+				      (%% Line 1757
+				       I, %% Line 1757
+					  E)
+			      in  let <_9> =
+				      apply %% Line 1757
+					    'foldr_1'/6
+					  (%% Line 1757
+					   R, _8, %% Line 1757
+						  Ix, %% Line 1757
+						      A, %% Line 1757
+							 F, %% Line 1757
+							    D)
+				  in  %% Line 1756
+				      apply 'foldr_2'/8
+					  (_12, E, _11, _9, %% Line 1758
+							    F, %% Line 1758
+							       D, %% Line 1758
+								  R0, %% Line 1758
+								      R0)
+	    end
+	    -| [{'function',{'foldr_2',8}}] )
+      -| [{'function',{'foldr_2',8}}] )
+'foldr_3'/5 =
+    %% Line 1763
+    ( fun (_0,_1,_2,_3,_4) ->
+	  ( case <_0,_1,_2,_3,_4> of
+	      <0,_X_E,_X_Ix,A,_X_F> when 'true' ->
+		  %% Line 1764
+		  A
+	      %% Line 1765
+	      <I,E,Ix,A,F> when 'true' ->
+		  let <_8> =
+		      call %% Line 1766
+			   'erlang':%% Line 1766
+				    '-'
+			  (%% Line 1766
+			   I, %% Line 1766
+			      1)
+		  in  let <_6> =
+			  call %% Line 1766
+			       'erlang':%% Line 1766
+					'+'
+			      (%% Line 1766
+			       Ix, %% Line 1766
+				   I)
+		      in  let <_5> =
+			      call %% Line 1766
+				   'erlang':%% Line 1766
+					    'element'
+				  (%% Line 1766
+				   I, %% Line 1766
+				      E)
+			  in  let <_7> =
+				  apply %% Line 1766
+					F
+				      (_6, _5, %% Line 1766
+					       A)
+			      in  %% Line 1766
+				  apply 'foldr_3'/5
+				      (_8, E, Ix, _7, F)
+	    end
+	    -| [{'function',{'foldr_3',5}}] )
+      -| [{'function',{'foldr_3',5}}] )
+'sparse_foldr'/3 =
+    %% Line 1810
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <Function,A,{'array',N,_8,D,E}>
+		  when %% Line 1811
+		    try
+			let <_3> =
+			    call 'erlang':'is_function'
+				(Function, 3)
+			in  ( call 'erlang':'=:='
+				  (_3, 'true')
+			      -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 1812
+		  case <> of
+		    <>
+			when call 'erlang':'>'
+			      (N,
+			       0) ->
+			let <I> =
+			    call %% Line 1813
+				 'erlang':%% Line 1813
+					  '-'
+				(%% Line 1813
+				 N, %% Line 1813
+				    1)
+			in  %% Line 1814
+			    apply 'sparse_foldr_1'/6
+				(I, E, I, A, Function, D)
+		    %% Line 1815
+		    <> when 'true' ->
+			%% Line 1816
+			A
+		  end
+	      %% Line 1818
+	      <_9,_10,_11> when 'true' ->
+		  %% Line 1819
+		  call 'erlang':'error'
+		      ('badarg')
+	    end
+	    -| [{'function',{'sparse_foldr',3}}] )
+      -| [{'function',{'sparse_foldr',3}}] )
+'sparse_foldr_1'/6 =
+    %% Line 1824
+    ( fun (_0,_1,_2,_3,_4,_5) ->
+	  ( case <_0,_1,_2,_3,_4,_5> of
+	      <I,E = {_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,S},Ix,A,F,D> when 'true' ->
+		  let <_8> =
+		      call %% Line 1825
+			   'erlang':%% Line 1825
+				    'div'
+			  (%% Line 1825
+			   I, %% Line 1825
+			      S)
+		  in  let <_9> =
+			  call %% Line 1825
+			       'erlang':%% Line 1825
+					'+'
+			      (_8, %% Line 1825
+				   1)
+		      in  let <_7> =
+			      call %% Line 1825
+				   'erlang':%% Line 1825
+					    'rem'
+				  (%% Line 1825
+				   I, %% Line 1825
+				      S)
+			  in  let <_6> =
+				  call %% Line 1825
+				       'erlang':%% Line 1825
+						'-'
+				      (%% Line 1825
+				       S, %% Line 1825
+					  1)
+			      in  %% Line 1825
+				  apply 'sparse_foldr_2'/8
+				      (_9, E, Ix, A, F, D, _7, _6)
+	      %% Line 1826
+	      <_X_I,E,_X_Ix,A,_X_F,_X_D>
+		  when call 'erlang':'is_integer'
+			(E) ->
+		  %% Line 1827
+		  A
+	      %% Line 1828
+	      <I,E,Ix,A,F,D> when 'true' ->
+		  let <I1> =
+		      call %% Line 1829
+			   'erlang':%% Line 1829
+				    '+'
+			  (%% Line 1829
+			   I, %% Line 1829
+			      1)
+		  in  let <_11> =
+			  call %% Line 1830
+			       'erlang':%% Line 1830
+					'-'
+			      (%% Line 1830
+			       Ix, %% Line 1830
+				   I1)
+		      in  %% Line 1830
+			  apply 'sparse_foldr_3'/6
+			      (I1, E, _11, A, F, D)
+	    end
+	    -| [{'function',{'sparse_foldr_1',6}}] )
+      -| [{'function',{'sparse_foldr_1',6}}] )
+'sparse_foldr_2'/8 =
+    %% Line 1832
+    ( fun (_0,_1,_2,_3,_4,_5,_6,_7) ->
+	  ( case <_0,_1,_2,_3,_4,_5,_6,_7> of
+	      <0,_X_E,_X_Ix,A,_X_F,_X_D,_X_R,_X_R0> when 'true' ->
+		  %% Line 1833
+		  A
+	      %% Line 1834
+	      <I,E,Ix,A,F,D,R,R0> when 'true' ->
+		  let <_12> =
+		      call %% Line 1835
+			   'erlang':%% Line 1835
+				    '-'
+			  (%% Line 1835
+			   I, %% Line 1835
+			      1)
+		  in  let <_10> =
+			  call %% Line 1835
+			       'erlang':%% Line 1835
+					'-'
+			      (%% Line 1835
+			       Ix, %% Line 1835
+				   R)
+		      in  let <_11> =
+			      call %% Line 1835
+				   'erlang':%% Line 1835
+					    '-'
+				  (_10, %% Line 1835
+					1)
+			  in  let <_8> =
+				  call %% Line 1836
+				       'erlang':%% Line 1836
+						'element'
+				      (%% Line 1836
+				       I, %% Line 1836
+					  E)
+			      in  let <_9> =
+				      apply %% Line 1836
+					    'sparse_foldr_1'/6
+					  (%% Line 1836
+					   R, _8, %% Line 1836
+						  Ix, %% Line 1836
+						      A, %% Line 1836
+							 F, %% Line 1836
+							    D)
+				  in  %% Line 1835
+				      apply 'sparse_foldr_2'/8
+					  (_12, E, _11, _9, %% Line 1837
+							    F, %% Line 1837
+							       D, %% Line 1837
+								  R0, %% Line 1837
+								      R0)
+	    end
+	    -| [{'function',{'sparse_foldr_2',8}}] )
+      -| [{'function',{'sparse_foldr_2',8}}] )
+'sparse_foldr_3'/6 =
+    %% Line 1842
+    ( fun (_0,_1,_2,_3,_4,_5) ->
+	  ( case <_0,_1,_2,_3,_4,_5> of
+	      <0,_X_T,_X_Ix,A,_X_F,_X_D> when 'true' ->
+		  %% Line 1843
+		  A
+	      %% Line 1844
+	      <I,T,Ix,A,F,D> when 'true' ->
+		  %% Line 1845
+		  case call 'erlang':'element'
+			   (I, T) of
+		    %% Line 1846
+		    <_17>
+			when call 'erlang':'=:='
+			      (_17,
+			       D) ->
+			let <_6> =
+			    call 'erlang':'-'
+				(I, 1)
+			in  apply 'sparse_foldr_3'/6
+				(_6, T, Ix, A, F, D)
+		    %% Line 1847
+		    <E> when 'true' ->
+			let <_9> =
+			    call 'erlang':'-'
+				(I, 1)
+			in  let <_7> =
+				call 'erlang':'+'
+				    (Ix, I)
+			    in  let <_8> =
+				    apply F
+					(_7, E, A)
+				in  apply 'sparse_foldr_3'/6
+					(_9, T, Ix, _8, F, D)
+		  end
+	    end
+	    -| [{'function',{'sparse_foldr_3',6}}] )
+      -| [{'function',{'sparse_foldr_3',6}}] )
+'sparse_size'/1 =
+    %% Line 1860
+    ( fun (_0) ->
+	  let <F> =
+	      fun (_3,_2,_1) ->
+		  %% Line 1861
+		  call 'erlang':'throw'
+		      ({'value',_3})
+	  in  %% Line 1862
+	      try
+		  apply 'sparse_foldr'/3
+		      (F, [], ( _0
+				-| [{'function',{'sparse_size',1}}] ))
+	      of <_8> ->
+		  case _8 of
+		    %% Line 1863
+		    <[]> when 'true' ->
+			0
+		    ( <_9> when 'true' ->
+			  primop 'match_fail'
+			      ({'try_clause',_9})
+		      -| ['compiler_generated'] )
+		  end
+	      catch <_12,_11,_10> ->
+		  %% Line 1865
+		  case <_12,_11,_10> of
+		    <( 'throw'
+		       -| ['compiler_generated'] ),( {( 'value'
+							-| ['compiler_generated'] ),I}
+						     -| ['compiler_generated'] ),_14> when 'true' ->
+			%% Line 1866
+			call 'erlang':'+'
+			    (I, 1)
+		    ( <_18,_19,_20> when 'true' ->
+			  primop 'raise'
+			      (_20, _19)
+		      -| ['compiler_generated'] )
+		  end
+      -| [{'function',{'sparse_size',1}}] )
+'module_info'/0 =
+    ( fun () ->
+	  call 'erlang':'get_module_info'
+	      ('array')
+      -| [{'function',{'module_info',0}}] )
+'module_info'/1 =
+    ( fun (_0) ->
+	  call 'erlang':'get_module_info'
+	      ('array', ( _0
+			  -| [{'function',{'module_info',1}}] ))
+      -| [{'function',{'module_info',1}}] )
+end

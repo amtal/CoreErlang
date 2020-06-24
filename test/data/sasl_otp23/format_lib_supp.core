@@ -1,0 +1,388 @@
+module 'format_lib_supp' ['module_info'/0,
+			  'module_info'/1,
+			  'print_info'/2,
+			  'print_info'/3]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[102|[111|[114|[109|[97|[116|[95|[108|[105|[98|[95|[115|[117|[112|[112|[46|[101|[114|[108]]]]]]]]]]]]]]]]]]]]]]],1}]]
+'print_info'/2 =
+    %% Line 52
+    ( fun (_0,_1) ->
+	  %% Line 53
+	  apply 'print_info'/3
+	      (_0, 79, _1)
+      -| [{'function',{'print_info',2}}] )
+'print_info'/3 =
+    %% Line 54
+    ( fun (_0,_1,_2) ->
+	  do  %% Line 55
+	      apply 'print_header'/3
+		  (_0, _1, _2)
+	      %% Line 56
+	      apply 'print_format'/3
+		  (_0, _1, _2)
+      -| [{'function',{'print_info',3}}] )
+'print_header'/3 =
+    %% Line 58
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <Device,Line,[{'header',Header}|_6]> when 'true' ->
+		  %% Line 59
+		  apply 'print_header2'/3
+		      (Device, Line, Header)
+	      %% Line 60
+	      <Device,Line,_7> when 'true' ->
+		  %% Line 61
+		  apply 'print_header2'/3
+		      (Device, Line, [])
+	    end
+	    -| [{'function',{'print_header',3}}] )
+      -| [{'function',{'print_header',3}}] )
+'print_header2'/3 =
+    %% Line 62
+    ( fun (_0,_1,_2) ->
+	  let <Format1> =
+	      call %% Line 63
+		   'lists':%% Line 63
+			   'concat'
+		  (%% Line 63
+		   [[126|[110|[126]]]|[_1|[[46]|[_1|[[115|[126|[110]]]]]]]])
+	  in  let <Format2> =
+		  call %% Line 64
+		       'lists':%% Line 64
+			       'concat'
+		      (%% Line 64
+		       [[126]|[_1|[[99|[126|[110]]]]]])
+	      in  do  %% Line 65
+		      call 'io':'format'
+			  (_0, Format1, [_2|[]])
+		      %% Line 66
+		      call 'io':'format'
+			  (_0, Format2, [61])
+      -| [{'function',{'print_header2',3}}] )
+'print_format'/3 =
+    %% Line 68
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <Device,_X_Line,[]> when 'true' ->
+		  %% Line 69
+		  call 'io':'format'
+		      (Device, '~n', [])
+	      %% Line 70
+	      <Device,Line,[{'data',Data}|T]> when 'true' ->
+		  do  %% Line 71
+		      apply 'print_data'/3
+			  (Device, Line, Data)
+		      %% Line 72
+		      apply 'print_format'/3
+			  (Device, Line, T)
+	      %% Line 73
+	      <Device,Line,[{'items',Items}|T]> when 'true' ->
+		  do  %% Line 74
+		      apply 'print_items'/3
+			  (Device, Line, Items)
+		      %% Line 75
+		      apply 'print_format'/3
+			  (Device, Line, T)
+	      %% Line 76
+	      <Device,Line,[{'newline',N}|T]> when 'true' ->
+		  do  %% Line 77
+		      apply 'print_newlines'/2
+			  (Device, N)
+		      %% Line 78
+		      apply 'print_format'/3
+			  (Device, Line, T)
+	      %% Line 79
+	      <Device,Line,[_6|T]> when 'true' ->
+		  %% Line 80
+		  apply 'print_format'/3
+		      (Device, Line, T)
+	      ( <_5,_4,_3> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_5,_4,_3})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'print_format',3}}] )
+      -| [{'function',{'print_format',3}}] )
+'print_data'/3 =
+    %% Line 82
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <_X_Device,_X_Line,[]> when 'true' ->
+		  'ok'
+	      %% Line 83
+	      <Device,Line,[{Key,Value}|T]> when 'true' ->
+		  do  %% Line 84
+		      apply 'print_one_line'/4
+			  (Device, Line, Key, Value)
+		      %% Line 85
+		      apply 'print_data'/3
+			  (Device, Line, T)
+	      %% Line 86
+	      <Device,Line,[Value|T]> when 'true' ->
+		  let <Modifier> =
+		      call %% Line 87
+			   'misc_supp':%% Line 87
+				       'modifier'
+			  (%% Line 87
+			   Device)
+		  in  let <_4> =
+			  call %% Line 88
+			       'erlang':%% Line 88
+					'++'
+			      (%% Line 88
+			       Modifier, %% Line 88
+					 [112|[126|[110]]])
+		      in  let <_5> =
+			      [126|_4]
+			  in  do  %% Line 88
+				  call 'io':'format'
+				      (Device, _5, [Value|[]])
+				  %% Line 89
+				  apply 'print_data'/3
+				      (Device, Line, T)
+	      %% Line 90
+	      <Device,_X_Line,Value> when 'true' ->
+		  let <Modifier> =
+		      call %% Line 91
+			   'misc_supp':%% Line 91
+				       'modifier'
+			  (%% Line 91
+			   Device)
+		  in  let <_7> =
+			  call %% Line 92
+			       'erlang':%% Line 92
+					'++'
+			      (%% Line 92
+			       Modifier, %% Line 92
+					 [112|[126|[110]]])
+		      in  let <_8> =
+			      [126|_7]
+			  in  %% Line 92
+			      call 'io':'format'
+				  (Device, _8, [Value|[]])
+	    end
+	    -| [{'function',{'print_data',3}}] )
+      -| [{'function',{'print_data',3}}] )
+'print_items'/3 =
+    %% Line 94
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <Device,Line,{Name,Items}> when 'true' ->
+		  %% Line 95
+		  apply 'print_items'/4
+		      (Device, Line, Name, Items)
+	      ( <_5,_4,_3> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_5,_4,_3})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'print_items',3}}] )
+      -| [{'function',{'print_items',3}}] )
+'print_newlines'/2 =
+    %% Line 97
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <_X_Device,0> when 'true' ->
+		  'ok'
+	      %% Line 98
+	      <Device,N>
+		  when call 'erlang':'>'
+			(N,
+			 0) ->
+		  do  %% Line 99
+		      call 'io':'format'
+			  (Device, '~n', [])
+		      let <_2> =
+			  call %% Line 100
+			       'erlang':%% Line 100
+					'-'
+			      (%% Line 100
+			       N, %% Line 100
+				  1)
+		      in  %% Line 100
+			  apply 'print_newlines'/2
+			      (Device, _2)
+	      ( <_4,_3> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_4,_3})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'print_newlines',2}}] )
+      -| [{'function',{'print_newlines',2}}] )
+'print_one_line'/4 =
+    %% Line 102
+    ( fun (_0,_1,_2,_3) ->
+	  let <Modifier> =
+	      call %% Line 103
+		   'misc_supp':%% Line 103
+			       'modifier'
+		  (_0)
+	  in  let <StrKey> =
+		  apply %% Line 104
+			'term_to_string'/2
+		      (_2, %% Line 104
+			   Modifier)
+	      in  let <_6> =
+		      call %% Line 105
+			   'string':%% Line 105
+				    'length'
+			  (%% Line 105
+			   StrKey)
+		  in  let <KeyLen> =
+			  call %% Line 105
+			       'lists':%% Line 105
+				       'min'
+			      (%% Line 105
+			       [_6|[_1|[]]])
+		      in  let <ValueLen> =
+			      call %% Line 106
+				   'erlang':%% Line 106
+					    '-'
+				  (_1, %% Line 106
+				       KeyLen)
+			  in  let <Format1> =
+				  call %% Line 107
+				       'lists':%% Line 107
+					       'concat'
+				      (%% Line 107
+				       [[126|[45]]|[KeyLen|[Modifier|[[115]]]]])
+			      in  let <Format2> =
+				      call %% Line 108
+					   'lists':%% Line 108
+						   'concat'
+					  (%% Line 108
+					   [[126]|[ValueLen|[Modifier|[[115|[126|[110]]]]]]])
+				  in  do  %% Line 109
+					  call 'io':'format'
+					      (_0, Format1, [StrKey|[]])
+					  let <Try> =
+					      apply %% Line 110
+						    'term_to_string'/2
+						  (_3, %% Line 110
+						       Modifier)
+					  in  let <Length> =
+						  call %% Line 111
+						       'string':%% Line 111
+								'length'
+						      (%% Line 111
+						       Try)
+					      in  %% Line 112
+						  case <> of
+						    %% Line 113
+						    <>
+							when call 'erlang':'<'
+							      (Length,
+							       ValueLen) ->
+							%% Line 114
+							call 'io':'format'
+							    (_0, Format2, [Try|[]])
+						    %% Line 115
+						    <> when 'true' ->
+							do  %% Line 116
+							    call 'io':'format'
+								(_0, [126|[110|[32|[32|[32|[32|[32|[32|[32|[32|[32]]]]]]]]]]], [])
+							    let <Format3> =
+								call %% Line 117
+								     'lists':%% Line 117
+									     'concat'
+								    (%% Line 117
+								     [[126]|[_1|[[46|[57]]|[Modifier|[[112|[126|[110]]]]]]]])
+							    in  %% Line 118
+								call 'io':'format'
+								    (_0, Format3, [_3|[]])
+						  end
+      -| [{'function',{'print_one_line',4}}] )
+'term_to_string'/2 =
+    %% Line 121
+    ( fun (_0,_1) ->
+	  let <_2> =
+	      apply %% Line 122
+		    'get_format'/2
+		  (_0, _1)
+	  in  %% Line 122
+	      call 'io_lib':'format'
+		  (_2, [_0|[]])
+      -| [{'function',{'term_to_string',2}}] )
+'get_format'/2 =
+    %% Line 124
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <[],_7> when 'true' ->
+		  %% Line 125
+		  [126|[112]]
+	      %% Line 126
+	      <Value,Modifier> when 'true' ->
+		  %% Line 127
+		  case call 'io_lib':'printable_list'
+			   (Value) of
+		    %% Line 128
+		    <'true'> when 'true' ->
+			let <_2> =
+			    call 'erlang':'++'
+				(Modifier, [115])
+			in  [126|_2]
+		    %% Line 129
+		    <'false'> when 'true' ->
+			let <_3> =
+			    call 'erlang':'++'
+				(Modifier, [112])
+			in  [126|_3]
+		    ( <_4> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_4})
+		      -| ['compiler_generated'] )
+		  end
+	    end
+	    -| [{'function',{'get_format',2}}] )
+      -| [{'function',{'get_format',2}}] )
+'print_items'/4 =
+    %% Line 135
+    ( fun (_0,_1,_2,_3) ->
+	  do  %% Line 136
+	      apply 'print_one_line'/4
+		  (_0, _1, _2, [32])
+	      %% Line 137
+	      apply 'print_item_elements'/3
+		  (_0, _1, _3)
+      -| [{'function',{'print_items',4}}] )
+'print_item_elements'/3 =
+    %% Line 139
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <_X_Device,_X_Line,[]> when 'true' ->
+		  'ok'
+	      %% Line 140
+	      <Device,Line,[{Key,Value}|T]> when 'true' ->
+		  let <_3> =
+		      call %% Line 141
+			   'lists':%% Line 141
+				   'concat'
+			  (%% Line 141
+			   [[32|[32|[32]]]|[Key|[]]])
+		  in  do  %% Line 141
+			  apply 'print_one_line'/4
+			      (Device, Line, _3, Value)
+			  %% Line 142
+			  apply 'print_item_elements'/3
+			      (Device, Line, T)
+	      ( <_6,_5,_4> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_6,_5,_4})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'print_item_elements',3}}] )
+      -| [{'function',{'print_item_elements',3}}] )
+'module_info'/0 =
+    ( fun () ->
+	  call 'erlang':'get_module_info'
+	      ('format_lib_supp')
+      -| [{'function',{'module_info',0}}] )
+'module_info'/1 =
+    ( fun (_0) ->
+	  call 'erlang':'get_module_info'
+	      ('format_lib_supp', ( _0
+				    -| [{'function',{'module_info',1}}] ))
+      -| [{'function',{'module_info',1}}] )
+end

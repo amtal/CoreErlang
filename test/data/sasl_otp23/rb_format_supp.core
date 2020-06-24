@@ -1,0 +1,399 @@
+module 'rb_format_supp' ['module_info'/0,
+			 'module_info'/1,
+			 'print'/3]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[114|[98|[95|[102|[111|[114|[109|[97|[116|[95|[115|[117|[112|[112|[46|[101|[114|[108]]]]]]]]]]]]]]]]]]]]]],1}]]
+'print'/3 =
+    %% Line 29
+    ( fun (_0,_1,_2) ->
+	  %% Line 35
+	  case _1 of
+	    <{_X_Time,Rep}> when 'true' ->
+		%% Line 36
+		case Rep of
+		  %% Line 37
+		  <{'error_report',_X_GL,{Pid,'crash_report',CrashReport}}> when 'true' ->
+		      let <Header> =
+			  apply %% Line 38
+				'format_h'/4
+			      (79, %% Line 38
+				   [67|[82|[65|[83|[72|[32|[82|[69|[80|[79|[82|[84]]]]]]]]]]]], %% Line 38
+												Pid, _0)
+		      in  let <_6> =
+			      apply %% Line 42
+				    'format_c'/1
+				  (%% Line 42
+				   CrashReport)
+			  in  do  %% Line 39
+				  call 'format_lib_supp':'print_info'
+				      (_2, 79, %% Line 41
+					       [{'header',Header}|_6])
+				  %% Line 43
+				  'true'
+		  %% Line 44
+		  <{'error_report',_X_GL,{Pid,'supervisor_report',SupReport}}> when 'true' ->
+		      let <Header> =
+			  apply %% Line 45
+				'format_h'/4
+			      (79, %% Line 45
+				   [83|[85|[80|[69|[82|[86|[73|[83|[79|[82|[32|[82|[69|[80|[79|[82|[84]]]]]]]]]]]]]]]]], %% Line 45
+															 Pid, _0)
+		      in  let <_8> =
+			      apply %% Line 49
+				    'format_s'/1
+				  (%% Line 49
+				   SupReport)
+			  in  do  %% Line 46
+				  call 'format_lib_supp':'print_info'
+				      (_2, 79, %% Line 48
+					       [{'header',Header}|_8])
+				  %% Line 50
+				  'true'
+		  %% Line 51
+		  <{'error_report',_X_GL,{Pid,_X_Type,Report1}}> when 'true' ->
+		      let <Header> =
+			  apply %% Line 52
+				'format_h'/4
+			      (79, %% Line 52
+				   [69|[82|[82|[79|[82|[32|[82|[69|[80|[79|[82|[84]]]]]]]]]]]], %% Line 52
+												Pid, _0)
+		      in  do  %% Line 53
+			      call 'format_lib_supp':'print_info'
+				  (_2, 79, %% Line 55
+					   [{'header',Header}|%% Line 56
+							      [{'data',Report1}|[]]])
+			      %% Line 57
+			      'true'
+		  %% Line 58
+		  <{'info_report',_X_GL,{Pid,'progress',SupProgress}}> when 'true' ->
+		      let <Header> =
+			  apply %% Line 59
+				'format_h'/4
+			      (79, %% Line 59
+				   [80|[82|[79|[71|[82|[69|[83|[83|[32|[82|[69|[80|[79|[82|[84]]]]]]]]]]]]]]], %% Line 59
+													       Pid, _0)
+		      in  let <_11> =
+			      apply %% Line 63
+				    'format_p'/1
+				  (%% Line 63
+				   SupProgress)
+			  in  %% Line 60
+			      call 'format_lib_supp':'print_info'
+				  (_2, 79, %% Line 62
+					   [{'header',Header}|_11])
+		  %% Line 64
+		  <{'info_report',_X_GL,{Pid,_X_Type,Report1}}> when 'true' ->
+		      let <Header> =
+			  apply %% Line 65
+				'format_h'/4
+			      (79, %% Line 65
+				   [73|[78|[70|[79|[32|[82|[69|[80|[79|[82|[84]]]]]]]]]]], %% Line 65
+											   Pid, _0)
+		      in  do  %% Line 66
+			      call 'format_lib_supp':'print_info'
+				  (_2, 79, %% Line 68
+					   [{'header',Header}|%% Line 69
+							      [{'data',Report1}|[]]])
+			      %% Line 70
+			      'true'
+		  %% Line 71
+		  <{'warning_report',_X_GL,{Pid,_X_Type,Report1}}> when 'true' ->
+		      let <Header> =
+			  apply %% Line 72
+				'format_h'/4
+			      (79, %% Line 72
+				   [87|[65|[82|[78|[73|[78|[71|[32|[82|[69|[80|[79|[82|[84]]]]]]]]]]]]]], %% Line 72
+													  Pid, _0)
+		      in  do  %% Line 73
+			      call 'format_lib_supp':'print_info'
+				  (_2, 79, %% Line 75
+					   [{'header',Header}|%% Line 76
+							      [{'data',Report1}|[]]])
+			      %% Line 77
+			      'true'
+		  %% Line 78
+		  <{'error',_X_GL,{Pid,Format,Args}}> when 'true' ->
+		      let <Header> =
+			  apply %% Line 79
+				'format_h'/4
+			      (79, %% Line 79
+				   [69|[82|[82|[79|[82|[32|[82|[69|[80|[79|[82|[84]]]]]]]]]]]], %% Line 79
+												Pid, _0)
+		      in  do  %% Line 80
+			      call 'format_lib_supp':'print_info'
+				  (_2, 79, %% Line 82
+					   [{'header',Header}|[]])
+			      %% Line 83
+			      call 'io':'format'
+				  (_2, Format, Args)
+		  %% Line 84
+		  <{'info_msg',_X_GL,{Pid,Format,Args}}> when 'true' ->
+		      let <Header> =
+			  apply %% Line 85
+				'format_h'/4
+			      (79, %% Line 85
+				   [73|[78|[70|[79|[32|[82|[69|[80|[79|[82|[84]]]]]]]]]]], %% Line 85
+											   Pid, _0)
+		      in  do  %% Line 86
+			      call 'format_lib_supp':'print_info'
+				  (_2, 79, %% Line 88
+					   [{'header',Header}|[]])
+			      %% Line 89
+			      call 'io':'format'
+				  (_2, Format, Args)
+		  %% Line 90
+		  <{'warning_msg',_X_GL,{Pid,Format,Args}}> when 'true' ->
+		      let <Header> =
+			  apply %% Line 91
+				'format_h'/4
+			      (79, %% Line 91
+				   [87|[65|[82|[78|[73|[78|[71|[32|[82|[69|[80|[79|[82|[84]]]]]]]]]]]]]], %% Line 91
+													  Pid, _0)
+		      in  do  %% Line 92
+			      call 'format_lib_supp':'print_info'
+				  (_2, 79, %% Line 94
+					   [{'header',Header}|[]])
+			      %% Line 95
+			      call 'io':'format'
+				  (_2, Format, Args)
+		  %% Line 96
+		  <{Type,_X_GL,TypeReport}> when 'true' ->
+		      let <Modifier> =
+			  call %% Line 97
+			       'misc_supp':%% Line 97
+					   'modifier'
+			      (_2)
+		      in  let <_18> =
+			      call %% Line 98
+				   'erlang':%% Line 98
+					    '++'
+				  (%% Line 98
+				   Modifier, %% Line 98
+					     [119|[62|[32|[126|[115|[126|[110]]]]]]])
+			  in  let <_19> =
+				  call %% Line 98
+				       'erlang':%% Line 98
+						'++'
+				      (%% Line 98
+				       [126|[110|[73|[110|[102|[111|[32|[116|[121|[112|[101|[32|[60|[126]]]]]]]]]]]]]], _18)
+			      in  do  %% Line 98
+				      call 'io':'format'
+					  (_2, _19, %% Line 99
+						    [Type|[_0|[]]])
+				      let <_20> =
+					  call %% Line 100
+					       'erlang':%% Line 100
+							'++'
+					      (%% Line 100
+					       Modifier, %% Line 100
+							 [112])
+				      in  let <_21> =
+					      [126|_20]
+					  in  %% Line 100
+					      call 'io':'format'
+						  (_2, _21, [TypeReport|[]])
+		  %% Line 101
+		  <_29> when 'true' ->
+		      let <Modifier> =
+			  call %% Line 102
+			       'misc_supp':%% Line 102
+					   'modifier'
+			      (_2)
+		      in  do  %% Line 103
+			      call 'io':'format'
+				  ([126|[110|[80|[114|[105|[110|[116|[105|[110|[103|[32|[105|[110|[102|[111|[32|[111|[102|[32|[117|[110|[107|[110|[111|[119|[110|[32|[116|[121|[112|[101|[46|[46|[46|[32|[126|[115|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], %% Line 104
+																																     [_0|[]])
+			      let <_23> =
+				  call %% Line 105
+				       'erlang':%% Line 105
+						'++'
+				      (%% Line 105
+				       Modifier, %% Line 105
+						 [112])
+			      in  let <_24> =
+				      [126|_23]
+				  in  %% Line 105
+				      call 'io':'format'
+					  (_2, _24, [_1|[]])
+		end
+	    ( <_4> when 'true' ->
+		  primop 'match_fail'
+		      ({'badmatch',_4})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'print',3}}] )
+'format_h'/4 =
+    %% Line 109
+    ( fun (_0,_1,_2,_3) ->
+	  let <_4> =
+	      call %% Line 110
+		   'io_lib':%% Line 110
+			    'format'
+		  (%% Line 110
+		   [126|[115|[32|[32|[126|[119]]]]]], %% Line 110
+						      [_1|[_2|[]]])
+	  in  let <NHeader> =
+		  call %% Line 110
+		       'lists':%% Line 110
+			       'flatten'
+		      (_4)
+	      in  let <DateLen> =
+		      call %% Line 111
+			   'string':%% Line 111
+				    'length'
+			  (_3)
+		  in  let <HeaderLen> =
+			  call %% Line 112
+			       'erlang':%% Line 112
+					'-'
+			      (_0, %% Line 112
+				   DateLen)
+		      in  let <Format> =
+			      call %% Line 113
+				   'lists':%% Line 113
+					   'concat'
+				  (%% Line 113
+				   [[126|[45]]|[HeaderLen|[[115|[126]]|[DateLen|[[115]]]]]])
+			  in  %% Line 114
+			      call 'io_lib':'format'
+				  (Format, [NHeader|[_3|[]]])
+      -| [{'function',{'format_h',4}}] )
+'format_c'/1 =
+    %% Line 120
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'format_c',1}}] ) of
+	      <[OwnReport|[LinkReport|[]]]> when 'true' ->
+		  let <_1> =
+		      apply %% Line 122
+			    'format_neighbours'/1
+			  (%% Line 122
+			   LinkReport)
+		  in  %% Line 121
+		      [{'items',{[67|[114|[97|[115|[104|[105|[110|[103|[32|[112|[114|[111|[99|[101|[115|[115]]]]]]]]]]]]]]]],OwnReport}}|%% Line 122
+																	 [_1|[]]]
+	      ( <_2> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_2})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'format_c',1}}] )
+      -| [{'function',{'format_c',1}}] )
+'format_neighbours'/1 =
+    %% Line 124
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'format_neighbours',1}}] ) of
+	      <[Data|Rest]> when 'true' ->
+		  let <_1> =
+		      apply %% Line 127
+			    'format_neighbours'/1
+			  (%% Line 127
+			   Rest)
+		  in  %% Line 125
+		      [{'newline',1}|%% Line 126
+				     [{'items',{[78|[101|[105|[103|[104|[98|[111|[117|[114|[32|[112|[114|[111|[99|[101|[115|[115]]]]]]]]]]]]]]]]],Data}}|_1]]
+	      %% Line 128
+	      <[]> when 'true' ->
+		  []
+	      ( <_2> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_2})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'format_neighbours',1}}] )
+      -| [{'function',{'format_neighbours',1}}] )
+'format_s'/1 =
+    %% Line 133
+    ( fun (_0) ->
+	  let <SuperName> =
+	      apply %% Line 134
+		    'get_opt'/2
+		  (%% Line 134
+		   'supervisor', ( _0
+				   -| [{'function',{'format_s',1}}] ))
+	  in  let <ErrorContext> =
+		  apply %% Line 135
+			'get_opt'/2
+		      (%% Line 135
+		       'errorContext', ( _0
+					 -| [{'function',{'format_s',1}}] ))
+	      in  let <Reason> =
+		      apply %% Line 136
+			    'get_opt'/2
+			  (%% Line 136
+			   'reason', ( _0
+				       -| [{'function',{'format_s',1}}] ))
+		  in  let <ChildInfo> =
+			  apply %% Line 137
+				'get_opt'/2
+			      (%% Line 137
+			       'offender', ( _0
+					     -| [{'function',{'format_s',1}}] ))
+		      in  let <_7> =
+			      fun (_5) ->
+				  %% Line 143
+				  apply 'transform_mfa'/1
+				      (_5)
+			  in  let <_8> =
+				  call %% Line 143
+				       'lists':%% Line 143
+					       'map'
+				      (_7, %% Line 143
+					   ChildInfo)
+			      in  %% Line 138
+				  [{'data',[{[82|[101|[112|[111|[114|[116|[105|[110|[103|[32|[115|[117|[112|[101|[114|[118|[105|[115|[111|[114]]]]]]]]]]]]]]]]]]]],SuperName}|[]]}|%% Line 139
+																						   [{'newline',1}|%% Line 140
+																								  [{'items',{[67|[104|[105|[108|[100|[32|[112|[114|[111|[99|[101|[115|[115]]]]]]]]]]]]],%% Line 141
+																																			[{'errorContext',ErrorContext}|%% Line 142
+																																						       [{'reason',Reason}|_8]]}}|%% Line 143
+																																										 []]]]
+      -| [{'function',{'format_s',1}}] )
+'transform_mfa'/1 =
+    %% Line 145
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'transform_mfa',1}}] ) of
+	      <{'mfa',Value}> when 'true' ->
+		  {'start_function',Value}
+	      %% Line 146
+	      <X> when 'true' ->
+		  X
+	    end
+	    -| [{'function',{'transform_mfa',1}}] )
+      -| [{'function',{'transform_mfa',1}}] )
+'format_p'/1 =
+    %% Line 151
+    ( fun (_0) ->
+	  %% Line 152
+	  [{'data',( _0
+		     -| [{'function',{'format_p',1}}] )}|[]]
+      -| [{'function',{'format_p',1}}] )
+'get_opt'/2 =
+    %% Line 154
+    ( fun (_0,_1) ->
+	  %% Line 155
+	  case call 'lists':'keysearch'
+		   (_0, 1, _1) of
+	    %% Line 156
+	    <{'value',{_X_Key,Val}}> when 'true' ->
+		Val
+	    %% Line 157
+	    <_5> when 'true' ->
+		'undefined'
+	  end
+      -| [{'function',{'get_opt',2}}] )
+'module_info'/0 =
+    ( fun () ->
+	  call 'erlang':'get_module_info'
+	      ('rb_format_supp')
+      -| [{'function',{'module_info',0}}] )
+'module_info'/1 =
+    ( fun (_0) ->
+	  call 'erlang':'get_module_info'
+	      ('rb_format_supp', ( _0
+				   -| [{'function',{'module_info',1}}] ))
+      -| [{'function',{'module_info',1}}] )
+end

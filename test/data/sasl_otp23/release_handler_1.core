@@ -1,0 +1,2118 @@
+module 'release_handler_1' ['check_old_processes'/2,
+			    'check_script'/2,
+			    'eval_script'/1,
+			    'eval_script'/5,
+			    'get_current_vsn'/1,
+			    'get_supervised_procs'/0,
+			    'module_info'/0,
+			    'module_info'/1]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[114|[101|[108|[101|[97|[115|[101|[95|[104|[97|[110|[100|[108|[101|[114|[95|[49|[46|[101|[114|[108]]]]]]]]]]]]]]]]]]]]]]]]],1}],
+		%% Line 27
+		'record' =
+		    %% Line 27
+		    [{'eval_state',[{'record_field',27,{'atom',27,'bins'},{'nil',27}}|[{'record_field',27,{'atom',27,'stopped'},{'nil',27}}|[{'record_field',27,{'atom',27,'suspended'},{'nil',27}}|[{'record_field',27,{'atom',27,'apps'},{'nil',27}}|[{'record_field',28,{'atom',28,'libdirs'}}|[{'record_field',28,{'atom',28,'unpurged'},{'nil',28}}|[{'record_field',28,{'atom',28,'vsns'},{'nil',28}}|[{'record_field',28,{'atom',28,'newlibs'},{'nil',28}}|[{'record_field',29,{'atom',29,'opts'},{'nil',29}}]]]]]]]]]}]]
+'check_script'/2 =
+    %% Line 51
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <['restart_new_emulator'|Script],LibDirs> when 'true' ->
+		  %% Line 54
+		  apply 'do_check_script'/3
+		      (Script, LibDirs, [])
+	      %% Line 55
+	      <Script,LibDirs> when 'true' ->
+		  let <_2> =
+		      catch
+			  %% Line 56
+			  apply 'check_old_processes'/2
+			      (Script, 'soft_purge')
+		  in  %% Line 56
+		      case _2 of
+			%% Line 57
+			<{'ok',PurgeMods}> when 'true' ->
+			    %% Line 58
+			    apply 'do_check_script'/3
+				(Script, LibDirs, PurgeMods)
+			%% Line 59
+			<{'error',Mod}> when 'true' ->
+			    %% Line 60
+			    {'error',{'old_processes',Mod}}
+			( <_3> when 'true' ->
+			      primop 'match_fail'
+				  ({'case_clause',_3})
+			  -| ['compiler_generated'] )
+		      end
+	    end
+	    -| [{'function',{'check_script',2}}] )
+      -| [{'function',{'check_script',2}}] )
+'do_check_script'/3 =
+    %% Line 63
+    ( fun (_0,_1,_2) ->
+	  %% Line 64
+	  case apply 'split_instructions'/1
+		   (_0) of
+	    <{Before,After}> when 'true' ->
+		let <_9> =
+		    catch
+			let <_8> =
+			    fun (_5,_4) ->
+				%% Line 66
+				apply 'eval'/2
+				    (_5, _4)
+			in  %% Line 65
+			    call 'lists':'foldl'
+				(_8, %% Line 68
+				     {'eval_state',[],[],[],[],_1,[],[],[],[]}, %% Line 69
+										Before)
+		in  %% Line 65
+		    case _9 of
+		      %% Line 70
+		      <EvalState2 = {'eval_state',_16,_17,_18,_19,_20,_21,_22,_23,_24}> when ( 'true'
+											       -| ['compiler_generated'] ) ->
+			  let <_10> =
+			      catch
+				  %% Line 71
+				  apply 'syntax_check_script'/1
+				      (After)
+			  in  %% Line 71
+			      case _10 of
+				%% Line 72
+				<'ok'> when 'true' ->
+				    %% Line 73
+				    {'ok',_2}
+				%% Line 74
+				<Other> when 'true' ->
+				    %% Line 75
+				    {'error',Other}
+			      end
+		      %% Line 77
+		      <_@r0 = {'error',Error}> when 'true' ->
+			  %% Line 78
+			  _@r0
+		      %% Line 79
+		      <Other> when 'true' ->
+			  %% Line 80
+			  {'error',Other}
+		    end
+	    ( <_3> when 'true' ->
+		  primop 'match_fail'
+		      ({'badmatch',_3})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'do_check_script',3}}] )
+'eval_script'/1 =
+    %% Line 84
+    ( fun (_0) ->
+	  %% Line 85
+	  apply 'eval_script'/5
+	      (( _0
+		 -| [{'function',{'eval_script',1}}] ), [], [], [], [])
+      -| [{'function',{'eval_script',1}}] )
+'eval_script'/5 =
+    %% Line 87
+    ( fun (_0,_1,_2,_3,_4) ->
+	  let <_5> =
+	      catch
+		  %% Line 88
+		  apply 'check_old_processes'/2
+		      (_0, 'soft_purge')
+	  in  %% Line 88
+	      case _5 of
+		%% Line 89
+		<{'ok',_31}> when 'true' ->
+		    %% Line 90
+		    case apply 'split_instructions'/1
+			     (_0) of
+		      <{Before,After}> when 'true' ->
+			  let <_12> =
+			      catch
+				  let <_11> =
+				      fun (_8,_7) ->
+					  %% Line 92
+					  apply 'eval'/2
+					      (_8, _7)
+				  in  %% Line 91
+				      call 'lists':'foldl'
+					  (_11, %% Line 94
+						{'eval_state',[],[],[],_1,_2,[],[],_3,_4}, %% Line 98
+											   Before)
+			  in  %% Line 91
+			      case _12 of
+				%% Line 99
+				<EvalState2 = {'eval_state',_32,_33,_34,_35,_36,_37,_38,_39,_40}> when ( 'true'
+													 -| ['compiler_generated'] ) ->
+				    let <_13> =
+					catch
+					    %% Line 100
+					    apply 'syntax_check_script'/1
+						(After)
+				    in  %% Line 100
+					case _13 of
+					  %% Line 101
+					  <'ok'> when 'true' ->
+					      let <_19> =
+						  catch
+						      let <_18> =
+							  fun (_15,_14) ->
+							      %% Line 104
+							      apply 'eval'/2
+								  (_15, _14)
+						      in  %% Line 102
+							  call 'lists':'foldl'
+							      (_18, %% Line 107
+								    EvalState2, %% Line 108
+										After)
+					      in  %% Line 102
+						  case _19 of
+						    %% Line 109
+						    <EvalState4 = {'eval_state',_41,_42,_43,_44,_45,_46,_47,_48,_49}> when %% Line 110
+															   ( 'true'
+															     -| ['compiler_generated'] ) ->
+							%% Line 111
+							( case EvalState4 of
+							    ( <( {'eval_state',_50,_51,_52,_53,_54,_rec0,_55,_56,_57}
+								 -| ['compiler_generated'] )> when 'true' ->
+								  {'ok',_rec0}
+							      -| ['compiler_generated'] )
+							    ( <_58> when 'true' ->
+								  ( call ( 'erlang'
+									   -| ['compiler_generated'] ):( 'error'
+													 -| ['compiler_generated'] )
+									(( {'badrecord','eval_state'}
+									   -| ['compiler_generated'] ))
+								    -| ['compiler_generated'] )
+							      -| ['compiler_generated'] )
+							  end
+							  -| ['compiler_generated'] )
+						    %% Line 112
+						    <'restart_emulator'> when 'true' ->
+							%% Line 113
+							'restart_emulator'
+						    %% Line 114
+						    <Error> when 'true' ->
+							%% Line 115
+							{'EXIT',Error}
+						  end
+					  %% Line 117
+					  <Other> when 'true' ->
+					      %% Line 118
+					      {'error',Other}
+					end
+				%% Line 120
+				<_@r0 = {'error',Error}> when 'true' ->
+				    _@r0
+				%% Line 121
+				<Other> when 'true' ->
+				    {'error',Other}
+			      end
+		      ( <_6> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_6})
+			-| ['compiler_generated'] )
+		    end
+		%% Line 123
+		<{'error',Mod}> when 'true' ->
+		    %% Line 124
+		    {'error',{'old_processes',Mod}}
+		( <_25> when 'true' ->
+		      primop 'match_fail'
+			  ({'case_clause',_25})
+		  -| ['compiler_generated'] )
+	      end
+      -| [{'function',{'eval_script',5}}] )
+'split_instructions'/1 =
+    %% Line 130
+    ( fun (_0) ->
+	  %% Line 131
+	  apply 'split_instructions'/2
+	      (( _0
+		 -| [{'function',{'split_instructions',1}}] ), [])
+      -| [{'function',{'split_instructions',1}}] )
+'split_instructions'/2 =
+    %% Line 132
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <_@r0 = ['point_of_no_return'|T],Before> when 'true' ->
+		  let <_2> =
+		      call %% Line 133
+			   'lists':%% Line 133
+				   'reverse'
+			  (%% Line 133
+			   Before)
+		  in  %% Line 133
+		      {_2,_@r0}
+	      %% Line 134
+	      <[H|T],Before> when 'true' ->
+		  %% Line 135
+		  apply 'split_instructions'/2
+		      (T, [H|Before])
+	      %% Line 136
+	      <[],Before> when 'true' ->
+		  let <_3> =
+		      call %% Line 137
+			   'lists':%% Line 137
+				   'reverse'
+			  (%% Line 137
+			   Before)
+		  in  %% Line 137
+		      {[],_3}
+	      ( <_5,_4> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_5,_4})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'split_instructions',2}}] )
+      -| [{'function',{'split_instructions',2}}] )
+'check_old_processes'/2 =
+    %% Line 161
+    ( fun (_0,_1) ->
+	  let <Procs> =
+	      call %% Line 162
+		   'erlang':%% Line 162
+			    'processes'
+		  ()
+	  in  let <_5> =
+		  fun (_3) ->
+		      %% Line 164
+		      case _3 of
+			<{'load',{Mod,PPM,_X_PostPurgeMethod}}>
+			    when call 'erlang':'=='
+				  (PPM,
+				   _1) ->
+			    %% Line 165
+			    apply 'check_old_code'/3
+				(Mod, Procs, _1)
+			%% Line 166
+			<{'remove',{Mod,PPM,_X_PostPurgeMethod}}>
+			    when call 'erlang':'=='
+				  (PPM,
+				   _1) ->
+			    %% Line 167
+			    apply 'check_old_code'/3
+				(Mod, Procs, _1)
+			%% Line 168
+			<_9> when 'true' ->
+			    []
+		      end
+	      in  let <_6> =
+		      call %% Line 163
+			   'lists':%% Line 163
+				   'flatmap'
+			  (_5, _0)
+		  in  %% Line 163
+		      {'ok',_6}
+      -| [{'function',{'check_old_processes',2}}] )
+'check_old_code'/3 =
+    %% Line 172
+    ( fun (_0,_1,_2) ->
+	  %% Line 173
+	  case call 'erlang':'check_old_code'
+		   (_0) of
+	    %% Line 174
+	    <'true'>
+		when call 'erlang':'=='
+		      (_2,
+		       'soft_purge') ->
+		%% Line 175
+		apply 'do_check_old_code'/2
+		    (_0, _1)
+	    %% Line 176
+	    <'true'>
+		when call 'erlang':'=='
+		      (_2,
+		       'brutal_purge') ->
+		let <_3> =
+		    catch
+			%% Line 177
+			apply 'do_check_old_code'/2
+			    (_0, _1)
+		in  %% Line 177
+		    case _3 of
+		      %% Line 178
+		      <{'error',_9}>
+			  when call 'erlang':'=:='
+				(_9,
+				 _0) ->
+			  []
+		      %% Line 179
+		      <R> when 'true' ->
+			  R
+		    end
+	    %% Line 181
+	    <'false'> when 'true' ->
+		%% Line 182
+		[]
+	    ( <_5> when 'true' ->
+		  primop 'match_fail'
+		      ({'case_clause',_5})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'check_old_code',3}}] )
+'do_check_old_code'/2 =
+    %% Line 186
+    ( fun (_0,_1) ->
+	  let <_5> =
+	      fun (_3) ->
+		  %% Line 189
+		  case call 'erlang':'check_process_code'
+			   (_3, _0) of
+		    %% Line 190
+		    <'false'> when 'true' ->
+			'ok'
+		    %% Line 191
+		    <'true'> when 'true' ->
+			call 'erlang':'throw'
+			    ({'error',_0})
+		    ( <_2> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_2})
+		      -| ['compiler_generated'] )
+		  end
+	  in  do  %% Line 187
+		  call 'lists':'foreach'
+		      (_5, _1)
+		  %% Line 195
+		  [_0|[]]
+      -| [{'function',{'do_check_old_code',2}}] )
+'syntax_check_script'/1 =
+    %% Line 200
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'syntax_check_script',1}}] ) of
+	      <['point_of_no_return'|Script]> when 'true' ->
+		  %% Line 201
+		  apply 'syntax_check_script'/1
+		      (Script)
+	      %% Line 202
+	      <[{'load',{_2,_3,_4}}|Script]> when 'true' ->
+		  %% Line 203
+		  apply 'syntax_check_script'/1
+		      (Script)
+	      %% Line 204
+	      <[{'remove',{_5,_6,_7}}|Script]> when 'true' ->
+		  %% Line 205
+		  apply 'syntax_check_script'/1
+		      (Script)
+	      %% Line 206
+	      <[{'purge',_8}|Script]> when 'true' ->
+		  %% Line 207
+		  apply 'syntax_check_script'/1
+		      (Script)
+	      %% Line 208
+	      <[{'suspend',_9}|Script]> when 'true' ->
+		  %% Line 209
+		  apply 'syntax_check_script'/1
+		      (Script)
+	      %% Line 210
+	      <[{'resume',_10}|Script]> when 'true' ->
+		  %% Line 211
+		  apply 'syntax_check_script'/1
+		      (Script)
+	      %% Line 212
+	      <[{'code_change',_11}|Script]> when 'true' ->
+		  %% Line 213
+		  apply 'syntax_check_script'/1
+		      (Script)
+	      %% Line 214
+	      <[{'code_change',_12,_13}|Script]> when 'true' ->
+		  %% Line 215
+		  apply 'syntax_check_script'/1
+		      (Script)
+	      %% Line 216
+	      <[{'stop',_14}|Script]> when 'true' ->
+		  %% Line 217
+		  apply 'syntax_check_script'/1
+		      (Script)
+	      %% Line 218
+	      <[{'start',_15}|Script]> when 'true' ->
+		  %% Line 219
+		  apply 'syntax_check_script'/1
+		      (Script)
+	      %% Line 220
+	      <[{'sync_nodes',_16,{_17,_18,_19}}|Script]> when 'true' ->
+		  %% Line 221
+		  apply 'syntax_check_script'/1
+		      (Script)
+	      %% Line 222
+	      <[{'sync_nodes',_20,_21}|Script]> when 'true' ->
+		  %% Line 223
+		  apply 'syntax_check_script'/1
+		      (Script)
+	      %% Line 224
+	      <[{'apply',{_22,_23,_24}}|Script]> when 'true' ->
+		  %% Line 225
+		  apply 'syntax_check_script'/1
+		      (Script)
+	      %% Line 226
+	      <['restart_emulator'|Script]> when 'true' ->
+		  %% Line 227
+		  apply 'syntax_check_script'/1
+		      (Script)
+	      %% Line 228
+	      <[Illegal|_X_Script]> when 'true' ->
+		  %% Line 229
+		  call 'erlang':'throw'
+		      ({'illegal_instruction_after_point_of_no_return',Illegal})
+	      %% Line 230
+	      <[]> when 'true' ->
+		  %% Line 231
+		  'ok'
+	      ( <_1> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_1})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'syntax_check_script',1}}] )
+      -| [{'function',{'syntax_check_script',1}}] )
+'eval'/2 =
+    %% Line 309
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <{'load_object_code',{Lib,LibVsn,Modules}},EvalState> when 'true' ->
+		  %% Line 310
+		  ( case EvalState of
+		      ( <( {'eval_state',_127,_128,_129,_130,_rec1,_131,_132,_133,_134}
+			   -| ['compiler_generated'] )> when 'true' ->
+			    case call 'lists':'keysearch'
+				     (Lib, 1, _rec1) of
+			      %% Line 311
+			      <{'value',LibInfo = {_136,_137,LibDir}}>
+				  when let <_138> =
+					call 'erlang':'=:='
+					    (_136, Lib)
+				    in  let <_139> =
+					    call 'erlang':'=:='
+						(_137, LibVsn)
+					in  call 'erlang':'and'
+						(_138, _139) ->
+				  let <Ext> =
+				      call %% Line 312
+					   'code':%% Line 312
+						  'objfile_extension'
+					  ()
+				  in  let <_17> =
+					  fun (_14,_13) ->
+					      %% Line 314
+					      case <_14,_13> of
+						<Mod,{Bins,Vsns}> when 'true' ->
+						    let <File> =
+							call %% Line 315
+							     'lists':%% Line 315
+								     'concat'
+							    (%% Line 315
+							     [Mod|[Ext|[]]])
+						    in  let <FName> =
+							    call %% Line 316
+								 'filename':%% Line 316
+									    'join'
+								(%% Line 316
+								 [LibDir|[[101|[98|[105|[110]]]]|[File|[]]]])
+							in  %% Line 317
+							    case call 'erl_prim_loader':'get_file'
+								     (FName) of
+							      %% Line 318
+							      <{'ok',Bin,FName2}> when 'true' ->
+								  let <NVsns> =
+								      apply %% Line 319
+									    'add_vsns'/3
+									  (%% Line 319
+									   Mod, %% Line 319
+										Bin, %% Line 319
+										     Vsns)
+								  in  %% Line 320
+								      {[{Mod,Bin,FName2}|Bins],NVsns}
+							      %% Line 321
+							      <'error'> when 'true' ->
+								  %% Line 322
+								  call 'erlang':'throw'
+								      ({'error',{'no_such_file',FName}})
+							      ( <_12> when 'true' ->
+								    primop 'match_fail'
+									({'case_clause',_12})
+								-| ['compiler_generated'] )
+							    end
+						( <_16,_15> when 'true' ->
+						      primop 'match_fail'
+							  ({'function_clause',_16,_15})
+						  -| ['compiler_generated'] )
+					      end
+				      in  %% Line 325
+					  ( case EvalState of
+					      ( <( {'eval_state',_rec2,_140,_141,_142,_143,_144,_145,_146,_147}
+						   -| ['compiler_generated'] )> when 'true' ->
+						    %% Line 326
+						    ( case EvalState of
+							( <( {'eval_state',_149,_150,_151,_152,_153,_154,_rec3,_155,_156}
+							     -| ['compiler_generated'] )> when 'true' ->
+							      case call 'lists':'foldl'
+								       (_17, {_rec2,_rec3}, %% Line 327
+											    Modules) of
+								<{NewBins,NewVsns}> when 'true' ->
+								    %% Line 328
+								    ( case EvalState of
+									( <( {'eval_state',_158,_159,_160,_161,_162,_163,_164,_rec4,_165}
+									     -| ['compiler_generated'] )> when 'true' ->
+									      let <NewLibs> =
+										  call 'lists':'keystore'
+										      (Lib, 1, _rec4, LibInfo)
+									      in  %% Line 329
+										  case EvalState of
+										    <{'eval_state',_167,_168,_169,_170,_171,_172,_173,_174,_175}> when 'true' ->
+											let <_23> =
+											    call %% Line 330
+												 'erlang':%% Line 330
+													  'setelement'
+												(%% Line 330
+												 9, EvalState, %% Line 330
+													       NewLibs)
+											in  let <_24> =
+												call %% Line 331
+												     'erlang':%% Line 331
+													      'setelement'
+												    (%% Line 331
+												     8, _23, %% Line 331
+													     NewVsns)
+											    in  call 'erlang':'setelement'
+												    (2, _24, NewBins)
+										    ( <_176> when 'true' ->
+											  ( call ( 'erlang'
+												   -| ['compiler_generated'] ):( 'error'
+																 -| ['compiler_generated'] )
+												(( {'badrecord','eval_state'}
+												   -| ['compiler_generated'] ))
+											    -| ['compiler_generated'] )
+										      -| ['compiler_generated'] )
+										  end
+									  -| ['compiler_generated'] )
+									( <_166> when 'true' ->
+									      ( call ( 'erlang'
+										       -| ['compiler_generated'] ):( 'error'
+														     -| ['compiler_generated'] )
+										    (( {'badrecord','eval_state'}
+										       -| ['compiler_generated'] ))
+										-| ['compiler_generated'] )
+									  -| ['compiler_generated'] )
+								      end
+								      -| ['compiler_generated'] )
+								( <_18> when 'true' ->
+								      primop 'match_fail'
+									  ({'badmatch',_18})
+								  -| ['compiler_generated'] )
+							      end
+							  -| ['compiler_generated'] )
+							( <_157> when 'true' ->
+							      ( call ( 'erlang'
+								       -| ['compiler_generated'] ):( 'error'
+												     -| ['compiler_generated'] )
+								    (( {'badrecord','eval_state'}
+								       -| ['compiler_generated'] ))
+								-| ['compiler_generated'] )
+							  -| ['compiler_generated'] )
+						      end
+						      -| ['compiler_generated'] )
+						-| ['compiler_generated'] )
+					      ( <_148> when 'true' ->
+						    ( call ( 'erlang'
+							     -| ['compiler_generated'] ):( 'error'
+											   -| ['compiler_generated'] )
+							  (( {'badrecord','eval_state'}
+							     -| ['compiler_generated'] ))
+						      -| ['compiler_generated'] )
+						-| ['compiler_generated'] )
+					    end
+					    -| ['compiler_generated'] )
+			      %% Line 332
+			      <{'value',{_177,LibVsn2,_X_LibDir}}>
+				  when call 'erlang':'=:='
+					(_177,
+					 Lib) ->
+				  %% Line 333
+				  call 'erlang':'throw'
+				      ({'error',{'bad_lib_vsn',Lib,LibVsn2}})
+			      ( <_26> when 'true' ->
+				    primop 'match_fail'
+					({'case_clause',_26})
+				-| ['compiler_generated'] )
+			    end
+			-| ['compiler_generated'] )
+		      ( <_135> when 'true' ->
+			    ( call ( 'erlang'
+				     -| ['compiler_generated'] ):( 'error'
+								   -| ['compiler_generated'] )
+				  (( {'badrecord','eval_state'}
+				     -| ['compiler_generated'] ))
+			      -| ['compiler_generated'] )
+			-| ['compiler_generated'] )
+		    end
+		    -| ['compiler_generated'] )
+	      %% Line 335
+	      <'point_of_no_return',EvalState> when 'true' ->
+		  let <_30> =
+		      case %% Line 336
+			   apply 'get_opt'/3
+			       ('update_paths', EvalState, 'false') of
+			%% Line 337
+			<'false'> when 'true' ->
+			    %% Line 338
+			    ( case EvalState of
+				( <( {'eval_state',_178,_179,_180,_181,_182,_183,_184,_rec6,_185}
+				     -| ['compiler_generated'] )> when 'true' ->
+				      _rec6
+				  -| ['compiler_generated'] )
+				( <_186> when 'true' ->
+				      ( call ( 'erlang'
+					       -| ['compiler_generated'] ):( 'error'
+									     -| ['compiler_generated'] )
+					    (( {'badrecord','eval_state'}
+					       -| ['compiler_generated'] ))
+					-| ['compiler_generated'] )
+				  -| ['compiler_generated'] )
+			      end
+			      -| ['compiler_generated'] )
+			%% Line 339
+			<'true'> when 'true' ->
+			    %% Line 340
+			    ( case EvalState of
+				( <( {'eval_state',_187,_188,_189,_190,_rec7,_191,_192,_193,_194}
+				     -| ['compiler_generated'] )> when 'true' ->
+				      _rec7
+				  -| ['compiler_generated'] )
+				( <_195> when 'true' ->
+				      ( call ( 'erlang'
+					       -| ['compiler_generated'] ):( 'error'
+									     -| ['compiler_generated'] )
+					    (( {'badrecord','eval_state'}
+					       -| ['compiler_generated'] ))
+					-| ['compiler_generated'] )
+				  -| ['compiler_generated'] )
+			      end
+			      -| ['compiler_generated'] )
+			( <_29> when 'true' ->
+			      %% Line 336
+			      primop 'match_fail'
+				  ({'case_clause',_29})
+			  -| ['compiler_generated'] )
+		      end
+		  in  let <_35> =
+			  fun (_33) ->
+			      %% Line 342
+			      case _33 of
+				<{Lib,_X_LibVsn,LibDir}> when 'true' ->
+				    let <Ebin> =
+					call %% Line 343
+					     'filename':%% Line 343
+							'join'
+					    (%% Line 343
+					     LibDir, %% Line 343
+						     [101|[98|[105|[110]]]])
+				    in  %% Line 344
+					call 'code':'replace_path'
+					    (Lib, Ebin)
+				( <_34> when 'true' ->
+				      primop 'match_fail'
+					  ({'function_clause',_34})
+				  -| ['compiler_generated'] )
+			      end
+		      in  do  %% Line 342
+			      call 'lists':'foreach'
+				  (_35, _30)
+			      %% Line 347
+			      EvalState
+	      %% Line 348
+	      <{'load',{Mod,_X_PrePurgeMethod,PostPurgeMethod}},EvalState> when 'true' ->
+		  %% Line 349
+		  ( case EvalState of
+		      ( <( {'eval_state',_rec8,_196,_197,_198,_199,_200,_201,_202,_203}
+			   -| ['compiler_generated'] )> when 'true' ->
+			    %% Line 350
+			    case call 'lists':'keysearch'
+				     (Mod, 1, _rec8) of
+			      <{'value',{_X_Mod,Bin,File}}> when 'true' ->
+				  %% Line 353
+				  case call 'code':'load_binary'
+					   (Mod, File, Bin) of
+				    <{'module',_205}> when 'true' ->
+					%% Line 356
+					( case EvalState of
+					    ( <( {'eval_state',_206,_207,_208,_209,_210,_rec9,_211,_212,_213}
+						 -| ['compiler_generated'] )> when 'true' ->
+						  let <Unpurged> =
+						      apply 'do_soft_purge'/3
+							  (Mod, PostPurgeMethod, _rec9)
+						  in  let <_rec10> =
+							  call %% Line 357
+							       'lists':%% Line 357
+								       'keydelete'
+							      (%% Line 357
+							       Mod, %% Line 357
+								    1, _rec8)
+						      in  %% Line 357
+							  case EvalState of
+							    <{'eval_state',_215,_216,_217,_218,_219,_220,_221,_222,_223}> when 'true' ->
+								let <_46> =
+								    call %% Line 358
+									 'erlang':%% Line 358
+										  'setelement'
+									(%% Line 358
+									 7, EvalState, %% Line 358
+										       Unpurged)
+								in  call 'erlang':'setelement'
+									(2, _46, _rec10)
+							    ( <_224> when 'true' ->
+								  ( call ( 'erlang'
+									   -| ['compiler_generated'] ):( 'error'
+													 -| ['compiler_generated'] )
+									(( {'badrecord','eval_state'}
+									   -| ['compiler_generated'] ))
+								    -| ['compiler_generated'] )
+							      -| ['compiler_generated'] )
+							  end
+					      -| ['compiler_generated'] )
+					    ( <_214> when 'true' ->
+						  ( call ( 'erlang'
+							   -| ['compiler_generated'] ):( 'error'
+											 -| ['compiler_generated'] )
+							(( {'badrecord','eval_state'}
+							   -| ['compiler_generated'] ))
+						    -| ['compiler_generated'] )
+					      -| ['compiler_generated'] )
+					  end
+					  -| ['compiler_generated'] )
+				    ( <_40> when 'true' ->
+					  primop 'match_fail'
+					      ({'badmatch',_40})
+				      -| ['compiler_generated'] )
+				  end
+			      ( <_39> when 'true' ->
+				    primop 'match_fail'
+					({'badmatch',_39})
+				-| ['compiler_generated'] )
+			    end
+			-| ['compiler_generated'] )
+		      ( <_204> when 'true' ->
+			    ( call ( 'erlang'
+				     -| ['compiler_generated'] ):( 'error'
+								   -| ['compiler_generated'] )
+				  (( {'badrecord','eval_state'}
+				     -| ['compiler_generated'] ))
+			      -| ['compiler_generated'] )
+			-| ['compiler_generated'] )
+		    end
+		    -| ['compiler_generated'] )
+	      %% Line 359
+	      <{'remove',{Mod,_X_PrePurgeMethod,PostPurgeMethod}},EvalState> when 'true' ->
+		  do  %% Line 362
+		      call 'code':'purge'
+			  (Mod)
+		      do  %% Line 363
+			  call 'code':'delete'
+			      (Mod)
+			  %% Line 366
+			  ( case EvalState of
+			      ( <( {'eval_state',_225,_226,_227,_228,_229,_rec12,_230,_231,_232}
+				   -| ['compiler_generated'] )> when 'true' ->
+				    let <Unpurged> =
+					apply 'do_soft_purge'/3
+					    (Mod, PostPurgeMethod, _rec12)
+				    in  %% Line 367
+					case EvalState of
+					  <{'eval_state',_234,_235,_236,_237,_238,_239,_240,_241,_242}> when 'true' ->
+					      call 'erlang':'setelement'
+						  (7, EvalState, Unpurged)
+					  ( <_243> when 'true' ->
+						( call ( 'erlang'
+							 -| ['compiler_generated'] ):( 'error'
+										       -| ['compiler_generated'] )
+						      (( {'badrecord','eval_state'}
+							 -| ['compiler_generated'] ))
+						  -| ['compiler_generated'] )
+					    -| ['compiler_generated'] )
+					end
+				-| ['compiler_generated'] )
+			      ( <_233> when 'true' ->
+				    ( call ( 'erlang'
+					     -| ['compiler_generated'] ):( 'error'
+									   -| ['compiler_generated'] )
+					  (( {'badrecord','eval_state'}
+					     -| ['compiler_generated'] ))
+				      -| ['compiler_generated'] )
+				-| ['compiler_generated'] )
+			    end
+			    -| ['compiler_generated'] )
+	      %% Line 368
+	      <{'purge',Modules},EvalState> when 'true' ->
+		  let <_55> =
+		      fun (_53) ->
+			  %% Line 372
+			  call 'code':'purge'
+			      (_53)
+		  in  do  %% Line 372
+			  call 'lists':'foreach'
+			      (_55, Modules)
+			  %% Line 373
+			  EvalState
+	      %% Line 374
+	      <{'suspend',Modules},EvalState> when 'true' ->
+		  let <Procs> =
+		      apply %% Line 375
+			    'get_supervised_procs'/0
+			  ()
+		  in  let <_68> =
+			  fun (_65,_64) ->
+			      let <_350,_351> =
+				  case _65 of
+				    %% Line 379
+				    <{Mod,ModTimeout}> when 'true' ->
+					%% Line 380
+					<Mod,ModTimeout>
+				    %% Line 381
+				    <Mod> when 'true' ->
+					%% Line 382
+					<Mod,'default'>
+				  end
+			      in  let <Timeout> =
+				      apply %% Line 384
+					    'get_opt'/3
+					  (%% Line 384
+					   'suspend_timeout', %% Line 384
+							      EvalState, ( _351
+									   -| ['compiler_generated'] ))
+				  in  let <Pids> =
+					  apply %% Line 385
+						'suspend'/3
+					      (( _350
+						 -| ['compiler_generated'] ), %% Line 385
+									      Procs, %% Line 385
+										     Timeout)
+				      in  %% Line 386
+					  [{( _350
+					      -| ['compiler_generated'] ),Pids}|_64]
+		      in  %% Line 388
+			  ( case EvalState of
+			      ( <( {'eval_state',_244,_245,_rec14,_246,_247,_248,_249,_250,_251}
+				   -| ['compiler_generated'] )> when 'true' ->
+				    let <NewSuspended> =
+					call 'lists':'foldl'
+					    (_68, _rec14, %% Line 389
+							  Modules)
+				    in  %% Line 390
+					case EvalState of
+					  <{'eval_state',_253,_254,_255,_256,_257,_258,_259,_260,_261}> when 'true' ->
+					      call 'erlang':'setelement'
+						  (4, EvalState, NewSuspended)
+					  ( <_262> when 'true' ->
+						( call ( 'erlang'
+							 -| ['compiler_generated'] ):( 'error'
+										       -| ['compiler_generated'] )
+						      (( {'badrecord','eval_state'}
+							 -| ['compiler_generated'] ))
+						  -| ['compiler_generated'] )
+					    -| ['compiler_generated'] )
+					end
+				-| ['compiler_generated'] )
+			      ( <_252> when 'true' ->
+				    ( call ( 'erlang'
+					     -| ['compiler_generated'] ):( 'error'
+									   -| ['compiler_generated'] )
+					  (( {'badrecord','eval_state'}
+					     -| ['compiler_generated'] ))
+				      -| ['compiler_generated'] )
+				-| ['compiler_generated'] )
+			    end
+			    -| ['compiler_generated'] )
+	      %% Line 391
+	      <{'resume',Modules},EvalState> when 'true' ->
+		  let <_81> =
+		      fun (_78,_77) ->
+			  let <_76> =
+			      fun (_74) ->
+				  %% Line 394
+				  case _74 of
+				    <{Mod2,Pids}>
+					when call 'erlang':'=='
+					      (Mod2,
+					       _78) ->
+					do  %% Line 395
+					    apply 'resume'/1
+						(Pids)
+					    %% Line 396
+					    'false'
+				    %% Line 397
+				    <_263> when 'true' ->
+					%% Line 398
+					'true'
+				  end
+			  in  %% Line 394
+			      call 'lists':'filter'
+				  (_76, _77)
+		  in  %% Line 402
+		      ( case EvalState of
+			  ( <( {'eval_state',_264,_265,_rec16,_266,_267,_268,_269,_270,_271}
+			       -| ['compiler_generated'] )> when 'true' ->
+				let <NewSuspended> =
+				    call 'lists':'foldl'
+					(_81, _rec16, %% Line 403
+						      Modules)
+				in  %% Line 404
+				    case EvalState of
+				      <{'eval_state',_273,_274,_275,_276,_277,_278,_279,_280,_281}> when 'true' ->
+					  call 'erlang':'setelement'
+					      (4, EvalState, NewSuspended)
+				      ( <_282> when 'true' ->
+					    ( call ( 'erlang'
+						     -| ['compiler_generated'] ):( 'error'
+										   -| ['compiler_generated'] )
+						  (( {'badrecord','eval_state'}
+						     -| ['compiler_generated'] ))
+					      -| ['compiler_generated'] )
+					-| ['compiler_generated'] )
+				    end
+			    -| ['compiler_generated'] )
+			  ( <_272> when 'true' ->
+				( call ( 'erlang'
+					 -| ['compiler_generated'] ):( 'error'
+								       -| ['compiler_generated'] )
+				      (( {'badrecord','eval_state'}
+					 -| ['compiler_generated'] ))
+				  -| ['compiler_generated'] )
+			    -| ['compiler_generated'] )
+			end
+			-| ['compiler_generated'] )
+	      %% Line 405
+	      <{'code_change',Modules},EvalState> when 'true' ->
+		  %% Line 406
+		  apply 'eval'/2
+		      ({'code_change','up',Modules}, EvalState)
+	      %% Line 407
+	      <{'code_change',Mode,Modules},EvalState> when 'true' ->
+		  %% Line 408
+		  ( case EvalState of
+		      ( <( {'eval_state',_283,_284,_rec18,_285,_286,_287,_288,_289,_290}
+			   -| ['compiler_generated'] )> when 'true' ->
+			    %% Line 409
+			    ( case EvalState of
+				( <( {'eval_state',_292,_293,_294,_295,_296,_297,_rec19,_298,_299}
+				     -| ['compiler_generated'] )> when 'true' ->
+				      let <Timeout> =
+					  apply %% Line 410
+						'get_opt'/3
+					      (%% Line 410
+					       'code_change_timeout', %% Line 410
+								      EvalState, %% Line 410
+										 'default')
+				      in  let <_98> =
+					      fun (_96) ->
+						  %% Line 411
+						  case _96 of
+						    <{Mod,Extra}> when 'true' ->
+							let <_93> =
+							    case %% Line 413
+								 call 'lists':'keysearch'
+								     (Mod, 1, _rec19) of
+							      %% Line 414
+							      <{'value',{_301,OldVsn,_X_NewVsn}}>
+								  when let <_302> =
+									call 'erlang':'=:='
+									    (_301, Mod)
+								    in  let <_303> =
+									    call %% Line 415
+										 'erlang':%% Line 415
+											  '=='
+										(%% Line 415
+										 Mode, %% Line 415
+										       'up')
+									in  call 'erlang':'and'
+										(_302, _303) ->
+								  %% Line 415
+								  OldVsn
+							      %% Line 416
+							      <{'value',{_304,_X_OldVsn,NewVsn}}>
+								  when let <_305> =
+									call 'erlang':'=:='
+									    (_304, Mod)
+								    in  let <_306> =
+									    call %% Line 417
+										 'erlang':%% Line 417
+											  '=='
+										(%% Line 417
+										 Mode, %% Line 417
+										       'down')
+									in  call 'erlang':'and'
+										(_305, _306) ->
+								  %% Line 417
+								  {'down',NewVsn}
+							      %% Line 418
+							      <_307>
+								  when call 'erlang':'=='
+									(Mode,
+									 'up') ->
+								  'undefined'
+							      %% Line 419
+							      <_308> when 'true' ->
+								  {'down','undefined'}
+							    end
+							in  %% Line 421
+							    case call 'lists':'keysearch'
+								     (Mod, 1, _rec18) of
+							      %% Line 422
+							      <{'value',{_X_Mod,Pids}}> when 'true' ->
+								  %% Line 423
+								  apply 'change_code'/5
+								      (Pids, Mod, _93, Extra, Timeout)
+							      %% Line 424
+							      <_309> when 'true' ->
+								  'ok'
+							    end
+						    ( <_97> when 'true' ->
+							  primop 'match_fail'
+							      ({'function_clause',_97})
+						      -| ['compiler_generated'] )
+						  end
+					  in  do  %% Line 411
+						  call 'lists':'foreach'
+						      (_98, %% Line 427
+							    Modules)
+						  %% Line 428
+						  EvalState
+				  -| ['compiler_generated'] )
+				( <_300> when 'true' ->
+				      ( call ( 'erlang'
+					       -| ['compiler_generated'] ):( 'error'
+									     -| ['compiler_generated'] )
+					    (( {'badrecord','eval_state'}
+					       -| ['compiler_generated'] ))
+					-| ['compiler_generated'] )
+				  -| ['compiler_generated'] )
+			      end
+			      -| ['compiler_generated'] )
+			-| ['compiler_generated'] )
+		      ( <_291> when 'true' ->
+			    ( call ( 'erlang'
+				     -| ['compiler_generated'] ):( 'error'
+								   -| ['compiler_generated'] )
+				  (( {'badrecord','eval_state'}
+				     -| ['compiler_generated'] ))
+			      -| ['compiler_generated'] )
+			-| ['compiler_generated'] )
+		    end
+		    -| ['compiler_generated'] )
+	      %% Line 429
+	      <{'stop',Modules},EvalState> when 'true' ->
+		  let <Procs> =
+		      apply %% Line 430
+			    'get_supervised_procs'/0
+			  ()
+		  in  let <_107> =
+			  fun (_104,_103) ->
+			      let <Procs2> =
+				  apply %% Line 433
+					'stop'/2
+				      (_104, %% Line 433
+					     Procs)
+			      in  %% Line 434
+				  [{_104,Procs2}|_103]
+		      in  %% Line 436
+			  ( case EvalState of
+			      ( <( {'eval_state',_310,_rec20,_311,_312,_313,_314,_315,_316,_317}
+				   -| ['compiler_generated'] )> when 'true' ->
+				    let <NewStopped> =
+					call 'lists':'foldl'
+					    (_107, _rec20, %% Line 437
+							   Modules)
+				    in  %% Line 438
+					case EvalState of
+					  <{'eval_state',_319,_320,_321,_322,_323,_324,_325,_326,_327}> when 'true' ->
+					      call 'erlang':'setelement'
+						  (3, EvalState, NewStopped)
+					  ( <_328> when 'true' ->
+						( call ( 'erlang'
+							 -| ['compiler_generated'] ):( 'error'
+										       -| ['compiler_generated'] )
+						      (( {'badrecord','eval_state'}
+							 -| ['compiler_generated'] ))
+						  -| ['compiler_generated'] )
+					    -| ['compiler_generated'] )
+					end
+				-| ['compiler_generated'] )
+			      ( <_318> when 'true' ->
+				    ( call ( 'erlang'
+					     -| ['compiler_generated'] ):( 'error'
+									   -| ['compiler_generated'] )
+					  (( {'badrecord','eval_state'}
+					     -| ['compiler_generated'] ))
+				      -| ['compiler_generated'] )
+				-| ['compiler_generated'] )
+			    end
+			    -| ['compiler_generated'] )
+	      %% Line 439
+	      <{'start',Modules},EvalState> when 'true' ->
+		  let <_120> =
+		      fun (_117,_116) ->
+			  let <_115> =
+			      fun (_113) ->
+				  %% Line 442
+				  case _113 of
+				    <{Mod2,Procs}>
+					when call 'erlang':'=='
+					      (Mod2,
+					       _117) ->
+					do  %% Line 443
+					    apply 'start'/1
+						(Procs)
+					    %% Line 444
+					    'false'
+				    %% Line 445
+				    <_329> when 'true' ->
+					%% Line 446
+					'true'
+				  end
+			  in  %% Line 442
+			      call 'lists':'filter'
+				  (_115, _116)
+		  in  %% Line 450
+		      ( case EvalState of
+			  ( <( {'eval_state',_330,_rec22,_331,_332,_333,_334,_335,_336,_337}
+			       -| ['compiler_generated'] )> when 'true' ->
+				let <NewStopped> =
+				    call 'lists':'foldl'
+					(_120, _rec22, %% Line 451
+						       Modules)
+				in  %% Line 452
+				    case EvalState of
+				      <{'eval_state',_339,_340,_341,_342,_343,_344,_345,_346,_347}> when 'true' ->
+					  call 'erlang':'setelement'
+					      (3, EvalState, NewStopped)
+				      ( <_348> when 'true' ->
+					    ( call ( 'erlang'
+						     -| ['compiler_generated'] ):( 'error'
+										   -| ['compiler_generated'] )
+						  (( {'badrecord','eval_state'}
+						     -| ['compiler_generated'] ))
+					      -| ['compiler_generated'] )
+					-| ['compiler_generated'] )
+				    end
+			    -| ['compiler_generated'] )
+			  ( <_338> when 'true' ->
+				( call ( 'erlang'
+					 -| ['compiler_generated'] ):( 'error'
+								       -| ['compiler_generated'] )
+				      (( {'badrecord','eval_state'}
+					 -| ['compiler_generated'] ))
+				  -| ['compiler_generated'] )
+			    -| ['compiler_generated'] )
+			end
+			-| ['compiler_generated'] )
+	      %% Line 453
+	      <{'sync_nodes',Id,{M,F,A}},EvalState> when 'true' ->
+		  let <_124> =
+		      call %% Line 454
+			   'erlang':%% Line 454
+				    'apply'
+			  (%% Line 454
+			   M, %% Line 454
+			      F, %% Line 454
+				 A)
+		  in  do  %% Line 454
+			  apply 'sync_nodes'/2
+			      (Id, _124)
+			  %% Line 455
+			  EvalState
+	      %% Line 456
+	      <{'sync_nodes',Id,Nodes},EvalState> when 'true' ->
+		  do  %% Line 457
+		      apply 'sync_nodes'/2
+			  (Id, Nodes)
+		      %% Line 458
+		      EvalState
+	      %% Line 459
+	      <{'apply',{M,F,A}},EvalState> when 'true' ->
+		  do  %% Line 460
+		      call 'erlang':'apply'
+			  (M, F, A)
+		      %% Line 461
+		      EvalState
+	      %% Line 462
+	      <'restart_emulator',_X_EvalState> when 'true' ->
+		  %% Line 463
+		  call 'erlang':'throw'
+		      ('restart_emulator')
+	      %% Line 464
+	      <'restart_new_emulator',_X_EvalState> when 'true' ->
+		  %% Line 465
+		  call 'erlang':'throw'
+		      ('restart_new_emulator')
+	      ( <_126,_125> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_126,_125})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'eval',2}}] )
+      -| [{'function',{'eval',2}}] )
+'get_opt'/3 =
+    %% Line 467
+    ( fun (_0,_1,_2) ->
+	  %% Line 468
+	  ( case _1 of
+	      ( <( {'eval_state',_9,_10,_11,_12,_13,_14,_15,_16,_rec24}
+		   -| ['compiler_generated'] )> when 'true' ->
+		    case call 'lists':'keysearch'
+			     (_0, 1, _rec24) of
+		      %% Line 469
+		      <{'value',{_X_Tag,Value}}> when 'true' ->
+			  Value
+		      %% Line 470
+		      <'false'> when 'true' ->
+			  _2
+		      ( <_5> when 'true' ->
+			    primop 'match_fail'
+				({'case_clause',_5})
+			-| ['compiler_generated'] )
+		    end
+		-| ['compiler_generated'] )
+	      ( <_17> when 'true' ->
+		    ( call ( 'erlang'
+			     -| ['compiler_generated'] ):( 'error'
+							   -| ['compiler_generated'] )
+			  (( {'badrecord','eval_state'}
+			     -| ['compiler_generated'] ))
+		      -| ['compiler_generated'] )
+		-| ['compiler_generated'] )
+	    end
+	    -| ['compiler_generated'] )
+      -| [{'function',{'get_opt',3}}] )
+'suspend'/3 =
+    %% Line 481
+    ( fun (_0,_1,_2) ->
+	  let <_8> =
+	      fun (_6) ->
+		  %% Line 482
+		  case _6 of
+		    <{_X_Sup,_X_Name,Pid,Mods}> when 'true' ->
+			%% Line 483
+			case call 'lists':'member'
+				 (_0, Mods) of
+			  %% Line 484
+			  <'true'> when 'true' ->
+			      let <_3> =
+				  catch
+				      %% Line 485
+				      apply 'sys_suspend'/2
+					  (Pid, _2)
+			      in  %% Line 485
+				  case _3 of
+				    %% Line 486
+				    <'ok'> when 'true' ->
+					{'true',Pid}
+				    %% Line 487
+				    <_12> when 'true' ->
+					do  try
+						%% Line 490
+						call 'sys':'resume'
+						    (Pid)
+					    of <_catch_value> ->
+						_catch_value
+					    catch <Class,Reason,Stk> ->
+						'ok'
+					    %% Line 491
+					    'false'
+				  end
+			  %% Line 493
+			  <'false'> when 'true' ->
+			      %% Line 494
+			      'false'
+			  ( <_5> when 'true' ->
+				primop 'match_fail'
+				    ({'case_clause',_5})
+			    -| ['compiler_generated'] )
+			end
+		    ( <_7> when 'true' ->
+			  primop 'match_fail'
+			      ({'function_clause',_7})
+		      -| ['compiler_generated'] )
+		  end
+	  in  %% Line 482
+	      call 'lists':'zf'
+		  (_8, _1)
+      -| [{'function',{'suspend',3}}] )
+'sys_suspend'/2 =
+    %% Line 499
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <Pid,'default'> when 'true' ->
+		  %% Line 500
+		  call 'sys':'suspend'
+		      (Pid)
+	      %% Line 501
+	      <Pid,Timeout> when 'true' ->
+		  %% Line 502
+		  call 'sys':'suspend'
+		      (Pid, Timeout)
+	    end
+	    -| [{'function',{'sys_suspend',2}}] )
+      -| [{'function',{'sys_suspend',2}}] )
+'resume'/1 =
+    %% Line 504
+    ( fun (_0) ->
+	  let <_3> =
+	      fun (_1) ->
+		  catch
+		      %% Line 505
+		      call 'sys':'resume'
+			  (_1)
+	  in  %% Line 505
+	      call 'lists':'foreach'
+		  (_3, ( _0
+			 -| [{'function',{'resume',1}}] ))
+      -| [{'function',{'resume',1}}] )
+'change_code'/5 =
+    %% Line 507
+    ( fun (_0,_1,_2,_3,_4) ->
+	  let <Fun> =
+	      fun (_6) ->
+		  %% Line 509
+		  case apply 'sys_change_code'/5
+			   (_6, _1, _2, _3, _4) of
+		    %% Line 510
+		    <'ok'> when 'true' ->
+			%% Line 511
+			'ok'
+		    %% Line 512
+		    <{'error',Reason}> when 'true' ->
+			%% Line 513
+			call 'erlang':'throw'
+			    ({'code_change_failed',_6,_1,_2,Reason})
+		    ( <_5> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_5})
+		      -| ['compiler_generated'] )
+		  end
+	  in  %% Line 516
+	      call 'lists':'foreach'
+		  (Fun, _0)
+      -| [{'function',{'change_code',5}}] )
+'sys_change_code'/5 =
+    %% Line 518
+    ( fun (_0,_1,_2,_3,_4) ->
+	  ( case <_0,_1,_2,_3,_4> of
+	      <Pid,Mod,Vsn,Extra,'default'> when 'true' ->
+		  %% Line 519
+		  call 'sys':'change_code'
+		      (Pid, Mod, Vsn, Extra)
+	      %% Line 520
+	      <Pid,Mod,Vsn,Extra,Timeout> when 'true' ->
+		  %% Line 521
+		  call 'sys':'change_code'
+		      (Pid, Mod, Vsn, Extra, Timeout)
+	    end
+	    -| [{'function',{'sys_change_code',5}}] )
+      -| [{'function',{'sys_change_code',5}}] )
+'stop'/2 =
+    %% Line 523
+    ( fun (_0,_1) ->
+	  let <_7> =
+	      fun (_5) ->
+		  %% Line 524
+		  case _5 of
+		    <{'undefined',_X_Name,_X_Pid,_X_Mods}> when 'true' ->
+			%% Line 525
+			'false'
+		    %% Line 526
+		    <{Sup,Name,_X_Pid,Mods}> when 'true' ->
+			%% Line 527
+			case call 'lists':'member'
+				 (_0, Mods) of
+			  %% Line 528
+			  <'true'> when 'true' ->
+			      let <_2> =
+				  catch
+				      %% Line 529
+				      call 'supervisor':'terminate_child'
+					  (%% Line 530
+					   Sup, %% Line 530
+						Name)
+			      in  %% Line 529
+				  case _2 of
+				    %% Line 531
+				    <'ok'> when 'true' ->
+					{'true',{Sup,Name}}
+				    %% Line 532
+				    <_10> when 'true' ->
+					'false'
+				  end
+			  %% Line 534
+			  <'false'> when 'true' ->
+			      'false'
+			  ( <_4> when 'true' ->
+				primop 'match_fail'
+				    ({'case_clause',_4})
+			    -| ['compiler_generated'] )
+			end
+		    ( <_6> when 'true' ->
+			  primop 'match_fail'
+			      ({'function_clause',_6})
+		      -| ['compiler_generated'] )
+		  end
+	  in  %% Line 524
+	      call 'lists':'zf'
+		  (_7, _1)
+      -| [{'function',{'stop',2}}] )
+'start'/1 =
+    %% Line 539
+    ( fun (_0) ->
+	  let <_3> =
+	      fun (_1) ->
+		  %% Line 540
+		  case _1 of
+		    <{Sup,Name}> when 'true' ->
+			catch
+			    %% Line 541
+			    call 'supervisor':'restart_child'
+				(Sup, Name)
+		    ( <_2> when 'true' ->
+			  primop 'match_fail'
+			      ({'function_clause',_2})
+		      -| ['compiler_generated'] )
+		  end
+	  in  %% Line 540
+	      call 'lists':'foreach'
+		  (_3, ( _0
+			 -| [{'function',{'start',1}}] ))
+      -| [{'function',{'start',1}}] )
+'get_supervised_procs'/0 =
+    %% Line 579
+    ( fun () ->
+	  let <_6> =
+	      fun (_3,_2) ->
+		  let <_1> =
+		      call %% Line 584
+			   'application_controller':%% Line 584
+						    'get_master'
+			  (_3)
+		  in  %% Line 582
+		      apply 'get_master_procs'/3
+			  (_3, _2, _1)
+	  in  let <_0> =
+		  apply %% Line 587
+			'get_application_names'/0
+		      ()
+	      in  %% Line 580
+		  call 'lists':'foldl'
+		      (_6, %% Line 586
+			   [], _0)
+      -| [{'function',{'get_supervised_procs',0}}] )
+'get_supervised_procs'/4 =
+    %% Line 589
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <_12,Root,Procs,{'ok',SupMod}> when 'true' ->
+		  let <_4> =
+		      apply %% Line 590
+			    'maybe_supervisor_which_children'/3
+			  (%% Line 590
+			   Root, %% Line 590
+				 SupMod, %% Line 590
+					 Root)
+		  in  let <_5> =
+			  apply %% Line 590
+				'get_procs'/2
+			      (_4, %% Line 590
+				   Root)
+		      in  %% Line 590
+			  call 'erlang':'++'
+			      (_5, %% Line 591
+				   [{'undefined','undefined',Root,[SupMod|[]]}|Procs])
+	      %% Line 592
+	      <Application,Root,Procs,{'error',_13}> when 'true' ->
+		  do  %% Line 593
+		      call 'error_logger':'error_msg'
+			  ([114|[101|[108|[101|[97|[115|[101|[95|[104|[97|[110|[100|[108|[101|[114|[58|[32|[99|[97|[110|[110|[111|[116|[32|[102|[105|[110|[100|[32|[116|[111|[112|[32|[115|[117|[112|[101|[114|[118|[105|[115|[111|[114|[32|[102|[111|[114|[32|[97|[112|[112|[108|[105|[99|[97|[116|[105|[111|[110|[32|[126|[119|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], %% Line 594
+																																																	    [Application|[]])
+		      let <_6> =
+			  apply %% Line 595
+				'maybe_supervisor_which_children'/3
+			      (%% Line 595
+			       Root, %% Line 595
+				     Application, %% Line 595
+						  Root)
+		      in  let <_7> =
+			      apply %% Line 595
+				    'get_procs'/2
+				  (_6, %% Line 595
+				       Root)
+			  in  %% Line 595
+			      call 'erlang':'++'
+				  (_7, Procs)
+	      ( <_11,_10,_9,_8> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_11,_10,_9,_8})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'get_supervised_procs',4}}] )
+      -| [{'function',{'get_supervised_procs',4}}] )
+'get_application_names'/0 =
+    %% Line 597
+    ( fun () ->
+	  let <_3> =
+	      fun (_1) ->
+		  %% Line 598
+		  case _1 of
+		    <{Application,_X_Name,_X_Vsn}> when 'true' ->
+			%% Line 599
+			Application
+		    ( <_2> when 'true' ->
+			  primop 'match_fail'
+			      ({'function_clause',_2})
+		      -| ['compiler_generated'] )
+		  end
+	  in  let <_0> =
+		  call %% Line 601
+		       'application':%% Line 601
+				     'which_applications'
+		      ()
+	      in  %% Line 598
+		  call 'lists':'map'
+		      (_3, _0)
+      -| [{'function',{'get_application_names',0}}] )
+'get_master_procs'/3 =
+    %% Line 603
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <Application,Procs,Pid>
+		  when call 'erlang':'is_pid'
+			(Pid) ->
+		  %% Line 604
+		  case call 'application_master':'get_child'
+			   (Pid) of
+		    <{Root,_X_AppMod}> when 'true' ->
+			let <_4> =
+			    apply %% Line 605
+				  'get_supervisor_module'/1
+				(%% Line 605
+				 Root)
+			in  %% Line 605
+			    apply 'get_supervised_procs'/4
+				(Application, Root, Procs, _4)
+		    ( <_3> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_3})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 606
+	      <_8,Procs,_9> when 'true' ->
+		  %% Line 607
+		  Procs
+	    end
+	    -| [{'function',{'get_master_procs',3}}] )
+      -| [{'function',{'get_master_procs',3}}] )
+'get_procs'/2 =
+    %% Line 609
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <[{Name,Pid,'worker','dynamic'}|T],Sup>
+		  when call 'erlang':'is_pid'
+			(Pid) ->
+		  let <Mods> =
+		      apply %% Line 610
+			    'maybe_get_dynamic_mods'/2
+			  (%% Line 610
+			   Name, %% Line 610
+				 Pid)
+		  in  let <_3> =
+			  apply %% Line 611
+				'get_procs'/2
+			      (%% Line 611
+			       T, %% Line 611
+				  Sup)
+		      in  %% Line 611
+			  [{Sup,Name,Pid,Mods}|_3]
+	      %% Line 612
+	      <[{Name,Pid,'worker',Mods}|T],Sup>
+		  when let <_4> =
+			call 'erlang':'is_pid'
+			    (Pid)
+		    in  let <_5> =
+			    call 'erlang':'is_list'
+				(Mods)
+			in  call 'erlang':'and'
+				(_4, _5) ->
+		  let <_6> =
+		      apply %% Line 613
+			    'get_procs'/2
+			  (%% Line 613
+			   T, %% Line 613
+			      Sup)
+		  in  %% Line 613
+		      [{Sup,Name,Pid,Mods}|_6]
+	      %% Line 614
+	      <[{Name,Pid,'supervisor',Mods}|T],Sup>
+		  when call 'erlang':'is_pid'
+			(Pid) ->
+		  let <_9> =
+		      apply %% Line 615
+			    'get_procs'/2
+			  (%% Line 615
+			   T, %% Line 615
+			      Sup)
+		  in  let <_7> =
+			  apply %% Line 616
+				'maybe_supervisor_which_children'/3
+			      (%% Line 616
+			       Pid, %% Line 616
+				    Name, %% Line 616
+					  Pid)
+		      in  let <_8> =
+			      apply %% Line 616
+				    'get_procs'/2
+				  (_7, %% Line 616
+				       Pid)
+			  in  %% Line 615
+			      [{Sup,Name,Pid,Mods}|call 'erlang':'++'
+						       (_9, _8)]
+	      %% Line 617
+	      <[_X_H|T],Sup> when 'true' ->
+		  %% Line 618
+		  apply 'get_procs'/2
+		      (T, Sup)
+	      %% Line 619
+	      <_12,_X_Sup> when 'true' ->
+		  %% Line 620
+		  []
+	    end
+	    -| [{'function',{'get_procs',2}}] )
+      -| [{'function',{'get_procs',2}}] )
+'maybe_supervisor_which_children'/3 =
+    %% Line 622
+    ( fun (_0,_1,_2) ->
+	  %% Line 623
+	  case apply 'get_proc_state'/1
+		   (_0) of
+	    %% Line 624
+	    <'noproc'> when 'true' ->
+		do  %% Line 627
+		    call 'error_logger':'warning_msg'
+			([114|[101|[108|[101|[97|[115|[101|[95|[104|[97|[110|[100|[108|[101|[114|[58|[32|[97|[32|[112|[114|[111|[99|[101|[115|[115|[32|[40|[126|[112|[41|[32|[101|[120|[105|[116|[101|[100|[32|[100|[117|[114|[105|[110|[103|[32|[115|[117|[112|[101|[114|[118|[105|[115|[105|[111|[110|[32|[116|[114|[101|[101|[32|[105|[110|[116|[101|[114|[114|[111|[103|[97|[116|[105|[111|[110|[46|[32|[67|[111|[110|[116|[105|[110|[117|[105|[110|[103|[32|[46|[46|[46|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], %% Line 629
+																																																																						      [_0|[]])
+		    %% Line 630
+		    []
+	    %% Line 632
+	    <'suspended'> when 'true' ->
+		do  %% Line 633
+		    call 'error_logger':'error_msg'
+			([114|[101|[108|[101|[97|[115|[101|[95|[104|[97|[110|[100|[108|[101|[114|[58|[32|[97|[32|[119|[104|[105|[99|[104|[95|[99|[104|[105|[108|[100|[114|[101|[110|[32|[99|[97|[108|[108|[32|[116|[111|[32|[126|[112|[32|[40|[126|[119|[41|[32|[119|[97|[115|[32|[97|[118|[111|[105|[100|[101|[100|[46|[32|[84|[104|[105|[115|[32|[115|[117|[112|[101|[114|[118|[105|[115|[111|[114|[32|[105|[115|[32|[115|[117|[115|[112|[101|[110|[100|[101|[100|[32|[97|[110|[100|[32|[115|[104|[111|[117|[108|[100|[32|[108|[105|[107|[101|[108|[121|[32|[98|[101|[32|[117|[112|[103|[114|[97|[100|[101|[100|[32|[100|[105|[102|[102|[101|[114|[101|[110|[116|[108|[121|[46|[32|[69|[120|[105|[116|[105|[110|[103|[32|[46|[46|[46|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], %% Line 636
+																																																																																																												      [_1|[_2|[]]])
+		    %% Line 637
+		    call 'erlang':'error'
+			('suspended_supervisor')
+	    %% Line 639
+	    <'running'> when 'true' ->
+		let <_3> =
+		    catch
+			%% Line 640
+			call 'supervisor':'which_children'
+			    (_2)
+		in  %% Line 640
+		    case _3 of
+		      %% Line 641
+		      <Res>
+			  when call 'erlang':'is_list'
+				(_3) ->
+			  %% Line 642
+			  Res
+		      %% Line 643
+		      <Other> when 'true' ->
+			  do  %% Line 644
+			      call 'error_logger':'error_msg'
+				  ([114|[101|[108|[101|[97|[115|[101|[95|[104|[97|[110|[100|[108|[101|[114|[58|[32|[126|[112|[126|[110|[101|[114|[114|[111|[114|[32|[100|[117|[114|[105|[110|[103|[32|[97|[32|[119|[104|[105|[99|[104|[95|[99|[104|[105|[108|[100|[114|[101|[110|[32|[99|[97|[108|[108|[32|[116|[111|[32|[126|[112|[32|[40|[126|[119|[41|[46|[32|[91|[83|[116|[97|[116|[101|[58|[32|[114|[117|[110|[110|[105|[110|[103|[93|[32|[69|[120|[105|[116|[105|[110|[103|[32|[46|[46|[46|[32|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], %% Line 647
+																																																																										   [Other|[_1|[_2|[]]]])
+			      %% Line 648
+			      call 'erlang':'error'
+				  ('which_children_failed')
+		    end
+	    ( <_5> when 'true' ->
+		  primop 'match_fail'
+		      ({'case_clause',_5})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'maybe_supervisor_which_children',3}}] )
+'get_proc_state'/1 =
+    %% Line 652
+    ( fun (_0) ->
+	  %% Line 657
+	  try
+	      call 'sys':'get_status'
+		  (( _0
+		     -| [{'function',{'get_proc_state',1}}] ))
+	  of <_1> ->
+	      case _1 of
+		%% Line 659
+		<{'status',_9,{'module',_10},[_11|[State|[_12|[_13|[_14|[]]]]]]}>
+		    when let <_2> =
+			  call 'erlang':'=='
+			      (State, 'running')
+		      in  let <_3> =
+			      call %% Line 660
+				   'erlang':%% Line 660
+					    '=='
+				  (%% Line 660
+				   State, %% Line 660
+					  'suspended')
+			  in  call 'erlang':'or'
+				  (_2, _3) ->
+		    %% Line 661
+		    State
+		( <_4> when 'true' ->
+		      primop 'match_fail'
+			  ({'try_clause',_4})
+		  -| ['compiler_generated'] )
+	      end
+	  catch <_7,_6,_5> ->
+	      %% Line 662
+	      case <_7,_6,_5> of
+		<( 'exit'
+		   -| ['compiler_generated'] ),( {( 'noproc'
+						    -| ['compiler_generated'] ),( {( 'sys'
+										     -| ['compiler_generated'] ),( 'get_status'
+														   -| ['compiler_generated'] ),( [_15|( []
+																			-| ['compiler_generated'] )]
+																		 -| ['compiler_generated'] )}
+										  -| ['compiler_generated'] )}
+						 -| ['compiler_generated'] ),_16>
+		    when call 'erlang':'=:='
+			  (_15,
+			   ( _0
+			     -| [{'function',{'get_proc_state',1}}] )) ->
+		    %% Line 663
+		    'noproc'
+		( <_17,_18,_19> when 'true' ->
+		      primop 'raise'
+			  (_19, _18)
+		  -| ['compiler_generated'] )
+	      end
+      -| [{'function',{'get_proc_state',1}}] )
+'maybe_get_dynamic_mods'/2 =
+    %% Line 666
+    ( fun (_0,_1) ->
+	  let <_3> =
+	      catch
+		  let <_2> =
+		      call %% Line 667
+			   'erlang':%% Line 667
+				    'self'
+			  ()
+		  in  %% Line 667
+		      call 'gen':'call'
+			  (_1, _2, 'get_modules')
+	  in  %% Line 667
+	      case _3 of
+		%% Line 668
+		<{'ok',Res}> when 'true' ->
+		    %% Line 669
+		    Res
+		%% Line 670
+		<Other> when 'true' ->
+		    do  %% Line 671
+			call 'error_logger':'error_msg'
+			    ([114|[101|[108|[101|[97|[115|[101|[95|[104|[97|[110|[100|[108|[101|[114|[58|[32|[126|[112|[126|[110|[101|[114|[114|[111|[114|[32|[100|[117|[114|[105|[110|[103|[32|[97|[32|[103|[101|[116|[95|[109|[111|[100|[117|[108|[101|[115|[32|[99|[97|[108|[108|[32|[116|[111|[32|[126|[112|[32|[40|[126|[119|[41|[44|[32|[116|[104|[101|[114|[101|[32|[109|[97|[121|[32|[98|[101|[32|[97|[110|[32|[101|[114|[114|[111|[114|[32|[105|[110|[32|[105|[116|[39|[115|[32|[99|[104|[105|[108|[100|[115|[112|[101|[99|[46|[32|[69|[120|[105|[116|[105|[110|[103|[32|[46|[46|[46|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], %% Line 675
+																																																																																								[Other|[_0|[_1|[]]]])
+			%% Line 676
+			call 'erlang':'error'
+			    ('get_modules_failed')
+	      end
+      -| [{'function',{'maybe_get_dynamic_mods',2}}] )
+'get_supervisor_module'/1 =
+    %% Line 683
+    ( fun (_0) ->
+	  let <_1> =
+	      catch
+		  %% Line 684
+		  call 'supervisor':'get_callback_module'
+		      (( _0
+			 -| [{'function',{'get_supervisor_module',1}}] ))
+	  in  %% Line 684
+	      case _1 of
+		%% Line 685
+		<Module>
+		    when call 'erlang':'is_atom'
+			  (_1) ->
+		    %% Line 686
+		    {'ok',Module}
+		%% Line 687
+		<_X_Other> when 'true' ->
+		    do  %% Line 688
+			call 'io':'format'
+			    ([126|[119|[58|[32|[114|[101|[97|[115|[111|[110|[58|[32|[126|[119|[126|[110]]]]]]]]]]]]]]]], [( _0
+															    -| [{'function',{'get_supervisor_module',1}}] )|[_X_Other|[]]])
+			%% Line 689
+			{'error','undefined'}
+	      end
+      -| [{'function',{'get_supervisor_module',1}}] )
+'do_soft_purge'/3 =
+    %% Line 703
+    ( fun (_0,_1,_2) ->
+	  let <IsNoOldProcsLeft> =
+	      call %% Line 704
+		   'code':%% Line 704
+			  'soft_purge'
+		  (_0)
+	  in  %% Line 705
+	      case call 'lists':'keymember'
+		       (_0, 1, _2) of
+		%% Line 706
+		<'true'>
+		    when call 'erlang':'=='
+			  (IsNoOldProcsLeft,
+			   'true') ->
+		    call 'lists':'keydelete'
+			(_0, 1, _2)
+		%% Line 707
+		<'true'> when 'true' ->
+		    _2
+		%% Line 708
+		<'false'>
+		    when call 'erlang':'=='
+			  (IsNoOldProcsLeft,
+			   'true') ->
+		    _2
+		%% Line 709
+		<'false'> when 'true' ->
+		    [{_0,_1}|_2]
+		( <_4> when 'true' ->
+		      primop 'match_fail'
+			  ({'case_clause',_4})
+		  -| ['compiler_generated'] )
+	      end
+      -| [{'function',{'do_soft_purge',3}}] )
+'sync_nodes'/2 =
+    %% Line 718
+    ( fun (_0,_1) ->
+	  let <_2> =
+	      call %% Line 719
+		   'erlang':%% Line 719
+			    'node'
+		  ()
+	  in  let <NNodes> =
+		  call %% Line 719
+		       'lists':%% Line 719
+			       'delete'
+		      (_2, _1)
+	      in  let <_7> =
+		      fun (_5) ->
+			  let <_4> =
+			      call %% Line 721
+				   'erlang':%% Line 721
+					    'node'
+				  ()
+			  in  %% Line 721
+			      call 'erlang':'!'
+				  ({'release_handler',_5}, {'sync_nodes',_0,_4})
+		  in  do  %% Line 720
+			  call 'lists':'foreach'
+			      (_7, %% Line 723
+				   NNodes)
+			  let <_10> =
+			      fun (_8) ->
+				  ( letrec
+					'recv$^2'/0 =
+					    fun () ->
+						let <_20,_18> =
+						    primop 'recv_peek_message'
+							()
+						in  case _20 of
+						      <'true'> when 'true' ->
+							  %% Line 725
+							  case _18 of
+							    %% Line 726
+							    <{'sync_nodes',_13,_14}>
+								when let <_15> =
+								      call 'erlang':'=:='
+									  (_13, _0)
+								  in  let <_16> =
+									  call 'erlang':'=:='
+									      (_14, _8)
+								      in  call 'erlang':'and'
+									      (_15, _16) ->
+								do  primop 'remove_message'
+									()
+								    %% Line 727
+								    'ok'
+							    %% Line 728
+							    <{'nodedown',_17}>
+								when call 'erlang':'=:='
+								      (_17,
+								       _8) ->
+								do  primop 'remove_message'
+									()
+								    %% Line 729
+								    call 'erlang':'throw'
+									({'sync_error',{'nodedown',_8}})
+							    ( <Other> when 'true' ->
+								  do  primop 'recv_next'
+									  ()
+								      ( apply 'recv$^2'/0
+									    ()
+									-| ['dialyzer_ignore'] )
+							      -| ['compiler_generated','dialyzer_ignore'] )
+							  end
+						      ( <'false'> when 'true' ->
+							    let <_19> =
+								primop 'recv_wait_timeout'
+								    ('infinity')
+							    in  case _19 of
+								  <'true'> when 'true' ->
+								      do  primop 'timeout'
+									      ()
+									  'true'
+								  ( <'false'> when 'true' ->
+									( apply 'recv$^2'/0
+									      ()
+									  -| ['dialyzer_ignore'] )
+								    -| ['dialyzer_ignore'] )
+								end
+							-| ['dialyzer_ignore'] )
+						    end
+				    in  ( apply 'recv$^2'/0
+					      ()
+					  -| ['dialyzer_ignore'] )
+				    -| ['letrec_goto'] )
+			  in  %% Line 724
+			      call 'lists':'foreach'
+				  (_10, %% Line 732
+					NNodes)
+      -| [{'function',{'sync_nodes',2}}] )
+'add_vsns'/3 =
+    %% Line 734
+    ( fun (_0,_1,_2) ->
+	  let <OldVsn> =
+	      apply %% Line 735
+		    'get_current_vsn'/1
+		  (_0)
+	  in  let <NewVsn> =
+		  apply %% Line 736
+			'get_vsn'/1
+		      (_1)
+	      in  %% Line 737
+		  case call 'lists':'keysearch'
+			   (_0, 1, _2) of
+		    %% Line 738
+		    <{'value',{_11,OldVsn0,NewVsn0}}>
+			when call 'erlang':'=:='
+			      (_11,
+			       _0) ->
+			let <_6> =
+			    apply %% Line 740
+				  'replace_undefined'/2
+				(%% Line 740
+				 OldVsn0, %% Line 740
+					  OldVsn)
+			in  let <_5> =
+				apply %% Line 741
+				      'replace_undefined'/2
+				    (%% Line 741
+				     NewVsn0, %% Line 741
+					      NewVsn)
+			    in  %% Line 739
+				call 'lists':'keyreplace'
+				    (_0, 1, _2, {_0,_6,_5})
+		    %% Line 742
+		    <'false'> when 'true' ->
+			%% Line 743
+			[{_0,OldVsn,NewVsn}|_2]
+		    ( <_7> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_7})
+		      -| ['compiler_generated'] )
+		  end
+      -| [{'function',{'add_vsns',3}}] )
+'replace_undefined'/2 =
+    %% Line 746
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <'undefined',Vsn> when 'true' ->
+		  Vsn
+	      %% Line 747
+	      <Vsn,_4> when 'true' ->
+		  Vsn
+	    end
+	    -| [{'function',{'replace_undefined',2}}] )
+      -| [{'function',{'replace_undefined',2}}] )
+'get_current_vsn'/1 =
+    %% Line 761
+    ( fun (_0) ->
+	  let <File> =
+	      call %% Line 762
+		   'code':%% Line 762
+			  'which'
+		  (( _0
+		     -| [{'function',{'get_current_vsn',1}}] ))
+	  in  %% Line 763
+	      case call 'erl_prim_loader':'get_file'
+		       (File) of
+		%% Line 764
+		<{'ok',Bin,_X_File2}> when 'true' ->
+		    %% Line 765
+		    apply 'get_vsn'/1
+			(Bin)
+		%% Line 766
+		<'error'> when 'true' ->
+		    %% Line 769
+		    'undefined'
+		( <_2> when 'true' ->
+		      primop 'match_fail'
+			  ({'case_clause',_2})
+		  -| ['compiler_generated'] )
+	      end
+      -| [{'function',{'get_current_vsn',1}}] )
+'get_vsn'/1 =
+    %% Line 778
+    ( fun (_0) ->
+	  %% Line 779
+	  case call 'beam_lib':'version'
+		   (( _0
+		      -| [{'function',{'get_vsn',1}}] )) of
+	    <{'ok',{_X_Mod,Vsn}}> when 'true' ->
+		%% Line 780
+		case call 'misc_supp':'is_string'
+			 (Vsn) of
+		  %% Line 781
+		  <'true'> when 'true' ->
+		      %% Line 782
+		      Vsn
+		  %% Line 783
+		  <'false'> when 'true' ->
+		      %% Line 786
+		      case Vsn of
+			%% Line 787
+			<[VsnTerm|[]]> when 'true' ->
+			    %% Line 788
+			    VsnTerm
+			%% Line 789
+			<_5> when 'true' ->
+			    %% Line 790
+			    Vsn
+		      end
+		  ( <_3> when 'true' ->
+			primop 'match_fail'
+			    ({'case_clause',_3})
+		    -| ['compiler_generated'] )
+		end
+	    ( <_1> when 'true' ->
+		  primop 'match_fail'
+		      ({'badmatch',_1})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'get_vsn',1}}] )
+'module_info'/0 =
+    ( fun () ->
+	  call 'erlang':'get_module_info'
+	      ('release_handler_1')
+      -| [{'function',{'module_info',0}}] )
+'module_info'/1 =
+    ( fun (_0) ->
+	  call 'erlang':'get_module_info'
+	      ('release_handler_1', ( _0
+				      -| [{'function',{'module_info',1}}] ))
+      -| [{'function',{'module_info',1}}] )
+end

@@ -1,0 +1,1761 @@
+module 'erl_anno' ['column'/1,
+		   'end_location'/1,
+		   'file'/1,
+		   'from_term'/1,
+		   'generated'/1,
+		   'is_anno'/1,
+		   'line'/1,
+		   'location'/1,
+		   'module_info'/0,
+		   'module_info'/1,
+		   'new'/1,
+		   'record'/1,
+		   'set_file'/2,
+		   'set_generated'/2,
+		   'set_line'/2,
+		   'set_location'/2,
+		   'set_record'/2,
+		   'set_text'/2,
+		   'text'/1,
+		   'to_term'/1]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[101|[114|[108|[95|[97|[110|[110|[111|[46|[101|[114|[108]]]]]]]]]]]]]]]],1}],
+		%% Line 32
+		'export_type' =
+		    %% Line 32
+		    [{'anno',0}|[{'line',0}|[{'column',0}|[{'location',0}|[{'text',0}]]]]],
+		%% Line 34
+		'export_type' =
+		    %% Line 34
+		    [{'anno_term',0}],
+		%% Line 49
+		'type' =
+		    %% Line 49
+		    [{'annotation',{'type',49,'union',[{'type',49,'tuple',[{'atom',49,'file'}|[{'user_type',49,'filename',[]}]]}|[{'type',50,'tuple',[{'atom',50,'generated'}|[{'user_type',50,'generated',[]}]]}|[{'type',51,'tuple',[{'atom',51,'location'}|[{'user_type',51,'location',[]}]]}|[{'type',52,'tuple',[{'atom',52,'record'}|[{'user_type',52,'record',[]}]]}|[{'type',53,'tuple',[{'atom',53,'text'}|[{'type',53,'string',[]}]]}]]]]]},[]}],
+		%% Line 58
+		'opaque' =
+		    %% Line 58
+		    [{'anno',{'type',58,'union',[{'user_type',58,'location',[]}|[{'type',58,'nonempty_list',[{'user_type',58,'annotation',[]}]}]]},[]}],
+		%% Line 60
+		'type' =
+		    %% Line 60
+		    [{'anno_term',{'type',60,'term',[]},[]}],
+		%% Line 62
+		'type' =
+		    %% Line 62
+		    [{'column',{'type',62,'pos_integer',[]},[]}],
+		%% Line 63
+		'type' =
+		    %% Line 63
+		    [{'generated',{'type',63,'boolean',[]},[]}],
+		%% Line 64
+		'type' =
+		    %% Line 64
+		    [{'filename',{'remote_type',64,[{'atom',64,'file'}|[{'atom',64,'filename_all'}|[[]]]]},[]}],
+		%% Line 65
+		'type' =
+		    %% Line 65
+		    [{'line',{'type',65,'non_neg_integer',[]},[]}],
+		%% Line 66
+		'type' =
+		    %% Line 66
+		    [{'location',{'type',66,'union',[{'user_type',66,'line',[]}|[{'type',66,'tuple',[{'user_type',66,'line',[]}|[{'user_type',66,'column',[]}]]}]]},[]}],
+		%% Line 67
+		'type' =
+		    %% Line 67
+		    [{'record',{'type',67,'boolean',[]},[]}],
+		%% Line 68
+		'type' =
+		    %% Line 68
+		    [{'text',{'type',68,'string',[]},[]}],
+		%% Line 79
+		'spec' =
+		    %% Line 79
+		    [{{'to_term',1},[{'type',79,'bounded_fun',[{'type',79,'fun',[{'type',79,'product',[{'var',79,'Anno'}]}|[{'user_type',79,'anno_term',[]}]]}|[[{'type',80,'constraint',[{'atom',80,'is_subtype'}|[[{'var',80,'Anno'}|[{'user_type',80,'anno',[]}]]]]}]]]}]}],
+		%% Line 90
+		'spec' =
+		    %% Line 90
+		    [{{'from_term',1},[{'type',90,'bounded_fun',[{'type',90,'fun',[{'type',90,'product',[{'var',90,'Term'}]}|[{'var',90,'Anno'}]]}|[[{'type',91,'constraint',[{'atom',91,'is_subtype'}|[[{'var',91,'Term'}|[{'user_type',91,'anno_term',[]}]]]]}|[{'type',92,'constraint',[{'atom',92,'is_subtype'}|[[{'var',92,'Anno'}|[{'user_type',92,'anno',[]}]]]]}]]]]}]}],
+		%% Line 108
+		'spec' =
+		    %% Line 108
+		    [{{'new',1},[{'type',108,'bounded_fun',[{'type',108,'fun',[{'type',108,'product',[{'var',108,'Location'}]}|[{'user_type',108,'anno',[]}]]}|[[{'type',109,'constraint',[{'atom',109,'is_subtype'}|[[{'var',109,'Location'}|[{'user_type',109,'location',[]}]]]]}]]]}]}],
+		%% Line 126
+		'spec' =
+		    %% Line 126
+		    [{{'is_anno',1},[{'type',126,'bounded_fun',[{'type',126,'fun',[{'type',126,'product',[{'var',126,'Term'}]}|[{'type',126,'boolean',[]}]]}|[[{'type',127,'constraint',[{'atom',127,'is_subtype'}|[[{'var',127,'Term'}|[{'type',127,'any',[]}]]]]}]]]}]}],
+		%% Line 164
+		'spec' =
+		    %% Line 164
+		    [{{'column',1},[{'type',164,'bounded_fun',[{'type',164,'fun',[{'type',164,'product',[{'var',164,'Anno'}]}|[{'type',164,'union',[{'user_type',164,'column',[]}|[{'atom',164,'undefined'}]]}]]}|[[{'type',165,'constraint',[{'atom',165,'is_subtype'}|[[{'var',165,'Anno'}|[{'user_type',165,'anno',[]}]]]]}]]]}]}],
+		%% Line 179
+		'spec' =
+		    %% Line 179
+		    [{{'end_location',1},[{'type',179,'bounded_fun',[{'type',179,'fun',[{'type',179,'product',[{'var',179,'Anno'}]}|[{'type',179,'union',[{'user_type',179,'location',[]}|[{'atom',179,'undefined'}]]}]]}|[[{'type',180,'constraint',[{'atom',180,'is_subtype'}|[[{'var',180,'Anno'}|[{'user_type',180,'anno',[]}]]]]}]]]}]}],
+		%% Line 195
+		'spec' =
+		    %% Line 195
+		    [{{'file',1},[{'type',195,'bounded_fun',[{'type',195,'fun',[{'type',195,'product',[{'var',195,'Anno'}]}|[{'type',195,'union',[{'user_type',195,'filename',[]}|[{'atom',195,'undefined'}]]}]]}|[[{'type',196,'constraint',[{'atom',196,'is_subtype'}|[[{'var',196,'Anno'}|[{'user_type',196,'anno',[]}]]]]}]]]}]}],
+		%% Line 205
+		'spec' =
+		    %% Line 205
+		    [{{'generated',1},[{'type',205,'bounded_fun',[{'type',205,'fun',[{'type',205,'product',[{'var',205,'Anno'}]}|[{'user_type',205,'generated',[]}]]}|[[{'type',206,'constraint',[{'atom',206,'is_subtype'}|[[{'var',206,'Anno'}|[{'user_type',206,'anno',[]}]]]]}]]]}]}],
+		%% Line 215
+		'spec' =
+		    %% Line 215
+		    [{{'line',1},[{'type',215,'bounded_fun',[{'type',215,'fun',[{'type',215,'product',[{'var',215,'Anno'}]}|[{'user_type',215,'line',[]}]]}|[[{'type',216,'constraint',[{'atom',216,'is_subtype'}|[[{'var',216,'Anno'}|[{'user_type',216,'anno',[]}]]]]}]]]}]}],
+		%% Line 226
+		'spec' =
+		    %% Line 226
+		    [{{'location',1},[{'type',226,'bounded_fun',[{'type',226,'fun',[{'type',226,'product',[{'var',226,'Anno'}]}|[{'user_type',226,'location',[]}]]}|[[{'type',227,'constraint',[{'atom',227,'is_subtype'}|[[{'var',227,'Anno'}|[{'user_type',227,'anno',[]}]]]]}]]]}]}],
+		%% Line 236
+		'spec' =
+		    %% Line 236
+		    [{{'record',1},[{'type',236,'bounded_fun',[{'type',236,'fun',[{'type',236,'product',[{'var',236,'Anno'}]}|[{'user_type',236,'record',[]}]]}|[[{'type',237,'constraint',[{'atom',237,'is_subtype'}|[[{'var',237,'Anno'}|[{'user_type',237,'anno',[]}]]]]}]]]}]}],
+		%% Line 246
+		'spec' =
+		    %% Line 246
+		    [{{'text',1},[{'type',246,'bounded_fun',[{'type',246,'fun',[{'type',246,'product',[{'var',246,'Anno'}]}|[{'type',246,'union',[{'user_type',246,'text',[]}|[{'atom',246,'undefined'}]]}]]}|[[{'type',247,'constraint',[{'atom',247,'is_subtype'}|[[{'var',247,'Anno'}|[{'user_type',247,'anno',[]}]]]]}]]]}]}],
+		%% Line 256
+		'spec' =
+		    %% Line 256
+		    [{{'set_file',2},[{'type',256,'bounded_fun',[{'type',256,'fun',[{'type',256,'product',[{'var',256,'File'}|[{'var',256,'Anno'}]]}|[{'var',256,'Anno'}]]}|[[{'type',257,'constraint',[{'atom',257,'is_subtype'}|[[{'var',257,'File'}|[{'user_type',257,'filename',[]}]]]]}|[{'type',258,'constraint',[{'atom',258,'is_subtype'}|[[{'var',258,'Anno'}|[{'user_type',258,'anno',[]}]]]]}]]]]}]}],
+		%% Line 263
+		'spec' =
+		    %% Line 263
+		    [{{'set_generated',2},[{'type',263,'bounded_fun',[{'type',263,'fun',[{'type',263,'product',[{'var',263,'Generated'}|[{'var',263,'Anno'}]]}|[{'var',263,'Anno'}]]}|[[{'type',264,'constraint',[{'atom',264,'is_subtype'}|[[{'var',264,'Generated'}|[{'user_type',264,'generated',[]}]]]]}|[{'type',265,'constraint',[{'atom',265,'is_subtype'}|[[{'var',265,'Anno'}|[{'user_type',265,'anno',[]}]]]]}]]]]}]}],
+		%% Line 270
+		'spec' =
+		    %% Line 270
+		    [{{'set_line',2},[{'type',270,'bounded_fun',[{'type',270,'fun',[{'type',270,'product',[{'var',270,'Line'}|[{'var',270,'Anno'}]]}|[{'var',270,'Anno'}]]}|[[{'type',271,'constraint',[{'atom',271,'is_subtype'}|[[{'var',271,'Line'}|[{'user_type',271,'line',[]}]]]]}|[{'type',272,'constraint',[{'atom',272,'is_subtype'}|[[{'var',272,'Anno'}|[{'user_type',272,'anno',[]}]]]]}]]]]}]}],
+		%% Line 282
+		'spec' =
+		    %% Line 282
+		    [{{'set_location',2},[{'type',282,'bounded_fun',[{'type',282,'fun',[{'type',282,'product',[{'var',282,'Location'}|[{'var',282,'Anno'}]]}|[{'var',282,'Anno'}]]}|[[{'type',283,'constraint',[{'atom',283,'is_subtype'}|[[{'var',283,'Location'}|[{'user_type',283,'location',[]}]]]]}|[{'type',284,'constraint',[{'atom',284,'is_subtype'}|[[{'var',284,'Anno'}|[{'user_type',284,'anno',[]}]]]]}]]]]}]}],
+		%% Line 299
+		'spec' =
+		    %% Line 299
+		    [{{'set_record',2},[{'type',299,'bounded_fun',[{'type',299,'fun',[{'type',299,'product',[{'var',299,'Record'}|[{'var',299,'Anno'}]]}|[{'var',299,'Anno'}]]}|[[{'type',300,'constraint',[{'atom',300,'is_subtype'}|[[{'var',300,'Record'}|[{'user_type',300,'record',[]}]]]]}|[{'type',301,'constraint',[{'atom',301,'is_subtype'}|[[{'var',301,'Anno'}|[{'user_type',301,'anno',[]}]]]]}]]]]}]}],
+		%% Line 306
+		'spec' =
+		    %% Line 306
+		    [{{'set_text',2},[{'type',306,'bounded_fun',[{'type',306,'fun',[{'type',306,'product',[{'var',306,'Text'}|[{'var',306,'Anno'}]]}|[{'var',306,'Anno'}]]}|[[{'type',307,'constraint',[{'atom',307,'is_subtype'}|[[{'var',307,'Text'}|[{'user_type',307,'text',[]}]]]]}|[{'type',308,'constraint',[{'atom',308,'is_subtype'}|[[{'var',308,'Anno'}|[{'user_type',308,'anno',[]}]]]]}]]]]}]}]]
+'to_term'/1 =
+    %% Line 86
+    ( fun (_0) ->
+	  ( _0
+	    -| [{'function',{'to_term',1}}] )
+      -| [{'function',{'to_term',1}}] )
+'from_term'/1 =
+    %% Line 102
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'from_term',1}}] ) of
+	      <Line>
+		  when let <_1> =
+			call 'erlang':'is_integer'
+			    (( _0
+			       -| [{'function',{'from_term',1}}] ))
+		    in  let <_2> =
+			    call 'erlang':'<'
+				(( _0
+				   -| [{'function',{'from_term',1}}] ), 0)
+			in  call 'erlang':'and'
+				(_1, _2) ->
+		  let <_3> =
+		      call %% Line 103
+			   'erlang':%% Line 103
+				    '-'
+			  (%% Line 103
+			   Line)
+		  in  let <_4> =
+			  apply %% Line 103
+				'new'/1
+			      (_3)
+		      in  %% Line 103
+			  apply 'set_generated'/2
+			      ('true', _4)
+	      %% Line 104
+	      <Term> when 'true' ->
+		  %% Line 105
+		  Term
+	    end
+	    -| [{'function',{'from_term',1}}] )
+      -| [{'function',{'from_term',1}}] )
+'new'/1 =
+    %% Line 111
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'new',1}}] ) of
+	      <Line>
+		  when let <_1> =
+			call 'erlang':'is_integer'
+			    (( _0
+			       -| [{'function',{'new',1}}] ))
+		    in  let <_2> =
+			    call 'erlang':'>='
+				(( _0
+				   -| [{'function',{'new',1}}] ), 0)
+			in  call 'erlang':'and'
+				(_1, _2) ->
+		  %% Line 112
+		  apply 'new_location'/1
+		      (Line)
+	      %% Line 113
+	      <Loc = {Line,Column}>
+		  when try
+			let <_3> =
+			    call 'erlang':'is_integer'
+				(Line)
+			in  let <_4> =
+				call 'erlang':'>='
+				    (Line, 0)
+			    in  ( let <_7> =
+				      case call 'erlang':'is_integer'
+					       (Column) of
+					( <( 'true'
+					     -| ['compiler_generated'] )> when 'true' ->
+					      call 'erlang':'>='
+						  (Column, 1)
+					  -| ['compiler_generated'] )
+					( <( 'false'
+					     -| ['compiler_generated'] )> when 'true' ->
+					      'false'
+					  -| ['compiler_generated'] )
+					( <_5> when 'true' ->
+					      ( call ( 'erlang'
+						       -| ['compiler_generated'] ):( 'error'
+										     -| ['compiler_generated'] )
+						    (( {( 'badarg'
+							  -| ['compiler_generated'] ),_5}
+						       -| ['compiler_generated'] ))
+						-| ['compiler_generated'] )
+					  -| ['compiler_generated'] )
+				      end
+				  in  let <_8> =
+					  call 'erlang':'=:='
+					      (( _7
+						 -| ['compiler_generated'] ), 'true')
+				      in  let <_9> =
+					      call 'erlang':'and'
+						  (_4, _8)
+					  in  call 'erlang':'and'
+						  (_3, _9)
+				  -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 114
+		  apply 'new_location'/1
+		      (Loc)
+	      %% Line 115
+	      <Term> when 'true' ->
+		  %% Line 116
+		  call 'erlang':'error'
+		      ('badarg', [Term|[]])
+	    end
+	    -| [{'function',{'new',1}}] )
+      -| [{'function',{'new',1}}] )
+'new_location'/1 =
+    %% Line 122
+    ( fun (_0) ->
+	  ( _0
+	    -| [{'function',{'new_location',1}}] )
+      -| [{'function',{'new_location',1}}] )
+'is_anno'/1 =
+    %% Line 129
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'is_anno',1}}] ) of
+	      <Line>
+		  when let <_1> =
+			call 'erlang':'is_integer'
+			    (( _0
+			       -| [{'function',{'is_anno',1}}] ))
+		    in  let <_2> =
+			    call 'erlang':'>='
+				(( _0
+				   -| [{'function',{'is_anno',1}}] ), 0)
+			in  call 'erlang':'and'
+				(_1, _2) ->
+		  %% Line 130
+		  'true'
+	      %% Line 131
+	      <{Line,Column}>
+		  when try
+			let <_3> =
+			    call 'erlang':'is_integer'
+				(Line)
+			in  let <_4> =
+				call 'erlang':'>='
+				    (Line, 0)
+			    in  ( let <_7> =
+				      case call 'erlang':'is_integer'
+					       (Column) of
+					( <( 'true'
+					     -| ['compiler_generated'] )> when 'true' ->
+					      call 'erlang':'>='
+						  (Column, 1)
+					  -| ['compiler_generated'] )
+					( <( 'false'
+					     -| ['compiler_generated'] )> when 'true' ->
+					      'false'
+					  -| ['compiler_generated'] )
+					( <_5> when 'true' ->
+					      ( call ( 'erlang'
+						       -| ['compiler_generated'] ):( 'error'
+										     -| ['compiler_generated'] )
+						    (( {( 'badarg'
+							  -| ['compiler_generated'] ),_5}
+						       -| ['compiler_generated'] ))
+						-| ['compiler_generated'] )
+					  -| ['compiler_generated'] )
+				      end
+				  in  let <_8> =
+					  call 'erlang':'=:='
+					      (( _7
+						 -| ['compiler_generated'] ), 'true')
+				      in  let <_9> =
+					      call 'erlang':'and'
+						  (_4, _8)
+					  in  call 'erlang':'and'
+						  (_3, _9)
+				  -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 132
+		  'true'
+	      %% Line 133
+	      <Anno> when 'true' ->
+		  %% Line 134
+		  ( case call 'erlang':'=/='
+			     (Anno, []) of
+		      ( <( 'true'
+			   -| ['compiler_generated'] )> when 'true' ->
+			    %% Line 135
+			    ( case apply 'is_anno1'/1
+				       (Anno) of
+				( <( 'true'
+				     -| ['compiler_generated'] )> when 'true' ->
+				      %% Line 136
+				      call 'lists':'keymember'
+					  ('location', 1, Anno)
+				  -| ['compiler_generated'] )
+				( <( 'false'
+				     -| ['compiler_generated'] )> when 'true' ->
+				      'false'
+				  -| ['compiler_generated'] )
+				( <_11> when 'true' ->
+				      ( call ( 'erlang'
+					       -| ['compiler_generated'] ):( 'error'
+									     -| ['compiler_generated'] )
+					    (( {( 'badarg'
+						  -| ['compiler_generated'] ),_11}
+					       -| ['compiler_generated'] ))
+					-| ['compiler_generated'] )
+				  -| ['compiler_generated'] )
+			      end
+			      -| ['compiler_generated'] )
+			-| ['compiler_generated'] )
+		      ( <( 'false'
+			   -| ['compiler_generated'] )> when 'true' ->
+			    'false'
+			-| ['compiler_generated'] )
+		    end
+		    -| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'is_anno',1}}] )
+      -| [{'function',{'is_anno',1}}] )
+'is_anno1'/1 =
+    %% Line 138
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'is_anno1',1}}] ) of
+	      <[{Item,Value}|Anno]> when 'true' ->
+		  %% Line 139
+		  ( case apply 'is_anno2'/2
+			     (Item, Value) of
+		      ( <( 'true'
+			   -| ['compiler_generated'] )> when 'true' ->
+			    apply 'is_anno1'/1
+				(Anno)
+			-| ['compiler_generated'] )
+		      ( <( 'false'
+			   -| ['compiler_generated'] )> when 'true' ->
+			    'false'
+			-| ['compiler_generated'] )
+		      ( <_1> when 'true' ->
+			    ( call ( 'erlang'
+				     -| ['compiler_generated'] ):( 'error'
+								   -| ['compiler_generated'] )
+				  (( {( 'badarg'
+					-| ['compiler_generated'] ),_1}
+				     -| ['compiler_generated'] ))
+			      -| ['compiler_generated'] )
+			-| ['compiler_generated'] )
+		    end
+		    -| ['compiler_generated'] )
+	      %% Line 140
+	      <A> when 'true' ->
+		  %% Line 141
+		  call 'erlang':'=:='
+		      (A, [])
+	    end
+	    -| [{'function',{'is_anno1',1}}] )
+      -| [{'function',{'is_anno1',1}}] )
+'is_anno2'/2 =
+    %% Line 143
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <'location',Line>
+		  when let <_2> =
+			call 'erlang':'is_integer'
+			    (Line)
+		    in  let <_3> =
+			    call 'erlang':'>='
+				(Line, 0)
+			in  call 'erlang':'and'
+				(_2, _3) ->
+		  %% Line 144
+		  'true'
+	      %% Line 145
+	      <'location',{Line,Column}>
+		  when try
+			let <_4> =
+			    call 'erlang':'is_integer'
+				(Line)
+			in  let <_5> =
+				call 'erlang':'>='
+				    (Line, 0)
+			    in  ( let <_8> =
+				      case call 'erlang':'is_integer'
+					       (Column) of
+					( <( 'true'
+					     -| ['compiler_generated'] )> when 'true' ->
+					      call 'erlang':'>='
+						  (Column, 1)
+					  -| ['compiler_generated'] )
+					( <( 'false'
+					     -| ['compiler_generated'] )> when 'true' ->
+					      'false'
+					  -| ['compiler_generated'] )
+					( <_6> when 'true' ->
+					      ( call ( 'erlang'
+						       -| ['compiler_generated'] ):( 'error'
+										     -| ['compiler_generated'] )
+						    (( {( 'badarg'
+							  -| ['compiler_generated'] ),_6}
+						       -| ['compiler_generated'] ))
+						-| ['compiler_generated'] )
+					  -| ['compiler_generated'] )
+				      end
+				  in  let <_9> =
+					  call 'erlang':'=:='
+					      (( _8
+						 -| ['compiler_generated'] ), 'true')
+				      in  let <_10> =
+					      call 'erlang':'and'
+						  (_5, _9)
+					  in  call 'erlang':'and'
+						  (_4, _10)
+				  -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 146
+		  'true'
+	      %% Line 147
+	      <'generated','true'> when 'true' ->
+		  %% Line 148
+		  'true'
+	      %% Line 149
+	      <'file',Filename> when 'true' ->
+		  %% Line 150
+		  apply 'is_filename'/1
+		      (Filename)
+	      %% Line 151
+	      <'record','true'> when 'true' ->
+		  %% Line 152
+		  'true'
+	      %% Line 153
+	      <'text',Text> when 'true' ->
+		  %% Line 154
+		  apply 'is_string'/1
+		      (Text)
+	      %% Line 155
+	      <_13,_14> when 'true' ->
+		  %% Line 156
+		  'false'
+	    end
+	    -| [{'function',{'is_anno2',2}}] )
+      -| [{'function',{'is_anno2',2}}] )
+'is_filename'/1 =
+    %% Line 158
+    ( fun (_0) ->
+	  %% Line 159
+	  ( case call 'erlang':'is_list'
+		     (( _0
+			-| [{'function',{'is_filename',1}}] )) of
+	      ( <( 'true'
+		   -| ['compiler_generated'] )> when 'true' ->
+		    'true'
+		-| ['compiler_generated'] )
+	      ( <( 'false'
+		   -| ['compiler_generated'] )> when 'true' ->
+		    call 'erlang':'is_binary'
+			(( _0
+			   -| [{'function',{'is_filename',1}}] ))
+		-| ['compiler_generated'] )
+	    end
+	    -| ['compiler_generated'] )
+      -| [{'function',{'is_filename',1}}] )
+'is_string'/1 =
+    %% Line 161
+    ( fun (_0) ->
+	  %% Line 162
+	  call 'erlang':'is_list'
+	      (( _0
+		 -| [{'function',{'is_string',1}}] ))
+      -| [{'function',{'is_string',1}}] )
+'column'/1 =
+    %% Line 167
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'column',1}}] ) of
+	      <{Line,Column}>
+		  when try
+			let <_1> =
+			    call 'erlang':'is_integer'
+				(Line)
+			in  let <_2> =
+				call 'erlang':'>='
+				    (Line, 0)
+			    in  ( let <_5> =
+				      case call 'erlang':'is_integer'
+					       (Column) of
+					( <( 'true'
+					     -| ['compiler_generated'] )> when 'true' ->
+					      call 'erlang':'>='
+						  (Column, 1)
+					  -| ['compiler_generated'] )
+					( <( 'false'
+					     -| ['compiler_generated'] )> when 'true' ->
+					      'false'
+					  -| ['compiler_generated'] )
+					( <_3> when 'true' ->
+					      ( call ( 'erlang'
+						       -| ['compiler_generated'] ):( 'error'
+										     -| ['compiler_generated'] )
+						    (( {( 'badarg'
+							  -| ['compiler_generated'] ),_3}
+						       -| ['compiler_generated'] ))
+						-| ['compiler_generated'] )
+					  -| ['compiler_generated'] )
+				      end
+				  in  let <_6> =
+					  call 'erlang':'=:='
+					      (( _5
+						 -| ['compiler_generated'] ), 'true')
+				      in  let <_7> =
+					      call 'erlang':'and'
+						  (_2, _6)
+					  in  call 'erlang':'and'
+						  (_1, _7)
+				  -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 168
+		  Column
+	      %% Line 169
+	      <Line>
+		  when let <_8> =
+			call 'erlang':'is_integer'
+			    (( _0
+			       -| [{'function',{'column',1}}] ))
+		    in  let <_9> =
+			    call 'erlang':'>='
+				(( _0
+				   -| [{'function',{'column',1}}] ), 0)
+			in  call 'erlang':'and'
+				(_8, _9) ->
+		  %% Line 170
+		  'undefined'
+	      %% Line 171
+	      <Anno> when 'true' ->
+		  %% Line 172
+		  case apply 'location'/1
+			   (Anno) of
+		    %% Line 173
+		    <{_X_Line,Column}> when 'true' ->
+			%% Line 174
+			Column
+		    %% Line 175
+		    <_X_Line> when 'true' ->
+			%% Line 176
+			'undefined'
+		  end
+	    end
+	    -| [{'function',{'column',1}}] )
+      -| [{'function',{'column',1}}] )
+'end_location'/1 =
+    %% Line 182
+    ( fun (_0) ->
+	  %% Line 183
+	  case apply 'text'/1
+		   (( _0
+		      -| [{'function',{'end_location',1}}] )) of
+	    %% Line 184
+	    <'undefined'> when 'true' ->
+		%% Line 185
+		'undefined'
+	    %% Line 186
+	    <Text> when 'true' ->
+		%% Line 187
+		case apply 'location'/1
+			 (( _0
+			    -| [{'function',{'end_location',1}}] )) of
+		  %% Line 188
+		  <{Line,Column}> when 'true' ->
+		      %% Line 189
+		      apply 'end_location'/3
+			  (Text, Line, Column)
+		  %% Line 190
+		  <Line> when 'true' ->
+		      %% Line 191
+		      apply 'end_location'/2
+			  (Text, Line)
+		end
+	  end
+      -| [{'function',{'end_location',1}}] )
+'file'/1 =
+    %% Line 198
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'file',1}}] ) of
+	      <Line>
+		  when let <_1> =
+			call 'erlang':'is_integer'
+			    (( _0
+			       -| [{'function',{'file',1}}] ))
+		    in  let <_2> =
+			    call 'erlang':'>='
+				(( _0
+				   -| [{'function',{'file',1}}] ), 0)
+			in  call 'erlang':'and'
+				(_1, _2) ->
+		  %% Line 199
+		  'undefined'
+	      %% Line 200
+	      <{Line,Column}>
+		  when try
+			let <_3> =
+			    call 'erlang':'is_integer'
+				(Line)
+			in  let <_4> =
+				call 'erlang':'>='
+				    (Line, 0)
+			    in  ( let <_7> =
+				      case call 'erlang':'is_integer'
+					       (Column) of
+					( <( 'true'
+					     -| ['compiler_generated'] )> when 'true' ->
+					      call 'erlang':'>='
+						  (Column, 1)
+					  -| ['compiler_generated'] )
+					( <( 'false'
+					     -| ['compiler_generated'] )> when 'true' ->
+					      'false'
+					  -| ['compiler_generated'] )
+					( <_5> when 'true' ->
+					      ( call ( 'erlang'
+						       -| ['compiler_generated'] ):( 'error'
+										     -| ['compiler_generated'] )
+						    (( {( 'badarg'
+							  -| ['compiler_generated'] ),_5}
+						       -| ['compiler_generated'] ))
+						-| ['compiler_generated'] )
+					  -| ['compiler_generated'] )
+				      end
+				  in  let <_8> =
+					  call 'erlang':'=:='
+					      (( _7
+						 -| ['compiler_generated'] ), 'true')
+				      in  let <_9> =
+					      call 'erlang':'and'
+						  (_4, _8)
+					  in  call 'erlang':'and'
+						  (_3, _9)
+				  -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 201
+		  'undefined'
+	      %% Line 202
+	      <Anno> when 'true' ->
+		  %% Line 203
+		  apply 'anno_info'/2
+		      (Anno, 'file')
+	    end
+	    -| [{'function',{'file',1}}] )
+      -| [{'function',{'file',1}}] )
+'generated'/1 =
+    %% Line 208
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'generated',1}}] ) of
+	      <Line>
+		  when let <_1> =
+			call 'erlang':'is_integer'
+			    (( _0
+			       -| [{'function',{'generated',1}}] ))
+		    in  let <_2> =
+			    call 'erlang':'>='
+				(( _0
+				   -| [{'function',{'generated',1}}] ), 0)
+			in  call 'erlang':'and'
+				(_1, _2) ->
+		  %% Line 209
+		  'false'
+	      %% Line 210
+	      <{Line,Column}>
+		  when try
+			let <_3> =
+			    call 'erlang':'is_integer'
+				(Line)
+			in  let <_4> =
+				call 'erlang':'>='
+				    (Line, 0)
+			    in  ( let <_7> =
+				      case call 'erlang':'is_integer'
+					       (Column) of
+					( <( 'true'
+					     -| ['compiler_generated'] )> when 'true' ->
+					      call 'erlang':'>='
+						  (Column, 1)
+					  -| ['compiler_generated'] )
+					( <( 'false'
+					     -| ['compiler_generated'] )> when 'true' ->
+					      'false'
+					  -| ['compiler_generated'] )
+					( <_5> when 'true' ->
+					      ( call ( 'erlang'
+						       -| ['compiler_generated'] ):( 'error'
+										     -| ['compiler_generated'] )
+						    (( {( 'badarg'
+							  -| ['compiler_generated'] ),_5}
+						       -| ['compiler_generated'] ))
+						-| ['compiler_generated'] )
+					  -| ['compiler_generated'] )
+				      end
+				  in  let <_8> =
+					  call 'erlang':'=:='
+					      (( _7
+						 -| ['compiler_generated'] ), 'true')
+				      in  let <_9> =
+					      call 'erlang':'and'
+						  (_4, _8)
+					  in  call 'erlang':'and'
+						  (_3, _9)
+				  -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 211
+		  'false'
+	      %% Line 212
+	      <Anno> when 'true' ->
+		  %% Line 213
+		  apply 'anno_info'/3
+		      (Anno, 'generated', 'false')
+	    end
+	    -| [{'function',{'generated',1}}] )
+      -| [{'function',{'generated',1}}] )
+'line'/1 =
+    %% Line 218
+    ( fun (_0) ->
+	  %% Line 219
+	  case apply 'location'/1
+		   (( _0
+		      -| [{'function',{'line',1}}] )) of
+	    %% Line 220
+	    <{Line,_X_Column}> when 'true' ->
+		%% Line 221
+		Line
+	    %% Line 222
+	    <Line> when 'true' ->
+		%% Line 223
+		Line
+	  end
+      -| [{'function',{'line',1}}] )
+'location'/1 =
+    %% Line 229
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'location',1}}] ) of
+	      <Line>
+		  when let <_1> =
+			call 'erlang':'is_integer'
+			    (( _0
+			       -| [{'function',{'location',1}}] ))
+		    in  let <_2> =
+			    call 'erlang':'>='
+				(( _0
+				   -| [{'function',{'location',1}}] ), 0)
+			in  call 'erlang':'and'
+				(_1, _2) ->
+		  %% Line 230
+		  Line
+	      %% Line 231
+	      <Location = {Line,Column}>
+		  when try
+			let <_3> =
+			    call 'erlang':'is_integer'
+				(Line)
+			in  let <_4> =
+				call 'erlang':'>='
+				    (Line, 0)
+			    in  ( let <_7> =
+				      case call 'erlang':'is_integer'
+					       (Column) of
+					( <( 'true'
+					     -| ['compiler_generated'] )> when 'true' ->
+					      call 'erlang':'>='
+						  (Column, 1)
+					  -| ['compiler_generated'] )
+					( <( 'false'
+					     -| ['compiler_generated'] )> when 'true' ->
+					      'false'
+					  -| ['compiler_generated'] )
+					( <_5> when 'true' ->
+					      ( call ( 'erlang'
+						       -| ['compiler_generated'] ):( 'error'
+										     -| ['compiler_generated'] )
+						    (( {( 'badarg'
+							  -| ['compiler_generated'] ),_5}
+						       -| ['compiler_generated'] ))
+						-| ['compiler_generated'] )
+					  -| ['compiler_generated'] )
+				      end
+				  in  let <_8> =
+					  call 'erlang':'=:='
+					      (( _7
+						 -| ['compiler_generated'] ), 'true')
+				      in  let <_9> =
+					      call 'erlang':'and'
+						  (_4, _8)
+					  in  call 'erlang':'and'
+						  (_3, _9)
+				  -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 232
+		  Location
+	      %% Line 233
+	      <Anno> when 'true' ->
+		  %% Line 234
+		  apply 'anno_info'/2
+		      (Anno, 'location')
+	    end
+	    -| [{'function',{'location',1}}] )
+      -| [{'function',{'location',1}}] )
+'record'/1 =
+    %% Line 239
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'record',1}}] ) of
+	      <Line>
+		  when let <_1> =
+			call 'erlang':'is_integer'
+			    (( _0
+			       -| [{'function',{'record',1}}] ))
+		    in  let <_2> =
+			    call 'erlang':'>='
+				(( _0
+				   -| [{'function',{'record',1}}] ), 0)
+			in  call 'erlang':'and'
+				(_1, _2) ->
+		  %% Line 240
+		  'false'
+	      %% Line 241
+	      <{Line,Column}>
+		  when try
+			let <_3> =
+			    call 'erlang':'is_integer'
+				(Line)
+			in  let <_4> =
+				call 'erlang':'>='
+				    (Line, 0)
+			    in  ( let <_7> =
+				      case call 'erlang':'is_integer'
+					       (Column) of
+					( <( 'true'
+					     -| ['compiler_generated'] )> when 'true' ->
+					      call 'erlang':'>='
+						  (Column, 1)
+					  -| ['compiler_generated'] )
+					( <( 'false'
+					     -| ['compiler_generated'] )> when 'true' ->
+					      'false'
+					  -| ['compiler_generated'] )
+					( <_5> when 'true' ->
+					      ( call ( 'erlang'
+						       -| ['compiler_generated'] ):( 'error'
+										     -| ['compiler_generated'] )
+						    (( {( 'badarg'
+							  -| ['compiler_generated'] ),_5}
+						       -| ['compiler_generated'] ))
+						-| ['compiler_generated'] )
+					  -| ['compiler_generated'] )
+				      end
+				  in  let <_8> =
+					  call 'erlang':'=:='
+					      (( _7
+						 -| ['compiler_generated'] ), 'true')
+				      in  let <_9> =
+					      call 'erlang':'and'
+						  (_4, _8)
+					  in  call 'erlang':'and'
+						  (_3, _9)
+				  -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 242
+		  'false'
+	      %% Line 243
+	      <Anno> when 'true' ->
+		  %% Line 244
+		  apply 'anno_info'/3
+		      (Anno, 'record', 'false')
+	    end
+	    -| [{'function',{'record',1}}] )
+      -| [{'function',{'record',1}}] )
+'text'/1 =
+    %% Line 249
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'text',1}}] ) of
+	      <Line>
+		  when let <_1> =
+			call 'erlang':'is_integer'
+			    (( _0
+			       -| [{'function',{'text',1}}] ))
+		    in  let <_2> =
+			    call 'erlang':'>='
+				(( _0
+				   -| [{'function',{'text',1}}] ), 0)
+			in  call 'erlang':'and'
+				(_1, _2) ->
+		  %% Line 250
+		  'undefined'
+	      %% Line 251
+	      <{Line,Column}>
+		  when try
+			let <_3> =
+			    call 'erlang':'is_integer'
+				(Line)
+			in  let <_4> =
+				call 'erlang':'>='
+				    (Line, 0)
+			    in  ( let <_7> =
+				      case call 'erlang':'is_integer'
+					       (Column) of
+					( <( 'true'
+					     -| ['compiler_generated'] )> when 'true' ->
+					      call 'erlang':'>='
+						  (Column, 1)
+					  -| ['compiler_generated'] )
+					( <( 'false'
+					     -| ['compiler_generated'] )> when 'true' ->
+					      'false'
+					  -| ['compiler_generated'] )
+					( <_5> when 'true' ->
+					      ( call ( 'erlang'
+						       -| ['compiler_generated'] ):( 'error'
+										     -| ['compiler_generated'] )
+						    (( {( 'badarg'
+							  -| ['compiler_generated'] ),_5}
+						       -| ['compiler_generated'] ))
+						-| ['compiler_generated'] )
+					  -| ['compiler_generated'] )
+				      end
+				  in  let <_8> =
+					  call 'erlang':'=:='
+					      (( _7
+						 -| ['compiler_generated'] ), 'true')
+				      in  let <_9> =
+					      call 'erlang':'and'
+						  (_4, _8)
+					  in  call 'erlang':'and'
+						  (_3, _9)
+				  -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 252
+		  'undefined'
+	      %% Line 253
+	      <Anno> when 'true' ->
+		  %% Line 254
+		  apply 'anno_info'/2
+		      (Anno, 'text')
+	    end
+	    -| [{'function',{'text',1}}] )
+      -| [{'function',{'text',1}}] )
+'set_file'/2 =
+    %% Line 260
+    ( fun (_0,_1) ->
+	  %% Line 261
+	  apply 'set'/3
+	      ('file', _0, _1)
+      -| [{'function',{'set_file',2}}] )
+'set_generated'/2 =
+    %% Line 267
+    ( fun (_0,_1) ->
+	  %% Line 268
+	  apply 'set'/3
+	      ('generated', _0, _1)
+      -| [{'function',{'set_generated',2}}] )
+'set_line'/2 =
+    %% Line 274
+    ( fun (_0,_1) ->
+	  %% Line 275
+	  case apply 'location'/1
+		   (_1) of
+	    %% Line 276
+	    <{_X_Line,Column}> when 'true' ->
+		%% Line 277
+		apply 'set_location'/2
+		    ({_0,Column}, _1)
+	    %% Line 278
+	    <_X_Line> when 'true' ->
+		%% Line 279
+		apply 'set_location'/2
+		    (_0, _1)
+	  end
+      -| [{'function',{'set_line',2}}] )
+'set_location'/2 =
+    %% Line 286
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <Line,L>
+		  when try
+			let <_2> =
+			    call 'erlang':'is_integer'
+				(L)
+			in  let <_3> =
+				call 'erlang':'>='
+				    (L, 0)
+			    in  let <_4> =
+				    call 'erlang':'is_integer'
+					(Line)
+				in  let <_5> =
+					call 'erlang':'>='
+					    (Line, 0)
+				    in  let <_6> =
+					    call 'erlang':'and'
+						(_4, _5)
+					in  let <_7> =
+						call 'erlang':'and'
+						    (_3, _6)
+					    in  call 'erlang':'and'
+						    (_2, _7)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 287
+		  apply 'new_location'/1
+		      (Line)
+	      %% Line 288
+	      <Line,{L,Column}>
+		  when try
+			let <_8> =
+			    call 'erlang':'is_integer'
+				(L)
+			in  let <_9> =
+				call 'erlang':'>='
+				    (L, 0)
+			    in  ( let <_12> =
+				      case call 'erlang':'is_integer'
+					       (Column) of
+					( <( 'true'
+					     -| ['compiler_generated'] )> when 'true' ->
+					      call 'erlang':'>='
+						  (Column, 1)
+					  -| ['compiler_generated'] )
+					( <( 'false'
+					     -| ['compiler_generated'] )> when 'true' ->
+					      'false'
+					  -| ['compiler_generated'] )
+					( <_10> when 'true' ->
+					      ( call ( 'erlang'
+						       -| ['compiler_generated'] ):( 'error'
+										     -| ['compiler_generated'] )
+						    (( {( 'badarg'
+							  -| ['compiler_generated'] ),_10}
+						       -| ['compiler_generated'] ))
+						-| ['compiler_generated'] )
+					  -| ['compiler_generated'] )
+				      end
+				  in  let <_13> =
+					  call 'erlang':'=:='
+					      (( _12
+						 -| ['compiler_generated'] ), 'true')
+				      in  let <_14> =
+					      call %% Line 289
+						   'erlang':%% Line 289
+							    'is_integer'
+						  (%% Line 289
+						   Line)
+					  in  let <_15> =
+						  call %% Line 289
+						       'erlang':%% Line 289
+								'>='
+						      (%% Line 289
+						       Line, %% Line 289
+							     0)
+					      in  let <_16> =
+						      call 'erlang':'and'
+							  (_14, _15)
+						  in  let <_17> =
+							  call 'erlang':'and'
+							      (_13, _16)
+						      in  let <_18> =
+							      call 'erlang':'and'
+								  (_9, _17)
+							  in  call 'erlang':'and'
+								  (_8, _18)
+				  -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 290
+		  apply 'new_location'/1
+		      (Line)
+	      %% Line 291
+	      <Loc = {L,C},Line>
+		  when try
+			let <_19> =
+			    call 'erlang':'is_integer'
+				(Line)
+			in  let <_20> =
+				call 'erlang':'>='
+				    (Line, 0)
+			    in  let <_21> =
+				    call 'erlang':'is_integer'
+					(L)
+				in  let <_22> =
+					call 'erlang':'>='
+					    (L, 0)
+				    in  ( let <_25> =
+					      case call 'erlang':'is_integer'
+						       (C) of
+						( <( 'true'
+						     -| ['compiler_generated'] )> when 'true' ->
+						      call 'erlang':'>='
+							  (C, 1)
+						  -| ['compiler_generated'] )
+						( <( 'false'
+						     -| ['compiler_generated'] )> when 'true' ->
+						      'false'
+						  -| ['compiler_generated'] )
+						( <_23> when 'true' ->
+						      ( call ( 'erlang'
+							       -| ['compiler_generated'] ):( 'error'
+											     -| ['compiler_generated'] )
+							    (( {( 'badarg'
+								  -| ['compiler_generated'] ),_23}
+							       -| ['compiler_generated'] ))
+							-| ['compiler_generated'] )
+						  -| ['compiler_generated'] )
+					      end
+					  in  let <_26> =
+						  call 'erlang':'=:='
+						      (( _25
+							 -| ['compiler_generated'] ), 'true')
+					      in  let <_27> =
+						      call 'erlang':'and'
+							  (_22, _26)
+						  in  let <_28> =
+							  call 'erlang':'and'
+							      (_21, _27)
+						      in  let <_29> =
+							      call 'erlang':'and'
+								  (_20, _28)
+							  in  call 'erlang':'and'
+								  (_19, _29)
+					  -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 292
+		  apply 'new_location'/1
+		      (Loc)
+	      %% Line 293
+	      <Loc = {L,C},{Line,Column}>
+		  when try
+			let <_30> =
+			    call 'erlang':'is_integer'
+				(Line)
+			in  let <_31> =
+				call 'erlang':'>='
+				    (Line, 0)
+			    in  ( let <_34> =
+				      case call 'erlang':'is_integer'
+					       (Column) of
+					( <( 'true'
+					     -| ['compiler_generated'] )> when 'true' ->
+					      call 'erlang':'>='
+						  (Column, 1)
+					  -| ['compiler_generated'] )
+					( <( 'false'
+					     -| ['compiler_generated'] )> when 'true' ->
+					      'false'
+					  -| ['compiler_generated'] )
+					( <_32> when 'true' ->
+					      ( call ( 'erlang'
+						       -| ['compiler_generated'] ):( 'error'
+										     -| ['compiler_generated'] )
+						    (( {( 'badarg'
+							  -| ['compiler_generated'] ),_32}
+						       -| ['compiler_generated'] ))
+						-| ['compiler_generated'] )
+					  -| ['compiler_generated'] )
+				      end
+				  in  let <_35> =
+					  call 'erlang':'=:='
+					      (( _34
+						 -| ['compiler_generated'] ), 'true')
+				      in  let <_36> =
+					      call %% Line 294
+						   'erlang':%% Line 294
+							    'is_integer'
+						  (%% Line 294
+						   L)
+					  in  let <_37> =
+						  call %% Line 294
+						       'erlang':%% Line 294
+								'>='
+						      (%% Line 294
+						       L, %% Line 294
+							  0)
+					      in  ( let <_40> =
+							case %% Line 294
+							     call 'erlang':'is_integer'
+								 (C) of
+							  %% Line 294
+							  ( <( 'true'
+							       -| ['compiler_generated'] )> when 'true' ->
+								call 'erlang':'>='
+								    (C, 1)
+							    -| ['compiler_generated'] )
+							  %% Line 294
+							  ( <( 'false'
+							       -| ['compiler_generated'] )> when 'true' ->
+								'false'
+							    -| ['compiler_generated'] )
+							  %% Line 294
+							  ( <_38> when 'true' ->
+								( call ( 'erlang'
+									 -| ['compiler_generated'] ):( 'error'
+												       -| ['compiler_generated'] )
+								      (( {( 'badarg'
+									    -| ['compiler_generated'] ),_38}
+									 -| ['compiler_generated'] ))
+								  -| ['compiler_generated'] )
+							    -| ['compiler_generated'] )
+							end
+						    in  let <_41> =
+							    call 'erlang':'=:='
+								(%% Line 294
+								 ( _40
+								   -| ['compiler_generated'] ), 'true')
+							in  let <_42> =
+								call 'erlang':'and'
+								    (_37, _41)
+							    in  let <_43> =
+								    call 'erlang':'and'
+									(_36, _42)
+								in  let <_44> =
+									call 'erlang':'and'
+									    (_35, _43)
+								    in  let <_45> =
+									    call 'erlang':'and'
+										(_31, _44)
+									in  call 'erlang':'and'
+										(_30, _45)
+						    -| ['compiler_generated'] )
+				  -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 295
+		  apply 'new_location'/1
+		      (Loc)
+	      %% Line 296
+	      <Location,Anno> when 'true' ->
+		  %% Line 297
+		  apply 'set'/3
+		      ('location', Location, Anno)
+	    end
+	    -| [{'function',{'set_location',2}}] )
+      -| [{'function',{'set_location',2}}] )
+'set_record'/2 =
+    %% Line 303
+    ( fun (_0,_1) ->
+	  %% Line 304
+	  apply 'set'/3
+	      ('record', _0, _1)
+      -| [{'function',{'set_record',2}}] )
+'set_text'/2 =
+    %% Line 310
+    ( fun (_0,_1) ->
+	  %% Line 311
+	  apply 'set'/3
+	      ('text', _0, _1)
+      -| [{'function',{'set_text',2}}] )
+'set'/3 =
+    %% Line 313
+    ( fun (_0,_1,_2) ->
+	  let <_3> =
+	      apply %% Line 314
+		    'is_settable'/2
+		  (_0, _1)
+	  in  %% Line 314
+	      case <_3,_2> of
+		%% Line 315
+		<( 'true'
+		   -| ['compiler_generated'] ),Line>
+		    when let <_4> =
+			  call 'erlang':'is_integer'
+			      (Line)
+		      in  let <_5> =
+			      call 'erlang':'>='
+				  (Line, 0)
+			  in  call 'erlang':'and'
+				  (_4, _5) ->
+		    %% Line 316
+		    apply 'set_anno'/3
+			(_0, _1, [{'location',Line}|[]])
+		%% Line 317
+		<( 'true'
+		   -| ['compiler_generated'] ),Location = ( {L,C}
+							    -| ['compiler_generated'] )>
+		    when try
+			  let <_6> =
+			      call 'erlang':'is_integer'
+				  (L)
+			  in  let <_7> =
+				  call 'erlang':'>='
+				      (L, 0)
+			      in  ( let <_10> =
+					case call 'erlang':'is_integer'
+						 (C) of
+					  ( <( 'true'
+					       -| ['compiler_generated'] )> when 'true' ->
+						call 'erlang':'>='
+						    (C, 1)
+					    -| ['compiler_generated'] )
+					  ( <( 'false'
+					       -| ['compiler_generated'] )> when 'true' ->
+						'false'
+					    -| ['compiler_generated'] )
+					  ( <_8> when 'true' ->
+						( call ( 'erlang'
+							 -| ['compiler_generated'] ):( 'error'
+										       -| ['compiler_generated'] )
+						      (( {( 'badarg'
+							    -| ['compiler_generated'] ),_8}
+							 -| ['compiler_generated'] ))
+						  -| ['compiler_generated'] )
+					    -| ['compiler_generated'] )
+					end
+				    in  let <_11> =
+					    call 'erlang':'=:='
+						(( _10
+						   -| ['compiler_generated'] ), 'true')
+					in  let <_12> =
+						call 'erlang':'and'
+						    (_7, _11)
+					    in  call 'erlang':'and'
+						    (_6, _12)
+				    -| ['compiler_generated'] )
+		      of <Try> ->
+			  Try
+		      catch <T,R> ->
+			  'false' ->
+		    %% Line 318
+		    apply 'set_anno'/3
+			(_0, _1, [{'location',Location}|[]])
+		%% Line 319
+		<( 'true'
+		   -| ['compiler_generated'] ),A>
+		    when let <_13> =
+			  call 'erlang':'is_list'
+			      (A)
+		      in  let <_14> =
+			      call 'erlang':'=/='
+				  (A, [])
+			  in  call 'erlang':'and'
+				  (_13, _14) ->
+		    %% Line 320
+		    apply 'set_anno'/3
+			(_0, _1, _2)
+		%% Line 321
+		<( _20
+		   -| ['compiler_generated'] ),( _21
+						 -| ['compiler_generated'] )> when 'true' ->
+		    %% Line 322
+		    call 'erlang':'error'
+			('badarg', [_0|[_1|[_2|[]]]])
+	      end
+      -| [{'function',{'set',3}}] )
+'set_anno'/3 =
+    %% Line 325
+    ( fun (_0,_1,_2) ->
+	  %% Line 326
+	  case apply 'default'/2
+		   (_0, _1) of
+	    %% Line 327
+	    <'true'> when 'true' ->
+		%% Line 328
+		apply 'reset'/2
+		    (_2, _0)
+	    %% Line 329
+	    <'false'> when 'true' ->
+		let <_4> =
+		    case %% Line 330
+			 apply 'anno_info'/2
+			     (_2, _0) of
+		      %% Line 331
+		      <'undefined'> when 'true' ->
+			  %% Line 332
+			  [{_0,_1}|_2]
+		      %% Line 333
+		      <_10> when 'true' ->
+			  %% Line 334
+			  call 'lists':'keyreplace'
+			      (_0, 1, _2, {_0,_1})
+		    end
+		in  %% Line 336
+		    apply 'reset_simplify'/1
+			(_4)
+	    ( <_6> when 'true' ->
+		  primop 'match_fail'
+		      ({'case_clause',_6})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'set_anno',3}}] )
+'reset'/2 =
+    %% Line 339
+    ( fun (_0,_1) ->
+	  let <A> =
+	      call %% Line 340
+		   'lists':%% Line 340
+			   'keydelete'
+		  (_1, %% Line 340
+		       1, _0)
+	  in  %% Line 341
+	      apply 'reset_simplify'/1
+		  (A)
+      -| [{'function',{'reset',2}}] )
+'reset_simplify'/1 =
+    %% Line 347
+    ( fun (_0) ->
+	  %% Line 348
+	  apply 'simplify'/1
+	      (( _0
+		 -| [{'function',{'reset_simplify',1}}] ))
+      -| [{'function',{'reset_simplify',1}}] )
+'simplify'/1 =
+    %% Line 351
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'simplify',1}}] ) of
+	      <[{'location',Location}|[]]> when 'true' ->
+		  %% Line 352
+		  Location
+	      %% Line 353
+	      <Anno> when 'true' ->
+		  %% Line 354
+		  Anno
+	    end
+	    -| [{'function',{'simplify',1}}] )
+      -| [{'function',{'simplify',1}}] )
+'anno_info'/3 =
+    %% Line 356
+    ( fun (_0,_1,_2) ->
+	  %% Line 357
+	  try
+	      call 'lists':'keyfind'
+		  (_1, 1, _0)
+	  of <_3> ->
+	      case _3 of
+		%% Line 358
+		<'false'> when 'true' ->
+		    _2
+		%% Line 360
+		<{_11,Value}>
+		    when call 'erlang':'=:='
+			  (_11,
+			   _1) ->
+		    %% Line 361
+		    Value
+		( <_4> when 'true' ->
+		      primop 'match_fail'
+			  ({'try_clause',_4})
+		  -| ['compiler_generated'] )
+	      end
+	  catch <_7,_6,_5> ->
+	      %% Line 364
+	      call 'erlang':'error'
+		  ('badarg', [_0|[]])
+      -| [{'function',{'anno_info',3}}] )
+'anno_info'/2 =
+    %% Line 367
+    ( fun (_0,_1) ->
+	  %% Line 368
+	  try
+	      call 'lists':'keyfind'
+		  (_1, 1, _0)
+	  of <_2> ->
+	      case _2 of
+		%% Line 369
+		<{_9,Value}>
+		    when call 'erlang':'=:='
+			  (_9,
+			   _1) ->
+		    %% Line 370
+		    Value
+		%% Line 371
+		<'false'> when 'true' ->
+		    %% Line 372
+		    'undefined'
+		( <_3> when 'true' ->
+		      primop 'match_fail'
+			  ({'try_clause',_3})
+		  -| ['compiler_generated'] )
+	      end
+	  catch <_6,_5,_4> ->
+	      %% Line 375
+	      call 'erlang':'error'
+		  ('badarg', [_0|[]])
+      -| [{'function',{'anno_info',2}}] )
+'end_location'/3 =
+    %% Line 378
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <[],Line,Column> when 'true' ->
+		  %% Line 379
+		  {Line,Column}
+	      %% Line 380
+	      <[10|String],Line,_X_Column> when 'true' ->
+		  let <_3> =
+		      call %% Line 381
+			   'erlang':%% Line 381
+				    '+'
+			  (%% Line 381
+			   Line, %% Line 381
+				 1)
+		  in  %% Line 381
+		      apply 'end_location'/3
+			  (String, _3, 1)
+	      %% Line 382
+	      <[_8|String],Line,Column> when 'true' ->
+		  let <_4> =
+		      call %% Line 383
+			   'erlang':%% Line 383
+				    '+'
+			  (%% Line 383
+			   Column, %% Line 383
+				   1)
+		  in  %% Line 383
+		      apply 'end_location'/3
+			  (String, Line, _4)
+	      ( <_7,_6,_5> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_7,_6,_5})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'end_location',3}}] )
+      -| [{'function',{'end_location',3}}] )
+'end_location'/2 =
+    %% Line 385
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <[],Line> when 'true' ->
+		  %% Line 386
+		  Line
+	      %% Line 387
+	      <[10|String],Line> when 'true' ->
+		  let <_2> =
+		      call %% Line 388
+			   'erlang':%% Line 388
+				    '+'
+			  (%% Line 388
+			   Line, %% Line 388
+				 1)
+		  in  %% Line 388
+		      apply 'end_location'/2
+			  (String, _2)
+	      %% Line 389
+	      <[_5|String],Line> when 'true' ->
+		  %% Line 390
+		  apply 'end_location'/2
+		      (String, Line)
+	      ( <_4,_3> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_4,_3})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'end_location',2}}] )
+      -| [{'function',{'end_location',2}}] )
+'is_settable'/2 =
+    %% Line 392
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <'file',File> when 'true' ->
+		  %% Line 393
+		  apply 'is_filename'/1
+		      (File)
+	      %% Line 394
+	      <'generated',Boolean>
+		  when let <_2> =
+			call 'erlang':'=:='
+			    (Boolean, 'true')
+		    in  let <_4> =
+			    call 'erlang':'=:='
+				(Boolean, 'false')
+			in  call 'erlang':'or'
+				(_2, _4) ->
+		  %% Line 395
+		  'true'
+	      %% Line 396
+	      <'location',Line>
+		  when let <_5> =
+			call 'erlang':'is_integer'
+			    (Line)
+		    in  let <_6> =
+			    call 'erlang':'>='
+				(Line, 0)
+			in  call 'erlang':'and'
+				(_5, _6) ->
+		  %% Line 397
+		  'true'
+	      %% Line 398
+	      <'location',{Line,Column}>
+		  when try
+			let <_7> =
+			    call 'erlang':'is_integer'
+				(Line)
+			in  let <_8> =
+				call 'erlang':'>='
+				    (Line, 0)
+			    in  ( let <_11> =
+				      case call 'erlang':'is_integer'
+					       (Column) of
+					( <( 'true'
+					     -| ['compiler_generated'] )> when 'true' ->
+					      call 'erlang':'>='
+						  (Column, 1)
+					  -| ['compiler_generated'] )
+					( <( 'false'
+					     -| ['compiler_generated'] )> when 'true' ->
+					      'false'
+					  -| ['compiler_generated'] )
+					( <_9> when 'true' ->
+					      ( call ( 'erlang'
+						       -| ['compiler_generated'] ):( 'error'
+										     -| ['compiler_generated'] )
+						    (( {( 'badarg'
+							  -| ['compiler_generated'] ),_9}
+						       -| ['compiler_generated'] ))
+						-| ['compiler_generated'] )
+					  -| ['compiler_generated'] )
+				      end
+				  in  let <_12> =
+					  call 'erlang':'=:='
+					      (( _11
+						 -| ['compiler_generated'] ), 'true')
+				      in  let <_13> =
+					      call 'erlang':'and'
+						  (_8, _12)
+					  in  call 'erlang':'and'
+						  (_7, _13)
+				  -| ['compiler_generated'] )
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 399
+		  'true'
+	      %% Line 400
+	      <'record',Boolean>
+		  when let <_14> =
+			call 'erlang':'=:='
+			    (Boolean, 'true')
+		    in  let <_16> =
+			    call 'erlang':'=:='
+				(Boolean, 'false')
+			in  call 'erlang':'or'
+				(_14, _16) ->
+		  %% Line 401
+		  'true'
+	      %% Line 402
+	      <'text',Text> when 'true' ->
+		  %% Line 403
+		  apply 'is_string'/1
+		      (Text)
+	      %% Line 404
+	      <_19,_20> when 'true' ->
+		  %% Line 405
+		  'false'
+	    end
+	    -| [{'function',{'is_settable',2}}] )
+      -| [{'function',{'is_settable',2}}] )
+'default'/2 =
+    %% Line 407
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <'generated','false'> when 'true' ->
+		  'true'
+	      %% Line 408
+	      <'record','false'> when 'true' ->
+		  'true'
+	      %% Line 409
+	      <_4,_5> when 'true' ->
+		  'false'
+	    end
+	    -| [{'function',{'default',2}}] )
+      -| [{'function',{'default',2}}] )
+'module_info'/0 =
+    ( fun () ->
+	  call 'erlang':'get_module_info'
+	      ('erl_anno')
+      -| [{'function',{'module_info',0}}] )
+'module_info'/1 =
+    ( fun (_0) ->
+	  call 'erlang':'get_module_info'
+	      ('erl_anno', ( _0
+			     -| [{'function',{'module_info',1}}] ))
+      -| [{'function',{'module_info',1}}] )
+end

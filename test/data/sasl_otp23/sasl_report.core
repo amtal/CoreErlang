@@ -1,0 +1,815 @@
+module 'sasl_report' ['format_report'/3,
+		      'module_info'/0,
+		      'module_info'/1,
+		      'write_report'/3]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[115|[97|[115|[108|[95|[114|[101|[112|[111|[114|[116|[46|[101|[114|[108]]]]]]]]]]]]]]]]]]],1}]]
+'format_report'/3 =
+    %% Line 24
+    ( fun (_0,_1,_2) ->
+	  %% Line 25
+	  apply 'io_report'/4
+	      ('io_lib', _0, _1, _2)
+      -| [{'function',{'format_report',3}}] )
+'write_report'/3 =
+    %% Line 27
+    ( fun (_0,_1,_2) ->
+	  %% Line 28
+	  apply 'io_report'/4
+	      ('io', _0, _1, _2)
+      -| [{'function',{'write_report',3}}] )
+'io_report'/4 =
+    %% Line 30
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <IO,Fd,What,{Time,{'error_report',_X_GL,{Pid,Type,Report}}}> when 'true' ->
+		  %% Line 31
+		  case apply 'is_my_error_report'/2
+			   (What, Type) of
+		    %% Line 32
+		    <'true'> when 'true' ->
+			let <Head> =
+			    apply %% Line 33
+				  'write_head'/3
+				(%% Line 33
+				 Type, %% Line 33
+				       Time, %% Line 33
+					     Pid)
+			in  %% Line 34
+			    apply 'write_report2'/5
+				(IO, Fd, Head, Type, Report)
+		    %% Line 35
+		    <_12> when 'true' ->
+			'true'
+		  end
+	      %% Line 37
+	      <IO,Fd,What,{Time,{'info_report',_X_GL,{Pid,Type,Report}}}> when 'true' ->
+		  %% Line 38
+		  case apply 'is_my_info_report'/2
+			   (What, Type) of
+		    %% Line 39
+		    <'true'> when 'true' ->
+			let <Head> =
+			    apply %% Line 40
+				  'write_head'/3
+				(%% Line 40
+				 Type, %% Line 40
+				       Time, %% Line 40
+					     Pid)
+			in  %% Line 41
+			    apply 'write_report2'/5
+				(IO, Fd, Head, Type, Report)
+		    %% Line 42
+		    <_13> when 'true' ->
+			'true'
+		  end
+	      %% Line 44
+	      <_X_IO,_X_Fd,_14,_15> when 'true' ->
+		  %% Line 45
+		  'false'
+	    end
+	    -| [{'function',{'io_report',4}}] )
+      -| [{'function',{'io_report',4}}] )
+'is_my_error_report'/2 =
+    %% Line 47
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <'all',Type> when 'true' ->
+		  apply 'is_my_error_report'/1
+		      (Type)
+	      %% Line 48
+	      <'error',Type> when 'true' ->
+		  apply 'is_my_error_report'/1
+		      (Type)
+	      %% Line 49
+	      <_4,_X_Type> when 'true' ->
+		  'false'
+	    end
+	    -| [{'function',{'is_my_error_report',2}}] )
+      -| [{'function',{'is_my_error_report',2}}] )
+'is_my_error_report'/1 =
+    %% Line 51
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'is_my_error_report',1}}] ) of
+	      <'supervisor_report'> when 'true' ->
+		  'true'
+	      %% Line 52
+	      <'crash_report'> when 'true' ->
+		  'true'
+	      %% Line 53
+	      <_2> when 'true' ->
+		  'false'
+	    end
+	    -| [{'function',{'is_my_error_report',1}}] )
+      -| [{'function',{'is_my_error_report',1}}] )
+'is_my_info_report'/2 =
+    %% Line 55
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <'all',Type> when 'true' ->
+		  apply 'is_my_info_report'/1
+		      (Type)
+	      %% Line 56
+	      <'progress',Type> when 'true' ->
+		  apply 'is_my_info_report'/1
+		      (Type)
+	      %% Line 57
+	      <_4,_X_Type> when 'true' ->
+		  'false'
+	    end
+	    -| [{'function',{'is_my_info_report',2}}] )
+      -| [{'function',{'is_my_info_report',2}}] )
+'is_my_info_report'/1 =
+    %% Line 59
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'is_my_info_report',1}}] ) of
+	      <'progress'> when 'true' ->
+		  'true'
+	      %% Line 60
+	      <_2> when 'true' ->
+		  'false'
+	    end
+	    -| [{'function',{'is_my_info_report',1}}] )
+      -| [{'function',{'is_my_info_report',1}}] )
+'write_report2'/5 =
+    %% Line 62
+    ( fun (_0,_1,_2,_3,_4) ->
+	  ( case <_0,_1,_2,_3,_4> of
+	      <IO,Fd,Head,'supervisor_report',Report> when 'true' ->
+		  let <Name> =
+		      apply %% Line 63
+			    'sup_get'/2
+			  (%% Line 63
+			   'supervisor', %% Line 63
+					 Report)
+		  in  let <Context> =
+			  apply %% Line 64
+				'sup_get'/2
+			      (%% Line 64
+			       'errorContext', %% Line 64
+					       Report)
+		      in  let <Reason> =
+			      apply %% Line 65
+				    'sup_get'/2
+				  (%% Line 65
+				   'reason', %% Line 65
+					     Report)
+			  in  let <Offender> =
+				  apply %% Line 66
+					'sup_get'/2
+				      (%% Line 66
+				       'offender', %% Line 66
+						   Report)
+			      in  let <Enc> =
+				      apply %% Line 67
+					    'encoding'/1
+					  (%% Line 67
+					   Fd)
+				  in  %% Line 68
+				      case apply 'supervisor_format'/2
+					       ([Name|[Context|[Reason|[Offender|[]]]]], Enc) of
+					<{FmtString,Args}> when 'true' ->
+					    let <String> =
+						call %% Line 69
+						     'io_lib':%% Line 69
+							      'format'
+						    (%% Line 69
+						     FmtString, %% Line 69
+								Args)
+					    in  %% Line 70
+						apply 'write_report_action'/4
+						    (IO, Fd, Head, String)
+					( <_10> when 'true' ->
+					      primop 'match_fail'
+						  ({'badmatch',_10})
+					  -| ['compiler_generated'] )
+				      end
+	      %% Line 71
+	      <IO,Fd,Head,'progress',Report> when 'true' ->
+		  let <Encoding> =
+		      apply %% Line 72
+			    'encoding'/1
+			  (%% Line 72
+			   Fd)
+		  in  let <Depth> =
+			  call %% Line 73
+			       'error_logger':%% Line 73
+					      'get_format_depth'
+			      ()
+		      in  let <String> =
+			      apply %% Line 74
+				    'format_key_val'/3
+				  (%% Line 74
+				   Report, %% Line 74
+					   Encoding, %% Line 74
+						     Depth)
+			  in  %% Line 75
+			      apply 'write_report_action'/4
+				  (IO, Fd, Head, String)
+	      %% Line 76
+	      <IO,Fd,Head,'crash_report',Report> when 'true' ->
+		  let <Encoding> =
+		      apply %% Line 77
+			    'encoding'/1
+			  (%% Line 77
+			   Fd)
+		  in  let <Depth> =
+			  call %% Line 78
+			       'error_logger':%% Line 78
+					      'get_format_depth'
+			      ()
+		      in  let <String> =
+			      call %% Line 79
+				   'proc_lib':%% Line 79
+					      'format'
+				  (%% Line 79
+				   Report, %% Line 79
+					   Encoding, %% Line 79
+						     Depth)
+			  in  %% Line 80
+			      apply 'write_report_action'/4
+				  (IO, Fd, Head, String)
+	      ( <_22,_21,_20,_19,_18> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_22,_21,_20,_19,_18})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'write_report2',5}}] )
+      -| [{'function',{'write_report2',5}}] )
+'supervisor_format'/2 =
+    %% Line 82
+    ( fun (_0,_1) ->
+	  let <_2> =
+	      call %% Line 83
+		   'error_logger':%% Line 83
+				  'get_format_depth'
+		  ()
+	  in  %% Line 83
+	      case apply 'p'/2
+		       (_1, _2) of
+		<{P,Tl}> when 'true' ->
+		    %% Line 84
+		    case _0 of
+		      <[A|[B|[C|[D|[]]]]]> when 'true' ->
+			  let <_5> =
+			      [%% Line 85
+			       C|%% Line 85
+				 call 'erlang':'++'
+				     (Tl, [D|Tl])]
+			  in  let <_6> =
+				  [%% Line 85
+				   B|%% Line 85
+				     call 'erlang':'++'
+					 (Tl, _5)]
+			      in  let <Args> =
+				      [%% Line 85
+				       A|%% Line 85
+					 call 'erlang':'++'
+					     (Tl, _6)]
+				  in  let <_8> =
+					  call %% Line 89
+					       'erlang':%% Line 89
+							'++'
+					      (%% Line 89
+					       P, %% Line 89
+						  [10|[126|[110]]])
+				      in  let <_9> =
+					      call %% Line 89
+						   'erlang':%% Line 89
+							    '++'
+						  (%% Line 88
+						   [10|[32|[32|[32|[32|[32|[79|[102|[102|[101|[110|[100|[101|[114|[58|[32|[32|[32|[126|[56|[48|[46|[49|[56]]]]]]]]]]]]]]]]]]]]]]]], _8)
+					  in  let <_10> =
+						  call %% Line 88
+						       'erlang':%% Line 88
+								'++'
+						      (%% Line 88
+						       P, _9)
+					      in  let <_11> =
+						      call %% Line 88
+							   'erlang':%% Line 88
+								    '++'
+							  (%% Line 87
+							   [10|[32|[32|[32|[32|[32|[82|[101|[97|[115|[111|[110|[58|[32|[32|[32|[32|[32|[126|[56|[48|[46|[49|[56]]]]]]]]]]]]]]]]]]]]]]]], _10)
+						  in  let <_12> =
+							  call %% Line 87
+							       'erlang':%% Line 87
+									'++'
+							      (%% Line 87
+							       P, _11)
+						      in  let <_13> =
+							      call %% Line 87
+								   'erlang':%% Line 87
+									    '++'
+								  (%% Line 86
+								   [10|[32|[32|[32|[32|[32|[67|[111|[110|[116|[101|[120|[116|[58|[32|[32|[32|[32|[126]]]]]]]]]]]]]]]]]]], _12)
+							  in  let <_14> =
+								  call %% Line 86
+								       'erlang':%% Line 86
+										'++'
+								      (%% Line 86
+								       P, _13)
+							      in  let <_15> =
+								      call %% Line 86
+									   'erlang':%% Line 86
+										    '++'
+									  (%% Line 86
+									   [32|[32|[32|[32|[32|[83|[117|[112|[101|[114|[118|[105|[115|[111|[114|[58|[32|[126]]]]]]]]]]]]]]]]]], _14)
+								  in  %% Line 86
+								      {_15,%% Line 90
+									   Args}
+		      ( <_4> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_4})
+			-| ['compiler_generated'] )
+		    end
+		( <_3> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_3})
+		  -| ['compiler_generated'] )
+	      end
+      -| [{'function',{'supervisor_format',2}}] )
+'write_report_action'/4 =
+    %% Line 92
+    ( fun (_0,_1,_2,_3) ->
+	  let <S> =
+	      [_2|_3]
+	  in  %% Line 94
+	      case _0 of
+		%% Line 95
+		<'io'> when 'true' ->
+		    call 'io':'put_chars'
+			(_1, S)
+		%% Line 96
+		<'io_lib'> when 'true' ->
+		    S
+		( <_5> when 'true' ->
+		      primop 'match_fail'
+			  ({'case_clause',_5})
+		  -| ['compiler_generated'] )
+	      end
+      -| [{'function',{'write_report_action',4}}] )
+'format_key_val'/3 =
+    %% Line 99
+    ( fun (_0,_1,_2) ->
+	  %% Line 100
+	  case apply 'p'/2
+		   (_1, _2) of
+	    <{P,Tl}> when 'true' ->
+		%% Line 101
+		apply 'format_key_val1'/3
+		    (_0, P, Tl)
+	    ( <_3> when 'true' ->
+		  primop 'match_fail'
+		      ({'badmatch',_3})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'format_key_val',3}}] )
+'format_key_val1'/3 =
+    %% Line 103
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <[{Tag,Data}|Rep],P,Tl> when 'true' ->
+		  let <_4> =
+		      call %% Line 104
+			   'erlang':%% Line 104
+				    '++'
+			  (%% Line 104
+			   P, %% Line 104
+			      [10])
+		  in  let <_5> =
+			  call %% Line 104
+			       'erlang':%% Line 104
+					'++'
+			      (%% Line 104
+			       [32|[32|[32|[32|[126|[49|[54|[119|[58|[32|[126]]]]]]]]]]], _4)
+		      in  let <_6> =
+			      call %% Line 104
+				   'io_lib':%% Line 104
+					    'format'
+				  (_5, %% Line 104
+				       [Tag|[Data|Tl]])
+			  in  let <_3> =
+				  apply %% Line 105
+					'format_key_val1'/3
+				      (%% Line 105
+				       Rep, %% Line 105
+					    P, %% Line 105
+					       Tl)
+			      in  %% Line 104
+				  call 'erlang':'++'
+				      (_6, _3)
+	      %% Line 106
+	      <_10,_11,_12> when 'true' ->
+		  %% Line 107
+		  []
+	    end
+	    -| [{'function',{'format_key_val1',3}}] )
+      -| [{'function',{'format_key_val1',3}}] )
+'p'/2 =
+    %% Line 109
+    ( fun (_0,_1) ->
+	  let <_10,_11> =
+	      case _1 of
+		%% Line 111
+		<'unlimited'> when 'true' ->
+		    <[112],[]>
+		%% Line 112
+		<_9> when 'true' ->
+		    <[80],[_1|[]]>
+	      end
+	  in  let <_5> =
+		  apply %% Line 114
+			'modifier'/1
+		      (_0)
+	      in  let <P> =
+		      call %% Line 114
+			   'erlang':%% Line 114
+				    '++'
+			  (_5, ( _10
+				 -| ['compiler_generated'] ))
+		  in  %% Line 115
+		      {P,( _11
+			   -| ['compiler_generated'] )}
+      -| [{'function',{'p',2}}] )
+'encoding'/1 =
+    %% Line 117
+    ( fun (_0) ->
+	  let <_1> =
+	      call %% Line 118
+		   'io':%% Line 118
+			'getopts'
+		  (( _0
+		     -| [{'function',{'encoding',1}}] ))
+	  in  %% Line 118
+	      case call 'lists':'keyfind'
+		       ('encoding', 1, _1) of
+		%% Line 119
+		<'false'> when 'true' ->
+		    'latin1'
+		%% Line 120
+		<{'encoding',Enc}> when 'true' ->
+		    Enc
+		( <_2> when 'true' ->
+		      primop 'match_fail'
+			  ({'case_clause',_2})
+		  -| ['compiler_generated'] )
+	      end
+      -| [{'function',{'encoding',1}}] )
+'modifier'/1 =
+    %% Line 123
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'modifier',1}}] ) of
+	      <'latin1'> when 'true' ->
+		  []
+	      %% Line 124
+	      <_2> when 'true' ->
+		  [116]
+	    end
+	    -| [{'function',{'modifier',1}}] )
+      -| [{'function',{'modifier',1}}] )
+'sup_get'/2 =
+    %% Line 126
+    ( fun (_0,_1) ->
+	  %% Line 127
+	  case call 'lists':'keysearch'
+		   (_0, 1, _1) of
+	    %% Line 128
+	    <{'value',{_5,Value}}> when 'true' ->
+		%% Line 129
+		Value
+	    %% Line 130
+	    <_6> when 'true' ->
+		%% Line 131
+		[]
+	  end
+      -| [{'function',{'sup_get',2}}] )
+'maybe_utc'/1 =
+    %% Line 134
+    ( fun (_0) ->
+	  %% Line 135
+	  case call 'application':'get_env'
+		   ('sasl', 'utc_log') of
+	    %% Line 136
+	    <{'ok','true'}> when 'true' ->
+		%% Line 137
+		case call 'calendar':'local_time_to_universal_time_dst'
+			 (( _0
+			    -| [{'function',{'maybe_utc',1}}] )) of
+		  %% Line 138
+		  <[UTC|[]]> when 'true' ->
+		      %% Line 139
+		      {'utc',UTC}
+		  %% Line 140
+		  <[UTC1|[_X_UTC2|[]]]> when 'true' ->
+		      %% Line 141
+		      {'utc',UTC1}
+		  %% Line 142
+		  <[]> when 'true' ->
+		      ( _0
+			-| [{'function',{'maybe_utc',1}}] )
+		  ( <_1> when 'true' ->
+			primop 'match_fail'
+			    ({'case_clause',_1})
+		    -| ['compiler_generated'] )
+		end
+	    %% Line 145
+	    <_4> when 'true' ->
+		( _0
+		  -| [{'function',{'maybe_utc',1}}] )
+	  end
+      -| [{'function',{'maybe_utc',1}}] )
+'write_head'/3 =
+    %% Line 149
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <'supervisor_report',Time,Pid> when 'true' ->
+		  let <_3> =
+		      apply %% Line 150
+			    'maybe_utc'/1
+			  (%% Line 150
+			   Time)
+		  in  %% Line 150
+		      apply 'write_head1'/3
+			  ([83|[85|[80|[69|[82|[86|[73|[83|[79|[82|[32|[82|[69|[80|[79|[82|[84]]]]]]]]]]]]]]]]], _3, Pid)
+	      %% Line 151
+	      <'crash_report',Time,Pid> when 'true' ->
+		  let <_4> =
+		      apply %% Line 152
+			    'maybe_utc'/1
+			  (%% Line 152
+			   Time)
+		  in  %% Line 152
+		      apply 'write_head1'/3
+			  ([67|[82|[65|[83|[72|[32|[82|[69|[80|[79|[82|[84]]]]]]]]]]]], _4, Pid)
+	      %% Line 153
+	      <'progress',Time,Pid> when 'true' ->
+		  let <_5> =
+		      apply %% Line 154
+			    'maybe_utc'/1
+			  (%% Line 154
+			   Time)
+		  in  %% Line 154
+		      apply 'write_head1'/3
+			  ([80|[82|[79|[71|[82|[69|[83|[83|[32|[82|[69|[80|[79|[82|[84]]]]]]]]]]]]]]], _5, Pid)
+	      ( <_8,_7,_6> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_8,_7,_6})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'write_head',3}}] )
+      -| [{'function',{'write_head',3}}] )
+'write_head1'/3 =
+    %% Line 156
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <Type,{'utc',{{Y,Mo,D},{H,Mi,S}}},Pid>
+		  when try
+			let <_4> =
+			    call 'erlang':'node'
+				(Pid)
+			in  let <_3> =
+				call 'erlang':'node'
+				    ()
+			    in  call 'erlang':'/='
+				    (_4, _3)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  let <_5> =
+		      apply %% Line 158
+			    'month'/1
+			  (%% Line 158
+			   Mo)
+		  in  let <_6> =
+			  apply %% Line 158
+				't'/1
+			      (%% Line 158
+			       H)
+		      in  let <_7> =
+			      apply %% Line 158
+				    't'/1
+				  (%% Line 158
+				   Mi)
+			  in  let <_8> =
+				  apply %% Line 158
+					't'/1
+				      (%% Line 158
+				       S)
+			      in  let <_9> =
+				      call %% Line 158
+					   'erlang':%% Line 158
+						    'node'
+					  (%% Line 158
+					   Pid)
+				  in  %% Line 157
+				      call 'io_lib':'format'
+					  ([126|[110|[61|[126|[115|[61|[61|[61|[61|[32|[126|[112|[45|[126|[115|[45|[126|[112|[58|[58|[126|[115|[58|[126|[115|[58|[126|[115|[32|[85|[84|[67|[32|[40|[126|[112|[41|[32|[61|[61|[61|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], %% Line 158
+																																		       [Type|[D|[_5|[Y|[_6|[_7|[_8|[_9|[]]]]]]]]])
+	      %% Line 159
+	      <Type,{'utc',{{Y,Mo,D},{H,Mi,S}}},_28> when 'true' ->
+		  let <_10> =
+		      apply %% Line 161
+			    'month'/1
+			  (%% Line 161
+			   Mo)
+		  in  let <_11> =
+			  apply %% Line 161
+				't'/1
+			      (%% Line 161
+			       H)
+		      in  let <_12> =
+			      apply %% Line 161
+				    't'/1
+				  (%% Line 161
+				   Mi)
+			  in  let <_13> =
+				  apply %% Line 161
+					't'/1
+				      (%% Line 161
+				       S)
+			      in  %% Line 160
+				  call 'io_lib':'format'
+				      ([126|[110|[61|[126|[115|[61|[61|[61|[61|[32|[126|[112|[45|[126|[115|[45|[126|[112|[58|[58|[126|[115|[58|[126|[115|[58|[126|[115|[32|[85|[84|[67|[32|[61|[61|[61|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], %% Line 161
+																															[Type|[D|[_10|[Y|[_11|[_12|[_13|[]]]]]]]])
+	      %% Line 162
+	      <Type,{{Y,Mo,D},{H,Mi,S}},Pid>
+		  when try
+			let <_15> =
+			    call 'erlang':'node'
+				(Pid)
+			in  let <_14> =
+				call 'erlang':'node'
+				    ()
+			    in  call 'erlang':'/='
+				    (_15, _14)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  let <_16> =
+		      apply %% Line 164
+			    'month'/1
+			  (%% Line 164
+			   Mo)
+		  in  let <_17> =
+			  apply %% Line 164
+				't'/1
+			      (%% Line 164
+			       H)
+		      in  let <_18> =
+			      apply %% Line 164
+				    't'/1
+				  (%% Line 164
+				   Mi)
+			  in  let <_19> =
+				  apply %% Line 164
+					't'/1
+				      (%% Line 164
+				       S)
+			      in  let <_20> =
+				      call %% Line 164
+					   'erlang':%% Line 164
+						    'node'
+					  (%% Line 164
+					   Pid)
+				  in  %% Line 163
+				      call 'io_lib':'format'
+					  ([126|[110|[61|[126|[115|[61|[61|[61|[61|[32|[126|[112|[45|[126|[115|[45|[126|[112|[58|[58|[126|[115|[58|[126|[115|[58|[126|[115|[32|[40|[126|[112|[41|[32|[61|[61|[61|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], %% Line 164
+																																   [Type|[D|[_16|[Y|[_17|[_18|[_19|[_20|[]]]]]]]]])
+	      %% Line 165
+	      <Type,{{Y,Mo,D},{H,Mi,S}},_29> when 'true' ->
+		  let <_21> =
+		      apply %% Line 167
+			    'month'/1
+			  (%% Line 167
+			   Mo)
+		  in  let <_22> =
+			  apply %% Line 167
+				't'/1
+			      (%% Line 167
+			       H)
+		      in  let <_23> =
+			      apply %% Line 167
+				    't'/1
+				  (%% Line 167
+				   Mi)
+			  in  let <_24> =
+				  apply %% Line 167
+					't'/1
+				      (%% Line 167
+				       S)
+			      in  %% Line 166
+				  call 'io_lib':'format'
+				      ([126|[110|[61|[126|[115|[61|[61|[61|[61|[32|[126|[112|[45|[126|[115|[45|[126|[112|[58|[58|[126|[115|[58|[126|[115|[58|[126|[115|[32|[61|[61|[61|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], %% Line 167
+																												    [Type|[D|[_21|[Y|[_22|[_23|[_24|[]]]]]]]])
+	      ( <_27,_26,_25> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_27,_26,_25})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'write_head1',3}}] )
+      -| [{'function',{'write_head1',3}}] )
+'t'/1 =
+    %% Line 169
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'t',1}}] ) of
+	      <X>
+		  when call 'erlang':'is_integer'
+			(( _0
+			   -| [{'function',{'t',1}}] )) ->
+		  let <_1> =
+		      call %% Line 170
+			   'erlang':%% Line 170
+				    'integer_to_list'
+			  (%% Line 170
+			   X)
+		  in  %% Line 170
+		      apply 't1'/1
+			  (_1)
+	      %% Line 171
+	      <_3> when 'true' ->
+		  %% Line 172
+		  []
+	    end
+	    -| [{'function',{'t',1}}] )
+      -| [{'function',{'t',1}}] )
+'t1'/1 =
+    %% Line 173
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'t1',1}}] ) of
+	      <_@r0 = [X|[]]> when 'true' ->
+		  [48|_@r0]
+	      %% Line 174
+	      <X> when 'true' ->
+		  X
+	    end
+	    -| [{'function',{'t1',1}}] )
+      -| [{'function',{'t1',1}}] )
+'month'/1 =
+    %% Line 176
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'month',1}}] ) of
+	      <1> when 'true' ->
+		  [74|[97|[110]]]
+	      %% Line 177
+	      <2> when 'true' ->
+		  [70|[101|[98]]]
+	      %% Line 178
+	      <3> when 'true' ->
+		  [77|[97|[114]]]
+	      %% Line 179
+	      <4> when 'true' ->
+		  [65|[112|[114]]]
+	      %% Line 180
+	      <5> when 'true' ->
+		  [77|[97|[121]]]
+	      %% Line 181
+	      <6> when 'true' ->
+		  [74|[117|[110]]]
+	      %% Line 182
+	      <7> when 'true' ->
+		  [74|[117|[108]]]
+	      %% Line 183
+	      <8> when 'true' ->
+		  [65|[117|[103]]]
+	      %% Line 184
+	      <9> when 'true' ->
+		  [83|[101|[112]]]
+	      %% Line 185
+	      <10> when 'true' ->
+		  [79|[99|[116]]]
+	      %% Line 186
+	      <11> when 'true' ->
+		  [78|[111|[118]]]
+	      %% Line 187
+	      <12> when 'true' ->
+		  [68|[101|[99]]]
+	      ( <_1> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_1})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'month',1}}] )
+      -| [{'function',{'month',1}}] )
+'module_info'/0 =
+    ( fun () ->
+	  call 'erlang':'get_module_info'
+	      ('sasl_report')
+      -| [{'function',{'module_info',0}}] )
+'module_info'/1 =
+    ( fun (_0) ->
+	  call 'erlang':'get_module_info'
+	      ('sasl_report', ( _0
+				-| [{'function',{'module_info',1}}] ))
+      -| [{'function',{'module_info',1}}] )
+end

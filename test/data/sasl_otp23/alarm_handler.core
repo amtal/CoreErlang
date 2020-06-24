@@ -1,0 +1,194 @@
+module 'alarm_handler' ['add_alarm_handler'/1,
+			'add_alarm_handler'/2,
+			'clear_alarm'/1,
+			'delete_alarm_handler'/1,
+			'get_alarms'/0,
+			'handle_call'/2,
+			'handle_event'/2,
+			'handle_info'/2,
+			'init'/1,
+			'module_info'/0,
+			'module_info'/1,
+			'set_alarm'/1,
+			'start_link'/0,
+			'terminate'/2]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[97|[108|[97|[114|[109|[95|[104|[97|[110|[100|[108|[101|[114|[46|[101|[114|[108]]]]]]]]]]]]]]]]]]]]],1}]]
+'start_link'/0 =
+    %% Line 35
+    ( fun () ->
+	  %% Line 36
+	  case call 'gen_event':'start_link'
+		   ({'local','alarm_handler'}) of
+	    %% Line 37
+	    <_@r0 = {'ok',Pid}> when 'true' ->
+		do  %% Line 38
+		    call 'gen_event':'add_handler'
+			('alarm_handler', 'alarm_handler', [])
+		    %% Line 39
+		    _@r0
+	    %% Line 40
+	    <Error> when 'true' ->
+		Error
+	  end
+      -| [{'function',{'start_link',0}}] )
+'set_alarm'/1 =
+    %% Line 48
+    ( fun (_0) ->
+	  %% Line 49
+	  call 'gen_event':'notify'
+	      ('alarm_handler', {'set_alarm',( _0
+					       -| [{'function',{'set_alarm',1}}] )})
+      -| [{'function',{'set_alarm',1}}] )
+'clear_alarm'/1 =
+    %% Line 55
+    ( fun (_0) ->
+	  %% Line 56
+	  call 'gen_event':'notify'
+	      ('alarm_handler', {'clear_alarm',( _0
+						 -| [{'function',{'clear_alarm',1}}] )})
+      -| [{'function',{'clear_alarm',1}}] )
+'get_alarms'/0 =
+    %% Line 62
+    ( fun () ->
+	  %% Line 63
+	  call 'gen_event':'call'
+	      ('alarm_handler', 'alarm_handler', 'get_alarms')
+      -| [{'function',{'get_alarms',0}}] )
+'add_alarm_handler'/1 =
+    %% Line 65
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'add_alarm_handler',1}}] ) of
+	      <Module>
+		  when call 'erlang':'is_atom'
+			(( _0
+			   -| [{'function',{'add_alarm_handler',1}}] )) ->
+		  %% Line 66
+		  call 'gen_event':'add_handler'
+		      ('alarm_handler', Module, [])
+	      ( <_1> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_1})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'add_alarm_handler',1}}] )
+      -| [{'function',{'add_alarm_handler',1}}] )
+'add_alarm_handler'/2 =
+    %% Line 68
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <Module,Args>
+		  when call 'erlang':'is_atom'
+			(Module) ->
+		  %% Line 69
+		  call 'gen_event':'add_handler'
+		      ('alarm_handler', Module, Args)
+	      ( <_3,_2> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_3,_2})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'add_alarm_handler',2}}] )
+      -| [{'function',{'add_alarm_handler',2}}] )
+'delete_alarm_handler'/1 =
+    %% Line 71
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'delete_alarm_handler',1}}] ) of
+	      <Module>
+		  when call 'erlang':'is_atom'
+			(( _0
+			   -| [{'function',{'delete_alarm_handler',1}}] )) ->
+		  %% Line 72
+		  call 'gen_event':'delete_handler'
+		      ('alarm_handler', Module, [])
+	      ( <_1> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_1})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'delete_alarm_handler',1}}] )
+      -| [{'function',{'delete_alarm_handler',1}}] )
+'init'/1 =
+    %% Line 77
+    ( fun (_0) ->
+	  {'ok',[]}
+      -| [{'function',{'init',1}}] )
+'handle_event'/2 =
+    %% Line 79
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <{'set_alarm',Alarm},Alarms> when 'true' ->
+		  do  %% Line 80
+		      call 'error_logger':'info_report'
+			  ([{'alarm_handler',{'set',Alarm}}|[]])
+		      %% Line 81
+		      {'ok',[Alarm|Alarms]}
+	      %% Line 82
+	      <{'clear_alarm',AlarmId},Alarms> when 'true' ->
+		  do  %% Line 83
+		      call 'error_logger':'info_report'
+			  ([{'alarm_handler',{'clear',AlarmId}}|[]])
+		      let <_2> =
+			  call %% Line 84
+			       'lists':%% Line 84
+				       'keydelete'
+			      (%% Line 84
+			       AlarmId, %% Line 84
+					1, %% Line 84
+					   Alarms)
+		      in  %% Line 84
+			  {'ok',_2}
+	      %% Line 85
+	      <_5,Alarms> when 'true' ->
+		  %% Line 86
+		  {'ok',Alarms}
+	    end
+	    -| [{'function',{'handle_event',2}}] )
+      -| [{'function',{'handle_event',2}}] )
+'handle_info'/2 =
+    %% Line 88
+    ( fun (_0,_1) ->
+	  {'ok',_1}
+      -| [{'function',{'handle_info',2}}] )
+'handle_call'/2 =
+    %% Line 90
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <'get_alarms',Alarms> when 'true' ->
+		  {'ok',Alarms,Alarms}
+	      %% Line 91
+	      <_X_Query,Alarms> when 'true' ->
+		  {'ok',{'error','bad_query'},Alarms}
+	    end
+	    -| [{'function',{'handle_call',2}}] )
+      -| [{'function',{'handle_call',2}}] )
+'terminate'/2 =
+    %% Line 93
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <'swap',Alarms> when 'true' ->
+		  %% Line 94
+		  {'alarm_handler',Alarms}
+	      %% Line 95
+	      <_4,_5> when 'true' ->
+		  %% Line 96
+		  'ok'
+	    end
+	    -| [{'function',{'terminate',2}}] )
+      -| [{'function',{'terminate',2}}] )
+'module_info'/0 =
+    ( fun () ->
+	  call 'erlang':'get_module_info'
+	      ('alarm_handler')
+      -| [{'function',{'module_info',0}}] )
+'module_info'/1 =
+    ( fun (_0) ->
+	  call 'erlang':'get_module_info'
+	      ('alarm_handler', ( _0
+				  -| [{'function',{'module_info',1}}] ))
+      -| [{'function',{'module_info',1}}] )
+end

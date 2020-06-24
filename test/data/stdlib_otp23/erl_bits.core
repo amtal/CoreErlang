@@ -1,0 +1,638 @@
+module 'erl_bits' ['as_list'/1,
+		   'module_info'/0,
+		   'module_info'/1,
+		   'set_bit_type'/2,
+		   'system_bitdefault'/0,
+		   'system_bittypes'/0]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[101|[114|[108|[95|[98|[105|[116|[115|[46|[101|[114|[108]]]]]]]]]]]]]]]],1}],
+		%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[46|[46|[47|[105|[110|[99|[108|[117|[100|[101|[47|[101|[114|[108|[95|[98|[105|[116|[115|[46|[104|[114|[108]]]]]]]]]]]]]]]]]]]]]]]]]]],1}],
+		%% Line 23
+		'type' =
+		    %% Line 23
+		    [{'bt_endian',{'type',23,'union',[{'atom',23,'big'}|[{'atom',23,'little'}|[{'atom',23,'native'}]]]},[]}],
+		%% Line 24
+		'type' =
+		    %% Line 24
+		    [{'bt_sign',{'type',24,'union',[{'atom',24,'signed'}|[{'atom',24,'unsigned'}]]},[]}],
+		%% Line 25
+		'type' =
+		    %% Line 25
+		    [{'bt_type',{'type',25,'union',[{'atom',25,'integer'}|[{'atom',25,'float'}|[{'atom',25,'binary'}|[{'atom',25,'utf8'}|[{'atom',25,'utf16'}|[{'atom',25,'utf32'}]]]]]]},[]}],
+		%% Line 26
+		'type' =
+		    %% Line 26
+		    [{'bt_unit',{'type',26,'range',[{'integer',26,1}|[{'integer',26,256}]]},[]}],
+		%% Line 28
+		'record' =
+		    %% Line 28
+		    [{'bittype',[{'typed_record_field',{'record_field',29,{'atom',29,'type'}},{'type',29,'union',[{'user_type',29,'bt_type',[]}|[{'atom',29,'undefined'}]]}}|[{'typed_record_field',{'record_field',30,{'atom',30,'unit'}},{'type',30,'union',[{'user_type',30,'bt_unit',[]}|[{'atom',30,'undefined'}]]}}|[{'typed_record_field',{'record_field',31,{'atom',31,'sign'}},{'type',31,'union',[{'user_type',31,'bt_sign',[]}|[{'atom',31,'undefined'}]]}}|[{'typed_record_field',{'record_field',32,{'atom',32,'endian'}},{'type',32,'union',[{'user_type',32,'bt_endian',[]}|[{'atom',32,'undefined'}]]}}]]]]}],
+		%% Line 35
+		'record' =
+		    %% Line 35
+		    [{'bitdefault',[{'record_field',36,{'atom',36,'integer'}}|[{'record_field',37,{'atom',37,'float'}}|[{'record_field',38,{'atom',38,'binary'}}]]]}],
+		%% Line 29
+		'file' =
+		    %% Line 29
+		    [{[115|[114|[99|[47|[101|[114|[108|[95|[98|[105|[116|[115|[46|[101|[114|[108]]]]]]]]]]]]]]]],29}],
+		%% Line 32
+		'spec' =
+		    %% Line 32
+		    [{{'system_bitdefault',0},[{'type',32,'fun',[{'type',32,'product',[]}|[{'atom',32,'no_system_bitdefault'}]]}]}],
+		%% Line 36
+		'spec' =
+		    %% Line 36
+		    [{{'system_bittypes',0},[{'type',36,'fun',[{'type',36,'product',[]}|[{'atom',36,'no_system_types'}]]}]}],
+		%% Line 40
+		'spec' =
+		    %% Line 40
+		    [{{'as_list',1},[{'type',40,'fun',[{'type',40,'product',[{'type',40,'record',[{'atom',40,'bittype'}]}]}|[{'type',41,'list',[{'type',41,'union',[{'user_type',41,'bt_endian',[]}|[{'user_type',41,'bt_sign',[]}|[{'user_type',41,'bt_type',[]}|[{'type',41,'tuple',[{'atom',41,'unit'}|[{'type',41,'union',[{'atom',41,'undefined'}|[{'user_type',41,'bt_unit',[]}]]}]]}]]]]}]}]]}]}],
+		%% Line 48
+		'type' =
+		    %% Line 48
+		    [{'size',{'type',48,'union',[{'atom',48,'all'}|[{'atom',48,'unknown'}|[{'type',48,'non_neg_integer',[]}|[{'type',48,'tuple','any'}]]]]},[]}],
+		%% Line 49
+		'type' =
+		    %% Line 49
+		    [{'type',{'type',49,'union',[{'atom',49,'bytes'}|[{'atom',49,'bitstring'}|[{'atom',49,'bits'}|[{'user_type',50,'bt_type',[]}|[{'user_type',50,'bt_endian',[]}|[{'user_type',50,'bt_sign',[]}|[{'type',51,'tuple',[{'atom',51,'unit'}|[{'type',51,'union',[{'atom',51,'undefined'}|[{'user_type',51,'bt_unit',[]}]]}]]}]]]]]]]},[]}],
+		%% Line 53
+		'spec' =
+		    %% Line 53
+		    [{{'set_bit_type',2},[{'type',53,'fun',[{'type',53,'product',[{'type',53,'union',[{'atom',53,'default'}|[{'user_type',53,'size',[]}]]}|[{'type',53,'union',[{'atom',53,'default'}|[{'type',53,'list',[{'user_type',53,'type',[]}]}]]}]]}|[{'type',54,'union',[{'type',54,'tuple',[{'atom',54,'ok'}|[{'type',54,'union',[{'atom',54,'undefined'}|[{'user_type',54,'size',[]}]]}|[{'type',54,'record',[{'atom',54,'bittype'}]}]]]}|[{'type',55,'tuple',[{'atom',55,'error'}|[{'type',55,'tuple',[{'atom',55,'undefined_bittype'}|[{'type',55,'term',[]}]]}]]}|[{'type',56,'tuple',[{'atom',56,'error'}|[{'type',56,'tuple',[{'atom',56,'bittype_mismatch'}|[{'type',56,'term',[]}|[{'type',56,'term',[]}|[{'type',56,'string',[]}]]]]}]]}]]]}]]}]}]]
+'system_bitdefault'/0 =
+    %% Line 34
+    ( fun () ->
+	  'no_system_bitdefault'
+      -| [{'function',{'system_bitdefault',0}}] )
+'system_bittypes'/0 =
+    %% Line 38
+    ( fun () ->
+	  'no_system_types'
+      -| [{'function',{'system_bittypes',0}}] )
+'as_list'/1 =
+    %% Line 43
+    ( fun (_0) ->
+	  %% Line 44
+	  ( case ( _0
+		   -| [{'function',{'as_list',1}}] ) of
+	      ( <( {'bittype',_rec0,_10,_11,_12}
+		   -| ['compiler_generated'] )> when 'true' ->
+		    ( case ( _0
+			     -| [{'function',{'as_list',1}}] ) of
+			( <( {'bittype',_14,_rec1,_15,_16}
+			     -| ['compiler_generated'] )> when 'true' ->
+			      ( case ( _0
+				       -| [{'function',{'as_list',1}}] ) of
+				  ( <( {'bittype',_18,_19,_rec2,_20}
+				       -| ['compiler_generated'] )> when 'true' ->
+					( case ( _0
+						 -| [{'function',{'as_list',1}}] ) of
+					    ( <( {'bittype',_22,_23,_24,_rec3}
+						 -| ['compiler_generated'] )> when 'true' ->
+						  [_rec0|[{'unit',_rec1}|[_rec2|[_rec3|[]]]]]
+					      -| ['compiler_generated'] )
+					    ( <_25> when 'true' ->
+						  ( call ( 'erlang'
+							   -| ['compiler_generated'] ):( 'error'
+											 -| ['compiler_generated'] )
+							(( {'badrecord','bittype'}
+							   -| ['compiler_generated'] ))
+						    -| ['compiler_generated'] )
+					      -| ['compiler_generated'] )
+					  end
+					  -| ['compiler_generated'] )
+				    -| ['compiler_generated'] )
+				  ( <_21> when 'true' ->
+					( call ( 'erlang'
+						 -| ['compiler_generated'] ):( 'error'
+									       -| ['compiler_generated'] )
+					      (( {'badrecord','bittype'}
+						 -| ['compiler_generated'] ))
+					  -| ['compiler_generated'] )
+				    -| ['compiler_generated'] )
+				end
+				-| ['compiler_generated'] )
+			  -| ['compiler_generated'] )
+			( <_17> when 'true' ->
+			      ( call ( 'erlang'
+				       -| ['compiler_generated'] ):( 'error'
+								     -| ['compiler_generated'] )
+				    (( {'badrecord','bittype'}
+				       -| ['compiler_generated'] ))
+				-| ['compiler_generated'] )
+			  -| ['compiler_generated'] )
+		      end
+		      -| ['compiler_generated'] )
+		-| ['compiler_generated'] )
+	      ( <_13> when 'true' ->
+		    ( call ( 'erlang'
+			     -| ['compiler_generated'] ):( 'error'
+							   -| ['compiler_generated'] )
+			  (( {'badrecord','bittype'}
+			     -| ['compiler_generated'] ))
+		      -| ['compiler_generated'] )
+		-| ['compiler_generated'] )
+	    end
+	    -| ['compiler_generated'] )
+      -| [{'function',{'as_list',1}}] )
+'set_bit_type'/2 =
+    %% Line 58
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <Size,'default'> when 'true' ->
+		  %% Line 59
+		  apply 'set_bit_type'/2
+		      (Size, [])
+	      %% Line 60
+	      <Size,TypeList> when 'true' ->
+		  %% Line 61
+		  try
+		      %% Line 62
+		      case %% Line 63
+			   apply 'set_bit'/1
+			       (TypeList) of
+			<{'bittype',Type,Unit,Sign,Endian}> when 'true' ->
+			    %% Line 64
+			    apply 'apply_defaults'/5
+				(Type, Size, Unit, Sign, Endian)
+			( <_2> when 'true' ->
+			      primop 'match_fail'
+				  ({'badmatch',_2})
+			  -| ['compiler_generated'] )
+		      end
+		  of <_3> ->
+		      _3
+		  catch <_6,_5,_4> ->
+		      %% Line 66
+		      case <_6,_5,_4> of
+			<( 'throw'
+			   -| ['compiler_generated'] ),Error,_9> when 'true' ->
+			    Error
+			( <_10,_11,_12> when 'true' ->
+			      primop 'raise'
+				  (_12, _11)
+			  -| ['compiler_generated'] )
+		      end
+	    end
+	    -| [{'function',{'set_bit_type',2}}] )
+      -| [{'function',{'set_bit_type',2}}] )
+'set_bit'/1 =
+    %% Line 69
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'set_bit',1}}] ) of
+	      <[]> when 'true' ->
+		  {'bittype','undefined','undefined','undefined','undefined'}
+	      %% Line 70
+	      <[H|T]> when 'true' ->
+		  let <_1> =
+		      apply 'type_to_record'/1
+			  (H)
+		  in  apply 'set_bit_1'/2
+			  (T, _1)
+	      ( <_2> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_2})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'set_bit',1}}] )
+      -| [{'function',{'set_bit',1}}] )
+'set_bit_1'/2 =
+    %% Line 72
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <[T0|Ts],Bt0> when 'true' ->
+		  let <Type> =
+		      apply %% Line 73
+			    'type_to_record'/1
+			  (%% Line 73
+			   T0)
+		  in  let <Bt> =
+			  apply %% Line 74
+				'merge_bittype'/2
+			      (%% Line 74
+			       Type, %% Line 74
+				     Bt0)
+		      in  %% Line 75
+			  apply 'set_bit_1'/2
+			      (Ts, Bt)
+	      %% Line 76
+	      <[],Bt> when 'true' ->
+		  Bt
+	      ( <_5,_4> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_5,_4})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'set_bit_1',2}}] )
+      -| [{'function',{'set_bit_1',2}}] )
+'type_to_record'/1 =
+    %% Line 78
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'type_to_record',1}}] ) of
+	      <'integer'> when 'true' ->
+		  {'bittype','integer','undefined','undefined','undefined'}
+	      %% Line 79
+	      <'utf8'> when 'true' ->
+		  {'bittype','utf8','undefined','undefined','undefined'}
+	      %% Line 80
+	      <'utf16'> when 'true' ->
+		  {'bittype','utf16','undefined','undefined','undefined'}
+	      %% Line 81
+	      <'utf32'> when 'true' ->
+		  {'bittype','utf32','undefined','undefined','undefined'}
+	      %% Line 82
+	      <'float'> when 'true' ->
+		  {'bittype','float','undefined','undefined','undefined'}
+	      %% Line 83
+	      <'binary'> when 'true' ->
+		  {'bittype','binary','undefined','undefined','undefined'}
+	      %% Line 84
+	      <'bytes'> when 'true' ->
+		  {'bittype','binary',8,'undefined','undefined'}
+	      %% Line 85
+	      <'bitstring'> when 'true' ->
+		  {'bittype','binary',1,'undefined','undefined'}
+	      %% Line 86
+	      <'bits'> when 'true' ->
+		  {'bittype','binary',1,'undefined','undefined'}
+	      %% Line 88
+	      <{'unit','undefined'}> when 'true' ->
+		  %% Line 89
+		  {'bittype','undefined','undefined','undefined','undefined'}
+	      %% Line 90
+	      <{'unit',Sz}>
+		  when try
+			let <_1> =
+			    call 'erlang':'is_integer'
+				(Sz)
+			in  let <_2> =
+				call 'erlang':'>'
+				    (Sz, 0)
+			    in  let <_3> =
+				    call 'erlang':'=<'
+					(Sz, 256)
+				in  let <_4> =
+					call 'erlang':'and'
+					    (_2, _3)
+				    in  call 'erlang':'and'
+					    (_1, _4)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 91
+		  {'bittype','undefined',Sz,'undefined','undefined'}
+	      %% Line 93
+	      <'big'> when 'true' ->
+		  {'bittype','undefined','undefined','undefined','big'}
+	      %% Line 94
+	      <'little'> when 'true' ->
+		  {'bittype','undefined','undefined','undefined','little'}
+	      %% Line 95
+	      <'native'> when 'true' ->
+		  {'bittype','undefined','undefined','undefined','native'}
+	      %% Line 97
+	      <'signed'> when 'true' ->
+		  {'bittype','undefined','undefined','signed','undefined'}
+	      %% Line 98
+	      <'unsigned'> when 'true' ->
+		  {'bittype','undefined','undefined','unsigned','undefined'}
+	      %% Line 100
+	      <Name> when 'true' ->
+		  call 'erlang':'throw'
+		      ({'error',{'undefined_bittype',Name}})
+	    end
+	    -| [{'function',{'type_to_record',1}}] )
+      -| [{'function',{'type_to_record',1}}] )
+'merge_bittype'/2 =
+    %% Line 105
+    ( fun (_0,_1) ->
+	  %% Line 106
+	  ( case _0 of
+	      ( <( {'bittype',_24,_25,_26,_rec4}
+		   -| ['compiler_generated'] )> when 'true' ->
+		    ( case _1 of
+			( <( {'bittype',_28,_29,_30,_rec5}
+			     -| ['compiler_generated'] )> when 'true' ->
+			      let <Endian> =
+				  apply 'merge_field'/3
+				      (_rec4, _rec5, 'endianness')
+			      in  %% Line 107
+				  ( case _0 of
+				      ( <( {'bittype',_32,_33,_rec6,_34}
+					   -| ['compiler_generated'] )> when 'true' ->
+					    ( case _1 of
+						( <( {'bittype',_36,_37,_rec7,_38}
+						     -| ['compiler_generated'] )> when 'true' ->
+						      let <Sign> =
+							  apply 'merge_field'/3
+							      (_rec6, _rec7, 'sign')
+						      in  %% Line 108
+							  ( case _0 of
+							      ( <( {'bittype',_rec8,_40,_41,_42}
+								   -| ['compiler_generated'] )> when 'true' ->
+								    ( case _1 of
+									( <( {'bittype',_rec9,_44,_45,_46}
+									     -| ['compiler_generated'] )> when 'true' ->
+									      let <Type> =
+										  apply 'merge_field'/3
+										      (_rec8, _rec9, 'type')
+									      in  %% Line 109
+										  ( case _0 of
+										      ( <( {'bittype',_48,_rec10,_49,_50}
+											   -| ['compiler_generated'] )> when 'true' ->
+											    ( case _1 of
+												( <( {'bittype',_52,_rec11,_53,_54}
+												     -| ['compiler_generated'] )> when 'true' ->
+												      let <Unit> =
+													  apply 'merge_field'/3
+													      (_rec10, _rec11, 'unit')
+												      in  %% Line 110
+													  {'bittype',Type,Unit,Sign,Endian}
+												  -| ['compiler_generated'] )
+												( <_55> when 'true' ->
+												      ( call ( 'erlang'
+													       -| ['compiler_generated'] ):( 'error'
+																	     -| ['compiler_generated'] )
+													    (( {'badrecord','bittype'}
+													       -| ['compiler_generated'] ))
+													-| ['compiler_generated'] )
+												  -| ['compiler_generated'] )
+											      end
+											      -| ['compiler_generated'] )
+											-| ['compiler_generated'] )
+										      ( <_51> when 'true' ->
+											    ( call ( 'erlang'
+												     -| ['compiler_generated'] ):( 'error'
+																   -| ['compiler_generated'] )
+												  (( {'badrecord','bittype'}
+												     -| ['compiler_generated'] ))
+											      -| ['compiler_generated'] )
+											-| ['compiler_generated'] )
+										    end
+										    -| ['compiler_generated'] )
+									  -| ['compiler_generated'] )
+									( <_47> when 'true' ->
+									      ( call ( 'erlang'
+										       -| ['compiler_generated'] ):( 'error'
+														     -| ['compiler_generated'] )
+										    (( {'badrecord','bittype'}
+										       -| ['compiler_generated'] ))
+										-| ['compiler_generated'] )
+									  -| ['compiler_generated'] )
+								      end
+								      -| ['compiler_generated'] )
+								-| ['compiler_generated'] )
+							      ( <_43> when 'true' ->
+								    ( call ( 'erlang'
+									     -| ['compiler_generated'] ):( 'error'
+													   -| ['compiler_generated'] )
+									  (( {'badrecord','bittype'}
+									     -| ['compiler_generated'] ))
+								      -| ['compiler_generated'] )
+								-| ['compiler_generated'] )
+							    end
+							    -| ['compiler_generated'] )
+						  -| ['compiler_generated'] )
+						( <_39> when 'true' ->
+						      ( call ( 'erlang'
+							       -| ['compiler_generated'] ):( 'error'
+											     -| ['compiler_generated'] )
+							    (( {'badrecord','bittype'}
+							       -| ['compiler_generated'] ))
+							-| ['compiler_generated'] )
+						  -| ['compiler_generated'] )
+					      end
+					      -| ['compiler_generated'] )
+					-| ['compiler_generated'] )
+				      ( <_35> when 'true' ->
+					    ( call ( 'erlang'
+						     -| ['compiler_generated'] ):( 'error'
+										   -| ['compiler_generated'] )
+						  (( {'badrecord','bittype'}
+						     -| ['compiler_generated'] ))
+					      -| ['compiler_generated'] )
+					-| ['compiler_generated'] )
+				    end
+				    -| ['compiler_generated'] )
+			  -| ['compiler_generated'] )
+			( <_31> when 'true' ->
+			      ( call ( 'erlang'
+				       -| ['compiler_generated'] ):( 'error'
+								     -| ['compiler_generated'] )
+				    (( {'badrecord','bittype'}
+				       -| ['compiler_generated'] ))
+				-| ['compiler_generated'] )
+			  -| ['compiler_generated'] )
+		      end
+		      -| ['compiler_generated'] )
+		-| ['compiler_generated'] )
+	      ( <_27> when 'true' ->
+		    ( call ( 'erlang'
+			     -| ['compiler_generated'] ):( 'error'
+							   -| ['compiler_generated'] )
+			  (( {'badrecord','bittype'}
+			     -| ['compiler_generated'] ))
+		      -| ['compiler_generated'] )
+		-| ['compiler_generated'] )
+	    end
+	    -| ['compiler_generated'] )
+      -| [{'function',{'merge_bittype',2}}] )
+'merge_field'/3 =
+    %% Line 112
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <'undefined',B,_7> when 'true' ->
+		  B
+	      %% Line 113
+	      <A,'undefined',_8> when 'true' ->
+		  A
+	      %% Line 114
+	      <A,_9,_10>
+		  when call 'erlang':'=:='
+			(_9,
+			 A) ->
+		  A
+	      %% Line 115
+	      <X,Y,What> when 'true' ->
+		  let <_3> =
+		      call %% Line 116
+			   'erlang':%% Line 116
+				    'atom_to_list'
+			  (%% Line 116
+			   What)
+		  in  %% Line 116
+		      call 'erlang':'throw'
+			  ({'error',{'bittype_mismatch',X,Y,_3}})
+	    end
+	    -| [{'function',{'merge_field',3}}] )
+      -| [{'function',{'merge_field',3}}] )
+'apply_defaults'/5 =
+    %% Line 129
+    ( fun (_0,_1,_2,_3,_4) ->
+	  ( case <_0,_1,_2,_3,_4> of
+	      <'undefined',Size,Unit,Sign,Endian> when 'true' ->
+		  %% Line 130
+		  apply 'apply_defaults'/5
+		      ('integer', Size, Unit, Sign, Endian)
+	      %% Line 132
+	      <'binary','default',Unit,Sign,Endian> when 'true' ->
+		  %% Line 134
+		  apply 'apply_defaults'/5
+		      ('binary', 'all', Unit, Sign, Endian)
+	      %% Line 135
+	      <'integer','default',Unit,Sign,Endian> when 'true' ->
+		  do  %% Line 136
+		      apply 'check_unit'/1
+			  (Unit)
+		      %% Line 137
+		      apply 'apply_defaults'/5
+			  ('integer', 8, 1, Sign, Endian)
+	      %% Line 138
+	      <Type = 'utf8','default',Unit,Sign,Endian> when 'true' ->
+		  %% Line 139
+		  apply 'apply_defaults'/5
+		      (Type, 'undefined', Unit, Sign, Endian)
+	      %% Line 140
+	      <Type = 'utf16','default',Unit,Sign,Endian> when 'true' ->
+		  %% Line 141
+		  apply 'apply_defaults'/5
+		      (Type, 'undefined', Unit, Sign, Endian)
+	      %% Line 142
+	      <Type = 'utf32','default',Unit,Sign,Endian> when 'true' ->
+		  %% Line 143
+		  apply 'apply_defaults'/5
+		      (Type, 'undefined', Unit, Sign, Endian)
+	      %% Line 144
+	      <'float','default',Unit,Sign,Endian> when 'true' ->
+		  do  %% Line 145
+		      apply 'check_unit'/1
+			  (Unit)
+		      %% Line 146
+		      apply 'apply_defaults'/5
+			  ('float', 64, 1, Sign, Endian)
+	      %% Line 148
+	      <'binary',Size,'undefined',Sign,Endian> when 'true' ->
+		  %% Line 149
+		  apply 'apply_defaults'/5
+		      ('binary', Size, 8, Sign, Endian)
+	      %% Line 150
+	      <'integer',Size,'undefined',Sign,Endian> when 'true' ->
+		  %% Line 151
+		  apply 'apply_defaults'/5
+		      ('integer', Size, 1, Sign, Endian)
+	      %% Line 152
+	      <'float',Size,'undefined',Sign,Endian> when 'true' ->
+		  %% Line 153
+		  apply 'apply_defaults'/5
+		      ('float', Size, 1, Sign, Endian)
+	      %% Line 155
+	      <Type,Size,Unit,'undefined',Endian> when 'true' ->
+		  %% Line 156
+		  apply 'apply_defaults'/5
+		      (Type, Size, Unit, 'unsigned', Endian)
+	      %% Line 158
+	      <Type,Size,Unit,Sign,'undefined'> when 'true' ->
+		  %% Line 159
+		  apply 'apply_defaults'/5
+		      (Type, Size, Unit, Sign, 'big')
+	      %% Line 161
+	      <Type,Size,Unit,Sign,Endian> when 'true' ->
+		  do  %% Line 162
+		      apply 'check_size_unit'/3
+			  (Type, Size, Unit)
+		      %% Line 163
+		      {'ok',Size,{'bittype',Type,Unit,Sign,Endian}}
+	    end
+	    -| [{'function',{'apply_defaults',5}}] )
+      -| [{'function',{'apply_defaults',5}}] )
+'check_size_unit'/3 =
+    %% Line 165
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <'utf8',Size,Unit> when 'true' ->
+		  %% Line 166
+		  apply 'check_size_unit_1'/2
+		      (Size, Unit)
+	      %% Line 167
+	      <'utf16',Size,Unit> when 'true' ->
+		  %% Line 168
+		  apply 'check_size_unit_1'/2
+		      (Size, Unit)
+	      %% Line 169
+	      <'utf32',Size,Unit> when 'true' ->
+		  %% Line 170
+		  apply 'check_size_unit_1'/2
+		      (Size, Unit)
+	      %% Line 171
+	      <_6,_7,_8> when 'true' ->
+		  'ok'
+	    end
+	    -| [{'function',{'check_size_unit',3}}] )
+      -| [{'function',{'check_size_unit',3}}] )
+'check_size_unit_1'/2 =
+    %% Line 173
+    ( fun (_0,_1) ->
+	  do  %% Line 174
+	      case _0 of
+		%% Line 175
+		<'default'> when 'true' ->
+		    'ok'
+		%% Line 176
+		<'undefined'> when 'true' ->
+		    'ok'
+		%% Line 177
+		<{'atom',_6,'undefined'}> when 'true' ->
+		    'ok'
+		%% Line 178
+		<{'value',_7,'undefined'}> when 'true' ->
+		    'ok'
+		%% Line 179
+		<_8> when 'true' ->
+		    call 'erlang':'throw'
+			({'error','utf_bittype_size_or_unit'})
+	      end
+	      %% Line 181
+	      case _1 of
+		%% Line 182
+		<'undefined'> when 'true' ->
+		    'ok'
+		%% Line 183
+		<_9> when 'true' ->
+		    call 'erlang':'throw'
+			({'error','utf_bittype_size_or_unit'})
+	      end
+      -| [{'function',{'check_size_unit_1',2}}] )
+'check_unit'/1 =
+    %% Line 186
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'check_unit',1}}] ) of
+	      <'undefined'> when 'true' ->
+		  'ok'
+	      %% Line 187
+	      <_2> when 'true' ->
+		  call 'erlang':'throw'
+		      ({'error','bittype_unit'})
+	    end
+	    -| [{'function',{'check_unit',1}}] )
+      -| [{'function',{'check_unit',1}}] )
+'module_info'/0 =
+    ( fun () ->
+	  call 'erlang':'get_module_info'
+	      ('erl_bits')
+      -| [{'function',{'module_info',0}}] )
+'module_info'/1 =
+    ( fun (_0) ->
+	  call 'erlang':'get_module_info'
+	      ('erl_bits', ( _0
+			     -| [{'function',{'module_info',1}}] ))
+      -| [{'function',{'module_info',1}}] )
+end

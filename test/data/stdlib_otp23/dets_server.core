@@ -1,0 +1,1448 @@
+module 'dets_server' ['all'/0,
+		      'close'/1,
+		      'code_change'/3,
+		      'get_pid'/1,
+		      'handle_call'/3,
+		      'handle_cast'/2,
+		      'handle_info'/2,
+		      'init'/1,
+		      'module_info'/0,
+		      'module_info'/1,
+		      'open_file'/1,
+		      'open_file'/2,
+		      'pid2name'/1,
+		      'start'/0,
+		      'start_link'/0,
+		      'stop'/0,
+		      'terminate'/2,
+		      'users'/1,
+		      'verbose'/1]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[100|[101|[116|[115|[95|[115|[101|[114|[118|[101|[114|[46|[101|[114|[108]]]]]]]]]]]]]]]]]]],1}],
+		%% Line 24
+		'behaviour' =
+		    %% Line 24
+		    ['gen_server'],
+		%% Line 38
+		'record' =
+		    %% Line 38
+		    [{'pending',[{'record_field',38,{'atom',38,'tab'}}|[{'record_field',38,{'atom',38,'ref'}}|[{'record_field',38,{'atom',38,'pid'}}|[{'record_field',38,{'atom',38,'from'}}|[{'record_field',38,{'atom',38,'reqtype'}}|[{'record_field',38,{'atom',38,'clients'}}]]]]]]}],
+		%% Line 41
+		'record' =
+		    %% Line 41
+		    [{'state',[{'record_field',41,{'atom',41,'store'}}|[{'record_field',41,{'atom',41,'parent'}}|[{'record_field',41,{'atom',41,'pending'}}]]]}],
+		%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[100|[101|[116|[115|[46|[104|[114|[108]]]]]]]]]]]],1}],
+		%% Line 49
+		'type' =
+		    %% Line 49
+		    [{'access',{'type',49,'union',[{'atom',49,'read'}|[{'atom',49,'read_write'}]]},[]}],
+		%% Line 50
+		'type' =
+		    %% Line 50
+		    [{'auto_save',{'type',50,'union',[{'atom',50,'infinity'}|[{'type',50,'non_neg_integer',[]}]]},[]}],
+		%% Line 51
+		'type' =
+		    %% Line 51
+		    [{'hash_bif',{'type',51,'union',[{'atom',51,'phash'}|[{'atom',51,'phash2'}]]},[]}],
+		%% Line 52
+		'type' =
+		    %% Line 52
+		    [{'keypos',{'type',52,'pos_integer',[]},[]}],
+		%% Line 53
+		'type' =
+		    %% Line 53
+		    [{'no_colls',{'type',53,'list',[{'type',53,'tuple',[{'ann_type',53,[{'var',53,'LogSize'}|[{'type',53,'non_neg_integer',[]}]]}|[{'ann_type',54,[{'var',54,'NoCollections'}|[{'type',54,'non_neg_integer',[]}]]}]]}]},[]}],
+		%% Line 55
+		'type' =
+		    %% Line 55
+		    [{'no_slots',{'type',55,'union',[{'atom',55,'default'}|[{'type',55,'non_neg_integer',[]}]]},[]}],
+		%% Line 56
+		'type' =
+		    %% Line 56
+		    [{'tab_name',{'type',56,'term',[]},[]}],
+		%% Line 57
+		'type' =
+		    %% Line 57
+		    [{'type',{'type',57,'union',[{'atom',57,'bag'}|[{'atom',57,'duplicate_bag'}|[{'atom',57,'set'}]]]},[]}],
+		%% Line 58
+		'type' =
+		    %% Line 58
+		    [{'update_mode',{'type',58,'union',[{'atom',58,'dirty'}|[{'atom',59,'new_dirty'}|[{'atom',60,'saved'}|[{'type',61,'tuple',[{'atom',61,'error'}|[{'ann_type',61,[{'var',61,'Reason'}|[{'type',61,'term',[]}]]}]]}]]]]},[]}],
+		%% Line 64
+		'record' =
+		    %% Line 64
+		    [{'head',[{'typed_record_field',{'record_field',65,{'atom',65,'m'}},{'type',65,'non_neg_integer',[]}}|[{'typed_record_field',{'record_field',66,{'atom',66,'m2'}},{'type',66,'non_neg_integer',[]}}|[{'typed_record_field',{'record_field',67,{'atom',67,'next'}},{'type',67,'non_neg_integer',[]}}|[{'typed_record_field',{'record_field',69,{'atom',69,'fptr'}},{'remote_type',69,[{'atom',69,'file'}|[{'atom',69,'fd'}|[[]]]]}}|[{'typed_record_field',{'record_field',70,{'atom',70,'no_objects'}},{'type',70,'non_neg_integer',[]}}|[{'typed_record_field',{'record_field',71,{'atom',71,'no_keys'}},{'type',71,'non_neg_integer',[]}}|[{'typed_record_field',{'record_field',72,{'atom',72,'maxobjsize'}},{'type',72,'union',[{'atom',72,'undefined'}|[{'type',72,'non_neg_integer',[]}]]}}|[{'record_field',74,{'atom',74,'n'}}|[{'typed_record_field',{'record_field',75,{'atom',75,'type'}},{'user_type',75,'type',[]}}|[{'typed_record_field',{'record_field',76,{'atom',76,'keypos'}},{'user_type',76,'keypos',[]}}|[{'typed_record_field',{'record_field',77,{'atom',77,'freelists'}},{'type',77,'union',[{'atom',77,'undefined'}|[{'type',78,'tuple','any'}]]}}|[{'typed_record_field',{'record_field',80,{'atom',80,'freelists_p'}},{'type',80,'union',[{'atom',80,'undefined'}|[{'type',81,'non_neg_integer',[]}]]}}|[{'typed_record_field',{'record_field',82,{'atom',82,'no_collections'}},{'type',82,'union',[{'atom',82,'undefined'}|[{'user_type',83,'no_colls',[]}]]}}|[{'typed_record_field',{'record_field',85,{'atom',85,'auto_save'}},{'user_type',85,'auto_save',[]}}|[{'typed_record_field',{'record_field',86,{'atom',86,'update_mode'}},{'user_type',86,'update_mode',[]}}|[{'typed_record_field',{'record_field',87,{'atom',87,'fixed'},{'atom',87,'false'}},{'type',87,'union',[{'atom',87,'false'}|[{'type',88,'tuple',[{'type',88,'tuple',[{'type',88,'integer',[]}|[{'type',88,'integer',[]}]]}|[{'type',89,'list',[{'type',89,'tuple',[{'type',89,'pid',[]}|[{'type',90,'non_neg_integer',[]}]]}]}]]}]]}}|[{'typed_record_field',{'record_field',91,{'atom',91,'hash_bif'}},{'user_type',91,'hash_bif',[]}}|[{'typed_record_field',{'record_field',92,{'atom',92,'has_md5'}},{'type',92,'boolean',[]}}|[{'typed_record_field',{'record_field',94,{'atom',94,'min_no_slots'}},{'user_type',94,'no_slots',[]}}|[{'typed_record_field',{'record_field',95,{'atom',95,'max_no_slots'}},{'user_type',95,'no_slots',[]}}|[{'typed_record_field',{'record_field',96,{'atom',96,'cache'}},{'type',96,'union',[{'atom',96,'undefined'}|[{'user_type',96,'cache',[]}]]}}|[{'typed_record_field',{'record_field',98,{'atom',98,'filename'}},{'remote_type',98,[{'atom',98,'file'}|[{'atom',98,'name'}|[[]]]]}}|[{'typed_record_field',{'record_field',99,{'atom',99,'access'},{'atom',99,'read_write'}},{'user_type',99,'access',[]}}|[{'typed_record_field',{'record_field',100,{'atom',100,'ram_file'},{'atom',100,'false'}},{'type',100,'boolean',[]}}|[{'typed_record_field',{'record_field',101,{'atom',101,'name'}},{'user_type',101,'tab_name',[]}}|[{'typed_record_field',{'record_field',103,{'atom',103,'parent'}},{'type',103,'union',[{'atom',103,'undefined'}|[{'type',103,'pid',[]}]]}}|[{'typed_record_field',{'record_field',104,{'atom',104,'server'}},{'type',104,'union',[{'atom',104,'undefined'}|[{'type',104,'pid',[]}]]}}|[{'typed_record_field',{'record_field',106,{'atom',106,'bump'}},{'type',106,'non_neg_integer',[]}}|[{'typed_record_field',{'record_field',107,{'atom',107,'base'}},{'type',107,'non_neg_integer',[]}}]]]]]]]]]]]]]]]]]]]]]]]]]]]]]}],
+		%% Line 112
+		'record' =
+		    %% Line 112
+		    [{'fileheader',[{'typed_record_field',{'record_field',113,{'atom',113,'freelist'}},{'type',113,'non_neg_integer',[]}}|[{'typed_record_field',{'record_field',114,{'atom',114,'fl_base'}},{'type',114,'non_neg_integer',[]}}|[{'typed_record_field',{'record_field',115,{'atom',115,'cookie'}},{'type',115,'non_neg_integer',[]}}|[{'typed_record_field',{'record_field',116,{'atom',116,'closed_properly'}},{'type',116,'non_neg_integer',[]}}|[{'typed_record_field',{'record_field',117,{'atom',117,'type'}},{'type',117,'union',[{'atom',117,'badtype'}|[{'user_type',117,'type',[]}]]}}|[{'typed_record_field',{'record_field',118,{'atom',118,'version'}},{'type',118,'non_neg_integer',[]}}|[{'typed_record_field',{'record_field',119,{'atom',119,'m'}},{'type',119,'non_neg_integer',[]}}|[{'typed_record_field',{'record_field',120,{'atom',120,'next'}},{'type',120,'non_neg_integer',[]}}|[{'typed_record_field',{'record_field',121,{'atom',121,'keypos'}},{'user_type',121,'keypos',[]}}|[{'typed_record_field',{'record_field',122,{'atom',122,'no_objects'}},{'type',122,'non_neg_integer',[]}}|[{'typed_record_field',{'record_field',123,{'atom',123,'no_keys'}},{'type',123,'non_neg_integer',[]}}|[{'typed_record_field',{'record_field',124,{'atom',124,'min_no_slots'}},{'type',124,'non_neg_integer',[]}}|[{'typed_record_field',{'record_field',125,{'atom',125,'max_no_slots'}},{'type',125,'non_neg_integer',[]}}|[{'typed_record_field',{'record_field',126,{'atom',126,'no_colls'}},{'type',126,'union',[{'atom',126,'undefined'}|[{'user_type',126,'no_colls',[]}]]}}|[{'typed_record_field',{'record_field',127,{'atom',127,'hash_method'}},{'type',127,'non_neg_integer',[]}}|[{'typed_record_field',{'record_field',128,{'atom',128,'read_md5'}},{'type',128,'binary',[]}}|[{'typed_record_field',{'record_field',129,{'atom',129,'has_md5'}},{'type',129,'boolean',[]}}|[{'typed_record_field',{'record_field',130,{'atom',130,'md5'}},{'type',130,'binary',[]}}|[{'typed_record_field',{'record_field',131,{'atom',131,'trailer'}},{'type',131,'non_neg_integer',[]}}|[{'typed_record_field',{'record_field',132,{'atom',132,'eof'}},{'type',132,'non_neg_integer',[]}}|[{'record_field',133,{'atom',133,'n'}}]]]]]]]]]]]]]]]]]]]]]}],
+		%% Line 136
+		'type' =
+		    %% Line 136
+		    [{'delay',{'type',136,'non_neg_integer',[]},[]}],
+		%% Line 137
+		'type' =
+		    %% Line 137
+		    [{'threshold',{'type',137,'non_neg_integer',[]},[]}],
+		%% Line 138
+		'type' =
+		    %% Line 138
+		    [{'cache_parms',{'type',139,'tuple',[{'ann_type',139,[{'var',139,'Delay'}|[{'user_type',139,'delay',[]}]]}|[{'ann_type',141,[{'var',141,'Size'}|[{'user_type',141,'threshold',[]}]]}]]},[]}],
+		%% Line 144
+		'record' =
+		    %% Line 144
+		    [{'cache',[{'typed_record_field',{'record_field',145,{'atom',145,'cache'}},{'type',146,'list',[{'type',146,'tuple',[{'ann_type',146,[{'var',146,'Key'}|[{'type',146,'term',[]}]]}|[{'type',147,'tuple',[{'ann_type',147,[{'var',147,'Seq'}|[{'type',147,'non_neg_integer',[]}]]}|[{'ann_type',147,[{'var',147,'Item'}|[{'type',147,'term',[]}]]}]]}]]}]}}|[{'typed_record_field',{'record_field',148,{'atom',148,'csize'}},{'type',148,'non_neg_integer',[]}}|[{'typed_record_field',{'record_field',149,{'atom',149,'inserts'}},{'type',150,'non_neg_integer',[]}}|[{'typed_record_field',{'record_field',151,{'atom',151,'wrtime'}},{'type',151,'union',[{'atom',151,'undefined'}|[{'type',151,'integer',[]}]]}}|[{'typed_record_field',{'record_field',152,{'atom',152,'tsize'}},{'user_type',152,'threshold',[]}}|[{'typed_record_field',{'record_field',153,{'atom',153,'delay'}},{'user_type',153,'delay',[]}}]]]]]]}],
+		%% Line 156
+		'type' =
+		    %% Line 156
+		    [{'cache',{'type',156,'record',[{'atom',156,'cache'}]},[]}],
+		%% Line 44
+		'file' =
+		    %% Line 44
+		    [{[115|[114|[99|[47|[100|[101|[116|[115|[95|[115|[101|[114|[118|[101|[114|[46|[101|[114|[108]]]]]]]]]]]]]]]]]]],44}],
+		%% Line 52
+		'compile' =
+		    %% Line 52
+		    [{'inline',[{'pid2name_1',1}]}]]
+'start_link'/0 =
+    %% Line 59
+    ( fun () ->
+	  let <_0> =
+	      call %% Line 60
+		   'erlang':%% Line 60
+			    'self'
+		  ()
+	  in  %% Line 60
+	      call 'gen_server':'start_link'
+		  ({'local','dets'}, 'dets_server', [_0|[]], [])
+      -| [{'function',{'start_link',0}}] )
+'start'/0 =
+    %% Line 62
+    ( fun () ->
+	  %% Line 63
+	  apply 'ensure_started'/0
+	      ()
+      -| [{'function',{'start',0}}] )
+'stop'/0 =
+    %% Line 65
+    ( fun () ->
+	  %% Line 66
+	  case call 'erlang':'whereis'
+		   ('dets') of
+	    %% Line 67
+	    <'undefined'> when 'true' ->
+		%% Line 68
+		'stopped'
+	    %% Line 69
+	    <_X_Pid> when 'true' ->
+		%% Line 70
+		call 'gen_server':'call'
+		    ('dets', 'stop', 'infinity')
+	  end
+      -| [{'function',{'stop',0}}] )
+'all'/0 =
+    %% Line 73
+    ( fun () ->
+	  %% Line 74
+	  apply 'call'/1
+	      ('all')
+      -| [{'function',{'all',0}}] )
+'close'/1 =
+    %% Line 76
+    ( fun (_0) ->
+	  %% Line 77
+	  apply 'call'/1
+	      ({'close',( _0
+			  -| [{'function',{'close',1}}] )})
+      -| [{'function',{'close',1}}] )
+'get_pid'/1 =
+    %% Line 79
+    ( fun (_0) ->
+	  %% Line 80
+	  call 'ets':'lookup_element'
+	      ('dets_registry', ( _0
+				  -| [{'function',{'get_pid',1}}] ), 3)
+      -| [{'function',{'get_pid',1}}] )
+'open_file'/1 =
+    %% Line 82
+    ( fun (_0) ->
+	  %% Line 83
+	  apply 'call'/1
+	      ({'open',( _0
+			 -| [{'function',{'open_file',1}}] )})
+      -| [{'function',{'open_file',1}}] )
+'open_file'/2 =
+    %% Line 85
+    ( fun (_0,_1) ->
+	  %% Line 86
+	  apply 'call'/1
+	      ({'open',_0,_1})
+      -| [{'function',{'open_file',2}}] )
+'pid2name'/1 =
+    %% Line 88
+    ( fun (_0) ->
+	  do  %% Line 89
+	      apply 'ensure_started'/0
+		  ()
+	      %% Line 270
+	      ( case ( call ( 'ets'
+			      -| ['compiler_generated'] ):( 'lookup'
+							    -| ['compiler_generated'] )
+			   (( 'dets_owners'
+			      -| ['compiler_generated'] ), ( _0
+							     -| [{'function',{'pid2name',1}}] ))
+		       -| ['compiler_generated'] ) of
+		  %% Line 271
+		  ( <( []
+		       -| ['compiler_generated'] )> when ( 'true'
+							   -| ['compiler_generated'] ) ->
+			( 'undefined'
+			  -| ['compiler_generated'] )
+		    -| ['compiler_generated'] )
+		  %% Line 272
+		  ( <( [( {_X_Pid,Tab}
+			  -| ['compiler_generated'] )|( []
+							-| ['compiler_generated'] )]
+		       -| ['compiler_generated'] )> when ( 'true'
+							   -| ['compiler_generated'] ) ->
+			( {( 'ok'
+			     -| ['compiler_generated'] ),Tab}
+			  -| ['compiler_generated'] )
+		    -| ['compiler_generated'] )
+		  ( <_1> when ( 'true'
+				-| ['compiler_generated'] ) ->
+			( primop ( 'match_fail'
+				   -| ['compiler_generated'] )
+			      (( {( 'case_clause'
+				    -| ['compiler_generated'] ),_1}
+				 -| ['compiler_generated'] ))
+			  -| ['compiler_generated'] )
+		    -| ['compiler_generated'] )
+		end
+		-| ['compiler_generated'] )
+      -| [{'function',{'pid2name',1}}] )
+'users'/1 =
+    %% Line 92
+    ( fun (_0) ->
+	  %% Line 93
+	  apply 'call'/1
+	      ({'users',( _0
+			  -| [{'function',{'users',1}}] )})
+      -| [{'function',{'users',1}}] )
+'verbose'/1 =
+    %% Line 95
+    ( fun (_0) ->
+	  %% Line 96
+	  apply 'call'/1
+	      ({'set_verbose',( _0
+				-| [{'function',{'verbose',1}}] )})
+      -| [{'function',{'verbose',1}}] )
+'call'/1 =
+    %% Line 98
+    ( fun (_0) ->
+	  do  %% Line 99
+	      apply 'ensure_started'/0
+		  ()
+	      %% Line 100
+	      call 'gen_server':'call'
+		  ('dets', ( _0
+			     -| [{'function',{'call',1}}] ), 'infinity')
+      -| [{'function',{'call',1}}] )
+'init'/1 =
+    %% Line 113
+    ( fun (_0) ->
+	  let <Store> =
+	      apply %% Line 114
+		    'init'/0
+		  ()
+	  in  %% Line 115
+	      {'ok',{'state',Store,( _0
+				     -| [{'function',{'init',1}}] ),[]}}
+      -| [{'function',{'init',1}}] )
+'handle_call'/3 =
+    %% Line 126
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <'all',_X_From,State> when 'true' ->
+		  let <F> =
+		      fun (_5,_4) ->
+			  let <_3> =
+			      call %% Line 127
+				   'erlang':%% Line 127
+					    'element'
+				  (%% Line 127
+				   1, _5)
+			  in  %% Line 127
+			      [_3|_4]
+		  in  let <_9> =
+			  call %% Line 128
+			       'ets':%% Line 128
+				     'foldl'
+			      (%% Line 128
+			       F, %% Line 128
+				  [], %% Line 128
+				      'dets_registry')
+		      in  %% Line 128
+			  {'reply',_9,State}
+	      %% Line 129
+	      <_@r0 = {'close',Tab},From,State> when 'true' ->
+		  %% Line 130
+		  apply 'request'/2
+		      ([{_@r0,From}|[]], State)
+	      %% Line 131
+	      <_@r1 = {'open',File},From,State> when 'true' ->
+		  %% Line 132
+		  apply 'request'/2
+		      ([{_@r1,From}|[]], State)
+	      %% Line 133
+	      <_@r2 = {'open',Tab,OpenArgs},From,State> when 'true' ->
+		  %% Line 134
+		  apply 'request'/2
+		      ([{_@r2,From}|[]], State)
+	      %% Line 135
+	      <'stop',_X_From,State> when 'true' ->
+		  %% Line 136
+		  {'stop','normal','stopped',State}
+	      %% Line 137
+	      <{'set_verbose',What},_X_From,State> when 'true' ->
+		  do  %% Line 138
+		      apply 'set_verbose'/1
+			  (What)
+		      %% Line 139
+		      {'reply','ok',State}
+	      %% Line 140
+	      <{'users',Tab},_X_From,State> when 'true' ->
+		  %% Line 141
+		  ( case State of
+		      ( <( {'state',_rec0,_16,_17}
+			   -| ['compiler_generated'] )> when 'true' ->
+			    let <Users> =
+				call 'ets':'select'
+				    (_rec0, [{{'$1',Tab},[],['$1']}|[]])
+			    in  %% Line 142
+				{'reply',Users,State}
+			-| ['compiler_generated'] )
+		      ( <_18> when 'true' ->
+			    ( call ( 'erlang'
+				     -| ['compiler_generated'] ):( 'error'
+								   -| ['compiler_generated'] )
+				  (( {'badrecord','state'}
+				     -| ['compiler_generated'] ))
+			      -| ['compiler_generated'] )
+			-| ['compiler_generated'] )
+		    end
+		    -| ['compiler_generated'] )
+	      ( <_15,_14,_13> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_15,_14,_13})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'handle_call',3}}] )
+      -| [{'function',{'handle_call',3}}] )
+'handle_cast'/2 =
+    %% Line 150
+    ( fun (_0,_1) ->
+	  %% Line 151
+	  {'noreply',_1}
+      -| [{'function',{'handle_cast',2}}] )
+'handle_info'/2 =
+    %% Line 159
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <{'pending_reply',{Ref,Result0}},State> when 'true' ->
+		  %% Line 162
+		  ( case State of
+		      ( <( {'state',_45,_46,_rec1}
+			   -| ['compiler_generated'] )> when 'true' ->
+			    case call 'lists':'keysearch'
+				     (Ref, 3, _rec1) of
+			      <{'value',{'pending',Tab,_48,Pid,From = {FromPid,_X_Tag},ReqT,Clients}}> when 'true' ->
+				  %% Line 163
+				  ( case State of
+				      ( <( {'state',_rec2,_49,_50}
+					   -| ['compiler_generated'] )> when 'true' ->
+					    let <_13> =
+						case %% Line 165
+						     <Result0,ReqT> of
+						  %% Line 166
+						  <'ok','add_user'> when 'true' ->
+						      do  %% Line 167
+							  apply 'do_link'/2
+							      (_rec2, FromPid)
+							  %% Line 168
+							  case call 'ets':'insert'
+								   (_rec2, {FromPid,Tab}) of
+							    <'true'> when 'true' ->
+								do  %% Line 169
+								    call 'ets':'update_counter'
+									('dets_registry', Tab, 1)
+								    %% Line 170
+								    {'ok',Tab}
+							    ( <_8> when 'true' ->
+								  primop 'match_fail'
+								      ({'badmatch',_8})
+							      -| ['compiler_generated'] )
+							  end
+						  %% Line 171
+						  <'ok','internal_open'> when 'true' ->
+						      do  %% Line 172
+							  call 'erlang':'link'
+							      (Pid)
+							  do  %% Line 173
+							      apply 'do_link'/2
+								  (_rec2, FromPid)
+							      %% Line 174
+							      case call 'ets':'insert'
+								       (_rec2, {FromPid,Tab}) of
+								<'true'> when 'true' ->
+								    %% Line 178
+								    {'ok',Tab}
+								( <_9> when 'true' ->
+								      primop 'match_fail'
+									  ({'badmatch',_9})
+								  -| ['compiler_generated'] )
+							      end
+						  %% Line 179
+						  <Reply,( 'internal_open'
+							   -| ['compiler_generated'] )> when 'true' ->
+						      %% Line 181
+						      case call 'ets':'delete'
+							       ('dets_registry', Tab) of
+							<'true'> when 'true' ->
+							    %% Line 182
+							    case call 'ets':'delete'
+								     ('dets_owners', Pid) of
+							      <'true'> when 'true' ->
+								  %% Line 183
+								  Reply
+							      ( <_11> when 'true' ->
+								    primop 'match_fail'
+									({'badmatch',_11})
+								-| ['compiler_generated'] )
+							    end
+							( <_10> when 'true' ->
+							      primop 'match_fail'
+								  ({'badmatch',_10})
+							  -| ['compiler_generated'] )
+						      end
+						  %% Line 184
+						  <Reply,_52> when 'true' ->
+						      %% Line 185
+						      Reply
+						end
+					    in  do  %% Line 187
+						    call 'gen_server':'reply'
+							(From, _13)
+						    %% Line 188
+						    ( case State of
+							( <( {'state',_53,_54,_rec3}
+							     -| ['compiler_generated'] )> when 'true' ->
+							      let <NP> =
+								  call 'lists':'keydelete'
+								      (Pid, 4, _rec3)
+							      in  %% Line 189
+								  case State of
+								    <{'state',_56,_57,_58}> when 'true' ->
+									let <_20> =
+									    call 'erlang':'setelement'
+										(4, State, NP)
+									in  %% Line 190
+									    apply 'request'/2
+										(Clients, _20)
+								    ( <_59> when 'true' ->
+									  ( call ( 'erlang'
+										   -| ['compiler_generated'] ):( 'error'
+														 -| ['compiler_generated'] )
+										(( {'badrecord','state'}
+										   -| ['compiler_generated'] ))
+									    -| ['compiler_generated'] )
+								      -| ['compiler_generated'] )
+								  end
+							  -| ['compiler_generated'] )
+							( <_55> when 'true' ->
+							      ( call ( 'erlang'
+								       -| ['compiler_generated'] ):( 'error'
+												     -| ['compiler_generated'] )
+								    (( {'badrecord','state'}
+								       -| ['compiler_generated'] ))
+								-| ['compiler_generated'] )
+							  -| ['compiler_generated'] )
+						      end
+						      -| ['compiler_generated'] )
+					-| ['compiler_generated'] )
+				      ( <_51> when 'true' ->
+					    ( call ( 'erlang'
+						     -| ['compiler_generated'] ):( 'error'
+										   -| ['compiler_generated'] )
+						  (( {'badrecord','state'}
+						     -| ['compiler_generated'] ))
+					      -| ['compiler_generated'] )
+					-| ['compiler_generated'] )
+				    end
+				    -| ['compiler_generated'] )
+			      ( <_4> when 'true' ->
+				    primop 'match_fail'
+					({'badmatch',_4})
+				-| ['compiler_generated'] )
+			    end
+			-| ['compiler_generated'] )
+		      ( <_47> when 'true' ->
+			    ( call ( 'erlang'
+				     -| ['compiler_generated'] ):( 'error'
+								   -| ['compiler_generated'] )
+				  (( {'badrecord','state'}
+				     -| ['compiler_generated'] ))
+			      -| ['compiler_generated'] )
+			-| ['compiler_generated'] )
+		    end
+		    -| ['compiler_generated'] )
+	      %% Line 191
+	      <{'EXIT',Pid,_X_Reason},State> when 'true' ->
+		  %% Line 192
+		  ( case State of
+		      ( <( {'state',_rec5,_60,_61}
+			   -| ['compiler_generated'] )> when 'true' ->
+			    %% Line 193
+			    case %% Line 270
+				 ( case ( call ( 'ets'
+						 -| ['compiler_generated'] ):( 'lookup'
+									       -| ['compiler_generated'] )
+					      (( 'dets_owners'
+						 -| ['compiler_generated'] ), Pid)
+					  -| ['compiler_generated'] ) of
+				     %% Line 271
+				     ( <( []
+					  -| ['compiler_generated'] )> when ( 'true'
+									      -| ['compiler_generated'] ) ->
+					   ( 'undefined'
+					     -| ['compiler_generated'] )
+				       -| ['compiler_generated'] )
+				     %% Line 272
+				     ( <( [( {_X_Pid,Tab}
+					     -| ['compiler_generated'] )|( []
+									   -| ['compiler_generated'] )]
+					  -| ['compiler_generated'] )> when ( 'true'
+									      -| ['compiler_generated'] ) ->
+					   ( {( 'ok'
+						-| ['compiler_generated'] ),Tab}
+					     -| ['compiler_generated'] )
+				       -| ['compiler_generated'] )
+				     ( <_71> when ( 'true'
+						    -| ['compiler_generated'] ) ->
+					   ( primop ( 'match_fail'
+						      -| ['compiler_generated'] )
+						 (( {( 'case_clause'
+						       -| ['compiler_generated'] ),_71}
+						    -| ['compiler_generated'] ))
+					     -| ['compiler_generated'] )
+				       -| ['compiler_generated'] )
+				   end
+				   -| ['compiler_generated'] ) of
+			      %% Line 194
+			      <{'ok',Tab}> when 'true' ->
+				  %% Line 196
+				  case call 'ets':'delete'
+					   ('dets_registry', Tab) of
+				    <'true'> when 'true' ->
+					%% Line 197
+					case call 'ets':'delete'
+						 ('dets_owners', Pid) of
+					  <'true'> when 'true' ->
+					      %% Line 198
+					      ( case State of
+						  ( <( {'state',_rec6,_63,_64}
+						       -| ['compiler_generated'] )> when 'true' ->
+							let <Users> =
+							    call 'ets':'select'
+								(_rec6, [{{'$1',Tab},[],['$1']}|[]])
+							in  %% Line 199
+							    case call 'ets':'match_delete'
+								     (_rec5, {'_',Tab}) of
+							      <'true'> when 'true' ->
+								  let <_33> =
+								      fun (_31) ->
+									  %% Line 200
+									  apply 'do_unlink'/2
+									      (_rec5, _31)
+								  in  do  %% Line 200
+									  call 'lists':'foreach'
+									      (_33, Users)
+									  %% Line 201
+									  {'noreply',State}
+							      ( <_30> when 'true' ->
+								    primop 'match_fail'
+									({'badmatch',_30})
+								-| ['compiler_generated'] )
+							    end
+						    -| ['compiler_generated'] )
+						  ( <_65> when 'true' ->
+							( call ( 'erlang'
+								 -| ['compiler_generated'] ):( 'error'
+											       -| ['compiler_generated'] )
+							      (( {'badrecord','state'}
+								 -| ['compiler_generated'] ))
+							  -| ['compiler_generated'] )
+						    -| ['compiler_generated'] )
+						end
+						-| ['compiler_generated'] )
+					  ( <_26> when 'true' ->
+						primop 'match_fail'
+						    ({'badmatch',_26})
+					    -| ['compiler_generated'] )
+					end
+				    ( <_25> when 'true' ->
+					  primop 'match_fail'
+					      ({'badmatch',_25})
+				      -| ['compiler_generated'] )
+				  end
+			      %% Line 202
+			      <'undefined'> when 'true' ->
+				  let <F> =
+				      fun (_36,_35) ->
+					  %% Line 204
+					  case <_36,_35> of
+					    <{FromPid,Tab},S> when 'true' ->
+						%% Line 205
+						case apply 'handle_close'/4
+							 (S, {'close',Tab}, %% Line 206
+									    {FromPid,'notag'}, %% Line 206
+											       Tab) of
+						  <{_66,S1}> when 'true' ->
+						      %% Line 207
+						      S1
+						  ( <_34> when 'true' ->
+							primop 'match_fail'
+							    ({'badmatch',_34})
+						    -| ['compiler_generated'] )
+						end
+					    ( <_38,_37> when 'true' ->
+						  primop 'match_fail'
+						      ({'function_clause',_38,_37})
+					      -| ['compiler_generated'] )
+					  end
+				  in  let <_40> =
+					  call %% Line 209
+					       'ets':%% Line 209
+						     'lookup'
+					      (_rec5, %% Line 209
+						      Pid)
+				      in  let <State1> =
+					      call %% Line 209
+						   'lists':%% Line 209
+							   'foldl'
+						  (%% Line 209
+						   F, %% Line 209
+						      State, _40)
+					  in  %% Line 210
+					      {'noreply',State1}
+			      ( <_42> when 'true' ->
+				    primop 'match_fail'
+					({'case_clause',_42})
+				-| ['compiler_generated'] )
+			    end
+			-| ['compiler_generated'] )
+		      ( <_62> when 'true' ->
+			    ( call ( 'erlang'
+				     -| ['compiler_generated'] ):( 'error'
+								   -| ['compiler_generated'] )
+				  (( {'badrecord','state'}
+				     -| ['compiler_generated'] ))
+			      -| ['compiler_generated'] )
+			-| ['compiler_generated'] )
+		    end
+		    -| ['compiler_generated'] )
+	      %% Line 212
+	      <_X_Message,State> when 'true' ->
+		  %% Line 213
+		  {'noreply',State}
+	    end
+	    -| [{'function',{'handle_info',2}}] )
+      -| [{'function',{'handle_info',2}}] )
+'terminate'/2 =
+    %% Line 220
+    ( fun (_0,_1) ->
+	  %% Line 221
+	  'ok'
+      -| [{'function',{'terminate',2}}] )
+'code_change'/3 =
+    %% Line 228
+    ( fun (_0,_1,_2) ->
+	  %% Line 229
+	  {'ok',_1}
+      -| [{'function',{'code_change',3}}] )
+'ensure_started'/0 =
+    %% Line 235
+    ( fun () ->
+	  %% Line 236
+	  case call 'erlang':'whereis'
+		   ('dets') of
+	    %% Line 237
+	    <'undefined'> when 'true' ->
+		do  %% Line 240
+		    ( call ( 'supervisor'
+			     -| ['result_not_wanted'] ):( 'start_child'
+							  -| ['result_not_wanted'] )
+			  (( 'kernel_safe_sup'
+			     -| ['result_not_wanted'] ), {'dets_sup',{'dets_sup','start_link',[]},'permanent',1000,'supervisor',['dets_sup']})
+		      -| ['result_not_wanted'] )
+		    do  %% Line 243
+			( call ( 'supervisor'
+				 -| ['result_not_wanted'] ):( 'start_child'
+							      -| ['result_not_wanted'] )
+			      (( 'kernel_safe_sup'
+				 -| ['result_not_wanted'] ), {'dets',{'dets_server','start_link',[]},'permanent',2000,'worker',['dets_server']})
+			  -| ['result_not_wanted'] )
+			%% Line 244
+			'ok'
+	    %% Line 245
+	    <_6> when 'true' ->
+		'ok'
+	  end
+      -| [{'function',{'ensure_started',0}}] )
+'init'/0 =
+    %% Line 248
+    ( fun () ->
+	  let <_0> =
+	      apply %% Line 249
+		    'verbose_flag'/0
+		  ()
+	  in  do  %% Line 249
+		  apply 'set_verbose'/1
+		      (_0)
+		  do  %% Line 250
+		      call 'erlang':'process_flag'
+			  ('trap_exit', 'true')
+		      %% Line 251
+		      case call 'ets':'new'
+			       ('dets_registry', ['set'|['named_table']]) of
+			<'dets_registry'> when 'true' ->
+			    %% Line 252
+			    case call 'ets':'new'
+				     ('dets_owners', ['set'|['named_table']]) of
+			      <'dets_owners'> when 'true' ->
+				  %% Line 253
+				  call 'ets':'new'
+				      ('dets', ['duplicate_bag'])
+			      ( <_2> when 'true' ->
+				    primop 'match_fail'
+					({'badmatch',_2})
+				-| ['compiler_generated'] )
+			    end
+			( <_1> when 'true' ->
+			      primop 'match_fail'
+				  ({'badmatch',_1})
+			  -| ['compiler_generated'] )
+		      end
+      -| [{'function',{'init',0}}] )
+'verbose_flag'/0 =
+    %% Line 255
+    ( fun () ->
+	  %% Line 256
+	  case call 'init':'get_argument'
+		   ('dets') of
+	    %% Line 257
+	    <{'ok',Args}> when 'true' ->
+		%% Line 258
+		call 'lists':'member'
+		    ([[118|[101|[114|[98|[111|[115|[101]]]]]]]], Args)
+	    %% Line 259
+	    <_1> when 'true' ->
+		%% Line 260
+		'false'
+	  end
+      -| [{'function',{'verbose_flag',0}}] )
+'set_verbose'/1 =
+    %% Line 263
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'set_verbose',1}}] ) of
+	      <'true'> when 'true' ->
+		  %% Line 264
+		  call 'erlang':'put'
+		      ('verbose', 'yes')
+	      %% Line 265
+	      <_2> when 'true' ->
+		  %% Line 266
+		  call 'erlang':'erase'
+		      ('verbose')
+	    end
+	    -| [{'function',{'set_verbose',1}}] )
+      -| [{'function',{'set_verbose',1}}] )
+'pid2name_1'/1 =
+    %% Line 269
+    ( fun (_0) ->
+	  %% Line 270
+	  case call 'ets':'lookup'
+		   ('dets_owners', ( _0
+				     -| [{'function',{'pid2name_1',1}}] )) of
+	    %% Line 271
+	    <[]> when 'true' ->
+		'undefined'
+	    %% Line 272
+	    <[{_X_Pid,Tab}|[]]> when 'true' ->
+		{'ok',Tab}
+	    ( <_1> when 'true' ->
+		  primop 'match_fail'
+		      ({'case_clause',_1})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'pid2name_1',1}}] )
+'request'/2 =
+    %% Line 275
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <[{Req,From}|L],State> when 'true' ->
+		  let <_4> =
+		      case %% Line 276
+			   Req of
+			%% Line 277
+			<{'close',Tab}> when 'true' ->
+			    %% Line 278
+			    apply 'handle_close'/4
+				(State, Req, From, Tab)
+			%% Line 279
+			<{'open',File}> when 'true' ->
+			    let <_2> =
+				call %% Line 280
+				     'erlang':%% Line 280
+					      'get'
+				    (%% Line 280
+				     'verbose')
+			    in  %% Line 280
+				apply 'do_internal_open'/3
+				    (State, From, [File|[_2|[]]])
+			%% Line 281
+			<{'open',Tab,OpenArgs}> when 'true' ->
+			    %% Line 282
+			    apply 'do_open'/5
+				(State, Req, From, OpenArgs, Tab)
+			( <_3> when 'true' ->
+			      %% Line 276
+			      primop 'match_fail'
+				  ({'case_clause',_3})
+			  -| ['compiler_generated'] )
+		      end
+		  in  let <_7> =
+			  case _4 of
+			    %% Line 285
+			    <{'pending',State1}> when 'true' ->
+				%% Line 286
+				State1
+			    %% Line 287
+			    <{Reply,State1}> when 'true' ->
+				do  %% Line 288
+				    call 'gen_server':'reply'
+					(From, Reply)
+				    %% Line 289
+				    State1
+			    ( <_6> when 'true' ->
+				  %% Line 284
+				  primop 'match_fail'
+				      ({'case_clause',_6})
+			      -| ['compiler_generated'] )
+			  end
+		      in  %% Line 291
+			  apply 'request'/2
+			      (L, _7)
+	      %% Line 292
+	      <[],State> when 'true' ->
+		  %% Line 293
+		  {'noreply',State}
+	      ( <_10,_9> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_10,_9})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'request',2}}] )
+      -| [{'function',{'request',2}}] )
+'do_open'/5 =
+    %% Line 296
+    ( fun (_0,_1,_2,_3,_4) ->
+	  %% Line 297
+	  case apply 'check_pending'/4
+		   (_4, _2, _0, _1) of
+	    %% Line 298
+	    <_@r0 = {'pending',NewState}> when 'true' ->
+		_@r0
+	    %% Line 299
+	    <'false'> when 'true' ->
+		%% Line 300
+		case call 'ets':'lookup'
+			 ('dets_registry', _4) of
+		  %% Line 301
+		  <[]> when 'true' ->
+		      let <_5> =
+			  call %% Line 302
+			       'erlang':%% Line 302
+					'get'
+			      (%% Line 302
+			       'verbose')
+		      in  let <A> =
+			      [_4|%% Line 302
+				  [_3|[_5|[]]]]
+			  in  %% Line 303
+			      apply 'do_internal_open'/3
+				  (_0, _2, A)
+		  %% Line 304
+		  <[{_15,_X_Counter,Pid}|[]]>
+		      when call 'erlang':'=:='
+			    (_15,
+			     _4) ->
+		      let <_7> =
+			  call %% Line 305
+			       'erlang':%% Line 305
+					'make_ref'
+			      ()
+		      in  %% Line 305
+			  apply 'pending_call'/7
+			      (_4, Pid, _7, _2, _3, %% Line 306
+						    'add_user', _0)
+		  ( <_8> when 'true' ->
+			primop 'match_fail'
+			    ({'case_clause',_8})
+		    -| ['compiler_generated'] )
+		end
+	    ( <_9> when 'true' ->
+		  primop 'match_fail'
+		      ({'case_clause',_9})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'do_open',5}}] )
+'do_internal_open'/3 =
+    %% Line 311
+    ( fun (_0,_1,_2) ->
+	  let <_3> =
+	      call %% Line 312
+		   'erlang':%% Line 312
+			    'self'
+		  ()
+	  in  %% Line 312
+	      case call 'supervisor':'start_child'
+		       ('dets_sup', [_3|[]]) of
+		%% Line 313
+		<{'ok',Pid}> when 'true' ->
+		    let <Ref> =
+			call %% Line 314
+			     'erlang':%% Line 314
+				      'make_ref'
+			    ()
+		    in  let <_6> =
+			    case _2 of
+			      %% Line 316
+			      <[T|[_14|[_15|[]]]]> when 'true' ->
+				  T
+			      %% Line 317
+			      <[_16|[_17|[]]]> when 'true' ->
+				  Ref
+			      ( <_5> when 'true' ->
+				    %% Line 315
+				    primop 'match_fail'
+					({'case_clause',_5})
+				-| ['compiler_generated'] )
+			    end
+			in  %% Line 323
+			    case call 'ets':'insert'
+				     ('dets_registry', {_6,1,Pid}) of
+			      <'true'> when 'true' ->
+				  %% Line 324
+				  case call 'ets':'insert'
+					   ('dets_owners', {Pid,_6}) of
+				    <'true'> when 'true' ->
+					%% Line 325
+					apply 'pending_call'/7
+					    (_6, Pid, Ref, _1, _2, 'internal_open', _0)
+				    ( <_9> when 'true' ->
+					  primop 'match_fail'
+					      ({'badmatch',_9})
+				      -| ['compiler_generated'] )
+				  end
+			      ( <_8> when 'true' ->
+				    primop 'match_fail'
+					({'badmatch',_8})
+				-| ['compiler_generated'] )
+			    end
+		%% Line 326
+		<Error> when 'true' ->
+		    %% Line 327
+		    {Error,_0}
+	      end
+      -| [{'function',{'do_internal_open',3}}] )
+'handle_close'/4 =
+    %% Line 331
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <State,Req,From = {FromPid,_X_Tag},Tab> when 'true' ->
+		  %% Line 332
+		  case apply 'check_pending'/4
+			   (Tab, From, State, Req) of
+		    %% Line 333
+		    <_@r0 = {'pending',NewState}> when 'true' ->
+			_@r0
+		    %% Line 334
+		    <'false'> when 'true' ->
+			%% Line 335
+			( case State of
+			    ( <( {'state',_rec7,_22,_23}
+				 -| ['compiler_generated'] )> when 'true' ->
+				  %% Line 336
+				  case call 'ets':'match_object'
+					   (_rec7, {FromPid,Tab}) of
+				    %% Line 337
+				    <[]> when 'true' ->
+					%% Line 340
+					{{'error','not_owner'},State}
+				    %% Line 341
+				    <[_25|Keep]> when 'true' ->
+					%% Line 342
+					case call 'ets':'lookup'
+						 ('dets_registry', Tab) of
+					  %% Line 343
+					  <[{_26,1,Pid}|[]]>
+					      when call 'erlang':'=:='
+						    (_26,
+						     Tab) ->
+					      do  %% Line 344
+						  apply 'do_unlink'/2
+						      (_rec7, FromPid)
+						  %% Line 345
+						  case call 'ets':'delete'
+							   ('dets_registry', Tab) of
+						    <'true'> when 'true' ->
+							%% Line 346
+							case call 'ets':'delete'
+								 ('dets_owners', Pid) of
+							  <'true'> when 'true' ->
+							      %% Line 347
+							      case call 'ets':'match_delete'
+								       (_rec7, {FromPid,Tab}) of
+								<'true'> when 'true' ->
+								    do  %% Line 348
+									call 'erlang':'unlink'
+									    (Pid)
+									let <_10> =
+									    call %% Line 349
+										 'erlang':%% Line 349
+											  'make_ref'
+										()
+									in  %% Line 349
+									    apply 'pending_call'/7
+										(Tab, Pid, _10, From, [], %% Line 350
+													  'internal_close', %% Line 350
+															    State)
+								( <_9> when 'true' ->
+								      primop 'match_fail'
+									  ({'badmatch',_9})
+								  -| ['compiler_generated'] )
+							      end
+							  ( <_8> when 'true' ->
+								primop 'match_fail'
+								    ({'badmatch',_8})
+							    -| ['compiler_generated'] )
+							end
+						    ( <_7> when 'true' ->
+							  primop 'match_fail'
+							      ({'badmatch',_7})
+						      -| ['compiler_generated'] )
+						  end
+					  %% Line 351
+					  <[{_27,_X_Counter,Pid}|[]]>
+					      when call 'erlang':'=:='
+						    (_27,
+						     Tab) ->
+					      do  %% Line 352
+						  apply 'do_unlink'/2
+						      (_rec7, FromPid)
+						  %% Line 353
+						  case call 'ets':'match_delete'
+							   (_rec7, {FromPid,Tab}) of
+						    <'true'> when 'true' ->
+							%% Line 354
+							case call 'ets':'insert'
+								 (_rec7, Keep) of
+							  <'true'> when 'true' ->
+							      do  %% Line 355
+								  call 'ets':'update_counter'
+								      ('dets_registry', Tab, -1)
+								  let <_14> =
+								      call %% Line 356
+									   'erlang':%% Line 356
+										    'make_ref'
+									  ()
+								  in  %% Line 356
+								      apply 'pending_call'/7
+									  (Tab, Pid, _14, From, [], %% Line 357
+												    'remove_user', %% Line 357
+														   State)
+							  ( <_12> when 'true' ->
+								primop 'match_fail'
+								    ({'badmatch',_12})
+							    -| ['compiler_generated'] )
+							end
+						    ( <_11> when 'true' ->
+							  primop 'match_fail'
+							      ({'badmatch',_11})
+						      -| ['compiler_generated'] )
+						  end
+					  ( <_15> when 'true' ->
+						primop 'match_fail'
+						    ({'case_clause',_15})
+					    -| ['compiler_generated'] )
+					end
+				    ( <_16> when 'true' ->
+					  primop 'match_fail'
+					      ({'case_clause',_16})
+				      -| ['compiler_generated'] )
+				  end
+			      -| ['compiler_generated'] )
+			    ( <_24> when 'true' ->
+				  ( call ( 'erlang'
+					   -| ['compiler_generated'] ):( 'error'
+									 -| ['compiler_generated'] )
+					(( {'badrecord','state'}
+					   -| ['compiler_generated'] ))
+				    -| ['compiler_generated'] )
+			      -| ['compiler_generated'] )
+			  end
+			  -| ['compiler_generated'] )
+		    ( <_17> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_17})
+		      -| ['compiler_generated'] )
+		  end
+	      ( <_21,_20,_19,_18> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_21,_20,_19,_18})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'handle_close',4}}] )
+      -| [{'function',{'handle_close',4}}] )
+'do_link'/2 =
+    %% Line 363
+    ( fun (_0,_1) ->
+	  let <Key> = {%% Line 364
+	       'links',_1}
+	  in  %% Line 365
+	      case call 'ets':'lookup'
+		       (_0, Key) of
+		%% Line 366
+		<[]> when 'true' ->
+		    %% Line 367
+		    case call 'ets':'insert'
+			     (_0, {Key,1}) of
+		      <'true'> when 'true' ->
+			  %% Line 368
+			  call 'erlang':'link'
+			      (_1)
+		      ( <_3> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_3})
+			-| ['compiler_generated'] )
+		    end
+		%% Line 369
+		<[{_10,C}|[]]> when 'true' ->
+		    %% Line 370
+		    case call 'ets':'delete'
+			     (_0, Key) of
+		      <'true'> when 'true' ->
+			  let <_5> =
+			      call %% Line 371
+				   'erlang':%% Line 371
+					    '+'
+				  (%% Line 371
+				   C, %% Line 371
+				      1)
+			  in  let <_11> =
+				  call %% Line 371
+				       'ets':%% Line 371
+					     'insert'
+				      (_0, %% Line 371
+					   {Key,_5})
+			      in  %% Line 371
+				  case _11 of
+				    <'true'> when 'true' ->
+					( _11
+					  -| ['compiler_generated'] )
+				    ( <_6> when 'true' ->
+					  primop 'match_fail'
+					      ({'badmatch',_6})
+				      -| ['compiler_generated'] )
+				  end
+		      ( <_4> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_4})
+			-| ['compiler_generated'] )
+		    end
+		( <_7> when 'true' ->
+		      primop 'match_fail'
+			  ({'case_clause',_7})
+		  -| ['compiler_generated'] )
+	      end
+      -| [{'function',{'do_link',2}}] )
+'do_unlink'/2 =
+    %% Line 374
+    ( fun (_0,_1) ->
+	  let <Key> = {%% Line 375
+	       'links',_1}
+	  in  %% Line 376
+	      case call 'ets':'lookup'
+		       (_0, Key) of
+		%% Line 377
+		<[{_10,C}|[]]>
+		    when call 'erlang':'>'
+			  (C,
+			   1) ->
+		    %% Line 378
+		    case call 'ets':'delete'
+			     (_0, Key) of
+		      <'true'> when 'true' ->
+			  let <_4> =
+			      call %% Line 379
+				   'erlang':%% Line 379
+					    '-'
+				  (%% Line 379
+				   C, %% Line 379
+				      1)
+			  in  let <_11> =
+				  call %% Line 379
+				       'ets':%% Line 379
+					     'insert'
+				      (_0, %% Line 379
+					   {Key,_4})
+			      in  %% Line 379
+				  case _11 of
+				    <'true'> when 'true' ->
+					( _11
+					  -| ['compiler_generated'] )
+				    ( <_5> when 'true' ->
+					  primop 'match_fail'
+					      ({'badmatch',_5})
+				      -| ['compiler_generated'] )
+				  end
+		      ( <_3> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_3})
+			-| ['compiler_generated'] )
+		    end
+		%% Line 380
+		<_12> when 'true' ->
+		    %% Line 381
+		    case call 'ets':'delete'
+			     (_0, Key) of
+		      <'true'> when 'true' ->
+			  %% Line 382
+			  call 'erlang':'unlink'
+			      (_1)
+		      ( <_6> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_6})
+			-| ['compiler_generated'] )
+		    end
+	      end
+      -| [{'function',{'do_unlink',2}}] )
+'pending_call'/7 =
+    %% Line 386
+    ( fun (_0,_1,_2,_3,_4,_5,_6) ->
+	  ( case <_0,_1,_2,_3,_4,_5,_6> of
+	      <Tab,Pid,Ref,From = {FromPid,_X_Tag},Args,ReqT,State> when 'true' ->
+		  let <Server> =
+		      call %% Line 387
+			   'erlang':%% Line 387
+				    'self'
+			  ()
+		  in  let <F> =
+			  fun () ->
+			      let <_9> =
+				  case %% Line 389
+				       ReqT of
+				    %% Line 390
+				    <'add_user'> when 'true' ->
+					%% Line 391
+					call 'dets':'add_user'
+					    (Pid, Tab, Args)
+				    %% Line 392
+				    <'internal_open'> when 'true' ->
+					%% Line 393
+					call 'dets':'internal_open'
+					    (Pid, Ref, Args)
+				    %% Line 394
+				    <'internal_close'> when 'true' ->
+					%% Line 395
+					call 'dets':'internal_close'
+					    (Pid)
+				    %% Line 396
+				    <'remove_user'> when 'true' ->
+					%% Line 397
+					call 'dets':'remove_user'
+					    (Pid, FromPid)
+				    ( <_8> when 'true' ->
+					  %% Line 389
+					  primop 'match_fail'
+					      ({'case_clause',_8})
+				      -| ['compiler_generated'] )
+				  end
+			      in  %% Line 399
+				  call 'erlang':'!'
+				      (Server, {'pending_reply',{Ref,_9}})
+		      in  do  %% Line 401
+			      ( call ( 'erlang'
+				       -| ['result_not_wanted'] ):( 'spawn'
+								    -| ['result_not_wanted'] )
+				    (F)
+				-| ['result_not_wanted'] )
+			      let <PD> =
+				  {%% Line 402
+				   'pending',%% Line 402
+					     Tab,%% Line 402
+						 Ref,%% Line 402
+						     Pid,%% Line 403
+							 From,%% Line 402
+							      ReqT,%% Line 403
+								   []}
+			      in  %% Line 404
+				  ( case State of
+				      ( <( {'state',_27,_28,_rec8}
+					   -| ['compiler_generated'] )> when 'true' ->
+					    let <P> =
+						[PD|_rec8]
+					    in  %% Line 405
+						case State of
+						  <{'state',_30,_31,_32}> when 'true' ->
+						      let <_19> =
+							  call 'erlang':'setelement'
+							      (4, State, P)
+						      in  {'pending',_19}
+						  ( <_33> when 'true' ->
+							( call ( 'erlang'
+								 -| ['compiler_generated'] ):( 'error'
+											       -| ['compiler_generated'] )
+							      (( {'badrecord','state'}
+								 -| ['compiler_generated'] ))
+							  -| ['compiler_generated'] )
+						    -| ['compiler_generated'] )
+						end
+					-| ['compiler_generated'] )
+				      ( <_29> when 'true' ->
+					    ( call ( 'erlang'
+						     -| ['compiler_generated'] ):( 'error'
+										   -| ['compiler_generated'] )
+						  (( {'badrecord','state'}
+						     -| ['compiler_generated'] ))
+					      -| ['compiler_generated'] )
+					-| ['compiler_generated'] )
+				    end
+				    -| ['compiler_generated'] )
+	      ( <_26,_25,_24,_23,_22,_21,_20> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_26,_25,_24,_23,_22,_21,_20})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'pending_call',7}}] )
+      -| [{'function',{'pending_call',7}}] )
+'check_pending'/4 =
+    %% Line 407
+    ( fun (_0,_1,_2,_3) ->
+	  %% Line 408
+	  ( case _2 of
+	      ( <( {'state',_21,_22,_rec10}
+		   -| ['compiler_generated'] )> when 'true' ->
+		    case call 'lists':'keysearch'
+			     (_0, 2, _rec10) of
+		      %% Line 409
+		      <{'value',P = {'pending',_24,_25,_26,_27,_28,Clients}}>
+			  when call 'erlang':'=:='
+				(_24,
+				 _0) ->
+			  %% Line 410
+			  ( case _2 of
+			      ( <( {'state',_29,_30,_rec11}
+				   -| ['compiler_generated'] )> when 'true' ->
+				    let <_rec12> =
+					call %% Line 411
+					     'erlang':%% Line 411
+						      '++'
+					    (%% Line 411
+					     Clients, %% Line 411
+						      [{_3,_1}|[]])
+				    in  %% Line 411
+					case P of
+					  <{'pending',_32,_33,_34,_35,_36,_37}> when 'true' ->
+					      let <_9> =
+						  call 'erlang':'setelement'
+						      (7, P, _rec12)
+					      in  let <NP> =
+						      call 'lists':'keyreplace'
+							  (_0, 2, _rec11, _9)
+						  in  %% Line 412
+						      case _2 of
+							<{'state',_39,_40,_41}> when 'true' ->
+							    let <_15> =
+								call 'erlang':'setelement'
+								    (4, _2, NP)
+							    in  {'pending',_15}
+							( <_42> when 'true' ->
+							      ( call ( 'erlang'
+								       -| ['compiler_generated'] ):( 'error'
+												     -| ['compiler_generated'] )
+								    (( {'badrecord','state'}
+								       -| ['compiler_generated'] ))
+								-| ['compiler_generated'] )
+							  -| ['compiler_generated'] )
+						      end
+					  ( <_38> when 'true' ->
+						( call ( 'erlang'
+							 -| ['compiler_generated'] ):( 'error'
+										       -| ['compiler_generated'] )
+						      (( {'badrecord','pending'}
+							 -| ['compiler_generated'] ))
+						  -| ['compiler_generated'] )
+					    -| ['compiler_generated'] )
+					end
+				-| ['compiler_generated'] )
+			      ( <_31> when 'true' ->
+				    ( call ( 'erlang'
+					     -| ['compiler_generated'] ):( 'error'
+									   -| ['compiler_generated'] )
+					  (( {'badrecord','state'}
+					     -| ['compiler_generated'] ))
+				      -| ['compiler_generated'] )
+				-| ['compiler_generated'] )
+			    end
+			    -| ['compiler_generated'] )
+		      %% Line 413
+		      <'false'> when 'true' ->
+			  %% Line 414
+			  'false'
+		      ( <_16> when 'true' ->
+			    primop 'match_fail'
+				({'case_clause',_16})
+			-| ['compiler_generated'] )
+		    end
+		-| ['compiler_generated'] )
+	      ( <_23> when 'true' ->
+		    ( call ( 'erlang'
+			     -| ['compiler_generated'] ):( 'error'
+							   -| ['compiler_generated'] )
+			  (( {'badrecord','state'}
+			     -| ['compiler_generated'] ))
+		      -| ['compiler_generated'] )
+		-| ['compiler_generated'] )
+	    end
+	    -| ['compiler_generated'] )
+      -| [{'function',{'check_pending',4}}] )
+'module_info'/0 =
+    ( fun () ->
+	  call 'erlang':'get_module_info'
+	      ('dets_server')
+      -| [{'function',{'module_info',0}}] )
+'module_info'/1 =
+    ( fun (_0) ->
+	  call 'erlang':'get_module_info'
+	      ('dets_server', ( _0
+				-| [{'function',{'module_info',1}}] ))
+      -| [{'function',{'module_info',1}}] )
+end

@@ -1,0 +1,143 @@
+module 'erl_abstract_code' ['debug_info'/4,
+			    'module_info'/0,
+			    'module_info'/1]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[101|[114|[108|[95|[97|[98|[115|[116|[114|[97|[99|[116|[95|[99|[111|[100|[101|[46|[101|[114|[108]]]]]]]]]]]]]]]]]]]]]]]]],1}]]
+'debug_info'/4 =
+    %% Line 4
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <_X_Format,_X_Module,{'none',_X_CompilerOpts},_X_Opts> when 'true' ->
+		  %% Line 5
+		  {'error','missing'}
+	      %% Line 6
+	      <'erlang_v1',_X_Module,{AbstrCode,_X_CompilerOpts},_X_Opts> when 'true' ->
+		  %% Line 7
+		  {'ok',AbstrCode}
+	      %% Line 8
+	      <'core_v1',_X_Module,{AbstrCode,CompilerOpts},Opts> when 'true' ->
+		  let <_4> =
+		      call %% Line 9
+			   'erlang':%% Line 9
+				    '++'
+			  (%% Line 9
+			   CompilerOpts, %% Line 9
+					 Opts)
+		  in  let <_5> =
+			  apply %% Line 9
+				'delete_reports'/1
+			      (_4)
+		      in  let <CoreOpts> =
+			      apply %% Line 9
+				    'add_core_returns'/1
+				  (_5)
+			  in  %% Line 10
+			      try
+				  call 'compile':'noenv_forms'
+				      (AbstrCode, CoreOpts)
+			      of <_7> ->
+				  case _7 of
+				    %% Line 11
+				    <{'ok',_16,Core,_17}> when 'true' ->
+					{'ok',Core}
+				    %% Line 12
+				    <_X_What> when 'true' ->
+					{'error','failed_conversion'}
+				  end
+			      catch <_11,_10,_9> ->
+				  %% Line 14
+				  case <_11,_10,_9> of
+				    <( 'error'
+				       -| ['compiler_generated'] ),_18,_19> when 'true' ->
+					{'error','failed_conversion'}
+				    ( <_24,_25,_26> when 'true' ->
+					  primop 'raise'
+					      (_26, _25)
+				      -| ['compiler_generated'] )
+				  end
+	      %% Line 16
+	      <_20,_21,_22,_23> when 'true' ->
+		  %% Line 17
+		  {'error','unknown_format'}
+	    end
+	    -| [{'function',{'debug_info',4}}] )
+      -| [{'function',{'debug_info',4}}] )
+'delete_reports'/1 =
+    %% Line 19
+    ( fun (_0) ->
+	  %% Line 20
+	  ( letrec
+		'lc$^0'/1 =
+		    fun (_4) ->
+			case _4 of
+			  <[Opt|_2]> when 'true' ->
+			      ( case apply 'is_report_option'/1
+					 (Opt) of
+				  <'false'> when 'true' ->
+				      let <_6> =
+					  apply 'lc$^0'/1
+					      (_2)
+				      in  ( [Opt|_6]
+					    -| ['compiler_generated'] )
+				  ( <'true'> when 'true' ->
+					apply 'lc$^0'/1
+					    (_2)
+				    -| ['compiler_generated'] )
+				  ( <_cor_variable> when 'true' ->
+					call 'erlang':'error'
+					    ('badarg')
+				    -| ['compiler_generated'] )
+				end
+				-| ['list_comprehension'] )
+			  <[]> when 'true' ->
+			      []
+			  ( <_5> when 'true' ->
+				primop 'match_fail'
+				    ({'function_clause',_5})
+			    -| ['compiler_generated'] )
+			end
+	    in  apply 'lc$^0'/1
+		    (( _0
+		       -| [{'function',{'delete_reports',1}}] ))
+	    -| ['list_comprehension'] )
+      -| [{'function',{'delete_reports',1}}] )
+'is_report_option'/1 =
+    %% Line 22
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'is_report_option',1}}] ) of
+	      <'report'> when 'true' ->
+		  'true'
+	      %% Line 23
+	      <'report_errors'> when 'true' ->
+		  'true'
+	      %% Line 24
+	      <'report_warnings'> when 'true' ->
+		  'true'
+	      %% Line 25
+	      <_2> when 'true' ->
+		  'false'
+	    end
+	    -| [{'function',{'is_report_option',1}}] )
+      -| [{'function',{'is_report_option',1}}] )
+'add_core_returns'/1 =
+    %% Line 27
+    ( fun (_0) ->
+	  %% Line 28
+	  ['to_core'|['return_errors'|['return_warnings'|( _0
+							   -| [{'function',{'add_core_returns',1}}] )]]]
+      -| [{'function',{'add_core_returns',1}}] )
+'module_info'/0 =
+    ( fun () ->
+	  call 'erlang':'get_module_info'
+	      ('erl_abstract_code')
+      -| [{'function',{'module_info',0}}] )
+'module_info'/1 =
+    ( fun (_0) ->
+	  call 'erlang':'get_module_info'
+	      ('erl_abstract_code', ( _0
+				      -| [{'function',{'module_info',1}}] ))
+      -| [{'function',{'module_info',1}}] )
+end

@@ -1,0 +1,54 @@
+module 'dets_sup' ['init'/1,
+		   'module_info'/0,
+		   'module_info'/1,
+		   'start_link'/0]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[100|[101|[116|[115|[95|[115|[117|[112|[46|[101|[114|[108]]]]]]]]]]]]]]]],1}],
+		%% Line 22
+		'behaviour' =
+		    %% Line 22
+		    ['supervisor'],
+		%% Line 26
+		'spec' =
+		    %% Line 26
+		    [{{'start_link',0},[{'type',26,'fun',[{'type',26,'product',[]}|[{'type',26,'union',[{'type',26,'tuple',[{'atom',26,'ok'}|[{'type',26,'pid',[]}]]}|[{'atom',26,'ignore'}|[{'type',26,'tuple',[{'atom',26,'error'}|[{'type',26,'term',[]}]]}]]]}]]}]}],
+		%% Line 31
+		'spec' =
+		    %% Line 31
+		    [{{'init',1},[{'type',31,'fun',[{'type',31,'product',[{'type',31,'nil',[]}]}|[{'type',32,'tuple',[{'atom',32,'ok'}|[{'type',32,'tuple',[{'type',32,'tuple',[{'atom',32,'simple_one_for_one'}|[{'integer',32,4}|[{'integer',32,3600}]]]}|[{'type',33,'list',[{'type',33,'tuple',[{'atom',33,'dets'}|[{'type',33,'tuple',[{'atom',33,'dets'}|[{'atom',33,'istart_link'}|[{'type',33,'nil',[]}]]]}|[{'atom',34,'temporary'}|[{'integer',34,30000}|[{'atom',34,'worker'}|[{'type',34,'list',[{'atom',34,'dets'}]}]]]]]]}]}]]}]]}]]}]}]]
+'start_link'/0 =
+    %% Line 28
+    ( fun () ->
+	  %% Line 29
+	  call 'supervisor':'start_link'
+	      ({'local','dets_sup'}, 'dets_sup', [])
+      -| [{'function',{'start_link',0}}] )
+'init'/1 =
+    %% Line 36
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'init',1}}] ) of
+	      <[]> when 'true' ->
+		  %% Line 39
+		  {'ok',{{'simple_one_for_one',4,3600},[{'dets',{'dets','istart_link',[]},'temporary',30000,'worker',['dets']}]}}
+	      ( <_3> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_3})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'init',1}}] )
+      -| [{'function',{'init',1}}] )
+'module_info'/0 =
+    ( fun () ->
+	  call 'erlang':'get_module_info'
+	      ('dets_sup')
+      -| [{'function',{'module_info',0}}] )
+'module_info'/1 =
+    ( fun (_0) ->
+	  call 'erlang':'get_module_info'
+	      ('dets_sup', ( _0
+			     -| [{'function',{'module_info',1}}] ))
+      -| [{'function',{'module_info',1}}] )
+end
