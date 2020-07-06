@@ -1,0 +1,335 @@
+module 'unicode' ['bin_is_7bit'/1,'bom_to_encoding'/1,'characters_to_binary'/1,'characters_to_binary'/2,'characters_to_binary'/3,'characters_to_binary_int'/2,'characters_to_list'/1,'characters_to_list'/2,'characters_to_list_int'/2,'characters_to_nfc_binary'/1,'characters_to_nfc_list'/1,'characters_to_nfd_binary'/1,'characters_to_nfd_list'/1,'characters_to_nfkc_binary'/1,'characters_to_nfkc_list'/1,'characters_to_nfkd_binary'/1,'characters_to_nfkd_list'/1,'encoding_to_bom'/1,'module_info'/0,'module_info'/1] attributes [ 'file' = [{[115|[114|[99|[47|[117|[110|[105|[99|[111|[100|[101|[46|[101|[114|[108]]]]]]]]]]]]]]],1}]
+, 'export_type' = [{'chardata',0}|[{'charlist',0}|[{'encoding',0}|[{'external_chardata',0}|[{'external_charlist',0}|[{'latin1_char',0}|[{'latin1_chardata',0}|[{'latin1_charlist',0}|[{'latin1_binary',0}|[{'unicode_binary',0}]]]]]]]]]]
+, 'type' = [{'encoding',{'type',36,'union',[{'atom',36,'latin1'}|[{'atom',36,'unicode'}|[{'atom',36,'utf8'}|[{'atom',37,'utf16'}|[{'type',37,'tuple',[{'atom',37,'utf16'}|[{'user_type',37,'endian',[]}]]}|[{'atom',38,'utf32'}|[{'type',38,'tuple',[{'atom',38,'utf32'}|[{'user_type',38,'endian',[]}]]}]]]]]]]},[]}]
+, 'type' = [{'endian',{'type',39,'union',[{'atom',39,'big'}|[{'atom',39,'little'}]]},[]}]
+, 'type' = [{'unicode_binary',{'type',40,'binary',[]},[]}]
+, 'type' = [{'charlist',{'type',42,'maybe_improper_list',[{'type',42,'union',[{'type',42,'char',[]}|[{'user_type',42,'unicode_binary',[]}|[{'user_type',42,'charlist',[]}]]]}|[{'type',43,'union',[{'user_type',43,'unicode_binary',[]}|[{'type',43,'nil',[]}]]}]]},[]}]
+, 'type' = [{'chardata',{'type',44,'union',[{'user_type',44,'charlist',[]}|[{'user_type',44,'unicode_binary',[]}]]},[]}]
+, 'type' = [{'external_unicode_binary',{'type',45,'binary',[]},[]}]
+, 'type' = [{'external_chardata',{'type',46,'union',[{'user_type',46,'external_charlist',[]}|[{'user_type',46,'external_unicode_binary',[]}]]},[]}]
+, 'type' = [{'external_charlist',{'type',48,'maybe_improper_list',[{'type',48,'union',[{'type',48,'char',[]}|[{'user_type',49,'external_unicode_binary',[]}|[{'user_type',50,'external_charlist',[]}]]]}|[{'type',51,'union',[{'user_type',51,'external_unicode_binary',[]}|[{'type',51,'nil',[]}]]}]]},[]}]
+, 'type' = [{'latin1_binary',{'type',52,'binary',[]},[]}]
+, 'type' = [{'latin1_char',{'type',53,'byte',[]},[]}]
+, 'type' = [{'latin1_chardata',{'type',54,'union',[{'user_type',54,'latin1_charlist',[]}|[{'user_type',54,'latin1_binary',[]}]]},[]}]
+, 'type' = [{'latin1_charlist',{'type',56,'maybe_improper_list',[{'type',56,'union',[{'user_type',56,'latin1_char',[]}|[{'user_type',57,'latin1_binary',[]}|[{'user_type',58,'latin1_charlist',[]}]]]}|[{'type',59,'union',[{'user_type',59,'latin1_binary',[]}|[{'type',59,'nil',[]}]]}]]},[]}]
+, 'spec' = [{{'bin_is_7bit',1},[{'type',70,'bounded_fun',[{'type',70,'fun',[{'type',70,'product',[{'var',70,'Binary'}]}|[{'type',70,'boolean',[]}]]}|[[{'type',71,'constraint',[{'atom',71,'is_subtype'}|[[{'var',71,'Binary'}|[{'type',71,'binary',[]}]]]]}]]]}]}]
+, 'spec' = [{{'characters_to_binary',2},[{'type',76,'bounded_fun',[{'type',76,'fun',[{'type',76,'product',[{'var',76,'Data'}|[{'var',76,'InEncoding'}]]}|[{'var',76,'Result'}]]}|[[{'type',77,'constraint',[{'atom',77,'is_subtype'}|[[{'var',77,'Data'}|[{'type',77,'union',[{'user_type',77,'latin1_chardata',[]}|[{'user_type',77,'chardata',[]}|[{'user_type',77,'external_chardata',[]}]]]}]]]]}|[{'type',78,'constraint',[{'atom',78,'is_subtype'}|[[{'var',78,'InEncoding'}|[{'user_type',78,'encoding',[]}]]]]}|[{'type',79,'constraint',[{'atom',79,'is_subtype'}|[[{'var',79,'Result'}|[{'type',79,'union',[{'type',79,'binary',[]}|[{'type',80,'tuple',[{'atom',80,'error'}|[{'type',80,'binary',[]}|[{'var',80,'RestData'}]]]}|[{'type',81,'tuple',[{'atom',81,'incomplete'}|[{'type',81,'binary',[]}|[{'type',81,'binary',[]}]]]}]]]}]]]]}|[{'type',82,'constraint',[{'atom',82,'is_subtype'}|[[{'var',82,'RestData'}|[{'type',82,'union',[{'user_type',82,'latin1_chardata',[]}|[{'user_type',82,'chardata',[]}|[{'user_type',82,'external_chardata',[]}]]]}]]]]}]]]]]]}]}]
+, 'spec' = [{{'characters_to_list',2},[{'type',87,'bounded_fun',[{'type',87,'fun',[{'type',87,'product',[{'var',87,'Data'}|[{'var',87,'InEncoding'}]]}|[{'var',87,'Result'}]]}|[[{'type',88,'constraint',[{'atom',88,'is_subtype'}|[[{'var',88,'Data'}|[{'type',88,'union',[{'user_type',88,'latin1_chardata',[]}|[{'user_type',88,'chardata',[]}|[{'user_type',88,'external_chardata',[]}]]]}]]]]}|[{'type',89,'constraint',[{'atom',89,'is_subtype'}|[[{'var',89,'InEncoding'}|[{'user_type',89,'encoding',[]}]]]]}|[{'type',90,'constraint',[{'atom',90,'is_subtype'}|[[{'var',90,'Result'}|[{'type',90,'union',[{'type',90,'list',[]}|[{'type',91,'tuple',[{'atom',91,'error'}|[{'type',91,'list',[]}|[{'var',91,'RestData'}]]]}|[{'type',92,'tuple',[{'atom',92,'incomplete'}|[{'type',92,'list',[]}|[{'type',92,'binary',[]}]]]}]]]}]]]]}|[{'type',93,'constraint',[{'atom',93,'is_subtype'}|[[{'var',93,'RestData'}|[{'type',93,'union',[{'user_type',93,'latin1_chardata',[]}|[{'user_type',93,'chardata',[]}|[{'user_type',93,'external_chardata',[]}]]]}]]]]}]]]]]]}]}]
+, 'spec' = [{{'characters_to_list',1},[{'type',100,'bounded_fun',[{'type',100,'fun',[{'type',100,'product',[{'var',100,'Data'}]}|[{'var',100,'Result'}]]}|[[{'type',101,'constraint',[{'atom',101,'is_subtype'}|[[{'var',101,'Data'}|[{'type',101,'union',[{'user_type',101,'latin1_chardata',[]}|[{'user_type',101,'chardata',[]}|[{'user_type',101,'external_chardata',[]}]]]}]]]]}|[{'type',102,'constraint',[{'atom',102,'is_subtype'}|[[{'var',102,'Result'}|[{'type',102,'union',[{'type',102,'list',[]}|[{'type',103,'tuple',[{'atom',103,'error'}|[{'type',103,'list',[]}|[{'var',103,'RestData'}]]]}|[{'type',104,'tuple',[{'atom',104,'incomplete'}|[{'type',104,'list',[]}|[{'type',104,'binary',[]}]]]}]]]}]]]]}|[{'type',105,'constraint',[{'atom',105,'is_subtype'}|[[{'var',105,'RestData'}|[{'type',105,'union',[{'user_type',105,'latin1_chardata',[]}|[{'user_type',105,'chardata',[]}|[{'user_type',105,'external_chardata',[]}]]]}]]]]}]]]]]}]}]
+, 'spec' = [{{'characters_to_binary',1},[{'type',110,'bounded_fun',[{'type',110,'fun',[{'type',110,'product',[{'var',110,'Data'}]}|[{'var',110,'Result'}]]}|[[{'type',111,'constraint',[{'atom',111,'is_subtype'}|[[{'var',111,'Data'}|[{'type',111,'union',[{'user_type',111,'latin1_chardata',[]}|[{'user_type',111,'chardata',[]}|[{'user_type',111,'external_chardata',[]}]]]}]]]]}|[{'type',112,'constraint',[{'atom',112,'is_subtype'}|[[{'var',112,'Result'}|[{'type',112,'union',[{'type',112,'binary',[]}|[{'type',113,'tuple',[{'atom',113,'error'}|[{'type',113,'binary',[]}|[{'var',113,'RestData'}]]]}|[{'type',114,'tuple',[{'atom',114,'incomplete'}|[{'type',114,'binary',[]}|[{'type',114,'binary',[]}]]]}]]]}]]]]}|[{'type',115,'constraint',[{'atom',115,'is_subtype'}|[[{'var',115,'RestData'}|[{'type',115,'union',[{'user_type',115,'latin1_chardata',[]}|[{'user_type',115,'chardata',[]}|[{'user_type',115,'external_chardata',[]}]]]}]]]]}]]]]]}]}]
+, 'spec' = [{{'characters_to_binary',3},[{'type',134,'bounded_fun',[{'type',134,'fun',[{'type',134,'product',[{'var',134,'Data'}|[{'var',134,'InEncoding'}|[{'var',134,'OutEncoding'}]]]}|[{'var',134,'Result'}]]}|[[{'type',135,'constraint',[{'atom',135,'is_subtype'}|[[{'var',135,'Data'}|[{'type',135,'union',[{'user_type',135,'latin1_chardata',[]}|[{'user_type',135,'chardata',[]}|[{'user_type',135,'external_chardata',[]}]]]}]]]]}|[{'type',136,'constraint',[{'atom',136,'is_subtype'}|[[{'var',136,'InEncoding'}|[{'user_type',136,'encoding',[]}]]]]}|[{'type',137,'constraint',[{'atom',137,'is_subtype'}|[[{'var',137,'OutEncoding'}|[{'user_type',137,'encoding',[]}]]]]}|[{'type',138,'constraint',[{'atom',138,'is_subtype'}|[[{'var',138,'Result'}|[{'type',138,'union',[{'type',138,'binary',[]}|[{'type',139,'tuple',[{'atom',139,'error'}|[{'type',139,'binary',[]}|[{'var',139,'RestData'}]]]}|[{'type',140,'tuple',[{'atom',140,'incomplete'}|[{'type',140,'binary',[]}|[{'type',140,'binary',[]}]]]}]]]}]]]]}|[{'type',141,'constraint',[{'atom',141,'is_subtype'}|[[{'var',141,'RestData'}|[{'type',141,'union',[{'user_type',141,'latin1_chardata',[]}|[{'user_type',141,'chardata',[]}|[{'user_type',141,'external_chardata',[]}]]]}]]]]}]]]]]]]}]}]
+, 'spec' = [{{'bom_to_encoding',1},[{'type',207,'bounded_fun',[{'type',207,'fun',[{'type',207,'product',[{'var',207,'Bin'}]}|[{'type',207,'tuple',[{'var',207,'Encoding'}|[{'var',207,'Length'}]]}]]}|[[{'type',208,'constraint',[{'atom',208,'is_subtype'}|[[{'var',208,'Bin'}|[{'type',208,'binary',[]}]]]]}|[{'type',209,'constraint',[{'atom',209,'is_subtype'}|[[{'var',209,'Encoding'}|[{'type',209,'union',[{'atom',209,'latin1'}|[{'atom',209,'utf8'}|[{'type',210,'tuple',[{'atom',210,'utf16'}|[{'user_type',210,'endian',[]}]]}|[{'type',211,'tuple',[{'atom',211,'utf32'}|[{'user_type',211,'endian',[]}]]}]]]]}]]]]}|[{'type',212,'constraint',[{'atom',212,'is_subtype'}|[[{'var',212,'Length'}|[{'type',212,'non_neg_integer',[]}]]]]}]]]]]}]}]
+, 'spec' = [{{'encoding_to_bom',1},[{'type',227,'bounded_fun',[{'type',227,'fun',[{'type',227,'product',[{'var',227,'InEncoding'}]}|[{'var',227,'Bin'}]]}|[[{'type',228,'constraint',[{'atom',228,'is_subtype'}|[[{'var',228,'Bin'}|[{'type',228,'binary',[]}]]]]}|[{'type',229,'constraint',[{'atom',229,'is_subtype'}|[[{'var',229,'InEncoding'}|[{'user_type',229,'encoding',[]}]]]]}]]]]}]}]
+, 'spec' = [{{'characters_to_nfd_list',1},[{'type',253,'fun',[{'type',253,'product',[{'user_type',253,'chardata',[]}]}|[{'type',253,'union',[{'type',253,'list',[{'type',253,'char',[]}]}|[{'type',253,'tuple',[{'atom',253,'error'}|[{'type',253,'list',[{'type',253,'char',[]}]}|[{'user_type',253,'chardata',[]}]]]}]]}]]}]}]
+, 'spec' = [{{'characters_to_nfd_binary',1},[{'type',264,'fun',[{'type',264,'product',[{'user_type',264,'chardata',[]}]}|[{'type',264,'union',[{'user_type',264,'unicode_binary',[]}|[{'type',264,'tuple',[{'atom',264,'error'}|[{'user_type',264,'unicode_binary',[]}|[{'user_type',264,'chardata',[]}]]]}]]}]]}]}]
+, 'spec' = [{{'characters_to_nfkd_list',1},[{'type',278,'fun',[{'type',278,'product',[{'user_type',278,'chardata',[]}]}|[{'type',278,'union',[{'type',278,'list',[{'type',278,'char',[]}]}|[{'type',278,'tuple',[{'atom',278,'error'}|[{'type',278,'list',[{'type',278,'char',[]}]}|[{'user_type',278,'chardata',[]}]]]}]]}]]}]}]
+, 'spec' = [{{'characters_to_nfkd_binary',1},[{'type',289,'fun',[{'type',289,'product',[{'user_type',289,'chardata',[]}]}|[{'type',289,'union',[{'user_type',289,'unicode_binary',[]}|[{'type',289,'tuple',[{'atom',289,'error'}|[{'user_type',289,'unicode_binary',[]}|[{'user_type',289,'chardata',[]}]]]}]]}]]}]}]
+, 'spec' = [{{'characters_to_nfc_list',1},[{'type',304,'fun',[{'type',304,'product',[{'user_type',304,'chardata',[]}]}|[{'type',304,'union',[{'type',304,'list',[{'type',304,'char',[]}]}|[{'type',304,'tuple',[{'atom',304,'error'}|[{'type',304,'list',[{'type',304,'char',[]}]}|[{'user_type',304,'chardata',[]}]]]}]]}]]}]}]
+, 'spec' = [{{'characters_to_nfc_binary',1},[{'type',315,'fun',[{'type',315,'product',[{'user_type',315,'chardata',[]}]}|[{'type',315,'union',[{'user_type',315,'unicode_binary',[]}|[{'type',315,'tuple',[{'atom',315,'error'}|[{'user_type',315,'unicode_binary',[]}|[{'user_type',315,'chardata',[]}]]]}]]}]]}]}]
+, 'spec' = [{{'characters_to_nfkc_list',1},[{'type',329,'fun',[{'type',329,'product',[{'user_type',329,'chardata',[]}]}|[{'type',329,'union',[{'type',329,'list',[{'type',329,'char',[]}]}|[{'type',329,'tuple',[{'atom',329,'error'}|[{'type',329,'list',[{'type',329,'char',[]}]}|[{'user_type',329,'chardata',[]}]]]}]]}]]}]}]
+, 'spec' = [{{'characters_to_nfkc_binary',1},[{'type',340,'fun',[{'type',340,'product',[{'user_type',340,'chardata',[]}]}|[{'type',340,'union',[{'user_type',340,'unicode_binary',[]}|[{'type',340,'tuple',[{'atom',340,'error'}|[{'user_type',340,'unicode_binary',[]}|[{'user_type',340,'chardata',[]}]]]}]]}]]}]}]
+, 'dialyzer' = [{'no_improper_lists',{'do_o_binary2',2}}] ] 'bin_is_7bit'/1 = fun (_0) -> call 'erlang':'nif_error' ('undef')
+'characters_to_binary'/2 = fun (_0,_1) -> call 'erlang':'nif_error' ('undef')
+'characters_to_list'/2 = fun (_0,_1) -> call 'erlang':'nif_error' ('undef')
+'characters_to_list'/1 = fun (_0) -> call 'unicode':'characters_to_list' (_0,'unicode')
+'characters_to_binary'/1 = fun (_0) -> try call 'unicode':'characters_to_binary' (_0,'unicode') of <_1> -> _1 catch <_4,_3,_2> -> case <_4,_3,_2> of <('error'-|['compiler_generated'] ),AnyError,_11> when 'true' -> let <_6> = case AnyError of <'system_limit'> when 'true' -> 'system_limit'
+<_12> when 'true' -> 'badarg' end in let <_8> = catch call 'erlang':'error' ('new_stacktrace',[_0|[]]) in case _8 of <{'EXIT',{'new_stacktrace',[{Mod,_13,L,_14}|Rest]}}> when 'true' -> call 'erlang':'raise' ('error',_6,[{Mod,'characters_to_binary',L}|Rest])
+(<_9> when 'true' -> primop 'match_fail' ({'badmatch',_9})-|['compiler_generated'] ) end
+(<_15,_16,_17> when 'true' -> primop 'raise' (_17,_16)-|['compiler_generated'] ) end
+'characters_to_binary'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <ML,'latin1','latin1'> when call 'erlang':'is_binary' (ML) -> ML
+<ML,'latin1',Uni> when try let <_3> = call 'erlang':'is_binary' (ML) in let <_4> = call 'erlang':'=:=' (Uni,'utf8') in let <_5> = call 'erlang':'=:=' (Uni,'unicode') in let <_6> = call 'erlang':'or' (_4,_5) in call 'erlang':'and' (_3,_6) of <Try> -> Try catch <T,R> -> 'false' -> case call 'unicode':'bin_is_7bit' (ML) of <'true'> when 'true' -> ML
+<'false'> when 'true' -> try apply 'characters_to_binary_int'/3 (ML,'latin1','utf8') of <_7> -> _7 catch <_10,_9,_8> -> case <_10,_9,_8> of <('error'-|['compiler_generated'] ),AnyError,_43> when 'true' -> let <_12> = case AnyError of <'system_limit'> when 'true' -> 'system_limit'
+<_44> when 'true' -> 'badarg' end in let <_14> = catch call 'erlang':'error' ('new_stacktrace',[ML|['latin1'|[Uni|[]]]]) in case _14 of <{'EXIT',{'new_stacktrace',[{Mod,_45,L,_46}|Rest]}}> when 'true' -> call 'erlang':'raise' ('error',_12,[{Mod,'characters_to_binary',L}|Rest])
+(<_15> when 'true' -> primop 'match_fail' ({'badmatch',_15})-|['compiler_generated'] ) end
+(<_55,_56,_57> when 'true' -> primop 'raise' (_57,_56)-|['compiler_generated'] ) end
+(<_16> when 'true' -> primop 'match_fail' ({'case_clause',_16})-|['compiler_generated'] ) end
+<ML,Uni,'latin1'> when try let <_17> = call 'erlang':'is_binary' (ML) in let <_18> = call 'erlang':'=:=' (Uni,'utf8') in let <_19> = call 'erlang':'=:=' (Uni,'unicode') in let <_20> = call 'erlang':'or' (_18,_19) in call 'erlang':'and' (_17,_20) of <Try> -> Try catch <T,R> -> 'false' -> case call 'unicode':'bin_is_7bit' (ML) of <'true'> when 'true' -> ML
+<'false'> when 'true' -> try apply 'characters_to_binary_int'/3 (ML,'utf8','latin1') of <_21> -> _21 catch <_24,_23,_22> -> case <_24,_23,_22> of <('error'-|['compiler_generated'] ),AnyError,_47> when 'true' -> let <_26> = case AnyError of <'system_limit'> when 'true' -> 'system_limit'
+<_48> when 'true' -> 'badarg' end in let <_28> = catch call 'erlang':'error' ('new_stacktrace',[ML|[Uni|['latin1']]]) in case _28 of <{'EXIT',{'new_stacktrace',[{Mod,_49,L,_50}|Rest]}}> when 'true' -> call 'erlang':'raise' ('error',_26,[{Mod,'characters_to_binary',L}|Rest])
+(<_29> when 'true' -> primop 'match_fail' ({'badmatch',_29})-|['compiler_generated'] ) end
+(<_58,_59,_60> when 'true' -> primop 'raise' (_60,_59)-|['compiler_generated'] ) end
+(<_30> when 'true' -> primop 'match_fail' ({'case_clause',_30})-|['compiler_generated'] ) end
+<ML,InEncoding,OutEncoding> when 'true' -> try apply 'characters_to_binary_int'/3 (ML,InEncoding,OutEncoding) of <_31> -> _31 catch <_34,_33,_32> -> case <_34,_33,_32> of <('error'-|['compiler_generated'] ),AnyError,_51> when 'true' -> let <_36> = case AnyError of <'system_limit'> when 'true' -> 'system_limit'
+<_52> when 'true' -> 'badarg' end in let <_38> = catch call 'erlang':'error' ('new_stacktrace',[ML|[InEncoding|[OutEncoding|[]]]]) in case _38 of <{'EXIT',{'new_stacktrace',[{Mod,_53,L,_54}|Rest]}}> when 'true' -> call 'erlang':'raise' ('error',_36,[{Mod,'characters_to_binary',L}|Rest])
+(<_39> when 'true' -> primop 'match_fail' ({'badmatch',_39})-|['compiler_generated'] ) end
+(<_61,_62,_63> when 'true' -> primop 'raise' (_63,_62)-|['compiler_generated'] ) end end
+'bom_to_encoding'/1 = fun (_0) -> case _0 of <#{#<239>(8,1,'integer',['unsigned'|['big']]),#<187>(8,1,'integer',['unsigned'|['big']]),#<191>(8,1,'integer',['unsigned'|['big']]),#<_2>('all',8,'binary',['unsigned'|['big']])}#> when 'true' -> {'utf8',3}
+<#{#<0>(8,1,'integer',['unsigned'|['big']]),#<0>(8,1,'integer',['unsigned'|['big']]),#<254>(8,1,'integer',['unsigned'|['big']]),#<255>(8,1,'integer',['unsigned'|['big']]),#<_3>('all',8,'binary',['unsigned'|['big']])}#> when 'true' -> {{'utf32','big'},4}
+<#{#<255>(8,1,'integer',['unsigned'|['big']]),#<254>(8,1,'integer',['unsigned'|['big']]),#<0>(8,1,'integer',['unsigned'|['big']]),#<0>(8,1,'integer',['unsigned'|['big']]),#<_4>('all',8,'binary',['unsigned'|['big']])}#> when 'true' -> {{'utf32','little'},4}
+<#{#<254>(8,1,'integer',['unsigned'|['big']]),#<255>(8,1,'integer',['unsigned'|['big']]),#<_5>('all',8,'binary',['unsigned'|['big']])}#> when 'true' -> {{'utf16','big'},2}
+<#{#<255>(8,1,'integer',['unsigned'|['big']]),#<254>(8,1,'integer',['unsigned'|['big']]),#<_6>('all',8,'binary',['unsigned'|['big']])}#> when 'true' -> {{'utf16','little'},2}
+<Bin> when call 'erlang':'is_binary' (_0) -> {'latin1',0}
+(<_1> when 'true' -> (primop 'match_fail' ({'function_clause',_1})-|[{'function_name',{'bom_to_encoding',1}}] )-|['compiler_generated'] ) end
+'encoding_to_bom'/1 = fun (_0) -> case _0 of <'unicode'> when 'true' -> #{#<239>(8,1,'integer',['unsigned'|['big']]),#<187>(8,1,'integer',['unsigned'|['big']]),#<191>(8,1,'integer',['unsigned'|['big']])}#
+<'utf8'> when 'true' -> #{#<239>(8,1,'integer',['unsigned'|['big']]),#<187>(8,1,'integer',['unsigned'|['big']]),#<191>(8,1,'integer',['unsigned'|['big']])}#
+<'utf16'> when 'true' -> #{#<254>(8,1,'integer',['unsigned'|['big']]),#<255>(8,1,'integer',['unsigned'|['big']])}#
+<{'utf16','big'}> when 'true' -> #{#<254>(8,1,'integer',['unsigned'|['big']]),#<255>(8,1,'integer',['unsigned'|['big']])}#
+<{'utf16','little'}> when 'true' -> #{#<255>(8,1,'integer',['unsigned'|['big']]),#<254>(8,1,'integer',['unsigned'|['big']])}#
+<'utf32'> when 'true' -> #{#<0>(8,1,'integer',['unsigned'|['big']]),#<0>(8,1,'integer',['unsigned'|['big']]),#<254>(8,1,'integer',['unsigned'|['big']]),#<255>(8,1,'integer',['unsigned'|['big']])}#
+<{'utf32','big'}> when 'true' -> #{#<0>(8,1,'integer',['unsigned'|['big']]),#<0>(8,1,'integer',['unsigned'|['big']]),#<254>(8,1,'integer',['unsigned'|['big']]),#<255>(8,1,'integer',['unsigned'|['big']])}#
+<{'utf32','little'}> when 'true' -> #{#<255>(8,1,'integer',['unsigned'|['big']]),#<254>(8,1,'integer',['unsigned'|['big']]),#<0>(8,1,'integer',['unsigned'|['big']]),#<0>(8,1,'integer',['unsigned'|['big']])}#
+<'latin1'> when 'true' -> #{}#
+(<_1> when 'true' -> (primop 'match_fail' ({'function_clause',_1})-|[{'function_name',{'encoding_to_bom',1}}] )-|['compiler_generated'] ) end
+'characters_to_nfd_list'/1 = fun (_0) -> apply 'characters_to_nfd_list'/2 (_0,[])
+'characters_to_nfd_list'/2 = fun (_0,_1) -> case call 'unicode_util':'nfd' (_0) of <[GC|Str]> when call 'erlang':'is_list' (GC) -> let <_2> = call 'lists':'reverse' (GC,_1) in apply 'characters_to_nfd_list'/2 (Str,_2)
+<[CP|Str]> when 'true' -> apply 'characters_to_nfd_list'/2 (Str,[CP|_1])
+<[]> when 'true' -> call 'lists':'reverse' (_1)
+<{'error',Error}> when 'true' -> let <_3> = call 'lists':'reverse' (_1) in {'error',_3,Error}
+(<_4> when 'true' -> primop 'match_fail' ({'case_clause',_4})-|['compiler_generated'] ) end
+'characters_to_nfd_binary'/1 = fun (_0) -> apply 'characters_to_nfd_binary'/4 (_0,200,[],[])
+'characters_to_nfd_binary'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <CD,N,Row,Acc> when call 'erlang':'>' (N,0) -> case call 'unicode_util':'nfd' (CD) of <[GC|Str]> when 'true' -> let <_4> = call 'erlang':'-' (N,1) in apply 'characters_to_nfd_binary'/4 (Str,_4,[GC|Row],Acc)
+<[]> when 'true' -> let <_5> = apply 'prepend_row_to_acc'/2 (Row,Acc) in apply 'acc_to_binary'/1 (_5)
+<{'error',Error}> when 'true' -> let <_6> = apply 'prepend_row_to_acc'/2 (Row,Acc) in let <_7> = apply 'acc_to_binary'/1 (_6) in {'error',_7,Error}
+(<_8> when 'true' -> primop 'match_fail' ({'case_clause',_8})-|['compiler_generated'] ) end
+<CD,_14,Row,Acc> when 'true' -> let <_9> = apply 'prepend_row_to_acc'/2 (Row,Acc) in apply 'characters_to_nfd_binary'/4 (CD,200,[],_9) end
+'characters_to_nfkd_list'/1 = fun (_0) -> apply 'characters_to_nfkd_list'/2 (_0,[])
+'characters_to_nfkd_list'/2 = fun (_0,_1) -> case call 'unicode_util':'nfkd' (_0) of <[GC|Str]> when call 'erlang':'is_list' (GC) -> let <_2> = call 'lists':'reverse' (GC,_1) in apply 'characters_to_nfkd_list'/2 (Str,_2)
+<[CP|Str]> when 'true' -> apply 'characters_to_nfkd_list'/2 (Str,[CP|_1])
+<[]> when 'true' -> call 'lists':'reverse' (_1)
+<{'error',Error}> when 'true' -> let <_3> = call 'lists':'reverse' (_1) in {'error',_3,Error}
+(<_4> when 'true' -> primop 'match_fail' ({'case_clause',_4})-|['compiler_generated'] ) end
+'characters_to_nfkd_binary'/1 = fun (_0) -> apply 'characters_to_nfkd_binary'/4 (_0,200,[],[])
+'characters_to_nfkd_binary'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <CD,N,Row,Acc> when call 'erlang':'>' (N,0) -> case call 'unicode_util':'nfkd' (CD) of <[GC|Str]> when 'true' -> let <_4> = call 'erlang':'-' (N,1) in apply 'characters_to_nfkd_binary'/4 (Str,_4,[GC|Row],Acc)
+<[]> when 'true' -> let <_5> = apply 'prepend_row_to_acc'/2 (Row,Acc) in apply 'acc_to_binary'/1 (_5)
+<{'error',Error}> when 'true' -> let <_6> = apply 'prepend_row_to_acc'/2 (Row,Acc) in let <_7> = apply 'acc_to_binary'/1 (_6) in {'error',_7,Error}
+(<_8> when 'true' -> primop 'match_fail' ({'case_clause',_8})-|['compiler_generated'] ) end
+<CD,_14,Row,Acc> when 'true' -> let <_9> = apply 'prepend_row_to_acc'/2 (Row,Acc) in apply 'characters_to_nfkd_binary'/4 (CD,200,[],_9) end
+'characters_to_nfc_list'/1 = fun (_0) -> apply 'characters_to_nfc_list'/2 (_0,[])
+'characters_to_nfc_list'/2 = fun (_0,_1) -> case call 'unicode_util':'nfc' (_0) of <[GC|Str]> when call 'erlang':'is_list' (GC) -> let <_2> = call 'lists':'reverse' (GC,_1) in apply 'characters_to_nfc_list'/2 (Str,_2)
+<[CP|Str]> when 'true' -> apply 'characters_to_nfc_list'/2 (Str,[CP|_1])
+<[]> when 'true' -> call 'lists':'reverse' (_1)
+<{'error',Error}> when 'true' -> let <_3> = call 'lists':'reverse' (_1) in {'error',_3,Error}
+(<_4> when 'true' -> primop 'match_fail' ({'case_clause',_4})-|['compiler_generated'] ) end
+'characters_to_nfc_binary'/1 = fun (_0) -> apply 'characters_to_nfc_binary'/4 (_0,200,[],[])
+'characters_to_nfc_binary'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <CD,N,Row,Acc> when call 'erlang':'>' (N,0) -> case call 'unicode_util':'nfc' (CD) of <[GC|Str]> when 'true' -> let <_4> = call 'erlang':'-' (N,1) in apply 'characters_to_nfc_binary'/4 (Str,_4,[GC|Row],Acc)
+<[]> when 'true' -> let <_5> = apply 'prepend_row_to_acc'/2 (Row,Acc) in apply 'acc_to_binary'/1 (_5)
+<{'error',Error}> when 'true' -> let <_6> = apply 'prepend_row_to_acc'/2 (Row,Acc) in let <_7> = apply 'acc_to_binary'/1 (_6) in {'error',_7,Error}
+(<_8> when 'true' -> primop 'match_fail' ({'case_clause',_8})-|['compiler_generated'] ) end
+<CD,_14,Row,Acc> when 'true' -> let <_9> = apply 'prepend_row_to_acc'/2 (Row,Acc) in apply 'characters_to_nfc_binary'/4 (CD,200,[],_9) end
+'characters_to_nfkc_list'/1 = fun (_0) -> apply 'characters_to_nfkc_list'/2 (_0,[])
+'characters_to_nfkc_list'/2 = fun (_0,_1) -> case call 'unicode_util':'nfkc' (_0) of <[GC|Str]> when call 'erlang':'is_list' (GC) -> let <_2> = call 'lists':'reverse' (GC,_1) in apply 'characters_to_nfkc_list'/2 (Str,_2)
+<[CP|Str]> when 'true' -> apply 'characters_to_nfkc_list'/2 (Str,[CP|_1])
+<[]> when 'true' -> call 'lists':'reverse' (_1)
+<{'error',Error}> when 'true' -> let <_3> = call 'lists':'reverse' (_1) in {'error',_3,Error}
+(<_4> when 'true' -> primop 'match_fail' ({'case_clause',_4})-|['compiler_generated'] ) end
+'characters_to_nfkc_binary'/1 = fun (_0) -> apply 'characters_to_nfkc_binary'/4 (_0,200,[],[])
+'characters_to_nfkc_binary'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <CD,N,Row,Acc> when call 'erlang':'>' (N,0) -> case call 'unicode_util':'nfkc' (CD) of <[GC|Str]> when 'true' -> let <_4> = call 'erlang':'-' (N,1) in apply 'characters_to_nfkc_binary'/4 (Str,_4,[GC|Row],Acc)
+<[]> when 'true' -> let <_5> = apply 'prepend_row_to_acc'/2 (Row,Acc) in apply 'acc_to_binary'/1 (_5)
+<{'error',Error}> when 'true' -> let <_6> = apply 'prepend_row_to_acc'/2 (Row,Acc) in let <_7> = apply 'acc_to_binary'/1 (_6) in {'error',_7,Error}
+(<_8> when 'true' -> primop 'match_fail' ({'case_clause',_8})-|['compiler_generated'] ) end
+<CD,_14,Row,Acc> when 'true' -> let <_9> = apply 'prepend_row_to_acc'/2 (Row,Acc) in apply 'characters_to_nfkc_binary'/4 (CD,200,[],_9) end
+'acc_to_binary'/1 = fun (_0) -> let <_1> = call 'lists':'reverse' (_0) in call 'erlang':'list_to_binary' (_1)
+'prepend_row_to_acc'/2 = fun (_0,_1) -> let <_2> = call 'lists':'reverse' (_0) in let <_3> = apply 'characters_to_binary'/1 (_2) in [_3|_1]
+'characters_to_list_int'/2 = fun (_0,_1) -> try apply 'do_characters_to_list'/2 (_0,_1) of <_2> -> _2 catch <_5,_4,_3> -> case <_5,_4,_3> of <('error'-|['compiler_generated'] ),AnyError,_13> when 'true' -> let <_7> = case AnyError of <'system_limit'> when 'true' -> 'system_limit'
+<_14> when 'true' -> 'badarg' end in let <_9> = catch call 'erlang':'error' ('new_stacktrace',[_0|[_1|[]]]) in case _9 of <{'EXIT',{'new_stacktrace',[{Mod,_15,L,_16}|Rest]}}> when 'true' -> call 'erlang':'raise' ('error',_7,[{Mod,'characters_to_list',L}|Rest])
+(<_10> when 'true' -> primop 'match_fail' ({'badmatch',_10})-|['compiler_generated'] ) end
+(<_17,_18,_19> when 'true' -> primop 'raise' (_19,_18)-|['compiler_generated'] ) end
+'do_characters_to_list'/2 = fun (_0,_1) -> case call 'unicode':'characters_to_binary' (_0,_1) of <Bin> when call 'erlang':'is_binary' (Bin) -> call 'unicode':'characters_to_list' (Bin,'utf8')
+<{'error',Encoded,Rest}> when 'true' -> let <_2> = call 'unicode':'characters_to_list' (Encoded,'utf8') in {'error',_2,Rest}
+<{'incomplete',Encoded2,Rest2}> when 'true' -> let <_3> = call 'unicode':'characters_to_list' (Encoded2,'utf8') in {'incomplete',_3,Rest2}
+(<_4> when 'true' -> primop 'match_fail' ({'case_clause',_4})-|['compiler_generated'] ) end
+'characters_to_binary_int'/2 = fun (_0,_1) -> try apply 'characters_to_binary_int'/3 (_0,_1,'unicode') of <_2> -> _2 catch <_5,_4,_3> -> case <_5,_4,_3> of <('error'-|['compiler_generated'] ),AnyError,_13> when 'true' -> let <_7> = case AnyError of <'system_limit'> when 'true' -> 'system_limit'
+<_14> when 'true' -> 'badarg' end in let <_9> = catch call 'erlang':'error' ('new_stacktrace',[_0|[_1|[]]]) in case _9 of <{'EXIT',{'new_stacktrace',[{Mod,_15,L,_16}|Rest]}}> when 'true' -> call 'erlang':'raise' ('error',_7,[{Mod,'characters_to_binary',L}|Rest])
+(<_10> when 'true' -> primop 'match_fail' ({'badmatch',_10})-|['compiler_generated'] ) end
+(<_17,_18,_19> when 'true' -> primop 'raise' (_19,_18)-|['compiler_generated'] ) end
+'characters_to_binary_int'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <ML,InEncoding,OutEncoding> when let <_3> = call 'erlang':'=:=' (InEncoding,'latin1') in let <_4> = call 'erlang':'=:=' (OutEncoding,'unicode') in let <_5> = call 'erlang':'and' (_3,_4) in let <_6> = call 'erlang':'=:=' (InEncoding,'latin1') in let <_7> = call 'erlang':'=:=' (OutEncoding,'utf8') in let <_8> = call 'erlang':'and' (_6,_7) in let <_9> = call 'erlang':'=:=' (InEncoding,'unicode') in let <_10> = call 'erlang':'=:=' (OutEncoding,'unicode') in let <_11> = call 'erlang':'and' (_9,_10) in let <_12> = call 'erlang':'=:=' (InEncoding,'unicode') in let <_13> = call 'erlang':'=:=' (OutEncoding,'utf8') in let <_14> = call 'erlang':'and' (_12,_13) in let <_15> = call 'erlang':'=:=' (InEncoding,'utf8') in let <_16> = call 'erlang':'=:=' (OutEncoding,'unicode') in let <_17> = call 'erlang':'and' (_15,_16) in let <_18> = call 'erlang':'=:=' (InEncoding,'utf8') in let <_19> = call 'erlang':'=:=' (OutEncoding,'utf8') in let <_20> = call 'erlang':'and' (_18,_19) in let <_21> = call 'erlang':'or' (_17,_20) in let <_22> = call 'erlang':'or' (_14,_21) in let <_23> = call 'erlang':'or' (_11,_22) in let <_24> = call 'erlang':'or' (_8,_23) in call 'erlang':'or' (_5,_24) -> call 'unicode':'characters_to_binary' (ML,InEncoding)
+<ML,InEncoding,OutEncoding> when 'true' -> let <_58,_59> = case OutEncoding of <'latin1'> when 'true' -> let <_25> = apply 'i_trans_chk'/1 (InEncoding) in <_25,255>
+<_52> when 'true' -> let <_28> = apply 'i_trans'/1 (InEncoding) in let <_27> = case InEncoding of <'latin1'> when 'true' -> 255
+<_53> when 'true' -> 1114111 end in <_28,_27> end in let <OutTrans> = apply 'o_trans'/1 (OutEncoding) in let <_46> = fun (_43,_42) -> case <_43,_42> of <Part,Accum> when call 'erlang':'is_binary' (Part) -> case apply (_58-|['compiler_generated'] ) (Part) of <List> when call 'erlang':'is_list' (List) -> let <Tail> = apply OutTrans (List) in #{#<Accum>('all',8,'binary',['unsigned'|['big']]),#<Tail>('all',8,'binary',['unsigned'|['big']])}#
+<{'error',Translated,Rest}> when 'true' -> let <Tail> = apply OutTrans (Translated) in let <_35> = #{#<Accum>('all',8,'binary',['unsigned'|['big']]),#<Tail>('all',8,'binary',['unsigned'|['big']])}# in {'error',_35,Rest}
+<{'incomplete',Translated,Rest,Missing}> when 'true' -> let <Tail> = apply OutTrans (Translated) in let <_37> = #{#<Accum>('all',8,'binary',['unsigned'|['big']]),#<Tail>('all',8,'binary',['unsigned'|['big']])}# in {'incomplete',_37,Rest,Missing}
+(<_38> when 'true' -> primop 'match_fail' ({'case_clause',_38})-|['compiler_generated'] ) end
+<Part,Accum> when let <_39> = call 'erlang':'is_integer' (Part) in let <_40> = call 'erlang':'=<' (Part,(_59-|['compiler_generated'] )) in call 'erlang':'and' (_39,_40) -> case apply OutTrans ([Part|[]]) of <Binary> when call 'erlang':'is_binary' (Binary) -> #{#<Accum>('all',8,'binary',['unsigned'|['big']]),#<Binary>('all',8,'binary',['unsigned'|['big']])}#
+<{'error',_54,[_55|[]]}> when call 'erlang':'=:=' (_55,Part) -> {'error',Accum,[Part|[]]}
+(<_41> when 'true' -> primop 'match_fail' ({'case_clause',_41})-|['compiler_generated'] ) end
+<Part,Accum> when 'true' -> {'error',Accum,[Part|[]]} end in let <Res> = apply 'ml_map'/3 (ML,_46,#{}#) in case Res of <{'incomplete',A,B,_56}> when 'true' -> {'incomplete',A,B}
+<_57> when 'true' -> Res end end
+'cbv'/2 = fun (_0,_1) -> case <_0,_1> of <'utf8',#{#<1>(1,1,'integer',['unsigned'|['big']]),#<1>(1,1,'integer',['unsigned'|['big']]),#<0>(1,1,'integer',['unsigned'|['big']]),#<_22>(5,1,'integer',['unsigned'|['big']])}#> when 'true' -> 1
+<'utf8',#{#<1>(1,1,'integer',['unsigned'|['big']]),#<1>(1,1,'integer',['unsigned'|['big']]),#<1>(1,1,'integer',['unsigned'|['big']]),#<0>(1,1,'integer',['unsigned'|['big']]),#<_23>(4,1,'integer',['unsigned'|['big']]),#<R>('all',8,'binary',['unsigned'|['big']])}#> when 'true' -> case R of <#{}#> when 'true' -> 2
+<#{#<1>(1,1,'integer',['unsigned'|['big']]),#<0>(1,1,'integer',['unsigned'|['big']]),#<_24>(6,1,'integer',['unsigned'|['big']])}#> when 'true' -> 1
+<_25> when 'true' -> 'false' end
+<'utf8',#{#<1>(1,1,'integer',['unsigned'|['big']]),#<1>(1,1,'integer',['unsigned'|['big']]),#<1>(1,1,'integer',['unsigned'|['big']]),#<1>(1,1,'integer',['unsigned'|['big']]),#<0>(1,1,'integer',['unsigned'|['big']]),#<_26>(3,1,'integer',['unsigned'|['big']]),#<R>('all',8,'binary',['unsigned'|['big']])}#> when 'true' -> case R of <#{}#> when 'true' -> 3
+<#{#<1>(1,1,'integer',['unsigned'|['big']]),#<0>(1,1,'integer',['unsigned'|['big']]),#<_27>(6,1,'integer',['unsigned'|['big']])}#> when 'true' -> 2
+<#{#<1>(1,1,'integer',['unsigned'|['big']]),#<0>(1,1,'integer',['unsigned'|['big']]),#<_28>(6,1,'integer',['unsigned'|['big']]),#<1>(1,1,'integer',['unsigned'|['big']]),#<0>(1,1,'integer',['unsigned'|['big']]),#<_29>(6,1,'integer',['unsigned'|['big']])}#> when 'true' -> 1
+<_30> when 'true' -> 'false' end
+<'utf8',_31> when 'true' -> 'false'
+<{'utf16','big'},#{#<A>(8,1,'integer',['unsigned'|['big']])}#> when let <_4> = call 'erlang':'=<' (A,215) in let <_5> = call 'erlang':'>=' (A,224) in call 'erlang':'or' (_4,_5) -> 1
+<{'utf16','big'},#{#<54>(6,1,'integer',['unsigned'|['big']]),#<_32>(2,1,'integer',['unsigned'|['big']])}#> when 'true' -> 3
+<{'utf16','big'},#{#<54>(6,1,'integer',['unsigned'|['big']]),#<_33>(10,1,'integer',['unsigned'|['big']])}#> when 'true' -> 2
+<{'utf16','big'},#{#<54>(6,1,'integer',['unsigned'|['big']]),#<_34>(10,1,'integer',['unsigned'|['big']]),#<55>(6,1,'integer',['unsigned'|['big']]),#<_35>(2,1,'integer',['unsigned'|['big']])}#> when 'true' -> 1
+<{'utf16','big'},_36> when 'true' -> 'false'
+<{'utf16','little'},#{#<_37>(8,1,'integer',['unsigned'|['big']])}#> when 'true' -> 1
+<{'utf16','little'},#{#<_38>(8,1,'integer',['unsigned'|['big']]),#<54>(6,1,'integer',['unsigned'|['big']]),#<_39>(2,1,'integer',['unsigned'|['big']])}#> when 'true' -> 2
+<{'utf16','little'},#{#<_40>(8,1,'integer',['unsigned'|['big']]),#<54>(6,1,'integer',['unsigned'|['big']]),#<_41>(2,1,'integer',['unsigned'|['big']]),#<_42>(8,1,'integer',['unsigned'|['big']])}#> when 'true' -> 1
+<{'utf16','little'},_43> when 'true' -> 'false'
+<{'utf32','big'},#{#<0>(8,1,'integer',['unsigned'|['big']])}#> when 'true' -> 3
+<{'utf32','big'},#{#<0>(8,1,'integer',['unsigned'|['big']]),#<X>(8,1,'integer',['unsigned'|['big']])}#> when call 'erlang':'=<' (X,16) -> 2
+<{'utf32','big'},#{#<0>(8,1,'integer',['unsigned'|['big']]),#<X>(8,1,'integer',['unsigned'|['big']]),#<Y>(8,1,'integer',['unsigned'|['big']])}#> when try let <_6> = call 'erlang':'=<' (X,16) in let <_7> = call 'erlang':'>' (X,0) in let <_8> = call 'erlang':'=<' (Y,215) in let <_9> = call 'erlang':'>=' (Y,224) in let <_10> = call 'erlang':'or' (_8,_9) in let <_11> = call 'erlang':'or' (_7,_10) in call 'erlang':'and' (_6,_11) of <Try> -> Try catch <T,R> -> 'false' -> 1
+<{'utf32','big'},_44> when 'true' -> 'false'
+<{'utf32','little'},#{#<_45>(8,1,'integer',['unsigned'|['big']])}#> when 'true' -> 3
+<{'utf32','little'},#{#<_46>(8,1,'integer',['unsigned'|['big']]),#<_47>(8,1,'integer',['unsigned'|['big']])}#> when 'true' -> 2
+<{'utf32','little'},#{#<X>(8,1,'integer',['unsigned'|['big']]),#<255>(8,1,'integer',['unsigned'|['big']]),#<0>(8,1,'integer',['unsigned'|['big']])}#> when let <_12> = call 'erlang':'=:=' (X,254) in let <_13> = call 'erlang':'=:=' (X,255) in call 'erlang':'or' (_12,_13) -> 'false'
+<{'utf32','little'},#{#<_48>(8,1,'integer',['unsigned'|['big']]),#<Y>(8,1,'integer',['unsigned'|['big']]),#<X>(8,1,'integer',['unsigned'|['big']])}#> when try let <_14> = call 'erlang':'=<' (X,16) in let <_15> = call 'erlang':'>' (X,0) in let <_16> = call 'erlang':'=<' (Y,215) in let <_17> = call 'erlang':'>=' (Y,224) in let <_18> = call 'erlang':'or' (_16,_17) in let <_19> = call 'erlang':'or' (_15,_18) in call 'erlang':'and' (_14,_19) of <Try> -> Try catch <T,R> -> 'false' -> 1
+<{'utf32','little'},_49> when 'true' -> 'false'
+(<_21,_20> when 'true' -> (primop 'match_fail' ({'function_clause',_21,_20})-|[{'function_name',{'cbv',2}}] )-|['compiler_generated'] ) end
+'ml_map'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <[],_26,{{Inc,X},Accum}> when 'true' -> {'incomplete',Accum,Inc,X}
+<[],_X_Fun,Accum> when 'true' -> Accum
+<Whole = [Part|_27],_28,{{Incomplete,_29},Accum}> when call 'erlang':'is_integer' (Part) -> {'error',Accum,[Incomplete|Whole]}
+<[Part|T],Fun,Accum> when call 'erlang':'is_integer' (Part) -> case apply Fun (Part,Accum) of <Bin> when call 'erlang':'is_binary' (Bin) -> case apply 'ml_map'/3 (T,Fun,Bin) of <Bin2> when call 'erlang':'is_binary' (Bin2) -> Bin2
+<_@r0 = {'error',Converted,Rest}> when 'true' -> _@r0
+<_@r1 = {'incomplete',Converted,Rest,X}> when 'true' -> _@r1
+(<_3> when 'true' -> primop 'match_fail' ({'case_clause',_3})-|['compiler_generated'] ) end
+<{'error',Converted,Rest}> when 'true' -> {'error',Converted,[Rest|T]}
+(<_4> when 'true' -> primop 'match_fail' ({'case_clause',_4})-|['compiler_generated'] ) end
+<[Part|T],Fun,{{Incomplete,Missing},Accum}> when call 'erlang':'is_binary' (Part) -> case call 'erlang':'byte_size' (Part) of <N> when call 'erlang':'>=' (N,Missing) -> case Part of <#{#<FillIn>(Missing,8,'binary',['unsigned'|['big']]),#<Trailing>('all',8,'binary',['unsigned'|['big']])}#> when 'true' -> let <NewPart> = #{#<Incomplete>('all',8,'binary',['unsigned'|['big']]),#<FillIn>('all',8,'binary',['unsigned'|['big']])}# in apply 'ml_map'/3 ([NewPart|[Trailing|T]],Fun,Accum)
+(<_5> when 'true' -> primop 'match_fail' ({'badmatch',_5})-|['compiler_generated'] ) end
+<M> when 'true' -> let <NewIncomplete> = #{#<Incomplete>('all',8,'binary',['unsigned'|['big']]),#<Part>('all',8,'binary',['unsigned'|['big']])}# in let <NewMissing> = call 'erlang':'-' (Missing,M) in apply 'ml_map'/3 (T,Fun,{{NewIncomplete,NewMissing},Accum}) end
+<[Part|T],Fun,Accum> when try let <_10> = call 'erlang':'is_binary' (Part) in let <_11> = call 'erlang':'byte_size' (Part) in let <_12> = call 'erlang':'>' (_11,8192) in call 'erlang':'and' (_10,_12) of <Try> -> Try catch <T,R> -> 'false' -> case Part of <#{#<Part1>(8192,8,'binary',['unsigned'|['big']]),#<Part2>('all',8,'binary',['unsigned'|['big']])}#> when 'true' -> apply 'ml_map'/3 ([Part1|[Part2|T]],Fun,Accum)
+(<_13> when 'true' -> primop 'match_fail' ({'badmatch',_13})-|['compiler_generated'] ) end
+<[Part|T],Fun,Accum> when call 'erlang':'is_binary' (Part) -> case apply Fun (Part,Accum) of <Bin> when call 'erlang':'is_binary' (Bin) -> apply 'ml_map'/3 (T,Fun,Bin)
+<{'incomplete',Converted,Rest,Missing}> when 'true' -> apply 'ml_map'/3 (T,Fun,{{Rest,Missing},Converted})
+<{'error',Converted,Rest}> when 'true' -> {'error',Converted,[Rest|T]}
+(<_14> when 'true' -> primop 'match_fail' ({'case_clause',_14})-|['compiler_generated'] ) end
+<[List|T],Fun,Accum> when call 'erlang':'is_list' (List) -> case apply 'ml_map'/3 (List,Fun,Accum) of <Bin> when call 'erlang':'is_binary' (Bin) -> apply 'ml_map'/3 (T,Fun,Bin)
+<{'error',Converted,Rest}> when 'true' -> {'error',Converted,[Rest|T]}
+<{'incomplete',Converted,Rest,N}> when 'true' -> apply 'ml_map'/3 (T,Fun,{{Rest,N},Converted})
+(<_15> when 'true' -> primop 'match_fail' ({'case_clause',_15})-|['compiler_generated'] ) end
+<Bin,Fun,{{Incomplete,Missing},Accum}> when call 'erlang':'is_binary' (Bin) -> case call 'erlang':'byte_size' (Bin) of <N> when call 'erlang':'>=' (N,Missing) -> apply 'ml_map'/3 ([Incomplete|[Bin|[]]],Fun,Accum)
+<M> when 'true' -> let <_17> = #{#<Incomplete>('all',8,'binary',['unsigned'|['big']]),#<Bin>('all',8,'binary',['unsigned'|['big']])}# in let <_16> = call 'erlang':'-' (Missing,M) in {'incomplete',Accum,_17,_16} end
+<Part,Fun,Accum> when try let <_19> = call 'erlang':'is_binary' (Part) in let <_20> = call 'erlang':'byte_size' (Part) in let <_21> = call 'erlang':'>' (_20,8192) in call 'erlang':'and' (_19,_21) of <Try> -> Try catch <T,R> -> 'false' -> case Part of <#{#<Part1>(8192,8,'binary',['unsigned'|['big']]),#<Part2>('all',8,'binary',['unsigned'|['big']])}#> when 'true' -> apply 'ml_map'/3 ([Part1|[Part2|[]]],Fun,Accum)
+(<_22> when 'true' -> primop 'match_fail' ({'badmatch',_22})-|['compiler_generated'] ) end
+<Bin,Fun,Accum> when call 'erlang':'is_binary' (Bin) -> apply Fun (Bin,Accum)
+(<_25,_24,_23> when 'true' -> (primop 'match_fail' ({'function_clause',_25,_24,_23})-|[{'function_name',{'ml_map',3}}] )-|['compiler_generated'] ) end
+'i_trans'/1 = fun (_0) -> case _0 of <'latin1'> when 'true' -> (fun (_1) -> call 'erlang':'binary_to_list' (_1)-|[{'id',{0,0,'-i_trans/1-fun-0-'}}] )
+<'unicode'> when 'true' -> apply 'i_trans'/1 ('utf8')
+<'utf8'> when 'true' -> ('do_i_utf8'/1-|[{'id',{0,0,'-i_trans/1-fun-1-'}}] )
+<'utf16'> when 'true' -> ('do_i_utf16_big'/1-|[{'id',{0,0,'-i_trans/1-fun-2-'}}] )
+<{'utf16','big'}> when 'true' -> ('do_i_utf16_big'/1-|[{'id',{0,0,'-i_trans/1-fun-3-'}}] )
+<{'utf16','little'}> when 'true' -> ('do_i_utf16_little'/1-|[{'id',{0,0,'-i_trans/1-fun-4-'}}] )
+<'utf32'> when 'true' -> ('do_i_utf32_big'/1-|[{'id',{0,0,'-i_trans/1-fun-5-'}}] )
+<{'utf32','big'}> when 'true' -> ('do_i_utf32_big'/1-|[{'id',{0,0,'-i_trans/1-fun-6-'}}] )
+<{'utf32','little'}> when 'true' -> ('do_i_utf32_little'/1-|[{'id',{0,0,'-i_trans/1-fun-7-'}}] )
+(<_3> when 'true' -> (primop 'match_fail' ({'function_clause',_3})-|[{'function_name',{'i_trans',1}}] )-|['compiler_generated'] ) end
+'i_trans_chk'/1 = fun (_0) -> case _0 of <'latin1'> when 'true' -> (fun (_1) -> call 'erlang':'binary_to_list' (_1)-|[{'id',{0,0,'-i_trans_chk/1-fun-0-'}}] )
+<'unicode'> when 'true' -> apply 'i_trans_chk'/1 ('utf8')
+<'utf8'> when 'true' -> ('do_i_utf8_chk'/1-|[{'id',{0,0,'-i_trans_chk/1-fun-1-'}}] )
+<'utf16'> when 'true' -> ('do_i_utf16_big_chk'/1-|[{'id',{0,0,'-i_trans_chk/1-fun-2-'}}] )
+<{'utf16','big'}> when 'true' -> ('do_i_utf16_big_chk'/1-|[{'id',{0,0,'-i_trans_chk/1-fun-3-'}}] )
+<{'utf16','little'}> when 'true' -> ('do_i_utf16_little_chk'/1-|[{'id',{0,0,'-i_trans_chk/1-fun-4-'}}] )
+<'utf32'> when 'true' -> ('do_i_utf32_big_chk'/1-|[{'id',{0,0,'-i_trans_chk/1-fun-5-'}}] )
+<{'utf32','big'}> when 'true' -> ('do_i_utf32_big_chk'/1-|[{'id',{0,0,'-i_trans_chk/1-fun-6-'}}] )
+<{'utf32','little'}> when 'true' -> ('do_i_utf32_little_chk'/1-|[{'id',{0,0,'-i_trans_chk/1-fun-7-'}}] )
+(<_3> when 'true' -> (primop 'match_fail' ({'function_clause',_3})-|[{'function_name',{'i_trans_chk',1}}] )-|['compiler_generated'] ) end
+'o_trans'/1 = fun (_0) -> case _0 of <'latin1'> when 'true' -> (fun (_1) -> call 'erlang':'list_to_binary' (_1)-|[{'id',{0,0,'-o_trans/1-fun-0-'}}] )
+<'unicode'> when 'true' -> apply 'o_trans'/1 ('utf8')
+<'utf8'> when 'true' -> (fun (_6) -> let <_5> = fun (_3) -> #{#<_3>('undefined','undefined','utf8',['unsigned'|['big']])}# in apply 'do_o_binary'/2 (_5,_6)-|[{'id',{0,0,'-o_trans/1-fun-2-'}}] )
+<'utf16'> when 'true' -> (fun (_11) -> let <_10> = fun (_8) -> #{#<_8>('undefined','undefined','utf16',['unsigned'|['big']])}# in apply 'do_o_binary'/2 (_10,_11)-|[{'id',{0,0,'-o_trans/1-fun-4-'}}] )
+<{'utf16','big'}> when 'true' -> apply 'o_trans'/1 ('utf16')
+<{'utf16','little'}> when 'true' -> (fun (_16) -> let <_15> = fun (_13) -> #{#<_13>('undefined','undefined','utf16',['unsigned'|['little']])}# in apply 'do_o_binary'/2 (_15,_16)-|[{'id',{0,0,'-o_trans/1-fun-6-'}}] )
+<'utf32'> when 'true' -> (fun (_21) -> let <_20> = fun (_18) -> #{#<_18>('undefined','undefined','utf32',['unsigned'|['big']])}# in apply 'do_o_binary'/2 (_20,_21)-|[{'id',{0,0,'-o_trans/1-fun-8-'}}] )
+<{'utf32','big'}> when 'true' -> apply 'o_trans'/1 ('utf32')
+<{'utf32','little'}> when 'true' -> (fun (_26) -> let <_25> = fun (_23) -> #{#<_23>('undefined','undefined','utf32',['unsigned'|['little']])}# in apply 'do_o_binary'/2 (_25,_26)-|[{'id',{0,0,'-o_trans/1-fun-10-'}}] )
+(<_28> when 'true' -> (primop 'match_fail' ({'function_clause',_28})-|[{'function_name',{'o_trans',1}}] )-|['compiler_generated'] ) end
+'do_o_binary'/2 = fun (_0,_1) -> case apply 'do_o_binary2'/2 (_0,_1) of <{Tag,List,R}> when 'true' -> let <_2> = call 'erlang':'iolist_to_binary' (List) in {Tag,_2,R}
+<List> when 'true' -> call 'erlang':'iolist_to_binary' (List) end
+'do_o_binary2'/2 = fun (_0,_1) -> case <_0,_1> of <_X_F,[]> when 'true' -> #{}#
+<F,_@r0 = [H|T]> when 'true' -> let <_2> = catch apply F (H) in case _2 of <{'EXIT',_7}> when 'true' -> {'error',#{}#,_@r0}
+<Bin> when call 'erlang':'is_binary' (_2) -> case apply 'do_o_binary2'/2 (F,T) of <{'error',Bin2,Rest}> when 'true' -> {'error',[Bin|Bin2],Rest}
+<Bin3> when 'true' -> [Bin|Bin3] end
+(<_4> when 'true' -> primop 'match_fail' ({'case_clause',_4})-|['compiler_generated'] ) end
+(<_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_6,_5})-|[{'function_name',{'do_o_binary2',2}}] )-|['compiler_generated'] ) end
+'do_i_utf8_chk'/1 = fun (_0) -> case _0 of <#{}#> when 'true' -> []
+<#{#<U>('undefined','undefined','utf8',['unsigned'|['big']]),#<R>('all',8,'binary',['unsigned'|['big']])}#> when call 'erlang':'=<' (U,255) -> case apply 'do_i_utf8_chk'/1 (R) of <{'error',Trans,Rest}> when 'true' -> {'error',[U|Trans],Rest}
+<{'incomplete',Trans,Rest,N}> when 'true' -> {'incomplete',[U|Trans],Rest,N}
+<L> when call 'erlang':'is_list' (L) -> [U|L]
+(<_1> when 'true' -> primop 'match_fail' ({'case_clause',_1})-|['compiler_generated'] ) end
+<Bin = #{#<_4>('undefined','undefined','utf8',['unsigned'|['big']]),#<_5>('all',8,'binary',['unsigned'|['big']])}#> when 'true' -> {'error',[],Bin}
+<Bin> when call 'erlang':'is_binary' (_0) -> case apply 'cbv'/2 ('utf8',Bin) of <N> when call 'erlang':'is_integer' (N) -> {'incomplete',[],Bin,N}
+<'false'> when 'true' -> {'error',[],Bin}
+(<_2> when 'true' -> primop 'match_fail' ({'case_clause',_2})-|['compiler_generated'] ) end
+(<_3> when 'true' -> (primop 'match_fail' ({'function_clause',_3})-|[{'function_name',{'do_i_utf8_chk',1}}] )-|['compiler_generated'] ) end
+'do_i_utf16_big_chk'/1 = fun (_0) -> case _0 of <#{}#> when 'true' -> []
+<#{#<U>('undefined','undefined','utf16',['unsigned'|['big']]),#<R>('all',8,'binary',['unsigned'|['big']])}#> when call 'erlang':'=<' (U,255) -> case apply 'do_i_utf16_big_chk'/1 (R) of <{'error',Trans,Rest}> when 'true' -> {'error',[U|Trans],Rest}
+<{'incomplete',Trans,Rest,N}> when 'true' -> {'incomplete',[U|Trans],Rest,N}
+<L> when call 'erlang':'is_list' (L) -> [U|L]
+(<_1> when 'true' -> primop 'match_fail' ({'case_clause',_1})-|['compiler_generated'] ) end
+<Bin = #{#<_4>('undefined','undefined','utf16',['unsigned'|['big']]),#<_5>('all',8,'binary',['unsigned'|['big']])}#> when 'true' -> {'error',[],Bin}
+<Bin> when call 'erlang':'is_binary' (_0) -> case apply 'cbv'/2 ({'utf16','big'},Bin) of <N> when call 'erlang':'is_integer' (N) -> {'incomplete',[],Bin,N}
+<'false'> when 'true' -> {'error',[],Bin}
+(<_2> when 'true' -> primop 'match_fail' ({'case_clause',_2})-|['compiler_generated'] ) end
+(<_3> when 'true' -> (primop 'match_fail' ({'function_clause',_3})-|[{'function_name',{'do_i_utf16_big_chk',1}}] )-|['compiler_generated'] ) end
+'do_i_utf16_little_chk'/1 = fun (_0) -> case _0 of <#{}#> when 'true' -> []
+<#{#<U>('undefined','undefined','utf16',['unsigned'|['little']]),#<R>('all',8,'binary',['unsigned'|['big']])}#> when call 'erlang':'=<' (U,255) -> case apply 'do_i_utf16_little_chk'/1 (R) of <{'error',Trans,Rest}> when 'true' -> {'error',[U|Trans],Rest}
+<{'incomplete',Trans,Rest,N}> when 'true' -> {'incomplete',[U|Trans],Rest,N}
+<L> when call 'erlang':'is_list' (L) -> [U|L]
+(<_1> when 'true' -> primop 'match_fail' ({'case_clause',_1})-|['compiler_generated'] ) end
+<Bin = #{#<_4>('undefined','undefined','utf16',['unsigned'|['little']]),#<_5>('all',8,'binary',['unsigned'|['big']])}#> when 'true' -> {'error',[],Bin}
+<Bin> when call 'erlang':'is_binary' (_0) -> case apply 'cbv'/2 ({'utf16','little'},Bin) of <N> when call 'erlang':'is_integer' (N) -> {'incomplete',[],Bin,N}
+<'false'> when 'true' -> {'error',[],Bin}
+(<_2> when 'true' -> primop 'match_fail' ({'case_clause',_2})-|['compiler_generated'] ) end
+(<_3> when 'true' -> (primop 'match_fail' ({'function_clause',_3})-|[{'function_name',{'do_i_utf16_little_chk',1}}] )-|['compiler_generated'] ) end
+'do_i_utf32_big_chk'/1 = fun (_0) -> case _0 of <#{}#> when 'true' -> []
+<#{#<U>('undefined','undefined','utf32',['unsigned'|['big']]),#<R>('all',8,'binary',['unsigned'|['big']])}#> when call 'erlang':'=<' (U,255) -> case apply 'do_i_utf32_big_chk'/1 (R) of <{'error',Trans,Rest}> when 'true' -> {'error',[U|Trans],Rest}
+<L> when call 'erlang':'is_list' (L) -> [U|L]
+(<_1> when 'true' -> primop 'match_fail' ({'case_clause',_1})-|['compiler_generated'] ) end
+<Bin = #{#<_4>('undefined','undefined','utf32',['unsigned'|['big']]),#<_5>('all',8,'binary',['unsigned'|['big']])}#> when 'true' -> {'error',[],Bin}
+<Bin> when call 'erlang':'is_binary' (_0) -> case apply 'cbv'/2 ({'utf32','big'},Bin) of <N> when call 'erlang':'is_integer' (N) -> {'incomplete',[],Bin,N}
+<'false'> when 'true' -> {'error',[],Bin}
+(<_2> when 'true' -> primop 'match_fail' ({'case_clause',_2})-|['compiler_generated'] ) end
+(<_3> when 'true' -> (primop 'match_fail' ({'function_clause',_3})-|[{'function_name',{'do_i_utf32_big_chk',1}}] )-|['compiler_generated'] ) end
+'do_i_utf32_little_chk'/1 = fun (_0) -> case _0 of <#{}#> when 'true' -> []
+<#{#<U>('undefined','undefined','utf32',['unsigned'|['little']]),#<R>('all',8,'binary',['unsigned'|['big']])}#> when call 'erlang':'=<' (U,255) -> case apply 'do_i_utf32_little_chk'/1 (R) of <{'error',Trans,Rest}> when 'true' -> {'error',[U|Trans],Rest}
+<L> when call 'erlang':'is_list' (L) -> [U|L]
+(<_1> when 'true' -> primop 'match_fail' ({'case_clause',_1})-|['compiler_generated'] ) end
+<Bin = #{#<_4>('undefined','undefined','utf32',['unsigned'|['little']]),#<_5>('all',8,'binary',['unsigned'|['big']])}#> when 'true' -> {'error',[],Bin}
+<Bin> when call 'erlang':'is_binary' (_0) -> case apply 'cbv'/2 ({'utf32','little'},Bin) of <N> when call 'erlang':'is_integer' (N) -> {'incomplete',[],Bin,N}
+<'false'> when 'true' -> {'error',[],Bin}
+(<_2> when 'true' -> primop 'match_fail' ({'case_clause',_2})-|['compiler_generated'] ) end
+(<_3> when 'true' -> (primop 'match_fail' ({'function_clause',_3})-|[{'function_name',{'do_i_utf32_little_chk',1}}] )-|['compiler_generated'] ) end
+'do_i_utf8'/1 = fun (_0) -> case _0 of <#{}#> when 'true' -> []
+<#{#<U>('undefined','undefined','utf8',['unsigned'|['big']]),#<R>('all',8,'binary',['unsigned'|['big']])}#> when 'true' -> case apply 'do_i_utf8'/1 (R) of <{'error',Trans,Rest}> when 'true' -> {'error',[U|Trans],Rest}
+<{'incomplete',Trans,Rest,N}> when 'true' -> {'incomplete',[U|Trans],Rest,N}
+<L> when call 'erlang':'is_list' (L) -> [U|L]
+(<_1> when 'true' -> primop 'match_fail' ({'case_clause',_1})-|['compiler_generated'] ) end
+<Bin> when call 'erlang':'is_binary' (_0) -> case apply 'cbv'/2 ('utf8',Bin) of <N> when call 'erlang':'is_integer' (N) -> {'incomplete',[],Bin,N}
+<'false'> when 'true' -> {'error',[],Bin}
+(<_2> when 'true' -> primop 'match_fail' ({'case_clause',_2})-|['compiler_generated'] ) end
+(<_3> when 'true' -> (primop 'match_fail' ({'function_clause',_3})-|[{'function_name',{'do_i_utf8',1}}] )-|['compiler_generated'] ) end
+'do_i_utf16_big'/1 = fun (_0) -> case _0 of <#{}#> when 'true' -> []
+<#{#<U>('undefined','undefined','utf16',['unsigned'|['big']]),#<R>('all',8,'binary',['unsigned'|['big']])}#> when 'true' -> case apply 'do_i_utf16_big'/1 (R) of <{'error',Trans,Rest}> when 'true' -> {'error',[U|Trans],Rest}
+<{'incomplete',Trans,Rest,N}> when 'true' -> {'incomplete',[U|Trans],Rest,N}
+<L> when call 'erlang':'is_list' (L) -> [U|L]
+(<_1> when 'true' -> primop 'match_fail' ({'case_clause',_1})-|['compiler_generated'] ) end
+<Bin> when call 'erlang':'is_binary' (_0) -> case apply 'cbv'/2 ({'utf16','big'},Bin) of <N> when call 'erlang':'is_integer' (N) -> {'incomplete',[],Bin,N}
+<'false'> when 'true' -> {'error',[],Bin}
+(<_2> when 'true' -> primop 'match_fail' ({'case_clause',_2})-|['compiler_generated'] ) end
+(<_3> when 'true' -> (primop 'match_fail' ({'function_clause',_3})-|[{'function_name',{'do_i_utf16_big',1}}] )-|['compiler_generated'] ) end
+'do_i_utf16_little'/1 = fun (_0) -> case _0 of <#{}#> when 'true' -> []
+<#{#<U>('undefined','undefined','utf16',['unsigned'|['little']]),#<R>('all',8,'binary',['unsigned'|['big']])}#> when 'true' -> case apply 'do_i_utf16_little'/1 (R) of <{'error',Trans,Rest}> when 'true' -> {'error',[U|Trans],Rest}
+<{'incomplete',Trans,Rest,N}> when 'true' -> {'incomplete',[U|Trans],Rest,N}
+<L> when call 'erlang':'is_list' (L) -> [U|L]
+(<_1> when 'true' -> primop 'match_fail' ({'case_clause',_1})-|['compiler_generated'] ) end
+<Bin> when call 'erlang':'is_binary' (_0) -> case apply 'cbv'/2 ({'utf16','little'},Bin) of <N> when call 'erlang':'is_integer' (N) -> {'incomplete',[],Bin,N}
+<'false'> when 'true' -> {'error',[],Bin}
+(<_2> when 'true' -> primop 'match_fail' ({'case_clause',_2})-|['compiler_generated'] ) end
+(<_3> when 'true' -> (primop 'match_fail' ({'function_clause',_3})-|[{'function_name',{'do_i_utf16_little',1}}] )-|['compiler_generated'] ) end
+'do_i_utf32_big'/1 = fun (_0) -> case _0 of <#{}#> when 'true' -> []
+<#{#<U>('undefined','undefined','utf32',['unsigned'|['big']]),#<R>('all',8,'binary',['unsigned'|['big']])}#> when 'true' -> case apply 'do_i_utf32_big'/1 (R) of <{'error',Trans,Rest}> when 'true' -> {'error',[U|Trans],Rest}
+<{'incomplete',Trans,Rest,N}> when 'true' -> {'incomplete',[U|Trans],Rest,N}
+<L> when call 'erlang':'is_list' (L) -> [U|L]
+(<_1> when 'true' -> primop 'match_fail' ({'case_clause',_1})-|['compiler_generated'] ) end
+<Bin> when call 'erlang':'is_binary' (_0) -> case apply 'cbv'/2 ({'utf32','big'},Bin) of <N> when call 'erlang':'is_integer' (N) -> {'incomplete',[],Bin,N}
+<'false'> when 'true' -> {'error',[],Bin}
+(<_2> when 'true' -> primop 'match_fail' ({'case_clause',_2})-|['compiler_generated'] ) end
+(<_3> when 'true' -> (primop 'match_fail' ({'function_clause',_3})-|[{'function_name',{'do_i_utf32_big',1}}] )-|['compiler_generated'] ) end
+'do_i_utf32_little'/1 = fun (_0) -> case _0 of <#{}#> when 'true' -> []
+<#{#<U>('undefined','undefined','utf32',['unsigned'|['little']]),#<R>('all',8,'binary',['unsigned'|['big']])}#> when 'true' -> case apply 'do_i_utf32_little'/1 (R) of <{'error',Trans,Rest}> when 'true' -> {'error',[U|Trans],Rest}
+<{'incomplete',Trans,Rest,N}> when 'true' -> {'incomplete',[U|Trans],Rest,N}
+<L> when call 'erlang':'is_list' (L) -> [U|L]
+(<_1> when 'true' -> primop 'match_fail' ({'case_clause',_1})-|['compiler_generated'] ) end
+<Bin> when call 'erlang':'is_binary' (_0) -> case apply 'cbv'/2 ({'utf32','little'},Bin) of <N> when call 'erlang':'is_integer' (N) -> {'incomplete',[],Bin,N}
+<'false'> when 'true' -> {'error',[],Bin}
+(<_2> when 'true' -> primop 'match_fail' ({'case_clause',_2})-|['compiler_generated'] ) end
+(<_3> when 'true' -> (primop 'match_fail' ({'function_clause',_3})-|[{'function_name',{'do_i_utf32_little',1}}] )-|['compiler_generated'] ) end
+'module_info'/0 = fun () -> call 'erlang':'get_module_info' ('unicode')
+'module_info'/1 = fun (_0) -> call 'erlang':'get_module_info' ('unicode',_0) end

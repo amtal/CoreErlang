@@ -1,0 +1,23 @@
+module 'jsx_consult' ['consult'/2,'handle_event'/2,'init'/1,'module_info'/0,'module_info'/1,'reset'/1] attributes [ 'file' = [{[106|[115|[120|[95|[99|[111|[110|[115|[117|[108|[116|[46|[101|[114|[108]]]]]]]]]]]]]]],1}]
+, 'record' = [{'config',[{'record_field',31,{'atom',31,'labels'},{'atom',31,'binary'}}|[{'record_field',32,{'atom',32,'return_maps'},{'atom',32,'false'}}]]}]
+, 'type' = [{'config',{'type',35,'list',[]},[]}]
+, 'export_type' = [{'config',0}]
+, 'type' = [{'json_value',{'type',39,'union',[{'type',39,'list',[{'user_type',39,'json_value',[]}]}|[{'type',40,'list',[{'type',40,'tuple',[{'type',40,'union',[{'type',40,'binary',[]}|[{'type',40,'atom',[]}]]}|[{'user_type',40,'json_value',[]}]]}]}|[{'atom',41,'true'}|[{'atom',42,'false'}|[{'atom',43,'null'}|[{'type',44,'integer',[]}|[{'type',45,'float',[]}|[{'type',46,'binary',[]}]]]]]]]]},[]}]
+, 'spec' = [{{'consult',2},[{'type',68,'fun',[{'type',68,'product',[{'ann_type',68,[{'var',68,'File'}|[{'remote_type',68,[{'atom',68,'file'}|[{'atom',68,'name_all'}|[[]]]]}]]}|[{'ann_type',68,[{'var',68,'Config'}|[{'user_type',68,'config',[]}]]}]]}|[{'type',68,'list',[{'user_type',68,'json_value',[]}]}]]}]}]
+, 'type' = [{'state',{'type',83,'tuple',[{'type',83,'nil',[]}|[{'remote_type',83,[{'atom',83,'proplists'}|[{'atom',83,'proplist'}|[[]]]]}|[{'type',83,'tuple',[{'type',83,'list',[]}|[{'type',83,'record',[{'atom',83,'config'}]}]]}]]]},[]}]
+, 'spec' = [{{'init',1},[{'type',84,'fun',[{'type',84,'product',[{'ann_type',84,[{'var',84,'Config'}|[{'remote_type',84,[{'atom',84,'proplists'}|[{'atom',84,'proplist'}|[[]]]]}]]}]}|[{'user_type',84,'state',[]}]]}]}]
+, 'spec' = [{{'reset',1},[{'type',89,'fun',[{'type',89,'product',[{'ann_type',89,[{'var',89,'State'}|[{'user_type',89,'state',[]}]]}]}|[{'user_type',89,'state',[]}]]}]}]
+, 'spec' = [{{'handle_event',2},[{'type',94,'fun',[{'type',94,'product',[{'ann_type',94,[{'var',94,'Event'}|[{'type',94,'any',[]}]]}|[{'ann_type',94,[{'var',94,'State'}|[{'user_type',94,'state',[]}]]}]]}|[{'user_type',94,'state',[]}]]}]}] ] 'opts'/1 = fun (_0) -> ['multi_term'|_0]
+'consult'/2 = fun (_0,_1) -> case <_0,_1> of <File,Config> when call 'erlang':'is_list' (Config) -> case call 'file':'read_file' (File) of <{'ok',Bin}> when 'true' -> let <_4> = apply 'opts'/1 (Config) in let <_2> = apply 'opts'/1 (Config) in let <_3> = call 'jsx_config':'extract_config' (_2) in let <_5> = call 'jsx':'decoder' ('jsx_consult',_4,_3) in case apply _5 (Bin) of <{Final,_10,_11}> when 'true' -> call 'lists':'reverse' (Final)
+(<_6> when 'true' -> primop 'match_fail' ({'badmatch',_6})-|['compiler_generated'] ) end
+<{'error',_12}> when 'true' -> call 'erlang':'error' ('badarg')
+(<_7> when 'true' -> primop 'match_fail' ({'case_clause',_7})-|['compiler_generated'] ) end
+(<_9,_8> when 'true' -> (primop 'match_fail' ({'function_clause',_9,_8})-|[{'function_name',{'consult',2}}] )-|['compiler_generated'] ) end
+'init'/1 = fun (_0) -> let <_1> = call 'jsx_to_term':'start_term' (_0) in {[],_0,_1}
+'reset'/1 = fun (_0) -> case _0 of <{Acc,Config,_3}> when 'true' -> let <_1> = call 'jsx_to_term':'start_term' (Config) in {Acc,Config,_1}
+(<_2> when 'true' -> (primop 'match_fail' ({'function_clause',_2})-|[{'function_name',{'reset',1}}] )-|['compiler_generated'] ) end
+'handle_event'/2 = fun (_0,_1) -> case <_0,_1> of <'end_json',{Acc,Config,State}> when 'true' -> let <_2> = call 'jsx_to_term':'get_value' (State) in let <_3> = [_2|Acc] in {_3,Config,State}
+<Event,{Acc,Config,State}> when 'true' -> let <_4> = call 'jsx_to_term':'handle_event' (Event,State) in {Acc,Config,_4}
+(<_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_6,_5})-|[{'function_name',{'handle_event',2}}] )-|['compiler_generated'] ) end
+'module_info'/0 = fun () -> call 'erlang':'get_module_info' ('jsx_consult')
+'module_info'/1 = fun (_0) -> call 'erlang':'get_module_info' ('jsx_consult',_0) end

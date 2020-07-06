@@ -1,0 +1,20 @@
+module 'jsx_encoder' ['encode'/1,'encode'/2,'encoder'/3,'module_info'/0,'module_info'/1] attributes [ 'file' = [{[106|[115|[120|[95|[101|[110|[99|[111|[100|[101|[114|[46|[101|[114|[108]]]]]]]]]]]]]]],1}]
+, 'spec' = [{{'encoder',3},[{'type',28,'fun',[{'type',28,'product',[{'ann_type',28,[{'var',28,'Handler'}|[{'type',28,'module',[]}]]}|[{'ann_type',28,[{'var',28,'State'}|[{'type',28,'any',[]}]]}|[{'ann_type',28,[{'var',28,'Config'}|[{'type',28,'list',[]}]]}]]]}|[{'remote_type',28,[{'atom',28,'jsx'}|[{'atom',28,'encoder'}|[[]]]]}]]}]}]
+, 'spec' = [{{'encode',1},[{'type',35,'fun',[{'type',35,'product',[{'ann_type',35,[{'var',35,'Term'}|[{'type',35,'any',[]}]]}]}|[{'type',35,'any',[]}]]}]}]
+, 'spec' = [{{'encode',2},[{'type',40,'fun',[{'type',40,'product',[{'ann_type',40,[{'var',40,'Term'}|[{'type',40,'any',[]}]]}|[{'ann_type',40,[{'var',40,'EntryPoint'}|[{'type',40,'module',[]}]]}]]}|[{'type',40,'any',[]}]]}]}] ] 'encoder'/3 = fun (_0,_1,_2) -> let <Parser> = call 'jsx':'parser' (_0,_1,_2) in (fun (_6) -> let <_4> = apply 'encode'/1 (_6) in let <_5> = call 'erlang':'++' (_4,['end_json']) in apply Parser (_5)-|[{'id',{0,0,'-encoder/3-fun-0-'}}] )
+'encode'/1 = fun (_0) -> apply 'encode'/2 (_0,'jsx_encoder')
+'encode'/2 = fun (_0,_1) -> apply 'encode_'/2 (_0,_1)
+'encode_'/2 = fun (_0,_1) -> case <_0,_1> of <[],_X_EntryPoint> when 'true' -> ['start_array'|['end_array']]
+<[{}],_X_EntryPoint> when 'true' -> ['start_object'|['end_object']]
+<[DateTime = {{_8,_9,_10},{_11,_12,_13}}|Rest],EntryPoint> when 'true' -> let <_2> = apply 'unhitch'/2 (Rest,EntryPoint) in let <_3> = [DateTime|_2] in ['start_array'|_3]
+<Term = [{_14,_15}|_16],EntryPoint> when 'true' -> let <_4> = apply 'unzip'/2 (Term,EntryPoint) in ['start_object'|_4]
+<Term,EntryPoint> when call 'erlang':'is_list' (Term) -> let <_5> = apply 'unhitch'/2 (Term,EntryPoint) in ['start_array'|_5]
+<Else,_X_EntryPoint> when 'true' -> [Else|[]] end
+'unzip'/2 = fun (_0,_1) -> case <_0,_1> of <[{K,V}|Rest],EntryPoint> when let <_2> = call 'erlang':'is_integer' (K) in let <_3> = call 'erlang':'is_binary' (K) in let <_4> = call 'erlang':'is_atom' (K) in let <_5> = call 'erlang':'or' (_3,_4) in call 'erlang':'or' (_2,_5) -> let <_7> = call EntryPoint:'encode' (V,EntryPoint) in let <_6> = apply 'unzip'/2 (Rest,EntryPoint) in let <_8> = call 'erlang':'++' (_7,_6) in [K|_8]
+<[],_11> when 'true' -> ['end_object']
+<_12,_13> when 'true' -> call 'erlang':'error' ('badarg') end
+'unhitch'/2 = fun (_0,_1) -> case <_0,_1> of <[V|Rest],EntryPoint> when 'true' -> let <_3> = call EntryPoint:'encode' (V,EntryPoint) in let <_2> = apply 'unhitch'/2 (Rest,EntryPoint) in call 'erlang':'++' (_3,_2)
+<[],_6> when 'true' -> ['end_array']
+(<_5,_4> when 'true' -> (primop 'match_fail' ({'function_clause',_5,_4})-|[{'function_name',{'unhitch',2}}] )-|['compiler_generated'] ) end
+'module_info'/0 = fun () -> call 'erlang':'get_module_info' ('jsx_encoder')
+'module_info'/1 = fun (_0) -> call 'erlang':'get_module_info' ('jsx_encoder',_0) end

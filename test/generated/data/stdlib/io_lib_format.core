@@ -1,0 +1,383 @@
+module 'io_lib_format' ['build'/1,'build'/2,'fwrite'/2,'fwrite'/3,'fwrite_g'/1,'indentation'/2,'module_info'/0,'module_info'/1,'scan'/2,'unscan'/1] attributes [ 'file' = [{[115|[114|[99|[47|[105|[111|[95|[108|[105|[98|[95|[102|[111|[114|[109|[97|[116|[46|[101|[114|[108]]]]]]]]]]]]]]]]]]]]],1}]
+, 'spec' = [{{'fwrite',2},[{'type',41,'bounded_fun',[{'type',41,'fun',[{'type',41,'product',[{'var',41,'Format'}|[{'var',41,'Data'}]]}|[{'remote_type',41,[{'atom',41,'io_lib'}|[{'atom',41,'chars'}|[[]]]]}]]}|[[{'type',42,'constraint',[{'atom',42,'is_subtype'}|[[{'var',42,'Format'}|[{'remote_type',42,[{'atom',42,'io'}|[{'atom',42,'format'}|[[]]]]}]]]]}|[{'type',43,'constraint',[{'atom',43,'is_subtype'}|[[{'var',43,'Data'}|[{'type',43,'list',[{'type',43,'term',[]}]}]]]]}]]]]}]}]
+, 'spec' = [{{'fwrite',3},[{'type',48,'bounded_fun',[{'type',48,'fun',[{'type',48,'product',[{'var',48,'Format'}|[{'var',48,'Data'}|[{'var',48,'Options'}]]]}|[{'remote_type',48,[{'atom',48,'io_lib'}|[{'atom',48,'chars'}|[[]]]]}]]}|[[{'type',49,'constraint',[{'atom',49,'is_subtype'}|[[{'var',49,'Format'}|[{'remote_type',49,[{'atom',49,'io'}|[{'atom',49,'format'}|[[]]]]}]]]]}|[{'type',50,'constraint',[{'atom',50,'is_subtype'}|[[{'var',50,'Data'}|[{'type',50,'list',[{'type',50,'term',[]}]}]]]]}|[{'type',51,'constraint',[{'atom',51,'is_subtype'}|[[{'var',51,'Options'}|[{'type',51,'list',[{'var',51,'Option'}]}]]]]}|[{'type',52,'constraint',[{'atom',52,'is_subtype'}|[[{'var',52,'Option'}|[{'type',52,'tuple',[{'atom',52,'chars_limit'}|[{'var',52,'CharsLimit'}]]}]]]]}|[{'type',53,'constraint',[{'atom',53,'is_subtype'}|[[{'var',53,'CharsLimit'}|[{'remote_type',53,[{'atom',53,'io_lib'}|[{'atom',53,'chars_limit'}|[[]]]]}]]]]}]]]]]]]}]}]
+, 'spec' = [{{'build',1},[{'type',60,'bounded_fun',[{'type',60,'fun',[{'type',60,'product',[{'var',60,'FormatList'}]}|[{'remote_type',60,[{'atom',60,'io_lib'}|[{'atom',60,'chars'}|[[]]]]}]]}|[[{'type',61,'constraint',[{'atom',61,'is_subtype'}|[[{'var',61,'FormatList'}|[{'type',61,'list',[{'type',61,'union',[{'type',61,'char',[]}|[{'remote_type',61,[{'atom',61,'io_lib'}|[{'atom',61,'format_spec'}|[[]]]]}]]}]}]]]]}]]]}]}]
+, 'spec' = [{{'build',2},[{'type',66,'bounded_fun',[{'type',66,'fun',[{'type',66,'product',[{'var',66,'FormatList'}|[{'var',66,'Options'}]]}|[{'remote_type',66,[{'atom',66,'io_lib'}|[{'atom',66,'chars'}|[[]]]]}]]}|[[{'type',67,'constraint',[{'atom',67,'is_subtype'}|[[{'var',67,'FormatList'}|[{'type',67,'list',[{'type',67,'union',[{'type',67,'char',[]}|[{'remote_type',67,[{'atom',67,'io_lib'}|[{'atom',67,'format_spec'}|[[]]]]}]]}]}]]]]}|[{'type',68,'constraint',[{'atom',68,'is_subtype'}|[[{'var',68,'Options'}|[{'type',68,'list',[{'var',68,'Option'}]}]]]]}|[{'type',69,'constraint',[{'atom',69,'is_subtype'}|[[{'var',69,'Option'}|[{'type',69,'tuple',[{'atom',69,'chars_limit'}|[{'var',69,'CharsLimit'}]]}]]]]}|[{'type',70,'constraint',[{'atom',70,'is_subtype'}|[[{'var',70,'CharsLimit'}|[{'remote_type',70,[{'atom',70,'io_lib'}|[{'atom',70,'chars_limit'}|[[]]]]}]]]]}]]]]]]}]}]
+, 'spec' = [{{'scan',2},[{'type',86,'bounded_fun',[{'type',86,'fun',[{'type',86,'product',[{'var',86,'Format'}|[{'var',86,'Data'}]]}|[{'var',86,'FormatList'}]]}|[[{'type',87,'constraint',[{'atom',87,'is_subtype'}|[[{'var',87,'Format'}|[{'remote_type',87,[{'atom',87,'io'}|[{'atom',87,'format'}|[[]]]]}]]]]}|[{'type',88,'constraint',[{'atom',88,'is_subtype'}|[[{'var',88,'Data'}|[{'type',88,'list',[{'type',88,'term',[]}]}]]]]}|[{'type',89,'constraint',[{'atom',89,'is_subtype'}|[[{'var',89,'FormatList'}|[{'type',89,'list',[{'type',89,'union',[{'type',89,'char',[]}|[{'remote_type',89,[{'atom',89,'io_lib'}|[{'atom',89,'format_spec'}|[[]]]]}]]}]}]]]]}]]]]]}]}]
+, 'spec' = [{{'unscan',1},[{'type',101,'bounded_fun',[{'type',101,'fun',[{'type',101,'product',[{'var',101,'FormatList'}]}|[{'type',101,'tuple',[{'var',101,'Format'}|[{'var',101,'Data'}]]}]]}|[[{'type',102,'constraint',[{'atom',102,'is_subtype'}|[[{'var',102,'FormatList'}|[{'type',102,'list',[{'type',102,'union',[{'type',102,'char',[]}|[{'remote_type',102,[{'atom',102,'io_lib'}|[{'atom',102,'format_spec'}|[[]]]]}]]}]}]]]]}|[{'type',103,'constraint',[{'atom',103,'is_subtype'}|[[{'var',103,'Format'}|[{'remote_type',103,[{'atom',103,'io'}|[{'atom',103,'format'}|[[]]]]}]]]]}|[{'type',104,'constraint',[{'atom',104,'is_subtype'}|[[{'var',104,'Data'}|[{'type',104,'list',[{'type',104,'term',[]}]}]]]]}]]]]]}]}]
+, 'spec' = [{{'indentation',2},[{'type',312,'bounded_fun',[{'type',312,'fun',[{'type',312,'product',[{'var',312,'String'}|[{'var',312,'StartIndent'}]]}|[{'type',312,'integer',[]}]]}|[[{'type',313,'constraint',[{'atom',313,'is_subtype'}|[[{'var',313,'String'}|[{'remote_type',313,[{'atom',313,'io_lib'}|[{'atom',313,'chars'}|[[]]]]}]]]]}|[{'type',314,'constraint',[{'atom',314,'is_subtype'}|[[{'var',314,'StartIndent'}|[{'type',314,'integer',[]}]]]]}]]]]}]}]
+, 'spec' = [{{'fwrite_g',1},[{'type',535,'fun',[{'type',535,'product',[{'type',535,'float',[]}]}|[{'type',535,'string',[]}]]}]}] ] 'fwrite'/2 = fun (_0,_1) -> let <_2> = apply 'scan'/2 (_0,_1) in apply 'build'/1 (_2)
+'fwrite'/3 = fun (_0,_1,_2) -> let <_3> = apply 'scan'/2 (_0,_1) in apply 'build'/2 (_3,_2)
+'build'/1 = fun (_0) -> apply 'build'/2 (_0,[])
+'build'/2 = fun (_0,_1) -> let <CharsLimit> = apply 'get_option'/3 ('chars_limit',_1,-1) in let <Res1> = apply 'build_small'/1 (_0) in case apply 'count_small'/1 (Res1) of <{P,S,W,Other}> when 'true' -> let <_6> = call 'erlang':'+' (P,S) in case call 'erlang':'+' (_6,W) of <0> when 'true' -> Res1
+<NumOfLimited> when 'true' -> let <RemainingChars> = apply 'sub'/2 (CharsLimit,Other) in apply 'build_limited'/5 (Res1,P,NumOfLimited,RemainingChars,0) end
+(<_5> when 'true' -> primop 'match_fail' ({'badmatch',_5})-|['compiler_generated'] ) end
+'scan'/2 = fun (_0,_1) -> case <_0,_1> of <Format,Args> when call 'erlang':'is_atom' (Format) -> let <_2> = call 'erlang':'atom_to_list' (Format) in apply 'scan'/2 (_2,Args)
+<Format,Args> when call 'erlang':'is_binary' (Format) -> let <_3> = call 'erlang':'binary_to_list' (Format) in apply 'scan'/2 (_3,Args)
+<Format,Args> when 'true' -> apply 'collect'/2 (Format,Args) end
+'unscan'/1 = fun (_0) -> let <_2> = apply 'print'/1 (_0) in let <_1> = apply 'args'/1 (_0) in {_2,_1}
+'args'/1 = fun (_0) -> case _0 of <[~{'args':=As}~|Cs]> when 'true' -> let <_1> = apply 'args'/1 (Cs) in call 'erlang':'++' (As,_1)
+<[_X_C|Cs]> when 'true' -> apply 'args'/1 (Cs)
+<[]> when 'true' -> []
+(<_2> when 'true' -> (primop 'match_fail' ({'function_clause',_2})-|[{'function_name',{'args',1}}] )-|['compiler_generated'] ) end
+'print'/1 = fun (_0) -> case _0 of <[~{'width':=F,'precision':=P,'adjust':=Ad,'encoding':=Encoding,'strings':=Strings,'pad_char':=Pad,'control_char':=C}~|Cs]> when 'true' -> let <_2> = apply 'print'/7 (C,F,Ad,P,Pad,Encoding,Strings) in let <_1> = apply 'print'/1 (Cs) in call 'erlang':'++' (_2,_1)
+<[C|Cs]> when 'true' -> let <_3> = apply 'print'/1 (Cs) in [C|_3]
+<[]> when 'true' -> []
+(<_4> when 'true' -> (primop 'match_fail' ({'function_clause',_4})-|[{'function_name',{'print',1}}] )-|['compiler_generated'] ) end
+'print'/7 = fun (_0,_1,_2,_3,_4,_5,_6) -> let <_15> = apply 'print_field_width'/2 (_1,_2) in let <_13> = apply 'print_precision'/2 (_3,_4) in let <_11> = apply 'print_pad_char'/1 (_4) in let <_9> = apply 'print_encoding'/1 (_5) in let <_7> = apply 'print_strings'/1 (_6) in let <_8> = call 'erlang':'++' (_7,[_0|[]]) in let <_10> = call 'erlang':'++' (_9,_8) in let <_12> = call 'erlang':'++' (_11,_10) in let <_14> = call 'erlang':'++' (_13,_12) in let <_16> = call 'erlang':'++' (_15,_14) in [126|_16]
+'print_field_width'/2 = fun (_0,_1) -> case <_0,_1> of <'none',_X_Ad> when 'true' -> []
+<F,'left'> when 'true' -> let <_2> = call 'erlang':'-' (F) in call 'erlang':'integer_to_list' (_2)
+<F,'right'> when 'true' -> call 'erlang':'integer_to_list' (F)
+(<_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_4,_3})-|[{'function_name',{'print_field_width',2}}] )-|['compiler_generated'] ) end
+'print_precision'/2 = fun (_0,_1) -> case <_0,_1> of <'none',32> when 'true' -> []
+<'none',_X_Pad> when 'true' -> [46]
+<P,_X_Pad> when 'true' -> let <_2> = call 'erlang':'integer_to_list' (P) in [46|_2] end
+'print_pad_char'/1 = fun (_0) -> case _0 of <32> when 'true' -> []
+<Pad> when 'true' -> [46|[Pad|[]]] end
+'print_encoding'/1 = fun (_0) -> case _0 of <'unicode'> when 'true' -> [116]
+<'latin1'> when 'true' -> []
+(<_1> when 'true' -> (primop 'match_fail' ({'function_clause',_1})-|[{'function_name',{'print_encoding',1}}] )-|['compiler_generated'] ) end
+'print_strings'/1 = fun (_0) -> case _0 of <'false'> when 'true' -> [108]
+<'true'> when 'true' -> []
+(<_1> when 'true' -> (primop 'match_fail' ({'function_clause',_1})-|[{'function_name',{'print_strings',1}}] )-|['compiler_generated'] ) end
+'collect'/2 = fun (_0,_1) -> case <_0,_1> of <[126|Fmt0],Args0> when 'true' -> case apply 'collect_cseq'/2 (Fmt0,Args0) of <{C,Fmt1,Args1}> when 'true' -> let <_3> = apply 'collect'/2 (Fmt1,Args1) in [C|_3]
+(<_2> when 'true' -> primop 'match_fail' ({'badmatch',_2})-|['compiler_generated'] ) end
+<[C|Fmt],Args> when 'true' -> let <_4> = apply 'collect'/2 (Fmt,Args) in [C|_4]
+<[],[]> when 'true' -> []
+(<_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_6,_5})-|[{'function_name',{'collect',2}}] )-|['compiler_generated'] ) end
+'collect_cseq'/2 = fun (_0,_1) -> case apply 'field_width'/2 (_0,_1) of <{F,Ad,Fmt1,Args1}> when 'true' -> case apply 'precision'/2 (Fmt1,Args1) of <{P,Fmt2,Args2}> when 'true' -> case apply 'pad_char'/2 (Fmt2,Args2) of <{Pad,Fmt3,Args3}> when 'true' -> let <Spec0> = ~{'width'=>F,'adjust'=>Ad,'precision'=>P,'pad_char'=>Pad,'encoding'=>'latin1','strings'=>'true'}~ in case apply 'modifiers'/2 (Fmt3,Spec0) of <{Spec1,Fmt4}> when 'true' -> case apply 'collect_cc'/2 (Fmt4,Args3) of <{C,As,Fmt5,Args4}> when 'true' -> case <> of (<> when call 'erlang':'is_map' (Spec1) -> let <_8> = ~{'control_char'=>C,'args'=>As|Spec1}~ in {_8,Fmt5,Args4}-|['compiler_generated'] )
+(<> when 'true' -> (primop 'match_fail' ({'badmap',Spec1})-|[{'eval_failure','badmap'}] )-|['compiler_generated'] ) end
+(<_7> when 'true' -> primop 'match_fail' ({'badmatch',_7})-|['compiler_generated'] ) end
+(<_6> when 'true' -> primop 'match_fail' ({'badmatch',_6})-|['compiler_generated'] ) end
+(<_4> when 'true' -> primop 'match_fail' ({'badmatch',_4})-|['compiler_generated'] ) end
+(<_3> when 'true' -> primop 'match_fail' ({'badmatch',_3})-|['compiler_generated'] ) end
+(<_2> when 'true' -> primop 'match_fail' ({'badmatch',_2})-|['compiler_generated'] ) end
+'modifiers'/2 = fun (_0,_1) -> case <_0,_1> of <[116|Fmt],Spec> when 'true' -> case <> of (<> when call 'erlang':'is_map' (Spec) -> let <_2> = ~{'encoding'=>'unicode'|Spec}~ in apply 'modifiers'/2 (Fmt,_2)-|['compiler_generated'] )
+(<> when 'true' -> (primop 'match_fail' ({'badmap',Spec})-|[{'eval_failure','badmap'}] )-|['compiler_generated'] ) end
+<[108|Fmt],Spec> when 'true' -> case <> of (<> when call 'erlang':'is_map' (Spec) -> let <_3> = ~{'strings'=>'false'|Spec}~ in apply 'modifiers'/2 (Fmt,_3)-|['compiler_generated'] )
+(<> when 'true' -> (primop 'match_fail' ({'badmap',Spec})-|[{'eval_failure','badmap'}] )-|['compiler_generated'] ) end
+<Fmt,Spec> when 'true' -> {Spec,Fmt} end
+'field_width'/2 = fun (_0,_1) -> case <_0,_1> of <[45|Fmt0],Args0> when 'true' -> case apply 'field_value'/2 (Fmt0,Args0) of <{F,Fmt,Args}> when 'true' -> let <_3> = call 'erlang':'-' (F) in apply 'field_width'/3 (_3,Fmt,Args)
+(<_2> when 'true' -> primop 'match_fail' ({'badmatch',_2})-|['compiler_generated'] ) end
+<Fmt0,Args0> when 'true' -> case apply 'field_value'/2 (Fmt0,Args0) of <{F,Fmt,Args}> when 'true' -> apply 'field_width'/3 (F,Fmt,Args)
+(<_4> when 'true' -> primop 'match_fail' ({'badmatch',_4})-|['compiler_generated'] ) end end
+'field_width'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <F,Fmt,Args> when call 'erlang':'<' (F,0) -> let <_3> = call 'erlang':'-' (F) in {_3,'left',Fmt,Args}
+<F,Fmt,Args> when call 'erlang':'>=' (F,0) -> {F,'right',Fmt,Args}
+(<_6,_5,_4> when 'true' -> (primop 'match_fail' ({'function_clause',_6,_5,_4})-|[{'function_name',{'field_width',3}}] )-|['compiler_generated'] ) end
+'precision'/2 = fun (_0,_1) -> case <_0,_1> of <[46|Fmt],Args> when 'true' -> apply 'field_value'/2 (Fmt,Args)
+<Fmt,Args> when 'true' -> {'none',Fmt,Args} end
+'field_value'/2 = fun (_0,_1) -> case <_0,_1> of <[42|Fmt],[A|Args]> when call 'erlang':'is_integer' (A) -> {A,Fmt,Args}
+<_@r0 = [C|Fmt],Args> when try let <_2> = call 'erlang':'is_integer' (C) in let <_3> = call 'erlang':'>=' (C,48) in let <_4> = call 'erlang':'=<' (C,57) in let <_5> = call 'erlang':'and' (_3,_4) in call 'erlang':'and' (_2,_5) of <Try> -> Try catch <T,R> -> 'false' -> apply 'field_value'/3 (_@r0,Args,0)
+<Fmt,Args> when 'true' -> {'none',Fmt,Args} end
+'field_value'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <[C|Fmt],Args,F> when try let <_3> = call 'erlang':'is_integer' (C) in let <_4> = call 'erlang':'>=' (C,48) in let <_5> = call 'erlang':'=<' (C,57) in let <_6> = call 'erlang':'and' (_4,_5) in call 'erlang':'and' (_3,_6) of <Try> -> Try catch <T,R> -> 'false' -> let <_8> = call 'erlang':'*' (10,F) in let <_7> = call 'erlang':'-' (C,48) in let <_9> = call 'erlang':'+' (_8,_7) in apply 'field_value'/3 (Fmt,Args,_9)
+<Fmt,Args,F> when 'true' -> {F,Fmt,Args} end
+'pad_char'/2 = fun (_0,_1) -> case <_0,_1> of <[46|[42|Fmt]],[Pad|Args]> when 'true' -> {Pad,Fmt,Args}
+<[46|[Pad|Fmt]],Args> when 'true' -> {Pad,Fmt,Args}
+<Fmt,Args> when 'true' -> {32,Fmt,Args} end
+'collect_cc'/2 = fun (_0,_1) -> case <_0,_1> of <[119|Fmt],[A|Args]> when 'true' -> {119,[A|[]],Fmt,Args}
+<[112|Fmt],[A|Args]> when 'true' -> {112,[A|[]],Fmt,Args}
+<[87|Fmt],[A|[Depth|Args]]> when 'true' -> {87,[A|[Depth|[]]],Fmt,Args}
+<[80|Fmt],[A|[Depth|Args]]> when 'true' -> {80,[A|[Depth|[]]],Fmt,Args}
+<[115|Fmt],[A|Args]> when 'true' -> {115,[A|[]],Fmt,Args}
+<[101|Fmt],[A|Args]> when 'true' -> {101,[A|[]],Fmt,Args}
+<[102|Fmt],[A|Args]> when 'true' -> {102,[A|[]],Fmt,Args}
+<[103|Fmt],[A|Args]> when 'true' -> {103,[A|[]],Fmt,Args}
+<[98|Fmt],[A|Args]> when 'true' -> {98,[A|[]],Fmt,Args}
+<[66|Fmt],[A|Args]> when 'true' -> {66,[A|[]],Fmt,Args}
+<[120|Fmt],[A|[Prefix|Args]]> when 'true' -> {120,[A|[Prefix|[]]],Fmt,Args}
+<[88|Fmt],[A|[Prefix|Args]]> when 'true' -> {88,[A|[Prefix|[]]],Fmt,Args}
+<[43|Fmt],[A|Args]> when 'true' -> {43,[A|[]],Fmt,Args}
+<[35|Fmt],[A|Args]> when 'true' -> {35,[A|[]],Fmt,Args}
+<[99|Fmt],[A|Args]> when 'true' -> {99,[A|[]],Fmt,Args}
+<[126|Fmt],Args> when call 'erlang':'is_list' (Args) -> {126,[],Fmt,Args}
+<[110|Fmt],Args> when call 'erlang':'is_list' (Args) -> {110,[],Fmt,Args}
+<[105|Fmt],[A|Args]> when 'true' -> {105,[A|[]],Fmt,Args}
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'collect_cc',2}}] )-|['compiler_generated'] ) end
+'count_small'/1 = fun (_0) -> apply 'count_small'/2 (_0,~{'other'=>0,'p'=>0,'s'=>0,'w'=>0}~)
+'count_small'/2 = fun (_0,_1) -> case <_0,_1> of <[~{'control_char':=112}~|Cs],Cnts = ~{'p':=P}~> when 'true' -> let <_2> = call 'erlang':'+' (P,1) in case <> of (<> when call 'erlang':'is_map' (Cnts) -> let <_3> = ~{'p':=_2|Cnts}~ in apply 'count_small'/2 (Cs,_3)-|['compiler_generated'] )
+(<> when 'true' -> (primop 'match_fail' ({'badmap',Cnts})-|[{'eval_failure','badmap'}] )-|['compiler_generated'] ) end
+<[~{'control_char':=80}~|Cs],Cnts = ~{'p':=P}~> when 'true' -> let <_4> = call 'erlang':'+' (P,1) in case <> of (<> when call 'erlang':'is_map' (Cnts) -> let <_5> = ~{'p':=_4|Cnts}~ in apply 'count_small'/2 (Cs,_5)-|['compiler_generated'] )
+(<> when 'true' -> (primop 'match_fail' ({'badmap',Cnts})-|[{'eval_failure','badmap'}] )-|['compiler_generated'] ) end
+<[~{'control_char':=119}~|Cs],Cnts = ~{'w':=W}~> when 'true' -> let <_6> = call 'erlang':'+' (W,1) in case <> of (<> when call 'erlang':'is_map' (Cnts) -> let <_7> = ~{'w':=_6|Cnts}~ in apply 'count_small'/2 (Cs,_7)-|['compiler_generated'] )
+(<> when 'true' -> (primop 'match_fail' ({'badmap',Cnts})-|[{'eval_failure','badmap'}] )-|['compiler_generated'] ) end
+<[~{'control_char':=87}~|Cs],Cnts = ~{'w':=W}~> when 'true' -> let <_8> = call 'erlang':'+' (W,1) in case <> of (<> when call 'erlang':'is_map' (Cnts) -> let <_9> = ~{'w':=_8|Cnts}~ in apply 'count_small'/2 (Cs,_9)-|['compiler_generated'] )
+(<> when 'true' -> (primop 'match_fail' ({'badmap',Cnts})-|[{'eval_failure','badmap'}] )-|['compiler_generated'] ) end
+<[~{'control_char':=115}~|Cs],Cnts = ~{'w':=W}~> when 'true' -> let <_10> = call 'erlang':'+' (W,1) in case <> of (<> when call 'erlang':'is_map' (Cnts) -> let <_11> = ~{'w':=_10|Cnts}~ in apply 'count_small'/2 (Cs,_11)-|['compiler_generated'] )
+(<> when 'true' -> (primop 'match_fail' ({'badmap',Cnts})-|[{'eval_failure','badmap'}] )-|['compiler_generated'] ) end
+<[S|Cs],Cnts = ~{'other':=Other}~> when let <_12> = call 'erlang':'is_list' (S) in let <_13> = call 'erlang':'is_binary' (S) in call 'erlang':'or' (_12,_13) -> let <_14> = call 'io_lib':'chars_length' (S) in let <_15> = call 'erlang':'+' (Other,_14) in case <> of (<> when call 'erlang':'is_map' (Cnts) -> let <_16> = ~{'other':=_15|Cnts}~ in apply 'count_small'/2 (Cs,_16)-|['compiler_generated'] )
+(<> when 'true' -> (primop 'match_fail' ({'badmap',Cnts})-|[{'eval_failure','badmap'}] )-|['compiler_generated'] ) end
+<[C|Cs],Cnts = ~{'other':=Other}~> when call 'erlang':'is_integer' (C) -> let <_17> = call 'erlang':'+' (Other,1) in case <> of (<> when call 'erlang':'is_map' (Cnts) -> let <_18> = ~{'other':=_17|Cnts}~ in apply 'count_small'/2 (Cs,_18)-|['compiler_generated'] )
+(<> when 'true' -> (primop 'match_fail' ({'badmap',Cnts})-|[{'eval_failure','badmap'}] )-|['compiler_generated'] ) end
+<[],~{'w':=W,'p':=P,'s':=S,'other':=Other}~> when 'true' -> {P,S,W,Other}
+(<_20,_19> when 'true' -> (primop 'match_fail' ({'function_clause',_20,_19})-|[{'function_name',{'count_small',2}}] )-|['compiler_generated'] ) end
+'build_small'/1 = fun (_0) -> case _0 of <[CC = ~{'width':=F,'precision':=P,'adjust':=Ad,'encoding':=Enc,'args':=As,'pad_char':=Pad,'control_char':=C}~|Cs]> when 'true' -> case apply 'control_small'/7 (C,As,F,Ad,P,Pad,Enc) of <'not_small'> when 'true' -> let <_1> = apply 'build_small'/1 (Cs) in [CC|_1]
+<S> when 'true' -> let <_3> = call 'lists':'flatten' (S) in let <_2> = apply 'build_small'/1 (Cs) in call 'erlang':'++' (_3,_2) end
+<[C|Cs]> when 'true' -> let <_5> = apply 'build_small'/1 (Cs) in [C|_5]
+<[]> when 'true' -> []
+(<_6> when 'true' -> (primop 'match_fail' ({'function_clause',_6})-|[{'function_name',{'build_small',1}}] )-|['compiler_generated'] ) end
+'build_limited'/5 = fun (_0,_1,_2,_3,_4) -> case <_0,_1,_2,_3,_4> of <[~{'width':=F,'precision':=P,'adjust':=Ad,'encoding':=Enc,'strings':=Str,'args':=As,'pad_char':=Pad,'control_char':=C}~|Cs],NumOfPs0,Count0,MaxLen0,I> when 'true' -> let <_5> = case <> of <> when call 'erlang':'<' (MaxLen0,0) -> MaxLen0
+<> when 'true' -> call 'erlang':'div' (MaxLen0,Count0) end in let <S> = apply 'control_limited'/10 (C,As,F,Ad,P,Pad,Enc,Str,_5,I) in let <NumOfPs> = apply 'decr_pc'/2 (C,NumOfPs0) in let <Count> = call 'erlang':'-' (Count0,1) in let <_11> = case <> of <> when call 'erlang':'<' (MaxLen0,0) -> MaxLen0
+<> when 'true' -> let <Len> = call 'io_lib':'chars_length' (S) in apply 'sub'/2 (MaxLen0,Len) end in case <> of <> when call 'erlang':'>' (NumOfPs,0) -> let <_13> = apply 'indentation'/2 (S,I) in let <_14> = apply 'build_limited'/5 (Cs,NumOfPs,Count,_11,_13) in [S|_14]
+<> when 'true' -> let <_15> = apply 'build_limited'/5 (Cs,NumOfPs,Count,_11,I) in [S|_15] end
+<[10|Cs],NumOfPs,Count,MaxLen,_X_I> when 'true' -> let <_16> = apply 'build_limited'/5 (Cs,NumOfPs,Count,MaxLen,0) in [10|_16]
+<[9|Cs],NumOfPs,Count,MaxLen,I> when 'true' -> let <_17> = call 'erlang':'+' (I,8) in let <_18> = call 'erlang':'div' (_17,8) in let <_19> = call 'erlang':'*' (_18,8) in let <_20> = apply 'build_limited'/5 (Cs,NumOfPs,Count,MaxLen,_19) in [9|_20]
+<[C|Cs],NumOfPs,Count,MaxLen,I> when 'true' -> let <_21> = call 'erlang':'+' (I,1) in let <_22> = apply 'build_limited'/5 (Cs,NumOfPs,Count,MaxLen,_21) in [C|_22]
+<[],_28,_29,_30,_31> when 'true' -> []
+(<_27,_26,_25,_24,_23> when 'true' -> (primop 'match_fail' ({'function_clause',_27,_26,_25,_24,_23})-|[{'function_name',{'build_limited',5}}] )-|['compiler_generated'] ) end
+'decr_pc'/2 = fun (_0,_1) -> case <_0,_1> of <112,Pc> when 'true' -> call 'erlang':'-' (Pc,1)
+<80,Pc> when 'true' -> call 'erlang':'-' (Pc,1)
+<_4,Pc> when 'true' -> Pc end
+'indentation'/2 = fun (_0,_1) -> case <_0,_1> of <[10|Cs],_X_I> when 'true' -> apply 'indentation'/2 (Cs,0)
+<[9|Cs],I> when 'true' -> let <_2> = call 'erlang':'+' (I,8) in let <_3> = call 'erlang':'div' (_2,8) in let <_4> = call 'erlang':'*' (_3,8) in apply 'indentation'/2 (Cs,_4)
+<[C|Cs],I> when call 'erlang':'is_integer' (C) -> let <_5> = call 'erlang':'+' (I,1) in apply 'indentation'/2 (Cs,_5)
+<[C|Cs],I> when 'true' -> let <_6> = apply 'indentation'/2 (C,I) in apply 'indentation'/2 (Cs,_6)
+<[],I> when 'true' -> I
+(<_8,_7> when 'true' -> (primop 'match_fail' ({'function_clause',_8,_7})-|[{'function_name',{'indentation',2}}] )-|['compiler_generated'] ) end
+'control_small'/7 = fun (_0,_1,_2,_3,_4,_5,_6) -> case <_0,_1,_2,_3,_4,_5,_6> of <115,[A|[]],F,Adj,P,Pad,Enc = 'latin1'> when call 'erlang':'is_atom' (A) -> let <_7> = call 'erlang':'atom_to_list' (A) in let <L> = apply 'iolist_to_chars'/1 (_7) in apply 'string'/6 (L,F,Adj,P,Pad,Enc)
+<115,[A|[]],F,Adj,P,Pad,Enc = 'unicode'> when call 'erlang':'is_atom' (A) -> let <_9> = call 'erlang':'atom_to_list' (A) in apply 'string'/6 (_9,F,Adj,P,Pad,Enc)
+<101,[A|[]],F,Adj,P,Pad,_X_Enc> when call 'erlang':'is_float' (A) -> apply 'fwrite_e'/5 (A,F,Adj,P,Pad)
+<102,[A|[]],F,Adj,P,Pad,_X_Enc> when call 'erlang':'is_float' (A) -> apply 'fwrite_f'/5 (A,F,Adj,P,Pad)
+<103,[A|[]],F,Adj,P,Pad,_X_Enc> when call 'erlang':'is_float' (A) -> apply 'fwrite_g'/5 (A,F,Adj,P,Pad)
+<98,[A|[]],F,Adj,P,Pad,_X_Enc> when call 'erlang':'is_integer' (A) -> let <_10> = apply 'base'/1 (P) in apply 'unprefixed_integer'/6 (A,F,Adj,_10,Pad,'true')
+<66,[A|[]],F,Adj,P,Pad,_X_Enc> when call 'erlang':'is_integer' (A) -> let <_11> = apply 'base'/1 (P) in apply 'unprefixed_integer'/6 (A,F,Adj,_11,Pad,'false')
+<120,[A|[Prefix|[]]],F,Adj,P,Pad,_X_Enc> when let <_12> = call 'erlang':'is_integer' (A) in let <_13> = call 'erlang':'is_atom' (Prefix) in call 'erlang':'and' (_12,_13) -> let <_15> = apply 'base'/1 (P) in let <_14> = call 'erlang':'atom_to_list' (Prefix) in apply 'prefixed_integer'/7 (A,F,Adj,_15,Pad,_14,'true')
+<120,[A|[Prefix|[]]],F,Adj,P,Pad,_X_Enc> when call 'erlang':'is_integer' (A) -> case call 'io_lib':'deep_char_list' (Prefix) of <'true'> when 'true' -> let <_17> = apply 'base'/1 (P) in apply 'prefixed_integer'/7 (A,F,Adj,_17,Pad,Prefix,'true')
+(<_16> when 'true' -> primop 'match_fail' ({'badmatch',_16})-|['compiler_generated'] ) end
+<88,[A|[Prefix|[]]],F,Adj,P,Pad,_X_Enc> when let <_18> = call 'erlang':'is_integer' (A) in let <_19> = call 'erlang':'is_atom' (Prefix) in call 'erlang':'and' (_18,_19) -> let <_21> = apply 'base'/1 (P) in let <_20> = call 'erlang':'atom_to_list' (Prefix) in apply 'prefixed_integer'/7 (A,F,Adj,_21,Pad,_20,'false')
+<88,[A|[Prefix|[]]],F,Adj,P,Pad,_X_Enc> when call 'erlang':'is_integer' (A) -> case call 'io_lib':'deep_char_list' (Prefix) of <'true'> when 'true' -> let <_23> = apply 'base'/1 (P) in apply 'prefixed_integer'/7 (A,F,Adj,_23,Pad,Prefix,'false')
+(<_22> when 'true' -> primop 'match_fail' ({'badmatch',_22})-|['compiler_generated'] ) end
+<43,[A|[]],F,Adj,P,Pad,_X_Enc> when call 'erlang':'is_integer' (A) -> let <Base> = apply 'base'/1 (P) in let <_25> = call 'erlang':'integer_to_list' (Base) in let <Prefix> = [_25|[35]] in apply 'prefixed_integer'/7 (A,F,Adj,Base,Pad,Prefix,'true')
+<35,[A|[]],F,Adj,P,Pad,_X_Enc> when call 'erlang':'is_integer' (A) -> let <Base> = apply 'base'/1 (P) in let <_28> = call 'erlang':'integer_to_list' (Base) in let <Prefix> = [_28|[35]] in apply 'prefixed_integer'/7 (A,F,Adj,Base,Pad,Prefix,'false')
+<99,[A|[]],F,Adj,P,Pad,'unicode'> when call 'erlang':'is_integer' (A) -> apply 'char'/5 (A,F,Adj,P,Pad)
+<99,[A|[]],F,Adj,P,Pad,_X_Enc> when call 'erlang':'is_integer' (A) -> let <_30> = call 'erlang':'band' (A,255) in apply 'char'/5 (_30,F,Adj,P,Pad)
+<126,[],F,Adj,P,Pad,_X_Enc> when 'true' -> apply 'char'/5 (126,F,Adj,P,Pad)
+<110,[],F,Adj,P,Pad,_X_Enc> when 'true' -> apply 'newline'/4 (F,Adj,P,Pad)
+<105,[_X_A|[]],_X_F,_X_Adj,_X_P,_X_Pad,_X_Enc> when 'true' -> []
+<_X_C,_X_As,_X_F,_X_Adj,_X_P,_X_Pad,_X_Enc> when 'true' -> 'not_small' end
+'control_limited'/10 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8,_9) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8,_9> of <115,[L0|[]],F,Adj,P,Pad,Enc = 'latin1',_X_Str,CL,_X_I> when 'true' -> let <L> = apply 'iolist_to_chars'/3 (L0,F,CL) in let <_11> = apply 'limit_field'/2 (F,CL) in apply 'string'/6 (L,_11,Adj,P,Pad,Enc)
+<115,[L0|[]],F,Adj,P,Pad,Enc = 'unicode',_X_Str,CL,_X_I> when 'true' -> let <L> = apply 'cdata_to_chars'/3 (L0,F,CL) in let <_13> = apply 'limit_field'/2 (F,CL) in let <_14> = apply 'string'/6 (L,_13,Adj,P,Pad,Enc) in apply 'uniconv'/1 (_14)
+<119,[A|[]],F,Adj,P,Pad,Enc,_X_Str,CL,_X_I> when 'true' -> let <Chars> = call 'io_lib':'write' (A,[{'depth',-1}|[{'encoding',Enc}|[{'chars_limit',CL}|[]]]]) in apply 'term'/5 (Chars,F,Adj,P,Pad)
+<112,[A|[]],F,Adj,P,Pad,Enc,Str,CL,I> when 'true' -> apply 'print'/10 (A,-1,F,Adj,P,Pad,Enc,Str,CL,I)
+<87,[A|[Depth|[]]],F,Adj,P,Pad,Enc,_X_Str,CL,_X_I> when call 'erlang':'is_integer' (Depth) -> let <Chars> = call 'io_lib':'write' (A,[{'depth',Depth}|[{'encoding',Enc}|[{'chars_limit',CL}|[]]]]) in apply 'term'/5 (Chars,F,Adj,P,Pad)
+<80,[A|[Depth|[]]],F,Adj,P,Pad,Enc,Str,CL,I> when call 'erlang':'is_integer' (Depth) -> apply 'print'/10 (A,Depth,F,Adj,P,Pad,Enc,Str,CL,I)
+(<_28,_27,_26,_25,_24,_23,_22,_21,_20,_19> when 'true' -> (primop 'match_fail' ({'function_clause',_28,_27,_26,_25,_24,_23,_22,_21,_20,_19})-|[{'function_name',{'control_limited',10}}] )-|['compiler_generated'] ) end
+'uniconv'/1 = fun (_0) -> _0
+'base'/1 = fun (_0) -> case _0 of <'none'> when 'true' -> 10
+<B> when call 'erlang':'is_integer' (_0) -> B
+(<_1> when 'true' -> (primop 'match_fail' ({'function_clause',_1})-|[{'function_name',{'base',1}}] )-|['compiler_generated'] ) end
+'term'/5 = fun (_0,_1,_2,_3,_4) -> case <_0,_1,_2,_3,_4> of <T,'none',_X_Adj,'none',_X_Pad> when 'true' -> T
+<T,'none',Adj,P,Pad> when 'true' -> apply 'term'/5 (T,P,Adj,P,Pad)
+<T,F,Adj,P0,Pad> when 'true' -> let <L> = call 'io_lib':'chars_length' (T) in let <_7> = case P0 of <'none'> when 'true' -> F
+<_19> when 'true' -> call 'erlang':'min' (P0,F) end in let <P> = call 'erlang':'min' (L,_7) in case <> of <> when call 'erlang':'>' (L,P) -> let <_11> = apply 'chars'/2 (42,P) in let <_9> = call 'erlang':'-' (F,P) in let <_10> = apply 'chars'/2 (Pad,_9) in apply 'adjust'/3 (_11,_10,Adj)
+<> when call 'erlang':'>=' (F,P) -> let <_12> = call 'erlang':'-' (F,L) in let <_13> = apply 'chars'/2 (Pad,_12) in apply 'adjust'/3 (T,_13,Adj)
+(<> when 'true' -> primop 'match_fail' ('if_clause')-|['compiler_generated'] ) end end
+'print'/10 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8,_9) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8,_9> of <T,D,'none',Adj,P,Pad,E,Str,ChLim,I> when 'true' -> apply 'print'/10 (T,D,80,Adj,P,Pad,E,Str,ChLim,I)
+<T,D,F,Adj,'none',Pad,E,Str,ChLim,I> when 'true' -> let <_10> = call 'erlang':'+' (I,1) in apply 'print'/10 (T,D,F,Adj,_10,Pad,E,Str,ChLim,I)
+<T,D,F,'right',P,_X_Pad,Enc,Str,ChLim,_X_I> when 'true' -> let <Options> = [{'chars_limit',ChLim}|[{'column',P}|[{'line_length',F}|[{'depth',D}|[{'encoding',Enc}|[{'strings',Str}|[]]]]]]] in call 'io_lib_pretty':'print' (T,Options)
+(<_21,_20,_19,_18,_17,_16,_15,_14,_13,_12> when 'true' -> (primop 'match_fail' ({'function_clause',_21,_20,_19,_18,_17,_16,_15,_14,_13,_12})-|[{'function_name',{'print',10}}] )-|['compiler_generated'] ) end
+'fwrite_e'/5 = fun (_0,_1,_2,_3,_4) -> case <_0,_1,_2,_3,_4> of <Fl,'none',Adj,'none',Pad> when 'true' -> apply 'fwrite_e'/5 (Fl,'none',Adj,6,Pad)
+<Fl,'none',_X_Adj,P,_X_Pad> when call 'erlang':'>=' (P,2) -> let <_5> = apply 'float_data'/1 (Fl) in apply 'float_e'/3 (Fl,_5,P)
+<Fl,F,Adj,'none',Pad> when 'true' -> apply 'fwrite_e'/5 (Fl,F,Adj,6,Pad)
+<Fl,F,Adj,P,Pad> when call 'erlang':'>=' (P,2) -> let <_6> = apply 'float_data'/1 (Fl) in let <_7> = apply 'float_e'/3 (Fl,_6,P) in apply 'term'/5 (_7,F,Adj,F,Pad)
+(<_12,_11,_10,_9,_8> when 'true' -> (primop 'match_fail' ({'function_clause',_12,_11,_10,_9,_8})-|[{'function_name',{'fwrite_e',5}}] )-|['compiler_generated'] ) end
+'float_e'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Fl,Fd,P> when call 'erlang':'<' (Fl,0.0) -> let <_3> = call 'erlang':'-' (Fl) in let <_4> = apply 'float_e'/3 (_3,Fd,P) in [45|_4]
+<_X_Fl,{Ds,E},P> when 'true' -> let <_5> = call 'erlang':'-' (P,1) in case apply 'float_man'/3 (Ds,1,_5) of <{[48|Fs],'true'}> when 'true' -> let <_6> = apply 'float_exp'/1 (E) in [[49|Fs]|_6]
+<{Fs,'false'}> when 'true' -> let <_7> = call 'erlang':'-' (E,1) in let <_8> = apply 'float_exp'/1 (_7) in [Fs|_8]
+(<_9> when 'true' -> primop 'match_fail' ({'case_clause',_9})-|['compiler_generated'] ) end
+(<_12,_11,_10> when 'true' -> (primop 'match_fail' ({'function_clause',_12,_11,_10})-|[{'function_name',{'float_e',3}}] )-|['compiler_generated'] ) end
+'float_man'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Ds,0,Dc> when 'true' -> case apply 'float_man'/2 (Ds,Dc) of <{Cs,C}> when 'true' -> {[46|Cs],C}
+(<_3> when 'true' -> primop 'match_fail' ({'badmatch',_3})-|['compiler_generated'] ) end
+<[D|Ds],I,Dc> when 'true' -> let <_4> = call 'erlang':'-' (I,1) in case apply 'float_man'/3 (Ds,_4,Dc) of <{Cs,'true'}> when call 'erlang':'=:=' (D,57) -> {[48|Cs],'true'}
+<{Cs,'true'}> when 'true' -> let <_5> = call 'erlang':'+' (D,1) in {[_5|Cs],'false'}
+<{Cs,'false'}> when 'true' -> {[D|Cs],'false'}
+(<_6> when 'true' -> primop 'match_fail' ({'case_clause',_6})-|['compiler_generated'] ) end
+<[],I,Dc> when 'true' -> let <_8> = call 'lists':'duplicate' (I,48) in let <_7> = call 'lists':'duplicate' (Dc,48) in let <_9> = call 'erlang':'++' (_8,[46|_7]) in {_9,'false'}
+(<_12,_11,_10> when 'true' -> (primop 'match_fail' ({'function_clause',_12,_11,_10})-|[{'function_name',{'float_man',3}}] )-|['compiler_generated'] ) end
+'float_man'/2 = fun (_0,_1) -> case <_0,_1> of <[D|_8],0> when call 'erlang':'>=' (D,53) -> {[],'true'}
+<[_9|_10],0> when 'true' -> {[],'false'}
+<[D|Ds],Dc> when 'true' -> let <_2> = call 'erlang':'-' (Dc,1) in case apply 'float_man'/2 (Ds,_2) of <{Cs,'true'}> when call 'erlang':'=:=' (D,57) -> {[48|Cs],'true'}
+<{Cs,'true'}> when 'true' -> let <_3> = call 'erlang':'+' (D,1) in {[_3|Cs],'false'}
+<{Cs,'false'}> when 'true' -> {[D|Cs],'false'}
+(<_4> when 'true' -> primop 'match_fail' ({'case_clause',_4})-|['compiler_generated'] ) end
+<[],Dc> when 'true' -> let <_5> = call 'lists':'duplicate' (Dc,48) in {_5,'false'}
+(<_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_7,_6})-|[{'function_name',{'float_man',2}}] )-|['compiler_generated'] ) end
+'float_exp'/1 = fun (_0) -> case _0 of <E> when call 'erlang':'>=' (_0,0) -> let <_1> = call 'erlang':'integer_to_list' (E) in [101|[43|_1]]
+<E> when 'true' -> let <_2> = call 'erlang':'integer_to_list' (E) in [101|_2] end
+'fwrite_f'/5 = fun (_0,_1,_2,_3,_4) -> case <_0,_1,_2,_3,_4> of <Fl,'none',Adj,'none',Pad> when 'true' -> apply 'fwrite_f'/5 (Fl,'none',Adj,6,Pad)
+<Fl,'none',_X_Adj,P,_X_Pad> when call 'erlang':'>=' (P,1) -> let <_5> = apply 'float_data'/1 (Fl) in apply 'float_f'/3 (Fl,_5,P)
+<Fl,F,Adj,'none',Pad> when 'true' -> apply 'fwrite_f'/5 (Fl,F,Adj,6,Pad)
+<Fl,F,Adj,P,Pad> when call 'erlang':'>=' (P,1) -> let <_6> = apply 'float_data'/1 (Fl) in let <_7> = apply 'float_f'/3 (Fl,_6,P) in apply 'term'/5 (_7,F,Adj,F,Pad)
+(<_12,_11,_10,_9,_8> when 'true' -> (primop 'match_fail' ({'function_clause',_12,_11,_10,_9,_8})-|[{'function_name',{'fwrite_f',5}}] )-|['compiler_generated'] ) end
+'float_f'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Fl,Fd,P> when call 'erlang':'<' (Fl,0.0) -> let <_3> = call 'erlang':'-' (Fl) in let <_4> = apply 'float_f'/3 (_3,Fd,P) in [45|_4]
+<Fl,{Ds,E},P> when call 'erlang':'=<' (E,0) -> let <_5> = call 'erlang':'-' (E) in let <_6> = call 'erlang':'+' (_5,1) in let <_7> = call 'lists':'duplicate' (_6,48) in let <_8> = call 'erlang':'++' (_7,Ds) in apply 'float_f'/3 (Fl,{_8,1},P)
+<_X_Fl,{Ds,E},P> when 'true' -> case apply 'float_man'/3 (Ds,E,P) of <{Fs,'true'}> when 'true' -> [49|Fs]
+<{Fs,'false'}> when 'true' -> Fs
+(<_9> when 'true' -> primop 'match_fail' ({'case_clause',_9})-|['compiler_generated'] ) end
+(<_12,_11,_10> when 'true' -> (primop 'match_fail' ({'function_clause',_12,_11,_10})-|[{'function_name',{'float_f',3}}] )-|['compiler_generated'] ) end
+'float_data'/1 = fun (_0) -> let <_1> = call 'erlang':'float_to_list' (_0) in apply 'float_data'/2 (_1,[])
+'float_data'/2 = fun (_0,_1) -> case <_0,_1> of <[101|E],Ds> when 'true' -> let <_4> = call 'lists':'reverse' (Ds) in let <_2> = call 'erlang':'list_to_integer' (E) in let <_3> = call 'erlang':'+' (_2,1) in {_4,_3}
+<[D|Cs],Ds> when let <_5> = call 'erlang':'>=' (D,48) in let <_6> = call 'erlang':'=<' (D,57) in call 'erlang':'and' (_5,_6) -> apply 'float_data'/2 (Cs,[D|Ds])
+<[_9|Cs],Ds> when 'true' -> apply 'float_data'/2 (Cs,Ds)
+(<_8,_7> when 'true' -> (primop 'match_fail' ({'function_clause',_8,_7})-|[{'function_name',{'float_data',2}}] )-|['compiler_generated'] ) end
+'fwrite_g'/1 = fun (_0) -> case _0 of <0.0> when 'true' -> [48|[46|[48]]]
+<Float> when call 'erlang':'is_float' (_0) -> case apply 'mantissa_exponent'/1 (Float) of <{Frac,Exp}> when 'true' -> case apply 'fwrite_g_1'/3 (Float,Exp,Frac) of <{Place,Digits}> when 'true' -> let <_8> = letrec 'lc$^0'/1 = fun (_5) -> case _5 of <[D|_4]> when 'true' -> let <_6> = call 'erlang':'+' (48,D) in let <_7> = apply 'lc$^0'/1 (_4) in ([_6|_7]-|['compiler_generated'] )
+<[]> when 'true' -> []
+(<_16> when 'true' -> (primop 'match_fail' ({'function_clause',_16})-|[{'function_name',{'lc$^0',1}}] )-|['compiler_generated'] ) end in apply 'lc$^0'/1 (Digits) in let <R> = apply 'insert_decimal'/2 (Place,_8) in (letrec 'lc$^1'/1 = fun (_13) -> case _13 of <['true'|_11]> when 'true' -> let <_14> = apply 'lc$^1'/1 (_11) in ([45|_14]-|['compiler_generated'] )
+(<[_10|_11]> when 'true' -> apply 'lc$^1'/1 (_11)-|['compiler_generated'] )
+<[]> when 'true' -> R
+(<_17> when 'true' -> (primop 'match_fail' ({'function_clause',_17})-|[{'function_name',{'lc$^1',1}}] )-|['compiler_generated'] ) end in let <_12> = call 'erlang':'<' (Float,0.0) in apply 'lc$^1'/1 ([_12|[]])-|['list_comprehension'] )
+(<_2> when 'true' -> primop 'match_fail' ({'badmatch',_2})-|['compiler_generated'] ) end
+(<_1> when 'true' -> primop 'match_fail' ({'badmatch',_1})-|['compiler_generated'] ) end
+(<_15> when 'true' -> (primop 'match_fail' ({'function_clause',_15})-|[{'function_name',{'fwrite_g',1}}] )-|['compiler_generated'] ) end
+'mantissa_exponent'/1 = fun (_0) -> case #{#<_0>(64,1,'float',['unsigned'|['big']])}# of <#{#<_X_S>(1,1,'integer',['unsigned'|['big']]),#<0>(11,1,'integer',['unsigned'|['big']]),#<M>(52,1,'integer',['unsigned'|['big']])}#> when 'true' -> let <E> = apply 'log2floor'/1 (M) in let <_4> = call 'erlang':'-' (53,E) in let <_5> = call 'erlang':'bsl' (M,_4) in let <_2> = call 'erlang':'-' (E,52) in let <_3> = call 'erlang':'-' (_2,1075) in {_5,_3}
+<#{#<_X_S>(1,1,'integer',['unsigned'|['big']]),#<BE>(11,1,'integer',['unsigned'|['big']]),#<M>(52,1,'integer',['unsigned'|['big']])}#> when call 'erlang':'<' (BE,2047) -> let <_8> = call 'erlang':'+' (M,4503599627370496) in let <_6> = call 'erlang':'-' (BE,1075) in {_8,_6}
+(<_9> when 'true' -> primop 'match_fail' ({'case_clause',_9})-|['compiler_generated'] ) end
+'fwrite_g_1'/3 = fun (_0,_1,_2) -> let <_3> = call 'erlang':'band' (_2,1) in let <Round> = call 'erlang':'=:=' (_3,0) in case <> of <> when call 'erlang':'>=' (_1,0) -> let <BExp> = call 'erlang':'bsl' (1,_1) in case <> of <> when call 'erlang':'=:=' (_2,4503599627370496) -> let <_8> = call 'erlang':'*' (_2,BExp) in let <_9> = call 'erlang':'*' (_8,4) in let <_7> = call 'erlang':'*' (BExp,2) in apply 'scale'/7 (_9,4,_7,BExp,Round,Round,_0)
+<> when 'true' -> let <_10> = call 'erlang':'*' (_2,BExp) in let <_11> = call 'erlang':'*' (_10,2) in apply 'scale'/7 (_11,2,BExp,BExp,Round,Round,_0) end
+<> when call 'erlang':'<' (_1,-1074) -> let <_14> = call 'erlang':'-' (-1074,_1) in let <BExp> = call 'erlang':'bsl' (1,_14) in let <_18> = call 'erlang':'*' (_2,2) in let <_16> = call 'erlang':'-' (1,_1) in let <_17> = call 'erlang':'bsl' (1,_16) in apply 'scale'/7 (_18,_17,BExp,BExp,Round,Round,_0)
+<> when let <_20> = call 'erlang':'>' (_1,-1074) in let <_22> = call 'erlang':'=:=' (_2,4503599627370496) in call 'erlang':'and' (_20,_22) -> let <_25> = call 'erlang':'*' (_2,4) in let <_23> = call 'erlang':'-' (2,_1) in let <_24> = call 'erlang':'bsl' (1,_23) in apply 'scale'/7 (_25,_24,2,1,Round,Round,_0)
+<> when 'true' -> let <_28> = call 'erlang':'*' (_2,2) in let <_26> = call 'erlang':'-' (1,_1) in let <_27> = call 'erlang':'bsl' (1,_26) in apply 'scale'/7 (_28,_27,1,1,Round,Round,_0) end
+'scale'/7 = fun (_0,_1,_2,_3,_4,_5,_6) -> let <_7> = call 'erlang':'abs' (_6) in let <_8> = call 'math':'log10' (_7) in let <_9> = call 'erlang':'-' (_8,1.0e-10) in let <Est> = apply 'int_ceil'/1 (_9) in case <> of <> when call 'erlang':'>=' (Est,0) -> let <_11> = apply 'int_pow'/2 (10,Est) in let <_12> = call 'erlang':'*' (_1,_11) in apply 'fixup'/7 (_0,_12,_2,_3,Est,_4,_5)
+<> when 'true' -> let <_13> = call 'erlang':'-' (Est) in let <Scale> = apply 'int_pow'/2 (10,_13) in let <_17> = call 'erlang':'*' (_0,Scale) in let <_16> = call 'erlang':'*' (_2,Scale) in let <_15> = call 'erlang':'*' (_3,Scale) in apply 'fixup'/7 (_17,_1,_16,_15,Est,_4,_5) end
+'fixup'/7 = fun (_0,_1,_2,_3,_4,_5,_6) -> let <_9> = case <> of <> when (call 'erlang':'=:=' (_6,'true')-|['compiler_generated'] ) -> let <_7> = call 'erlang':'+' (_0,_2) in call 'erlang':'>=' (_7,_1)
+<> when 'true' -> let <_8> = call 'erlang':'+' (_0,_2) in call 'erlang':'>' (_8,_1) end in case _9 of <'true'> when 'true' -> let <_12> = call 'erlang':'+' (_4,1) in let <_11> = apply 'generate'/6 (_0,_1,_2,_3,_5,_6) in {_12,_11}
+<'false'> when 'true' -> let <_15> = call 'erlang':'*' (_0,10) in let <_14> = call 'erlang':'*' (_2,10) in let <_13> = call 'erlang':'*' (_3,10) in let <_16> = apply 'generate'/6 (_15,_1,_14,_13,_5,_6) in {_4,_16}
+(<_17> when 'true' -> primop 'match_fail' ({'case_clause',_17})-|['compiler_generated'] ) end
+'generate'/6 = fun (_0,_1,_2,_3,_4,_5) -> let <D> = call 'erlang':'div' (_0,_1) in let <R> = call 'erlang':'rem' (_0,_1) in let <_8> = case <> of <> when (call 'erlang':'=:=' (_4,'true')-|['compiler_generated'] ) -> call 'erlang':'=<' (R,_3)
+<> when 'true' -> call 'erlang':'<' (R,_3) end in let <_12> = case <> of <> when (call 'erlang':'=:=' (_5,'true')-|['compiler_generated'] ) -> let <_10> = call 'erlang':'+' (R,_2) in call 'erlang':'>=' (_10,_1)
+<> when 'true' -> let <_11> = call 'erlang':'+' (R,_2) in call 'erlang':'>' (_11,_1) end in case <_8,_12> of <'false','false'> when 'true' -> let <_16> = call 'erlang':'*' (R,10) in let <_15> = call 'erlang':'*' (_2,10) in let <_14> = call 'erlang':'*' (_3,10) in let <_17> = apply 'generate'/6 (_16,_1,_15,_14,_4,_5) in [D|_17]
+<'false','true'> when 'true' -> let <_18> = call 'erlang':'+' (D,1) in [_18|[]]
+<'true','false'> when 'true' -> [D|[]]
+<'true','true'> when try let <_19> = call 'erlang':'*' (R,2) in call 'erlang':'<' (_19,_1) of <Try> -> Try catch <T,R> -> 'false' -> [D|[]]
+<'true','true'> when 'true' -> let <_20> = call 'erlang':'+' (D,1) in [_20|[]]
+(<(_28-|['compiler_generated'] ),(_29-|['compiler_generated'] )> when 'true' -> let <_21> = {(_28-|['compiler_generated'] ),(_29-|['compiler_generated'] )} in primop 'match_fail' ({'case_clause',_21})-|['compiler_generated'] ) end
+'insert_decimal'/2 = fun (_0,_1) -> case <_0,_1> of <0,S> when 'true' -> [48|[46|S]]
+<Place,S> when 'true' -> let <L> = call 'erlang':'length' (S) in case <> of <> when let <_3> = call 'erlang':'<' (Place,0) in let <_4> = call 'erlang':'>=' (Place,L) in call 'erlang':'or' (_3,_4) -> let <_5> = call 'erlang':'-' (Place,1) in let <ExpL> = call 'erlang':'integer_to_list' (_5) in let <_7> = case <> of <> when call 'erlang':'=:=' (L,1) -> 2
+<> when 'true' -> 1 end in let <_9> = call 'erlang':'length' (ExpL) in let <_10> = call 'erlang':'+' (_9,1) in let <ExpCost> = call 'erlang':'+' (_10,_7) in case <> of <> when call 'erlang':'<' (Place,0) -> case <> of <> when try let <_12> = call 'erlang':'-' (2,Place) in call 'erlang':'=<' (_12,ExpCost) of <Try> -> Try catch <T,R> -> 'false' -> let <_13> = call 'erlang':'-' (Place) in let <_14> = call 'lists':'duplicate' (_13,48) in let <_15> = call 'erlang':'++' (_14,S) in [48|[46|_15]]
+<> when 'true' -> apply 'insert_exp'/2 (ExpL,S) end
+<> when 'true' -> case <> of <> when try let <_16> = call 'erlang':'-' (Place,L) in let <_17> = call 'erlang':'+' (_16,2) in call 'erlang':'=<' (_17,ExpCost) of <Try> -> Try catch <T,R> -> 'false' -> let <_18> = call 'erlang':'-' (Place,L) in let <_19> = call 'lists':'duplicate' (_18,48) in let <_20> = call 'erlang':'++' (_19,[46|[48]]) in call 'erlang':'++' (S,_20)
+<> when 'true' -> apply 'insert_exp'/2 (ExpL,S) end end
+<> when 'true' -> case call 'lists':'split' (Place,S) of <{S0,S1}> when 'true' -> let <_22> = [46|S1] in call 'erlang':'++' (S0,_22)
+(<_21> when 'true' -> primop 'match_fail' ({'badmatch',_21})-|['compiler_generated'] ) end end end
+'insert_exp'/2 = fun (_0,_1) -> case <_0,_1> of <ExpL,[C|[]]> when 'true' -> let <_2> = [46|[48|[101|ExpL]]] in [C|_2]
+<ExpL,[C|S]> when 'true' -> let <_3> = [101|ExpL] in let <_4> = call 'erlang':'++' (S,_3) in let <_5> = [46|_4] in [C|_5]
+(<_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_7,_6})-|[{'function_name',{'insert_exp',2}}] )-|['compiler_generated'] ) end
+'int_ceil'/1 = fun (_0) -> case _0 of <X> when call 'erlang':'is_float' (_0) -> let <T> = call 'erlang':'trunc' (X) in case call 'erlang':'-' (X,T) of <Neg> when call 'erlang':'<' (Neg,0) -> T
+<Pos> when call 'erlang':'>' (Pos,0) -> call 'erlang':'+' (T,1)
+<_4> when 'true' -> T end
+(<_3> when 'true' -> (primop 'match_fail' ({'function_clause',_3})-|[{'function_name',{'int_ceil',1}}] )-|['compiler_generated'] ) end
+'int_pow'/2 = fun (_0,_1) -> case <_0,_1> of <X,0> when call 'erlang':'is_integer' (X) -> 1
+<X,N> when try let <_2> = call 'erlang':'is_integer' (X) in let <_3> = call 'erlang':'is_integer' (N) in let <_4> = call 'erlang':'>' (N,0) in let <_5> = call 'erlang':'and' (_3,_4) in call 'erlang':'and' (_2,_5) of <Try> -> Try catch <T,R> -> 'false' -> apply 'int_pow'/3 (X,N,1)
+(<_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_7,_6})-|[{'function_name',{'int_pow',2}}] )-|['compiler_generated'] ) end
+'int_pow'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <X,N,R> when call 'erlang':'<' (N,2) -> call 'erlang':'*' (R,X)
+<X,N,R> when 'true' -> let <_6> = call 'erlang':'*' (X,X) in let <_5> = call 'erlang':'bsr' (N,1) in let <_4> = case call 'erlang':'band' (N,1) of <1> when 'true' -> call 'erlang':'*' (R,X)
+<0> when 'true' -> R
+(<_3> when 'true' -> primop 'match_fail' ({'case_clause',_3})-|['compiler_generated'] ) end in apply 'int_pow'/3 (_6,_5,_4) end
+'log2floor'/1 = fun (_0) -> case _0 of <Int> when let <_1> = call 'erlang':'is_integer' (_0) in let <_2> = call 'erlang':'>' (_0,0) in call 'erlang':'and' (_1,_2) -> apply 'log2floor'/2 (Int,0)
+(<_3> when 'true' -> (primop 'match_fail' ({'function_clause',_3})-|[{'function_name',{'log2floor',1}}] )-|['compiler_generated'] ) end
+'log2floor'/2 = fun (_0,_1) -> case <_0,_1> of <0,N> when 'true' -> N
+<Int,N> when 'true' -> let <_3> = call 'erlang':'bsr' (Int,1) in let <_2> = call 'erlang':'+' (1,N) in apply 'log2floor'/2 (_3,_2) end
+'fwrite_g'/5 = fun (_0,_1,_2,_3,_4) -> case <_0,_1,_2,_3,_4> of <Fl,F,Adj,'none',Pad> when 'true' -> apply 'fwrite_g'/5 (Fl,F,Adj,6,Pad)
+<Fl,F,Adj,P,Pad> when call 'erlang':'>=' (P,1) -> let <A> = call 'erlang':'abs' (Fl) in let <_6> = case <> of <> when call 'erlang':'<' (A,0.1) -> -2
+<> when call 'erlang':'<' (A,1.0) -> -1
+<> when call 'erlang':'<' (A,10.0) -> 0
+<> when call 'erlang':'<' (A,100.0) -> 1
+<> when call 'erlang':'<' (A,1000.0) -> 2
+<> when call 'erlang':'<' (A,10000.0) -> 3
+<> when 'true' -> 'fwrite_f' end in case <> of <> when let <_8> = call 'erlang':'=<' (P,1) in let <_10> = call 'erlang':'=:=' (_6,-1) in let <_11> = call 'erlang':'and' (_8,_10) in let <_16> = try let <_12> = call 'erlang':'-' (P,1) in let <_13> = call 'erlang':'>' (_12,_6) in let <_15> = call 'erlang':'>=' (_6,-1) in call 'erlang':'and' (_13,_15) of <Try> -> Try catch <T,R> -> 'false' in call 'erlang':'or' (_11,_16) -> let <_17> = call 'erlang':'-' (P,1) in let <_18> = call 'erlang':'-' (_17,_6) in apply 'fwrite_f'/5 (Fl,F,Adj,_18,Pad)
+<> when call 'erlang':'=<' (P,1) -> apply 'fwrite_e'/5 (Fl,F,Adj,2,Pad)
+<> when 'true' -> apply 'fwrite_e'/5 (Fl,F,Adj,P,Pad) end
+(<_23,_22,_21,_20,_19> when 'true' -> (primop 'match_fail' ({'function_clause',_23,_22,_21,_20,_19})-|[{'function_name',{'fwrite_g',5}}] )-|['compiler_generated'] ) end
+'iolist_to_chars'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Cs,F,CharsLimit> when let <_3> = call 'erlang':'<' (CharsLimit,0) in let <_4> = call 'erlang':'>=' (CharsLimit,F) in call 'erlang':'or' (_3,_4) -> apply 'iolist_to_chars'/1 (Cs)
+<Cs,_9,CharsLimit> when 'true' -> let <_5> = apply 'sub'/2 (CharsLimit,3) in apply 'limit_iolist_to_chars'/4 (Cs,_5,[],'normal') end
+'iolist_to_chars'/1 = fun (_0) -> case _0 of <[C|Cs]> when try let <_1> = call 'erlang':'is_integer' (C) in let <_2> = call 'erlang':'>=' (C,0) in let <_3> = call 'erlang':'=<' (C,255) in let <_4> = call 'erlang':'and' (_2,_3) in call 'erlang':'and' (_1,_4) of <Try> -> Try catch <T,R> -> 'false' -> let <_5> = apply 'iolist_to_chars'/1 (Cs) in [C|_5]
+<[I|Cs]> when 'true' -> let <_6> = apply 'iolist_to_chars'/1 (I) in let <_7> = apply 'iolist_to_chars'/1 (Cs) in [_6|_7]
+<[]> when 'true' -> []
+<B> when call 'erlang':'is_binary' (_0) -> call 'erlang':'binary_to_list' (B)
+(<_8> when 'true' -> (primop 'match_fail' ({'function_clause',_8})-|[{'function_name',{'iolist_to_chars',1}}] )-|['compiler_generated'] ) end
+'limit_iolist_to_chars'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <Cs,0,S,'normal'> when 'true' -> let <L> = apply 'limit_iolist_to_chars'/4 (Cs,4,S,'final') in case call 'erlang':'iolist_size' (L) of <N> when call 'erlang':'<' (N,4) -> L
+<4> when 'true' -> [46|[46|[46]]]
+(<_5> when 'true' -> primop 'match_fail' ({'case_clause',_5})-|['compiler_generated'] ) end
+<_X_Cs,0,_X_S,'final'> when 'true' -> []
+<[C|Cs],Limit,S,Mode> when let <_6> = call 'erlang':'>=' (C,0) in let <_7> = call 'erlang':'=<' (C,255) in call 'erlang':'and' (_6,_7) -> let <_8> = call 'erlang':'-' (Limit,1) in let <_9> = apply 'limit_iolist_to_chars'/4 (Cs,_8,S,Mode) in [C|_9]
+<[I|Cs],Limit,S,Mode> when 'true' -> apply 'limit_iolist_to_chars'/4 (I,Limit,[Cs|S],Mode)
+<[],_X_Limit,[],_X_Mode> when 'true' -> []
+<[],Limit,[Cs|S],Mode> when 'true' -> apply 'limit_iolist_to_chars'/4 (Cs,Limit,S,Mode)
+<B,Limit,S,Mode> when call 'erlang':'is_binary' (B) -> case call 'erlang':'byte_size' (B) of <Sz> when call 'erlang':'>' (Sz,Limit) -> case call 'erlang':'split_binary' (B,Limit) of <{B1,B2}> when 'true' -> let <_11> = call 'erlang':'binary_to_list' (B1) in let <_12> = apply 'limit_iolist_to_chars'/4 (B2,0,S,Mode) in [_11|_12]
+(<_10> when 'true' -> primop 'match_fail' ({'badmatch',_10})-|['compiler_generated'] ) end
+<Sz> when 'true' -> let <_13> = call 'erlang':'binary_to_list' (B) in let <_14> = call 'erlang':'-' (Limit,Sz) in let <_15> = apply 'limit_iolist_to_chars'/4 ([],_14,S,Mode) in [_13|_15] end
+(<_20,_19,_18,_17> when 'true' -> (primop 'match_fail' ({'function_clause',_20,_19,_18,_17})-|[{'function_name',{'limit_iolist_to_chars',4}}] )-|['compiler_generated'] ) end
+'cdata_to_chars'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Cs,F,CharsLimit> when let <_3> = call 'erlang':'<' (CharsLimit,0) in let <_4> = call 'erlang':'>=' (CharsLimit,F) in call 'erlang':'or' (_3,_4) -> apply 'cdata_to_chars'/1 (Cs)
+<Cs,_9,CharsLimit> when 'true' -> let <_5> = apply 'sub'/2 (CharsLimit,3) in apply 'limit_cdata_to_chars'/3 (Cs,_5,'normal') end
+'cdata_to_chars'/1 = fun (_0) -> case _0 of <[C|Cs]> when let <_1> = call 'erlang':'is_integer' (C) in let <_2> = call 'erlang':'>=' (C,0) in call 'erlang':'and' (_1,_2) -> let <_3> = apply 'cdata_to_chars'/1 (Cs) in [C|_3]
+<[I|Cs]> when 'true' -> let <_4> = apply 'cdata_to_chars'/1 (I) in let <_5> = apply 'cdata_to_chars'/1 (Cs) in [_4|_5]
+<[]> when 'true' -> []
+<B> when call 'erlang':'is_binary' (_0) -> let <_6> = catch call 'unicode':'characters_to_list' (B) in case _6 of <L> when call 'erlang':'is_list' (_6) -> L
+<_9> when 'true' -> call 'erlang':'binary_to_list' (B) end
+(<_8> when 'true' -> (primop 'match_fail' ({'function_clause',_8})-|[{'function_name',{'cdata_to_chars',1}}] )-|['compiler_generated'] ) end
+'limit_cdata_to_chars'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Cs,0,'normal'> when 'true' -> let <L> = apply 'limit_cdata_to_chars'/3 (Cs,4,'final') in case call 'string':'length' (L) of <N> when call 'erlang':'<' (N,4) -> L
+<4> when 'true' -> [46|[46|[46]]]
+(<_4> when 'true' -> primop 'match_fail' ({'case_clause',_4})-|['compiler_generated'] ) end
+<_X_Cs,0,'final'> when 'true' -> []
+<Cs,Limit,Mode> when 'true' -> case call 'string':'next_grapheme' (Cs) of <{'error',#{#<C>(8,1,'integer',['unsigned'|['big']]),#<Cs1>('all',8,'binary',['unsigned'|['big']])}#}> when 'true' -> let <_5> = call 'erlang':'-' (Limit,1) in let <_6> = apply 'limit_cdata_to_chars'/3 (Cs1,_5,Mode) in [C|_6]
+<{'error',[C|Cs1]}> when 'true' -> let <_7> = call 'erlang':'-' (Limit,1) in let <_8> = apply 'limit_cdata_to_chars'/3 (Cs1,_7,Mode) in [C|_8]
+<[]> when 'true' -> []
+<[GC|Cs1]> when 'true' -> let <_9> = call 'erlang':'-' (Limit,1) in let <_10> = apply 'limit_cdata_to_chars'/3 (Cs1,_9,Mode) in [GC|_10]
+(<_11> when 'true' -> primop 'match_fail' ({'case_clause',_11})-|['compiler_generated'] ) end end
+'limit_field'/2 = fun (_0,_1) -> case <_0,_1> of <F,CharsLimit> when let <_2> = call 'erlang':'<' (CharsLimit,0) in let <_3> = call 'erlang':'=:=' (F,'none') in call 'erlang':'or' (_2,_3) -> F
+<F,CharsLimit> when 'true' -> let <_4> = call 'erlang':'min' (F,CharsLimit) in call 'erlang':'max' (3,_4) end
+'string'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <S,'none',_X_Adj,'none',_X_Pad,_X_Enc> when 'true' -> S
+<S,F,Adj,'none',Pad,Enc> when 'true' -> let <_6> = call 'io_lib':'chars_length' (S) in apply 'string_field'/6 (S,F,Adj,_6,Pad,Enc)
+<S,'none',_X_Adj,P,Pad,Enc> when 'true' -> let <_7> = call 'io_lib':'chars_length' (S) in apply 'string_field'/6 (S,P,'left',_7,Pad,Enc)
+<S,F,Adj,P,Pad,Enc> when call 'erlang':'>=' (F,P) -> let <N> = call 'io_lib':'chars_length' (S) in case <> of <> when call 'erlang':'>' (F,P) -> case <> of <> when call 'erlang':'>' (N,P) -> let <_11> = apply 'flat_trunc'/3 (S,P,Enc) in let <_9> = call 'erlang':'-' (F,P) in let <_10> = apply 'chars'/2 (Pad,_9) in apply 'adjust'/3 (_11,_10,Adj)
+<> when call 'erlang':'<' (N,P) -> let <_14> = call 'erlang':'-' (P,N) in let <_15> = apply 'chars'/2 (Pad,_14) in let <_12> = call 'erlang':'-' (F,P) in let <_13> = apply 'chars'/2 (Pad,_12) in apply 'adjust'/3 ([S|_15],_13,Adj)
+<> when 'true' -> let <_16> = call 'erlang':'-' (F,P) in let <_17> = apply 'chars'/2 (Pad,_16) in apply 'adjust'/3 (S,_17,Adj) end
+<> when 'true' -> apply 'string_field'/6 (S,F,Adj,N,Pad,Enc) end
+(<_23,_22,_21,_20,_19,_18> when 'true' -> (primop 'match_fail' ({'function_clause',_23,_22,_21,_20,_19,_18})-|[{'function_name',{'string',6}}] )-|['compiler_generated'] ) end
+'string_field'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <S,F,_X_Adj,N,_X_Pad,Enc> when call 'erlang':'>' (N,F) -> apply 'flat_trunc'/3 (S,F,Enc)
+<S,F,Adj,N,Pad,_X_Enc> when call 'erlang':'<' (N,F) -> let <_6> = call 'erlang':'-' (F,N) in let <_7> = apply 'chars'/2 (Pad,_6) in apply 'adjust'/3 (S,_7,Adj)
+<S,_14,_15,_16,_17,_18> when 'true' -> S end
+'unprefixed_integer'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <Int,F,Adj,Base,Pad,Lowercase> when let <_6> = call 'erlang':'>=' (Base,2) in let <_10> = call 'erlang':'=<' (Base,36) in call 'erlang':'and' (_6,_10) -> case <> of <> when call 'erlang':'<' (Int,0) -> let <_11> = call 'erlang':'-' (Int) in let <_12> = call 'erlang':'integer_to_list' (_11,Base) in let <S> = apply 'cond_lowercase'/2 (_12,Lowercase) in apply 'term'/5 ([45|S],F,Adj,'none',Pad)
+<> when 'true' -> let <_14> = call 'erlang':'integer_to_list' (Int,Base) in let <S> = apply 'cond_lowercase'/2 (_14,Lowercase) in apply 'term'/5 (S,F,Adj,'none',Pad) end
+(<_21,_20,_19,_18,_17,_16> when 'true' -> (primop 'match_fail' ({'function_clause',_21,_20,_19,_18,_17,_16})-|[{'function_name',{'unprefixed_integer',6}}] )-|['compiler_generated'] ) end
+'prefixed_integer'/7 = fun (_0,_1,_2,_3,_4,_5,_6) -> case <_0,_1,_2,_3,_4,_5,_6> of <Int,F,Adj,Base,Pad,Prefix,Lowercase> when let <_7> = call 'erlang':'>=' (Base,2) in let <_11> = call 'erlang':'=<' (Base,36) in call 'erlang':'and' (_7,_11) -> case <> of <> when call 'erlang':'<' (Int,0) -> let <_12> = call 'erlang':'-' (Int) in let <_13> = call 'erlang':'integer_to_list' (_12,Base) in let <S> = apply 'cond_lowercase'/2 (_13,Lowercase) in apply 'term'/5 ([45|[Prefix|S]],F,Adj,'none',Pad)
+<> when 'true' -> let <_15> = call 'erlang':'integer_to_list' (Int,Base) in let <S> = apply 'cond_lowercase'/2 (_15,Lowercase) in apply 'term'/5 ([Prefix|S],F,Adj,'none',Pad) end
+(<_23,_22,_21,_20,_19,_18,_17> when 'true' -> (primop 'match_fail' ({'function_clause',_23,_22,_21,_20,_19,_18,_17})-|[{'function_name',{'prefixed_integer',7}}] )-|['compiler_generated'] ) end
+'char'/5 = fun (_0,_1,_2,_3,_4) -> case <_0,_1,_2,_3,_4> of <C,'none',_X_Adj,'none',_X_Pad> when 'true' -> [C|[]]
+<C,F,_X_Adj,'none',_X_Pad> when 'true' -> apply 'chars'/2 (C,F)
+<C,'none',_X_Adj,P,_X_Pad> when 'true' -> apply 'chars'/2 (C,P)
+<C,F,Adj,P,Pad> when call 'erlang':'>=' (F,P) -> let <_7> = apply 'chars'/2 (C,P) in let <_5> = call 'erlang':'-' (F,P) in let <_6> = apply 'chars'/2 (Pad,_5) in apply 'adjust'/3 (_7,_6,Adj)
+(<_12,_11,_10,_9,_8> when 'true' -> (primop 'match_fail' ({'function_clause',_12,_11,_10,_9,_8})-|[{'function_name',{'char',5}}] )-|['compiler_generated'] ) end
+'newline'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <'none',_X_Adj,_X_P,_X_Pad> when 'true' -> [10]
+<F,'right',_X_P,_X_Pad> when 'true' -> apply 'chars'/2 (10,F)
+(<_7,_6,_5,_4> when 'true' -> (primop 'match_fail' ({'function_clause',_7,_6,_5,_4})-|[{'function_name',{'newline',4}}] )-|['compiler_generated'] ) end
+'adjust'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Data,[],_6> when 'true' -> Data
+<Data,Pad,'left'> when 'true' -> [Data|Pad]
+<Data,Pad,'right'> when 'true' -> [Pad|Data]
+(<_5,_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_5,_4,_3})-|[{'function_name',{'adjust',3}}] )-|['compiler_generated'] ) end
+'flat_trunc'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <List,N,'latin1'> when let <_3> = call 'erlang':'is_integer' (N) in let <_4> = call 'erlang':'>=' (N,0) in call 'erlang':'and' (_3,_4) -> let <_5> = call 'lists':'flatten' (List) in case call 'lists':'split' (N,_5) of <{S,_12}> when 'true' -> S
+(<_6> when 'true' -> primop 'match_fail' ({'badmatch',_6})-|['compiler_generated'] ) end
+<List,N,'unicode'> when let <_7> = call 'erlang':'is_integer' (N) in let <_8> = call 'erlang':'>=' (N,0) in call 'erlang':'and' (_7,_8) -> call 'string':'slice' (List,0,N)
+(<_11,_10,_9> when 'true' -> (primop 'match_fail' ({'function_clause',_11,_10,_9})-|[{'function_name',{'flat_trunc',3}}] )-|['compiler_generated'] ) end
+'chars'/2 = fun (_0,_1) -> case <_0,_1> of <_X_C,0> when 'true' -> []
+<C,1> when 'true' -> [C|[]]
+<C,2> when 'true' -> [C|[C|[]]]
+<C,3> when 'true' -> [C|[C|[C|[]]]]
+<C,N> when try let <_2> = call 'erlang':'is_integer' (N) in let <_3> = call 'erlang':'band' (N,1) in let <_4> = call 'erlang':'=:=' (_3,0) in call 'erlang':'and' (_2,_4) of <Try> -> Try catch <T,R> -> 'false' -> let <_5> = call 'erlang':'bsr' (N,1) in let <S> = apply 'chars'/2 (C,_5) in [S|S]
+<C,N> when call 'erlang':'is_integer' (N) -> let <_7> = call 'erlang':'bsr' (N,1) in let <S> = apply 'chars'/2 (C,_7) in [C|[S|S]]
+(<_10,_9> when 'true' -> (primop 'match_fail' ({'function_clause',_10,_9})-|[{'function_name',{'chars',2}}] )-|['compiler_generated'] ) end
+'cond_lowercase'/2 = fun (_0,_1) -> case <_0,_1> of <String,'true'> when 'true' -> apply 'lowercase'/1 (String)
+<String,'false'> when 'true' -> String
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'cond_lowercase',2}}] )-|['compiler_generated'] ) end
+'lowercase'/1 = fun (_0) -> case _0 of <[H|T]> when try let <_1> = call 'erlang':'is_integer' (H) in let <_2> = call 'erlang':'>=' (H,65) in let <_3> = call 'erlang':'=<' (H,90) in let <_4> = call 'erlang':'and' (_2,_3) in call 'erlang':'and' (_1,_4) of <Try> -> Try catch <T,R> -> 'false' -> let <_5> = call 'erlang':'-' (H,65) in let <_6> = call 'erlang':'+' (_5,97) in let <_7> = apply 'lowercase'/1 (T) in [_6|_7]
+<[H|T]> when 'true' -> let <_8> = apply 'lowercase'/1 (T) in [H|_8]
+<[]> when 'true' -> []
+(<_9> when 'true' -> (primop 'match_fail' ({'function_clause',_9})-|[{'function_name',{'lowercase',1}}] )-|['compiler_generated'] ) end
+'sub'/2 = fun (_0,_1) -> case <_0,_1> of <T,_4> when call 'erlang':'<' (T,0) -> T
+<T,E> when call 'erlang':'>=' (T,E) -> call 'erlang':'-' (T,E)
+<_5,_6> when 'true' -> 0 end
+'get_option'/3 = fun (_0,_1,_2) -> case call 'lists':'keyfind' (_0,1,_1) of <'false'> when 'true' -> _2
+<{_7,Value}> when call 'erlang':'=:=' (_7,_0) -> Value
+<_8> when 'true' -> _2 end
+'module_info'/0 = fun () -> call 'erlang':'get_module_info' ('io_lib_format')
+'module_info'/1 = fun (_0) -> call 'erlang':'get_module_info' ('io_lib_format',_0) end

@@ -1,0 +1,18 @@
+module 'erl_abstract_code' ['debug_info'/4,'module_info'/0,'module_info'/1] attributes [ 'file' = [{[115|[114|[99|[47|[101|[114|[108|[95|[97|[98|[115|[116|[114|[97|[99|[116|[95|[99|[111|[100|[101|[46|[101|[114|[108]]]]]]]]]]]]]]]]]]]]]]]]],1}] ] 'debug_info'/4 = (fun (_0,_1,_2,_3) -> (case <_0,_1,_2,_3> of <_X_Format,_X_Module,{'none',_X_CompilerOpts},_X_Opts> when 'true' -> {'error','missing'}
+<'erlang_v1',_X_Module,{AbstrCode,_X_CompilerOpts},_X_Opts> when 'true' -> {'ok',AbstrCode}
+<'core_v1',_X_Module,{AbstrCode,CompilerOpts},Opts> when 'true' -> let <_4> = call 'erlang':'++' (CompilerOpts,Opts) in let <_5> = apply 'delete_reports'/1 (_4) in let <CoreOpts> = apply 'add_core_returns'/1 (_5) in try call 'compile':'noenv_forms' (AbstrCode,CoreOpts) of <_7> -> case _7 of <{'ok',_16,Core,_17}> when 'true' -> {'ok',Core}
+<_X_What> when 'true' -> {'error','failed_conversion'} end catch <_11,_10,_9> -> case <_11,_10,_9> of <('error'-|['compiler_generated'] ),_18,_19> when 'true' -> {'error','failed_conversion'}
+(<_24,_25,_26> when 'true' -> primop 'raise' (_26,_25)-|['compiler_generated'] ) end
+<_20,_21,_22,_23> when 'true' -> {'error','unknown_format'} end-|[{'function',{'debug_info',4}}] )-|[{'function',{'debug_info',4}}] )
+'delete_reports'/1 = (fun (_0) -> (letrec 'lc$^0'/1 = fun (_4) -> case _4 of <[Opt|_2]> when 'true' -> (case apply 'is_report_option'/1 (Opt) of <'false'> when 'true' -> let <_6> = apply 'lc$^0'/1 (_2) in ([Opt|_6]-|['compiler_generated'] )
+(<'true'> when 'true' -> apply 'lc$^0'/1 (_2)-|['compiler_generated'] )
+(<_cor_variable> when 'true' -> call 'erlang':'error' ('badarg')-|['compiler_generated'] ) end-|['list_comprehension'] )
+<[]> when 'true' -> []
+(<_5> when 'true' -> primop 'match_fail' ({'function_clause',_5})-|['compiler_generated'] ) end in apply 'lc$^0'/1 ((_0-|[{'function',{'delete_reports',1}}] ))-|['list_comprehension'] )-|[{'function',{'delete_reports',1}}] )
+'is_report_option'/1 = (fun (_0) -> (case (_0-|[{'function',{'is_report_option',1}}] ) of <'report'> when 'true' -> 'true'
+<'report_errors'> when 'true' -> 'true'
+<'report_warnings'> when 'true' -> 'true'
+<_2> when 'true' -> 'false' end-|[{'function',{'is_report_option',1}}] )-|[{'function',{'is_report_option',1}}] )
+'add_core_returns'/1 = (fun (_0) -> ['to_core'|['return_errors'|['return_warnings'|(_0-|[{'function',{'add_core_returns',1}}] )]]]-|[{'function',{'add_core_returns',1}}] )
+'module_info'/0 = (fun () -> call 'erlang':'get_module_info' ('erl_abstract_code')-|[{'function',{'module_info',0}}] )
+'module_info'/1 = (fun (_0) -> call 'erlang':'get_module_info' ('erl_abstract_code',(_0-|[{'function',{'module_info',1}}] ))-|[{'function',{'module_info',1}}] ) end

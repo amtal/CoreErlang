@@ -1,0 +1,310 @@
+module 'array' ['default'/1,'fix'/1,'foldl'/3,'foldr'/3,'from_list'/1,'from_list'/2,'from_orddict'/1,'from_orddict'/2,'get'/2,'is_array'/1,'is_fix'/1,'map'/2,'module_info'/0,'module_info'/1,'new'/0,'new'/1,'new'/2,'relax'/1,'reset'/2,'resize'/1,'resize'/2,'set'/3,'size'/1,'sparse_foldl'/3,'sparse_foldr'/3,'sparse_map'/2,'sparse_size'/1,'sparse_to_list'/1,'sparse_to_orddict'/1,'to_list'/1,'to_orddict'/1] attributes [ 'file' = [{[115|[114|[99|[47|[97|[114|[114|[97|[121|[46|[101|[114|[108]]]]]]]]]]]]],1}]
+, 'export_type' = [{'array',0}|[{'array',1}]]
+, 'type' = [{'element_tuple',{'type',146,'union',[{'type',146,'tuple',[{'var',146,'T'}|[{'var',146,'T'}|[{'var',146,'T'}|[{'var',146,'T'}|[{'var',146,'T'}|[{'var',146,'T'}|[{'var',146,'T'}|[{'var',146,'T'}|[{'var',146,'T'}|[{'var',146,'T'}]]]]]]]]]]}|[{'type',147,'tuple',[{'user_type',147,'element_tuple',[{'var',147,'T'}]}|[{'user_type',147,'element_tuple',[{'var',147,'T'}]}|[{'user_type',147,'element_tuple',[{'var',147,'T'}]}|[{'user_type',148,'element_tuple',[{'var',148,'T'}]}|[{'user_type',148,'element_tuple',[{'var',148,'T'}]}|[{'user_type',148,'element_tuple',[{'var',148,'T'}]}|[{'user_type',149,'element_tuple',[{'var',149,'T'}]}|[{'user_type',149,'element_tuple',[{'var',149,'T'}]}|[{'user_type',149,'element_tuple',[{'var',149,'T'}]}|[{'user_type',150,'element_tuple',[{'var',150,'T'}]}|[{'type',150,'non_neg_integer',[]}]]]]]]]]]]]}]]},[{'var',145,'T'}]}]
+, 'type' = [{'elements',{'type',152,'union',[{'type',152,'non_neg_integer',[]}|[{'user_type',153,'element_tuple',[{'var',153,'T'}]}|[{'type',154,'nil',[]}]]]},[{'var',152,'T'}]}]
+, 'record' = [{'array',[{'typed_record_field',{'record_field',156,{'atom',156,'size'}},{'type',156,'non_neg_integer',[]}}|[{'typed_record_field',{'record_field',157,{'atom',157,'max'}},{'type',157,'non_neg_integer',[]}}|[{'record_field',159,{'atom',159,'default'}}|[{'typed_record_field',{'record_field',160,{'atom',160,'elements'}},{'user_type',160,'elements',[{'var',160,'_'}]}}]]]]}]
+, 'type' = [{'array',{'user_type',163,'array',[{'type',163,'term',[]}]},[]}]
+, 'opaque' = [{'array',{'type',166,'record',[{'atom',166,'array'}|[{'type',166,'field_type',[{'atom',166,'default'}|[{'var',166,'Type'}]]}|[{'type',166,'field_type',[{'atom',166,'elements'}|[{'user_type',166,'elements',[{'var',166,'Type'}]}]]}]]]},[{'var',165,'Type'}]}]
+, 'type' = [{'array_indx',{'type',172,'non_neg_integer',[]},[]}]
+, 'type' = [{'array_opt',{'type',174,'union',[{'type',174,'tuple',[{'atom',174,'fixed'}|[{'type',174,'boolean',[]}]]}|[{'atom',174,'fixed'}|[{'type',175,'tuple',[{'atom',175,'default'}|[{'ann_type',175,[{'var',175,'Type'}|[{'type',175,'term',[]}]]}]]}|[{'type',176,'tuple',[{'atom',176,'size'}|[{'ann_type',176,[{'var',176,'N'}|[{'type',176,'non_neg_integer',[]}]]}]]}|[{'ann_type',177,[{'var',177,'N'}|[{'type',177,'non_neg_integer',[]}]]}]]]]]},[]}]
+, 'type' = [{'array_opts',{'type',178,'union',[{'user_type',178,'array_opt',[]}|[{'type',178,'list',[{'user_type',178,'array_opt',[]}]}]]},[]}]
+, 'type' = [{'indx_pair',{'type',180,'tuple',[{'ann_type',180,[{'var',180,'Index'}|[{'user_type',180,'array_indx',[]}]]}|[{'var',180,'Type'}]]},[{'var',180,'Type'}]}]
+, 'type' = [{'indx_pairs',{'type',181,'list',[{'user_type',181,'indx_pair',[{'var',181,'Type'}]}]},[{'var',181,'Type'}]}]
+, 'spec' = [{{'new',0},[{'type',191,'fun',[{'type',191,'product',[]}|[{'user_type',191,'array',[]}]]}]}]
+, 'spec' = [{{'new',1},[{'type',234,'fun',[{'type',234,'product',[{'ann_type',234,[{'var',234,'Options'}|[{'user_type',234,'array_opts',[]}]]}]}|[{'user_type',234,'array',[]}]]}]}]
+, 'spec' = [{{'new',2},[{'type',254,'fun',[{'type',254,'product',[{'ann_type',254,[{'var',254,'Size'}|[{'type',254,'non_neg_integer',[]}]]}|[{'ann_type',254,[{'var',254,'Options'}|[{'user_type',254,'array_opts',[]}]]}]]}|[{'user_type',254,'array',[]}]]}]}]
+, 'spec' = [{{'find_max',2},[{'type',294,'fun',[{'type',294,'product',[{'type',294,'integer',[]}|[{'type',294,'non_neg_integer',[]}]]}|[{'type',294,'non_neg_integer',[]}]]}]}]
+, 'spec' = [{{'is_array',1},[{'type',307,'fun',[{'type',307,'product',[{'ann_type',307,[{'var',307,'X'}|[{'type',307,'term',[]}]]}]}|[{'type',307,'boolean',[]}]]}]}]
+, 'spec' = [{{'size',1},[{'type',322,'fun',[{'type',322,'product',[{'ann_type',322,[{'var',322,'Array'}|[{'user_type',322,'array',[]}]]}]}|[{'type',322,'non_neg_integer',[]}]]}]}]
+, 'spec' = [{{'default',1},[{'type',332,'fun',[{'type',332,'product',[{'ann_type',332,[{'var',332,'Array'}|[{'user_type',332,'array',[{'var',332,'Type'}]}]]}]}|[{'ann_type',332,[{'var',332,'Value'}|[{'var',332,'Type'}]]}]]}]}]
+, 'spec' = [{{'fix',1},[{'type',415,'fun',[{'type',415,'product',[{'ann_type',415,[{'var',415,'Array'}|[{'user_type',415,'array',[{'var',415,'Type'}]}]]}]}|[{'user_type',415,'array',[{'var',415,'Type'}]}]]}]}]
+, 'spec' = [{{'is_fix',1},[{'type',425,'fun',[{'type',425,'product',[{'ann_type',425,[{'var',425,'Array'}|[{'user_type',425,'array',[]}]]}]}|[{'type',425,'boolean',[]}]]}]}]
+, 'spec' = [{{'relax',1},[{'type',463,'fun',[{'type',463,'product',[{'ann_type',463,[{'var',463,'Array'}|[{'user_type',463,'array',[{'var',463,'Type'}]}]]}]}|[{'user_type',463,'array',[{'var',463,'Type'}]}]]}]}]
+, 'spec' = [{{'resize',2},[{'type',488,'fun',[{'type',488,'product',[{'ann_type',488,[{'var',488,'Size'}|[{'type',488,'non_neg_integer',[]}]]}|[{'ann_type',488,[{'var',488,'Array'}|[{'user_type',488,'array',[{'var',488,'Type'}]}]]}]]}|[{'user_type',489,'array',[{'var',489,'Type'}]}]]}]}]
+, 'spec' = [{{'resize',1},[{'type',520,'fun',[{'type',520,'product',[{'ann_type',520,[{'var',520,'Array'}|[{'user_type',520,'array',[{'var',520,'Type'}]}]]}]}|[{'user_type',520,'array',[{'var',520,'Type'}]}]]}]}]
+, 'spec' = [{{'set',3},[{'type',570,'fun',[{'type',570,'product',[{'ann_type',570,[{'var',570,'I'}|[{'user_type',570,'array_indx',[]}]]}|[{'ann_type',570,[{'var',570,'Value'}|[{'var',570,'Type'}]]}|[{'ann_type',570,[{'var',570,'Array'}|[{'user_type',570,'array',[{'var',570,'Type'}]}]]}]]]}|[{'user_type',570,'array',[{'var',570,'Type'}]}]]}]}]
+, 'spec' = [{{'get',2},[{'type',633,'fun',[{'type',633,'product',[{'ann_type',633,[{'var',633,'I'}|[{'user_type',633,'array_indx',[]}]]}|[{'ann_type',633,[{'var',633,'Array'}|[{'user_type',633,'array',[{'var',633,'Type'}]}]]}]]}|[{'ann_type',633,[{'var',633,'Value'}|[{'var',633,'Type'}]]}]]}]}]
+, 'spec' = [{{'reset',2},[{'type',673,'fun',[{'type',673,'product',[{'ann_type',673,[{'var',673,'I'}|[{'user_type',673,'array_indx',[]}]]}|[{'ann_type',673,[{'var',673,'Array'}|[{'user_type',673,'array',[{'var',673,'Type'}]}]]}]]}|[{'user_type',673,'array',[{'var',673,'Type'}]}]]}]}]
+, 'spec' = [{{'to_list',1},[{'type',759,'fun',[{'type',759,'product',[{'ann_type',759,[{'var',759,'Array'}|[{'user_type',759,'array',[{'var',759,'Type'}]}]]}]}|[{'type',759,'list',[{'ann_type',759,[{'var',759,'Value'}|[{'var',759,'Type'}]]}]}]]}]}]
+, 'spec' = [{{'sparse_to_list',1},[{'type',832,'fun',[{'type',832,'product',[{'ann_type',832,[{'var',832,'Array'}|[{'user_type',832,'array',[{'var',832,'Type'}]}]]}]}|[{'type',832,'list',[{'ann_type',832,[{'var',832,'Value'}|[{'var',832,'Type'}]]}]}]]}]}]
+, 'spec' = [{{'from_list',1},[{'type',899,'fun',[{'type',899,'product',[{'ann_type',899,[{'var',899,'List'}|[{'type',899,'list',[{'ann_type',899,[{'var',899,'Value'}|[{'var',899,'Type'}]]}]}]]}]}|[{'user_type',899,'array',[{'var',899,'Type'}]}]]}]}]
+, 'spec' = [{{'from_list',2},[{'type',911,'fun',[{'type',911,'product',[{'ann_type',911,[{'var',911,'List'}|[{'type',911,'list',[{'ann_type',911,[{'var',911,'Value'}|[{'var',911,'Type'}]]}]}]]}|[{'ann_type',911,[{'var',911,'Default'}|[{'type',911,'term',[]}]]}]]}|[{'user_type',911,'array',[{'var',911,'Type'}]}]]}]}]
+, 'spec' = [{{'to_orddict',1},[{'type',1010,'fun',[{'type',1010,'product',[{'ann_type',1010,[{'var',1010,'Array'}|[{'user_type',1010,'array',[{'var',1010,'Type'}]}]]}]}|[{'user_type',1010,'indx_pairs',[{'ann_type',1010,[{'var',1010,'Value'}|[{'var',1010,'Type'}]]}]}]]}]}]
+, 'spec' = [{{'push_pairs',4},[{'type',1047,'fun',[{'type',1047,'product',[{'type',1047,'non_neg_integer',[]}|[{'user_type',1047,'array_indx',[]}|[{'type',1047,'term',[]}|[{'user_type',1047,'indx_pairs',[{'var',1047,'Type'}]}]]]]}|[{'user_type',1048,'indx_pairs',[{'var',1048,'Type'}]}]]}]}]
+, 'spec' = [{{'push_tuple_pairs',4},[{'type',1055,'fun',[{'type',1055,'product',[{'type',1055,'non_neg_integer',[]}|[{'user_type',1055,'array_indx',[]}|[{'type',1055,'term',[]}|[{'user_type',1055,'indx_pairs',[{'var',1055,'Type'}]}]]]]}|[{'user_type',1056,'indx_pairs',[{'var',1056,'Type'}]}]]}]}]
+, 'spec' = [{{'sparse_to_orddict',1},[{'type',1102,'fun',[{'type',1102,'product',[{'ann_type',1102,[{'var',1102,'Array'}|[{'user_type',1102,'array',[{'var',1102,'Type'}]}]]}]}|[{'user_type',1102,'indx_pairs',[{'ann_type',1102,[{'var',1102,'Value'}|[{'var',1102,'Type'}]]}]}]]}]}]
+, 'spec' = [{{'sparse_push_tuple_pairs',5},[{'type',1139,'fun',[{'type',1139,'product',[{'type',1139,'non_neg_integer',[]}|[{'user_type',1139,'array_indx',[]}|[{'var',1140,'_'}|[{'var',1140,'_'}|[{'user_type',1140,'indx_pairs',[{'var',1140,'Type'}]}]]]]]}|[{'user_type',1140,'indx_pairs',[{'var',1140,'Type'}]}]]}]}]
+, 'spec' = [{{'from_orddict',1},[{'type',1182,'fun',[{'type',1182,'product',[{'ann_type',1182,[{'var',1182,'Orddict'}|[{'user_type',1182,'indx_pairs',[{'ann_type',1182,[{'var',1182,'Value'}|[{'var',1182,'Type'}]]}]}]]}]}|[{'user_type',1182,'array',[{'var',1182,'Type'}]}]]}]}]
+, 'spec' = [{{'from_orddict',2},[{'type',1196,'fun',[{'type',1196,'product',[{'ann_type',1196,[{'var',1196,'Orddict'}|[{'user_type',1196,'indx_pairs',[{'ann_type',1196,[{'var',1196,'Value'}|[{'var',1196,'Type'}]]}]}]]}|[{'ann_type',1196,[{'var',1196,'Default'}|[{'var',1196,'Type'}]]}]]}|[{'user_type',1197,'array',[{'var',1197,'Type'}]}]]}]}]
+, 'spec' = [{{'map',2},[{'type',1392,'bounded_fun',[{'type',1392,'fun',[{'type',1392,'product',[{'var',1392,'Function'}|[{'ann_type',1392,[{'var',1392,'Array'}|[{'user_type',1392,'array',[{'var',1392,'Type1'}]}]]}]]}|[{'user_type',1392,'array',[{'var',1392,'Type2'}]}]]}|[[{'type',1393,'constraint',[{'atom',1393,'is_subtype'}|[[{'var',1393,'Function'}|[{'type',1393,'fun',[{'type',1393,'product',[{'ann_type',1393,[{'var',1393,'Index'}|[{'user_type',1393,'array_indx',[]}]]}|[{'var',1393,'Type1'}]]}|[{'var',1393,'Type2'}]]}]]]]}]]]}]}]
+, 'spec' = [{{'map_3',7},[{'type',1431,'fun',[{'type',1431,'product',[{'type',1431,'pos_integer',[]}|[{'var',1431,'_'}|[{'user_type',1431,'array_indx',[]}|[{'type',1432,'fun',[{'type',1432,'product',[{'user_type',1432,'array_indx',[]}|[{'var',1432,'_'}]]}|[{'var',1432,'_'}]]}|[{'var',1432,'_'}|[{'type',1432,'non_neg_integer',[]}|[{'type',1432,'list',[{'var',1432,'X'}]}]]]]]]]}|[{'type',1432,'list',[{'var',1432,'X'}]}]]}]}]
+, 'spec' = [{{'sparse_map',2},[{'type',1484,'bounded_fun',[{'type',1484,'fun',[{'type',1484,'product',[{'var',1484,'Function'}|[{'ann_type',1484,[{'var',1484,'Array'}|[{'user_type',1484,'array',[{'var',1484,'Type1'}]}]]}]]}|[{'user_type',1484,'array',[{'var',1484,'Type2'}]}]]}|[[{'type',1485,'constraint',[{'atom',1485,'is_subtype'}|[[{'var',1485,'Function'}|[{'type',1485,'fun',[{'type',1485,'product',[{'ann_type',1485,[{'var',1485,'Index'}|[{'user_type',1485,'array_indx',[]}]]}|[{'var',1485,'Type1'}]]}|[{'var',1485,'Type2'}]]}]]]]}]]]}]}]
+, 'spec' = [{{'sparse_map_3',6},[{'type',1523,'fun',[{'type',1523,'product',[{'type',1523,'pos_integer',[]}|[{'var',1523,'_'}|[{'user_type',1523,'array_indx',[]}|[{'type',1524,'fun',[{'type',1524,'product',[{'user_type',1524,'array_indx',[]}|[{'var',1524,'_'}]]}|[{'var',1524,'_'}]]}|[{'var',1524,'_'}|[{'type',1524,'list',[{'var',1524,'X'}]}]]]]]]}|[{'type',1524,'list',[{'var',1524,'X'}]}]]}]}]
+, 'spec' = [{{'foldl',3},[{'type',1580,'bounded_fun',[{'type',1580,'fun',[{'type',1580,'product',[{'var',1580,'Function'}|[{'ann_type',1580,[{'var',1580,'InitialAcc'}|[{'var',1580,'A'}]]}|[{'ann_type',1580,[{'var',1580,'Array'}|[{'user_type',1580,'array',[{'var',1580,'Type'}]}]]}]]]}|[{'var',1580,'B'}]]}|[[{'type',1581,'constraint',[{'atom',1581,'is_subtype'}|[[{'var',1581,'Function'}|[{'type',1581,'fun',[{'type',1581,'product',[{'ann_type',1581,[{'var',1581,'Index'}|[{'user_type',1581,'array_indx',[]}]]}|[{'ann_type',1581,[{'var',1581,'Value'}|[{'var',1581,'Type'}]]}|[{'ann_type',1581,[{'var',1581,'Acc'}|[{'var',1581,'A'}]]}]]]}|[{'var',1581,'B'}]]}]]]]}]]]}]}]
+, 'spec' = [{{'foldl_3',6},[{'type',1606,'fun',[{'type',1606,'product',[{'type',1606,'pos_integer',[]}|[{'var',1606,'_'}|[{'var',1606,'A'}|[{'user_type',1606,'array_indx',[]}|[{'type',1607,'fun',[{'type',1607,'product',[{'user_type',1607,'array_indx',[]}|[{'var',1607,'_'}|[{'var',1607,'A'}]]]}|[{'var',1607,'B'}]]}|[{'type',1607,'integer',[]}]]]]]]}|[{'var',1607,'B'}]]}]}]
+, 'spec' = [{{'sparse_foldl',3},[{'type',1652,'bounded_fun',[{'type',1652,'fun',[{'type',1652,'product',[{'var',1652,'Function'}|[{'ann_type',1652,[{'var',1652,'InitialAcc'}|[{'var',1652,'A'}]]}|[{'ann_type',1652,[{'var',1652,'Array'}|[{'user_type',1652,'array',[{'var',1652,'Type'}]}]]}]]]}|[{'var',1652,'B'}]]}|[[{'type',1653,'constraint',[{'atom',1653,'is_subtype'}|[[{'var',1653,'Function'}|[{'type',1653,'fun',[{'type',1653,'product',[{'ann_type',1653,[{'var',1653,'Index'}|[{'user_type',1653,'array_indx',[]}]]}|[{'ann_type',1653,[{'var',1653,'Value'}|[{'var',1653,'Type'}]]}|[{'ann_type',1653,[{'var',1653,'Acc'}|[{'var',1653,'A'}]]}]]]}|[{'var',1653,'B'}]]}]]]]}]]]}]}]
+, 'spec' = [{{'foldr',3},[{'type',1729,'bounded_fun',[{'type',1729,'fun',[{'type',1729,'product',[{'var',1729,'Function'}|[{'ann_type',1729,[{'var',1729,'InitialAcc'}|[{'var',1729,'A'}]]}|[{'ann_type',1729,[{'var',1729,'Array'}|[{'user_type',1729,'array',[{'var',1729,'Type'}]}]]}]]]}|[{'var',1729,'B'}]]}|[[{'type',1730,'constraint',[{'atom',1730,'is_subtype'}|[[{'var',1730,'Function'}|[{'type',1730,'fun',[{'type',1730,'product',[{'ann_type',1730,[{'var',1730,'Index'}|[{'user_type',1730,'array_indx',[]}]]}|[{'ann_type',1730,[{'var',1730,'Value'}|[{'var',1730,'Type'}]]}|[{'ann_type',1730,[{'var',1730,'Acc'}|[{'var',1730,'A'}]]}]]]}|[{'var',1730,'B'}]]}]]]]}]]]}]}]
+, 'spec' = [{{'foldr_3',5},[{'type',1760,'fun',[{'type',1760,'product',[{'user_type',1760,'array_indx',[]}|[{'type',1760,'term',[]}|[{'type',1760,'integer',[]}|[{'var',1760,'A'}|[{'type',1761,'fun',[{'type',1761,'product',[{'user_type',1761,'array_indx',[]}|[{'var',1761,'_'}|[{'var',1761,'A'}]]]}|[{'var',1761,'B'}]]}]]]]]}|[{'var',1761,'B'}]]}]}]
+, 'spec' = [{{'sparse_foldr',3},[{'type',1807,'bounded_fun',[{'type',1807,'fun',[{'type',1807,'product',[{'var',1807,'Function'}|[{'ann_type',1807,[{'var',1807,'InitialAcc'}|[{'var',1807,'A'}]]}|[{'ann_type',1807,[{'var',1807,'Array'}|[{'user_type',1807,'array',[{'var',1807,'Type'}]}]]}]]]}|[{'var',1807,'B'}]]}|[[{'type',1808,'constraint',[{'atom',1808,'is_subtype'}|[[{'var',1808,'Function'}|[{'type',1808,'fun',[{'type',1808,'product',[{'ann_type',1808,[{'var',1808,'Index'}|[{'user_type',1808,'array_indx',[]}]]}|[{'ann_type',1808,[{'var',1808,'Value'}|[{'var',1808,'Type'}]]}|[{'ann_type',1808,[{'var',1808,'Acc'}|[{'var',1808,'A'}]]}]]]}|[{'var',1808,'B'}]]}]]]]}]]]}]}]
+, 'spec' = [{{'sparse_foldr_3',6},[{'type',1839,'fun',[{'type',1839,'product',[{'user_type',1839,'array_indx',[]}|[{'var',1839,'_'}|[{'user_type',1839,'array_indx',[]}|[{'var',1839,'A'}|[{'type',1840,'fun',[{'type',1840,'product',[{'user_type',1840,'array_indx',[]}|[{'var',1840,'_'}|[{'var',1840,'A'}]]]}|[{'var',1840,'B'}]]}|[{'var',1840,'_'}]]]]]]}|[{'var',1840,'B'}]]}]}]
+, 'spec' = [{{'sparse_size',1},[{'type',1858,'fun',[{'type',1858,'product',[{'ann_type',1858,[{'var',1858,'Array'}|[{'user_type',1858,'array',[]}]]}]}|[{'type',1858,'non_neg_integer',[]}]]}]}] ] 'new'/0 = fun () -> apply 'new'/1 ([])
+'new'/1 = fun (_0) -> apply 'new_0'/3 (_0,0,'false')
+'new'/2 = fun (_0,_1) -> case <_0,_1> of <Size,Options> when let <_2> = call 'erlang':'is_integer' (Size) in let <_3> = call 'erlang':'>=' (Size,0) in call 'erlang':'and' (_2,_3) -> apply 'new_0'/3 (Options,Size,'true')
+<_6,_7> when 'true' -> call 'erlang':'error' ('badarg') end
+'new_0'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Options,Size,Fixed> when call 'erlang':'is_list' (Options) -> apply 'new_1'/4 (Options,Size,Fixed,'undefined')
+<Options,Size,Fixed> when 'true' -> apply 'new_1'/4 ([Options|[]],Size,Fixed,'undefined') end
+'new_1'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <['fixed'|Options],Size,_12,Default> when 'true' -> apply 'new_1'/4 (Options,Size,'true',Default)
+<[{'fixed',Fixed}|Options],Size,_13,Default> when call 'erlang':'is_boolean' (Fixed) -> apply 'new_1'/4 (Options,Size,Fixed,Default)
+<[{'default',Default}|Options],Size,Fixed,_14> when 'true' -> apply 'new_1'/4 (Options,Size,Fixed,Default)
+<[{'size',Size}|Options],_15,_16,Default> when let <_4> = call 'erlang':'is_integer' (Size) in let <_5> = call 'erlang':'>=' (Size,0) in call 'erlang':'and' (_4,_5) -> apply 'new_1'/4 (Options,Size,'true',Default)
+<[Size|Options],_17,_18,Default> when let <_6> = call 'erlang':'is_integer' (Size) in let <_7> = call 'erlang':'>=' (Size,0) in call 'erlang':'and' (_6,_7) -> apply 'new_1'/4 (Options,Size,'true',Default)
+<[],Size,Fixed,Default> when 'true' -> apply 'new'/3 (Size,Fixed,Default)
+<_X_Options,_X_Size,_X_Fixed,_X_Default> when 'true' -> call 'erlang':'error' ('badarg') end
+'new'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <0,'false','undefined'> when 'true' -> {'array',0,10,'undefined',10}
+<Size,Fixed,Default> when 'true' -> let <_3> = call 'erlang':'-' (Size,1) in let <E> = apply 'find_max'/2 (_3,10) in let <_5> = case <> of <> when (call 'erlang':'=:=' (Fixed,'true')-|['compiler_generated'] ) -> 0
+<> when 'true' -> E end in {'array',Size,_5,Default,E} end
+'find_max'/2 = fun (_0,_1) -> case <_0,_1> of <I,M> when call 'erlang':'>=' (I,M) -> let <_2> = call 'erlang':'*' (M,10) in apply 'find_max'/2 (I,_2)
+<_X_I,M> when 'true' -> M end
+'is_array'/1 = fun (_0) -> case _0 of <{'array',Size,Max,_4,_5}> when let <_1> = call 'erlang':'is_integer' (Size) in let <_2> = call 'erlang':'is_integer' (Max) in call 'erlang':'and' (_1,_2) -> 'true'
+<_6> when 'true' -> 'false' end
+'size'/1 = fun (_0) -> case _0 of <{'array',N,_2,_3,_4}> when 'true' -> N
+<_5> when 'true' -> call 'erlang':'error' ('badarg') end
+'default'/1 = fun (_0) -> case _0 of <{'array',_2,_3,D,_4}> when 'true' -> D
+<_5> when 'true' -> call 'erlang':'error' ('badarg') end
+'fix'/1 = fun (_0) -> case _0 of <A = {'array',_4,_5,_6,_7}> when 'true' -> case A of <{'array',_8,_9,_10,_11}> when 'true' -> call 'erlang':'setelement' (3,A,0)
+(<_12> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','array'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end
+(<_3> when 'true' -> (primop 'match_fail' ({'function_clause',_3})-|[{'function_name',{'fix',1}}] )-|['compiler_generated'] ) end
+'is_fix'/1 = fun (_0) -> case _0 of <{'array',_2,0,_3,_4}> when 'true' -> 'true'
+<{'array',_5,_6,_7,_8}> when 'true' -> 'false'
+(<_1> when 'true' -> (primop 'match_fail' ({'function_clause',_1})-|[{'function_name',{'is_fix',1}}] )-|['compiler_generated'] ) end
+'relax'/1 = fun (_0) -> case _0 of <A = {'array',N,_6,_7,_8}> when 'true' -> let <_1> = call 'erlang':'-' (N,1) in let <_rec1> = apply 'find_max'/2 (_1,10) in case A of <{'array',_9,_10,_11,_12}> when 'true' -> call 'erlang':'setelement' (3,A,_rec1)
+(<_13> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','array'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end
+(<_5> when 'true' -> (primop 'match_fail' ({'function_clause',_5})-|[{'function_name',{'relax',1}}] )-|['compiler_generated'] ) end
+'resize'/2 = fun (_0,_1) -> case <_0,_1> of <Size,A = {'array',N,M,_16,E}> when let <_2> = call 'erlang':'is_integer' (Size) in let <_3> = call 'erlang':'>=' (Size,0) in call 'erlang':'and' (_2,_3) -> case <> of <> when call 'erlang':'>' (Size,N) -> let <_6> = call 'erlang':'-' (Size,1) in let <_5> = case <> of <> when call 'erlang':'>' (M,0) -> M
+<> when 'true' -> let <_4> = call 'erlang':'-' (N,1) in apply 'find_max'/2 (_4,10) end in case apply 'grow'/3 (_6,E,_5) of <{E1,M1}> when 'true' -> let <_8> = case <> of <> when call 'erlang':'>' (M,0) -> M1
+<> when 'true' -> M end in case A of <{'array',_rec5,_rec6,_rec7,_rec8}> when 'true' -> {'array',Size,_8,_rec7,E1}
+(<_17> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','array'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end
+(<_7> when 'true' -> primop 'match_fail' ({'badmatch',_7})-|['compiler_generated'] ) end
+<> when call 'erlang':'<' (Size,N) -> case A of <{'array',_18,_19,_20,_21}> when 'true' -> call 'erlang':'setelement' (2,A,Size)
+(<_22> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','array'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end
+<> when 'true' -> A end
+<_X_Size,_23> when 'true' -> call 'erlang':'error' ('badarg') end
+'resize'/1 = fun (_0) -> let <_1> = apply 'sparse_size'/1 (_0) in apply 'resize'/2 (_1,_0)
+'set'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <I,Value,A = {'array',N,M,D,E}> when let <_3> = call 'erlang':'is_integer' (I) in let <_4> = call 'erlang':'>=' (I,0) in call 'erlang':'and' (_3,_4) -> case <> of <> when call 'erlang':'<' (I,N) -> let <_rec10> = apply 'set_1'/4 (I,E,Value,D) in case A of <{'array',_21,_22,_23,_24}> when 'true' -> call 'erlang':'setelement' (5,A,_rec10)
+(<_25> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','array'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end
+<> when call 'erlang':'<' (I,M) -> let <_rec12> = call 'erlang':'+' (I,1) in let <_rec13> = apply 'set_1'/4 (I,E,Value,D) in case A of <{'array',_26,_27,_28,_29}> when 'true' -> let <_11> = call 'erlang':'setelement' (5,A,_rec13) in call 'erlang':'setelement' (2,_11,_rec12)
+(<_30> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','array'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end
+<> when call 'erlang':'>' (M,0) -> case apply 'grow'/3 (I,E,M) of <{E1,M1}> when 'true' -> let <_rec15> = call 'erlang':'+' (I,1) in let <_rec16> = apply 'set_1'/4 (I,E1,Value,D) in case A of <{'array',_rec18,_rec19,_rec20,_rec21}> when 'true' -> {'array',_rec15,M1,_rec20,_rec16}
+(<_31> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','array'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end
+(<_13> when 'true' -> primop 'match_fail' ({'badmatch',_13})-|['compiler_generated'] ) end
+<> when 'true' -> call 'erlang':'error' ('badarg') end
+<_X_I,_X_V,_X_A> when 'true' -> call 'erlang':'error' ('badarg') end
+'set_1'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <I,E = {_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,S},X,D> when 'true' -> let <_4> = call 'erlang':'div' (I,S) in let <I1> = call 'erlang':'+' (_4,1) in let <_7> = call 'erlang':'rem' (I,S) in let <_6> = call 'erlang':'element' (I1,E) in let <_8> = apply 'set_1'/4 (_7,_6,X,D) in call 'erlang':'setelement' (I1,E,_8)
+<I,E,X,D> when call 'erlang':'is_integer' (E) -> apply 'expand'/4 (I,E,X,D)
+<I,E,X,_X_D> when 'true' -> let <_9> = call 'erlang':'+' (I,1) in call 'erlang':'setelement' (_9,E,X) end
+'grow'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <I,E,_X_M> when call 'erlang':'is_integer' (E) -> let <M1> = apply 'find_max'/2 (I,E) in {M1,M1}
+<I,E,M> when 'true' -> apply 'grow_1'/3 (I,E,M) end
+'grow_1'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <I,E,M> when call 'erlang':'>=' (I,M) -> let <_5> = call 'erlang':'make_tuple' (11,M) in let <_6> = call 'erlang':'setelement' (1,_5,E) in let <_3> = call 'erlang':'*' (M,10) in apply 'grow_1'/3 (I,_6,_3)
+<_X_I,E,M> when 'true' -> {E,M} end
+'expand'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <I,S,X,D> when call 'erlang':'>' (S,10) -> let <S1> = call 'erlang':'div' (S,10) in let <_9> = call 'erlang':'div' (I,S1) in let <_10> = call 'erlang':'+' (_9,1) in let <_8> = call 'erlang':'make_tuple' (11,S1) in let <_5> = call 'erlang':'rem' (I,S1) in let <_6> = apply 'expand'/4 (_5,S1,X,D) in call 'erlang':'setelement' (_10,_8,_6)
+<I,_X_S,X,D> when 'true' -> let <_12> = call 'erlang':'+' (I,1) in let <_11> = call 'erlang':'make_tuple' (10,D) in call 'erlang':'setelement' (_12,_11,X) end
+'get'/2 = fun (_0,_1) -> case <_0,_1> of <I,{'array',N,M,D,E}> when let <_2> = call 'erlang':'is_integer' (I) in let <_3> = call 'erlang':'>=' (I,0) in call 'erlang':'and' (_2,_3) -> case <> of <> when call 'erlang':'<' (I,N) -> apply 'get_1'/3 (I,E,D)
+<> when call 'erlang':'>' (M,0) -> D
+<> when 'true' -> call 'erlang':'error' ('badarg') end
+<_X_I,_X_A> when 'true' -> call 'erlang':'error' ('badarg') end
+'get_1'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <I,E = {_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,S},D> when 'true' -> let <_6> = call 'erlang':'rem' (I,S) in let <_3> = call 'erlang':'div' (I,S) in let <_4> = call 'erlang':'+' (_3,1) in let <_5> = call 'erlang':'element' (_4,E) in apply 'get_1'/3 (_6,_5,D)
+<_X_I,E,D> when call 'erlang':'is_integer' (E) -> D
+<I,E,_X_D> when 'true' -> let <_7> = call 'erlang':'+' (I,1) in call 'erlang':'element' (_7,E) end
+'reset'/2 = fun (_0,_1) -> case <_0,_1> of <I,A = {'array',N,M,D,E}> when let <_2> = call 'erlang':'is_integer' (I) in let <_3> = call 'erlang':'>=' (I,0) in call 'erlang':'and' (_2,_3) -> case <> of <> when call 'erlang':'<' (I,N) -> try let <_rec22> = apply 'reset_1'/3 (I,E,D) in case A of <{'array',_13,_14,_15,_16}> when 'true' -> call 'erlang':'setelement' (5,A,_rec22)
+(<_17> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','array'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end of <_7> -> _7 catch <_10,_9,_8> -> case <_10,_9,_8> of <('throw'-|['compiler_generated'] ),('default'-|['compiler_generated'] ),_18> when 'true' -> A
+(<_19,_20,_21> when 'true' -> primop 'raise' (_21,_20)-|['compiler_generated'] ) end
+<> when call 'erlang':'>' (M,0) -> A
+<> when 'true' -> call 'erlang':'error' ('badarg') end
+<_X_I,_X_A> when 'true' -> call 'erlang':'error' ('badarg') end
+'reset_1'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <I,E = {_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,S},D> when 'true' -> let <_3> = call 'erlang':'div' (I,S) in let <I1> = call 'erlang':'+' (_3,1) in let <_6> = call 'erlang':'rem' (I,S) in let <_5> = call 'erlang':'element' (I1,E) in let <_7> = apply 'reset_1'/3 (_6,_5,D) in call 'erlang':'setelement' (I1,E,_7)
+<_X_I,E,_X_D> when call 'erlang':'is_integer' (E) -> call 'erlang':'throw' ('default')
+<I,E,D> when 'true' -> let <Indx> = call 'erlang':'+' (I,1) in case call 'erlang':'element' (Indx,E) of <_24> when call 'erlang':'=:=' (_24,D) -> call 'erlang':'throw' ('default')
+<_25> when 'true' -> let <_9> = call 'erlang':'+' (I,1) in call 'erlang':'setelement' (_9,E,D) end end
+'to_list'/1 = fun (_0) -> case _0 of <{'array',0,_3,_4,_5}> when 'true' -> []
+<{'array',N,_6,D,E}> when 'true' -> let <_1> = call 'erlang':'-' (N,1) in apply 'to_list_1'/3 (E,D,_1)
+<_7> when 'true' -> call 'erlang':'error' ('badarg') end
+'to_list_1'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <E = {_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,S},D,I> when 'true' -> let <N> = call 'erlang':'div' (I,S) in let <_5> = call 'erlang':'+' (N,1) in let <_6> = call 'erlang':'element' (_5,E) in let <_4> = call 'erlang':'rem' (I,S) in let <_7> = apply 'to_list_1'/3 (_6,D,_4) in apply 'to_list_3'/4 (N,D,_7,E)
+<E,D,I> when call 'erlang':'is_integer' (E) -> let <_8> = call 'erlang':'+' (I,1) in apply 'push'/3 (_8,D,[])
+<E,_X_D,I> when 'true' -> let <_9> = call 'erlang':'+' (I,1) in apply 'push_tuple'/3 (_9,E,[]) end
+'to_list_2'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <E = {_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_X_S},D,L> when 'true' -> apply 'to_list_3'/4 (10,D,L,E)
+<E,D,L> when call 'erlang':'is_integer' (E) -> apply 'push'/3 (E,D,L)
+<E,_X_D,L> when 'true' -> apply 'push_tuple'/3 (10,E,L) end
+'to_list_3'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <0,_X_D,L,_X_E> when 'true' -> L
+<N,D,L,E> when 'true' -> let <_6> = call 'erlang':'-' (N,1) in let <_4> = call 'erlang':'element' (N,E) in let <_5> = apply 'to_list_2'/3 (_4,D,L) in apply 'to_list_3'/4 (_6,D,_5,E) end
+'push'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <0,_X_E,L> when 'true' -> L
+<N,E,L> when 'true' -> let <_3> = call 'erlang':'-' (N,1) in apply 'push'/3 (_3,E,[E|L]) end
+'push_tuple'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <0,_X_T,L> when 'true' -> L
+<N,T,L> when 'true' -> let <_4> = call 'erlang':'-' (N,1) in let <_3> = call 'erlang':'element' (N,T) in apply 'push_tuple'/3 (_4,T,[_3|L]) end
+'sparse_to_list'/1 = fun (_0) -> case _0 of <{'array',0,_3,_4,_5}> when 'true' -> []
+<{'array',N,_6,D,E}> when 'true' -> let <_1> = call 'erlang':'-' (N,1) in apply 'sparse_to_list_1'/3 (E,D,_1)
+<_7> when 'true' -> call 'erlang':'error' ('badarg') end
+'sparse_to_list_1'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <E = {_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,S},D,I> when 'true' -> let <N> = call 'erlang':'div' (I,S) in let <_5> = call 'erlang':'+' (N,1) in let <_6> = call 'erlang':'element' (_5,E) in let <_4> = call 'erlang':'rem' (I,S) in let <_7> = apply 'sparse_to_list_1'/3 (_6,D,_4) in apply 'sparse_to_list_3'/4 (N,D,_7,E)
+<E,_X_D,_X_I> when call 'erlang':'is_integer' (E) -> []
+<E,D,I> when 'true' -> let <_8> = call 'erlang':'+' (I,1) in apply 'sparse_push_tuple'/4 (_8,D,E,[]) end
+'sparse_to_list_2'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <E = {_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_X_S},D,L> when 'true' -> apply 'sparse_to_list_3'/4 (10,D,L,E)
+<E,_X_D,L> when call 'erlang':'is_integer' (E) -> L
+<E,D,L> when 'true' -> apply 'sparse_push_tuple'/4 (10,D,E,L) end
+'sparse_to_list_3'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <0,_X_D,L,_X_E> when 'true' -> L
+<N,D,L,E> when 'true' -> let <_6> = call 'erlang':'-' (N,1) in let <_4> = call 'erlang':'element' (N,E) in let <_5> = apply 'sparse_to_list_2'/3 (_4,D,L) in apply 'sparse_to_list_3'/4 (_6,D,_5,E) end
+'sparse_push_tuple'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <0,_X_D,_X_T,L> when 'true' -> L
+<N,D,T,L> when 'true' -> case call 'erlang':'element' (N,T) of <_11> when call 'erlang':'=:=' (_11,D) -> let <_4> = call 'erlang':'-' (N,1) in apply 'sparse_push_tuple'/4 (_4,D,T,L)
+<E> when 'true' -> let <_5> = call 'erlang':'-' (N,1) in apply 'sparse_push_tuple'/4 (_5,D,T,[E|L]) end end
+'from_list'/1 = fun (_0) -> apply 'from_list'/2 (_0,'undefined')
+'from_list'/2 = fun (_0,_1) -> case <_0,_1> of <[],Default> when 'true' -> apply 'new'/1 ({'default',Default})
+<List,Default> when call 'erlang':'is_list' (List) -> case apply 'from_list_1'/6 (10,List,Default,0,[],[]) of <{E,N,M}> when 'true' -> {'array',N,M,Default,E}
+(<_2> when 'true' -> primop 'match_fail' ({'badmatch',_2})-|['compiler_generated'] ) end
+<_5,_6> when 'true' -> call 'erlang':'error' ('badarg') end
+'from_list_1'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <0,Xs,D,N,As,Es> when 'true' -> let <_6> = call 'lists':'reverse' (As) in let <E> = call 'erlang':'list_to_tuple' (_6) in case Xs of <[]> when 'true' -> case Es of <[]> when 'true' -> {E,N,10}
+<_20> when 'true' -> apply 'from_list_2_0'/3 (N,[E|Es],10) end
+<[_21|_22]> when 'true' -> apply 'from_list_1'/6 (10,Xs,D,N,[],[E|Es])
+<_23> when 'true' -> call 'erlang':'error' ('badarg') end
+<I,Xs,D,N,As,Es> when 'true' -> case Xs of <[X|Xs1]> when 'true' -> let <_11> = call 'erlang':'-' (I,1) in let <_10> = call 'erlang':'+' (N,1) in apply 'from_list_1'/6 (_11,Xs1,D,_10,[X|As],Es)
+<_24> when 'true' -> let <_12> = call 'erlang':'-' (I,1) in apply 'from_list_1'/6 (_12,Xs,D,N,[D|As],Es) end end
+'from_list_2_0'/3 = fun (_0,_1,_2) -> let <_3> = call 'erlang':'-' (_0,1) in let <_4> = call 'erlang':'div' (_3,_2) in let <_5> = call 'erlang':'+' (_4,1) in let <_6> = apply 'pad'/4 (_5,10,_2,_1) in apply 'from_list_2'/6 (10,_6,_2,_0,[_2|[]],[])
+'from_list_2'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <0,Xs,S,N,As,Es> when 'true' -> let <E> = call 'erlang':'list_to_tuple' (As) in case Xs of <[]> when 'true' -> case Es of <[]> when 'true' -> let <_7> = call 'erlang':'*' (S,10) in {E,N,_7}
+<_19> when 'true' -> let <_9> = call 'lists':'reverse' ([E|Es]) in let <_8> = call 'erlang':'*' (S,10) in apply 'from_list_2_0'/3 (N,_9,_8) end
+<_20> when 'true' -> apply 'from_list_2'/6 (10,Xs,S,N,[S|[]],[E|Es]) end
+<I,[X|Xs],S,N,As,Es> when 'true' -> let <_12> = call 'erlang':'-' (I,1) in apply 'from_list_2'/6 (_12,Xs,S,N,[X|As],Es)
+(<_18,_17,_16,_15,_14,_13> when 'true' -> (primop 'match_fail' ({'function_clause',_18,_17,_16,_15,_14,_13})-|[{'function_name',{'from_list_2',6}}] )-|['compiler_generated'] ) end
+'pad'/4 = fun (_0,_1,_2,_3) -> let <_4> = call 'erlang':'rem' (_0,_1) in let <_5> = call 'erlang':'-' (_1,_4) in let <_6> = call 'erlang':'rem' (_5,_1) in apply 'push'/3 (_6,_2,_3)
+'to_orddict'/1 = fun (_0) -> case _0 of <{'array',0,_3,_4,_5}> when 'true' -> []
+<{'array',N,_6,D,E}> when 'true' -> let <I> = call 'erlang':'-' (N,1) in apply 'to_orddict_1'/4 (E,I,D,I)
+<_7> when 'true' -> call 'erlang':'error' ('badarg') end
+'to_orddict_1'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <E = {_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,S},R,D,I> when 'true' -> let <N> = call 'erlang':'div' (I,S) in let <I1> = call 'erlang':'rem' (I,S) in let <_9> = call 'erlang':'-' (R,I1) in let <_10> = call 'erlang':'-' (_9,1) in let <_6> = call 'erlang':'+' (N,1) in let <_7> = call 'erlang':'element' (_6,E) in let <_8> = apply 'to_orddict_1'/4 (_7,R,D,I1) in apply 'to_orddict_3'/6 (N,_10,D,_8,E,S)
+<E,R,D,I> when call 'erlang':'is_integer' (E) -> let <_11> = call 'erlang':'+' (I,1) in apply 'push_pairs'/4 (_11,R,D,[])
+<E,R,_X_D,I> when 'true' -> let <_12> = call 'erlang':'+' (I,1) in apply 'push_tuple_pairs'/4 (_12,R,E,[]) end
+'to_orddict_2'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <E = {_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,S},R,D,L> when 'true' -> apply 'to_orddict_3'/6 (10,R,D,L,E,S)
+<E,R,D,L> when call 'erlang':'is_integer' (E) -> apply 'push_pairs'/4 (E,R,D,L)
+<E,R,_X_D,L> when 'true' -> apply 'push_tuple_pairs'/4 (10,R,E,L) end
+'to_orddict_3'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <0,_X_R,_X_D,L,_X_E,_X_S> when 'true' -> L
+<N,R,D,L,E,S> when 'true' -> let <_9> = call 'erlang':'-' (N,1) in let <_8> = call 'erlang':'-' (R,S) in let <_6> = call 'erlang':'element' (N,E) in let <_7> = apply 'to_orddict_2'/4 (_6,R,D,L) in apply 'to_orddict_3'/6 (_9,_8,D,_7,E,S) end
+'push_pairs'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <0,_X_I,_X_E,L> when 'true' -> L
+<N,I,E,L> when 'true' -> let <_5> = call 'erlang':'-' (N,1) in let <_4> = call 'erlang':'-' (I,1) in apply 'push_pairs'/4 (_5,_4,E,[{I,E}|L]) end
+'push_tuple_pairs'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <0,_X_I,_X_T,L> when 'true' -> L
+<N,I,T,L> when 'true' -> let <_6> = call 'erlang':'-' (N,1) in let <_5> = call 'erlang':'-' (I,1) in let <_4> = call 'erlang':'element' (N,T) in apply 'push_tuple_pairs'/4 (_6,_5,T,[{I,_4}|L]) end
+'sparse_to_orddict'/1 = fun (_0) -> case _0 of <{'array',0,_3,_4,_5}> when 'true' -> []
+<{'array',N,_6,D,E}> when 'true' -> let <I> = call 'erlang':'-' (N,1) in apply 'sparse_to_orddict_1'/4 (E,I,D,I)
+<_7> when 'true' -> call 'erlang':'error' ('badarg') end
+'sparse_to_orddict_1'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <E = {_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,S},R,D,I> when 'true' -> let <N> = call 'erlang':'div' (I,S) in let <I1> = call 'erlang':'rem' (I,S) in let <_9> = call 'erlang':'-' (R,I1) in let <_10> = call 'erlang':'-' (_9,1) in let <_6> = call 'erlang':'+' (N,1) in let <_7> = call 'erlang':'element' (_6,E) in let <_8> = apply 'sparse_to_orddict_1'/4 (_7,R,D,I1) in apply 'sparse_to_orddict_3'/6 (N,_10,D,_8,E,S)
+<E,_X_R,_X_D,_X_I> when call 'erlang':'is_integer' (E) -> []
+<E,R,D,I> when 'true' -> let <_11> = call 'erlang':'+' (I,1) in apply 'sparse_push_tuple_pairs'/5 (_11,R,D,E,[]) end
+'sparse_to_orddict_2'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <E = {_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,S},R,D,L> when 'true' -> apply 'sparse_to_orddict_3'/6 (10,R,D,L,E,S)
+<E,_X_R,_X_D,L> when call 'erlang':'is_integer' (E) -> L
+<E,R,D,L> when 'true' -> apply 'sparse_push_tuple_pairs'/5 (10,R,D,E,L) end
+'sparse_to_orddict_3'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <0,_X_R,_X_D,L,_X_E,_X_S> when 'true' -> L
+<N,R,D,L,E,S> when 'true' -> let <_9> = call 'erlang':'-' (N,1) in let <_8> = call 'erlang':'-' (R,S) in let <_6> = call 'erlang':'element' (N,E) in let <_7> = apply 'sparse_to_orddict_2'/4 (_6,R,D,L) in apply 'sparse_to_orddict_3'/6 (_9,_8,D,_7,E,S) end
+'sparse_push_tuple_pairs'/5 = fun (_0,_1,_2,_3,_4) -> case <_0,_1,_2,_3,_4> of <0,_X_I,_X_D,_X_T,L> when 'true' -> L
+<N,I,D,T,L> when 'true' -> case call 'erlang':'element' (N,T) of <_15> when call 'erlang':'=:=' (_15,D) -> let <_6> = call 'erlang':'-' (N,1) in let <_5> = call 'erlang':'-' (I,1) in apply 'sparse_push_tuple_pairs'/5 (_6,_5,D,T,L)
+<E> when 'true' -> let <_8> = call 'erlang':'-' (N,1) in let <_7> = call 'erlang':'-' (I,1) in apply 'sparse_push_tuple_pairs'/5 (_8,_7,D,T,[{I,E}|L]) end end
+'from_orddict'/1 = fun (_0) -> apply 'from_orddict'/2 (_0,'undefined')
+'from_orddict'/2 = fun (_0,_1) -> case <_0,_1> of <[],Default> when 'true' -> apply 'new'/1 ({'default',Default})
+<List,Default> when call 'erlang':'is_list' (List) -> case apply 'from_orddict_0'/5 (List,0,10,Default,[]) of <{E,N,M}> when 'true' -> {'array',N,M,Default,E}
+(<_2> when 'true' -> primop 'match_fail' ({'badmatch',_2})-|['compiler_generated'] ) end
+<_5,_6> when 'true' -> call 'erlang':'error' ('badarg') end
+'from_orddict_0'/5 = fun (_0,_1,_2,_3,_4) -> case <_0,_1,_2,_3,_4> of <[],N,_X_Max,_X_D,Es> when 'true' -> case Es of <[E|[]]> when 'true' -> {E,N,10}
+<_20> when 'true' -> apply 'collect_leafs'/3 (N,Es,10) end
+<Xs = [{Ix1,_21}|_22],Ix,Max0,D,Es0> when let <_6> = call 'erlang':'>' (Ix1,Max0) in let <_7> = call 'erlang':'is_integer' (Ix1) in call 'erlang':'and' (_6,_7) -> let <Hole> = call 'erlang':'-' (Ix1,Ix) in let <_9> = call 'erlang':'rem' (Hole,10) in let <Step> = call 'erlang':'-' (Hole,_9) in let <Next> = call 'erlang':'+' (Ix,Step) in let <_12> = call 'erlang':'+' (Next,10) in apply 'from_orddict_0'/5 (Xs,Next,_12,D,[Step|Es0])
+<Xs0 = [{_23,_24}|_25],Ix0,Max,D,Es> when 'true' -> case apply 'from_orddict_1'/6 (Ix0,Max,Xs0,Ix0,D,[]) of <{Xs,E,Ix}> when 'true' -> let <_14> = call 'erlang':'+' (Ix,10) in apply 'from_orddict_0'/5 (Xs,Ix,_14,D,[E|Es])
+(<_13> when 'true' -> primop 'match_fail' ({'badmatch',_13})-|['compiler_generated'] ) end
+<Xs,_26,_27,_28,_29> when 'true' -> call 'erlang':'error' ({'badarg',Xs}) end
+'from_orddict_1'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <Ix,_20,Xs,N,_X_D,As> when call 'erlang':'=:=' (_20,Ix) -> let <_6> = call 'lists':'reverse' (As) in let <E> = call 'erlang':'list_to_tuple' (_6) in {Xs,E,N}
+<Ix,Max,Xs,N0,D,As> when 'true' -> case Xs of <[{_21,Val}|Xs1]> when call 'erlang':'=:=' (_21,Ix) -> let <N> = call 'erlang':'+' (Ix,1) in apply 'from_orddict_1'/6 (N,Max,Xs1,N,D,[Val|As])
+<[{Ix1,_22}|_23]> when let <_9> = call 'erlang':'is_integer' (Ix1) in let <_10> = call 'erlang':'>' (Ix1,Ix) in call 'erlang':'and' (_9,_10) -> let <N> = call 'erlang':'+' (Ix,1) in apply 'from_orddict_1'/6 (N,Max,Xs,N,D,[D|As])
+<[_24|_25]> when 'true' -> call 'erlang':'error' ({'badarg',Xs})
+<_26> when 'true' -> let <_12> = call 'erlang':'+' (Ix,1) in apply 'from_orddict_1'/6 (_12,Max,Xs,N0,D,[D|As]) end end
+'collect_leafs'/3 = fun (_0,_1,_2) -> let <_3> = call 'erlang':'-' (_0,1) in let <_4> = call 'erlang':'div' (_3,_2) in let <I> = call 'erlang':'+' (_4,1) in let <_6> = call 'erlang':'rem' (I,10) in let <_7> = call 'erlang':'-' (10,_6) in let <_8> = call 'erlang':'rem' (_7,10) in let <Pad> = call 'erlang':'*' (_8,_2) in case Pad of <0> when 'true' -> apply 'collect_leafs'/6 (10,_1,_2,_0,[_2|[]],[])
+<_14> when 'true' -> apply 'collect_leafs'/6 (10,[Pad|_1],_2,_0,[_2|[]],[]) end
+'collect_leafs'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <0,Xs,S,N,As,Es> when 'true' -> let <E> = call 'erlang':'list_to_tuple' (As) in case Xs of <[]> when 'true' -> case Es of <[]> when 'true' -> let <_7> = call 'erlang':'*' (S,10) in {E,N,_7}
+<_31> when 'true' -> let <_9> = call 'lists':'reverse' ([E|Es]) in let <_8> = call 'erlang':'*' (S,10) in apply 'collect_leafs'/3 (N,_9,_8) end
+<_32> when 'true' -> apply 'collect_leafs'/6 (10,Xs,S,N,[S|[]],[E|Es]) end
+<I,[X|Xs],S,N,As0,Es0> when call 'erlang':'is_integer' (X) -> let <Step0> = call 'erlang':'div' (X,S) in case <> of <> when call 'erlang':'<' (Step0,I) -> let <As> = apply 'push'/3 (Step0,S,As0) in let <_14> = call 'erlang':'-' (I,Step0) in apply 'collect_leafs'/6 (_14,Xs,S,N,As,Es0)
+<> when call 'erlang':'=:=' (I,10) -> let <Step> = call 'erlang':'rem' (Step0,10) in let <As> = apply 'push'/3 (Step,S,As0) in let <_17> = call 'erlang':'-' (I,Step) in apply 'collect_leafs'/6 (_17,Xs,S,N,As,[X|Es0])
+<> when call 'erlang':'=:=' (I,Step0) -> let <As> = apply 'push'/3 (I,S,As0) in apply 'collect_leafs'/6 (0,Xs,S,N,As,Es0)
+<> when 'true' -> let <As> = apply 'push'/3 (I,S,As0) in let <Step> = call 'erlang':'-' (Step0,I) in let <_21> = call 'erlang':'*' (Step,S) in apply 'collect_leafs'/6 (0,[_21|Xs],S,N,As,Es0) end
+<I,[X|Xs],S,N,As,Es> when 'true' -> let <_22> = call 'erlang':'-' (I,1) in apply 'collect_leafs'/6 (_22,Xs,S,N,[X|As],Es)
+<10,[],S,N,[_33|[]],Es> when 'true' -> let <_24> = call 'lists':'reverse' (Es) in let <_23> = call 'erlang':'*' (S,10) in apply 'collect_leafs'/3 (N,_24,_23)
+(<_30,_29,_28,_27,_26,_25> when 'true' -> (primop 'match_fail' ({'function_clause',_30,_29,_28,_27,_26,_25})-|[{'function_name',{'collect_leafs',6}}] )-|['compiler_generated'] ) end
+'map'/2 = fun (_0,_1) -> case <_0,_1> of <Function,Array = {'array',N,_12,D,E}> when call 'erlang':'is_function' (Function,2) -> case <> of <> when call 'erlang':'>' (N,0) -> case Array of <{'array',_13,_14,_15,_16}> when 'true' -> let <_4> = call 'erlang':'setelement' (5,Array,[]) in let <_6> = call 'erlang':'-' (N,1) in let <_rec25> = apply 'map_1'/5 (_6,E,0,Function,D) in case _4 of <{'array',_18,_19,_20,_21}> when 'true' -> call 'erlang':'setelement' (5,_4,_rec25)
+(<_22> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','array'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end
+(<_17> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','array'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end
+<> when 'true' -> Array end
+<_23,_24> when 'true' -> call 'erlang':'error' ('badarg') end
+'map_1'/5 = fun (_0,_1,_2,_3,_4) -> case <_0,_1,_2,_3,_4> of <N,E = {_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,S},Ix,F,D> when 'true' -> let <_6> = call 'erlang':'div' (N,S) in let <_7> = call 'erlang':'+' (_6,1) in let <_5> = call 'erlang':'rem' (N,S) in let <_8> = apply 'map_2'/9 (1,E,Ix,F,D,[],_7,_5,S) in let <_9> = call 'lists':'reverse' ([S|_8]) in call 'erlang':'list_to_tuple' (_9)
+<N,E,Ix,F,D> when call 'erlang':'is_integer' (E) -> let <_10> = apply 'unfold'/2 (E,D) in apply 'map_1'/5 (N,_10,Ix,F,D)
+<N,E,Ix,F,D> when 'true' -> let <_11> = call 'erlang':'+' (N,1) in let <_12> = apply 'map_3'/7 (1,E,Ix,F,D,_11,[]) in let <_13> = call 'lists':'reverse' (_12) in call 'erlang':'list_to_tuple' (_13) end
+'map_2'/9 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8> of <I,E,Ix,F,D,L,_26,R,_X_S> when call 'erlang':'=:=' (_26,I) -> let <_11> = call 'erlang':'+' (I,1) in let <_9> = call 'erlang':'element' (I,E) in let <_10> = apply 'map_1'/5 (R,_9,Ix,F,D) in apply 'map_2_1'/3 (_11,E,[_10|L])
+<I,E,Ix,F,D,L,N,R,S> when 'true' -> let <_16> = call 'erlang':'+' (I,1) in let <_15> = call 'erlang':'+' (Ix,S) in let <_13> = call 'erlang':'-' (S,1) in let <_12> = call 'erlang':'element' (I,E) in let <_14> = apply 'map_1'/5 (_13,_12,Ix,F,D) in apply 'map_2'/9 (_16,E,_15,F,D,[_14|L],N,R,S) end
+'map_2_1'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <I,E,L> when call 'erlang':'=<' (I,10) -> let <_4> = call 'erlang':'+' (I,1) in let <_3> = call 'erlang':'element' (I,E) in apply 'map_2_1'/3 (_4,E,[_3|L])
+<_X_I,_X_E,L> when 'true' -> L end
+'map_3'/7 = fun (_0,_1,_2,_3,_4,_5,_6) -> case <_0,_1,_2,_3,_4,_5,_6> of <I,E,Ix,F,D,N,L> when call 'erlang':'=<' (I,N) -> let <_10> = call 'erlang':'+' (I,1) in let <_9> = call 'erlang':'+' (Ix,1) in let <_7> = call 'erlang':'element' (I,E) in let <_8> = apply F (Ix,_7) in apply 'map_3'/7 (_10,E,_9,F,D,N,[_8|L])
+<I,E,Ix,F,D,N,L> when call 'erlang':'=<' (I,10) -> let <_12> = call 'erlang':'+' (I,1) in let <_11> = call 'erlang':'+' (Ix,1) in apply 'map_3'/7 (_12,E,_11,F,D,N,[D|L])
+<_X_I,_X_E,_X_Ix,_X_F,_X_D,_X_N,L> when 'true' -> L end
+'unfold'/2 = fun (_0,_1) -> case <_0,_1> of <S,_X_D> when call 'erlang':'>' (S,10) -> let <_2> = call 'erlang':'div' (S,10) in call 'erlang':'make_tuple' (11,_2)
+<_X_S,D> when 'true' -> call 'erlang':'make_tuple' (10,D) end
+'sparse_map'/2 = fun (_0,_1) -> case <_0,_1> of <Function,Array = {'array',N,_12,D,E}> when call 'erlang':'is_function' (Function,2) -> case <> of <> when call 'erlang':'>' (N,0) -> case Array of <{'array',_13,_14,_15,_16}> when 'true' -> let <_4> = call 'erlang':'setelement' (5,Array,[]) in let <_6> = call 'erlang':'-' (N,1) in let <_rec28> = apply 'sparse_map_1'/5 (_6,E,0,Function,D) in case _4 of <{'array',_18,_19,_20,_21}> when 'true' -> call 'erlang':'setelement' (5,_4,_rec28)
+(<_22> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','array'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end
+(<_17> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','array'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end
+<> when 'true' -> Array end
+<_23,_24> when 'true' -> call 'erlang':'error' ('badarg') end
+'sparse_map_1'/5 = fun (_0,_1,_2,_3,_4) -> case <_0,_1,_2,_3,_4> of <N,E = {_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,S},Ix,F,D> when 'true' -> let <_6> = call 'erlang':'div' (N,S) in let <_7> = call 'erlang':'+' (_6,1) in let <_5> = call 'erlang':'rem' (N,S) in let <_8> = apply 'sparse_map_2'/9 (1,E,Ix,F,D,[],_7,_5,S) in let <_9> = call 'lists':'reverse' ([S|_8]) in call 'erlang':'list_to_tuple' (_9)
+<_X_N,E,_X_Ix,_X_F,_X_D> when call 'erlang':'is_integer' (E) -> E
+<_X_N,E,Ix,F,D> when 'true' -> let <_10> = apply 'sparse_map_3'/6 (1,E,Ix,F,D,[]) in let <_11> = call 'lists':'reverse' (_10) in call 'erlang':'list_to_tuple' (_11) end
+'sparse_map_2'/9 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8> of <I,E,Ix,F,D,L,_26,R,_X_S> when call 'erlang':'=:=' (_26,I) -> let <_11> = call 'erlang':'+' (I,1) in let <_9> = call 'erlang':'element' (I,E) in let <_10> = apply 'sparse_map_1'/5 (R,_9,Ix,F,D) in apply 'sparse_map_2_1'/3 (_11,E,[_10|L])
+<I,E,Ix,F,D,L,N,R,S> when 'true' -> let <_16> = call 'erlang':'+' (I,1) in let <_15> = call 'erlang':'+' (Ix,S) in let <_13> = call 'erlang':'-' (S,1) in let <_12> = call 'erlang':'element' (I,E) in let <_14> = apply 'sparse_map_1'/5 (_13,_12,Ix,F,D) in apply 'sparse_map_2'/9 (_16,E,_15,F,D,[_14|L],N,R,S) end
+'sparse_map_2_1'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <I,E,L> when call 'erlang':'=<' (I,10) -> let <_4> = call 'erlang':'+' (I,1) in let <_3> = call 'erlang':'element' (I,E) in apply 'sparse_map_2_1'/3 (_4,E,[_3|L])
+<_X_I,_X_E,L> when 'true' -> L end
+'sparse_map_3'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <I,T,Ix,F,D,L> when call 'erlang':'=<' (I,10) -> case call 'erlang':'element' (I,T) of <_18> when call 'erlang':'=:=' (_18,D) -> let <_7> = call 'erlang':'+' (I,1) in let <_6> = call 'erlang':'+' (Ix,1) in apply 'sparse_map_3'/6 (_7,T,_6,F,D,[D|L])
+<E> when 'true' -> let <_10> = call 'erlang':'+' (I,1) in let <_9> = call 'erlang':'+' (Ix,1) in let <_8> = apply F (Ix,E) in apply 'sparse_map_3'/6 (_10,T,_9,F,D,[_8|L]) end
+<_X_I,_X_E,_X_Ix,_X_F,_X_D,L> when 'true' -> L end
+'foldl'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Function,A,{'array',N,_7,D,E}> when call 'erlang':'is_function' (Function,3) -> case <> of <> when call 'erlang':'>' (N,0) -> let <_3> = call 'erlang':'-' (N,1) in apply 'foldl_1'/6 (_3,E,A,0,Function,D)
+<> when 'true' -> A end
+<_8,_9,_10> when 'true' -> call 'erlang':'error' ('badarg') end
+'foldl_1'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <N,E = {_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,S},A,Ix,F,D> when 'true' -> let <_7> = call 'erlang':'div' (N,S) in let <_8> = call 'erlang':'+' (_7,1) in let <_6> = call 'erlang':'rem' (N,S) in apply 'foldl_2'/9 (1,E,A,Ix,F,D,_8,_6,S)
+<N,E,A,Ix,F,D> when call 'erlang':'is_integer' (E) -> let <_9> = apply 'unfold'/2 (E,D) in apply 'foldl_1'/6 (N,_9,A,Ix,F,D)
+<N,E,A,Ix,F,_X_D> when 'true' -> let <_10> = call 'erlang':'+' (N,1) in apply 'foldl_3'/6 (1,E,A,Ix,F,_10) end
+'foldl_2'/9 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8> of <I,E,A,Ix,F,D,_24,R,_X_S> when call 'erlang':'=:=' (_24,I) -> let <_9> = call 'erlang':'element' (I,E) in apply 'foldl_1'/6 (R,_9,A,Ix,F,D)
+<I,E,A,Ix,F,D,N,R,S> when 'true' -> let <_14> = call 'erlang':'+' (I,1) in let <_12> = call 'erlang':'-' (S,1) in let <_11> = call 'erlang':'element' (I,E) in let <_13> = apply 'foldl_1'/6 (_12,_11,A,Ix,F,D) in let <_10> = call 'erlang':'+' (Ix,S) in apply 'foldl_2'/9 (_14,E,_13,_10,F,D,N,R,S) end
+'foldl_3'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <I,E,A,Ix,F,N> when call 'erlang':'=<' (I,N) -> let <_9> = call 'erlang':'+' (I,1) in let <_7> = call 'erlang':'element' (I,E) in let <_8> = apply F (Ix,_7,A) in let <_6> = call 'erlang':'+' (Ix,1) in apply 'foldl_3'/6 (_9,E,_8,_6,F,N)
+<_X_I,_X_E,A,_X_Ix,_X_F,_X_N> when 'true' -> A end
+'sparse_foldl'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Function,A,{'array',N,_7,D,E}> when call 'erlang':'is_function' (Function,3) -> case <> of <> when call 'erlang':'>' (N,0) -> let <_3> = call 'erlang':'-' (N,1) in apply 'sparse_foldl_1'/6 (_3,E,A,0,Function,D)
+<> when 'true' -> A end
+<_8,_9,_10> when 'true' -> call 'erlang':'error' ('badarg') end
+'sparse_foldl_1'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <N,E = {_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,S},A,Ix,F,D> when 'true' -> let <_7> = call 'erlang':'div' (N,S) in let <_8> = call 'erlang':'+' (_7,1) in let <_6> = call 'erlang':'rem' (N,S) in apply 'sparse_foldl_2'/9 (1,E,A,Ix,F,D,_8,_6,S)
+<_X_N,E,A,_X_Ix,_X_F,_X_D> when call 'erlang':'is_integer' (E) -> A
+<N,E,A,Ix,F,D> when 'true' -> let <_9> = call 'erlang':'+' (N,1) in apply 'sparse_foldl_3'/7 (1,E,A,Ix,F,D,_9) end
+'sparse_foldl_2'/9 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8> of <I,E,A,Ix,F,D,_24,R,_X_S> when call 'erlang':'=:=' (_24,I) -> let <_9> = call 'erlang':'element' (I,E) in apply 'sparse_foldl_1'/6 (R,_9,A,Ix,F,D)
+<I,E,A,Ix,F,D,N,R,S> when 'true' -> let <_14> = call 'erlang':'+' (I,1) in let <_12> = call 'erlang':'-' (S,1) in let <_11> = call 'erlang':'element' (I,E) in let <_13> = apply 'sparse_foldl_1'/6 (_12,_11,A,Ix,F,D) in let <_10> = call 'erlang':'+' (Ix,S) in apply 'sparse_foldl_2'/9 (_14,E,_13,_10,F,D,N,R,S) end
+'sparse_foldl_3'/7 = fun (_0,_1,_2,_3,_4,_5,_6) -> case <_0,_1,_2,_3,_4,_5,_6> of <I,T,A,Ix,F,D,N> when call 'erlang':'=<' (I,N) -> case call 'erlang':'element' (I,T) of <_20> when call 'erlang':'=:=' (_20,D) -> let <_8> = call 'erlang':'+' (I,1) in let <_7> = call 'erlang':'+' (Ix,1) in apply 'sparse_foldl_3'/7 (_8,T,A,_7,F,D,N)
+<E> when 'true' -> let <_11> = call 'erlang':'+' (I,1) in let <_10> = apply F (Ix,E,A) in let <_9> = call 'erlang':'+' (Ix,1) in apply 'sparse_foldl_3'/7 (_11,T,_10,_9,F,D,N) end
+<_X_I,_X_T,A,_X_Ix,_X_F,_X_D,_X_N> when 'true' -> A end
+'foldr'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Function,A,{'array',N,_7,D,E}> when call 'erlang':'is_function' (Function,3) -> case <> of <> when call 'erlang':'>' (N,0) -> let <I> = call 'erlang':'-' (N,1) in apply 'foldr_1'/6 (I,E,I,A,Function,D)
+<> when 'true' -> A end
+<_8,_9,_10> when 'true' -> call 'erlang':'error' ('badarg') end
+'foldr_1'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <I,E = {_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,S},Ix,A,F,D> when 'true' -> let <_8> = call 'erlang':'div' (I,S) in let <_9> = call 'erlang':'+' (_8,1) in let <_7> = call 'erlang':'rem' (I,S) in let <_6> = call 'erlang':'-' (S,1) in apply 'foldr_2'/8 (_9,E,Ix,A,F,D,_7,_6)
+<I,E,Ix,A,F,D> when call 'erlang':'is_integer' (E) -> let <_10> = apply 'unfold'/2 (E,D) in apply 'foldr_1'/6 (I,_10,Ix,A,F,D)
+<I,E,Ix,A,F,_X_D> when 'true' -> let <I1> = call 'erlang':'+' (I,1) in let <_12> = call 'erlang':'-' (Ix,I1) in apply 'foldr_3'/5 (I1,E,_12,A,F) end
+'foldr_2'/8 = fun (_0,_1,_2,_3,_4,_5,_6,_7) -> case <_0,_1,_2,_3,_4,_5,_6,_7> of <0,_X_E,_X_Ix,A,_X_F,_X_D,_X_R,_X_R0> when 'true' -> A
+<I,E,Ix,A,F,D,R,R0> when 'true' -> let <_12> = call 'erlang':'-' (I,1) in let <_10> = call 'erlang':'-' (Ix,R) in let <_11> = call 'erlang':'-' (_10,1) in let <_8> = call 'erlang':'element' (I,E) in let <_9> = apply 'foldr_1'/6 (R,_8,Ix,A,F,D) in apply 'foldr_2'/8 (_12,E,_11,_9,F,D,R0,R0) end
+'foldr_3'/5 = fun (_0,_1,_2,_3,_4) -> case <_0,_1,_2,_3,_4> of <0,_X_E,_X_Ix,A,_X_F> when 'true' -> A
+<I,E,Ix,A,F> when 'true' -> let <_8> = call 'erlang':'-' (I,1) in let <_6> = call 'erlang':'+' (Ix,I) in let <_5> = call 'erlang':'element' (I,E) in let <_7> = apply F (_6,_5,A) in apply 'foldr_3'/5 (_8,E,Ix,_7,F) end
+'sparse_foldr'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Function,A,{'array',N,_7,D,E}> when call 'erlang':'is_function' (Function,3) -> case <> of <> when call 'erlang':'>' (N,0) -> let <I> = call 'erlang':'-' (N,1) in apply 'sparse_foldr_1'/6 (I,E,I,A,Function,D)
+<> when 'true' -> A end
+<_8,_9,_10> when 'true' -> call 'erlang':'error' ('badarg') end
+'sparse_foldr_1'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <I,E = {_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,S},Ix,A,F,D> when 'true' -> let <_8> = call 'erlang':'div' (I,S) in let <_9> = call 'erlang':'+' (_8,1) in let <_7> = call 'erlang':'rem' (I,S) in let <_6> = call 'erlang':'-' (S,1) in apply 'sparse_foldr_2'/8 (_9,E,Ix,A,F,D,_7,_6)
+<_X_I,E,_X_Ix,A,_X_F,_X_D> when call 'erlang':'is_integer' (E) -> A
+<I,E,Ix,A,F,D> when 'true' -> let <I1> = call 'erlang':'+' (I,1) in let <_11> = call 'erlang':'-' (Ix,I1) in apply 'sparse_foldr_3'/6 (I1,E,_11,A,F,D) end
+'sparse_foldr_2'/8 = fun (_0,_1,_2,_3,_4,_5,_6,_7) -> case <_0,_1,_2,_3,_4,_5,_6,_7> of <0,_X_E,_X_Ix,A,_X_F,_X_D,_X_R,_X_R0> when 'true' -> A
+<I,E,Ix,A,F,D,R,R0> when 'true' -> let <_12> = call 'erlang':'-' (I,1) in let <_10> = call 'erlang':'-' (Ix,R) in let <_11> = call 'erlang':'-' (_10,1) in let <_8> = call 'erlang':'element' (I,E) in let <_9> = apply 'sparse_foldr_1'/6 (R,_8,Ix,A,F,D) in apply 'sparse_foldr_2'/8 (_12,E,_11,_9,F,D,R0,R0) end
+'sparse_foldr_3'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <0,_X_T,_X_Ix,A,_X_F,_X_D> when 'true' -> A
+<I,T,Ix,A,F,D> when 'true' -> case call 'erlang':'element' (I,T) of <_17> when call 'erlang':'=:=' (_17,D) -> let <_6> = call 'erlang':'-' (I,1) in apply 'sparse_foldr_3'/6 (_6,T,Ix,A,F,D)
+<E> when 'true' -> let <_9> = call 'erlang':'-' (I,1) in let <_7> = call 'erlang':'+' (Ix,I) in let <_8> = apply F (_7,E,A) in apply 'sparse_foldr_3'/6 (_9,T,Ix,_8,F,D) end end
+'sparse_size'/1 = fun (_0) -> let <F> = fun (_3,_2,_1) -> call 'erlang':'throw' ({'value',_3}) in try apply 'sparse_foldr'/3 (F,[],_0) of <_8> -> case _8 of <[]> when 'true' -> 0
+(<_9> when 'true' -> primop 'match_fail' ({'try_clause',_9})-|['compiler_generated'] ) end catch <_12,_11,_10> -> case <_12,_11,_10> of <('throw'-|['compiler_generated'] ),({('value'-|['compiler_generated'] ),I}-|['compiler_generated'] ),_14> when 'true' -> call 'erlang':'+' (I,1)
+(<_18,_19,_20> when 'true' -> primop 'raise' (_20,_19)-|['compiler_generated'] ) end
+'module_info'/0 = fun () -> call 'erlang':'get_module_info' ('array')
+'module_info'/1 = fun (_0) -> call 'erlang':'get_module_info' ('array',_0) end

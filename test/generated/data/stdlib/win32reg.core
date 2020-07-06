@@ -1,0 +1,150 @@
+module 'win32reg' ['change_key'/2,'change_key_create'/2,'close'/1,'current_key'/1,'delete_key'/1,'delete_value'/2,'expand'/1,'format_error'/1,'module_info'/0,'module_info'/1,'open'/1,'set_value'/3,'sub_keys'/1,'value'/2,'values'/1] attributes [ 'file' = [{[115|[114|[99|[47|[119|[105|[110|[51|[50|[114|[101|[103|[46|[101|[114|[108]]]]]]]]]]]]]]]],1}]
+, 'export_type' = [{'reg_handle',0}]
+, 'opaque' = [{'reg_handle',{'type',58,'tuple',[{'atom',58,'win32reg'}|[{'type',58,'port',[]}]]},[]}]
+, 'type' = [{'name',{'type',59,'union',[{'type',59,'string',[]}|[{'atom',59,'default'}]]},[]}]
+, 'type' = [{'value',{'type',60,'union',[{'type',60,'string',[]}|[{'type',60,'integer',[]}|[{'type',60,'binary',[]}]]]},[]}]
+, 'spec' = [{{'open',1},[{'type',64,'bounded_fun',[{'type',64,'fun',[{'type',64,'product',[{'var',64,'OpenModeList'}]}|[{'var',64,'ReturnValue'}]]}|[[{'type',65,'constraint',[{'atom',65,'is_subtype'}|[[{'var',65,'OpenModeList'}|[{'type',65,'list',[{'var',65,'OpenMode'}]}]]]]}|[{'type',66,'constraint',[{'atom',66,'is_subtype'}|[[{'var',66,'OpenMode'}|[{'type',66,'union',[{'atom',66,'read'}|[{'atom',66,'write'}]]}]]]]}|[{'type',67,'constraint',[{'atom',67,'is_subtype'}|[[{'var',67,'ReturnValue'}|[{'type',67,'union',[{'type',67,'tuple',[{'atom',67,'ok'}|[{'var',67,'RegHandle'}]]}|[{'type',67,'tuple',[{'atom',67,'error'}|[{'ann_type',67,[{'var',67,'ErrorId'}|[{'atom',67,'enotsup'}]]}]]}]]}]]]]}|[{'type',68,'constraint',[{'atom',68,'is_subtype'}|[[{'var',68,'RegHandle'}|[{'user_type',68,'reg_handle',[]}]]]]}]]]]]]}]}]
+, 'spec' = [{{'close',1},[{'type',84,'bounded_fun',[{'type',84,'fun',[{'type',84,'product',[{'var',84,'RegHandle'}]}|[{'atom',84,'ok'}]]}|[[{'type',85,'constraint',[{'atom',85,'is_subtype'}|[[{'var',85,'RegHandle'}|[{'user_type',85,'reg_handle',[]}]]]]}]]]}]}]
+, 'spec' = [{{'current_key',1},[{'type',92,'bounded_fun',[{'type',92,'fun',[{'type',92,'product',[{'var',92,'RegHandle'}]}|[{'var',92,'ReturnValue'}]]}|[[{'type',93,'constraint',[{'atom',93,'is_subtype'}|[[{'var',93,'RegHandle'}|[{'user_type',93,'reg_handle',[]}]]]]}|[{'type',94,'constraint',[{'atom',94,'is_subtype'}|[[{'var',94,'ReturnValue'}|[{'type',94,'tuple',[{'atom',94,'ok'}|[{'type',94,'string',[]}]]}]]]]}]]]]}]}]
+, 'spec' = [{{'change_key',2},[{'type',106,'bounded_fun',[{'type',106,'fun',[{'type',106,'product',[{'var',106,'RegHandle'}|[{'var',106,'Key'}]]}|[{'var',106,'ReturnValue'}]]}|[[{'type',107,'constraint',[{'atom',107,'is_subtype'}|[[{'var',107,'RegHandle'}|[{'user_type',107,'reg_handle',[]}]]]]}|[{'type',108,'constraint',[{'atom',108,'is_subtype'}|[[{'var',108,'Key'}|[{'type',108,'string',[]}]]]]}|[{'type',109,'constraint',[{'atom',109,'is_subtype'}|[[{'var',109,'ReturnValue'}|[{'type',109,'union',[{'atom',109,'ok'}|[{'type',109,'tuple',[{'atom',109,'error'}|[{'ann_type',109,[{'var',109,'ErrorId'}|[{'type',109,'atom',[]}]]}]]}]]}]]]]}]]]]]}]}]
+, 'spec' = [{{'change_key_create',2},[{'type',114,'bounded_fun',[{'type',114,'fun',[{'type',114,'product',[{'var',114,'RegHandle'}|[{'var',114,'Key'}]]}|[{'var',114,'ReturnValue'}]]}|[[{'type',115,'constraint',[{'atom',115,'is_subtype'}|[[{'var',115,'RegHandle'}|[{'user_type',115,'reg_handle',[]}]]]]}|[{'type',116,'constraint',[{'atom',116,'is_subtype'}|[[{'var',116,'Key'}|[{'type',116,'string',[]}]]]]}|[{'type',117,'constraint',[{'atom',117,'is_subtype'}|[[{'var',117,'ReturnValue'}|[{'type',117,'union',[{'atom',117,'ok'}|[{'type',117,'tuple',[{'atom',117,'error'}|[{'ann_type',117,[{'var',117,'ErrorId'}|[{'type',117,'atom',[]}]]}]]}]]}]]]]}]]]]]}]}]
+, 'spec' = [{{'sub_keys',1},[{'type',131,'bounded_fun',[{'type',131,'fun',[{'type',131,'product',[{'var',131,'RegHandle'}]}|[{'var',131,'ReturnValue'}]]}|[[{'type',132,'constraint',[{'atom',132,'is_subtype'}|[[{'var',132,'RegHandle'}|[{'user_type',132,'reg_handle',[]}]]]]}|[{'type',133,'constraint',[{'atom',133,'is_subtype'}|[[{'var',133,'ReturnValue'}|[{'type',133,'union',[{'type',133,'tuple',[{'atom',133,'ok'}|[{'type',133,'list',[{'var',133,'SubKey'}]}]]}|[{'type',133,'tuple',[{'atom',133,'error'}|[{'ann_type',133,[{'var',133,'ErrorId'}|[{'type',133,'atom',[]}]]}]]}]]}]]]]}|[{'type',134,'constraint',[{'atom',134,'is_subtype'}|[[{'var',134,'SubKey'}|[{'type',134,'string',[]}]]]]}]]]]]}]}]
+, 'spec' = [{{'delete_key',1},[{'type',141,'bounded_fun',[{'type',141,'fun',[{'type',141,'product',[{'var',141,'RegHandle'}]}|[{'var',141,'ReturnValue'}]]}|[[{'type',142,'constraint',[{'atom',142,'is_subtype'}|[[{'var',142,'RegHandle'}|[{'user_type',142,'reg_handle',[]}]]]]}|[{'type',143,'constraint',[{'atom',143,'is_subtype'}|[[{'var',143,'ReturnValue'}|[{'type',143,'union',[{'atom',143,'ok'}|[{'type',143,'tuple',[{'atom',143,'error'}|[{'ann_type',143,[{'var',143,'ErrorId'}|[{'type',143,'atom',[]}]]}]]}]]}]]]]}]]]]}]}]
+, 'spec' = [{{'set_value',3},[{'type',150,'bounded_fun',[{'type',150,'fun',[{'type',150,'product',[{'var',150,'RegHandle'}|[{'var',150,'Name'}|[{'var',150,'Value'}]]]}|[{'var',150,'ReturnValue'}]]}|[[{'type',151,'constraint',[{'atom',151,'is_subtype'}|[[{'var',151,'RegHandle'}|[{'user_type',151,'reg_handle',[]}]]]]}|[{'type',152,'constraint',[{'atom',152,'is_subtype'}|[[{'var',152,'Name'}|[{'user_type',152,'name',[]}]]]]}|[{'type',153,'constraint',[{'atom',153,'is_subtype'}|[[{'var',153,'Value'}|[{'user_type',153,'value',[]}]]]]}|[{'type',154,'constraint',[{'atom',154,'is_subtype'}|[[{'var',154,'ReturnValue'}|[{'type',154,'union',[{'atom',154,'ok'}|[{'type',154,'tuple',[{'atom',154,'error'}|[{'ann_type',154,[{'var',154,'ErrorId'}|[{'type',154,'atom',[]}]]}]]}]]}]]]]}]]]]]]}]}]
+, 'spec' = [{{'value',2},[{'type',167,'bounded_fun',[{'type',167,'fun',[{'type',167,'product',[{'var',167,'RegHandle'}|[{'var',167,'Name'}]]}|[{'var',167,'ReturnValue'}]]}|[[{'type',168,'constraint',[{'atom',168,'is_subtype'}|[[{'var',168,'RegHandle'}|[{'user_type',168,'reg_handle',[]}]]]]}|[{'type',169,'constraint',[{'atom',169,'is_subtype'}|[[{'var',169,'Name'}|[{'user_type',169,'name',[]}]]]]}|[{'type',170,'constraint',[{'atom',170,'is_subtype'}|[[{'var',170,'ReturnValue'}|[{'type',170,'union',[{'type',170,'tuple',[{'atom',170,'ok'}|[{'ann_type',170,[{'var',170,'Value'}|[{'user_type',170,'value',[]}]]}]]}|[{'type',170,'tuple',[{'atom',170,'error'}|[{'ann_type',170,[{'var',170,'ErrorId'}|[{'type',170,'atom',[]}]]}]]}]]}]]]]}]]]]]}]}]
+, 'spec' = [{{'values',1},[{'type',182,'bounded_fun',[{'type',182,'fun',[{'type',182,'product',[{'var',182,'RegHandle'}]}|[{'var',182,'ReturnValue'}]]}|[[{'type',183,'constraint',[{'atom',183,'is_subtype'}|[[{'var',183,'RegHandle'}|[{'user_type',183,'reg_handle',[]}]]]]}|[{'type',184,'constraint',[{'atom',184,'is_subtype'}|[[{'var',184,'ReturnValue'}|[{'type',184,'union',[{'type',184,'tuple',[{'atom',184,'ok'}|[{'type',184,'list',[{'var',184,'ValuePair'}]}]]}|[{'type',184,'tuple',[{'atom',184,'error'}|[{'ann_type',184,[{'var',184,'ErrorId'}|[{'type',184,'atom',[]}]]}]]}]]}]]]]}|[{'type',185,'constraint',[{'atom',185,'is_subtype'}|[[{'var',185,'ValuePair'}|[{'type',185,'tuple',[{'ann_type',185,[{'var',185,'Name'}|[{'user_type',185,'name',[]}]]}|[{'ann_type',185,[{'var',185,'Value'}|[{'user_type',185,'value',[]}]]}]]}]]]]}]]]]]}]}]
+, 'spec' = [{{'delete_value',2},[{'type',192,'bounded_fun',[{'type',192,'fun',[{'type',192,'product',[{'var',192,'RegHandle'}|[{'var',192,'Name'}]]}|[{'var',192,'ReturnValue'}]]}|[[{'type',193,'constraint',[{'atom',193,'is_subtype'}|[[{'var',193,'RegHandle'}|[{'user_type',193,'reg_handle',[]}]]]]}|[{'type',194,'constraint',[{'atom',194,'is_subtype'}|[[{'var',194,'Name'}|[{'user_type',194,'name',[]}]]]]}|[{'type',195,'constraint',[{'atom',195,'is_subtype'}|[[{'var',195,'ReturnValue'}|[{'type',195,'union',[{'atom',195,'ok'}|[{'type',195,'tuple',[{'atom',195,'error'}|[{'ann_type',195,[{'var',195,'ErrorId'}|[{'type',195,'atom',[]}]]}]]}]]}]]]]}]]]]]}]}]
+, 'spec' = [{{'expand',1},[{'type',207,'bounded_fun',[{'type',207,'fun',[{'type',207,'product',[{'var',207,'String'}]}|[{'var',207,'ExpandedString'}]]}|[[{'type',208,'constraint',[{'atom',208,'is_subtype'}|[[{'var',208,'String'}|[{'type',208,'string',[]}]]]]}|[{'type',209,'constraint',[{'atom',209,'is_subtype'}|[[{'var',209,'ExpandedString'}|[{'type',209,'string',[]}]]]]}]]]]}]}]
+, 'spec' = [{{'format_error',1},[{'type',228,'bounded_fun',[{'type',228,'fun',[{'type',228,'product',[{'var',228,'ErrorId'}]}|[{'var',228,'ErrorString'}]]}|[[{'type',229,'constraint',[{'atom',229,'is_subtype'}|[[{'var',229,'ErrorId'}|[{'type',229,'atom',[]}]]]]}|[{'type',230,'constraint',[{'atom',230,'is_subtype'}|[[{'var',230,'ErrorString'}|[{'type',230,'string',[]}]]]]}]]]]}]}]
+, 'spec' = [{{'collect_values',2},[{'type',237,'fun',[{'type',237,'product',[{'type',237,'port',[]}|[{'type',237,'list',[{'type',237,'tuple',[{'user_type',237,'name',[]}|[{'user_type',237,'value',[]}]]}]}]]}|[{'type',238,'union',[{'type',238,'tuple',[{'atom',238,'ok'}|[{'type',238,'list',[{'type',238,'tuple',[{'user_type',238,'name',[]}|[{'user_type',238,'value',[]}]]}]}]]}|[{'type',238,'tuple',[{'atom',238,'error'}|[{'ann_type',238,[{'var',238,'ErrorId'}|[{'type',238,'atom',[]}]]}]]}]]}]]}]}]
+, 'spec' = [{{'collect_keys',2},[{'type',250,'fun',[{'type',250,'product',[{'type',250,'port',[]}|[{'type',250,'string',[]}]]}|[{'type',250,'union',[{'type',250,'tuple',[{'atom',250,'ok'}|[{'type',250,'list',[{'type',250,'string',[]}]}]]}|[{'type',250,'tuple',[{'atom',250,'error'}|[{'ann_type',250,[{'var',250,'ErrorId'}|[{'type',250,'atom',[]}]]}]]}]]}]]}]}] ] 'open'/1 = fun (_0) -> case call 'os':'type' () of <{'win32',_6}> when 'true' -> case apply 'open_mode'/2 (_0,[]) of <_@r0 = {'error',Reason}> when 'true' -> _@r0
+<ModeStr> when 'true' -> let <_1> = call 'erlang':'++' ([114|[101|[103|[105|[115|[116|[114|[121|[95|[95|[100|[114|[118|[95|[95|[32]]]]]]]]]]]]]]]],ModeStr) in let <P> = call 'erlang':'open_port' ({'spawn',_1},[]) in {'ok',{'win32reg',P}} end
+<_7> when 'true' -> {'error','enotsup'} end
+'close'/1 = fun (_0) -> case _0 of <{'win32reg',Reg}> when call 'erlang':'is_port' (Reg) -> do call 'erlang':'unlink' (Reg) do call 'erlang':'exit' (Reg,'die') 'ok'
+(<_1> when 'true' -> (primop 'match_fail' ({'function_clause',_1})-|[{'function_name',{'close',1}}] )-|['compiler_generated'] ) end
+'current_key'/1 = fun (_0) -> case _0 of <{'win32reg',Reg}> when call 'erlang':'is_port' (Reg) -> let <_2> = call 'erlang':'self' () in do call 'erlang':'!' (Reg,{_2,{'command',[0]}}) case apply 'get_result'/1 (Reg) of <{'state',Hkey,Name}> when 'true' -> let <Root> = apply 'hkey_to_string'/1 (Hkey) in let <_6> = case Name of <[]> when 'true' -> Root
+<_8> when 'true' -> call 'erlang':'++' (Root,[92|Name]) end in {'ok',_6}
+(<_3> when 'true' -> primop 'match_fail' ({'badmatch',_3})-|['compiler_generated'] ) end
+(<_7> when 'true' -> (primop 'match_fail' ({'function_clause',_7})-|[{'function_name',{'current_key',1}}] )-|['compiler_generated'] ) end
+'change_key'/2 = fun (_0,_1) -> case <_0,_1> of <{'win32reg',Reg},Key> when call 'erlang':'is_port' (Reg) -> apply 'change_key'/3 (Reg,1,Key)
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'change_key',2}}] )-|['compiler_generated'] ) end
+'change_key_create'/2 = fun (_0,_1) -> case <_0,_1> of <{'win32reg',Reg},Key> when call 'erlang':'is_port' (Reg) -> apply 'change_key'/3 (Reg,2,Key)
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'change_key_create',2}}] )-|['compiler_generated'] ) end
+'change_key'/3 = fun (_0,_1,_2) -> case apply 'parse_key'/2 (_2,_0) of <{'ok',Hkey,Path}> when 'true' -> let <_4> = call 'erlang':'self' () in let <_3> = apply 'i32'/1 (Hkey) in do call 'erlang':'!' (_0,{_4,{'command',[_1|[_3|[Path|[0]]]]}}) apply 'get_result'/1 (_0)
+<_@r0 = {'error',Reason}> when 'true' -> _@r0
+(<_5> when 'true' -> primop 'match_fail' ({'case_clause',_5})-|['compiler_generated'] ) end
+'sub_keys'/1 = fun (_0) -> case _0 of <{'win32reg',Reg}> when call 'erlang':'is_port' (Reg) -> let <_2> = call 'erlang':'self' () in do call 'erlang':'!' (Reg,{_2,{'command',[3]}}) apply 'collect_keys'/2 (Reg,[])
+(<_3> when 'true' -> (primop 'match_fail' ({'function_clause',_3})-|[{'function_name',{'sub_keys',1}}] )-|['compiler_generated'] ) end
+'delete_key'/1 = fun (_0) -> case _0 of <{'win32reg',Reg}> when call 'erlang':'is_port' (Reg) -> let <_2> = call 'erlang':'self' () in do call 'erlang':'!' (Reg,{_2,{'command',[7]}}) apply 'get_result'/1 (Reg)
+(<_3> when 'true' -> (primop 'match_fail' ({'function_clause',_3})-|[{'function_name',{'delete_key',1}}] )-|['compiler_generated'] ) end
+'set_value'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <{'win32reg',Reg},Name0,Value> when call 'erlang':'is_port' (Reg) -> let <_4> = case Name0 of <'default'> when 'true' -> []
+<_12> when 'true' -> Name0 end in case apply 'term_to_value'/1 (Value) of <{Type,V}> when 'true' -> let <Cmd> = [6|[Type|[_4|[0|[V|[]]]]]] in let <_8> = call 'erlang':'self' () in do call 'erlang':'!' (Reg,{_8,{'command',Cmd}}) apply 'get_result'/1 (Reg)
+(<_6> when 'true' -> primop 'match_fail' ({'badmatch',_6})-|['compiler_generated'] ) end
+(<_11,_10,_9> when 'true' -> (primop 'match_fail' ({'function_clause',_11,_10,_9})-|[{'function_name',{'set_value',3}}] )-|['compiler_generated'] ) end
+'value'/2 = fun (_0,_1) -> case <_0,_1> of <{'win32reg',Reg},Name> when call 'erlang':'is_port' (Reg) -> let <Cmd> = [4|[Name|[0]]] in let <_3> = call 'erlang':'self' () in do call 'erlang':'!' (Reg,{_3,{'command',Cmd}}) case apply 'get_result'/1 (Reg) of <{'value',{_7,Value}}> when call 'erlang':'=:=' (_7,Name) -> {'ok',Value}
+<_@r0 = {'error',Reason}> when 'true' -> _@r0
+(<_4> when 'true' -> primop 'match_fail' ({'case_clause',_4})-|['compiler_generated'] ) end
+(<_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_6,_5})-|[{'function_name',{'value',2}}] )-|['compiler_generated'] ) end
+'values'/1 = fun (_0) -> case _0 of <{'win32reg',Reg}> when call 'erlang':'is_port' (Reg) -> let <_2> = call 'erlang':'self' () in do call 'erlang':'!' (Reg,{_2,{'command',[5]}}) apply 'collect_values'/2 (Reg,[])
+(<_3> when 'true' -> (primop 'match_fail' ({'function_clause',_3})-|[{'function_name',{'values',1}}] )-|['compiler_generated'] ) end
+'delete_value'/2 = fun (_0,_1) -> case <_0,_1> of <{'win32reg',Reg},Name0> when call 'erlang':'is_port' (Reg) -> let <_3> = case Name0 of <'default'> when 'true' -> []
+<_9> when 'true' -> Name0 end in let <Cmd> = [8|[_3|[0]]] in let <_6> = call 'erlang':'self' () in do call 'erlang':'!' (Reg,{_6,{'command',Cmd}}) apply 'get_result'/1 (Reg)
+(<_8,_7> when 'true' -> (primop 'match_fail' ({'function_clause',_8,_7})-|[{'function_name',{'delete_value',2}}] )-|['compiler_generated'] ) end
+'expand'/1 = fun (_0) -> apply 'expand'/3 (_0,[],[])
+'expand'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <[37|[37|Rest]],[],Result> when 'true' -> apply 'expand'/3 (Rest,[],[37|Result])
+<[37|[C|Rest]],[],Result> when 'true' -> apply 'expand'/3 (Rest,[C|[]],Result)
+<[C|Rest],[],Result> when 'true' -> apply 'expand'/3 (Rest,[],[C|Result])
+<[37|Rest],Env0,Result> when 'true' -> let <Env> = call 'lists':'reverse' (Env0) in let <_4> = call 'os':'getenv' (Env,[]) in let <_5> = call 'lists':'reverse' (_4) in let <_6> = call 'erlang':'++' (_5,Result) in apply 'expand'/3 (Rest,[],_6)
+<[C|Rest],Env,Result> when 'true' -> apply 'expand'/3 (Rest,[C|Env],Result)
+<[],[],Result> when 'true' -> call 'lists':'reverse' (Result)
+(<_9,_8,_7> when 'true' -> (primop 'match_fail' ({'function_clause',_9,_8,_7})-|[{'function_name',{'expand',3}}] )-|['compiler_generated'] ) end
+'format_error'/1 = fun (_0) -> call 'erl_posix_msg':'message' (_0)
+'collect_values'/2 = fun (_0,_1) -> case apply 'get_result'/1 (_0) of <'ok'> when 'true' -> let <_2> = call 'lists':'reverse' (_1) in {'ok',_2}
+<{'value',ValueData}> when 'true' -> apply 'collect_values'/2 (_0,[ValueData|_1])
+<_@r0 = {'error',Reason}> when 'true' -> _@r0
+(<_3> when 'true' -> primop 'match_fail' ({'case_clause',_3})-|['compiler_generated'] ) end
+'collect_keys'/2 = fun (_0,_1) -> case apply 'get_result'/1 (_0) of <'ok'> when 'true' -> let <_2> = call 'lists':'reverse' (_1) in {'ok',_2}
+<{'key',KeyData}> when 'true' -> apply 'collect_keys'/2 (_0,[KeyData|_1])
+<_@r0 = {'error',Reason}> when 'true' -> _@r0
+(<_3> when 'true' -> primop 'match_fail' ({'case_clause',_3})-|['compiler_generated'] ) end
+'get_result'/1 = fun (_0) -> receive <{_2,{'data',Data}}> when call 'erlang':'=:=' (_2,_0) -> apply 'get_result1'/1 (Data) after 'infinity' -> 'true'
+'get_result1'/1 = fun (_0) -> case _0 of <[101|Reason]> when 'true' -> let <_1> = call 'erlang':'list_to_atom' (Reason) in {'error',_1}
+<[111]> when 'true' -> 'ok'
+<[107|Name]> when 'true' -> {'key',Name}
+<[118|Rest0]> when 'true' -> case apply 'i32_on_head'/1 (Rest0) of <{'ok',Type,Rest1}> when 'true' -> case apply 'get_cstring'/1 (Rest1) of <{'ok',Name0,Value}> when 'true' -> let <_5> = case Name0 of <[]> when 'true' -> 'default'
+<_10> when 'true' -> Name0 end in let <_7> = apply 'encode_value'/2 (Type,Value) in {'value',{_5,_7}}
+(<_3> when 'true' -> primop 'match_fail' ({'badmatch',_3})-|['compiler_generated'] ) end
+(<_2> when 'true' -> primop 'match_fail' ({'badmatch',_2})-|['compiler_generated'] ) end
+<[115|Rest0]> when 'true' -> case apply 'i32_on_head'/1 (Rest0) of <{'ok',Hkey,Name}> when 'true' -> {'state',Hkey,Name}
+(<_8> when 'true' -> primop 'match_fail' ({'badmatch',_8})-|['compiler_generated'] ) end
+(<_9> when 'true' -> (primop 'match_fail' ({'function_clause',_9})-|[{'function_name',{'get_result1',1}}] )-|['compiler_generated'] ) end
+'encode_value'/2 = fun (_0,_1) -> case <_0,_1> of <1,Value> when 'true' -> Value
+<2,Value> when 'true' -> Value
+<4,Value> when 'true' -> apply 'i32'/1 (Value)
+<_4,Value> when 'true' -> call 'erlang':'list_to_binary' (Value) end
+'term_to_value'/1 = fun (_0) -> case _0 of <Int> when call 'erlang':'is_integer' (_0) -> let <_2> = apply 'i32'/1 (4) in let <_1> = apply 'i32'/1 (Int) in {_2,_1}
+<String> when call 'erlang':'is_list' (_0) -> let <_3> = apply 'i32'/1 (1) in {_3,[String|[0]]}
+<Bin> when call 'erlang':'is_binary' (_0) -> let <_4> = apply 'i32'/1 (3) in {_4,Bin}
+<_6> when 'true' -> call 'erlang':'exit' ('badarg') end
+'get_cstring'/1 = fun (_0) -> apply 'get_cstring'/2 (_0,[])
+'get_cstring'/2 = fun (_0,_1) -> case <_0,_1> of <[0|Rest],Result> when 'true' -> let <_2> = call 'lists':'reverse' (Result) in {'ok',_2,Rest}
+<[C|Rest],Result> when 'true' -> apply 'get_cstring'/2 (Rest,[C|Result])
+<[],Result> when 'true' -> let <_3> = call 'lists':'reverse' (Result) in {'ok',_3,[]}
+(<_5,_4> when 'true' -> (primop 'match_fail' ({'function_clause',_5,_4})-|[{'function_name',{'get_cstring',2}}] )-|['compiler_generated'] ) end
+'i32'/1 = fun (_0) -> case _0 of <Int> when call 'erlang':'is_integer' (_0) -> let <_1> = call 'erlang':'bsr' (Int,24) in let <_2> = call 'erlang':'band' (_1,255) in let <_3> = call 'erlang':'bsr' (Int,16) in let <_4> = call 'erlang':'band' (_3,255) in let <_5> = call 'erlang':'bsr' (Int,8) in let <_6> = call 'erlang':'band' (_5,255) in let <_7> = call 'erlang':'band' (Int,255) in [_2|[_4|[_6|[_7|[]]]]]
+<[X1|[X2|[X3|[X4|[]]]]]> when 'true' -> let <_10> = call 'erlang':'bsl' (X1,24) in let <_9> = call 'erlang':'bsl' (X2,16) in let <_11> = call 'erlang':'bor' (_10,_9) in let <_8> = call 'erlang':'bsl' (X3,8) in let <_12> = call 'erlang':'bor' (_11,_8) in call 'erlang':'bor' (_12,X4)
+(<_13> when 'true' -> (primop 'match_fail' ({'function_clause',_13})-|[{'function_name',{'i32',1}}] )-|['compiler_generated'] ) end
+'i32_on_head'/1 = fun (_0) -> case _0 of <[X1|[X2|[X3|[X4|Rest]]]]> when 'true' -> let <_3> = call 'erlang':'bsl' (X1,24) in let <_2> = call 'erlang':'bsl' (X2,16) in let <_4> = call 'erlang':'bor' (_3,_2) in let <_1> = call 'erlang':'bsl' (X3,8) in let <_5> = call 'erlang':'bor' (_4,_1) in let <_6> = call 'erlang':'bor' (_5,X4) in {'ok',_6,Rest}
+(<_7> when 'true' -> (primop 'match_fail' ({'function_clause',_7})-|[{'function_name',{'i32_on_head',1}}] )-|['compiler_generated'] ) end
+'parse_key'/2 = fun (_0,_1) -> case <_0,_1> of <[92|Rest],_4> when 'true' -> apply 'parse_root'/2 (Rest,[])
+<Key,Reg> when 'true' -> apply 'parse_relative'/2 (Key,Reg) end
+'parse_relative'/2 = fun (_0,_1) -> let <_3> = call 'erlang':'self' () in do call 'erlang':'!' (_1,{_3,{'command',[0]}}) case apply 'get_result'/1 (_1) of <{'state',RootHandle,Name}> when 'true' -> let <Original> = apply 'split_key'/1 (Name) in let <_6> = apply 'split_key'/1 (_0) in let <Relative> = call 'lists':'reverse' (_6) in let <_11> = apply 'parse_relative1'/2 (Relative,Original) in {'ok',RootHandle,_11}
+(<_4> when 'true' -> primop 'match_fail' ({'badmatch',_4})-|['compiler_generated'] ) end
+'parse_relative1'/2 = fun (_0,_1) -> case <_0,_1> of <[[46|[46]]|T1],[_4|T2]> when 'true' -> apply 'parse_relative1'/2 (T1,T2)
+<[Comp|Rest],Result> when 'true' -> apply 'parse_relative1'/2 (Rest,[Comp|Result])
+<[],Result> when 'true' -> apply 'reverse_and_join'/2 (Result,[])
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'parse_relative1',2}}] )-|['compiler_generated'] ) end
+'reverse_and_join'/2 = fun (_0,_1) -> case <_0,_1> of <[X|Rest],[]> when 'true' -> apply 'reverse_and_join'/2 (Rest,[X|[]])
+<[X|Rest],Result> when 'true' -> apply 'reverse_and_join'/2 (Rest,[X|[[92]|Result]])
+<[],Result> when 'true' -> Result
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'reverse_and_join',2}}] )-|['compiler_generated'] ) end
+'split_key'/1 = fun (_0) -> apply 'split_key'/3 (_0,[],[])
+'split_key'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <[92|Rest],Current,Result> when 'true' -> let <_3> = call 'lists':'reverse' (Current) in apply 'split_key'/3 (Rest,[],[_3|Result])
+<[C|Rest],Current,Result> when 'true' -> apply 'split_key'/3 (Rest,[C|Current],Result)
+<[],[],Result> when 'true' -> Result
+<[],Current,Result> when 'true' -> let <_4> = call 'lists':'reverse' (Current) in [_4|Result]
+(<_7,_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_7,_6,_5})-|[{'function_name',{'split_key',3}}] )-|['compiler_generated'] ) end
+'parse_root'/2 = fun (_0,_1) -> case <_0,_1> of <[92|Rest],Result> when 'true' -> let <_3> = case call 'lists':'reverse' (Result) of <[104|[107|[101|[121|[95|Root0]]]]]> when 'true' -> Root0
+<Root0> when 'true' -> Root0 end in let <_5> = call 'erlang':'list_to_atom' (_3) in case apply 'root_to_handle'/1 (_5) of <'false'> when 'true' -> {'error','enoent'}
+<Handle> when 'true' -> {'ok',Handle,Rest} end
+<[C|Rest],Result> when 'true' -> apply 'parse_root'/2 (Rest,[C|Result])
+<[],Result> when 'true' -> apply 'parse_root'/2 ([92],Result)
+(<_8,_7> when 'true' -> (primop 'match_fail' ({'function_clause',_8,_7})-|[{'function_name',{'parse_root',2}}] )-|['compiler_generated'] ) end
+'root_to_handle'/1 = fun (_0) -> case _0 of <'classes_root'> when 'true' -> 2147483648
+<'hkcr'> when 'true' -> 2147483648
+<'current_user'> when 'true' -> 2147483649
+<'hkcu'> when 'true' -> 2147483649
+<'local_machine'> when 'true' -> 2147483650
+<'hklm'> when 'true' -> 2147483650
+<'users'> when 'true' -> 2147483651
+<'hku'> when 'true' -> 2147483651
+<'current_config'> when 'true' -> 2147483653
+<'hkcc'> when 'true' -> 2147483653
+<'dyn_data'> when 'true' -> 2147483654
+<'hkdd'> when 'true' -> 2147483654
+<'performance_data'> when 'true' -> 2147483652
+<_2> when 'true' -> 'false' end
+'hkey_to_string'/1 = fun (_0) -> case _0 of <2147483648> when 'true' -> [92|[104|[107|[101|[121|[95|[99|[108|[97|[115|[115|[101|[115|[95|[114|[111|[111|[116]]]]]]]]]]]]]]]]]]
+<2147483649> when 'true' -> [92|[104|[107|[101|[121|[95|[99|[117|[114|[114|[101|[110|[116|[95|[117|[115|[101|[114]]]]]]]]]]]]]]]]]]
+<2147483650> when 'true' -> [92|[104|[107|[101|[121|[95|[108|[111|[99|[97|[108|[95|[109|[97|[99|[104|[105|[110|[101]]]]]]]]]]]]]]]]]]]
+<2147483651> when 'true' -> [92|[104|[107|[101|[121|[95|[117|[115|[101|[114|[115]]]]]]]]]]]
+<2147483652> when 'true' -> [92|[104|[107|[101|[121|[95|[112|[101|[114|[102|[111|[114|[109|[97|[110|[99|[101|[95|[100|[97|[116|[97]]]]]]]]]]]]]]]]]]]]]]
+<2147483653> when 'true' -> [92|[104|[107|[101|[121|[95|[99|[117|[114|[114|[101|[110|[116|[95|[99|[111|[110|[102|[105|[103]]]]]]]]]]]]]]]]]]]]
+<2147483654> when 'true' -> [92|[104|[107|[101|[121|[95|[100|[121|[110|[95|[100|[97|[116|[97]]]]]]]]]]]]]]
+(<_1> when 'true' -> (primop 'match_fail' ({'function_clause',_1})-|[{'function_name',{'hkey_to_string',1}}] )-|['compiler_generated'] ) end
+'open_mode'/2 = fun (_0,_1) -> case <_0,_1> of <['read'|Rest],Result> when 'true' -> apply 'open_mode'/2 (Rest,[114|Result])
+<['write'|Rest],Result> when 'true' -> apply 'open_mode'/2 (Rest,[119|Result])
+<[],Result> when 'true' -> Result
+<_4,_5> when 'true' -> {'error','einval'} end
+'module_info'/0 = fun () -> call 'erlang':'get_module_info' ('win32reg')
+'module_info'/1 = fun (_0) -> call 'erlang':'get_module_info' ('win32reg',_0) end

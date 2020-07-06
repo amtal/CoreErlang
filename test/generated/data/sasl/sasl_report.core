@@ -1,0 +1,75 @@
+module 'sasl_report' ['format_report'/3,'module_info'/0,'module_info'/1,'write_report'/3] attributes [ 'file' = [{[115|[114|[99|[47|[115|[97|[115|[108|[95|[114|[101|[112|[111|[114|[116|[46|[101|[114|[108]]]]]]]]]]]]]]]]]]],1}] ] 'format_report'/3 = fun (_0,_1,_2) -> apply 'io_report'/4 ('io_lib',_0,_1,_2)
+'write_report'/3 = fun (_0,_1,_2) -> apply 'io_report'/4 ('io',_0,_1,_2)
+'io_report'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <IO,Fd,What,{Time,{'error_report',_X_GL,{Pid,Type,Report}}}> when 'true' -> case apply 'is_my_error_report'/2 (What,Type) of <'true'> when 'true' -> let <Head> = apply 'write_head'/3 (Type,Time,Pid) in apply 'write_report2'/5 (IO,Fd,Head,Type,Report)
+<_12> when 'true' -> 'true' end
+<IO,Fd,What,{Time,{'info_report',_X_GL,{Pid,Type,Report}}}> when 'true' -> case apply 'is_my_info_report'/2 (What,Type) of <'true'> when 'true' -> let <Head> = apply 'write_head'/3 (Type,Time,Pid) in apply 'write_report2'/5 (IO,Fd,Head,Type,Report)
+<_13> when 'true' -> 'true' end
+<_X_IO,_X_Fd,_14,_15> when 'true' -> 'false' end
+'is_my_error_report'/2 = fun (_0,_1) -> case <_0,_1> of <'all',Type> when 'true' -> apply 'is_my_error_report'/1 (Type)
+<'error',Type> when 'true' -> apply 'is_my_error_report'/1 (Type)
+<_4,_X_Type> when 'true' -> 'false' end
+'is_my_error_report'/1 = fun (_0) -> case _0 of <'supervisor_report'> when 'true' -> 'true'
+<'crash_report'> when 'true' -> 'true'
+<_2> when 'true' -> 'false' end
+'is_my_info_report'/2 = fun (_0,_1) -> case <_0,_1> of <'all',Type> when 'true' -> apply 'is_my_info_report'/1 (Type)
+<'progress',Type> when 'true' -> apply 'is_my_info_report'/1 (Type)
+<_4,_X_Type> when 'true' -> 'false' end
+'is_my_info_report'/1 = fun (_0) -> case _0 of <'progress'> when 'true' -> 'true'
+<_2> when 'true' -> 'false' end
+'write_report2'/5 = fun (_0,_1,_2,_3,_4) -> case <_0,_1,_2,_3,_4> of <IO,Fd,Head,'supervisor_report',Report> when 'true' -> let <Name> = apply 'sup_get'/2 ('supervisor',Report) in let <Context> = apply 'sup_get'/2 ('errorContext',Report) in let <Reason> = apply 'sup_get'/2 ('reason',Report) in let <Offender> = apply 'sup_get'/2 ('offender',Report) in let <Enc> = apply 'encoding'/1 (Fd) in case apply 'supervisor_format'/2 ([Name|[Context|[Reason|[Offender|[]]]]],Enc) of <{FmtString,Args}> when 'true' -> let <String> = call 'io_lib':'format' (FmtString,Args) in apply 'write_report_action'/4 (IO,Fd,Head,String)
+(<_10> when 'true' -> primop 'match_fail' ({'badmatch',_10})-|['compiler_generated'] ) end
+<IO,Fd,Head,'progress',Report> when 'true' -> let <Encoding> = apply 'encoding'/1 (Fd) in let <Depth> = call 'error_logger':'get_format_depth' () in let <String> = apply 'format_key_val'/3 (Report,Encoding,Depth) in apply 'write_report_action'/4 (IO,Fd,Head,String)
+<IO,Fd,Head,'crash_report',Report> when 'true' -> let <Encoding> = apply 'encoding'/1 (Fd) in let <Depth> = call 'error_logger':'get_format_depth' () in let <String> = call 'proc_lib':'format' (Report,Encoding,Depth) in apply 'write_report_action'/4 (IO,Fd,Head,String)
+(<_22,_21,_20,_19,_18> when 'true' -> (primop 'match_fail' ({'function_clause',_22,_21,_20,_19,_18})-|[{'function_name',{'write_report2',5}}] )-|['compiler_generated'] ) end
+'supervisor_format'/2 = fun (_0,_1) -> let <_2> = call 'error_logger':'get_format_depth' () in case apply 'p'/2 (_1,_2) of <{P,Tl}> when 'true' -> case _0 of <[A|[B|[C|[D|[]]]]]> when 'true' -> let <_5> = [C|call 'erlang':'++' (Tl,[D|Tl])] in let <_6> = [B|call 'erlang':'++' (Tl,_5)] in let <Args> = [A|call 'erlang':'++' (Tl,_6)] in let <_8> = call 'erlang':'++' (P,[10|[126|[110]]]) in let <_9> = call 'erlang':'++' ([10|[32|[32|[32|[32|[32|[79|[102|[102|[101|[110|[100|[101|[114|[58|[32|[32|[32|[126|[56|[48|[46|[49|[56]]]]]]]]]]]]]]]]]]]]]]]],_8) in let <_10> = call 'erlang':'++' (P,_9) in let <_11> = call 'erlang':'++' ([10|[32|[32|[32|[32|[32|[82|[101|[97|[115|[111|[110|[58|[32|[32|[32|[32|[32|[126|[56|[48|[46|[49|[56]]]]]]]]]]]]]]]]]]]]]]]],_10) in let <_12> = call 'erlang':'++' (P,_11) in let <_13> = call 'erlang':'++' ([10|[32|[32|[32|[32|[32|[67|[111|[110|[116|[101|[120|[116|[58|[32|[32|[32|[32|[126]]]]]]]]]]]]]]]]]]],_12) in let <_14> = call 'erlang':'++' (P,_13) in let <_15> = call 'erlang':'++' ([32|[32|[32|[32|[32|[83|[117|[112|[101|[114|[118|[105|[115|[111|[114|[58|[32|[126]]]]]]]]]]]]]]]]]],_14) in {_15,Args}
+(<_4> when 'true' -> primop 'match_fail' ({'badmatch',_4})-|['compiler_generated'] ) end
+(<_3> when 'true' -> primop 'match_fail' ({'badmatch',_3})-|['compiler_generated'] ) end
+'write_report_action'/4 = fun (_0,_1,_2,_3) -> let <S> = [_2|_3] in case _0 of <'io'> when 'true' -> call 'io':'put_chars' (_1,S)
+<'io_lib'> when 'true' -> S
+(<_5> when 'true' -> primop 'match_fail' ({'case_clause',_5})-|['compiler_generated'] ) end
+'format_key_val'/3 = fun (_0,_1,_2) -> case apply 'p'/2 (_1,_2) of <{P,Tl}> when 'true' -> apply 'format_key_val1'/3 (_0,P,Tl)
+(<_3> when 'true' -> primop 'match_fail' ({'badmatch',_3})-|['compiler_generated'] ) end
+'format_key_val1'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <[{Tag,Data}|Rep],P,Tl> when 'true' -> let <_4> = call 'erlang':'++' (P,[10]) in let <_5> = call 'erlang':'++' ([32|[32|[32|[32|[126|[49|[54|[119|[58|[32|[126]]]]]]]]]]],_4) in let <_6> = call 'io_lib':'format' (_5,[Tag|[Data|Tl]]) in let <_3> = apply 'format_key_val1'/3 (Rep,P,Tl) in call 'erlang':'++' (_6,_3)
+<_10,_11,_12> when 'true' -> [] end
+'p'/2 = fun (_0,_1) -> let <_10,_11> = case _1 of <'unlimited'> when 'true' -> <[112],[]>
+<_9> when 'true' -> <[80],[_1|[]]> end in let <_5> = apply 'modifier'/1 (_0) in let <P> = call 'erlang':'++' (_5,(_10-|['compiler_generated'] )) in {P,(_11-|['compiler_generated'] )}
+'encoding'/1 = fun (_0) -> let <_1> = call 'io':'getopts' (_0) in case call 'lists':'keyfind' ('encoding',1,_1) of <'false'> when 'true' -> 'latin1'
+<{'encoding',Enc}> when 'true' -> Enc
+(<_2> when 'true' -> primop 'match_fail' ({'case_clause',_2})-|['compiler_generated'] ) end
+'modifier'/1 = fun (_0) -> case _0 of <'latin1'> when 'true' -> []
+<_2> when 'true' -> [116] end
+'sup_get'/2 = fun (_0,_1) -> case call 'lists':'keysearch' (_0,1,_1) of <{'value',{_5,Value}}> when 'true' -> Value
+<_6> when 'true' -> [] end
+'maybe_utc'/1 = fun (_0) -> case call 'application':'get_env' ('sasl','utc_log') of <{'ok','true'}> when 'true' -> case call 'calendar':'local_time_to_universal_time_dst' (_0) of <[UTC|[]]> when 'true' -> {'utc',UTC}
+<[UTC1|[_X_UTC2|[]]]> when 'true' -> {'utc',UTC1}
+<[]> when 'true' -> _0
+(<_1> when 'true' -> primop 'match_fail' ({'case_clause',_1})-|['compiler_generated'] ) end
+<_4> when 'true' -> _0 end
+'write_head'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <'supervisor_report',Time,Pid> when 'true' -> let <_3> = apply 'maybe_utc'/1 (Time) in apply 'write_head1'/3 ([83|[85|[80|[69|[82|[86|[73|[83|[79|[82|[32|[82|[69|[80|[79|[82|[84]]]]]]]]]]]]]]]]],_3,Pid)
+<'crash_report',Time,Pid> when 'true' -> let <_4> = apply 'maybe_utc'/1 (Time) in apply 'write_head1'/3 ([67|[82|[65|[83|[72|[32|[82|[69|[80|[79|[82|[84]]]]]]]]]]]],_4,Pid)
+<'progress',Time,Pid> when 'true' -> let <_5> = apply 'maybe_utc'/1 (Time) in apply 'write_head1'/3 ([80|[82|[79|[71|[82|[69|[83|[83|[32|[82|[69|[80|[79|[82|[84]]]]]]]]]]]]]]],_5,Pid)
+(<_8,_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_8,_7,_6})-|[{'function_name',{'write_head',3}}] )-|['compiler_generated'] ) end
+'write_head1'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Type,{'utc',{{Y,Mo,D},{H,Mi,S}}},Pid> when try let <_4> = call 'erlang':'node' (Pid) in let <_3> = call 'erlang':'node' () in call 'erlang':'/=' (_4,_3) of <Try> -> Try catch <T,R> -> 'false' -> let <_5> = apply 'month'/1 (Mo) in let <_6> = apply 't'/1 (H) in let <_7> = apply 't'/1 (Mi) in let <_8> = apply 't'/1 (S) in let <_9> = call 'erlang':'node' (Pid) in call 'io_lib':'format' ([126|[110|[61|[126|[115|[61|[61|[61|[61|[32|[126|[112|[45|[126|[115|[45|[126|[112|[58|[58|[126|[115|[58|[126|[115|[58|[126|[115|[32|[85|[84|[67|[32|[40|[126|[112|[41|[32|[61|[61|[61|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]],[Type|[D|[_5|[Y|[_6|[_7|[_8|[_9|[]]]]]]]]])
+<Type,{'utc',{{Y,Mo,D},{H,Mi,S}}},_28> when 'true' -> let <_10> = apply 'month'/1 (Mo) in let <_11> = apply 't'/1 (H) in let <_12> = apply 't'/1 (Mi) in let <_13> = apply 't'/1 (S) in call 'io_lib':'format' ([126|[110|[61|[126|[115|[61|[61|[61|[61|[32|[126|[112|[45|[126|[115|[45|[126|[112|[58|[58|[126|[115|[58|[126|[115|[58|[126|[115|[32|[85|[84|[67|[32|[61|[61|[61|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]],[Type|[D|[_10|[Y|[_11|[_12|[_13|[]]]]]]]])
+<Type,{{Y,Mo,D},{H,Mi,S}},Pid> when try let <_15> = call 'erlang':'node' (Pid) in let <_14> = call 'erlang':'node' () in call 'erlang':'/=' (_15,_14) of <Try> -> Try catch <T,R> -> 'false' -> let <_16> = apply 'month'/1 (Mo) in let <_17> = apply 't'/1 (H) in let <_18> = apply 't'/1 (Mi) in let <_19> = apply 't'/1 (S) in let <_20> = call 'erlang':'node' (Pid) in call 'io_lib':'format' ([126|[110|[61|[126|[115|[61|[61|[61|[61|[32|[126|[112|[45|[126|[115|[45|[126|[112|[58|[58|[126|[115|[58|[126|[115|[58|[126|[115|[32|[40|[126|[112|[41|[32|[61|[61|[61|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]],[Type|[D|[_16|[Y|[_17|[_18|[_19|[_20|[]]]]]]]]])
+<Type,{{Y,Mo,D},{H,Mi,S}},_29> when 'true' -> let <_21> = apply 'month'/1 (Mo) in let <_22> = apply 't'/1 (H) in let <_23> = apply 't'/1 (Mi) in let <_24> = apply 't'/1 (S) in call 'io_lib':'format' ([126|[110|[61|[126|[115|[61|[61|[61|[61|[32|[126|[112|[45|[126|[115|[45|[126|[112|[58|[58|[126|[115|[58|[126|[115|[58|[126|[115|[32|[61|[61|[61|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]],[Type|[D|[_21|[Y|[_22|[_23|[_24|[]]]]]]]])
+(<_27,_26,_25> when 'true' -> (primop 'match_fail' ({'function_clause',_27,_26,_25})-|[{'function_name',{'write_head1',3}}] )-|['compiler_generated'] ) end
+'t'/1 = fun (_0) -> case _0 of <X> when call 'erlang':'is_integer' (_0) -> let <_1> = call 'erlang':'integer_to_list' (X) in apply 't1'/1 (_1)
+<_3> when 'true' -> [] end
+'t1'/1 = fun (_0) -> case _0 of <_@r0 = [X|[]]> when 'true' -> [48|_@r0]
+<X> when 'true' -> X end
+'month'/1 = fun (_0) -> case _0 of <1> when 'true' -> [74|[97|[110]]]
+<2> when 'true' -> [70|[101|[98]]]
+<3> when 'true' -> [77|[97|[114]]]
+<4> when 'true' -> [65|[112|[114]]]
+<5> when 'true' -> [77|[97|[121]]]
+<6> when 'true' -> [74|[117|[110]]]
+<7> when 'true' -> [74|[117|[108]]]
+<8> when 'true' -> [65|[117|[103]]]
+<9> when 'true' -> [83|[101|[112]]]
+<10> when 'true' -> [79|[99|[116]]]
+<11> when 'true' -> [78|[111|[118]]]
+<12> when 'true' -> [68|[101|[99]]]
+(<_1> when 'true' -> (primop 'match_fail' ({'function_clause',_1})-|[{'function_name',{'month',1}}] )-|['compiler_generated'] ) end
+'module_info'/0 = fun () -> call 'erlang':'get_module_info' ('sasl_report')
+'module_info'/1 = fun (_0) -> call 'erlang':'get_module_info' ('sasl_report',_0) end

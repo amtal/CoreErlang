@@ -1,0 +1,156 @@
+module 'proplists' ['append_values'/2,'compact'/1,'delete'/2,'expand'/2,'get_all_values'/2,'get_bool'/2,'get_keys'/1,'get_value'/2,'get_value'/3,'is_defined'/2,'lookup'/2,'lookup_all'/2,'module_info'/0,'module_info'/1,'normalize'/2,'property'/1,'property'/2,'split'/2,'substitute_aliases'/2,'substitute_negations'/2,'unfold'/1] attributes [ 'file' = [{[115|[114|[99|[47|[112|[114|[111|[112|[108|[105|[115|[116|[115|[46|[101|[114|[108]]]]]]]]]]]]]]]]],1}]
+, 'export_type' = [{'property',0}|[{'proplist',0}]]
+, 'type' = [{'property',{'type',44,'union',[{'type',44,'atom',[]}|[{'type',44,'tuple','any'}]]},[]}]
+, 'type' = [{'proplist',{'type',45,'list',[{'user_type',45,'property',[]}]},[]}]
+, 'spec' = [{{'property',1},[{'type',56,'bounded_fun',[{'type',56,'fun',[{'type',56,'product',[{'var',56,'PropertyIn'}]}|[{'var',56,'PropertyOut'}]]}|[[{'type',57,'constraint',[{'atom',57,'is_subtype'}|[[{'var',57,'PropertyIn'}|[{'user_type',57,'property',[]}]]]]}|[{'type',58,'constraint',[{'atom',58,'is_subtype'}|[[{'var',58,'PropertyOut'}|[{'user_type',58,'property',[]}]]]]}]]]]}]}]
+, 'spec' = [{{'property',2},[{'type',73,'bounded_fun',[{'type',73,'fun',[{'type',73,'product',[{'var',73,'Key'}|[{'var',73,'Value'}]]}|[{'var',73,'Property'}]]}|[[{'type',74,'constraint',[{'atom',74,'is_subtype'}|[[{'var',74,'Key'}|[{'type',74,'term',[]}]]]]}|[{'type',75,'constraint',[{'atom',75,'is_subtype'}|[[{'var',75,'Value'}|[{'type',75,'term',[]}]]]]}|[{'type',76,'constraint',[{'atom',76,'is_subtype'}|[[{'var',76,'Property'}|[{'type',76,'union',[{'type',76,'atom',[]}|[{'type',76,'tuple',[{'type',76,'term',[]}|[{'type',76,'term',[]}]]}]]}]]]]}]]]]]}]}]
+, 'spec' = [{{'unfold',1},[{'type',91,'bounded_fun',[{'type',91,'fun',[{'type',91,'product',[{'var',91,'ListIn'}]}|[{'var',91,'ListOut'}]]}|[[{'type',92,'constraint',[{'atom',92,'is_subtype'}|[[{'var',92,'ListIn'}|[{'type',92,'list',[{'type',92,'term',[]}]}]]]]}|[{'type',93,'constraint',[{'atom',93,'is_subtype'}|[[{'var',93,'ListOut'}|[{'type',93,'list',[{'type',93,'term',[]}]}]]]]}]]]]}]}]
+, 'spec' = [{{'compact',1},[{'type',110,'bounded_fun',[{'type',110,'fun',[{'type',110,'product',[{'var',110,'ListIn'}]}|[{'var',110,'ListOut'}]]}|[[{'type',111,'constraint',[{'atom',111,'is_subtype'}|[[{'var',111,'ListIn'}|[{'type',111,'list',[{'user_type',111,'property',[]}]}]]]]}|[{'type',112,'constraint',[{'atom',112,'is_subtype'}|[[{'var',112,'ListOut'}|[{'type',112,'list',[{'user_type',112,'property',[]}]}]]]]}]]]]}]}]
+, 'spec' = [{{'lookup',2},[{'type',129,'bounded_fun',[{'type',129,'fun',[{'type',129,'product',[{'var',129,'Key'}|[{'var',129,'List'}]]}|[{'type',129,'union',[{'atom',129,'none'}|[{'type',129,'tuple','any'}]]}]]}|[[{'type',130,'constraint',[{'atom',130,'is_subtype'}|[[{'var',130,'Key'}|[{'type',130,'term',[]}]]]]}|[{'type',131,'constraint',[{'atom',131,'is_subtype'}|[[{'var',131,'List'}|[{'type',131,'list',[{'type',131,'term',[]}]}]]]]}]]]]}]}]
+, 'spec' = [{{'lookup_all',2},[{'type',151,'bounded_fun',[{'type',151,'fun',[{'type',151,'product',[{'var',151,'Key'}|[{'var',151,'List'}]]}|[{'type',151,'list',[{'type',151,'tuple','any'}]}]]}|[[{'type',152,'constraint',[{'atom',152,'is_subtype'}|[[{'var',152,'Key'}|[{'type',152,'term',[]}]]]]}|[{'type',153,'constraint',[{'atom',153,'is_subtype'}|[[{'var',153,'List'}|[{'type',153,'list',[{'type',153,'term',[]}]}]]]]}]]]]}]}]
+, 'spec' = [{{'is_defined',2},[{'type',173,'bounded_fun',[{'type',173,'fun',[{'type',173,'product',[{'var',173,'Key'}|[{'var',173,'List'}]]}|[{'type',173,'boolean',[]}]]}|[[{'type',174,'constraint',[{'atom',174,'is_subtype'}|[[{'var',174,'Key'}|[{'type',174,'term',[]}]]]]}|[{'type',175,'constraint',[{'atom',175,'is_subtype'}|[[{'var',175,'List'}|[{'type',175,'list',[{'type',175,'term',[]}]}]]]]}]]]]}]}]
+, 'spec' = [{{'get_value',2},[{'type',193,'bounded_fun',[{'type',193,'fun',[{'type',193,'product',[{'var',193,'Key'}|[{'var',193,'List'}]]}|[{'type',193,'term',[]}]]}|[[{'type',194,'constraint',[{'atom',194,'is_subtype'}|[[{'var',194,'Key'}|[{'type',194,'term',[]}]]]]}|[{'type',195,'constraint',[{'atom',195,'is_subtype'}|[[{'var',195,'List'}|[{'type',195,'list',[{'type',195,'term',[]}]}]]]]}]]]]}]}]
+, 'spec' = [{{'get_value',3},[{'type',210,'bounded_fun',[{'type',210,'fun',[{'type',210,'product',[{'var',210,'Key'}|[{'var',210,'List'}|[{'var',210,'Default'}]]]}|[{'type',210,'term',[]}]]}|[[{'type',211,'constraint',[{'atom',211,'is_subtype'}|[[{'var',211,'Key'}|[{'type',211,'term',[]}]]]]}|[{'type',212,'constraint',[{'atom',212,'is_subtype'}|[[{'var',212,'List'}|[{'type',212,'list',[{'type',212,'term',[]}]}]]]]}|[{'type',213,'constraint',[{'atom',213,'is_subtype'}|[[{'var',213,'Default'}|[{'type',213,'term',[]}]]]]}]]]]]}]}]
+, 'spec' = [{{'get_all_values',2},[{'type',239,'bounded_fun',[{'type',239,'fun',[{'type',239,'product',[{'var',239,'Key'}|[{'var',239,'List'}]]}|[{'type',239,'list',[{'type',239,'term',[]}]}]]}|[[{'type',240,'constraint',[{'atom',240,'is_subtype'}|[[{'var',240,'Key'}|[{'type',240,'term',[]}]]]]}|[{'type',241,'constraint',[{'atom',241,'is_subtype'}|[[{'var',241,'List'}|[{'type',241,'list',[{'type',241,'term',[]}]}]]]]}]]]]}]}]
+, 'spec' = [{{'append_values',2},[{'type',268,'bounded_fun',[{'type',268,'fun',[{'type',268,'product',[{'var',268,'Key'}|[{'var',268,'ListIn'}]]}|[{'var',268,'ListOut'}]]}|[[{'type',269,'constraint',[{'atom',269,'is_subtype'}|[[{'var',269,'Key'}|[{'type',269,'term',[]}]]]]}|[{'type',270,'constraint',[{'atom',270,'is_subtype'}|[[{'var',270,'ListIn'}|[{'type',270,'list',[{'type',270,'term',[]}]}]]]]}|[{'type',271,'constraint',[{'atom',271,'is_subtype'}|[[{'var',271,'ListOut'}|[{'type',271,'list',[{'type',271,'term',[]}]}]]]]}]]]]]}]}]
+, 'spec' = [{{'get_bool',2},[{'type',302,'bounded_fun',[{'type',302,'fun',[{'type',302,'product',[{'var',302,'Key'}|[{'var',302,'List'}]]}|[{'type',302,'boolean',[]}]]}|[[{'type',303,'constraint',[{'atom',303,'is_subtype'}|[[{'var',303,'Key'}|[{'type',303,'term',[]}]]]]}|[{'type',304,'constraint',[{'atom',304,'is_subtype'}|[[{'var',304,'List'}|[{'type',304,'list',[{'type',304,'term',[]}]}]]]]}]]]]}]}]
+, 'spec' = [{{'get_keys',1},[{'type',329,'bounded_fun',[{'type',329,'fun',[{'type',329,'product',[{'var',329,'List'}]}|[{'type',329,'list',[{'type',329,'term',[]}]}]]}|[[{'type',330,'constraint',[{'atom',330,'is_subtype'}|[[{'var',330,'List'}|[{'type',330,'list',[{'type',330,'term',[]}]}]]]]}]]]}]}]
+, 'spec' = [{{'delete',2},[{'type',352,'bounded_fun',[{'type',352,'fun',[{'type',352,'product',[{'var',352,'Key'}|[{'var',352,'List'}]]}|[{'var',352,'List'}]]}|[[{'type',353,'constraint',[{'atom',353,'is_subtype'}|[[{'var',353,'Key'}|[{'type',353,'term',[]}]]]]}|[{'type',354,'constraint',[{'atom',354,'is_subtype'}|[[{'var',354,'List'}|[{'type',354,'list',[{'type',354,'term',[]}]}]]]]}]]]]}]}]
+, 'spec' = [{{'substitute_aliases',2},[{'type',385,'bounded_fun',[{'type',385,'fun',[{'type',385,'product',[{'var',385,'Aliases'}|[{'var',385,'ListIn'}]]}|[{'var',385,'ListOut'}]]}|[[{'type',386,'constraint',[{'atom',386,'is_subtype'}|[[{'var',386,'Aliases'}|[{'type',386,'list',[{'type',386,'tuple',[{'var',386,'Key'}|[{'var',386,'Key'}]]}]}]]]]}|[{'type',387,'constraint',[{'atom',387,'is_subtype'}|[[{'var',387,'Key'}|[{'type',387,'term',[]}]]]]}|[{'type',388,'constraint',[{'atom',388,'is_subtype'}|[[{'var',388,'ListIn'}|[{'type',388,'list',[{'type',388,'term',[]}]}]]]]}|[{'type',389,'constraint',[{'atom',389,'is_subtype'}|[[{'var',389,'ListOut'}|[{'type',389,'list',[{'type',389,'term',[]}]}]]]]}]]]]]]}]}]
+, 'spec' = [{{'substitute_negations',2},[{'type',428,'bounded_fun',[{'type',428,'fun',[{'type',428,'product',[{'var',428,'Negations'}|[{'var',428,'ListIn'}]]}|[{'var',428,'ListOut'}]]}|[[{'type',429,'constraint',[{'atom',429,'is_subtype'}|[[{'var',429,'Negations'}|[{'type',429,'list',[{'type',429,'tuple',[{'var',429,'Key1'}|[{'var',429,'Key2'}]]}]}]]]]}|[{'type',430,'constraint',[{'atom',430,'is_subtype'}|[[{'var',430,'Key1'}|[{'type',430,'term',[]}]]]]}|[{'type',431,'constraint',[{'atom',431,'is_subtype'}|[[{'var',431,'Key2'}|[{'type',431,'term',[]}]]]]}|[{'type',432,'constraint',[{'atom',432,'is_subtype'}|[[{'var',432,'ListIn'}|[{'type',432,'list',[{'type',432,'term',[]}]}]]]]}|[{'type',433,'constraint',[{'atom',433,'is_subtype'}|[[{'var',433,'ListOut'}|[{'type',433,'list',[{'type',433,'term',[]}]}]]]]}]]]]]]]}]}]
+, 'spec' = [{{'expand',2},[{'type',496,'bounded_fun',[{'type',496,'fun',[{'type',496,'product',[{'var',496,'Expansions'}|[{'var',496,'ListIn'}]]}|[{'var',496,'ListOut'}]]}|[[{'type',497,'constraint',[{'atom',497,'is_subtype'}|[[{'var',497,'Expansions'}|[{'type',497,'list',[{'type',497,'tuple',[{'ann_type',497,[{'var',497,'Property'}|[{'user_type',497,'property',[]}]]}|[{'ann_type',497,[{'var',497,'Expansion'}|[{'type',497,'list',[{'type',497,'term',[]}]}]]}]]}]}]]]]}|[{'type',498,'constraint',[{'atom',498,'is_subtype'}|[[{'var',498,'ListIn'}|[{'type',498,'list',[{'type',498,'term',[]}]}]]]]}|[{'type',499,'constraint',[{'atom',499,'is_subtype'}|[[{'var',499,'ListOut'}|[{'type',499,'list',[{'type',499,'term',[]}]}]]]]}]]]]]}]}]
+, 'spec' = [{{'normalize',2},[{'type',599,'bounded_fun',[{'type',599,'fun',[{'type',599,'product',[{'var',599,'ListIn'}|[{'var',599,'Stages'}]]}|[{'var',599,'ListOut'}]]}|[[{'type',600,'constraint',[{'atom',600,'is_subtype'}|[[{'var',600,'ListIn'}|[{'type',600,'list',[{'type',600,'term',[]}]}]]]]}|[{'type',601,'constraint',[{'atom',601,'is_subtype'}|[[{'var',601,'Stages'}|[{'type',601,'list',[{'var',601,'Operation'}]}]]]]}|[{'type',602,'constraint',[{'atom',602,'is_subtype'}|[[{'var',602,'Operation'}|[{'type',602,'union',[{'type',602,'tuple',[{'atom',602,'aliases'}|[{'var',602,'Aliases'}]]}|[{'type',603,'tuple',[{'atom',603,'negations'}|[{'var',603,'Negations'}]]}|[{'type',604,'tuple',[{'atom',604,'expand'}|[{'var',604,'Expansions'}]]}]]]}]]]]}|[{'type',605,'constraint',[{'atom',605,'is_subtype'}|[[{'var',605,'Aliases'}|[{'type',605,'list',[{'type',605,'tuple',[{'var',605,'Key'}|[{'var',605,'Key'}]]}]}]]]]}|[{'type',606,'constraint',[{'atom',606,'is_subtype'}|[[{'var',606,'Negations'}|[{'type',606,'list',[{'type',606,'tuple',[{'var',606,'Key'}|[{'var',606,'Key'}]]}]}]]]]}|[{'type',607,'constraint',[{'atom',607,'is_subtype'}|[[{'var',607,'Expansions'}|[{'type',607,'list',[{'type',607,'tuple',[{'ann_type',607,[{'var',607,'Property'}|[{'user_type',607,'property',[]}]]}|[{'ann_type',607,[{'var',607,'Expansion'}|[{'type',607,'list',[{'type',607,'term',[]}]}]]}]]}]}]]]]}|[{'type',608,'constraint',[{'atom',608,'is_subtype'}|[[{'var',608,'ListOut'}|[{'type',608,'list',[{'type',608,'term',[]}]}]]]]}]]]]]]]]]}]}]
+, 'spec' = [{{'split',2},[{'type',635,'bounded_fun',[{'type',635,'fun',[{'type',635,'product',[{'var',635,'List'}|[{'var',635,'Keys'}]]}|[{'type',635,'tuple',[{'var',635,'Lists'}|[{'var',635,'Rest'}]]}]]}|[[{'type',636,'constraint',[{'atom',636,'is_subtype'}|[[{'var',636,'List'}|[{'type',636,'list',[{'type',636,'term',[]}]}]]]]}|[{'type',637,'constraint',[{'atom',637,'is_subtype'}|[[{'var',637,'Keys'}|[{'type',637,'list',[{'type',637,'term',[]}]}]]]]}|[{'type',638,'constraint',[{'atom',638,'is_subtype'}|[[{'var',638,'Lists'}|[{'type',638,'list',[{'type',638,'list',[{'type',638,'term',[]}]}]}]]]]}|[{'type',639,'constraint',[{'atom',639,'is_subtype'}|[[{'var',639,'Rest'}|[{'type',639,'list',[{'type',639,'term',[]}]}]]]]}]]]]]]}]}] ] 'property'/1 = fun (_0) -> case _0 of <{Key,'true'}> when call 'erlang':'is_atom' (Key) -> Key
+<Property> when 'true' -> Property end
+'property'/2 = fun (_0,_1) -> case <_0,_1> of <Key,'true'> when call 'erlang':'is_atom' (Key) -> Key
+<Key,Value> when 'true' -> {Key,Value} end
+'unfold'/1 = fun (_0) -> case _0 of <[P|Ps]> when 'true' -> case <> of <> when call 'erlang':'is_atom' (P) -> let <_1> = apply 'unfold'/1 (Ps) in [{P,'true'}|_1]
+<> when 'true' -> let <_2> = apply 'unfold'/1 (Ps) in [P|_2] end
+<[]> when 'true' -> []
+(<_3> when 'true' -> (primop 'match_fail' ({'function_clause',_3})-|[{'function_name',{'unfold',1}}] )-|['compiler_generated'] ) end
+'compact'/1 = fun (_0) -> (letrec 'lc$^0'/1 = fun (_3) -> case _3 of <[P|_2]> when 'true' -> let <_4> = apply 'property'/1 (P) in let <_5> = apply 'lc$^0'/1 (_2) in ([_4|_5]-|['compiler_generated'] )
+<[]> when 'true' -> []
+(<_7> when 'true' -> (primop 'match_fail' ({'function_clause',_7})-|[{'function_name',{'lc$^0',1}}] )-|['compiler_generated'] ) end in apply 'lc$^0'/1 (_0)-|['list_comprehension'] )
+'lookup'/2 = fun (_0,_1) -> case <_0,_1> of <Key,[P|Ps]> when 'true' -> case <> of <> when let <_2> = call 'erlang':'is_atom' (P) in let <_3> = call 'erlang':'=:=' (P,Key) in call 'erlang':'and' (_2,_3) -> {Key,'true'}
+<> when try let <_4> = call 'erlang':'tuple_size' (P) in let <_5> = call 'erlang':'>=' (_4,1) in let <_6> = call 'erlang':'element' (1,P) in let <_7> = call 'erlang':'=:=' (_6,Key) in call 'erlang':'and' (_5,_7) of <Try> -> Try catch <T,R> -> 'false' -> P
+<> when 'true' -> apply 'lookup'/2 (Key,Ps) end
+<_X_Key,[]> when 'true' -> 'none'
+(<_9,_8> when 'true' -> (primop 'match_fail' ({'function_clause',_9,_8})-|[{'function_name',{'lookup',2}}] )-|['compiler_generated'] ) end
+'lookup_all'/2 = fun (_0,_1) -> case <_0,_1> of <Key,[P|Ps]> when 'true' -> case <> of <> when let <_2> = call 'erlang':'is_atom' (P) in let <_3> = call 'erlang':'=:=' (P,Key) in call 'erlang':'and' (_2,_3) -> let <_4> = apply 'lookup_all'/2 (Key,Ps) in [{Key,'true'}|_4]
+<> when try let <_5> = call 'erlang':'tuple_size' (P) in let <_6> = call 'erlang':'>=' (_5,1) in let <_7> = call 'erlang':'element' (1,P) in let <_8> = call 'erlang':'=:=' (_7,Key) in call 'erlang':'and' (_6,_8) of <Try> -> Try catch <T,R> -> 'false' -> let <_9> = apply 'lookup_all'/2 (Key,Ps) in [P|_9]
+<> when 'true' -> apply 'lookup_all'/2 (Key,Ps) end
+<_X_Key,[]> when 'true' -> []
+(<_11,_10> when 'true' -> (primop 'match_fail' ({'function_clause',_11,_10})-|[{'function_name',{'lookup_all',2}}] )-|['compiler_generated'] ) end
+'is_defined'/2 = fun (_0,_1) -> case <_0,_1> of <Key,[P|Ps]> when 'true' -> case <> of <> when let <_2> = call 'erlang':'is_atom' (P) in let <_3> = call 'erlang':'=:=' (P,Key) in call 'erlang':'and' (_2,_3) -> 'true'
+<> when try let <_4> = call 'erlang':'tuple_size' (P) in let <_5> = call 'erlang':'>=' (_4,1) in let <_6> = call 'erlang':'element' (1,P) in let <_7> = call 'erlang':'=:=' (_6,Key) in call 'erlang':'and' (_5,_7) of <Try> -> Try catch <T,R> -> 'false' -> 'true'
+<> when 'true' -> apply 'is_defined'/2 (Key,Ps) end
+<_X_Key,[]> when 'true' -> 'false'
+(<_9,_8> when 'true' -> (primop 'match_fail' ({'function_clause',_9,_8})-|[{'function_name',{'is_defined',2}}] )-|['compiler_generated'] ) end
+'get_value'/2 = fun (_0,_1) -> apply 'get_value'/3 (_0,_1,'undefined')
+'get_value'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Key,[P|Ps],Default> when 'true' -> case <> of <> when let <_3> = call 'erlang':'is_atom' (P) in let <_4> = call 'erlang':'=:=' (P,Key) in call 'erlang':'and' (_3,_4) -> 'true'
+<> when try let <_5> = call 'erlang':'tuple_size' (P) in let <_6> = call 'erlang':'>=' (_5,1) in let <_7> = call 'erlang':'element' (1,P) in let <_8> = call 'erlang':'=:=' (_7,Key) in call 'erlang':'and' (_6,_8) of <Try> -> Try catch <T,R> -> 'false' -> case P of <{_13,Value}> when 'true' -> Value
+<_14> when 'true' -> Default end
+<> when 'true' -> apply 'get_value'/3 (Key,Ps,Default) end
+<_X_Key,[],Default> when 'true' -> Default
+(<_12,_11,_10> when 'true' -> (primop 'match_fail' ({'function_clause',_12,_11,_10})-|[{'function_name',{'get_value',3}}] )-|['compiler_generated'] ) end
+'get_all_values'/2 = fun (_0,_1) -> case <_0,_1> of <Key,[P|Ps]> when 'true' -> case <> of <> when let <_2> = call 'erlang':'is_atom' (P) in let <_3> = call 'erlang':'=:=' (P,Key) in call 'erlang':'and' (_2,_3) -> let <_4> = apply 'get_all_values'/2 (Key,Ps) in ['true'|_4]
+<> when try let <_5> = call 'erlang':'tuple_size' (P) in let <_6> = call 'erlang':'>=' (_5,1) in let <_7> = call 'erlang':'element' (1,P) in let <_8> = call 'erlang':'=:=' (_7,Key) in call 'erlang':'and' (_6,_8) of <Try> -> Try catch <T,R> -> 'false' -> case P of <{_13,Value}> when 'true' -> let <_9> = apply 'get_all_values'/2 (Key,Ps) in [Value|_9]
+<_14> when 'true' -> apply 'get_all_values'/2 (Key,Ps) end
+<> when 'true' -> apply 'get_all_values'/2 (Key,Ps) end
+<_X_Key,[]> when 'true' -> []
+(<_12,_11> when 'true' -> (primop 'match_fail' ({'function_clause',_12,_11})-|[{'function_name',{'get_all_values',2}}] )-|['compiler_generated'] ) end
+'append_values'/2 = fun (_0,_1) -> case <_0,_1> of <Key,[P|Ps]> when 'true' -> case <> of <> when let <_2> = call 'erlang':'is_atom' (P) in let <_3> = call 'erlang':'=:=' (P,Key) in call 'erlang':'and' (_2,_3) -> let <_4> = apply 'append_values'/2 (Key,Ps) in ['true'|_4]
+<> when try let <_5> = call 'erlang':'tuple_size' (P) in let <_6> = call 'erlang':'>=' (_5,1) in let <_7> = call 'erlang':'element' (1,P) in let <_8> = call 'erlang':'=:=' (_7,Key) in call 'erlang':'and' (_6,_8) of <Try> -> Try catch <T,R> -> 'false' -> case P of <{_14,Value}> when call 'erlang':'is_list' (Value) -> let <_9> = apply 'append_values'/2 (Key,Ps) in call 'erlang':'++' (Value,_9)
+<{_15,Value}> when 'true' -> let <_10> = apply 'append_values'/2 (Key,Ps) in [Value|_10]
+<_16> when 'true' -> apply 'append_values'/2 (Key,Ps) end
+<> when 'true' -> apply 'append_values'/2 (Key,Ps) end
+<_X_Key,[]> when 'true' -> []
+(<_13,_12> when 'true' -> (primop 'match_fail' ({'function_clause',_13,_12})-|[{'function_name',{'append_values',2}}] )-|['compiler_generated'] ) end
+'get_bool'/2 = fun (_0,_1) -> case <_0,_1> of <Key,[P|Ps]> when 'true' -> case <> of <> when let <_2> = call 'erlang':'is_atom' (P) in let <_3> = call 'erlang':'=:=' (P,Key) in call 'erlang':'and' (_2,_3) -> 'true'
+<> when try let <_4> = call 'erlang':'tuple_size' (P) in let <_5> = call 'erlang':'>=' (_4,1) in let <_6> = call 'erlang':'element' (1,P) in let <_7> = call 'erlang':'=:=' (_6,Key) in call 'erlang':'and' (_5,_7) of <Try> -> Try catch <T,R> -> 'false' -> case P of <{_11,'true'}> when 'true' -> 'true'
+<_12> when 'true' -> 'false' end
+<> when 'true' -> apply 'get_bool'/2 (Key,Ps) end
+<_X_Key,[]> when 'true' -> 'false'
+(<_10,_9> when 'true' -> (primop 'match_fail' ({'function_clause',_10,_9})-|[{'function_name',{'get_bool',2}}] )-|['compiler_generated'] ) end
+'get_keys'/1 = fun (_0) -> let <_1> = call 'sets':'new' () in let <_2> = apply 'get_keys'/2 (_0,_1) in call 'sets':'to_list' (_2)
+'get_keys'/2 = fun (_0,_1) -> case <_0,_1> of <[P|Ps],Keys> when 'true' -> case <> of <> when call 'erlang':'is_atom' (P) -> let <_2> = call 'sets':'add_element' (P,Keys) in apply 'get_keys'/2 (Ps,_2)
+<> when try let <_3> = call 'erlang':'tuple_size' (P) in call 'erlang':'>=' (_3,1) of <Try> -> Try catch <T,R> -> 'false' -> let <_4> = call 'erlang':'element' (1,P) in let <_5> = call 'sets':'add_element' (_4,Keys) in apply 'get_keys'/2 (Ps,_5)
+<> when 'true' -> apply 'get_keys'/2 (Ps,Keys) end
+<[],Keys> when 'true' -> Keys
+(<_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_7,_6})-|[{'function_name',{'get_keys',2}}] )-|['compiler_generated'] ) end
+'delete'/2 = fun (_0,_1) -> case <_0,_1> of <Key,[P|Ps]> when 'true' -> case <> of <> when let <_2> = call 'erlang':'is_atom' (P) in let <_3> = call 'erlang':'=:=' (P,Key) in call 'erlang':'and' (_2,_3) -> apply 'delete'/2 (Key,Ps)
+<> when try let <_4> = call 'erlang':'tuple_size' (P) in let <_5> = call 'erlang':'>=' (_4,1) in let <_6> = call 'erlang':'element' (1,P) in let <_7> = call 'erlang':'=:=' (_6,Key) in call 'erlang':'and' (_5,_7) of <Try> -> Try catch <T,R> -> 'false' -> apply 'delete'/2 (Key,Ps)
+<> when 'true' -> let <_8> = apply 'delete'/2 (Key,Ps) in [P|_8] end
+<_11,[]> when 'true' -> []
+(<_10,_9> when 'true' -> (primop 'match_fail' ({'function_clause',_10,_9})-|[{'function_name',{'delete',2}}] )-|['compiler_generated'] ) end
+'substitute_aliases'/2 = fun (_0,_1) -> (letrec 'lc$^0'/1 = fun (_4) -> case _4 of <[P|_3]> when 'true' -> let <_5> = apply 'substitute_aliases_1'/2 (_0,P) in let <_6> = apply 'lc$^0'/1 (_3) in ([_5|_6]-|['compiler_generated'] )
+<[]> when 'true' -> []
+(<_9> when 'true' -> (primop 'match_fail' ({'function_clause',_9})-|[{'function_name',{'lc$^0',1}}] )-|['compiler_generated'] ) end in apply 'lc$^0'/1 (_1)-|['list_comprehension'] )
+'substitute_aliases_1'/2 = fun (_0,_1) -> case <_0,_1> of <[{Key,Key1}|As],P> when 'true' -> case <> of <> when let <_2> = call 'erlang':'is_atom' (P) in let <_3> = call 'erlang':'=:=' (P,Key) in call 'erlang':'and' (_2,_3) -> apply 'property'/2 (Key1,'true')
+<> when try let <_4> = call 'erlang':'tuple_size' (P) in let <_5> = call 'erlang':'>=' (_4,1) in let <_6> = call 'erlang':'element' (1,P) in let <_7> = call 'erlang':'=:=' (_6,Key) in call 'erlang':'and' (_5,_7) of <Try> -> Try catch <T,R> -> 'false' -> let <_8> = call 'erlang':'setelement' (1,P,Key1) in apply 'property'/1 (_8)
+<> when 'true' -> apply 'substitute_aliases_1'/2 (As,P) end
+<[],P> when 'true' -> P
+(<_10,_9> when 'true' -> (primop 'match_fail' ({'function_clause',_10,_9})-|[{'function_name',{'substitute_aliases_1',2}}] )-|['compiler_generated'] ) end
+'substitute_negations'/2 = fun (_0,_1) -> (letrec 'lc$^0'/1 = fun (_4) -> case _4 of <[P|_3]> when 'true' -> let <_5> = apply 'substitute_negations_1'/2 (_0,P) in let <_6> = apply 'lc$^0'/1 (_3) in ([_5|_6]-|['compiler_generated'] )
+<[]> when 'true' -> []
+(<_9> when 'true' -> (primop 'match_fail' ({'function_clause',_9})-|[{'function_name',{'lc$^0',1}}] )-|['compiler_generated'] ) end in apply 'lc$^0'/1 (_1)-|['list_comprehension'] )
+'substitute_negations_1'/2 = fun (_0,_1) -> case <_0,_1> of <[{Key,Key1}|As],P> when 'true' -> case <> of <> when let <_2> = call 'erlang':'is_atom' (P) in let <_3> = call 'erlang':'=:=' (P,Key) in call 'erlang':'and' (_2,_3) -> apply 'property'/2 (Key1,'false')
+<> when try let <_4> = call 'erlang':'tuple_size' (P) in let <_5> = call 'erlang':'>=' (_4,1) in let <_6> = call 'erlang':'element' (1,P) in let <_7> = call 'erlang':'=:=' (_6,Key) in call 'erlang':'and' (_5,_7) of <Try> -> Try catch <T,R> -> 'false' -> case P of <{_11,'true'}> when 'true' -> apply 'property'/2 (Key1,'false')
+<{_12,'false'}> when 'true' -> apply 'property'/2 (Key1,'true')
+<_13> when 'true' -> apply 'property'/2 (Key1,'true') end
+<> when 'true' -> apply 'substitute_negations_1'/2 (As,P) end
+<[],P> when 'true' -> P
+(<_10,_9> when 'true' -> (primop 'match_fail' ({'function_clause',_10,_9})-|[{'function_name',{'substitute_negations_1',2}}] )-|['compiler_generated'] ) end
+'expand'/2 = fun (_0,_1) -> case <_0,_1> of <Es,Ps> when call 'erlang':'is_list' (Ps) -> let <_7> = letrec 'lc$^0'/1 = fun (_4) -> case _4 of <[{P,V}|_3]> when 'true' -> let <_5> = apply 'property'/1 (P) in let <_6> = apply 'lc$^0'/1 (_3) in ([{_5,V}|_6]-|['compiler_generated'] )
+(<[_2|_3]> when 'true' -> apply 'lc$^0'/1 (_3)-|['compiler_generated'] )
+<[]> when 'true' -> []
+(<_13> when 'true' -> (primop 'match_fail' ({'function_clause',_13})-|[{'function_name',{'lc$^0',1}}] )-|['compiler_generated'] ) end in apply 'lc$^0'/1 (Es) in let <_9> = apply 'key_uniq'/1 (_7) in let <_10> = apply 'expand_0'/2 (_9,Ps) in apply 'flatten'/1 (_10)
+(<_12,_11> when 'true' -> (primop 'match_fail' ({'function_clause',_12,_11})-|[{'function_name',{'expand',2}}] )-|['compiler_generated'] ) end
+'expand_0'/2 = fun (_0,_1) -> case <_0,_1> of <[{P,L}|Es],Ps> when 'true' -> let <_2> = apply 'expand_1'/3 (P,L,Ps) in apply 'expand_0'/2 (Es,_2)
+<[],Ps> when 'true' -> Ps
+(<_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_4,_3})-|[{'function_name',{'expand_0',2}}] )-|['compiler_generated'] ) end
+'expand_1'/3 = fun (_0,_1,_2) -> case <> of <> when call 'erlang':'is_atom' (_0) -> apply 'expand_2'/4 (_0,_0,_1,_2)
+<> when try let <_3> = call 'erlang':'tuple_size' (_0) in call 'erlang':'>=' (_3,1) of <Try> -> Try catch <T,R> -> 'false' -> let <_4> = call 'erlang':'element' (1,_0) in apply 'expand_2'/4 (_4,_0,_1,_2)
+<> when 'true' -> _2 end
+'expand_2'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <Key,P1,L,[P|Ps]> when 'true' -> case <> of <> when let <_4> = call 'erlang':'is_atom' (P) in let <_5> = call 'erlang':'=:=' (P,Key) in call 'erlang':'and' (_4,_5) -> apply 'expand_3'/5 (Key,P1,P,L,Ps)
+<> when try let <_6> = call 'erlang':'tuple_size' (P) in let <_7> = call 'erlang':'>=' (_6,1) in let <_8> = call 'erlang':'element' (1,P) in let <_9> = call 'erlang':'=:=' (_8,Key) in call 'erlang':'and' (_7,_9) of <Try> -> Try catch <T,R> -> 'false' -> let <_10> = apply 'property'/1 (P) in apply 'expand_3'/5 (Key,P1,_10,L,Ps)
+<> when 'true' -> let <_11> = apply 'expand_2'/4 (Key,P1,L,Ps) in [P|_11] end
+<_16,_17,_18,[]> when 'true' -> []
+(<_15,_14,_13,_12> when 'true' -> (primop 'match_fail' ({'function_clause',_15,_14,_13,_12})-|[{'function_name',{'expand_2',4}}] )-|['compiler_generated'] ) end
+'expand_3'/5 = fun (_0,_1,_2,_3,_4) -> case <> of <> when call 'erlang':'=:=' (_1,_2) -> let <_5> = apply 'delete'/2 (_0,_4) in [_3|_5]
+<> when 'true' -> [_2|_4] end
+'key_uniq'/1 = fun (_0) -> case _0 of <[_@r0 = {K,V}|Ps]> when 'true' -> let <_1> = apply 'key_uniq_1'/2 (K,Ps) in [_@r0|_1]
+<[]> when 'true' -> []
+(<_2> when 'true' -> (primop 'match_fail' ({'function_clause',_2})-|[{'function_name',{'key_uniq',1}}] )-|['compiler_generated'] ) end
+'key_uniq_1'/2 = fun (_0,_1) -> case <_0,_1> of <K,[_@r0 = {K1,V}|Ps]> when 'true' -> case <> of <> when call 'erlang':'=:=' (K,K1) -> apply 'key_uniq_1'/2 (K,Ps)
+<> when 'true' -> let <_2> = apply 'key_uniq_1'/2 (K1,Ps) in [_@r0|_2] end
+<_5,[]> when 'true' -> []
+(<_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_4,_3})-|[{'function_name',{'key_uniq_1',2}}] )-|['compiler_generated'] ) end
+'flatten'/1 = fun (_0) -> case _0 of <[E|Es]> when call 'erlang':'is_list' (E) -> let <_1> = apply 'flatten'/1 (Es) in call 'erlang':'++' (E,_1)
+<[E|Es]> when 'true' -> let <_2> = apply 'flatten'/1 (Es) in [E|_2]
+<[]> when 'true' -> []
+(<_3> when 'true' -> (primop 'match_fail' ({'function_clause',_3})-|[{'function_name',{'flatten',1}}] )-|['compiler_generated'] ) end
+'normalize'/2 = fun (_0,_1) -> case <_0,_1> of <L,[{'aliases',As}|Xs]> when 'true' -> let <_2> = apply 'substitute_aliases'/2 (As,L) in apply 'normalize'/2 (_2,Xs)
+<L,[{'expand',Es}|Xs]> when 'true' -> let <_3> = apply 'expand'/2 (Es,L) in apply 'normalize'/2 (_3,Xs)
+<L,[{'negations',Ns}|Xs]> when 'true' -> let <_4> = apply 'substitute_negations'/2 (Ns,L) in apply 'normalize'/2 (_4,Xs)
+<L,[]> when 'true' -> apply 'compact'/1 (L)
+(<_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_6,_5})-|[{'function_name',{'normalize',2}}] )-|['compiler_generated'] ) end
+'split'/2 = fun (_0,_1) -> let <_6> = letrec 'lc$^0'/1 = fun (_4) -> case _4 of <[K|_3]> when 'true' -> let <_5> = apply 'lc$^0'/1 (_3) in ([{K,[]}|_5]-|['compiler_generated'] )
+<[]> when 'true' -> []
+(<_19> when 'true' -> (primop 'match_fail' ({'function_clause',_19})-|[{'function_name',{'lc$^0',1}}] )-|['compiler_generated'] ) end in apply 'lc$^0'/1 (_1) in let <_7> = call 'maps':'from_list' (_6) in case apply 'split'/3 (_0,_7,[]) of <{Store,Rest}> when 'true' -> let <_16> = letrec 'lc$^1'/1 = fun (_12) -> case _12 of <[K|_11]> when 'true' -> let <_13> = call 'erlang':'map_get' (K,Store) in let <_14> = call 'lists':'reverse' (_13) in let <_15> = apply 'lc$^1'/1 (_11) in ([_14|_15]-|['compiler_generated'] )
+<[]> when 'true' -> []
+(<_20> when 'true' -> (primop 'match_fail' ({'function_clause',_20})-|[{'function_name',{'lc$^1',1}}] )-|['compiler_generated'] ) end in apply 'lc$^1'/1 (_1) in let <_9> = call 'lists':'reverse' (Rest) in {_16,_9}
+(<_8> when 'true' -> primop 'match_fail' ({'badmatch',_8})-|['compiler_generated'] ) end
+'split'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <[P|Ps],Store,Rest> when 'true' -> case <> of <> when call 'erlang':'is_atom' (P) -> case call 'erlang':'is_map_key' (P,Store) of <'true'> when 'true' -> let <_3> = apply 'maps_prepend'/3 (P,P,Store) in apply 'split'/3 (Ps,_3,Rest)
+<'false'> when 'true' -> apply 'split'/3 (Ps,Store,[P|Rest])
+(<_4> when 'true' -> primop 'match_fail' ({'case_clause',_4})-|['compiler_generated'] ) end
+<> when try let <_5> = call 'erlang':'tuple_size' (P) in call 'erlang':'>=' (_5,1) of <Try> -> Try catch <T,R> -> 'false' -> let <Key> = call 'erlang':'element' (1,P) in case call 'erlang':'is_map_key' (Key,Store) of <'true'> when 'true' -> let <_7> = apply 'maps_prepend'/3 (Key,P,Store) in apply 'split'/3 (Ps,_7,Rest)
+<'false'> when 'true' -> apply 'split'/3 (Ps,Store,[P|Rest])
+(<_8> when 'true' -> primop 'match_fail' ({'case_clause',_8})-|['compiler_generated'] ) end
+<> when 'true' -> apply 'split'/3 (Ps,Store,[P|Rest]) end
+<[],Store,Rest> when 'true' -> {Store,Rest}
+(<_11,_10,_9> when 'true' -> (primop 'match_fail' ({'function_clause',_11,_10,_9})-|[{'function_name',{'split',3}}] )-|['compiler_generated'] ) end
+'maps_prepend'/3 = fun (_0,_1,_2) -> let <_3> = call 'erlang':'map_get' (_0,_2) in case <> of (<> when call 'erlang':'is_map' (_2) -> ~{_0:=[_1|_3]|_2}~-|['compiler_generated'] )
+(<> when 'true' -> (primop 'match_fail' ({'badmap',_2})-|[{'eval_failure','badmap'}] )-|['compiler_generated'] ) end
+'module_info'/0 = fun () -> call 'erlang':'get_module_info' ('proplists')
+'module_info'/1 = fun (_0) -> call 'erlang':'get_module_info' ('proplists',_0) end

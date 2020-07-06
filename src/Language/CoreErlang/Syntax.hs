@@ -1,185 +1,116 @@
------------------------------------------------------------------------------
--- |
--- Module      :  Language.CoreErlang.Syntax
--- Copyright   :  (c) Henrique Ferreiro García 2008
---                (c) David Castro Pérez 2008
--- License     :  BSD-style (see the LICENSE file)
--- Maintainer  :  Alex Kropivny <alex.kropivny@gmail.com>
---                Feng Lee <feng@emqx.io>
--- Stability   :  experimental
--- Portability :  portable
---
--- Abstract Syntax Tree of CoreErlang:
--- <http://erlang.org/doc/apps/compiler/compiler.pdf>
--- <https://github.com/erlang/otp/blob/master/lib/compiler/src/cerl.erl>
--- <https://github.com/erlang/otp/blob/master/lib/compiler/src/core_parser.hrl>
---
------------------------------------------------------------------------------
 {-# LANGUAGE DeriveDataTypeable #-}
-module Language.CoreErlang.Syntax
-  ( -- * Modules
-    Module(..)
-  , ModuleHead(..)
-    -- * Declarations
-  , FunDef(..)
-    -- * Expressions
-  , Expr(..), Exprs(..), Alt(..), Guard(..), Map(..)
-  , List(..), TimeOut(..), Bitstring(..), FunName(..)
-    -- * Patterns
-  , Pats(..), Pat(..), Key(..), Alias(..)
-    -- * Literals
-  , Literal(..), Const(..), Atom(..)
-    -- * Variables
-  , Var(..)
-  , VarMap(..)
-  , UpdateMap(..)
-    -- * Annotations
-  , Ann(..)
-  ) where
-
-import Prelude
+module Language.CoreErlang.Syntax where
+import Data.Text(Text)
 import Data.Data
+import Prelude
 
--- | This type is used to represent atoms
-data Atom = Atom String
+--------------------------------------------------------------------------------
+data Atom = Atom Text
   deriving (Eq, Ord, Show, Data, Typeable)
 
--- | This type is used to represent function names
-data FunName = FunName (Atom, Integer)
+data List a = L a
+            | LL a a
   deriving (Eq, Ord, Show, Data, Typeable)
 
--- | Module Name
-type Name = Atom
--- | Module Exports
-type Exports = [FunName]
--- | Module Attrs
-type Attrs = [(Atom, Const)]
--- | Module fundefs
-type FunDefs = [FunDef]
--- | A CoreErlang source module.
-data Module = Module Name Exports Attrs FunDefs
+data Map kv a =  Map [kv]
+               | UMap [kv] a
+               deriving (Eq, Ord, Show, Data, Typeable)
+
+data KeyV k v = Insert k v
+              | Update k v
+              deriving (Eq, Ord, Show, Data, Typeable)
+
+data Bitstring a = Bitstring a a a a a
   deriving (Eq, Ord, Show, Data, Typeable)
 
-data ModuleHead = ModuleHead Name Exports Attrs
+data FunDef = FunDef FunNameA (FunA ExprsA)
   deriving (Eq, Ord, Show, Data, Typeable)
 
--- | This type is used to represent constants
-data Const
-  = CLit Literal
-  | CTuple [Const]
-  | CList (List Const)
-  | CMap (Map Const Const)
+--------------------------------------------------------------------------------
+
+data Module = Module Atom [FunNameA] AttrsA [FunDefA]
   deriving (Eq, Ord, Show, Data, Typeable)
 
--- | This type is used to represent lambdas
-data FunDef = FunDef (Ann FunName) (Ann Expr)
+data FunName = FunName Atom Integer
   deriving (Eq, Ord, Show, Data, Typeable)
 
--- | /literal/.
--- Values of this type hold the abstract value of the literal, not the
--- precise string representation used. For example, @10@, @0o12@ and @0xa@
--- have the same representation.
-data Literal
-  = LChar   Char    -- ^ character literal
-  | LString String  -- ^ string literal
-  | LInt    Integer -- ^ integer literal
-  | LFloat  Double  -- ^ floating point literal
-  | LAtom   Atom    -- ^ atom literal
-  | LNil            -- ^ empty list
+type Attrs = [(Atom, ConstA)]
+
+data Const = CLit LiteralA
+           | CTuple [ConstA]
+           | CList (List ConstA)
+           | CMap [(ConstA, ConstA)]
+           | CBinary [Bitstring ConstA]
+           deriving (Eq, Ord, Show, Data, Typeable)
+
+data Literal = LChar   Char    -- ^ character literal
+             | LString Text  -- ^ string literal
+             | LInt    Integer -- ^ integer literal
+             | LFloat  Float  -- ^ floating point literal
+             | LAtom   Atom    -- ^ atom literal
+             | LNil            -- ^ empty list
+             deriving (Eq, Ord, Show, Data, Typeable)
+
+data Fun a = Fun [VarA] a
+           | ExtFun Atom FunName
   deriving (Eq, Ord, Show, Data, Typeable)
 
--- | CoreErlang expressions.
-data Exprs
-  = Expr (Ann Expr)        -- ^ single expression
-  | Exprs (Ann [Ann Expr]) -- ^ list of expressions
+data Var = Var Text
   deriving (Eq, Ord, Show, Data, Typeable)
 
--- | CoreErlang expression.
-data Expr
-  = EVar Var                    -- ^ variable
-  | Lit Literal                 -- ^ literal constant
-  | Fun FunName                 -- ^ function name
-  | ExtFun Atom FunName         -- ^ external function name
-  | Lam [Var] Exprs             -- ^ lambda expression
-  | App Exprs [Exprs]           -- ^ application
-  | ModCall (Exprs, Exprs) [Exprs]  -- ^ module call
-  | Seq Exprs Exprs             -- ^ sequencing
-  | Let ([Var], Exprs) Exprs    -- ^ local declaration
-  | LetRec [FunDef] Exprs       -- ^ letrec expression
-  | Case Exprs [Ann Alt]        -- ^ @case@ /exp/ @of@ /alts/ end
-  | Tuple [Exprs]               -- ^ tuple expression
-  | List (List Exprs)           -- ^ list expression
-  | EMap (Map Exprs Exprs)      -- ^ map expression
-  | VMap (VarMap Exprs Exprs)      -- ^ map expression
-  | UMap (UpdateMap Exprs Exprs)
-  | Binary [Bitstring Exprs]    -- ^ binary expression
-  | PrimOp Atom [Exprs]         -- ^ operator application
-  | Try Exprs ([Var], Exprs) ([Var], Exprs) -- ^ try expression
-  | Rec [Ann Alt] TimeOut       -- ^ receive expression
-  | Catch Exprs                 -- ^ catch expression
+data Exprs = Expr (ExprA ExprsA)
+           | Exprs [ExprA ExprsA]
+           deriving (Eq, Ord, Show, Data, Typeable)
+
+data Expr a = EVar VarA                    -- ^ variable
+            | EFunN FunNameA                 -- ^ function name
+            | ELit LiteralA                 -- ^ literal constant
+            | EFun (FunA a)                  -- ^ lambda expression
+            | EList (List (ExprA a))          -- ^ list expression
+            | ETuple [a]               -- ^ tuple expression
+            | EMap (Map (KeyV a a) a)
+            | EBinary [BitstringA a]    -- ^ binary expression
+
+            | ELet [VarA] a a    -- ^ local declaration
+            | ECase a [ClauseA a]        -- ^ @case@ /exp/ @of@ /alts/ end
+            | ELetRec [FunDefA] a       -- ^ letrec expression
+            | EApp a [a]           -- ^ application
+            | EModCall a a [a]  -- ^ module call
+            | EPrimOp (Ann Atom) [a]         -- ^ operator application
+            | EReceive [ClauseA a] a a      -- ^ receive expression
+            | ETry a [VarA] a [VarA] a -- ^ try expression
+            | EDo a a             -- ^ sequencing
+            | ECatch a                 -- ^ catch expression
+            deriving (Eq, Ord, Show, Data, Typeable)
+
+data Clause a = Clause [PatA] a a
   deriving (Eq, Ord, Show, Data, Typeable)
 
--- | A bitstring.
-data Bitstring a = Bitstring a [Exprs]
+data Pat = PVar VarA
+         | PLiteral LiteralA
+         | PList (List PatA)
+         | PTuple [PatA]
+         | PBinary [BitstringA PatA]
+         | PMap (Map (KeyVA PatA PatA) PatA)
+         | PAlias VarA PatA
+         deriving (Eq, Ord, Show, Data, Typeable)
+
+--------------------------------------------------------------------------------
+data Ann a = Ann a Text
   deriving (Eq, Ord, Show, Data, Typeable)
 
--- | A list of expressions
-data List a = L [a] | LL [a] a
-  deriving (Eq, Ord, Show, Data, Typeable)
+type ModuleA   = Ann Module
+type FunNameA  = Ann FunName
+type AttrsA    = Ann Attrs
+type ConstA    = Ann Const
+type LiteralA  = Ann Literal
+type FunDefA   = Ann FunDef
+type FunA a    = Ann (Fun a)
+type VarA      = Ann Var
+type ExprsA    = Ann Exprs
+type ExprA a   = Ann (Expr a)
+type ClauseA a = Ann (Clause a)
+type PatA      = Ann Pat
 
--- | An erlang map
-data Map k v = Map [(k, v)]
-  deriving (Eq, Ord, Show, Data, Typeable)
-
-data VarMap k v = VarMap [(k,v)] Expr
-  deriving (Eq, Ord, Show, Data, Typeable)
-
-data UpdateMap k v = UpdateMap [(k,v)] Expr
-  deriving (Eq, Ord, Show, Data, Typeable)
-
--- | An /alt/ in a @case@ expression
-data Alt = Alt Pats Guard Exprs
-  deriving (Eq, Ord, Show, Data, Typeable)
-
-data Pats
-  = Pat (Ann Pat)        -- ^ single pattern
-  | Pats (Ann [Ann Pat]) -- ^ list of patterns
-  deriving (Eq, Ord, Show, Data, Typeable)
-
--- | A pattern, to be matched against a value.
-data Pat
-  = PVar Var                -- ^ variable
-  | PLit Literal            -- ^ literal constant
-  | PTuple [Pat]            -- ^ tuple pattern
-  | PList (List Pat)        -- ^ list pattern
-  | PMap (Map Key Pat)      -- ^ map pattern
-  | PBinary [Bitstring Pat] -- ^ list of bitstring patterns
-  | PAlias Alias            -- ^ alias pattern
-  deriving (Eq, Ord, Show, Data, Typeable)
-
--- | A map key
-data Key = KVar Var | KLit Literal
-  deriving (Eq, Ord, Show, Data, Typeable)
-
--- | An alias, used in patterns
-data Alias = Alias Var Pat
-  deriving (Eq, Ord, Show, Data, Typeable)
-
--- | A guarded alternative @when@ /exp/ @->@ /exp/.
--- The first expression will be Boolean-valued.
-data Guard = Guard Exprs
-  deriving (Eq, Ord, Show, Data, Typeable)
-
--- | The timeout of a receive expression
-data TimeOut = TimeOut Exprs Exprs
-  deriving (Eq, Ord, Show, Data, Typeable)
-
--- | This type is used to represent variables
-data Var = Var (Ann String)
-  deriving (Eq, Ord, Show, Data, Typeable)
-
--- | An annotation for modules, variables, ...
-data Ann a
-  = Constr a      -- ^ core erlang construct
-  | Ann a [Const] -- ^ core erlang annotated construct
-  deriving (Eq, Ord, Show, Data, Typeable)
+type BitstringA a = Ann (Bitstring a)
+type KeyVA k v = Ann (KeyV k v)

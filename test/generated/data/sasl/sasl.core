@@ -1,0 +1,67 @@
+module 'sasl' ['init'/1,'module_info'/0,'module_info'/1,'pred'/1,'start'/2,'stop'/1] attributes [ 'file' = [{[115|[114|[99|[47|[115|[97|[115|[108|[46|[101|[114|[108]]]]]]]]]]]],1}]
+, 'behaviour' = ['application']
+, 'record' = [{'state',[{'record_field',34,{'atom',34,'sasl_logger'}}|[{'record_field',34,{'atom',34,'error_logger_mf'}}]]}] ] 'start'/2 = fun (_0,_1) -> case <_0,_1> of <_8,[]> when 'true' -> case apply 'get_logger_info'/0 () of <{Dest,Level}> when 'true' -> let <Mf> = apply 'get_error_logger_mf'/0 () in do apply 'add_sasl_logger'/2 (Dest,Level) do apply 'add_error_logger_mf'/1 (Mf) let <State> = {'state',Dest,Mf} in case call 'supervisor':'start_link' ({'local','sasl_sup'},'sasl',[]) of <{'ok',Pid}> when 'true' -> {'ok',Pid,State}
+<Error> when 'true' -> Error end
+(<_2> when 'true' -> primop 'match_fail' ({'badmatch',_2})-|['compiler_generated'] ) end
+(<_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_7,_6})-|[{'function_name',{'start',2}}] )-|['compiler_generated'] ) end
+'stop'/1 = fun (_0) -> (case _0 of (<({'state',_rec0,_6}-|['compiler_generated'] )> when 'true' -> do apply 'delete_sasl_logger'/1 (_rec0) (case _0 of (<({'state',_8,_rec1}-|['compiler_generated'] )> when 'true' -> apply 'delete_error_logger_mf'/1 (_rec1)-|['compiler_generated'] )
+(<_9> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','state'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )-|['compiler_generated'] )
+(<_7> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','state'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+'get_logger_info'/0 = fun () -> case call 'application':'get_env' ('kernel','logger_sasl_compatible') of <{'ok','true'}> when 'true' -> let <_1> = apply 'get_logger_dest'/0 () in let <_0> = apply 'get_logger_level'/0 () in {_1,_0}
+<_3> when 'true' -> {'std','undefined'} end
+'get_logger_dest'/0 = fun () -> case call 'application':'get_env' ('sasl','sasl_error_logger') of <{'ok','false'}> when 'true' -> 'undefined'
+<{'ok','tty'}> when 'true' -> 'standard_io'
+<{'ok',_@r0 = {'file',File}}> when call 'erlang':'is_list' (File) -> _@r0
+<{'ok',_@r1 = {'file',File,Modes}}> when let <_0> = call 'erlang':'is_list' (File) in let <_1> = call 'erlang':'is_list' (Modes) in call 'erlang':'and' (_0,_1) -> _@r1
+<{'ok',Bad}> when 'true' -> call 'erlang':'exit' ({'bad_config',{'sasl',{'sasl_logger_dest',Bad}}})
+<'undefined'> when 'true' -> 'standard_io'
+(<_2> when 'true' -> primop 'match_fail' ({'case_clause',_2})-|['compiler_generated'] ) end
+'get_logger_level'/0 = fun () -> case call 'application':'get_env' ('sasl','errlog_type') of <{'ok','error'}> when 'true' -> 'error'
+<{'ok','progress'}> when 'true' -> 'info'
+<{'ok','all'}> when 'true' -> 'info'
+<{'ok',Bad}> when 'true' -> call 'erlang':'exit' ({'bad_config',{'sasl',{'errlog_type',Bad}}})
+<_1> when 'true' -> 'info' end
+'get_error_logger_mf'/0 = fun () -> let <_0> = catch apply 'get_mf'/0 () in case _0 of <{'EXIT',Reason}> when 'true' -> call 'erlang':'exit' (Reason)
+<Mf> when 'true' -> Mf end
+'get_mf'/0 = fun () -> let <Dir> = apply 'get_mf_dir'/0 () in let <MaxB> = apply 'get_mf_maxb'/0 () in let <MaxF> = apply 'get_mf_maxf'/0 () in case <Dir,MaxB,MaxF> of <'undefined','undefined','undefined'> when 'true' -> 'undefined'
+<('undefined'-|['compiler_generated'] ),_4,_5> when 'true' -> call 'erlang':'exit' ({'missing_config',{'sasl','error_logger_mf_dir'}})
+<_6,('undefined'-|['compiler_generated'] ),_7> when 'true' -> call 'erlang':'exit' ({'missing_config',{'sasl','error_logger_mf_maxbytes'}})
+<_8,_9,('undefined'-|['compiler_generated'] )> when 'true' -> call 'erlang':'exit' ({'missing_config',{'sasl','error_logger_mf_maxfiles'}})
+<(_10-|['compiler_generated'] ),(_11-|['compiler_generated'] ),(_12-|['compiler_generated'] )> when 'true' -> ({(_10-|['compiler_generated'] ),(_11-|['compiler_generated'] ),(_12-|['compiler_generated'] )}-|['compiler_generated'] ) end
+'get_mf_dir'/0 = fun () -> case call 'application':'get_env' ('sasl','error_logger_mf_dir') of <{'ok','false'}> when 'true' -> 'undefined'
+<{'ok',Dir}> when call 'erlang':'is_list' (Dir) -> Dir
+<'undefined'> when 'true' -> 'undefined'
+<{'ok',Bad}> when 'true' -> call 'erlang':'exit' ({'bad_config',{'sasl',{'error_logger_mf_dir',Bad}}})
+(<_0> when 'true' -> primop 'match_fail' ({'case_clause',_0})-|['compiler_generated'] ) end
+'get_mf_maxb'/0 = fun () -> case call 'application':'get_env' ('sasl','error_logger_mf_maxbytes') of <{'ok',MaxB}> when call 'erlang':'is_integer' (MaxB) -> MaxB
+<'undefined'> when 'true' -> 'undefined'
+<{'ok',Bad}> when 'true' -> call 'erlang':'exit' ({'bad_config',{'sasl',{'error_logger_mf_maxbytes',Bad}}})
+(<_0> when 'true' -> primop 'match_fail' ({'case_clause',_0})-|['compiler_generated'] ) end
+'get_mf_maxf'/0 = fun () -> case call 'application':'get_env' ('sasl','error_logger_mf_maxfiles') of <{'ok',MaxF}> when try let <_0> = call 'erlang':'is_integer' (MaxF) in let <_1> = call 'erlang':'>' (MaxF,0) in let <_2> = call 'erlang':'<' (MaxF,256) in let <_3> = call 'erlang':'and' (_1,_2) in call 'erlang':'and' (_0,_3) of <Try> -> Try catch <T,R> -> 'false' -> MaxF
+<'undefined'> when 'true' -> 'undefined'
+<{'ok',Bad}> when 'true' -> call 'erlang':'exit' ({'bad_config',{'sasl',{'error_logger_mf_maxfiles',Bad}}})
+(<_4> when 'true' -> primop 'match_fail' ({'case_clause',_4})-|['compiler_generated'] ) end
+'add_sasl_logger'/2 = fun (_0,_1) -> case <_0,_1> of <'undefined',_X_Level> when 'true' -> 'ok'
+<'std','undefined'> when 'true' -> 'ok'
+<Dest,Level> when 'true' -> do case Level of <'info'> when 'true' -> apply 'allow_progress'/0 ()
+<_11> when 'true' -> 'ok' end let <_6> = ~{'type'=>Dest}~ in let <_7> = ~{'level'=>Level,'filter_default'=>'stop','filters'=>[{'remote_gl',{fun 'logger_filters':'remote_gl'/2,'stop'}}|[{'sasl_domain',{fun 'logger_filters':'domain'/2,{'log','equal',['otp'|['sasl']]}}}]],'config'=>_6,'formatter'=>{'logger_formatter',~{'legacy_header'=>'true','single_line'=>'false'}~}}~ in let <_12> = call 'logger':'add_handler' ('sasl','logger_std_h',_7) in case _12 of <'ok'> when 'true' -> (_12-|['compiler_generated'] )
+(<_8> when 'true' -> primop 'match_fail' ({'badmatch',_8})-|['compiler_generated'] ) end end
+'delete_sasl_logger'/1 = fun (_0) -> case _0 of <'undefined'> when 'true' -> 'ok'
+<'std'> when 'true' -> 'ok'
+<_X_Type> when 'true' -> do (call ('logger'-|['result_not_wanted'] ):('remove_handler'-|['result_not_wanted'] ) (('sasl'-|['result_not_wanted'] ))-|['result_not_wanted'] ) 'ok' end
+'add_error_logger_mf'/1 = fun (_0) -> case _0 of <'undefined'> when 'true' -> 'ok'
+<{Dir,MaxB,MaxF}> when 'true' -> do apply 'allow_progress'/0 () let <_1> = 'pred'/1 in let <_2> = call 'log_mf_h':'init' (Dir,MaxB,MaxF,_1) in call 'error_logger':'add_report_handler' ('log_mf_h',_2)
+(<_3> when 'true' -> (primop 'match_fail' ({'function_clause',_3})-|[{'function_name',{'add_error_logger_mf',1}}] )-|['compiler_generated'] ) end
+'delete_error_logger_mf'/1 = fun (_0) -> case _0 of <'undefined'> when 'true' -> 'ok'
+<_2> when 'true' -> call 'error_logger':'delete_report_handler' ('log_mf_h') end
+'pred'/1 = fun (_0) -> case _0 of <{_X_Type,GL,_X_Msg}> when try let <_2> = call 'erlang':'node' (GL) in let <_1> = call 'erlang':'node' () in call 'erlang':'=/=' (_2,_1) of <Try> -> Try catch <T,R> -> 'false' -> 'false'
+<_4> when 'true' -> 'true' end
+'allow_progress'/0 = fun () -> case call 'logger':'get_primary_config' () of <~{'level':=PL}~> when 'true' -> case call 'logger':'compare_levels' ('info',PL) of <'lt'> when 'true' -> let <_3> = call 'logger':'set_primary_config' ('level','info') in case _3 of <'ok'> when 'true' -> (_3-|['compiler_generated'] )
+(<_1> when 'true' -> primop 'match_fail' ({'badmatch',_1})-|['compiler_generated'] ) end
+<_4> when 'true' -> 'ok' end
+(<_0> when 'true' -> primop 'match_fail' ({'badmatch',_0})-|['compiler_generated'] ) end
+'init'/1 = fun (_0) -> case _0 of <[]> when 'true' -> {'ok',{{'one_for_one',0,1},[{'sasl_safe_sup',{'supervisor','start_link',[{'local','sasl_safe_sup'}|['sasl'|['safe']]]},'permanent','infinity','supervisor',['sasl']}|[{'release_handler',{'release_handler','start_link',[]},'permanent',2000,'worker',[]}]]}}
+<'safe'> when 'true' -> {'ok',{{'one_for_one',4,3600},[{'alarm_handler',{'alarm_handler','start_link',[]},'permanent',2000,'worker','dynamic'}]}}
+(<_6> when 'true' -> (primop 'match_fail' ({'function_clause',_6})-|[{'function_name',{'init',1}}] )-|['compiler_generated'] ) end
+'module_info'/0 = fun () -> call 'erlang':'get_module_info' ('sasl')
+'module_info'/1 = fun (_0) -> call 'erlang':'get_module_info' ('sasl',_0) end

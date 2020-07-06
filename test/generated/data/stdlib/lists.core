@@ -1,0 +1,1110 @@
+module 'lists' ['all'/2,'any'/2,'append'/1,'append'/2,'concat'/1,'delete'/2,'droplast'/1,'dropwhile'/2,'duplicate'/2,'filter'/2,'filtermap'/2,'flatlength'/1,'flatmap'/2,'flatten'/1,'flatten'/2,'foldl'/3,'foldr'/3,'foreach'/2,'join'/2,'keydelete'/3,'keyfind'/3,'keymap'/3,'keymember'/3,'keymerge'/3,'keyreplace'/4,'keysearch'/3,'keysort'/2,'keystore'/4,'keytake'/3,'last'/1,'map'/2,'mapfoldl'/3,'mapfoldr'/3,'max'/1,'member'/2,'merge'/1,'merge'/2,'merge'/3,'merge3'/3,'min'/1,'module_info'/0,'module_info'/1,'nth'/2,'nthtail'/2,'partition'/2,'prefix'/2,'reverse'/1,'reverse'/2,'rkeymerge'/3,'rmerge'/2,'rmerge'/3,'rmerge3'/3,'rukeymerge'/3,'rumerge'/2,'rumerge'/3,'rumerge3'/3,'search'/2,'seq'/2,'seq'/3,'sort'/1,'sort'/2,'split'/2,'splitwith'/2,'sublist'/2,'sublist'/3,'subtract'/2,'suffix'/2,'sum'/1,'takewhile'/2,'ukeymerge'/3,'ukeysort'/2,'umerge'/1,'umerge'/2,'umerge'/3,'umerge3'/3,'unzip'/1,'unzip3'/1,'usort'/1,'usort'/2,'zf'/2,'zip'/2,'zip3'/3,'zipwith'/3,'zipwith3'/4] attributes [ 'file' = [{[115|[114|[99|[47|[108|[105|[115|[116|[115|[46|[101|[114|[108]]]]]]]]]]]]],1}]
+, 'compile' = [{'no_auto_import',[{'max',2}]}]
+, 'compile' = [{'no_auto_import',[{'min',2}]}]
+, 'spec' = [{{'keyfind',3},[{'type',49,'bounded_fun',[{'type',49,'fun',[{'type',49,'product',[{'var',49,'Key'}|[{'var',49,'N'}|[{'var',49,'TupleList'}]]]}|[{'type',49,'union',[{'var',49,'Tuple'}|[{'atom',49,'false'}]]}]]}|[[{'type',50,'constraint',[{'atom',50,'is_subtype'}|[[{'var',50,'Key'}|[{'type',50,'term',[]}]]]]}|[{'type',51,'constraint',[{'atom',51,'is_subtype'}|[[{'var',51,'N'}|[{'type',51,'pos_integer',[]}]]]]}|[{'type',52,'constraint',[{'atom',52,'is_subtype'}|[[{'var',52,'TupleList'}|[{'type',52,'list',[{'var',52,'Tuple'}]}]]]]}|[{'type',53,'constraint',[{'atom',53,'is_subtype'}|[[{'var',53,'Tuple'}|[{'type',53,'tuple','any'}]]]]}]]]]]]}]}]
+, 'spec' = [{{'keymember',3},[{'type',59,'bounded_fun',[{'type',59,'fun',[{'type',59,'product',[{'var',59,'Key'}|[{'var',59,'N'}|[{'var',59,'TupleList'}]]]}|[{'type',59,'boolean',[]}]]}|[[{'type',60,'constraint',[{'atom',60,'is_subtype'}|[[{'var',60,'Key'}|[{'type',60,'term',[]}]]]]}|[{'type',61,'constraint',[{'atom',61,'is_subtype'}|[[{'var',61,'N'}|[{'type',61,'pos_integer',[]}]]]]}|[{'type',62,'constraint',[{'atom',62,'is_subtype'}|[[{'var',62,'TupleList'}|[{'type',62,'list',[{'var',62,'Tuple'}]}]]]]}|[{'type',63,'constraint',[{'atom',63,'is_subtype'}|[[{'var',63,'Tuple'}|[{'type',63,'tuple','any'}]]]]}]]]]]]}]}]
+, 'spec' = [{{'keysearch',3},[{'type',69,'bounded_fun',[{'type',69,'fun',[{'type',69,'product',[{'var',69,'Key'}|[{'var',69,'N'}|[{'var',69,'TupleList'}]]]}|[{'type',69,'union',[{'type',69,'tuple',[{'atom',69,'value'}|[{'var',69,'Tuple'}]]}|[{'atom',69,'false'}]]}]]}|[[{'type',70,'constraint',[{'atom',70,'is_subtype'}|[[{'var',70,'Key'}|[{'type',70,'term',[]}]]]]}|[{'type',71,'constraint',[{'atom',71,'is_subtype'}|[[{'var',71,'N'}|[{'type',71,'pos_integer',[]}]]]]}|[{'type',72,'constraint',[{'atom',72,'is_subtype'}|[[{'var',72,'TupleList'}|[{'type',72,'list',[{'var',72,'Tuple'}]}]]]]}|[{'type',73,'constraint',[{'atom',73,'is_subtype'}|[[{'var',73,'Tuple'}|[{'type',73,'tuple','any'}]]]]}]]]]]]}]}]
+, 'spec' = [{{'member',2},[{'type',79,'bounded_fun',[{'type',79,'fun',[{'type',79,'product',[{'var',79,'Elem'}|[{'var',79,'List'}]]}|[{'type',79,'boolean',[]}]]}|[[{'type',80,'constraint',[{'atom',80,'is_subtype'}|[[{'var',80,'Elem'}|[{'var',80,'T'}]]]]}|[{'type',81,'constraint',[{'atom',81,'is_subtype'}|[[{'var',81,'List'}|[{'type',81,'list',[{'var',81,'T'}]}]]]]}|[{'type',82,'constraint',[{'atom',82,'is_subtype'}|[[{'var',82,'T'}|[{'type',82,'term',[]}]]]]}]]]]]}]}]
+, 'spec' = [{{'reverse',2},[{'type',88,'bounded_fun',[{'type',88,'fun',[{'type',88,'product',[{'var',88,'List1'}|[{'var',88,'Tail'}]]}|[{'var',88,'List2'}]]}|[[{'type',89,'constraint',[{'atom',89,'is_subtype'}|[[{'var',89,'List1'}|[{'type',89,'list',[{'var',89,'T'}]}]]]]}|[{'type',90,'constraint',[{'atom',90,'is_subtype'}|[[{'var',90,'Tail'}|[{'type',90,'term',[]}]]]]}|[{'type',91,'constraint',[{'atom',91,'is_subtype'}|[[{'var',91,'List2'}|[{'type',91,'list',[{'var',91,'T'}]}]]]]}|[{'type',92,'constraint',[{'atom',92,'is_subtype'}|[[{'var',92,'T'}|[{'type',92,'term',[]}]]]]}]]]]]]}]}]
+, 'spec' = [{{'append',2},[{'type',110,'bounded_fun',[{'type',110,'fun',[{'type',110,'product',[{'var',110,'List1'}|[{'var',110,'List2'}]]}|[{'var',110,'List3'}]]}|[[{'type',111,'constraint',[{'atom',111,'is_subtype'}|[[{'var',111,'List1'}|[{'type',111,'list',[{'var',111,'T'}]}]]]]}|[{'type',112,'constraint',[{'atom',112,'is_subtype'}|[[{'var',112,'List2'}|[{'type',112,'list',[{'var',112,'T'}]}]]]]}|[{'type',113,'constraint',[{'atom',113,'is_subtype'}|[[{'var',113,'List3'}|[{'type',113,'list',[{'var',113,'T'}]}]]]]}|[{'type',114,'constraint',[{'atom',114,'is_subtype'}|[[{'var',114,'T'}|[{'type',114,'term',[]}]]]]}]]]]]]}]}]
+, 'spec' = [{{'append',1},[{'type',120,'bounded_fun',[{'type',120,'fun',[{'type',120,'product',[{'var',120,'ListOfLists'}]}|[{'var',120,'List1'}]]}|[[{'type',121,'constraint',[{'atom',121,'is_subtype'}|[[{'var',121,'ListOfLists'}|[{'type',121,'list',[{'var',121,'List'}]}]]]]}|[{'type',122,'constraint',[{'atom',122,'is_subtype'}|[[{'var',122,'List'}|[{'type',122,'list',[{'var',122,'T'}]}]]]]}|[{'type',123,'constraint',[{'atom',123,'is_subtype'}|[[{'var',123,'List1'}|[{'type',123,'list',[{'var',123,'T'}]}]]]]}|[{'type',124,'constraint',[{'atom',124,'is_subtype'}|[[{'var',124,'T'}|[{'type',124,'term',[]}]]]]}]]]]]]}]}]
+, 'spec' = [{{'subtract',2},[{'type',132,'bounded_fun',[{'type',132,'fun',[{'type',132,'product',[{'var',132,'List1'}|[{'var',132,'List2'}]]}|[{'var',132,'List3'}]]}|[[{'type',133,'constraint',[{'atom',133,'is_subtype'}|[[{'var',133,'List1'}|[{'type',133,'list',[{'var',133,'T'}]}]]]]}|[{'type',134,'constraint',[{'atom',134,'is_subtype'}|[[{'var',134,'List2'}|[{'type',134,'list',[{'var',134,'T'}]}]]]]}|[{'type',135,'constraint',[{'atom',135,'is_subtype'}|[[{'var',135,'List3'}|[{'type',135,'list',[{'var',135,'T'}]}]]]]}|[{'type',136,'constraint',[{'atom',136,'is_subtype'}|[[{'var',136,'T'}|[{'type',136,'term',[]}]]]]}]]]]]]}]}]
+, 'spec' = [{{'reverse',1},[{'type',142,'bounded_fun',[{'type',142,'fun',[{'type',142,'product',[{'var',142,'List1'}]}|[{'var',142,'List2'}]]}|[[{'type',143,'constraint',[{'atom',143,'is_subtype'}|[[{'var',143,'List1'}|[{'type',143,'list',[{'var',143,'T'}]}]]]]}|[{'type',144,'constraint',[{'atom',144,'is_subtype'}|[[{'var',144,'List2'}|[{'type',144,'list',[{'var',144,'T'}]}]]]]}|[{'type',145,'constraint',[{'atom',145,'is_subtype'}|[[{'var',145,'T'}|[{'type',145,'term',[]}]]]]}]]]]]}]}]
+, 'spec' = [{{'nth',2},[{'type',164,'bounded_fun',[{'type',164,'fun',[{'type',164,'product',[{'var',164,'N'}|[{'var',164,'List'}]]}|[{'var',164,'Elem'}]]}|[[{'type',165,'constraint',[{'atom',165,'is_subtype'}|[[{'var',165,'N'}|[{'type',165,'pos_integer',[]}]]]]}|[{'type',166,'constraint',[{'atom',166,'is_subtype'}|[[{'var',166,'List'}|[{'type',166,'nonempty_list',[{'var',166,'T'}]}]]]]}|[{'type',167,'constraint',[{'atom',167,'is_subtype'}|[[{'var',167,'Elem'}|[{'var',167,'T'}]]]]}|[{'type',168,'constraint',[{'atom',168,'is_subtype'}|[[{'var',168,'T'}|[{'type',168,'term',[]}]]]]}]]]]]]}]}]
+, 'spec' = [{{'nthtail',2},[{'type',174,'bounded_fun',[{'type',174,'fun',[{'type',174,'product',[{'var',174,'N'}|[{'var',174,'List'}]]}|[{'var',174,'Tail'}]]}|[[{'type',175,'constraint',[{'atom',175,'is_subtype'}|[[{'var',175,'N'}|[{'type',175,'non_neg_integer',[]}]]]]}|[{'type',176,'constraint',[{'atom',176,'is_subtype'}|[[{'var',176,'List'}|[{'type',176,'nonempty_list',[{'var',176,'T'}]}]]]]}|[{'type',177,'constraint',[{'atom',177,'is_subtype'}|[[{'var',177,'Tail'}|[{'type',177,'list',[{'var',177,'T'}]}]]]]}|[{'type',178,'constraint',[{'atom',178,'is_subtype'}|[[{'var',178,'T'}|[{'type',178,'term',[]}]]]]}]]]]]]}]}]
+, 'spec' = [{{'prefix',2},[{'type',187,'bounded_fun',[{'type',187,'fun',[{'type',187,'product',[{'var',187,'List1'}|[{'var',187,'List2'}]]}|[{'type',187,'boolean',[]}]]}|[[{'type',188,'constraint',[{'atom',188,'is_subtype'}|[[{'var',188,'List1'}|[{'type',188,'list',[{'var',188,'T'}]}]]]]}|[{'type',189,'constraint',[{'atom',189,'is_subtype'}|[[{'var',189,'List2'}|[{'type',189,'list',[{'var',189,'T'}]}]]]]}|[{'type',190,'constraint',[{'atom',190,'is_subtype'}|[[{'var',190,'T'}|[{'type',190,'term',[]}]]]]}]]]]]}]}]
+, 'spec' = [{{'suffix',2},[{'type',199,'bounded_fun',[{'type',199,'fun',[{'type',199,'product',[{'var',199,'List1'}|[{'var',199,'List2'}]]}|[{'type',199,'boolean',[]}]]}|[[{'type',200,'constraint',[{'atom',200,'is_subtype'}|[[{'var',200,'List1'}|[{'type',200,'list',[{'var',200,'T'}]}]]]]}|[{'type',201,'constraint',[{'atom',201,'is_subtype'}|[[{'var',201,'List2'}|[{'type',201,'list',[{'var',201,'T'}]}]]]]}|[{'type',202,'constraint',[{'atom',202,'is_subtype'}|[[{'var',202,'T'}|[{'type',202,'term',[]}]]]]}]]]]]}]}]
+, 'spec' = [{{'droplast',1},[{'type',210,'bounded_fun',[{'type',210,'fun',[{'type',210,'product',[{'var',210,'List'}]}|[{'var',210,'InitList'}]]}|[[{'type',211,'constraint',[{'atom',211,'is_subtype'}|[[{'var',211,'List'}|[{'type',211,'nonempty_list',[{'var',211,'T'}]}]]]]}|[{'type',212,'constraint',[{'atom',212,'is_subtype'}|[[{'var',212,'InitList'}|[{'type',212,'list',[{'var',212,'T'}]}]]]]}|[{'type',213,'constraint',[{'atom',213,'is_subtype'}|[[{'var',213,'T'}|[{'type',213,'term',[]}]]]]}]]]]]}]}]
+, 'spec' = [{{'last',1},[{'type',223,'bounded_fun',[{'type',223,'fun',[{'type',223,'product',[{'var',223,'List'}]}|[{'var',223,'Last'}]]}|[[{'type',224,'constraint',[{'atom',224,'is_subtype'}|[[{'var',224,'List'}|[{'type',224,'nonempty_list',[{'var',224,'T'}]}]]]]}|[{'type',225,'constraint',[{'atom',225,'is_subtype'}|[[{'var',225,'Last'}|[{'var',225,'T'}]]]]}|[{'type',226,'constraint',[{'atom',226,'is_subtype'}|[[{'var',226,'T'}|[{'type',226,'term',[]}]]]]}]]]]]}]}]
+, 'spec' = [{{'seq',2},[{'type',238,'bounded_fun',[{'type',238,'fun',[{'type',238,'product',[{'var',238,'From'}|[{'var',238,'To'}]]}|[{'var',238,'Seq'}]]}|[[{'type',239,'constraint',[{'atom',239,'is_subtype'}|[[{'var',239,'From'}|[{'type',239,'integer',[]}]]]]}|[{'type',240,'constraint',[{'atom',240,'is_subtype'}|[[{'var',240,'To'}|[{'type',240,'integer',[]}]]]]}|[{'type',241,'constraint',[{'atom',241,'is_subtype'}|[[{'var',241,'Seq'}|[{'type',241,'list',[{'type',241,'integer',[]}]}]]]]}]]]]]}]}]
+, 'spec' = [{{'seq',3},[{'type',256,'bounded_fun',[{'type',256,'fun',[{'type',256,'product',[{'var',256,'From'}|[{'var',256,'To'}|[{'var',256,'Incr'}]]]}|[{'var',256,'Seq'}]]}|[[{'type',257,'constraint',[{'atom',257,'is_subtype'}|[[{'var',257,'From'}|[{'type',257,'integer',[]}]]]]}|[{'type',258,'constraint',[{'atom',258,'is_subtype'}|[[{'var',258,'To'}|[{'type',258,'integer',[]}]]]]}|[{'type',259,'constraint',[{'atom',259,'is_subtype'}|[[{'var',259,'Incr'}|[{'type',259,'integer',[]}]]]]}|[{'type',260,'constraint',[{'atom',260,'is_subtype'}|[[{'var',260,'Seq'}|[{'type',260,'list',[{'type',260,'integer',[]}]}]]]]}]]]]]]}]}]
+, 'spec' = [{{'sum',1},[{'type',286,'bounded_fun',[{'type',286,'fun',[{'type',286,'product',[{'var',286,'List'}]}|[{'type',286,'number',[]}]]}|[[{'type',287,'constraint',[{'atom',287,'is_subtype'}|[[{'var',287,'List'}|[{'type',287,'list',[{'type',287,'number',[]}]}]]]]}]]]}]}]
+, 'spec' = [{{'duplicate',2},[{'type',297,'bounded_fun',[{'type',297,'fun',[{'type',297,'product',[{'var',297,'N'}|[{'var',297,'Elem'}]]}|[{'var',297,'List'}]]}|[[{'type',298,'constraint',[{'atom',298,'is_subtype'}|[[{'var',298,'N'}|[{'type',298,'non_neg_integer',[]}]]]]}|[{'type',299,'constraint',[{'atom',299,'is_subtype'}|[[{'var',299,'Elem'}|[{'var',299,'T'}]]]]}|[{'type',300,'constraint',[{'atom',300,'is_subtype'}|[[{'var',300,'List'}|[{'type',300,'list',[{'var',300,'T'}]}]]]]}|[{'type',301,'constraint',[{'atom',301,'is_subtype'}|[[{'var',301,'T'}|[{'type',301,'term',[]}]]]]}]]]]]]}]}]
+, 'spec' = [{{'min',1},[{'type',310,'bounded_fun',[{'type',310,'fun',[{'type',310,'product',[{'var',310,'List'}]}|[{'var',310,'Min'}]]}|[[{'type',311,'constraint',[{'atom',311,'is_subtype'}|[[{'var',311,'List'}|[{'type',311,'nonempty_list',[{'var',311,'T'}]}]]]]}|[{'type',312,'constraint',[{'atom',312,'is_subtype'}|[[{'var',312,'Min'}|[{'var',312,'T'}]]]]}|[{'type',313,'constraint',[{'atom',313,'is_subtype'}|[[{'var',313,'T'}|[{'type',313,'term',[]}]]]]}]]]]]}]}]
+, 'spec' = [{{'max',1},[{'type',323,'bounded_fun',[{'type',323,'fun',[{'type',323,'product',[{'var',323,'List'}]}|[{'var',323,'Max'}]]}|[[{'type',324,'constraint',[{'atom',324,'is_subtype'}|[[{'var',324,'List'}|[{'type',324,'nonempty_list',[{'var',324,'T'}]}]]]]}|[{'type',325,'constraint',[{'atom',325,'is_subtype'}|[[{'var',325,'Max'}|[{'var',325,'T'}]]]]}|[{'type',326,'constraint',[{'atom',326,'is_subtype'}|[[{'var',326,'T'}|[{'type',326,'term',[]}]]]]}]]]]]}]}]
+, 'spec' = [{{'sublist',3},[{'type',337,'bounded_fun',[{'type',337,'fun',[{'type',337,'product',[{'var',337,'List1'}|[{'var',337,'Start'}|[{'var',337,'Len'}]]]}|[{'var',337,'List2'}]]}|[[{'type',338,'constraint',[{'atom',338,'is_subtype'}|[[{'var',338,'List1'}|[{'type',338,'list',[{'var',338,'T'}]}]]]]}|[{'type',339,'constraint',[{'atom',339,'is_subtype'}|[[{'var',339,'List2'}|[{'type',339,'list',[{'var',339,'T'}]}]]]]}|[{'type',340,'constraint',[{'atom',340,'is_subtype'}|[[{'var',340,'Start'}|[{'type',340,'pos_integer',[]}]]]]}|[{'type',341,'constraint',[{'atom',341,'is_subtype'}|[[{'var',341,'Len'}|[{'type',341,'non_neg_integer',[]}]]]]}|[{'type',342,'constraint',[{'atom',342,'is_subtype'}|[[{'var',342,'T'}|[{'type',342,'term',[]}]]]]}]]]]]]]}]}]
+, 'spec' = [{{'sublist',2},[{'type',347,'bounded_fun',[{'type',347,'fun',[{'type',347,'product',[{'var',347,'List1'}|[{'var',347,'Len'}]]}|[{'var',347,'List2'}]]}|[[{'type',348,'constraint',[{'atom',348,'is_subtype'}|[[{'var',348,'List1'}|[{'type',348,'list',[{'var',348,'T'}]}]]]]}|[{'type',349,'constraint',[{'atom',349,'is_subtype'}|[[{'var',349,'List2'}|[{'type',349,'list',[{'var',349,'T'}]}]]]]}|[{'type',350,'constraint',[{'atom',350,'is_subtype'}|[[{'var',350,'Len'}|[{'type',350,'non_neg_integer',[]}]]]]}|[{'type',351,'constraint',[{'atom',351,'is_subtype'}|[[{'var',351,'T'}|[{'type',351,'term',[]}]]]]}]]]]]]}]}]
+, 'spec' = [{{'delete',2},[{'type',366,'bounded_fun',[{'type',366,'fun',[{'type',366,'product',[{'var',366,'Elem'}|[{'var',366,'List1'}]]}|[{'var',366,'List2'}]]}|[[{'type',367,'constraint',[{'atom',367,'is_subtype'}|[[{'var',367,'Elem'}|[{'var',367,'T'}]]]]}|[{'type',368,'constraint',[{'atom',368,'is_subtype'}|[[{'var',368,'List1'}|[{'type',368,'list',[{'var',368,'T'}]}]]]]}|[{'type',369,'constraint',[{'atom',369,'is_subtype'}|[[{'var',369,'List2'}|[{'type',369,'list',[{'var',369,'T'}]}]]]]}|[{'type',370,'constraint',[{'atom',370,'is_subtype'}|[[{'var',370,'T'}|[{'type',370,'term',[]}]]]]}]]]]]]}]}]
+, 'spec' = [{{'zip',2},[{'type',380,'bounded_fun',[{'type',380,'fun',[{'type',380,'product',[{'var',380,'List1'}|[{'var',380,'List2'}]]}|[{'var',380,'List3'}]]}|[[{'type',381,'constraint',[{'atom',381,'is_subtype'}|[[{'var',381,'List1'}|[{'type',381,'list',[{'var',381,'A'}]}]]]]}|[{'type',382,'constraint',[{'atom',382,'is_subtype'}|[[{'var',382,'List2'}|[{'type',382,'list',[{'var',382,'B'}]}]]]]}|[{'type',383,'constraint',[{'atom',383,'is_subtype'}|[[{'var',383,'List3'}|[{'type',383,'list',[{'type',383,'tuple',[{'var',383,'A'}|[{'var',383,'B'}]]}]}]]]]}|[{'type',384,'constraint',[{'atom',384,'is_subtype'}|[[{'var',384,'A'}|[{'type',384,'term',[]}]]]]}|[{'type',385,'constraint',[{'atom',385,'is_subtype'}|[[{'var',385,'B'}|[{'type',385,'term',[]}]]]]}]]]]]]]}]}]
+, 'spec' = [{{'unzip',1},[{'type',393,'bounded_fun',[{'type',393,'fun',[{'type',393,'product',[{'var',393,'List1'}]}|[{'type',393,'tuple',[{'var',393,'List2'}|[{'var',393,'List3'}]]}]]}|[[{'type',394,'constraint',[{'atom',394,'is_subtype'}|[[{'var',394,'List1'}|[{'type',394,'list',[{'type',394,'tuple',[{'var',394,'A'}|[{'var',394,'B'}]]}]}]]]]}|[{'type',395,'constraint',[{'atom',395,'is_subtype'}|[[{'var',395,'List2'}|[{'type',395,'list',[{'var',395,'A'}]}]]]]}|[{'type',396,'constraint',[{'atom',396,'is_subtype'}|[[{'var',396,'List3'}|[{'type',396,'list',[{'var',396,'B'}]}]]]]}|[{'type',397,'constraint',[{'atom',397,'is_subtype'}|[[{'var',397,'A'}|[{'type',397,'term',[]}]]]]}|[{'type',398,'constraint',[{'atom',398,'is_subtype'}|[[{'var',398,'B'}|[{'type',398,'term',[]}]]]]}]]]]]]]}]}]
+, 'spec' = [{{'zip3',3},[{'type',408,'bounded_fun',[{'type',408,'fun',[{'type',408,'product',[{'var',408,'List1'}|[{'var',408,'List2'}|[{'var',408,'List3'}]]]}|[{'var',408,'List4'}]]}|[[{'type',409,'constraint',[{'atom',409,'is_subtype'}|[[{'var',409,'List1'}|[{'type',409,'list',[{'var',409,'A'}]}]]]]}|[{'type',410,'constraint',[{'atom',410,'is_subtype'}|[[{'var',410,'List2'}|[{'type',410,'list',[{'var',410,'B'}]}]]]]}|[{'type',411,'constraint',[{'atom',411,'is_subtype'}|[[{'var',411,'List3'}|[{'type',411,'list',[{'var',411,'C'}]}]]]]}|[{'type',412,'constraint',[{'atom',412,'is_subtype'}|[[{'var',412,'List4'}|[{'type',412,'list',[{'type',412,'tuple',[{'var',412,'A'}|[{'var',412,'B'}|[{'var',412,'C'}]]]}]}]]]]}|[{'type',413,'constraint',[{'atom',413,'is_subtype'}|[[{'var',413,'A'}|[{'type',413,'term',[]}]]]]}|[{'type',414,'constraint',[{'atom',414,'is_subtype'}|[[{'var',414,'B'}|[{'type',414,'term',[]}]]]]}|[{'type',415,'constraint',[{'atom',415,'is_subtype'}|[[{'var',415,'C'}|[{'type',415,'term',[]}]]]]}]]]]]]]]]}]}]
+, 'spec' = [{{'unzip3',1},[{'type',423,'bounded_fun',[{'type',423,'fun',[{'type',423,'product',[{'var',423,'List1'}]}|[{'type',423,'tuple',[{'var',423,'List2'}|[{'var',423,'List3'}|[{'var',423,'List4'}]]]}]]}|[[{'type',424,'constraint',[{'atom',424,'is_subtype'}|[[{'var',424,'List1'}|[{'type',424,'list',[{'type',424,'tuple',[{'var',424,'A'}|[{'var',424,'B'}|[{'var',424,'C'}]]]}]}]]]]}|[{'type',425,'constraint',[{'atom',425,'is_subtype'}|[[{'var',425,'List2'}|[{'type',425,'list',[{'var',425,'A'}]}]]]]}|[{'type',426,'constraint',[{'atom',426,'is_subtype'}|[[{'var',426,'List3'}|[{'type',426,'list',[{'var',426,'B'}]}]]]]}|[{'type',427,'constraint',[{'atom',427,'is_subtype'}|[[{'var',427,'List4'}|[{'type',427,'list',[{'var',427,'C'}]}]]]]}|[{'type',428,'constraint',[{'atom',428,'is_subtype'}|[[{'var',428,'A'}|[{'type',428,'term',[]}]]]]}|[{'type',429,'constraint',[{'atom',429,'is_subtype'}|[[{'var',429,'B'}|[{'type',429,'term',[]}]]]]}|[{'type',430,'constraint',[{'atom',430,'is_subtype'}|[[{'var',430,'C'}|[{'type',430,'term',[]}]]]]}]]]]]]]]]}]}]
+, 'spec' = [{{'zipwith',3},[{'type',442,'bounded_fun',[{'type',442,'fun',[{'type',442,'product',[{'var',442,'Combine'}|[{'var',442,'List1'}|[{'var',442,'List2'}]]]}|[{'var',442,'List3'}]]}|[[{'type',443,'constraint',[{'atom',443,'is_subtype'}|[[{'var',443,'Combine'}|[{'type',443,'fun',[{'type',443,'product',[{'var',443,'X'}|[{'var',443,'Y'}]]}|[{'var',443,'T'}]]}]]]]}|[{'type',444,'constraint',[{'atom',444,'is_subtype'}|[[{'var',444,'List1'}|[{'type',444,'list',[{'var',444,'X'}]}]]]]}|[{'type',445,'constraint',[{'atom',445,'is_subtype'}|[[{'var',445,'List2'}|[{'type',445,'list',[{'var',445,'Y'}]}]]]]}|[{'type',446,'constraint',[{'atom',446,'is_subtype'}|[[{'var',446,'List3'}|[{'type',446,'list',[{'var',446,'T'}]}]]]]}|[{'type',447,'constraint',[{'atom',447,'is_subtype'}|[[{'var',447,'X'}|[{'type',447,'term',[]}]]]]}|[{'type',448,'constraint',[{'atom',448,'is_subtype'}|[[{'var',448,'Y'}|[{'type',448,'term',[]}]]]]}|[{'type',449,'constraint',[{'atom',449,'is_subtype'}|[[{'var',449,'T'}|[{'type',449,'term',[]}]]]]}]]]]]]]]]}]}]
+, 'spec' = [{{'zipwith3',4},[{'type',457,'bounded_fun',[{'type',457,'fun',[{'type',457,'product',[{'var',457,'Combine'}|[{'var',457,'List1'}|[{'var',457,'List2'}|[{'var',457,'List3'}]]]]}|[{'var',457,'List4'}]]}|[[{'type',458,'constraint',[{'atom',458,'is_subtype'}|[[{'var',458,'Combine'}|[{'type',458,'fun',[{'type',458,'product',[{'var',458,'X'}|[{'var',458,'Y'}|[{'var',458,'Z'}]]]}|[{'var',458,'T'}]]}]]]]}|[{'type',459,'constraint',[{'atom',459,'is_subtype'}|[[{'var',459,'List1'}|[{'type',459,'list',[{'var',459,'X'}]}]]]]}|[{'type',460,'constraint',[{'atom',460,'is_subtype'}|[[{'var',460,'List2'}|[{'type',460,'list',[{'var',460,'Y'}]}]]]]}|[{'type',461,'constraint',[{'atom',461,'is_subtype'}|[[{'var',461,'List3'}|[{'type',461,'list',[{'var',461,'Z'}]}]]]]}|[{'type',462,'constraint',[{'atom',462,'is_subtype'}|[[{'var',462,'List4'}|[{'type',462,'list',[{'var',462,'T'}]}]]]]}|[{'type',463,'constraint',[{'atom',463,'is_subtype'}|[[{'var',463,'X'}|[{'type',463,'term',[]}]]]]}|[{'type',464,'constraint',[{'atom',464,'is_subtype'}|[[{'var',464,'Y'}|[{'type',464,'term',[]}]]]]}|[{'type',465,'constraint',[{'atom',465,'is_subtype'}|[[{'var',465,'Z'}|[{'type',465,'term',[]}]]]]}|[{'type',466,'constraint',[{'atom',466,'is_subtype'}|[[{'var',466,'T'}|[{'type',466,'term',[]}]]]]}]]]]]]]]]]]}]}]
+, 'spec' = [{{'sort',1},[{'type',475,'bounded_fun',[{'type',475,'fun',[{'type',475,'product',[{'var',475,'List1'}]}|[{'var',475,'List2'}]]}|[[{'type',476,'constraint',[{'atom',476,'is_subtype'}|[[{'var',476,'List1'}|[{'type',476,'list',[{'var',476,'T'}]}]]]]}|[{'type',477,'constraint',[{'atom',477,'is_subtype'}|[[{'var',477,'List2'}|[{'type',477,'list',[{'var',477,'T'}]}]]]]}|[{'type',478,'constraint',[{'atom',478,'is_subtype'}|[[{'var',478,'T'}|[{'type',478,'term',[]}]]]]}]]]]]}]}]
+, 'spec' = [{{'merge',1},[{'type',525,'bounded_fun',[{'type',525,'fun',[{'type',525,'product',[{'var',525,'ListOfLists'}]}|[{'var',525,'List1'}]]}|[[{'type',526,'constraint',[{'atom',526,'is_subtype'}|[[{'var',526,'ListOfLists'}|[{'type',526,'list',[{'var',526,'List'}]}]]]]}|[{'type',527,'constraint',[{'atom',527,'is_subtype'}|[[{'var',527,'List'}|[{'type',527,'list',[{'var',527,'T'}]}]]]]}|[{'type',528,'constraint',[{'atom',528,'is_subtype'}|[[{'var',528,'List1'}|[{'type',528,'list',[{'var',528,'T'}]}]]]]}|[{'type',529,'constraint',[{'atom',529,'is_subtype'}|[[{'var',529,'T'}|[{'type',529,'term',[]}]]]]}]]]]]]}]}]
+, 'spec' = [{{'merge3',3},[{'type',537,'bounded_fun',[{'type',537,'fun',[{'type',537,'product',[{'var',537,'List1'}|[{'var',537,'List2'}|[{'var',537,'List3'}]]]}|[{'var',537,'List4'}]]}|[[{'type',538,'constraint',[{'atom',538,'is_subtype'}|[[{'var',538,'List1'}|[{'type',538,'list',[{'var',538,'X'}]}]]]]}|[{'type',539,'constraint',[{'atom',539,'is_subtype'}|[[{'var',539,'List2'}|[{'type',539,'list',[{'var',539,'Y'}]}]]]]}|[{'type',540,'constraint',[{'atom',540,'is_subtype'}|[[{'var',540,'List3'}|[{'type',540,'list',[{'var',540,'Z'}]}]]]]}|[{'type',541,'constraint',[{'atom',541,'is_subtype'}|[[{'var',541,'List4'}|[{'type',541,'list',[{'type',541,'union',[{'var',541,'X'}|[{'var',541,'Y'}|[{'var',541,'Z'}]]]}]}]]]]}|[{'type',542,'constraint',[{'atom',542,'is_subtype'}|[[{'var',542,'X'}|[{'type',542,'term',[]}]]]]}|[{'type',543,'constraint',[{'atom',543,'is_subtype'}|[[{'var',543,'Y'}|[{'type',543,'term',[]}]]]]}|[{'type',544,'constraint',[{'atom',544,'is_subtype'}|[[{'var',544,'Z'}|[{'type',544,'term',[]}]]]]}]]]]]]]]]}]}]
+, 'spec' = [{{'rmerge3',3},[{'type',556,'fun',[{'type',556,'product',[{'type',556,'list',[{'var',556,'X'}]}|[{'type',556,'list',[{'var',556,'Y'}]}|[{'type',556,'list',[{'var',556,'Z'}]}]]]}|[{'type',556,'list',[{'type',556,'union',[{'var',556,'X'}|[{'var',556,'Y'}|[{'var',556,'Z'}]]]}]}]]}]}]
+, 'spec' = [{{'merge',2},[{'type',568,'bounded_fun',[{'type',568,'fun',[{'type',568,'product',[{'var',568,'List1'}|[{'var',568,'List2'}]]}|[{'var',568,'List3'}]]}|[[{'type',569,'constraint',[{'atom',569,'is_subtype'}|[[{'var',569,'List1'}|[{'type',569,'list',[{'var',569,'X'}]}]]]]}|[{'type',570,'constraint',[{'atom',570,'is_subtype'}|[[{'var',570,'List2'}|[{'type',570,'list',[{'var',570,'Y'}]}]]]]}|[{'type',571,'constraint',[{'atom',571,'is_subtype'}|[[{'var',571,'List3'}|[{'type',571,'list',[{'type',571,'union',[{'var',571,'X'}|[{'var',571,'Y'}]]}]}]]]]}|[{'type',572,'constraint',[{'atom',572,'is_subtype'}|[[{'var',572,'X'}|[{'type',572,'term',[]}]]]]}|[{'type',573,'constraint',[{'atom',573,'is_subtype'}|[[{'var',573,'Y'}|[{'type',573,'term',[]}]]]]}]]]]]]]}]}]
+, 'spec' = [{{'rmerge',2},[{'type',585,'fun',[{'type',585,'product',[{'type',585,'list',[{'var',585,'X'}]}|[{'type',585,'list',[{'var',585,'Y'}]}]]}|[{'type',585,'list',[{'type',585,'union',[{'var',585,'X'}|[{'var',585,'Y'}]]}]}]]}]}]
+, 'spec' = [{{'concat',1},[{'type',596,'bounded_fun',[{'type',596,'fun',[{'type',596,'product',[{'var',596,'Things'}]}|[{'type',596,'string',[]}]]}|[[{'type',597,'constraint',[{'atom',597,'is_subtype'}|[[{'var',597,'Things'}|[{'type',597,'list',[{'var',597,'Thing'}]}]]]]}|[{'type',598,'constraint',[{'atom',598,'is_subtype'}|[[{'var',598,'Thing'}|[{'type',598,'union',[{'type',598,'atom',[]}|[{'type',598,'integer',[]}|[{'type',598,'float',[]}|[{'type',598,'string',[]}]]]]}]]]]}]]]]}]}]
+, 'spec' = [{{'flatten',1},[{'type',612,'bounded_fun',[{'type',612,'fun',[{'type',612,'product',[{'var',612,'DeepList'}]}|[{'var',612,'List'}]]}|[[{'type',613,'constraint',[{'atom',613,'is_subtype'}|[[{'var',613,'DeepList'}|[{'type',613,'list',[{'type',613,'union',[{'type',613,'term',[]}|[{'var',613,'DeepList'}]]}]}]]]]}|[{'type',614,'constraint',[{'atom',614,'is_subtype'}|[[{'var',614,'List'}|[{'type',614,'list',[{'type',614,'term',[]}]}]]]]}]]]]}]}]
+, 'spec' = [{{'flatten',2},[{'type',619,'bounded_fun',[{'type',619,'fun',[{'type',619,'product',[{'var',619,'DeepList'}|[{'var',619,'Tail'}]]}|[{'var',619,'List'}]]}|[[{'type',620,'constraint',[{'atom',620,'is_subtype'}|[[{'var',620,'DeepList'}|[{'type',620,'list',[{'type',620,'union',[{'type',620,'term',[]}|[{'var',620,'DeepList'}]]}]}]]]]}|[{'type',621,'constraint',[{'atom',621,'is_subtype'}|[[{'var',621,'Tail'}|[{'type',621,'list',[{'type',621,'term',[]}]}]]]]}|[{'type',622,'constraint',[{'atom',622,'is_subtype'}|[[{'var',622,'List'}|[{'type',622,'list',[{'type',622,'term',[]}]}]]]]}]]]]]}]}]
+, 'spec' = [{{'flatlength',1},[{'type',637,'bounded_fun',[{'type',637,'fun',[{'type',637,'product',[{'var',637,'DeepList'}]}|[{'type',637,'non_neg_integer',[]}]]}|[[{'type',638,'constraint',[{'atom',638,'is_subtype'}|[[{'var',638,'DeepList'}|[{'type',638,'list',[{'type',638,'union',[{'type',638,'term',[]}|[{'var',638,'DeepList'}]]}]}]]]]}]]]}]}]
+, 'spec' = [{{'keydelete',3},[{'type',680,'bounded_fun',[{'type',680,'fun',[{'type',680,'product',[{'var',680,'Key'}|[{'var',680,'N'}|[{'var',680,'TupleList1'}]]]}|[{'var',680,'TupleList2'}]]}|[[{'type',681,'constraint',[{'atom',681,'is_subtype'}|[[{'var',681,'Key'}|[{'type',681,'term',[]}]]]]}|[{'type',682,'constraint',[{'atom',682,'is_subtype'}|[[{'var',682,'N'}|[{'type',682,'pos_integer',[]}]]]]}|[{'type',683,'constraint',[{'atom',683,'is_subtype'}|[[{'var',683,'TupleList1'}|[{'type',683,'list',[{'var',683,'Tuple'}]}]]]]}|[{'type',684,'constraint',[{'atom',684,'is_subtype'}|[[{'var',684,'TupleList2'}|[{'type',684,'list',[{'var',684,'Tuple'}]}]]]]}|[{'type',685,'constraint',[{'atom',685,'is_subtype'}|[[{'var',685,'Tuple'}|[{'type',685,'tuple','any'}]]]]}]]]]]]]}]}]
+, 'spec' = [{{'keyreplace',4},[{'type',695,'bounded_fun',[{'type',695,'fun',[{'type',695,'product',[{'var',695,'Key'}|[{'var',695,'N'}|[{'var',695,'TupleList1'}|[{'var',695,'NewTuple'}]]]]}|[{'var',695,'TupleList2'}]]}|[[{'type',696,'constraint',[{'atom',696,'is_subtype'}|[[{'var',696,'Key'}|[{'type',696,'term',[]}]]]]}|[{'type',697,'constraint',[{'atom',697,'is_subtype'}|[[{'var',697,'N'}|[{'type',697,'pos_integer',[]}]]]]}|[{'type',698,'constraint',[{'atom',698,'is_subtype'}|[[{'var',698,'TupleList1'}|[{'type',698,'list',[{'var',698,'Tuple'}]}]]]]}|[{'type',699,'constraint',[{'atom',699,'is_subtype'}|[[{'var',699,'TupleList2'}|[{'type',699,'list',[{'var',699,'Tuple'}]}]]]]}|[{'type',700,'constraint',[{'atom',700,'is_subtype'}|[[{'var',700,'NewTuple'}|[{'var',700,'Tuple'}]]]]}|[{'type',701,'constraint',[{'atom',701,'is_subtype'}|[[{'var',701,'Tuple'}|[{'type',701,'tuple','any'}]]]]}]]]]]]]]}]}]
+, 'spec' = [{{'keytake',3},[{'type',712,'bounded_fun',[{'type',712,'fun',[{'type',712,'product',[{'var',712,'Key'}|[{'var',712,'N'}|[{'var',712,'TupleList1'}]]]}|[{'type',712,'union',[{'type',712,'tuple',[{'atom',712,'value'}|[{'var',712,'Tuple'}|[{'var',712,'TupleList2'}]]]}|[{'atom',712,'false'}]]}]]}|[[{'type',713,'constraint',[{'atom',713,'is_subtype'}|[[{'var',713,'Key'}|[{'type',713,'term',[]}]]]]}|[{'type',714,'constraint',[{'atom',714,'is_subtype'}|[[{'var',714,'N'}|[{'type',714,'pos_integer',[]}]]]]}|[{'type',715,'constraint',[{'atom',715,'is_subtype'}|[[{'var',715,'TupleList1'}|[{'type',715,'list',[{'type',715,'tuple','any'}]}]]]]}|[{'type',716,'constraint',[{'atom',716,'is_subtype'}|[[{'var',716,'TupleList2'}|[{'type',716,'list',[{'type',716,'tuple','any'}]}]]]]}|[{'type',717,'constraint',[{'atom',717,'is_subtype'}|[[{'var',717,'Tuple'}|[{'type',717,'tuple','any'}]]]]}]]]]]]]}]}]
+, 'spec' = [{{'keystore',4},[{'type',728,'bounded_fun',[{'type',728,'fun',[{'type',728,'product',[{'var',728,'Key'}|[{'var',728,'N'}|[{'var',728,'TupleList1'}|[{'var',728,'NewTuple'}]]]]}|[{'var',728,'TupleList2'}]]}|[[{'type',729,'constraint',[{'atom',729,'is_subtype'}|[[{'var',729,'Key'}|[{'type',729,'term',[]}]]]]}|[{'type',730,'constraint',[{'atom',730,'is_subtype'}|[[{'var',730,'N'}|[{'type',730,'pos_integer',[]}]]]]}|[{'type',731,'constraint',[{'atom',731,'is_subtype'}|[[{'var',731,'TupleList1'}|[{'type',731,'list',[{'var',731,'Tuple'}]}]]]]}|[{'type',732,'constraint',[{'atom',732,'is_subtype'}|[[{'var',732,'TupleList2'}|[{'type',732,'nonempty_list',[{'var',732,'Tuple'}]}]]]]}|[{'type',733,'constraint',[{'atom',733,'is_subtype'}|[[{'var',733,'NewTuple'}|[{'var',733,'Tuple'}]]]]}|[{'type',734,'constraint',[{'atom',734,'is_subtype'}|[[{'var',734,'Tuple'}|[{'type',734,'tuple','any'}]]]]}]]]]]]]]}]}]
+, 'spec' = [{{'keysort',2},[{'type',746,'bounded_fun',[{'type',746,'fun',[{'type',746,'product',[{'var',746,'N'}|[{'var',746,'TupleList1'}]]}|[{'var',746,'TupleList2'}]]}|[[{'type',747,'constraint',[{'atom',747,'is_subtype'}|[[{'var',747,'N'}|[{'type',747,'pos_integer',[]}]]]]}|[{'type',748,'constraint',[{'atom',748,'is_subtype'}|[[{'var',748,'TupleList1'}|[{'type',748,'list',[{'var',748,'Tuple'}]}]]]]}|[{'type',749,'constraint',[{'atom',749,'is_subtype'}|[[{'var',749,'TupleList2'}|[{'type',749,'list',[{'var',749,'Tuple'}]}]]]]}|[{'type',750,'constraint',[{'atom',750,'is_subtype'}|[[{'var',750,'Tuple'}|[{'type',750,'tuple','any'}]]]]}]]]]]]}]}]
+, 'spec' = [{{'keymerge',3},[{'type',807,'bounded_fun',[{'type',807,'fun',[{'type',807,'product',[{'var',807,'N'}|[{'var',807,'TupleList1'}|[{'var',807,'TupleList2'}]]]}|[{'var',807,'TupleList3'}]]}|[[{'type',808,'constraint',[{'atom',808,'is_subtype'}|[[{'var',808,'N'}|[{'type',808,'pos_integer',[]}]]]]}|[{'type',809,'constraint',[{'atom',809,'is_subtype'}|[[{'var',809,'TupleList1'}|[{'type',809,'list',[{'var',809,'T1'}]}]]]]}|[{'type',810,'constraint',[{'atom',810,'is_subtype'}|[[{'var',810,'TupleList2'}|[{'type',810,'list',[{'var',810,'T2'}]}]]]]}|[{'type',811,'constraint',[{'atom',811,'is_subtype'}|[[{'var',811,'TupleList3'}|[{'type',811,'list',[{'type',811,'union',[{'var',811,'T1'}|[{'var',811,'T2'}]]}]}]]]]}|[{'type',812,'constraint',[{'atom',812,'is_subtype'}|[[{'var',812,'T1'}|[{'var',812,'Tuple'}]]]]}|[{'type',813,'constraint',[{'atom',813,'is_subtype'}|[[{'var',813,'T2'}|[{'var',813,'Tuple'}]]]]}|[{'type',814,'constraint',[{'atom',814,'is_subtype'}|[[{'var',814,'Tuple'}|[{'type',814,'tuple','any'}]]]]}]]]]]]]]]}]}]
+, 'spec' = [{{'rkeymerge',3},[{'type',828,'bounded_fun',[{'type',828,'fun',[{'type',828,'product',[{'type',828,'pos_integer',[]}|[{'type',828,'list',[{'var',828,'X'}]}|[{'type',828,'list',[{'var',828,'Y'}]}]]]}|[{'type',829,'list',[{'var',829,'R'}]}]]}|[[{'type',829,'constraint',[{'atom',829,'is_subtype'}|[[{'var',829,'X'}|[{'type',829,'tuple','any'}]]]]}|[{'type',829,'constraint',[{'atom',829,'is_subtype'}|[[{'var',829,'Y'}|[{'type',829,'tuple','any'}]]]]}|[{'type',829,'constraint',[{'atom',829,'is_subtype'}|[[{'var',829,'R'}|[{'type',829,'tuple','any'}]]]]}]]]]]}]}]
+, 'spec' = [{{'ukeysort',2},[{'type',841,'bounded_fun',[{'type',841,'fun',[{'type',841,'product',[{'var',841,'N'}|[{'var',841,'TupleList1'}]]}|[{'var',841,'TupleList2'}]]}|[[{'type',842,'constraint',[{'atom',842,'is_subtype'}|[[{'var',842,'N'}|[{'type',842,'pos_integer',[]}]]]]}|[{'type',843,'constraint',[{'atom',843,'is_subtype'}|[[{'var',843,'TupleList1'}|[{'type',843,'list',[{'var',843,'Tuple'}]}]]]]}|[{'type',844,'constraint',[{'atom',844,'is_subtype'}|[[{'var',844,'TupleList2'}|[{'type',844,'list',[{'var',844,'Tuple'}]}]]]]}|[{'type',845,'constraint',[{'atom',845,'is_subtype'}|[[{'var',845,'Tuple'}|[{'type',845,'tuple','any'}]]]]}]]]]]]}]}]
+, 'spec' = [{{'ukeymerge',3},[{'type',910,'bounded_fun',[{'type',910,'fun',[{'type',910,'product',[{'var',910,'N'}|[{'var',910,'TupleList1'}|[{'var',910,'TupleList2'}]]]}|[{'var',910,'TupleList3'}]]}|[[{'type',911,'constraint',[{'atom',911,'is_subtype'}|[[{'var',911,'N'}|[{'type',911,'pos_integer',[]}]]]]}|[{'type',912,'constraint',[{'atom',912,'is_subtype'}|[[{'var',912,'TupleList1'}|[{'type',912,'list',[{'var',912,'T1'}]}]]]]}|[{'type',913,'constraint',[{'atom',913,'is_subtype'}|[[{'var',913,'TupleList2'}|[{'type',913,'list',[{'var',913,'T2'}]}]]]]}|[{'type',914,'constraint',[{'atom',914,'is_subtype'}|[[{'var',914,'TupleList3'}|[{'type',914,'list',[{'type',914,'union',[{'var',914,'T1'}|[{'var',914,'T2'}]]}]}]]]]}|[{'type',915,'constraint',[{'atom',915,'is_subtype'}|[[{'var',915,'T1'}|[{'var',915,'Tuple'}]]]]}|[{'type',916,'constraint',[{'atom',916,'is_subtype'}|[[{'var',916,'T2'}|[{'var',916,'Tuple'}]]]]}|[{'type',917,'constraint',[{'atom',917,'is_subtype'}|[[{'var',917,'Tuple'}|[{'type',917,'tuple','any'}]]]]}]]]]]]]]]}]}]
+, 'spec' = [{{'rukeymerge',3},[{'type',931,'bounded_fun',[{'type',931,'fun',[{'type',931,'product',[{'type',931,'pos_integer',[]}|[{'type',931,'list',[{'var',931,'X'}]}|[{'type',931,'list',[{'var',931,'Y'}]}]]]}|[{'type',932,'list',[{'type',932,'union',[{'var',932,'X'}|[{'var',932,'Y'}]]}]}]]}|[[{'type',932,'constraint',[{'atom',932,'is_subtype'}|[[{'var',932,'X'}|[{'type',932,'tuple','any'}]]]]}|[{'type',932,'constraint',[{'atom',932,'is_subtype'}|[[{'var',932,'Y'}|[{'type',932,'tuple','any'}]]]]}]]]]}]}]
+, 'spec' = [{{'keymap',3},[{'type',944,'bounded_fun',[{'type',944,'fun',[{'type',944,'product',[{'var',944,'Fun'}|[{'var',944,'N'}|[{'var',944,'TupleList1'}]]]}|[{'var',944,'TupleList2'}]]}|[[{'type',945,'constraint',[{'atom',945,'is_subtype'}|[[{'var',945,'Fun'}|[{'type',945,'fun',[{'type',945,'product',[{'ann_type',945,[{'var',945,'Term1'}|[{'type',945,'term',[]}]]}]}|[{'ann_type',945,[{'var',945,'Term2'}|[{'type',945,'term',[]}]]}]]}]]]]}|[{'type',946,'constraint',[{'atom',946,'is_subtype'}|[[{'var',946,'N'}|[{'type',946,'pos_integer',[]}]]]]}|[{'type',947,'constraint',[{'atom',947,'is_subtype'}|[[{'var',947,'TupleList1'}|[{'type',947,'list',[{'var',947,'Tuple'}]}]]]]}|[{'type',948,'constraint',[{'atom',948,'is_subtype'}|[[{'var',948,'TupleList2'}|[{'type',948,'list',[{'var',948,'Tuple'}]}]]]]}|[{'type',949,'constraint',[{'atom',949,'is_subtype'}|[[{'var',949,'Tuple'}|[{'type',949,'tuple','any'}]]]]}]]]]]]]}]}]
+, 'spec' = [{{'sort',2},[{'type',958,'bounded_fun',[{'type',958,'fun',[{'type',958,'product',[{'var',958,'Fun'}|[{'var',958,'List1'}]]}|[{'var',958,'List2'}]]}|[[{'type',959,'constraint',[{'atom',959,'is_subtype'}|[[{'var',959,'Fun'}|[{'type',959,'fun',[{'type',959,'product',[{'ann_type',959,[{'var',959,'A'}|[{'var',959,'T'}]]}|[{'ann_type',959,[{'var',959,'B'}|[{'var',959,'T'}]]}]]}|[{'type',959,'boolean',[]}]]}]]]]}|[{'type',960,'constraint',[{'atom',960,'is_subtype'}|[[{'var',960,'List1'}|[{'type',960,'list',[{'var',960,'T'}]}]]]]}|[{'type',961,'constraint',[{'atom',961,'is_subtype'}|[[{'var',961,'List2'}|[{'type',961,'list',[{'var',961,'T'}]}]]]]}|[{'type',962,'constraint',[{'atom',962,'is_subtype'}|[[{'var',962,'T'}|[{'type',962,'term',[]}]]]]}]]]]]]}]}]
+, 'spec' = [{{'merge',3},[{'type',976,'bounded_fun',[{'type',976,'fun',[{'type',976,'product',[{'var',976,'Fun'}|[{'var',976,'List1'}|[{'var',976,'List2'}]]]}|[{'var',976,'List3'}]]}|[[{'type',977,'constraint',[{'atom',977,'is_subtype'}|[[{'var',977,'Fun'}|[{'type',977,'fun',[{'type',977,'product',[{'var',977,'A'}|[{'var',977,'B'}]]}|[{'type',977,'boolean',[]}]]}]]]]}|[{'type',978,'constraint',[{'atom',978,'is_subtype'}|[[{'var',978,'List1'}|[{'type',978,'list',[{'var',978,'A'}]}]]]]}|[{'type',979,'constraint',[{'atom',979,'is_subtype'}|[[{'var',979,'List2'}|[{'type',979,'list',[{'var',979,'B'}]}]]]]}|[{'type',980,'constraint',[{'atom',980,'is_subtype'}|[[{'var',980,'List3'}|[{'type',980,'list',[{'type',980,'union',[{'var',980,'A'}|[{'var',980,'B'}]]}]}]]]]}|[{'type',981,'constraint',[{'atom',981,'is_subtype'}|[[{'var',981,'A'}|[{'type',981,'term',[]}]]]]}|[{'type',982,'constraint',[{'atom',982,'is_subtype'}|[[{'var',982,'B'}|[{'type',982,'term',[]}]]]]}]]]]]]]]}]}]
+, 'spec' = [{{'rmerge',3},[{'type',991,'fun',[{'type',991,'product',[{'type',991,'fun',[{'type',991,'product',[{'var',991,'X'}|[{'var',991,'Y'}]]}|[{'type',991,'boolean',[]}]]}|[{'type',991,'list',[{'var',991,'X'}]}|[{'type',991,'list',[{'var',991,'Y'}]}]]]}|[{'type',991,'list',[{'type',991,'union',[{'var',991,'X'}|[{'var',991,'Y'}]]}]}]]}]}]
+, 'spec' = [{{'usort',2},[{'type',998,'bounded_fun',[{'type',998,'fun',[{'type',998,'product',[{'var',998,'Fun'}|[{'var',998,'List1'}]]}|[{'var',998,'List2'}]]}|[[{'type',999,'constraint',[{'atom',999,'is_subtype'}|[[{'var',999,'Fun'}|[{'type',999,'fun',[{'type',999,'product',[{'var',999,'T'}|[{'var',999,'T'}]]}|[{'type',999,'boolean',[]}]]}]]]]}|[{'type',1000,'constraint',[{'atom',1000,'is_subtype'}|[[{'var',1000,'List1'}|[{'type',1000,'list',[{'var',1000,'T'}]}]]]]}|[{'type',1001,'constraint',[{'atom',1001,'is_subtype'}|[[{'var',1001,'List2'}|[{'type',1001,'list',[{'var',1001,'T'}]}]]]]}|[{'type',1002,'constraint',[{'atom',1002,'is_subtype'}|[[{'var',1002,'T'}|[{'type',1002,'term',[]}]]]]}]]]]]]}]}]
+, 'spec' = [{{'umerge',3},[{'type',1029,'bounded_fun',[{'type',1029,'fun',[{'type',1029,'product',[{'var',1029,'Fun'}|[{'var',1029,'List1'}|[{'var',1029,'List2'}]]]}|[{'var',1029,'List3'}]]}|[[{'type',1030,'constraint',[{'atom',1030,'is_subtype'}|[[{'var',1030,'Fun'}|[{'type',1030,'fun',[{'type',1030,'product',[{'var',1030,'A'}|[{'var',1030,'B'}]]}|[{'type',1030,'boolean',[]}]]}]]]]}|[{'type',1031,'constraint',[{'atom',1031,'is_subtype'}|[[{'var',1031,'List1'}|[{'type',1031,'list',[{'var',1031,'A'}]}]]]]}|[{'type',1032,'constraint',[{'atom',1032,'is_subtype'}|[[{'var',1032,'List2'}|[{'type',1032,'list',[{'var',1032,'B'}]}]]]]}|[{'type',1033,'constraint',[{'atom',1033,'is_subtype'}|[[{'var',1033,'List3'}|[{'type',1033,'list',[{'type',1033,'union',[{'var',1033,'A'}|[{'var',1033,'B'}]]}]}]]]]}|[{'type',1034,'constraint',[{'atom',1034,'is_subtype'}|[[{'var',1034,'A'}|[{'type',1034,'term',[]}]]]]}|[{'type',1035,'constraint',[{'atom',1035,'is_subtype'}|[[{'var',1035,'B'}|[{'type',1035,'term',[]}]]]]}]]]]]]]]}]}]
+, 'spec' = [{{'rumerge',3},[{'type',1044,'fun',[{'type',1044,'product',[{'type',1044,'fun',[{'type',1044,'product',[{'var',1044,'X'}|[{'var',1044,'Y'}]]}|[{'type',1044,'boolean',[]}]]}|[{'type',1044,'list',[{'var',1044,'X'}]}|[{'type',1044,'list',[{'var',1044,'Y'}]}]]]}|[{'type',1044,'list',[{'type',1044,'union',[{'var',1044,'X'}|[{'var',1044,'Y'}]]}]}]]}]}]
+, 'spec' = [{{'usort',1},[{'type',1054,'bounded_fun',[{'type',1054,'fun',[{'type',1054,'product',[{'var',1054,'List1'}]}|[{'var',1054,'List2'}]]}|[[{'type',1055,'constraint',[{'atom',1055,'is_subtype'}|[[{'var',1055,'List1'}|[{'type',1055,'list',[{'var',1055,'T'}]}]]]]}|[{'type',1056,'constraint',[{'atom',1056,'is_subtype'}|[[{'var',1056,'List2'}|[{'type',1056,'list',[{'var',1056,'T'}]}]]]]}|[{'type',1057,'constraint',[{'atom',1057,'is_subtype'}|[[{'var',1057,'T'}|[{'type',1057,'term',[]}]]]]}]]]]]}]}]
+, 'spec' = [{{'umerge',1},[{'type',1112,'bounded_fun',[{'type',1112,'fun',[{'type',1112,'product',[{'var',1112,'ListOfLists'}]}|[{'var',1112,'List1'}]]}|[[{'type',1113,'constraint',[{'atom',1113,'is_subtype'}|[[{'var',1113,'ListOfLists'}|[{'type',1113,'list',[{'var',1113,'List'}]}]]]]}|[{'type',1114,'constraint',[{'atom',1114,'is_subtype'}|[[{'var',1114,'List'}|[{'type',1114,'list',[{'var',1114,'T'}]}]]]]}|[{'type',1115,'constraint',[{'atom',1115,'is_subtype'}|[[{'var',1115,'List1'}|[{'type',1115,'list',[{'var',1115,'T'}]}]]]]}|[{'type',1116,'constraint',[{'atom',1116,'is_subtype'}|[[{'var',1116,'T'}|[{'type',1116,'term',[]}]]]]}]]]]]]}]}]
+, 'spec' = [{{'umerge3',3},[{'type',1125,'bounded_fun',[{'type',1125,'fun',[{'type',1125,'product',[{'var',1125,'List1'}|[{'var',1125,'List2'}|[{'var',1125,'List3'}]]]}|[{'var',1125,'List4'}]]}|[[{'type',1126,'constraint',[{'atom',1126,'is_subtype'}|[[{'var',1126,'List1'}|[{'type',1126,'list',[{'var',1126,'X'}]}]]]]}|[{'type',1127,'constraint',[{'atom',1127,'is_subtype'}|[[{'var',1127,'List2'}|[{'type',1127,'list',[{'var',1127,'Y'}]}]]]]}|[{'type',1128,'constraint',[{'atom',1128,'is_subtype'}|[[{'var',1128,'List3'}|[{'type',1128,'list',[{'var',1128,'Z'}]}]]]]}|[{'type',1129,'constraint',[{'atom',1129,'is_subtype'}|[[{'var',1129,'List4'}|[{'type',1129,'list',[{'type',1129,'union',[{'var',1129,'X'}|[{'var',1129,'Y'}|[{'var',1129,'Z'}]]]}]}]]]]}|[{'type',1130,'constraint',[{'atom',1130,'is_subtype'}|[[{'var',1130,'X'}|[{'type',1130,'term',[]}]]]]}|[{'type',1131,'constraint',[{'atom',1131,'is_subtype'}|[[{'var',1131,'Y'}|[{'type',1131,'term',[]}]]]]}|[{'type',1132,'constraint',[{'atom',1132,'is_subtype'}|[[{'var',1132,'Z'}|[{'type',1132,'term',[]}]]]]}]]]]]]]]]}]}]
+, 'spec' = [{{'rumerge3',3},[{'type',1145,'fun',[{'type',1145,'product',[{'type',1145,'list',[{'var',1145,'X'}]}|[{'type',1145,'list',[{'var',1145,'Y'}]}|[{'type',1145,'list',[{'var',1145,'Z'}]}]]]}|[{'type',1145,'list',[{'type',1145,'union',[{'var',1145,'X'}|[{'var',1145,'Y'}|[{'var',1145,'Z'}]]]}]}]]}]}]
+, 'spec' = [{{'umerge',2},[{'type',1157,'bounded_fun',[{'type',1157,'fun',[{'type',1157,'product',[{'var',1157,'List1'}|[{'var',1157,'List2'}]]}|[{'var',1157,'List3'}]]}|[[{'type',1158,'constraint',[{'atom',1158,'is_subtype'}|[[{'var',1158,'List1'}|[{'type',1158,'list',[{'var',1158,'X'}]}]]]]}|[{'type',1159,'constraint',[{'atom',1159,'is_subtype'}|[[{'var',1159,'List2'}|[{'type',1159,'list',[{'var',1159,'Y'}]}]]]]}|[{'type',1160,'constraint',[{'atom',1160,'is_subtype'}|[[{'var',1160,'List3'}|[{'type',1160,'list',[{'type',1160,'union',[{'var',1160,'X'}|[{'var',1160,'Y'}]]}]}]]]]}|[{'type',1161,'constraint',[{'atom',1161,'is_subtype'}|[[{'var',1161,'X'}|[{'type',1161,'term',[]}]]]]}|[{'type',1162,'constraint',[{'atom',1162,'is_subtype'}|[[{'var',1162,'Y'}|[{'type',1162,'term',[]}]]]]}]]]]]]]}]}]
+, 'spec' = [{{'rumerge',2},[{'type',1175,'fun',[{'type',1175,'product',[{'type',1175,'list',[{'var',1175,'X'}]}|[{'type',1175,'list',[{'var',1175,'Y'}]}]]}|[{'type',1175,'list',[{'type',1175,'union',[{'var',1175,'X'}|[{'var',1175,'Y'}]]}]}]]}]}]
+, 'spec' = [{{'all',2},[{'type',1207,'bounded_fun',[{'type',1207,'fun',[{'type',1207,'product',[{'var',1207,'Pred'}|[{'var',1207,'List'}]]}|[{'type',1207,'boolean',[]}]]}|[[{'type',1208,'constraint',[{'atom',1208,'is_subtype'}|[[{'var',1208,'Pred'}|[{'type',1208,'fun',[{'type',1208,'product',[{'ann_type',1208,[{'var',1208,'Elem'}|[{'var',1208,'T'}]]}]}|[{'type',1208,'boolean',[]}]]}]]]]}|[{'type',1209,'constraint',[{'atom',1209,'is_subtype'}|[[{'var',1209,'List'}|[{'type',1209,'list',[{'var',1209,'T'}]}]]]]}|[{'type',1210,'constraint',[{'atom',1210,'is_subtype'}|[[{'var',1210,'T'}|[{'type',1210,'term',[]}]]]]}]]]]]}]}]
+, 'spec' = [{{'any',2},[{'type',1219,'bounded_fun',[{'type',1219,'fun',[{'type',1219,'product',[{'var',1219,'Pred'}|[{'var',1219,'List'}]]}|[{'type',1219,'boolean',[]}]]}|[[{'type',1220,'constraint',[{'atom',1220,'is_subtype'}|[[{'var',1220,'Pred'}|[{'type',1220,'fun',[{'type',1220,'product',[{'ann_type',1220,[{'var',1220,'Elem'}|[{'var',1220,'T'}]]}]}|[{'type',1220,'boolean',[]}]]}]]]]}|[{'type',1221,'constraint',[{'atom',1221,'is_subtype'}|[[{'var',1221,'List'}|[{'type',1221,'list',[{'var',1221,'T'}]}]]]]}|[{'type',1222,'constraint',[{'atom',1222,'is_subtype'}|[[{'var',1222,'T'}|[{'type',1222,'term',[]}]]]]}]]]]]}]}]
+, 'spec' = [{{'map',2},[{'type',1231,'bounded_fun',[{'type',1231,'fun',[{'type',1231,'product',[{'var',1231,'Fun'}|[{'var',1231,'List1'}]]}|[{'var',1231,'List2'}]]}|[[{'type',1232,'constraint',[{'atom',1232,'is_subtype'}|[[{'var',1232,'Fun'}|[{'type',1232,'fun',[{'type',1232,'product',[{'var',1232,'A'}]}|[{'var',1232,'B'}]]}]]]]}|[{'type',1233,'constraint',[{'atom',1233,'is_subtype'}|[[{'var',1233,'List1'}|[{'type',1233,'list',[{'var',1233,'A'}]}]]]]}|[{'type',1234,'constraint',[{'atom',1234,'is_subtype'}|[[{'var',1234,'List2'}|[{'type',1234,'list',[{'var',1234,'B'}]}]]]]}|[{'type',1235,'constraint',[{'atom',1235,'is_subtype'}|[[{'var',1235,'A'}|[{'type',1235,'term',[]}]]]]}|[{'type',1236,'constraint',[{'atom',1236,'is_subtype'}|[[{'var',1236,'B'}|[{'type',1236,'term',[]}]]]]}]]]]]]]}]}]
+, 'spec' = [{{'flatmap',2},[{'type',1242,'bounded_fun',[{'type',1242,'fun',[{'type',1242,'product',[{'var',1242,'Fun'}|[{'var',1242,'List1'}]]}|[{'var',1242,'List2'}]]}|[[{'type',1243,'constraint',[{'atom',1243,'is_subtype'}|[[{'var',1243,'Fun'}|[{'type',1243,'fun',[{'type',1243,'product',[{'var',1243,'A'}]}|[{'type',1243,'list',[{'var',1243,'B'}]}]]}]]]]}|[{'type',1244,'constraint',[{'atom',1244,'is_subtype'}|[[{'var',1244,'List1'}|[{'type',1244,'list',[{'var',1244,'A'}]}]]]]}|[{'type',1245,'constraint',[{'atom',1245,'is_subtype'}|[[{'var',1245,'List2'}|[{'type',1245,'list',[{'var',1245,'B'}]}]]]]}|[{'type',1246,'constraint',[{'atom',1246,'is_subtype'}|[[{'var',1246,'A'}|[{'type',1246,'term',[]}]]]]}|[{'type',1247,'constraint',[{'atom',1247,'is_subtype'}|[[{'var',1247,'B'}|[{'type',1247,'term',[]}]]]]}]]]]]]]}]}]
+, 'spec' = [{{'foldl',3},[{'type',1253,'bounded_fun',[{'type',1253,'fun',[{'type',1253,'product',[{'var',1253,'Fun'}|[{'var',1253,'Acc0'}|[{'var',1253,'List'}]]]}|[{'var',1253,'Acc1'}]]}|[[{'type',1254,'constraint',[{'atom',1254,'is_subtype'}|[[{'var',1254,'Fun'}|[{'type',1254,'fun',[{'type',1254,'product',[{'ann_type',1254,[{'var',1254,'Elem'}|[{'var',1254,'T'}]]}|[{'var',1254,'AccIn'}]]}|[{'var',1254,'AccOut'}]]}]]]]}|[{'type',1255,'constraint',[{'atom',1255,'is_subtype'}|[[{'var',1255,'Acc0'}|[{'type',1255,'term',[]}]]]]}|[{'type',1256,'constraint',[{'atom',1256,'is_subtype'}|[[{'var',1256,'Acc1'}|[{'type',1256,'term',[]}]]]]}|[{'type',1257,'constraint',[{'atom',1257,'is_subtype'}|[[{'var',1257,'AccIn'}|[{'type',1257,'term',[]}]]]]}|[{'type',1258,'constraint',[{'atom',1258,'is_subtype'}|[[{'var',1258,'AccOut'}|[{'type',1258,'term',[]}]]]]}|[{'type',1259,'constraint',[{'atom',1259,'is_subtype'}|[[{'var',1259,'List'}|[{'type',1259,'list',[{'var',1259,'T'}]}]]]]}|[{'type',1260,'constraint',[{'atom',1260,'is_subtype'}|[[{'var',1260,'T'}|[{'type',1260,'term',[]}]]]]}]]]]]]]]]}]}]
+, 'spec' = [{{'foldr',3},[{'type',1266,'bounded_fun',[{'type',1266,'fun',[{'type',1266,'product',[{'var',1266,'Fun'}|[{'var',1266,'Acc0'}|[{'var',1266,'List'}]]]}|[{'var',1266,'Acc1'}]]}|[[{'type',1267,'constraint',[{'atom',1267,'is_subtype'}|[[{'var',1267,'Fun'}|[{'type',1267,'fun',[{'type',1267,'product',[{'ann_type',1267,[{'var',1267,'Elem'}|[{'var',1267,'T'}]]}|[{'var',1267,'AccIn'}]]}|[{'var',1267,'AccOut'}]]}]]]]}|[{'type',1268,'constraint',[{'atom',1268,'is_subtype'}|[[{'var',1268,'Acc0'}|[{'type',1268,'term',[]}]]]]}|[{'type',1269,'constraint',[{'atom',1269,'is_subtype'}|[[{'var',1269,'Acc1'}|[{'type',1269,'term',[]}]]]]}|[{'type',1270,'constraint',[{'atom',1270,'is_subtype'}|[[{'var',1270,'AccIn'}|[{'type',1270,'term',[]}]]]]}|[{'type',1271,'constraint',[{'atom',1271,'is_subtype'}|[[{'var',1271,'AccOut'}|[{'type',1271,'term',[]}]]]]}|[{'type',1272,'constraint',[{'atom',1272,'is_subtype'}|[[{'var',1272,'List'}|[{'type',1272,'list',[{'var',1272,'T'}]}]]]]}|[{'type',1273,'constraint',[{'atom',1273,'is_subtype'}|[[{'var',1273,'T'}|[{'type',1273,'term',[]}]]]]}]]]]]]]]]}]}]
+, 'spec' = [{{'filter',2},[{'type',1279,'bounded_fun',[{'type',1279,'fun',[{'type',1279,'product',[{'var',1279,'Pred'}|[{'var',1279,'List1'}]]}|[{'var',1279,'List2'}]]}|[[{'type',1280,'constraint',[{'atom',1280,'is_subtype'}|[[{'var',1280,'Pred'}|[{'type',1280,'fun',[{'type',1280,'product',[{'ann_type',1280,[{'var',1280,'Elem'}|[{'var',1280,'T'}]]}]}|[{'type',1280,'boolean',[]}]]}]]]]}|[{'type',1281,'constraint',[{'atom',1281,'is_subtype'}|[[{'var',1281,'List1'}|[{'type',1281,'list',[{'var',1281,'T'}]}]]]]}|[{'type',1282,'constraint',[{'atom',1282,'is_subtype'}|[[{'var',1282,'List2'}|[{'type',1282,'list',[{'var',1282,'T'}]}]]]]}|[{'type',1283,'constraint',[{'atom',1283,'is_subtype'}|[[{'var',1283,'T'}|[{'type',1283,'term',[]}]]]]}]]]]]]}]}]
+, 'spec' = [{{'partition',2},[{'type',1291,'bounded_fun',[{'type',1291,'fun',[{'type',1291,'product',[{'var',1291,'Pred'}|[{'var',1291,'List'}]]}|[{'type',1291,'tuple',[{'var',1291,'Satisfying'}|[{'var',1291,'NotSatisfying'}]]}]]}|[[{'type',1292,'constraint',[{'atom',1292,'is_subtype'}|[[{'var',1292,'Pred'}|[{'type',1292,'fun',[{'type',1292,'product',[{'ann_type',1292,[{'var',1292,'Elem'}|[{'var',1292,'T'}]]}]}|[{'type',1292,'boolean',[]}]]}]]]]}|[{'type',1293,'constraint',[{'atom',1293,'is_subtype'}|[[{'var',1293,'List'}|[{'type',1293,'list',[{'var',1293,'T'}]}]]]]}|[{'type',1294,'constraint',[{'atom',1294,'is_subtype'}|[[{'var',1294,'Satisfying'}|[{'type',1294,'list',[{'var',1294,'T'}]}]]]]}|[{'type',1295,'constraint',[{'atom',1295,'is_subtype'}|[[{'var',1295,'NotSatisfying'}|[{'type',1295,'list',[{'var',1295,'T'}]}]]]]}|[{'type',1296,'constraint',[{'atom',1296,'is_subtype'}|[[{'var',1296,'T'}|[{'type',1296,'term',[]}]]]]}]]]]]]]}]}]
+, 'spec' = [{{'filtermap',2},[{'type',1309,'bounded_fun',[{'type',1309,'fun',[{'type',1309,'product',[{'var',1309,'Fun'}|[{'var',1309,'List1'}]]}|[{'var',1309,'List2'}]]}|[[{'type',1310,'constraint',[{'atom',1310,'is_subtype'}|[[{'var',1310,'Fun'}|[{'type',1310,'fun',[{'type',1310,'product',[{'var',1310,'Elem'}]}|[{'type',1310,'union',[{'type',1310,'boolean',[]}|[{'type',1310,'tuple',[{'atom',1310,'true'}|[{'var',1310,'Value'}]]}]]}]]}]]]]}|[{'type',1311,'constraint',[{'atom',1311,'is_subtype'}|[[{'var',1311,'List1'}|[{'type',1311,'list',[{'var',1311,'Elem'}]}]]]]}|[{'type',1312,'constraint',[{'atom',1312,'is_subtype'}|[[{'var',1312,'List2'}|[{'type',1312,'list',[{'type',1312,'union',[{'var',1312,'Elem'}|[{'var',1312,'Value'}]]}]}]]]]}|[{'type',1313,'constraint',[{'atom',1313,'is_subtype'}|[[{'var',1313,'Elem'}|[{'type',1313,'term',[]}]]]]}|[{'type',1314,'constraint',[{'atom',1314,'is_subtype'}|[[{'var',1314,'Value'}|[{'type',1314,'term',[]}]]]]}]]]]]]]}]}]
+, 'spec' = [{{'zf',2},[{'type',1327,'fun',[{'type',1327,'product',[{'type',1327,'fun',[{'type',1327,'product',[{'var',1327,'T'}]}|[{'type',1327,'union',[{'type',1327,'boolean',[]}|[{'type',1327,'tuple',[{'atom',1327,'true'}|[{'var',1327,'X'}]]}]]}]]}|[{'type',1327,'list',[{'var',1327,'T'}]}]]}|[{'type',1327,'list',[{'type',1327,'union',[{'var',1327,'T'}|[{'var',1327,'X'}]]}]}]]}]}]
+, 'spec' = [{{'foreach',2},[{'type',1332,'bounded_fun',[{'type',1332,'fun',[{'type',1332,'product',[{'var',1332,'Fun'}|[{'var',1332,'List'}]]}|[{'atom',1332,'ok'}]]}|[[{'type',1333,'constraint',[{'atom',1333,'is_subtype'}|[[{'var',1333,'Fun'}|[{'type',1333,'fun',[{'type',1333,'product',[{'ann_type',1333,[{'var',1333,'Elem'}|[{'var',1333,'T'}]]}]}|[{'type',1333,'term',[]}]]}]]]]}|[{'type',1334,'constraint',[{'atom',1334,'is_subtype'}|[[{'var',1334,'List'}|[{'type',1334,'list',[{'var',1334,'T'}]}]]]]}|[{'type',1335,'constraint',[{'atom',1335,'is_subtype'}|[[{'var',1335,'T'}|[{'type',1335,'term',[]}]]]]}]]]]]}]}]
+, 'spec' = [{{'mapfoldl',3},[{'type',1342,'bounded_fun',[{'type',1342,'fun',[{'type',1342,'product',[{'var',1342,'Fun'}|[{'var',1342,'Acc0'}|[{'var',1342,'List1'}]]]}|[{'type',1342,'tuple',[{'var',1342,'List2'}|[{'var',1342,'Acc1'}]]}]]}|[[{'type',1343,'constraint',[{'atom',1343,'is_subtype'}|[[{'var',1343,'Fun'}|[{'type',1343,'fun',[{'type',1343,'product',[{'var',1343,'A'}|[{'var',1343,'AccIn'}]]}|[{'type',1343,'tuple',[{'var',1343,'B'}|[{'var',1343,'AccOut'}]]}]]}]]]]}|[{'type',1344,'constraint',[{'atom',1344,'is_subtype'}|[[{'var',1344,'Acc0'}|[{'type',1344,'term',[]}]]]]}|[{'type',1345,'constraint',[{'atom',1345,'is_subtype'}|[[{'var',1345,'Acc1'}|[{'type',1345,'term',[]}]]]]}|[{'type',1346,'constraint',[{'atom',1346,'is_subtype'}|[[{'var',1346,'AccIn'}|[{'type',1346,'term',[]}]]]]}|[{'type',1347,'constraint',[{'atom',1347,'is_subtype'}|[[{'var',1347,'AccOut'}|[{'type',1347,'term',[]}]]]]}|[{'type',1348,'constraint',[{'atom',1348,'is_subtype'}|[[{'var',1348,'List1'}|[{'type',1348,'list',[{'var',1348,'A'}]}]]]]}|[{'type',1349,'constraint',[{'atom',1349,'is_subtype'}|[[{'var',1349,'List2'}|[{'type',1349,'list',[{'var',1349,'B'}]}]]]]}|[{'type',1350,'constraint',[{'atom',1350,'is_subtype'}|[[{'var',1350,'A'}|[{'type',1350,'term',[]}]]]]}|[{'type',1351,'constraint',[{'atom',1351,'is_subtype'}|[[{'var',1351,'B'}|[{'type',1351,'term',[]}]]]]}]]]]]]]]]]]}]}]
+, 'spec' = [{{'mapfoldr',3},[{'type',1359,'bounded_fun',[{'type',1359,'fun',[{'type',1359,'product',[{'var',1359,'Fun'}|[{'var',1359,'Acc0'}|[{'var',1359,'List1'}]]]}|[{'type',1359,'tuple',[{'var',1359,'List2'}|[{'var',1359,'Acc1'}]]}]]}|[[{'type',1360,'constraint',[{'atom',1360,'is_subtype'}|[[{'var',1360,'Fun'}|[{'type',1360,'fun',[{'type',1360,'product',[{'var',1360,'A'}|[{'var',1360,'AccIn'}]]}|[{'type',1360,'tuple',[{'var',1360,'B'}|[{'var',1360,'AccOut'}]]}]]}]]]]}|[{'type',1361,'constraint',[{'atom',1361,'is_subtype'}|[[{'var',1361,'Acc0'}|[{'type',1361,'term',[]}]]]]}|[{'type',1362,'constraint',[{'atom',1362,'is_subtype'}|[[{'var',1362,'Acc1'}|[{'type',1362,'term',[]}]]]]}|[{'type',1363,'constraint',[{'atom',1363,'is_subtype'}|[[{'var',1363,'AccIn'}|[{'type',1363,'term',[]}]]]]}|[{'type',1364,'constraint',[{'atom',1364,'is_subtype'}|[[{'var',1364,'AccOut'}|[{'type',1364,'term',[]}]]]]}|[{'type',1365,'constraint',[{'atom',1365,'is_subtype'}|[[{'var',1365,'List1'}|[{'type',1365,'list',[{'var',1365,'A'}]}]]]]}|[{'type',1366,'constraint',[{'atom',1366,'is_subtype'}|[[{'var',1366,'List2'}|[{'type',1366,'list',[{'var',1366,'B'}]}]]]]}|[{'type',1367,'constraint',[{'atom',1367,'is_subtype'}|[[{'var',1367,'A'}|[{'type',1367,'term',[]}]]]]}|[{'type',1368,'constraint',[{'atom',1368,'is_subtype'}|[[{'var',1368,'B'}|[{'type',1368,'term',[]}]]]]}]]]]]]]]]]]}]}]
+, 'spec' = [{{'takewhile',2},[{'type',1376,'bounded_fun',[{'type',1376,'fun',[{'type',1376,'product',[{'var',1376,'Pred'}|[{'var',1376,'List1'}]]}|[{'var',1376,'List2'}]]}|[[{'type',1377,'constraint',[{'atom',1377,'is_subtype'}|[[{'var',1377,'Pred'}|[{'type',1377,'fun',[{'type',1377,'product',[{'ann_type',1377,[{'var',1377,'Elem'}|[{'var',1377,'T'}]]}]}|[{'type',1377,'boolean',[]}]]}]]]]}|[{'type',1378,'constraint',[{'atom',1378,'is_subtype'}|[[{'var',1378,'List1'}|[{'type',1378,'list',[{'var',1378,'T'}]}]]]]}|[{'type',1379,'constraint',[{'atom',1379,'is_subtype'}|[[{'var',1379,'List2'}|[{'type',1379,'list',[{'var',1379,'T'}]}]]]]}|[{'type',1380,'constraint',[{'atom',1380,'is_subtype'}|[[{'var',1380,'T'}|[{'type',1380,'term',[]}]]]]}]]]]]]}]}]
+, 'spec' = [{{'dropwhile',2},[{'type',1389,'bounded_fun',[{'type',1389,'fun',[{'type',1389,'product',[{'var',1389,'Pred'}|[{'var',1389,'List1'}]]}|[{'var',1389,'List2'}]]}|[[{'type',1390,'constraint',[{'atom',1390,'is_subtype'}|[[{'var',1390,'Pred'}|[{'type',1390,'fun',[{'type',1390,'product',[{'ann_type',1390,[{'var',1390,'Elem'}|[{'var',1390,'T'}]]}]}|[{'type',1390,'boolean',[]}]]}]]]]}|[{'type',1391,'constraint',[{'atom',1391,'is_subtype'}|[[{'var',1391,'List1'}|[{'type',1391,'list',[{'var',1391,'T'}]}]]]]}|[{'type',1392,'constraint',[{'atom',1392,'is_subtype'}|[[{'var',1392,'List2'}|[{'type',1392,'list',[{'var',1392,'T'}]}]]]]}|[{'type',1393,'constraint',[{'atom',1393,'is_subtype'}|[[{'var',1393,'T'}|[{'type',1393,'term',[]}]]]]}]]]]]]}]}]
+, 'spec' = [{{'search',2},[{'type',1402,'bounded_fun',[{'type',1402,'fun',[{'type',1402,'product',[{'var',1402,'Pred'}|[{'var',1402,'List'}]]}|[{'type',1402,'union',[{'type',1402,'tuple',[{'atom',1402,'value'}|[{'var',1402,'Value'}]]}|[{'atom',1402,'false'}]]}]]}|[[{'type',1403,'constraint',[{'atom',1403,'is_subtype'}|[[{'var',1403,'Pred'}|[{'type',1403,'fun',[{'type',1403,'product',[{'var',1403,'T'}]}|[{'type',1403,'boolean',[]}]]}]]]]}|[{'type',1404,'constraint',[{'atom',1404,'is_subtype'}|[[{'var',1404,'List'}|[{'type',1404,'list',[{'var',1404,'T'}]}]]]]}|[{'type',1405,'constraint',[{'atom',1405,'is_subtype'}|[[{'var',1405,'Value'}|[{'var',1405,'T'}]]]]}]]]]]}]}]
+, 'spec' = [{{'splitwith',2},[{'type',1415,'bounded_fun',[{'type',1415,'fun',[{'type',1415,'product',[{'var',1415,'Pred'}|[{'var',1415,'List'}]]}|[{'type',1415,'tuple',[{'var',1415,'List1'}|[{'var',1415,'List2'}]]}]]}|[[{'type',1416,'constraint',[{'atom',1416,'is_subtype'}|[[{'var',1416,'Pred'}|[{'type',1416,'fun',[{'type',1416,'product',[{'var',1416,'T'}]}|[{'type',1416,'boolean',[]}]]}]]]]}|[{'type',1417,'constraint',[{'atom',1417,'is_subtype'}|[[{'var',1417,'List'}|[{'type',1417,'list',[{'var',1417,'T'}]}]]]]}|[{'type',1418,'constraint',[{'atom',1418,'is_subtype'}|[[{'var',1418,'List1'}|[{'type',1418,'list',[{'var',1418,'T'}]}]]]]}|[{'type',1419,'constraint',[{'atom',1419,'is_subtype'}|[[{'var',1419,'List2'}|[{'type',1419,'list',[{'var',1419,'T'}]}]]]]}|[{'type',1420,'constraint',[{'atom',1420,'is_subtype'}|[[{'var',1420,'T'}|[{'type',1420,'term',[]}]]]]}]]]]]]]}]}]
+, 'spec' = [{{'split',2},[{'type',1433,'bounded_fun',[{'type',1433,'fun',[{'type',1433,'product',[{'var',1433,'N'}|[{'var',1433,'List1'}]]}|[{'type',1433,'tuple',[{'var',1433,'List2'}|[{'var',1433,'List3'}]]}]]}|[[{'type',1434,'constraint',[{'atom',1434,'is_subtype'}|[[{'var',1434,'N'}|[{'type',1434,'non_neg_integer',[]}]]]]}|[{'type',1435,'constraint',[{'atom',1435,'is_subtype'}|[[{'var',1435,'List1'}|[{'type',1435,'list',[{'var',1435,'T'}]}]]]]}|[{'type',1436,'constraint',[{'atom',1436,'is_subtype'}|[[{'var',1436,'List2'}|[{'type',1436,'list',[{'var',1436,'T'}]}]]]]}|[{'type',1437,'constraint',[{'atom',1437,'is_subtype'}|[[{'var',1437,'List3'}|[{'type',1437,'list',[{'var',1437,'T'}]}]]]]}|[{'type',1438,'constraint',[{'atom',1438,'is_subtype'}|[[{'var',1438,'T'}|[{'type',1438,'term',[]}]]]]}]]]]]]]}]}]
+, 'spec' = [{{'join',2},[{'type',1456,'bounded_fun',[{'type',1456,'fun',[{'type',1456,'product',[{'var',1456,'Sep'}|[{'var',1456,'List1'}]]}|[{'var',1456,'List2'}]]}|[[{'type',1457,'constraint',[{'atom',1457,'is_subtype'}|[[{'var',1457,'Sep'}|[{'var',1457,'T'}]]]]}|[{'type',1458,'constraint',[{'atom',1458,'is_subtype'}|[[{'var',1458,'List1'}|[{'type',1458,'list',[{'var',1458,'T'}]}]]]]}|[{'type',1459,'constraint',[{'atom',1459,'is_subtype'}|[[{'var',1459,'List2'}|[{'type',1459,'list',[{'var',1459,'T'}]}]]]]}|[{'type',1460,'constraint',[{'atom',1460,'is_subtype'}|[[{'var',1460,'T'}|[{'type',1460,'term',[]}]]]]}]]]]]]}]}]
+, 'compile' = [{'inline',[{'merge3_12',7}|[{'merge3_21',7}|[{'rmerge3_12',7}|[{'rmerge3_21',7}]]]]}]
+, 'compile' = [{'inline',[{'umerge3_12',8}|[{'umerge3_21',8}|[{'rumerge3_12a',7}|[{'rumerge3_12b',8}]]]]}]
+, 'compile' = [{'inline',[{'keymerge3_12',12}|[{'keymerge3_21',12}|[{'rkeymerge3_12',12}|[{'rkeymerge3_21',12}]]]]}]
+, 'compile' = [{'inline',[{'ukeymerge3_12',13}|[{'ukeymerge3_21',13}|[{'rukeymerge3_12a',11}|[{'rukeymerge3_21a',13}|[{'rukeymerge3_12b',12}|[{'rukeymerge3_21b',12}]]]]]]}]
+, 'dialyzer' = [{'no_improper_lists',{'ukeymergel',3}}] ] 'keyfind'/3 = fun (_0,_1,_2) -> call 'erlang':'nif_error' ('undef')
+'keymember'/3 = fun (_0,_1,_2) -> call 'erlang':'nif_error' ('undef')
+'keysearch'/3 = fun (_0,_1,_2) -> call 'erlang':'nif_error' ('undef')
+'member'/2 = fun (_0,_1) -> call 'erlang':'nif_error' ('undef')
+'reverse'/2 = fun (_0,_1) -> call 'erlang':'nif_error' ('undef')
+'append'/2 = fun (_0,_1) -> call 'erlang':'++' (_0,_1)
+'append'/1 = fun (_0) -> case _0 of <[E|[]]> when 'true' -> E
+<[H|T]> when 'true' -> let <_1> = apply 'append'/1 (T) in call 'erlang':'++' (H,_1)
+<[]> when 'true' -> []
+(<_2> when 'true' -> (primop 'match_fail' ({'function_clause',_2})-|[{'function_name',{'append',1}}] )-|['compiler_generated'] ) end
+'subtract'/2 = fun (_0,_1) -> call 'erlang':'--' (_0,_1)
+'reverse'/1 = fun (_0) -> case _0 of <L = []> when 'true' -> L
+<L = [_2|[]]> when 'true' -> L
+<[A|[B|[]]]> when 'true' -> [B|[A|[]]]
+<[A|[B|L]]> when 'true' -> call 'lists':'reverse' (L,[B|[A|[]]])
+(<_1> when 'true' -> (primop 'match_fail' ({'function_clause',_1})-|[{'function_name',{'reverse',1}}] )-|['compiler_generated'] ) end
+'nth'/2 = fun (_0,_1) -> case <_0,_1> of <1,[H|_5]> when 'true' -> H
+<N,[_6|T]> when call 'erlang':'>' (N,1) -> let <_2> = call 'erlang':'-' (N,1) in apply 'nth'/2 (_2,T)
+(<_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_4,_3})-|[{'function_name',{'nth',2}}] )-|['compiler_generated'] ) end
+'nthtail'/2 = fun (_0,_1) -> case <_0,_1> of <1,[_5|T]> when 'true' -> T
+<N,[_6|T]> when call 'erlang':'>' (N,1) -> let <_2> = call 'erlang':'-' (N,1) in apply 'nthtail'/2 (_2,T)
+<0,L> when call 'erlang':'is_list' (L) -> L
+(<_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_4,_3})-|[{'function_name',{'nthtail',2}}] )-|['compiler_generated'] ) end
+'prefix'/2 = fun (_0,_1) -> case <_0,_1> of <[X|PreTail],[_4|Tail]> when call 'erlang':'=:=' (_4,X) -> apply 'prefix'/2 (PreTail,Tail)
+<[],List> when call 'erlang':'is_list' (List) -> 'true'
+<[_5|_6],List> when call 'erlang':'is_list' (List) -> 'false'
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'prefix',2}}] )-|['compiler_generated'] ) end
+'suffix'/2 = fun (_0,_1) -> let <_3> = call 'erlang':'length' (_1) in let <_2> = call 'erlang':'length' (_0) in let <Delta> = call 'erlang':'-' (_3,_2) in (case <> of (<> when call 'erlang':'>=' (Delta,0) -> let <_6> = apply 'nthtail'/2 (Delta,_1) in call 'erlang':'=:=' (_6,_0)-|['compiler_generated'] )
+(<> when 'true' -> 'false'-|['compiler_generated'] ) end-|['compiler_generated'] )
+'droplast'/1 = fun (_0) -> case _0 of <[_X_T|[]]> when 'true' -> []
+<[H|T]> when 'true' -> let <_1> = apply 'droplast'/1 (T) in [H|_1]
+(<_2> when 'true' -> (primop 'match_fail' ({'function_clause',_2})-|[{'function_name',{'droplast',1}}] )-|['compiler_generated'] ) end
+'last'/1 = fun (_0) -> case _0 of <[E|Es]> when 'true' -> apply 'last'/2 (E,Es)
+(<_1> when 'true' -> (primop 'match_fail' ({'function_clause',_1})-|[{'function_name',{'last',1}}] )-|['compiler_generated'] ) end
+'last'/2 = fun (_0,_1) -> case <_0,_1> of <_4,[E|Es]> when 'true' -> apply 'last'/2 (E,Es)
+<E,[]> when 'true' -> E
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'last',2}}] )-|['compiler_generated'] ) end
+'seq'/2 = fun (_0,_1) -> case <_0,_1> of <First,Last> when try let <_2> = call 'erlang':'is_integer' (First) in let <_3> = call 'erlang':'is_integer' (Last) in let <_4> = call 'erlang':'-' (First,1) in let <_5> = call 'erlang':'=<' (_4,Last) in let <_6> = call 'erlang':'and' (_3,_5) in call 'erlang':'and' (_2,_6) of <Try> -> Try catch <T,R> -> 'false' -> let <_7> = call 'erlang':'-' (Last,First) in let <_8> = call 'erlang':'+' (_7,1) in apply 'seq_loop'/3 (_8,Last,[])
+(<_10,_9> when 'true' -> (primop 'match_fail' ({'function_clause',_10,_9})-|[{'function_name',{'seq',2}}] )-|['compiler_generated'] ) end
+'seq_loop'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <N,X,L> when call 'erlang':'>=' (N,4) -> let <_7> = call 'erlang':'-' (N,4) in let <_6> = call 'erlang':'-' (X,4) in let <_3> = call 'erlang':'-' (X,3) in let <_4> = call 'erlang':'-' (X,2) in let <_5> = call 'erlang':'-' (X,1) in apply 'seq_loop'/3 (_7,_6,[_3|[_4|[_5|[X|L]]]])
+<N,X,L> when call 'erlang':'>=' (N,2) -> let <_10> = call 'erlang':'-' (N,2) in let <_9> = call 'erlang':'-' (X,2) in let <_8> = call 'erlang':'-' (X,1) in apply 'seq_loop'/3 (_10,_9,[_8|[X|L]])
+<1,X,L> when 'true' -> [X|L]
+<0,_14,L> when 'true' -> L
+(<_13,_12,_11> when 'true' -> (primop 'match_fail' ({'function_clause',_13,_12,_11})-|[{'function_name',{'seq_loop',3}}] )-|['compiler_generated'] ) end
+'seq'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <First,Last,Inc> when try let <_3> = call 'erlang':'is_integer' (First) in let <_4> = call 'erlang':'is_integer' (Last) in let <_5> = call 'erlang':'is_integer' (Inc) in let <_6> = call 'erlang':'and' (_4,_5) in call 'erlang':'and' (_3,_6) of <Try> -> Try catch <T,R> -> 'false' -> case <> of <> when let <_10> = try let <_7> = call 'erlang':'>' (Inc,0) in let <_8> = call 'erlang':'-' (First,Inc) in let <_9> = call 'erlang':'=<' (_8,Last) in call 'erlang':'and' (_7,_9) of <Try> -> Try catch <T,R> -> 'false' in let <_14> = try let <_11> = call 'erlang':'<' (Inc,0) in let <_12> = call 'erlang':'-' (First,Inc) in let <_13> = call 'erlang':'>=' (_12,Last) in call 'erlang':'and' (_11,_13) of <Try> -> Try catch <T,R> -> 'false' in call 'erlang':'or' (_10,_14) -> let <_15> = call 'erlang':'-' (Last,First) in let <_16> = call 'erlang':'+' (_15,Inc) in let <N> = call 'erlang':'div' (_16,Inc) in let <_18> = call 'erlang':'-' (N,1) in let <_19> = call 'erlang':'*' (Inc,_18) in let <_20> = call 'erlang':'+' (_19,First) in apply 'seq_loop'/4 (N,_20,Inc,[])
+<> when let <_21> = call 'erlang':'=:=' (Inc,0) in let <_22> = call 'erlang':'=:=' (First,Last) in call 'erlang':'and' (_21,_22) -> apply 'seq_loop'/4 (1,First,Inc,[])
+(<> when 'true' -> primop 'match_fail' ('if_clause')-|['compiler_generated'] ) end
+(<_25,_24,_23> when 'true' -> (primop 'match_fail' ({'function_clause',_25,_24,_23})-|[{'function_name',{'seq',3}}] )-|['compiler_generated'] ) end
+'seq_loop'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <N,X,D,L> when call 'erlang':'>=' (N,4) -> let <Y> = call 'erlang':'-' (X,D) in let <Z> = call 'erlang':'-' (Y,D) in let <W> = call 'erlang':'-' (Z,D) in let <_8> = call 'erlang':'-' (N,4) in let <_7> = call 'erlang':'-' (W,D) in apply 'seq_loop'/4 (_8,_7,D,[W|[Z|[Y|[X|L]]]])
+<N,X,D,L> when call 'erlang':'>=' (N,2) -> let <Y> = call 'erlang':'-' (X,D) in let <_11> = call 'erlang':'-' (N,2) in let <_10> = call 'erlang':'-' (Y,D) in apply 'seq_loop'/4 (_11,_10,D,[Y|[X|L]])
+<1,X,_16,L> when 'true' -> [X|L]
+<0,_17,_18,L> when 'true' -> L
+(<_15,_14,_13,_12> when 'true' -> (primop 'match_fail' ({'function_clause',_15,_14,_13,_12})-|[{'function_name',{'seq_loop',4}}] )-|['compiler_generated'] ) end
+'sum'/1 = fun (_0) -> apply 'sum'/2 (_0,0)
+'sum'/2 = fun (_0,_1) -> case <_0,_1> of <[H|T],Sum> when 'true' -> let <_2> = call 'erlang':'+' (Sum,H) in apply 'sum'/2 (T,_2)
+<[],Sum> when 'true' -> Sum
+(<_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_4,_3})-|[{'function_name',{'sum',2}}] )-|['compiler_generated'] ) end
+'duplicate'/2 = fun (_0,_1) -> case <_0,_1> of <N,X> when let <_2> = call 'erlang':'is_integer' (N) in let <_3> = call 'erlang':'>=' (N,0) in call 'erlang':'and' (_2,_3) -> apply 'duplicate'/3 (N,X,[])
+(<_5,_4> when 'true' -> (primop 'match_fail' ({'function_clause',_5,_4})-|[{'function_name',{'duplicate',2}}] )-|['compiler_generated'] ) end
+'duplicate'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <0,_7,L> when 'true' -> L
+<N,X,L> when 'true' -> let <_3> = call 'erlang':'-' (N,1) in apply 'duplicate'/3 (_3,X,[X|L]) end
+'min'/1 = fun (_0) -> case _0 of <[H|T]> when 'true' -> apply 'min'/2 (T,H)
+(<_1> when 'true' -> (primop 'match_fail' ({'function_clause',_1})-|[{'function_name',{'min',1}}] )-|['compiler_generated'] ) end
+'min'/2 = fun (_0,_1) -> case <_0,_1> of <[H|T],Min> when call 'erlang':'<' (H,Min) -> apply 'min'/2 (T,H)
+<[_4|T],Min> when 'true' -> apply 'min'/2 (T,Min)
+<[],Min> when 'true' -> Min
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'min',2}}] )-|['compiler_generated'] ) end
+'max'/1 = fun (_0) -> case _0 of <[H|T]> when 'true' -> apply 'max'/2 (T,H)
+(<_1> when 'true' -> (primop 'match_fail' ({'function_clause',_1})-|[{'function_name',{'max',1}}] )-|['compiler_generated'] ) end
+'max'/2 = fun (_0,_1) -> case <_0,_1> of <[H|T],Max> when call 'erlang':'>' (H,Max) -> apply 'max'/2 (T,H)
+<[_4|T],Max> when 'true' -> apply 'max'/2 (T,Max)
+<[],Max> when 'true' -> Max
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'max',2}}] )-|['compiler_generated'] ) end
+'sublist'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <List,S,L> when let <_3> = call 'erlang':'is_integer' (L) in let <_4> = call 'erlang':'>=' (L,0) in call 'erlang':'and' (_3,_4) -> let <_5> = call 'erlang':'-' (S,1) in let <_6> = apply 'nthtail'/2 (_5,List) in apply 'sublist'/2 (_6,L)
+(<_9,_8,_7> when 'true' -> (primop 'match_fail' ({'function_clause',_9,_8,_7})-|[{'function_name',{'sublist',3}}] )-|['compiler_generated'] ) end
+'sublist'/2 = fun (_0,_1) -> case <_0,_1> of <List,L> when let <_2> = call 'erlang':'is_integer' (L) in let <_3> = call 'erlang':'is_list' (List) in call 'erlang':'and' (_2,_3) -> apply 'sublist_2'/2 (List,L)
+(<_5,_4> when 'true' -> (primop 'match_fail' ({'function_clause',_5,_4})-|[{'function_name',{'sublist',2}}] )-|['compiler_generated'] ) end
+'sublist_2'/2 = fun (_0,_1) -> case <_0,_1> of <[H|T],L> when call 'erlang':'>' (L,0) -> let <_2> = call 'erlang':'-' (L,1) in let <_3> = apply 'sublist_2'/2 (T,_2) in [H|_3]
+<_8,0> when 'true' -> []
+<List,L> when let <_4> = call 'erlang':'is_list' (List) in let <_5> = call 'erlang':'>' (L,0) in call 'erlang':'and' (_4,_5) -> []
+(<_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_7,_6})-|[{'function_name',{'sublist_2',2}}] )-|['compiler_generated'] ) end
+'delete'/2 = fun (_0,_1) -> case <_0,_1> of <Item,[_5|Rest]> when call 'erlang':'=:=' (_5,Item) -> Rest
+<Item,[H|Rest]> when 'true' -> let <_2> = apply 'delete'/2 (Item,Rest) in [H|_2]
+<_6,[]> when 'true' -> []
+(<_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_4,_3})-|[{'function_name',{'delete',2}}] )-|['compiler_generated'] ) end
+'zip'/2 = fun (_0,_1) -> case <_0,_1> of <[X|Xs],[Y|Ys]> when 'true' -> let <_2> = apply 'zip'/2 (Xs,Ys) in [{X,Y}|_2]
+<[],[]> when 'true' -> []
+(<_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_4,_3})-|[{'function_name',{'zip',2}}] )-|['compiler_generated'] ) end
+'unzip'/1 = fun (_0) -> apply 'unzip'/3 (_0,[],[])
+'unzip'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <[{X,Y}|Ts],Xs,Ys> when 'true' -> apply 'unzip'/3 (Ts,[X|Xs],[Y|Ys])
+<[],Xs,Ys> when 'true' -> let <_4> = apply 'reverse'/1 (Xs) in let <_3> = apply 'reverse'/1 (Ys) in {_4,_3}
+(<_7,_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_7,_6,_5})-|[{'function_name',{'unzip',3}}] )-|['compiler_generated'] ) end
+'zip3'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <[X|Xs],[Y|Ys],[Z|Zs]> when 'true' -> let <_3> = apply 'zip3'/3 (Xs,Ys,Zs) in [{X,Y,Z}|_3]
+<[],[],[]> when 'true' -> []
+(<_6,_5,_4> when 'true' -> (primop 'match_fail' ({'function_clause',_6,_5,_4})-|[{'function_name',{'zip3',3}}] )-|['compiler_generated'] ) end
+'unzip3'/1 = fun (_0) -> apply 'unzip3'/4 (_0,[],[],[])
+'unzip3'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <[{X,Y,Z}|Ts],Xs,Ys,Zs> when 'true' -> apply 'unzip3'/4 (Ts,[X|Xs],[Y|Ys],[Z|Zs])
+<[],Xs,Ys,Zs> when 'true' -> let <_6> = apply 'reverse'/1 (Xs) in let <_5> = apply 'reverse'/1 (Ys) in let <_4> = apply 'reverse'/1 (Zs) in {_6,_5,_4}
+(<_10,_9,_8,_7> when 'true' -> (primop 'match_fail' ({'function_clause',_10,_9,_8,_7})-|[{'function_name',{'unzip3',4}}] )-|['compiler_generated'] ) end
+'zipwith'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <F,[X|Xs],[Y|Ys]> when 'true' -> let <_3> = apply F (X,Y) in let <_4> = apply 'zipwith'/3 (F,Xs,Ys) in [_3|_4]
+<F,[],[]> when call 'erlang':'is_function' (F,2) -> []
+(<_7,_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_7,_6,_5})-|[{'function_name',{'zipwith',3}}] )-|['compiler_generated'] ) end
+'zipwith3'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <F,[X|Xs],[Y|Ys],[Z|Zs]> when 'true' -> let <_4> = apply F (X,Y,Z) in let <_5> = apply 'zipwith3'/4 (F,Xs,Ys,Zs) in [_4|_5]
+<F,[],[],[]> when call 'erlang':'is_function' (F,3) -> []
+(<_9,_8,_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_9,_8,_7,_6})-|[{'function_name',{'zipwith3',4}}] )-|['compiler_generated'] ) end
+'sort'/1 = fun (_0) -> case _0 of <L0 = [X|[Y|L]]> when call 'erlang':'=<' (X,Y) -> case L of <[]> when 'true' -> L0
+<[Z|[]]> when call 'erlang':'=<' (Y,Z) -> L0
+<[Z|[]]> when call 'erlang':'=<' (X,Z) -> [X|[Z|[Y|[]]]]
+<[Z|[]]> when 'true' -> [Z|[X|[Y|[]]]]
+<_4> when call 'erlang':'==' (X,Y) -> apply 'sort_1'/3 (Y,L,[X|[]])
+<_5> when 'true' -> apply 'split_1'/5 (X,Y,L,[],[]) end
+<[X|[Y|L]]> when 'true' -> case L of <[]> when 'true' -> [Y|[X|[]]]
+<[Z|[]]> when call 'erlang':'=<' (X,Z) -> [Y|[X|L]]
+<[Z|[]]> when call 'erlang':'=<' (Y,Z) -> [Y|[Z|[X|[]]]]
+<[Z|[]]> when 'true' -> [Z|[Y|[X|[]]]]
+<_6> when 'true' -> apply 'split_2'/5 (X,Y,L,[],[]) end
+<L = [_7|[]]> when 'true' -> L
+<L = []> when 'true' -> L
+(<_3> when 'true' -> (primop 'match_fail' ({'function_clause',_3})-|[{'function_name',{'sort',1}}] )-|['compiler_generated'] ) end
+'sort_1'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <X,[Y|L],R> when call 'erlang':'==' (X,Y) -> apply 'sort_1'/3 (Y,L,[X|R])
+<X,[Y|L],R> when call 'erlang':'<' (X,Y) -> apply 'split_1'/5 (X,Y,L,R,[])
+<X,[Y|L],R> when 'true' -> apply 'split_2'/5 (X,Y,L,R,[])
+<X,[],R> when 'true' -> call 'lists':'reverse' (R,[X|[]])
+(<_5,_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_5,_4,_3})-|[{'function_name',{'sort_1',3}}] )-|['compiler_generated'] ) end
+'merge'/1 = fun (_0) -> apply 'mergel'/2 (_0,[])
+'merge3'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <L1,[],L3> when 'true' -> apply 'merge'/2 (L1,L3)
+<L1,L2,[]> when 'true' -> apply 'merge'/2 (L1,L2)
+<L1,[H2|T2],[H3|T3]> when 'true' -> let <_3> = apply 'merge3_1'/6 (L1,[],H2,T2,H3,T3) in call 'lists':'reverse' (_3,[])
+(<_6,_5,_4> when 'true' -> (primop 'match_fail' ({'function_clause',_6,_5,_4})-|[{'function_name',{'merge3',3}}] )-|['compiler_generated'] ) end
+'rmerge3'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <L1,[],L3> when 'true' -> apply 'rmerge'/2 (L1,L3)
+<L1,L2,[]> when 'true' -> apply 'rmerge'/2 (L1,L2)
+<L1,[H2|T2],[H3|T3]> when 'true' -> let <_3> = apply 'rmerge3_1'/6 (L1,[],H2,T2,H3,T3) in call 'lists':'reverse' (_3,[])
+(<_6,_5,_4> when 'true' -> (primop 'match_fail' ({'function_clause',_6,_5,_4})-|[{'function_name',{'rmerge3',3}}] )-|['compiler_generated'] ) end
+'merge'/2 = fun (_0,_1) -> case <_0,_1> of <T1,[]> when 'true' -> T1
+<T1,[H2|T2]> when 'true' -> let <_2> = apply 'merge2_1'/4 (T1,H2,T2,[]) in call 'lists':'reverse' (_2,[])
+(<_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_4,_3})-|[{'function_name',{'merge',2}}] )-|['compiler_generated'] ) end
+'rmerge'/2 = fun (_0,_1) -> case <_0,_1> of <T1,[]> when 'true' -> T1
+<T1,[H2|T2]> when 'true' -> let <_2> = apply 'rmerge2_1'/4 (T1,H2,T2,[]) in call 'lists':'reverse' (_2,[])
+(<_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_4,_3})-|[{'function_name',{'rmerge',2}}] )-|['compiler_generated'] ) end
+'concat'/1 = fun (_0) -> let <_1> = 'thing_to_list'/1 in apply 'flatmap'/2 (_1,_0)
+'thing_to_list'/1 = fun (_0) -> case _0 of <X> when call 'erlang':'is_integer' (_0) -> call 'erlang':'integer_to_list' (X)
+<X> when call 'erlang':'is_float' (_0) -> call 'erlang':'float_to_list' (X)
+<X> when call 'erlang':'is_atom' (_0) -> call 'erlang':'atom_to_list' (X)
+<X> when call 'erlang':'is_list' (_0) -> X
+(<_1> when 'true' -> (primop 'match_fail' ({'function_clause',_1})-|[{'function_name',{'thing_to_list',1}}] )-|['compiler_generated'] ) end
+'flatten'/1 = fun (_0) -> case _0 of <List> when call 'erlang':'is_list' (_0) -> apply 'do_flatten'/2 (List,[])
+(<_1> when 'true' -> (primop 'match_fail' ({'function_clause',_1})-|[{'function_name',{'flatten',1}}] )-|['compiler_generated'] ) end
+'flatten'/2 = fun (_0,_1) -> case <_0,_1> of <List,Tail> when let <_2> = call 'erlang':'is_list' (List) in let <_3> = call 'erlang':'is_list' (Tail) in call 'erlang':'and' (_2,_3) -> apply 'do_flatten'/2 (List,Tail)
+(<_5,_4> when 'true' -> (primop 'match_fail' ({'function_clause',_5,_4})-|[{'function_name',{'flatten',2}}] )-|['compiler_generated'] ) end
+'do_flatten'/2 = fun (_0,_1) -> case <_0,_1> of <[H|T],Tail> when call 'erlang':'is_list' (H) -> let <_2> = apply 'do_flatten'/2 (T,Tail) in apply 'do_flatten'/2 (H,_2)
+<[H|T],Tail> when 'true' -> let <_3> = apply 'do_flatten'/2 (T,Tail) in [H|_3]
+<[],Tail> when 'true' -> Tail
+(<_5,_4> when 'true' -> (primop 'match_fail' ({'function_clause',_5,_4})-|[{'function_name',{'do_flatten',2}}] )-|['compiler_generated'] ) end
+'flatlength'/1 = fun (_0) -> apply 'flatlength'/2 (_0,0)
+'flatlength'/2 = fun (_0,_1) -> case <_0,_1> of <[H|T],L> when call 'erlang':'is_list' (H) -> let <_2> = apply 'flatlength'/2 (T,L) in apply 'flatlength'/2 (H,_2)
+<[_6|T],L> when 'true' -> let <_3> = call 'erlang':'+' (L,1) in apply 'flatlength'/2 (T,_3)
+<[],L> when 'true' -> L
+(<_5,_4> when 'true' -> (primop 'match_fail' ({'function_clause',_5,_4})-|[{'function_name',{'flatlength',2}}] )-|['compiler_generated'] ) end
+'keydelete'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <K,N,L> when let <_3> = call 'erlang':'is_integer' (N) in let <_4> = call 'erlang':'>' (N,0) in call 'erlang':'and' (_3,_4) -> apply 'keydelete3'/3 (K,N,L)
+(<_7,_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_7,_6,_5})-|[{'function_name',{'keydelete',3}}] )-|['compiler_generated'] ) end
+'keydelete3'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Key,N,[H|T]> when try let <_3> = call 'erlang':'element' (N,H) in call 'erlang':'==' (_3,Key) of <Try> -> Try catch <T,R> -> 'false' -> T
+<Key,N,[H|T]> when 'true' -> let <_4> = apply 'keydelete3'/3 (Key,N,T) in [H|_4]
+<_8,_9,[]> when 'true' -> []
+(<_7,_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_7,_6,_5})-|[{'function_name',{'keydelete3',3}}] )-|['compiler_generated'] ) end
+'keyreplace'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <K,N,L,New> when try let <_4> = call 'erlang':'is_integer' (N) in let <_5> = call 'erlang':'>' (N,0) in let <_6> = call 'erlang':'is_tuple' (New) in let <_7> = call 'erlang':'and' (_5,_6) in call 'erlang':'and' (_4,_7) of <Try> -> Try catch <T,R> -> 'false' -> apply 'keyreplace3'/4 (K,N,L,New)
+(<_11,_10,_9,_8> when 'true' -> (primop 'match_fail' ({'function_clause',_11,_10,_9,_8})-|[{'function_name',{'keyreplace',4}}] )-|['compiler_generated'] ) end
+'keyreplace3'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <Key,Pos,[Tup|Tail],New> when try let <_4> = call 'erlang':'element' (Pos,Tup) in call 'erlang':'==' (_4,Key) of <Try> -> Try catch <T,R> -> 'false' -> [New|Tail]
+<Key,Pos,[H|T],New> when 'true' -> let <_5> = apply 'keyreplace3'/4 (Key,Pos,T,New) in [H|_5]
+<_10,_11,[],_12> when 'true' -> []
+(<_9,_8,_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_9,_8,_7,_6})-|[{'function_name',{'keyreplace3',4}}] )-|['compiler_generated'] ) end
+'keytake'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Key,N,L> when let <_3> = call 'erlang':'is_integer' (N) in let <_4> = call 'erlang':'>' (N,0) in call 'erlang':'and' (_3,_4) -> apply 'keytake'/4 (Key,N,L,[])
+(<_7,_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_7,_6,_5})-|[{'function_name',{'keytake',3}}] )-|['compiler_generated'] ) end
+'keytake'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <Key,N,[H|T],L> when try let <_4> = call 'erlang':'element' (N,H) in call 'erlang':'==' (_4,Key) of <Try> -> Try catch <T,R> -> 'false' -> let <_5> = call 'lists':'reverse' (L,T) in {'value',H,_5}
+<Key,N,[H|T],L> when 'true' -> apply 'keytake'/4 (Key,N,T,[H|L])
+<_X_K,_X_N,[],_X_L> when 'true' -> 'false'
+(<_9,_8,_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_9,_8,_7,_6})-|[{'function_name',{'keytake',4}}] )-|['compiler_generated'] ) end
+'keystore'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <K,N,L,New> when try let <_4> = call 'erlang':'is_integer' (N) in let <_5> = call 'erlang':'>' (N,0) in let <_6> = call 'erlang':'is_tuple' (New) in let <_7> = call 'erlang':'and' (_5,_6) in call 'erlang':'and' (_4,_7) of <Try> -> Try catch <T,R> -> 'false' -> apply 'keystore2'/4 (K,N,L,New)
+(<_11,_10,_9,_8> when 'true' -> (primop 'match_fail' ({'function_clause',_11,_10,_9,_8})-|[{'function_name',{'keystore',4}}] )-|['compiler_generated'] ) end
+'keystore2'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <Key,N,[H|T],New> when try let <_4> = call 'erlang':'element' (N,H) in call 'erlang':'==' (_4,Key) of <Try> -> Try catch <T,R> -> 'false' -> [New|T]
+<Key,N,[H|T],New> when 'true' -> let <_5> = apply 'keystore2'/4 (Key,N,T,New) in [H|_5]
+<_X_Key,_X_N,[],New> when 'true' -> [New|[]]
+(<_9,_8,_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_9,_8,_7,_6})-|[{'function_name',{'keystore2',4}}] )-|['compiler_generated'] ) end
+'keysort'/2 = fun (_0,_1) -> case <_0,_1> of <I,L> when let <_2> = call 'erlang':'is_integer' (I) in let <_3> = call 'erlang':'>' (I,0) in call 'erlang':'and' (_2,_3) -> case L of <[]> when 'true' -> L
+<[_14|[]]> when 'true' -> L
+<[X|[Y|T]]> when 'true' -> let <_5> = call 'erlang':'element' (I,X) in let <_4> = call 'erlang':'element' (I,Y) in case <_5,_4> of <EX,EY> when call 'erlang':'=<' (EX,EY) -> case T of <[]> when 'true' -> L
+<[Z|[]]> when 'true' -> case call 'erlang':'element' (I,Z) of <EZ> when call 'erlang':'=<' (EY,EZ) -> L
+<EZ> when call 'erlang':'=<' (EX,EZ) -> [X|[Z|[Y|[]]]]
+<_X_EZ> when 'true' -> [Z|[X|[Y|[]]]] end
+<_15> when call 'erlang':'==' (X,Y) -> apply 'keysort_1'/5 (I,Y,EY,T,[X|[]])
+<_16> when 'true' -> apply 'keysplit_1'/8 (I,X,EX,Y,EY,T,[],[]) end
+<EX,EY> when 'true' -> case T of <[]> when 'true' -> [Y|[X|[]]]
+<[Z|[]]> when 'true' -> case call 'erlang':'element' (I,Z) of <EZ> when call 'erlang':'=<' (EX,EZ) -> [Y|[X|T]]
+<EZ> when call 'erlang':'=<' (EY,EZ) -> [Y|[Z|[X|[]]]]
+<_X_EZ> when 'true' -> [Z|[Y|[X|[]]]] end
+<_17> when 'true' -> apply 'keysplit_2'/8 (I,X,EX,Y,EY,T,[],[]) end end
+(<_11> when 'true' -> primop 'match_fail' ({'case_clause',_11})-|['compiler_generated'] ) end
+(<_13,_12> when 'true' -> (primop 'match_fail' ({'function_clause',_13,_12})-|[{'function_name',{'keysort',2}}] )-|['compiler_generated'] ) end
+'keysort_1'/5 = fun (_0,_1,_2,_3,_4) -> case <_0,_1,_2,_3,_4> of <I,X,EX,[Y|L],R> when call 'erlang':'==' (X,Y) -> apply 'keysort_1'/5 (I,Y,EX,L,[X|R])
+<I,X,EX,[Y|L],R> when 'true' -> case call 'erlang':'element' (I,Y) of <EY> when call 'erlang':'=<' (EX,EY) -> apply 'keysplit_1'/8 (I,X,EX,Y,EY,L,R,[])
+<EY> when 'true' -> apply 'keysplit_2'/8 (I,X,EX,Y,EY,L,R,[]) end
+<_X_I,X,_X_EX,[],R> when 'true' -> call 'lists':'reverse' (R,[X|[]])
+(<_10,_9,_8,_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_10,_9,_8,_7,_6})-|[{'function_name',{'keysort_1',5}}] )-|['compiler_generated'] ) end
+'keymerge'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Index,T1,L2> when let <_3> = call 'erlang':'is_integer' (Index) in let <_4> = call 'erlang':'>' (Index,0) in call 'erlang':'and' (_3,_4) -> case L2 of <[]> when 'true' -> T1
+<[H2|T2]> when 'true' -> let <E2> = call 'erlang':'element' (Index,H2) in let <M> = apply 'keymerge2_1'/6 (Index,T1,E2,H2,T2,[]) in call 'lists':'reverse' (M,[])
+(<_7> when 'true' -> primop 'match_fail' ({'case_clause',_7})-|['compiler_generated'] ) end
+(<_10,_9,_8> when 'true' -> (primop 'match_fail' ({'function_clause',_10,_9,_8})-|[{'function_name',{'keymerge',3}}] )-|['compiler_generated'] ) end
+'rkeymerge'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Index,T1,L2> when let <_3> = call 'erlang':'is_integer' (Index) in let <_4> = call 'erlang':'>' (Index,0) in call 'erlang':'and' (_3,_4) -> case L2 of <[]> when 'true' -> T1
+<[H2|T2]> when 'true' -> let <E2> = call 'erlang':'element' (Index,H2) in let <M> = apply 'rkeymerge2_1'/6 (Index,T1,E2,H2,T2,[]) in call 'lists':'reverse' (M,[])
+(<_7> when 'true' -> primop 'match_fail' ({'case_clause',_7})-|['compiler_generated'] ) end
+(<_10,_9,_8> when 'true' -> (primop 'match_fail' ({'function_clause',_10,_9,_8})-|[{'function_name',{'rkeymerge',3}}] )-|['compiler_generated'] ) end
+'ukeysort'/2 = fun (_0,_1) -> case <_0,_1> of <I,L> when let <_2> = call 'erlang':'is_integer' (I) in let <_3> = call 'erlang':'>' (I,0) in call 'erlang':'and' (_2,_3) -> case L of <[]> when 'true' -> L
+<[_14|[]]> when 'true' -> L
+<[X|[Y|T]]> when 'true' -> let <_5> = call 'erlang':'element' (I,X) in let <_4> = call 'erlang':'element' (I,Y) in case <_5,_4> of <EX,EY> when call 'erlang':'==' (EX,EY) -> apply 'ukeysort_1'/4 (I,X,EX,T)
+<EX,EY> when call 'erlang':'<' (EX,EY) -> case T of <[]> when 'true' -> L
+<_@r0 = [Z|[]]> when 'true' -> case call 'erlang':'element' (I,Z) of <EZ> when call 'erlang':'==' (EY,EZ) -> [X|[Y|[]]]
+<EZ> when call 'erlang':'<' (EY,EZ) -> [X|[Y|_@r0]]
+<EZ> when call 'erlang':'==' (EZ,EX) -> [X|[Y|[]]]
+<EZ> when call 'erlang':'=<' (EX,EZ) -> [X|[Z|[Y|[]]]]
+<_X_EZ> when 'true' -> [Z|[X|[Y|[]]]] end
+<_15> when 'true' -> apply 'ukeysplit_1'/8 (I,X,EX,Y,EY,T,[],[]) end
+<EX,EY> when 'true' -> case T of <[]> when 'true' -> [Y|[X|[]]]
+<_@r1 = [Z|[]]> when 'true' -> case call 'erlang':'element' (I,Z) of <EZ> when call 'erlang':'==' (EX,EZ) -> [Y|[X|[]]]
+<EZ> when call 'erlang':'<' (EX,EZ) -> [Y|[X|_@r1]]
+<EZ> when call 'erlang':'==' (EY,EZ) -> [Y|[X|[]]]
+<EZ> when call 'erlang':'=<' (EY,EZ) -> [Y|[Z|[X|[]]]]
+<_X_EZ> when 'true' -> [Z|[Y|[X|[]]]] end
+<_16> when 'true' -> apply 'ukeysplit_2'/5 (I,Y,EY,T,[X|[]]) end end
+(<_11> when 'true' -> primop 'match_fail' ({'case_clause',_11})-|['compiler_generated'] ) end
+(<_13,_12> when 'true' -> (primop 'match_fail' ({'function_clause',_13,_12})-|[{'function_name',{'ukeysort',2}}] )-|['compiler_generated'] ) end
+'ukeysort_1'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <I,X,EX,[Y|L]> when 'true' -> case call 'erlang':'element' (I,Y) of <EY> when call 'erlang':'==' (EX,EY) -> apply 'ukeysort_1'/4 (I,X,EX,L)
+<EY> when call 'erlang':'<' (EX,EY) -> apply 'ukeysplit_1'/8 (I,X,EX,Y,EY,L,[],[])
+<EY> when 'true' -> apply 'ukeysplit_2'/5 (I,Y,EY,L,[X|[]]) end
+<_X_I,X,_X_EX,[]> when 'true' -> [X|[]]
+(<_8,_7,_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_8,_7,_6,_5})-|[{'function_name',{'ukeysort_1',4}}] )-|['compiler_generated'] ) end
+'ukeymerge'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Index,L1,T2> when let <_3> = call 'erlang':'is_integer' (Index) in let <_4> = call 'erlang':'>' (Index,0) in call 'erlang':'and' (_3,_4) -> case L1 of <[]> when 'true' -> T2
+<[H1|T1]> when 'true' -> let <E1> = call 'erlang':'element' (Index,H1) in let <M> = apply 'ukeymerge2_2'/6 (Index,T1,E1,H1,T2,[]) in call 'lists':'reverse' (M,[])
+(<_7> when 'true' -> primop 'match_fail' ({'case_clause',_7})-|['compiler_generated'] ) end
+(<_10,_9,_8> when 'true' -> (primop 'match_fail' ({'function_clause',_10,_9,_8})-|[{'function_name',{'ukeymerge',3}}] )-|['compiler_generated'] ) end
+'rukeymerge'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Index,T1,L2> when let <_3> = call 'erlang':'is_integer' (Index) in let <_4> = call 'erlang':'>' (Index,0) in call 'erlang':'and' (_3,_4) -> case L2 of <[]> when 'true' -> T1
+<[H2|T2]> when 'true' -> let <E2> = call 'erlang':'element' (Index,H2) in let <M> = apply 'rukeymerge2_1'/6 (Index,T1,E2,T2,[],H2) in call 'lists':'reverse' (M,[])
+(<_7> when 'true' -> primop 'match_fail' ({'case_clause',_7})-|['compiler_generated'] ) end
+(<_10,_9,_8> when 'true' -> (primop 'match_fail' ({'function_clause',_10,_9,_8})-|[{'function_name',{'rukeymerge',3}}] )-|['compiler_generated'] ) end
+'keymap'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Fun,Index,[Tup|Tail]> when 'true' -> let <_3> = call 'erlang':'element' (Index,Tup) in let <_4> = apply Fun (_3) in let <_5> = call 'erlang':'setelement' (Index,Tup,_4) in let <_6> = apply 'keymap'/3 (Fun,Index,Tail) in [_5|_6]
+<Fun,Index,[]> when try let <_7> = call 'erlang':'is_integer' (Index) in let <_8> = call 'erlang':'>=' (Index,1) in let <_9> = call 'erlang':'is_function' (Fun,1) in let <_10> = call 'erlang':'and' (_8,_9) in call 'erlang':'and' (_7,_10) of <Try> -> Try catch <T,R> -> 'false' -> []
+(<_13,_12,_11> when 'true' -> (primop 'match_fail' ({'function_clause',_13,_12,_11})-|[{'function_name',{'keymap',3}}] )-|['compiler_generated'] ) end
+'sort'/2 = fun (_0,_1) -> case <_0,_1> of <Fun,[]> when call 'erlang':'is_function' (Fun,2) -> []
+<Fun,L = [_5|[]]> when call 'erlang':'is_function' (Fun,2) -> L
+<Fun,[X|[Y|T]]> when 'true' -> case apply Fun (X,Y) of <'true'> when 'true' -> apply 'fsplit_1'/6 (Y,X,Fun,T,[],[])
+<'false'> when 'true' -> apply 'fsplit_2'/6 (Y,X,Fun,T,[],[])
+(<_2> when 'true' -> primop 'match_fail' ({'case_clause',_2})-|['compiler_generated'] ) end
+(<_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_4,_3})-|[{'function_name',{'sort',2}}] )-|['compiler_generated'] ) end
+'merge'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Fun,T1,[H2|T2]> when call 'erlang':'is_function' (Fun,2) -> let <_3> = apply 'fmerge2_1'/5 (T1,H2,Fun,T2,[]) in call 'lists':'reverse' (_3,[])
+<Fun,T1,[]> when call 'erlang':'is_function' (Fun,2) -> T1
+(<_6,_5,_4> when 'true' -> (primop 'match_fail' ({'function_clause',_6,_5,_4})-|[{'function_name',{'merge',3}}] )-|['compiler_generated'] ) end
+'rmerge'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Fun,T1,[H2|T2]> when call 'erlang':'is_function' (Fun,2) -> let <_3> = apply 'rfmerge2_1'/5 (T1,H2,Fun,T2,[]) in call 'lists':'reverse' (_3,[])
+<Fun,T1,[]> when call 'erlang':'is_function' (Fun,2) -> T1
+(<_6,_5,_4> when 'true' -> (primop 'match_fail' ({'function_clause',_6,_5,_4})-|[{'function_name',{'rmerge',3}}] )-|['compiler_generated'] ) end
+'usort'/2 = fun (_0,_1) -> case <_0,_1> of <Fun,L = [_4|[]]> when call 'erlang':'is_function' (Fun,2) -> L
+<Fun,L = []> when call 'erlang':'is_function' (Fun,2) -> L
+<Fun,[X|L]> when call 'erlang':'is_function' (Fun,2) -> apply 'usort_1'/3 (Fun,X,L)
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'usort',2}}] )-|['compiler_generated'] ) end
+'usort_1'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Fun,X,[Y|L]> when 'true' -> case apply Fun (X,Y) of <'true'> when 'true' -> case apply Fun (Y,X) of <'true'> when 'true' -> case L of <[]> when 'true' -> [X|[]]
+<_9> when 'true' -> apply 'usort_1'/3 (Fun,X,L) end
+<'false'> when 'true' -> apply 'ufsplit_1'/6 (Y,X,Fun,L,[],[])
+(<_4> when 'true' -> primop 'match_fail' ({'case_clause',_4})-|['compiler_generated'] ) end
+<'false'> when 'true' -> apply 'ufsplit_2'/4 (Y,L,Fun,[X|[]])
+(<_5> when 'true' -> primop 'match_fail' ({'case_clause',_5})-|['compiler_generated'] ) end
+(<_8,_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_8,_7,_6})-|[{'function_name',{'usort_1',3}}] )-|['compiler_generated'] ) end
+'umerge'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Fun,[],T2> when call 'erlang':'is_function' (Fun,2) -> T2
+<Fun,[H1|T1],T2> when call 'erlang':'is_function' (Fun,2) -> let <_3> = apply 'ufmerge2_2'/5 (H1,T1,Fun,T2,[]) in call 'lists':'reverse' (_3,[])
+(<_6,_5,_4> when 'true' -> (primop 'match_fail' ({'function_clause',_6,_5,_4})-|[{'function_name',{'umerge',3}}] )-|['compiler_generated'] ) end
+'rumerge'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Fun,T1,[]> when call 'erlang':'is_function' (Fun,2) -> T1
+<Fun,T1,[H2|T2]> when call 'erlang':'is_function' (Fun,2) -> let <_3> = apply 'rufmerge2_1'/5 (T1,H2,Fun,T2,[]) in call 'lists':'reverse' (_3,[])
+(<_6,_5,_4> when 'true' -> (primop 'match_fail' ({'function_clause',_6,_5,_4})-|[{'function_name',{'rumerge',3}}] )-|['compiler_generated'] ) end
+'usort'/1 = fun (_0) -> case _0 of <L0 = [X|[Y|L]]> when call 'erlang':'<' (X,Y) -> case L of <[]> when 'true' -> L0
+<[Z|[]]> when call 'erlang':'<' (Y,Z) -> L0
+<[Z|[]]> when call 'erlang':'==' (Y,Z) -> [X|[Y|[]]]
+<[Z|[]]> when call 'erlang':'<' (Z,X) -> [Z|[X|[Y|[]]]]
+<[Z|[]]> when call 'erlang':'==' (Z,X) -> [X|[Y|[]]]
+<[Z|[]]> when 'true' -> [X|[Z|[Y|[]]]]
+<_4> when 'true' -> apply 'usplit_1'/5 (X,Y,L,[],[]) end
+<[X|[Y|L]]> when call 'erlang':'>' (X,Y) -> case L of <[]> when 'true' -> [Y|[X|[]]]
+<[Z|[]]> when call 'erlang':'<' (X,Z) -> [Y|[X|L]]
+<[Z|[]]> when call 'erlang':'==' (X,Z) -> [Y|[X|[]]]
+<[Z|[]]> when call 'erlang':'<' (Z,Y) -> [Z|[Y|[X|[]]]]
+<[Z|[]]> when call 'erlang':'==' (Z,Y) -> [Y|[X|[]]]
+<[Z|[]]> when 'true' -> [Y|[Z|[X|[]]]]
+<_5> when 'true' -> apply 'usplit_2'/5 (X,Y,L,[],[]) end
+<[X|[_X_Y|L]]> when 'true' -> apply 'usort_1'/2 (X,L)
+<L = [_6|[]]> when 'true' -> L
+<[]> when 'true' -> []
+(<_3> when 'true' -> (primop 'match_fail' ({'function_clause',_3})-|[{'function_name',{'usort',1}}] )-|['compiler_generated'] ) end
+'usort_1'/2 = fun (_0,_1) -> case <_0,_1> of <X,[Y|L]> when call 'erlang':'==' (X,Y) -> apply 'usort_1'/2 (X,L)
+<X,[Y|L]> when call 'erlang':'<' (X,Y) -> apply 'usplit_1'/5 (X,Y,L,[],[])
+<X,[Y|L]> when 'true' -> apply 'usplit_2'/5 (X,Y,L,[],[])
+<X,[]> when 'true' -> [X|[]]
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'usort_1',2}}] )-|['compiler_generated'] ) end
+'umerge'/1 = fun (_0) -> apply 'umergel'/1 (_0)
+'umerge3'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <L1,[],L3> when 'true' -> apply 'umerge'/2 (L1,L3)
+<L1,L2,[]> when 'true' -> apply 'umerge'/2 (L1,L2)
+<L1,[H2|T2],[H3|T3]> when 'true' -> let <_3> = apply 'umerge3_1'/7 (L1,[H2|H3],T2,H2,[],T3,H3) in call 'lists':'reverse' (_3,[])
+(<_6,_5,_4> when 'true' -> (primop 'match_fail' ({'function_clause',_6,_5,_4})-|[{'function_name',{'umerge3',3}}] )-|['compiler_generated'] ) end
+'rumerge3'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <L1,[],L3> when 'true' -> apply 'rumerge'/2 (L1,L3)
+<L1,L2,[]> when 'true' -> apply 'rumerge'/2 (L1,L2)
+<L1,[H2|T2],[H3|T3]> when 'true' -> let <_3> = apply 'rumerge3_1'/6 (L1,T2,H2,[],T3,H3) in call 'lists':'reverse' (_3,[])
+(<_6,_5,_4> when 'true' -> (primop 'match_fail' ({'function_clause',_6,_5,_4})-|[{'function_name',{'rumerge3',3}}] )-|['compiler_generated'] ) end
+'umerge'/2 = fun (_0,_1) -> case <_0,_1> of <[],T2> when 'true' -> T2
+<[H1|T1],T2> when 'true' -> let <_2> = apply 'umerge2_2'/4 (T1,T2,[],H1) in call 'lists':'reverse' (_2,[])
+(<_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_4,_3})-|[{'function_name',{'umerge',2}}] )-|['compiler_generated'] ) end
+'rumerge'/2 = fun (_0,_1) -> case <_0,_1> of <T1,[]> when 'true' -> T1
+<T1,[H2|T2]> when 'true' -> let <_2> = apply 'rumerge2_1'/4 (T1,T2,[],H2) in call 'lists':'reverse' (_2,[])
+(<_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_4,_3})-|[{'function_name',{'rumerge',2}}] )-|['compiler_generated'] ) end
+'all'/2 = fun (_0,_1) -> case <_0,_1> of <Pred,[Hd|Tail]> when 'true' -> case apply Pred (Hd) of <'true'> when 'true' -> apply 'all'/2 (Pred,Tail)
+<'false'> when 'true' -> 'false'
+(<_2> when 'true' -> primop 'match_fail' ({'case_clause',_2})-|['compiler_generated'] ) end
+<Pred,[]> when call 'erlang':'is_function' (Pred,1) -> 'true'
+(<_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_4,_3})-|[{'function_name',{'all',2}}] )-|['compiler_generated'] ) end
+'any'/2 = fun (_0,_1) -> case <_0,_1> of <Pred,[Hd|Tail]> when 'true' -> case apply Pred (Hd) of <'true'> when 'true' -> 'true'
+<'false'> when 'true' -> apply 'any'/2 (Pred,Tail)
+(<_2> when 'true' -> primop 'match_fail' ({'case_clause',_2})-|['compiler_generated'] ) end
+<Pred,[]> when call 'erlang':'is_function' (Pred,1) -> 'false'
+(<_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_4,_3})-|[{'function_name',{'any',2}}] )-|['compiler_generated'] ) end
+'map'/2 = fun (_0,_1) -> case <_0,_1> of <F,[H|T]> when 'true' -> let <_2> = apply F (H) in let <_3> = apply 'map'/2 (F,T) in [_2|_3]
+<F,[]> when call 'erlang':'is_function' (F,1) -> []
+(<_5,_4> when 'true' -> (primop 'match_fail' ({'function_clause',_5,_4})-|[{'function_name',{'map',2}}] )-|['compiler_generated'] ) end
+'flatmap'/2 = fun (_0,_1) -> case <_0,_1> of <F,[Hd|Tail]> when 'true' -> let <_3> = apply F (Hd) in let <_2> = apply 'flatmap'/2 (F,Tail) in call 'erlang':'++' (_3,_2)
+<F,[]> when call 'erlang':'is_function' (F,1) -> []
+(<_5,_4> when 'true' -> (primop 'match_fail' ({'function_clause',_5,_4})-|[{'function_name',{'flatmap',2}}] )-|['compiler_generated'] ) end
+'foldl'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <F,Accu,[Hd|Tail]> when 'true' -> let <_3> = apply F (Hd,Accu) in apply 'foldl'/3 (F,_3,Tail)
+<F,Accu,[]> when call 'erlang':'is_function' (F,2) -> Accu
+(<_6,_5,_4> when 'true' -> (primop 'match_fail' ({'function_clause',_6,_5,_4})-|[{'function_name',{'foldl',3}}] )-|['compiler_generated'] ) end
+'foldr'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <F,Accu,[Hd|Tail]> when 'true' -> let <_3> = apply 'foldr'/3 (F,Accu,Tail) in apply F (Hd,_3)
+<F,Accu,[]> when call 'erlang':'is_function' (F,2) -> Accu
+(<_6,_5,_4> when 'true' -> (primop 'match_fail' ({'function_clause',_6,_5,_4})-|[{'function_name',{'foldr',3}}] )-|['compiler_generated'] ) end
+'filter'/2 = fun (_0,_1) -> case <_0,_1> of <Pred,List> when call 'erlang':'is_function' (Pred,1) -> (letrec 'lc$^0'/1 = fun (_4) -> case _4 of <[E|_3]> when 'true' -> (case apply Pred (E) of <'true'> when 'true' -> let <_5> = apply 'lc$^0'/1 (_3) in ([E|_5]-|['compiler_generated'] )
+(<'false'> when 'true' -> apply 'lc$^0'/1 (_3)-|['compiler_generated'] )
+(<_6> when 'true' -> primop 'match_fail' ({'case_clause',_6})-|['compiler_generated'] ) end-|['list_comprehension'] )
+<[]> when 'true' -> []
+(<_9> when 'true' -> (primop 'match_fail' ({'function_clause',_9})-|[{'function_name',{'lc$^0',1}}] )-|['compiler_generated'] ) end in apply 'lc$^0'/1 (List)-|['list_comprehension'] )
+(<_8,_7> when 'true' -> (primop 'match_fail' ({'function_clause',_8,_7})-|[{'function_name',{'filter',2}}] )-|['compiler_generated'] ) end
+'partition'/2 = fun (_0,_1) -> apply 'partition'/4 (_0,_1,[],[])
+'partition'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <Pred,[H|T],As,Bs> when 'true' -> case apply Pred (H) of <'true'> when 'true' -> apply 'partition'/4 (Pred,T,[H|As],Bs)
+<'false'> when 'true' -> apply 'partition'/4 (Pred,T,As,[H|Bs])
+(<_4> when 'true' -> primop 'match_fail' ({'case_clause',_4})-|['compiler_generated'] ) end
+<Pred,[],As,Bs> when call 'erlang':'is_function' (Pred,1) -> let <_6> = apply 'reverse'/1 (As) in let <_5> = apply 'reverse'/1 (Bs) in {_6,_5}
+(<_10,_9,_8,_7> when 'true' -> (primop 'match_fail' ({'function_clause',_10,_9,_8,_7})-|[{'function_name',{'partition',4}}] )-|['compiler_generated'] ) end
+'filtermap'/2 = fun (_0,_1) -> case <_0,_1> of <F,[Hd|Tail]> when 'true' -> case apply F (Hd) of <'true'> when 'true' -> let <_2> = apply 'filtermap'/2 (F,Tail) in [Hd|_2]
+<{'true',Val}> when 'true' -> let <_3> = apply 'filtermap'/2 (F,Tail) in [Val|_3]
+<'false'> when 'true' -> apply 'filtermap'/2 (F,Tail)
+(<_4> when 'true' -> primop 'match_fail' ({'case_clause',_4})-|['compiler_generated'] ) end
+<F,[]> when call 'erlang':'is_function' (F,1) -> []
+(<_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_6,_5})-|[{'function_name',{'filtermap',2}}] )-|['compiler_generated'] ) end
+'zf'/2 = fun (_0,_1) -> apply 'filtermap'/2 (_0,_1)
+'foreach'/2 = fun (_0,_1) -> case <_0,_1> of <F,[Hd|Tail]> when 'true' -> do apply F (Hd) apply 'foreach'/2 (F,Tail)
+<F,[]> when call 'erlang':'is_function' (F,1) -> 'ok'
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'foreach',2}}] )-|['compiler_generated'] ) end
+'mapfoldl'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <F,Accu0,[Hd|Tail]> when 'true' -> case apply F (Hd,Accu0) of <{R,Accu1}> when 'true' -> case apply 'mapfoldl'/3 (F,Accu1,Tail) of <{Rs,Accu2}> when 'true' -> {[R|Rs],Accu2}
+(<_4> when 'true' -> primop 'match_fail' ({'badmatch',_4})-|['compiler_generated'] ) end
+(<_3> when 'true' -> primop 'match_fail' ({'badmatch',_3})-|['compiler_generated'] ) end
+<F,Accu,[]> when call 'erlang':'is_function' (F,2) -> {[],Accu}
+(<_7,_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_7,_6,_5})-|[{'function_name',{'mapfoldl',3}}] )-|['compiler_generated'] ) end
+'mapfoldr'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <F,Accu0,[Hd|Tail]> when 'true' -> case apply 'mapfoldr'/3 (F,Accu0,Tail) of <{Rs,Accu1}> when 'true' -> case apply F (Hd,Accu1) of <{R,Accu2}> when 'true' -> {[R|Rs],Accu2}
+(<_4> when 'true' -> primop 'match_fail' ({'badmatch',_4})-|['compiler_generated'] ) end
+(<_3> when 'true' -> primop 'match_fail' ({'badmatch',_3})-|['compiler_generated'] ) end
+<F,Accu,[]> when call 'erlang':'is_function' (F,2) -> {[],Accu}
+(<_7,_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_7,_6,_5})-|[{'function_name',{'mapfoldr',3}}] )-|['compiler_generated'] ) end
+'takewhile'/2 = fun (_0,_1) -> case <_0,_1> of <Pred,[Hd|Tail]> when 'true' -> case apply Pred (Hd) of <'true'> when 'true' -> let <_2> = apply 'takewhile'/2 (Pred,Tail) in [Hd|_2]
+<'false'> when 'true' -> []
+(<_3> when 'true' -> primop 'match_fail' ({'case_clause',_3})-|['compiler_generated'] ) end
+<Pred,[]> when call 'erlang':'is_function' (Pred,1) -> []
+(<_5,_4> when 'true' -> (primop 'match_fail' ({'function_clause',_5,_4})-|[{'function_name',{'takewhile',2}}] )-|['compiler_generated'] ) end
+'dropwhile'/2 = fun (_0,_1) -> case <_0,_1> of <Pred,Rest = [Hd|Tail]> when 'true' -> case apply Pred (Hd) of <'true'> when 'true' -> apply 'dropwhile'/2 (Pred,Tail)
+<'false'> when 'true' -> Rest
+(<_2> when 'true' -> primop 'match_fail' ({'case_clause',_2})-|['compiler_generated'] ) end
+<Pred,[]> when call 'erlang':'is_function' (Pred,1) -> []
+(<_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_4,_3})-|[{'function_name',{'dropwhile',2}}] )-|['compiler_generated'] ) end
+'search'/2 = fun (_0,_1) -> case <_0,_1> of <Pred,[Hd|Tail]> when 'true' -> case apply Pred (Hd) of <'true'> when 'true' -> {'value',Hd}
+<'false'> when 'true' -> apply 'search'/2 (Pred,Tail)
+(<_2> when 'true' -> primop 'match_fail' ({'case_clause',_2})-|['compiler_generated'] ) end
+<Pred,[]> when call 'erlang':'is_function' (Pred,1) -> 'false'
+(<_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_4,_3})-|[{'function_name',{'search',2}}] )-|['compiler_generated'] ) end
+'splitwith'/2 = fun (_0,_1) -> case <_0,_1> of <Pred,List> when call 'erlang':'is_function' (Pred,1) -> apply 'splitwith'/3 (Pred,List,[])
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'splitwith',2}}] )-|['compiler_generated'] ) end
+'splitwith'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Pred,_@r0 = [Hd|Tail],Taken> when 'true' -> case apply Pred (Hd) of <'true'> when 'true' -> apply 'splitwith'/3 (Pred,Tail,[Hd|Taken])
+<'false'> when 'true' -> let <_3> = apply 'reverse'/1 (Taken) in {_3,_@r0}
+(<_4> when 'true' -> primop 'match_fail' ({'case_clause',_4})-|['compiler_generated'] ) end
+<Pred,[],Taken> when call 'erlang':'is_function' (Pred,1) -> let <_5> = apply 'reverse'/1 (Taken) in {_5,[]}
+(<_8,_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_8,_7,_6})-|[{'function_name',{'splitwith',3}}] )-|['compiler_generated'] ) end
+'split'/2 = fun (_0,_1) -> case <_0,_1> of <N,List> when try let <_2> = call 'erlang':'is_integer' (N) in let <_3> = call 'erlang':'>=' (N,0) in let <_4> = call 'erlang':'is_list' (List) in let <_5> = call 'erlang':'and' (_3,_4) in call 'erlang':'and' (_2,_5) of <Try> -> Try catch <T,R> -> 'false' -> case apply 'split'/3 (N,List,[]) of <Result = {_9,_10}> when 'true' -> Result
+<Fault> when call 'erlang':'is_atom' (Fault) -> call 'erlang':'error' (Fault,[N|[List|[]]])
+(<_6> when 'true' -> primop 'match_fail' ({'case_clause',_6})-|['compiler_generated'] ) end
+<N,List> when 'true' -> call 'erlang':'error' ('badarg',[N|[List|[]]]) end
+'split'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <0,L,R> when 'true' -> let <_3> = call 'lists':'reverse' (R,[]) in {_3,L}
+<N,[H|T],R> when 'true' -> let <_4> = call 'erlang':'-' (N,1) in apply 'split'/3 (_4,T,[H|R])
+<_8,[],_9> when 'true' -> 'badarg'
+(<_7,_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_7,_6,_5})-|[{'function_name',{'split',3}}] )-|['compiler_generated'] ) end
+'join'/2 = fun (_0,_1) -> case <_0,_1> of <_X_Sep,[]> when 'true' -> []
+<Sep,[H|T]> when 'true' -> let <_2> = apply 'join_prepend'/2 (Sep,T) in [H|_2]
+(<_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_4,_3})-|[{'function_name',{'join',2}}] )-|['compiler_generated'] ) end
+'join_prepend'/2 = fun (_0,_1) -> case <_0,_1> of <_X_Sep,[]> when 'true' -> []
+<Sep,[H|T]> when 'true' -> let <_2> = apply 'join_prepend'/2 (Sep,T) in [Sep|[H|_2]]
+(<_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_4,_3})-|[{'function_name',{'join_prepend',2}}] )-|['compiler_generated'] ) end
+'split_1'/5 = fun (_0,_1,_2,_3,_4) -> case <_0,_1,_2,_3,_4> of <X,Y,[Z|L],R,Rs> when call 'erlang':'>=' (Z,Y) -> apply 'split_1'/5 (Y,Z,L,[X|R],Rs)
+<X,Y,[Z|L],R,Rs> when call 'erlang':'>=' (Z,X) -> apply 'split_1'/5 (Z,Y,L,[X|R],Rs)
+<X,Y,[Z|L],[],Rs> when 'true' -> apply 'split_1'/5 (X,Y,L,[Z|[]],Rs)
+<X,Y,[Z|L],R,Rs> when 'true' -> apply 'split_1_1'/6 (X,Y,L,R,Rs,Z)
+<X,Y,[],R,Rs> when 'true' -> apply 'rmergel'/2 ([[Y|[X|R]]|Rs],[])
+(<_9,_8,_7,_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_9,_8,_7,_6,_5})-|[{'function_name',{'split_1',5}}] )-|['compiler_generated'] ) end
+'split_1_1'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <X,Y,[Z|L],R,Rs,S> when call 'erlang':'>=' (Z,Y) -> apply 'split_1_1'/6 (Y,Z,L,[X|R],Rs,S)
+<X,Y,[Z|L],R,Rs,S> when call 'erlang':'>=' (Z,X) -> apply 'split_1_1'/6 (Z,Y,L,[X|R],Rs,S)
+<X,Y,[Z|L],R,Rs,S> when call 'erlang':'=<' (S,Z) -> apply 'split_1'/5 (S,Z,L,[],[[Y|[X|R]]|Rs])
+<X,Y,[Z|L],R,Rs,S> when 'true' -> apply 'split_1'/5 (Z,S,L,[],[[Y|[X|R]]|Rs])
+<X,Y,[],R,Rs,S> when 'true' -> apply 'rmergel'/2 ([[S|[]]|[[Y|[X|R]]|Rs]],[])
+(<_11,_10,_9,_8,_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_11,_10,_9,_8,_7,_6})-|[{'function_name',{'split_1_1',6}}] )-|['compiler_generated'] ) end
+'split_2'/5 = fun (_0,_1,_2,_3,_4) -> case <_0,_1,_2,_3,_4> of <X,Y,[Z|L],R,Rs> when call 'erlang':'=<' (Z,Y) -> apply 'split_2'/5 (Y,Z,L,[X|R],Rs)
+<X,Y,[Z|L],R,Rs> when call 'erlang':'=<' (Z,X) -> apply 'split_2'/5 (Z,Y,L,[X|R],Rs)
+<X,Y,[Z|L],[],Rs> when 'true' -> apply 'split_2'/5 (X,Y,L,[Z|[]],Rs)
+<X,Y,[Z|L],R,Rs> when 'true' -> apply 'split_2_1'/6 (X,Y,L,R,Rs,Z)
+<X,Y,[],R,Rs> when 'true' -> apply 'mergel'/2 ([[Y|[X|R]]|Rs],[])
+(<_9,_8,_7,_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_9,_8,_7,_6,_5})-|[{'function_name',{'split_2',5}}] )-|['compiler_generated'] ) end
+'split_2_1'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <X,Y,[Z|L],R,Rs,S> when call 'erlang':'=<' (Z,Y) -> apply 'split_2_1'/6 (Y,Z,L,[X|R],Rs,S)
+<X,Y,[Z|L],R,Rs,S> when call 'erlang':'=<' (Z,X) -> apply 'split_2_1'/6 (Z,Y,L,[X|R],Rs,S)
+<X,Y,[Z|L],R,Rs,S> when call 'erlang':'>' (S,Z) -> apply 'split_2'/5 (S,Z,L,[],[[Y|[X|R]]|Rs])
+<X,Y,[Z|L],R,Rs,S> when 'true' -> apply 'split_2'/5 (Z,S,L,[],[[Y|[X|R]]|Rs])
+<X,Y,[],R,Rs,S> when 'true' -> apply 'mergel'/2 ([[S|[]]|[[Y|[X|R]]|Rs]],[])
+(<_11,_10,_9,_8,_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_11,_10,_9,_8,_7,_6})-|[{'function_name',{'split_2_1',6}}] )-|['compiler_generated'] ) end
+'mergel'/2 = fun (_0,_1) -> case <_0,_1> of <[[]|L],Acc> when 'true' -> apply 'mergel'/2 (L,Acc)
+<[T1|[[H2|T2]|[[H3|T3]|L]]],Acc> when 'true' -> let <_2> = apply 'merge3_1'/6 (T1,[],H2,T2,H3,T3) in apply 'mergel'/2 (L,[_2|Acc])
+<[T1|[[H2|T2]|[]]],Acc> when 'true' -> let <_3> = apply 'merge2_1'/4 (T1,H2,T2,[]) in apply 'rmergel'/2 ([_3|Acc],[])
+<[L|[]],[]> when 'true' -> L
+<[L|[]],Acc> when 'true' -> let <_4> = call 'lists':'reverse' (L,[]) in apply 'rmergel'/2 ([_4|Acc],[])
+<[],[]> when 'true' -> []
+<[],Acc> when 'true' -> apply 'rmergel'/2 (Acc,[])
+<[A|[[]|L]],Acc> when 'true' -> apply 'mergel'/2 ([A|L],Acc)
+<[A|[B|[[]|L]]],Acc> when 'true' -> apply 'mergel'/2 ([A|[B|L]],Acc)
+(<_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_6,_5})-|[{'function_name',{'mergel',2}}] )-|['compiler_generated'] ) end
+'rmergel'/2 = fun (_0,_1) -> case <_0,_1> of <[[H3|T3]|[[H2|T2]|[T1|L]]],Acc> when 'true' -> let <_2> = apply 'rmerge3_1'/6 (T1,[],H2,T2,H3,T3) in apply 'rmergel'/2 (L,[_2|Acc])
+<[[H2|T2]|[T1|[]]],Acc> when 'true' -> let <_3> = apply 'rmerge2_1'/4 (T1,H2,T2,[]) in apply 'mergel'/2 ([_3|Acc],[])
+<[L|[]],Acc> when 'true' -> let <_4> = call 'lists':'reverse' (L,[]) in apply 'mergel'/2 ([_4|Acc],[])
+<[],Acc> when 'true' -> apply 'mergel'/2 (Acc,[])
+(<_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_6,_5})-|[{'function_name',{'rmergel',2}}] )-|['compiler_generated'] ) end
+'merge3_1'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <[H1|T1],M,H2,T2,H3,T3> when call 'erlang':'=<' (H1,H2) -> (case <T1,H1,H2,T2,H3,T3,M> of (<_20,_21,_22,_23,_24,_25,_26> when (call ('erlang'-|['compiler_generated'] ):('=<'-|['compiler_generated'] ) (_21,_24)-|['compiler_generated'] ) -> (apply 'merge3_1'/6 (_20,([_21|_26]-|['compiler_generated'] ),_22,_23,_24,_25)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_27,_28,_29,_30,_31,_32,_33> when ('true'-|['compiler_generated'] ) -> (apply 'merge3_12_3'/6 (_27,_28,_29,_30,([_31|_33]-|['compiler_generated'] ),_32)-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+<[H1|T1],M,H2,T2,H3,T3> when 'true' -> (case <T1,H1,H2,T2,H3,T3,M> of (<_40,_41,_42,_43,_44,_45,_46> when (call ('erlang'-|['compiler_generated'] ):('=<'-|['compiler_generated'] ) (_42,_44)-|['compiler_generated'] ) -> (apply 'merge3_2'/6 (_40,_41,([_42|_46]-|['compiler_generated'] ),_43,_44,_45)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_47,_48,_49,_50,_51,_52,_53> when ('true'-|['compiler_generated'] ) -> (apply 'merge3_21_3'/6 (_47,_48,_49,_50,([_51|_53]-|['compiler_generated'] ),_52)-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+<[],M,H2,T2,H3,T3> when call 'erlang':'=<' (H2,H3) -> apply 'merge2_1'/4 (T2,H3,T3,[H2|M])
+<[],M,H2,T2,H3,T3> when 'true' -> apply 'merge2_2'/5 (T2,H3,T3,M,H2)
+(<_11,_10,_9,_8,_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_11,_10,_9,_8,_7,_6})-|[{'function_name',{'merge3_1',6}}] )-|['compiler_generated'] ) end
+'merge3_2'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <T1,H1,M,[H2|T2],H3,T3> when call 'erlang':'=<' (H1,H2) -> (case <T1,H1,H2,T2,H3,T3,M> of (<_20,_21,_22,_23,_24,_25,_26> when (call ('erlang'-|['compiler_generated'] ):('=<'-|['compiler_generated'] ) (_21,_24)-|['compiler_generated'] ) -> (apply 'merge3_1'/6 (_20,([_21|_26]-|['compiler_generated'] ),_22,_23,_24,_25)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_27,_28,_29,_30,_31,_32,_33> when ('true'-|['compiler_generated'] ) -> (apply 'merge3_12_3'/6 (_27,_28,_29,_30,([_31|_33]-|['compiler_generated'] ),_32)-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+<T1,H1,M,[H2|T2],H3,T3> when 'true' -> (case <T1,H1,H2,T2,H3,T3,M> of (<_40,_41,_42,_43,_44,_45,_46> when (call ('erlang'-|['compiler_generated'] ):('=<'-|['compiler_generated'] ) (_42,_44)-|['compiler_generated'] ) -> (apply 'merge3_2'/6 (_40,_41,([_42|_46]-|['compiler_generated'] ),_43,_44,_45)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_47,_48,_49,_50,_51,_52,_53> when ('true'-|['compiler_generated'] ) -> (apply 'merge3_21_3'/6 (_47,_48,_49,_50,([_51|_53]-|['compiler_generated'] ),_52)-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+<T1,H1,M,[],H3,T3> when call 'erlang':'=<' (H1,H3) -> apply 'merge2_1'/4 (T1,H3,T3,[H1|M])
+<T1,H1,M,[],H3,T3> when 'true' -> apply 'merge2_2'/5 (T1,H3,T3,M,H1)
+(<_11,_10,_9,_8,_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_11,_10,_9,_8,_7,_6})-|[{'function_name',{'merge3_2',6}}] )-|['compiler_generated'] ) end
+'merge3_12'/7 = fun (_0,_1,_2,_3,_4,_5,_6) -> case <_0,_1,_2,_3,_4,_5,_6> of <T1,H1,H2,T2,H3,T3,M> when call 'erlang':'=<' (H1,H3) -> apply 'merge3_1'/6 (T1,[H1|M],H2,T2,H3,T3)
+<T1,H1,H2,T2,H3,T3,M> when 'true' -> apply 'merge3_12_3'/6 (T1,H1,H2,T2,[H3|M],T3) end
+'merge3_12_3'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <T1,H1,H2,T2,M,[H3|T3]> when call 'erlang':'=<' (H1,H3) -> apply 'merge3_1'/6 (T1,[H1|M],H2,T2,H3,T3)
+<T1,H1,H2,T2,M,[H3|T3]> when 'true' -> apply 'merge3_12_3'/6 (T1,H1,H2,T2,[H3|M],T3)
+<T1,H1,H2,T2,M,[]> when 'true' -> apply 'merge2_1'/4 (T1,H2,T2,[H1|M])
+(<_11,_10,_9,_8,_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_11,_10,_9,_8,_7,_6})-|[{'function_name',{'merge3_12_3',6}}] )-|['compiler_generated'] ) end
+'merge3_21'/7 = fun (_0,_1,_2,_3,_4,_5,_6) -> case <_0,_1,_2,_3,_4,_5,_6> of <T1,H1,H2,T2,H3,T3,M> when call 'erlang':'=<' (H2,H3) -> apply 'merge3_2'/6 (T1,H1,[H2|M],T2,H3,T3)
+<T1,H1,H2,T2,H3,T3,M> when 'true' -> apply 'merge3_21_3'/6 (T1,H1,H2,T2,[H3|M],T3) end
+'merge3_21_3'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <T1,H1,H2,T2,M,[H3|T3]> when call 'erlang':'=<' (H2,H3) -> apply 'merge3_2'/6 (T1,H1,[H2|M],T2,H3,T3)
+<T1,H1,H2,T2,M,[H3|T3]> when 'true' -> apply 'merge3_21_3'/6 (T1,H1,H2,T2,[H3|M],T3)
+<T1,H1,H2,T2,M,[]> when 'true' -> apply 'merge2_2'/5 (T1,H2,T2,M,H1)
+(<_11,_10,_9,_8,_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_11,_10,_9,_8,_7,_6})-|[{'function_name',{'merge3_21_3',6}}] )-|['compiler_generated'] ) end
+'rmerge3_1'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <[H1|T1],M,H2,T2,H3,T3> when call 'erlang':'=<' (H1,H2) -> (case <T1,H1,H2,T2,H3,T3,M> of (<_20,_21,_22,_23,_24,_25,_26> when (call ('erlang'-|['compiler_generated'] ):('=<'-|['compiler_generated'] ) (_22,_24)-|['compiler_generated'] ) -> (apply 'rmerge3_12_3'/6 (_20,_21,_22,_23,([_24|_26]-|['compiler_generated'] ),_25)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_27,_28,_29,_30,_31,_32,_33> when ('true'-|['compiler_generated'] ) -> (apply 'rmerge3_2'/6 (_27,_28,([_29|_33]-|['compiler_generated'] ),_30,_31,_32)-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+<[H1|T1],M,H2,T2,H3,T3> when 'true' -> (case <T1,H1,H2,T2,H3,T3,M> of (<_40,_41,_42,_43,_44,_45,_46> when (call ('erlang'-|['compiler_generated'] ):('=<'-|['compiler_generated'] ) (_41,_44)-|['compiler_generated'] ) -> (apply 'rmerge3_21_3'/6 (_40,_41,_42,_43,([_44|_46]-|['compiler_generated'] ),_45)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_47,_48,_49,_50,_51,_52,_53> when ('true'-|['compiler_generated'] ) -> (apply 'rmerge3_1'/6 (_47,([_48|_53]-|['compiler_generated'] ),_49,_50,_51,_52)-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+<[],M,H2,T2,H3,T3> when call 'erlang':'=<' (H2,H3) -> apply 'rmerge2_2'/5 (T2,H3,T3,M,H2)
+<[],M,H2,T2,H3,T3> when 'true' -> apply 'rmerge2_1'/4 (T2,H3,T3,[H2|M])
+(<_11,_10,_9,_8,_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_11,_10,_9,_8,_7,_6})-|[{'function_name',{'rmerge3_1',6}}] )-|['compiler_generated'] ) end
+'rmerge3_2'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <T1,H1,M,[H2|T2],H3,T3> when call 'erlang':'=<' (H1,H2) -> (case <T1,H1,H2,T2,H3,T3,M> of (<_20,_21,_22,_23,_24,_25,_26> when (call ('erlang'-|['compiler_generated'] ):('=<'-|['compiler_generated'] ) (_22,_24)-|['compiler_generated'] ) -> (apply 'rmerge3_12_3'/6 (_20,_21,_22,_23,([_24|_26]-|['compiler_generated'] ),_25)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_27,_28,_29,_30,_31,_32,_33> when ('true'-|['compiler_generated'] ) -> (apply 'rmerge3_2'/6 (_27,_28,([_29|_33]-|['compiler_generated'] ),_30,_31,_32)-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+<T1,H1,M,[H2|T2],H3,T3> when 'true' -> (case <T1,H1,H2,T2,H3,T3,M> of (<_40,_41,_42,_43,_44,_45,_46> when (call ('erlang'-|['compiler_generated'] ):('=<'-|['compiler_generated'] ) (_41,_44)-|['compiler_generated'] ) -> (apply 'rmerge3_21_3'/6 (_40,_41,_42,_43,([_44|_46]-|['compiler_generated'] ),_45)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_47,_48,_49,_50,_51,_52,_53> when ('true'-|['compiler_generated'] ) -> (apply 'rmerge3_1'/6 (_47,([_48|_53]-|['compiler_generated'] ),_49,_50,_51,_52)-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+<T1,H1,M,[],H3,T3> when call 'erlang':'=<' (H1,H3) -> apply 'rmerge2_2'/5 (T1,H3,T3,M,H1)
+<T1,H1,M,[],H3,T3> when 'true' -> apply 'rmerge2_1'/4 (T1,H3,T3,[H1|M])
+(<_11,_10,_9,_8,_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_11,_10,_9,_8,_7,_6})-|[{'function_name',{'rmerge3_2',6}}] )-|['compiler_generated'] ) end
+'rmerge3_12'/7 = fun (_0,_1,_2,_3,_4,_5,_6) -> case <_0,_1,_2,_3,_4,_5,_6> of <T1,H1,H2,T2,H3,T3,M> when call 'erlang':'=<' (H2,H3) -> apply 'rmerge3_12_3'/6 (T1,H1,H2,T2,[H3|M],T3)
+<T1,H1,H2,T2,H3,T3,M> when 'true' -> apply 'rmerge3_2'/6 (T1,H1,[H2|M],T2,H3,T3) end
+'rmerge3_12_3'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <T1,H1,H2,T2,M,[H3|T3]> when call 'erlang':'=<' (H2,H3) -> apply 'rmerge3_12_3'/6 (T1,H1,H2,T2,[H3|M],T3)
+<T1,H1,H2,T2,M,[H3|T3]> when 'true' -> apply 'rmerge3_2'/6 (T1,H1,[H2|M],T2,H3,T3)
+<T1,H1,H2,T2,M,[]> when 'true' -> apply 'rmerge2_2'/5 (T1,H2,T2,M,H1)
+(<_11,_10,_9,_8,_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_11,_10,_9,_8,_7,_6})-|[{'function_name',{'rmerge3_12_3',6}}] )-|['compiler_generated'] ) end
+'rmerge3_21'/7 = fun (_0,_1,_2,_3,_4,_5,_6) -> case <_0,_1,_2,_3,_4,_5,_6> of <T1,H1,H2,T2,H3,T3,M> when call 'erlang':'=<' (H1,H3) -> apply 'rmerge3_21_3'/6 (T1,H1,H2,T2,[H3|M],T3)
+<T1,H1,H2,T2,H3,T3,M> when 'true' -> apply 'rmerge3_1'/6 (T1,[H1|M],H2,T2,H3,T3) end
+'rmerge3_21_3'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <T1,H1,H2,T2,M,[H3|T3]> when call 'erlang':'=<' (H1,H3) -> apply 'rmerge3_21_3'/6 (T1,H1,H2,T2,[H3|M],T3)
+<T1,H1,H2,T2,M,[H3|T3]> when 'true' -> apply 'rmerge3_1'/6 (T1,[H1|M],H2,T2,H3,T3)
+<T1,H1,H2,T2,M,[]> when 'true' -> apply 'rmerge2_1'/4 (T1,H2,T2,[H1|M])
+(<_11,_10,_9,_8,_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_11,_10,_9,_8,_7,_6})-|[{'function_name',{'rmerge3_21_3',6}}] )-|['compiler_generated'] ) end
+'merge2_1'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <[H1|T1],H2,T2,M> when call 'erlang':'=<' (H1,H2) -> apply 'merge2_1'/4 (T1,H2,T2,[H1|M])
+<[H1|T1],H2,T2,M> when 'true' -> apply 'merge2_2'/5 (T1,H2,T2,M,H1)
+<[],H2,T2,M> when 'true' -> call 'lists':'reverse' (T2,[H2|M])
+(<_7,_6,_5,_4> when 'true' -> (primop 'match_fail' ({'function_clause',_7,_6,_5,_4})-|[{'function_name',{'merge2_1',4}}] )-|['compiler_generated'] ) end
+'merge2_2'/5 = fun (_0,_1,_2,_3,_4) -> case <_0,_1,_2,_3,_4> of <T1,HdM,[H2|T2],M,H1> when call 'erlang':'=<' (H1,H2) -> apply 'merge2_1'/4 (T1,H2,T2,[H1|[HdM|M]])
+<T1,HdM,[H2|T2],M,H1> when 'true' -> apply 'merge2_2'/5 (T1,H2,T2,[HdM|M],H1)
+<T1,HdM,[],M,H1> when 'true' -> call 'lists':'reverse' (T1,[H1|[HdM|M]])
+(<_9,_8,_7,_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_9,_8,_7,_6,_5})-|[{'function_name',{'merge2_2',5}}] )-|['compiler_generated'] ) end
+'rmerge2_1'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <[H1|T1],H2,T2,M> when call 'erlang':'=<' (H1,H2) -> apply 'rmerge2_2'/5 (T1,H2,T2,M,H1)
+<[H1|T1],H2,T2,M> when 'true' -> apply 'rmerge2_1'/4 (T1,H2,T2,[H1|M])
+<[],H2,T2,M> when 'true' -> call 'lists':'reverse' (T2,[H2|M])
+(<_7,_6,_5,_4> when 'true' -> (primop 'match_fail' ({'function_clause',_7,_6,_5,_4})-|[{'function_name',{'rmerge2_1',4}}] )-|['compiler_generated'] ) end
+'rmerge2_2'/5 = fun (_0,_1,_2,_3,_4) -> case <_0,_1,_2,_3,_4> of <T1,HdM,[H2|T2],M,H1> when call 'erlang':'=<' (H1,H2) -> apply 'rmerge2_2'/5 (T1,H2,T2,[HdM|M],H1)
+<T1,HdM,[H2|T2],M,H1> when 'true' -> apply 'rmerge2_1'/4 (T1,H2,T2,[H1|[HdM|M]])
+<T1,HdM,[],M,H1> when 'true' -> call 'lists':'reverse' (T1,[H1|[HdM|M]])
+(<_9,_8,_7,_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_9,_8,_7,_6,_5})-|[{'function_name',{'rmerge2_2',5}}] )-|['compiler_generated'] ) end
+'usplit_1'/5 = fun (_0,_1,_2,_3,_4) -> case <_0,_1,_2,_3,_4> of <X,Y,[Z|L],R,Rs> when call 'erlang':'>' (Z,Y) -> apply 'usplit_1'/5 (Y,Z,L,[X|R],Rs)
+<X,Y,[Z|L],R,Rs> when call 'erlang':'==' (Z,Y) -> apply 'usplit_1'/5 (X,Y,L,R,Rs)
+<X,Y,[Z|L],R,Rs> when call 'erlang':'>' (Z,X) -> apply 'usplit_1'/5 (Z,Y,L,[X|R],Rs)
+<X,Y,[Z|L],R,Rs> when call 'erlang':'==' (Z,X) -> apply 'usplit_1'/5 (X,Y,L,R,Rs)
+<X,Y,[Z|L],[],Rs> when 'true' -> apply 'usplit_1'/5 (X,Y,L,[Z|[]],Rs)
+<X,Y,[Z|L],R,Rs> when 'true' -> apply 'usplit_1_1'/6 (X,Y,L,R,Rs,Z)
+<X,Y,[],R,Rs> when 'true' -> apply 'rumergel'/3 ([[Y|[X|R]]|Rs],[],'asc')
+(<_9,_8,_7,_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_9,_8,_7,_6,_5})-|[{'function_name',{'usplit_1',5}}] )-|['compiler_generated'] ) end
+'usplit_1_1'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <X,Y,[Z|L],R,Rs,S> when call 'erlang':'>' (Z,Y) -> apply 'usplit_1_1'/6 (Y,Z,L,[X|R],Rs,S)
+<X,Y,[Z|L],R,Rs,S> when call 'erlang':'==' (Z,Y) -> apply 'usplit_1_1'/6 (X,Y,L,R,Rs,S)
+<X,Y,[Z|L],R,Rs,S> when call 'erlang':'>' (Z,X) -> apply 'usplit_1_1'/6 (Z,Y,L,[X|R],Rs,S)
+<X,Y,[Z|L],R,Rs,S> when call 'erlang':'==' (Z,X) -> apply 'usplit_1_1'/6 (X,Y,L,R,Rs,S)
+<X,Y,[Z|L],R,Rs,S> when call 'erlang':'>' (Z,S) -> apply 'usplit_1'/5 (S,Z,L,[],[[Y|[X|R]]|Rs])
+<X,Y,[Z|L],R,Rs,S> when call 'erlang':'==' (Z,S) -> apply 'usplit_1_1'/6 (X,Y,L,R,Rs,S)
+<X,Y,[Z|L],R,Rs,S> when 'true' -> apply 'usplit_1'/5 (Z,S,L,[],[[Y|[X|R]]|Rs])
+<X,Y,[],R,Rs,S> when 'true' -> apply 'rumergel'/3 ([[S|[]]|[[Y|[X|R]]|Rs]],[],'asc')
+(<_11,_10,_9,_8,_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_11,_10,_9,_8,_7,_6})-|[{'function_name',{'usplit_1_1',6}}] )-|['compiler_generated'] ) end
+'usplit_2'/5 = fun (_0,_1,_2,_3,_4) -> case <_0,_1,_2,_3,_4> of <X,Y,[Z|L],R,Rs> when call 'erlang':'<' (Z,Y) -> apply 'usplit_2'/5 (Y,Z,L,[X|R],Rs)
+<X,Y,[Z|L],R,Rs> when call 'erlang':'==' (Z,Y) -> apply 'usplit_2'/5 (X,Y,L,R,Rs)
+<X,Y,[Z|L],R,Rs> when call 'erlang':'<' (Z,X) -> apply 'usplit_2'/5 (Z,Y,L,[X|R],Rs)
+<X,Y,[Z|L],R,Rs> when call 'erlang':'==' (Z,X) -> apply 'usplit_2'/5 (X,Y,L,R,Rs)
+<X,Y,[Z|L],[],Rs> when 'true' -> apply 'usplit_2'/5 (X,Y,L,[Z|[]],Rs)
+<X,Y,[Z|L],R,Rs> when 'true' -> apply 'usplit_2_1'/6 (X,Y,L,R,Rs,Z)
+<X,Y,[],R,Rs> when 'true' -> apply 'umergel'/3 ([[Y|[X|R]]|Rs],[],'desc')
+(<_9,_8,_7,_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_9,_8,_7,_6,_5})-|[{'function_name',{'usplit_2',5}}] )-|['compiler_generated'] ) end
+'usplit_2_1'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <X,Y,[Z|L],R,Rs,S> when call 'erlang':'<' (Z,Y) -> apply 'usplit_2_1'/6 (Y,Z,L,[X|R],Rs,S)
+<X,Y,[Z|L],R,Rs,S> when call 'erlang':'==' (Z,Y) -> apply 'usplit_2_1'/6 (X,Y,L,R,Rs,S)
+<X,Y,[Z|L],R,Rs,S> when call 'erlang':'<' (Z,X) -> apply 'usplit_2_1'/6 (Z,Y,L,[X|R],Rs,S)
+<X,Y,[Z|L],R,Rs,S> when call 'erlang':'==' (Z,X) -> apply 'usplit_2_1'/6 (X,Y,L,R,Rs,S)
+<X,Y,[Z|L],R,Rs,S> when call 'erlang':'<' (Z,S) -> apply 'usplit_2'/5 (S,Z,L,[],[[Y|[X|R]]|Rs])
+<X,Y,[Z|L],R,Rs,S> when call 'erlang':'==' (Z,S) -> apply 'usplit_2_1'/6 (X,Y,L,R,Rs,S)
+<X,Y,[Z|L],R,Rs,S> when 'true' -> apply 'usplit_2'/5 (Z,S,L,[],[[Y|[X|R]]|Rs])
+<X,Y,[],R,Rs,S> when 'true' -> apply 'umergel'/3 ([[S|[]]|[[Y|[X|R]]|Rs]],[],'desc')
+(<_11,_10,_9,_8,_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_11,_10,_9,_8,_7,_6})-|[{'function_name',{'usplit_2_1',6}}] )-|['compiler_generated'] ) end
+'umergel'/1 = fun (_0) -> apply 'umergel'/3 (_0,[],'asc')
+'umergel'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <[[]|L],Acc,O> when 'true' -> apply 'umergel'/3 (L,Acc,O)
+<[T1|[[H2|T2]|[[H3|T3]|L]]],Acc,'asc'> when 'true' -> let <_3> = apply 'umerge3_1'/7 (T1,[H2|H3],T2,H2,[],T3,H3) in apply 'umergel'/3 (L,[_3|Acc],'asc')
+<[[H3|T3]|[[H2|T2]|[T1|L]]],Acc,'desc'> when 'true' -> let <_4> = apply 'umerge3_1'/7 (T1,[H2|H3],T2,H2,[],T3,H3) in apply 'umergel'/3 (L,[_4|Acc],'desc')
+<[A|[[]|L]],Acc,O> when 'true' -> apply 'umergel'/3 ([A|L],Acc,O)
+<[A|[B|[[]|L]]],Acc,O> when 'true' -> apply 'umergel'/3 ([A|[B|L]],Acc,O)
+<[[H1|T1]|[T2|L]],Acc,'asc'> when 'true' -> let <_5> = apply 'umerge2_2'/4 (T1,T2,[],H1) in apply 'umergel'/3 (L,[_5|Acc],'asc')
+<[T2|[[H1|T1]|L]],Acc,'desc'> when 'true' -> let <_6> = apply 'umerge2_2'/4 (T1,T2,[],H1) in apply 'umergel'/3 (L,[_6|Acc],'desc')
+<[L|[]],[],_X_O> when 'true' -> L
+<[L|[]],Acc,O> when 'true' -> let <_7> = call 'lists':'reverse' (L,[]) in apply 'rumergel'/3 ([_7|Acc],[],O)
+<[],[],_X_O> when 'true' -> []
+<[],Acc,O> when 'true' -> apply 'rumergel'/3 (Acc,[],O)
+(<_10,_9,_8> when 'true' -> (primop 'match_fail' ({'function_clause',_10,_9,_8})-|[{'function_name',{'umergel',3}}] )-|['compiler_generated'] ) end
+'rumergel'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <[[H3|T3]|[[H2|T2]|[T1|L]]],Acc,'asc'> when 'true' -> let <_3> = apply 'rumerge3_1'/6 (T1,T2,H2,[],T3,H3) in apply 'rumergel'/3 (L,[_3|Acc],'asc')
+<[T1|[[H2|T2]|[[H3|T3]|L]]],Acc,'desc'> when 'true' -> let <_4> = apply 'rumerge3_1'/6 (T1,T2,H2,[],T3,H3) in apply 'rumergel'/3 (L,[_4|Acc],'desc')
+<[[H2|T2]|[T1|L]],Acc,'asc'> when 'true' -> let <_5> = apply 'rumerge2_1'/4 (T1,T2,[],H2) in apply 'rumergel'/3 (L,[_5|Acc],'asc')
+<[T1|[[H2|T2]|L]],Acc,'desc'> when 'true' -> let <_6> = apply 'rumerge2_1'/4 (T1,T2,[],H2) in apply 'rumergel'/3 (L,[_6|Acc],'desc')
+<[L|[]],Acc,O> when 'true' -> let <_7> = call 'lists':'reverse' (L,[]) in apply 'umergel'/3 ([_7|Acc],[],O)
+<[],Acc,O> when 'true' -> apply 'umergel'/3 (Acc,[],O)
+(<_10,_9,_8> when 'true' -> (primop 'match_fail' ({'function_clause',_10,_9,_8})-|[{'function_name',{'rumergel',3}}] )-|['compiler_generated'] ) end
+'umerge3_1'/7 = fun (_0,_1,_2,_3,_4,_5,_6) -> case <_0,_1,_2,_3,_4,_5,_6> of <[H1|T1],HdM,T2,H2,M,T3,H3> when call 'erlang':'=<' (H1,H2) -> (case <T1,H1,T2,H2,M,T3,H3,HdM> of (<_23,_24,_25,_26,_27,_28,_29,_X_HdM> when (call ('erlang'-|['compiler_generated'] ):('=<'-|['compiler_generated'] ) (_24,_29)-|['compiler_generated'] ) -> (apply 'umerge3_1'/7 (_23,_24,_25,_26,([_24|_27]-|['compiler_generated'] ),_28,_29)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_30,_31,_32,_33,_34,_35,_36,_37> when (call ('erlang'-|['compiler_generated'] ):('=='-|['compiler_generated'] ) (_36,_37)-|['compiler_generated'] ) -> (apply 'umerge3_12_3'/6 (_30,_31,_32,_33,_34,_35)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_38,_39,_40,_41,_42,_43,_44,_X_HdM> when ('true'-|['compiler_generated'] ) -> (apply 'umerge3_12_3'/6 (_38,_39,_40,_41,([_44|_42]-|['compiler_generated'] ),_43)-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+<[H1|T1],HdM,T2,H2,M,T3,H3> when call 'erlang':'==' (H2,HdM) -> apply 'umerge3_2'/7 (T1,H1,T2,H2,M,T3,H3)
+<[H1|T1],HdM,T2,H2,M,T3,H3> when 'true' -> (case <T1,H1,T2,H2,M,T3,H3,HdM> of (<_52,_53,_54,_55,_56,_57,_58,_X_HdM> when (call ('erlang'-|['compiler_generated'] ):('=<'-|['compiler_generated'] ) (_55,_58)-|['compiler_generated'] ) -> (apply 'umerge3_2'/7 (_52,_53,_54,_55,([_55|_56]-|['compiler_generated'] ),_57,_58)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_59,_60,_61,_62,_63,_64,_65,_66> when (call ('erlang'-|['compiler_generated'] ):('=='-|['compiler_generated'] ) (_65,_66)-|['compiler_generated'] ) -> (apply 'umerge3_21_3'/6 (_59,_60,_61,_62,_63,_64)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_67,_68,_69,_70,_71,_72,_73,_X_HdM> when ('true'-|['compiler_generated'] ) -> (apply 'umerge3_21_3'/6 (_67,_68,_69,_70,([_73|_71]-|['compiler_generated'] ),_72)-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+<[],HdM,T2,H2,M,T3,H3> when call 'erlang':'==' (H2,HdM) -> apply 'umerge2_1'/5 (T2,T3,M,HdM,H3)
+<[],_X_HdM,T2,H2,M,T3,H3> when call 'erlang':'=<' (H2,H3) -> apply 'umerge2_1'/5 (T2,T3,[H2|M],H2,H3)
+<[],HdM,T2,H2,M,T3,H3> when call 'erlang':'==' (H3,HdM) -> apply 'umerge2_2'/4 (T2,T3,M,H2)
+<[],_X_HdM,T2,H2,M,T3,H3> when 'true' -> apply 'umerge2_2'/4 (T2,T3,[H3|M],H2)
+(<_13,_12,_11,_10,_9,_8,_7> when 'true' -> (primop 'match_fail' ({'function_clause',_13,_12,_11,_10,_9,_8,_7})-|[{'function_name',{'umerge3_1',7}}] )-|['compiler_generated'] ) end
+'umerge3_2'/7 = fun (_0,_1,_2,_3,_4,_5,_6) -> case <_0,_1,_2,_3,_4,_5,_6> of <T1,H1,[H2|T2],HdM,M,T3,H3> when call 'erlang':'=<' (H1,H2) -> (case <T1,H1,T2,H2,M,T3,H3,HdM> of (<_23,_24,_25,_26,_27,_28,_29,_X_HdM> when (call ('erlang'-|['compiler_generated'] ):('=<'-|['compiler_generated'] ) (_24,_29)-|['compiler_generated'] ) -> (apply 'umerge3_1'/7 (_23,_24,_25,_26,([_24|_27]-|['compiler_generated'] ),_28,_29)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_30,_31,_32,_33,_34,_35,_36,_37> when (call ('erlang'-|['compiler_generated'] ):('=='-|['compiler_generated'] ) (_36,_37)-|['compiler_generated'] ) -> (apply 'umerge3_12_3'/6 (_30,_31,_32,_33,_34,_35)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_38,_39,_40,_41,_42,_43,_44,_X_HdM> when ('true'-|['compiler_generated'] ) -> (apply 'umerge3_12_3'/6 (_38,_39,_40,_41,([_44|_42]-|['compiler_generated'] ),_43)-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+<T1,H1,[H2|T2],HdM,M,T3,H3> when 'true' -> (case <T1,H1,T2,H2,M,T3,H3,HdM> of (<_52,_53,_54,_55,_56,_57,_58,_X_HdM> when (call ('erlang'-|['compiler_generated'] ):('=<'-|['compiler_generated'] ) (_55,_58)-|['compiler_generated'] ) -> (apply 'umerge3_2'/7 (_52,_53,_54,_55,([_55|_56]-|['compiler_generated'] ),_57,_58)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_59,_60,_61,_62,_63,_64,_65,_66> when (call ('erlang'-|['compiler_generated'] ):('=='-|['compiler_generated'] ) (_65,_66)-|['compiler_generated'] ) -> (apply 'umerge3_21_3'/6 (_59,_60,_61,_62,_63,_64)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_67,_68,_69,_70,_71,_72,_73,_X_HdM> when ('true'-|['compiler_generated'] ) -> (apply 'umerge3_21_3'/6 (_67,_68,_69,_70,([_73|_71]-|['compiler_generated'] ),_72)-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+<T1,H1,[],_X_HdM,M,T3,H3> when call 'erlang':'=<' (H1,H3) -> apply 'umerge2_1'/5 (T1,T3,[H1|M],H1,H3)
+<T1,H1,[],HdM,M,T3,H3> when call 'erlang':'==' (H3,HdM) -> apply 'umerge2_2'/4 (T1,T3,M,H1)
+<T1,H1,[],_X_HdM,M,T3,H3> when 'true' -> apply 'umerge2_2'/4 (T1,T3,[H3|M],H1)
+(<_13,_12,_11,_10,_9,_8,_7> when 'true' -> (primop 'match_fail' ({'function_clause',_13,_12,_11,_10,_9,_8,_7})-|[{'function_name',{'umerge3_2',7}}] )-|['compiler_generated'] ) end
+'umerge3_12'/8 = fun (_0,_1,_2,_3,_4,_5,_6,_7) -> case <_0,_1,_2,_3,_4,_5,_6,_7> of <T1,H1,T2,H2,M,T3,H3,_X_HdM> when call 'erlang':'=<' (H1,H3) -> apply 'umerge3_1'/7 (T1,H1,T2,H2,[H1|M],T3,H3)
+<T1,H1,T2,H2,M,T3,H3,HdM> when call 'erlang':'==' (H3,HdM) -> apply 'umerge3_12_3'/6 (T1,H1,T2,H2,M,T3)
+<T1,H1,T2,H2,M,T3,H3,_X_HdM> when 'true' -> apply 'umerge3_12_3'/6 (T1,H1,T2,H2,[H3|M],T3) end
+'umerge3_12_3'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <T1,H1,T2,H2,M,[H3|T3]> when call 'erlang':'=<' (H1,H3) -> apply 'umerge3_1'/7 (T1,H1,T2,H2,[H1|M],T3,H3)
+<T1,H1,T2,H2,M,[H3|T3]> when 'true' -> apply 'umerge3_12_3'/6 (T1,H1,T2,H2,[H3|M],T3)
+<T1,H1,T2,H2,M,[]> when 'true' -> apply 'umerge2_1'/5 (T1,T2,[H1|M],H1,H2)
+(<_11,_10,_9,_8,_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_11,_10,_9,_8,_7,_6})-|[{'function_name',{'umerge3_12_3',6}}] )-|['compiler_generated'] ) end
+'umerge3_21'/8 = fun (_0,_1,_2,_3,_4,_5,_6,_7) -> case <_0,_1,_2,_3,_4,_5,_6,_7> of <T1,H1,T2,H2,M,T3,H3,_X_HdM> when call 'erlang':'=<' (H2,H3) -> apply 'umerge3_2'/7 (T1,H1,T2,H2,[H2|M],T3,H3)
+<T1,H1,T2,H2,M,T3,H3,HdM> when call 'erlang':'==' (H3,HdM) -> apply 'umerge3_21_3'/6 (T1,H1,T2,H2,M,T3)
+<T1,H1,T2,H2,M,T3,H3,_X_HdM> when 'true' -> apply 'umerge3_21_3'/6 (T1,H1,T2,H2,[H3|M],T3) end
+'umerge3_21_3'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <T1,H1,T2,H2,M,[H3|T3]> when call 'erlang':'=<' (H2,H3) -> apply 'umerge3_2'/7 (T1,H1,T2,H2,[H2|M],T3,H3)
+<T1,H1,T2,H2,M,[H3|T3]> when 'true' -> apply 'umerge3_21_3'/6 (T1,H1,T2,H2,[H3|M],T3)
+<T1,H1,T2,H2,M,[]> when 'true' -> apply 'umerge2_2'/4 (T1,T2,[H2|M],H1)
+(<_11,_10,_9,_8,_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_11,_10,_9,_8,_7,_6})-|[{'function_name',{'umerge3_21_3',6}}] )-|['compiler_generated'] ) end
+'rumerge3_1'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <[H1|T1],T2,H2,M,T3,H3> when call 'erlang':'=<' (H1,H2) -> (case <T1,H1,T2,H2,M,T3,H3> of (<_20,_21,_22,_23,_24,_25,_26> when (call ('erlang'-|['compiler_generated'] ):('=<'-|['compiler_generated'] ) (_23,_26)-|['compiler_generated'] ) -> (apply 'rumerge3_12_3'/7 (_20,_22,_23,_24,_25,_26,_21)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_27,_28,_29,_30,_31,_32,_33> when ('true'-|['compiler_generated'] ) -> (apply 'rumerge3_2'/7 (_27,_29,_30,_31,_32,_33,_28)-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+<[H1|T1],T2,H2,M,T3,H3> when call 'erlang':'=<' (H1,H3) -> apply 'rumerge3_21_3'/7 (T1,T2,H2,M,T3,H3,H1)
+<[H1|T1],T2,H2,M,T3,H3> when 'true' -> apply 'rumerge3_1'/6 (T1,T2,H2,[H1|M],T3,H3)
+<[],T2,H2,M,T3,H3> when call 'erlang':'=<' (H2,H3) -> apply 'rumerge2_2'/5 (T2,T3,M,H3,H2)
+<[],T2,H2,M,T3,H3> when 'true' -> apply 'rumerge2_1'/4 (T2,T3,[H2|M],H3)
+(<_11,_10,_9,_8,_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_11,_10,_9,_8,_7,_6})-|[{'function_name',{'rumerge3_1',6}}] )-|['compiler_generated'] ) end
+'rumerge3_12a'/7 = fun (_0,_1,_2,_3,_4,_5,_6) -> case <_0,_1,_2,_3,_4,_5,_6> of <T1,H1,T2,H2,M,T3,H3> when call 'erlang':'=<' (H2,H3) -> apply 'rumerge3_12_3'/7 (T1,T2,H2,M,T3,H3,H1)
+<T1,H1,T2,H2,M,T3,H3> when 'true' -> apply 'rumerge3_2'/7 (T1,T2,H2,M,T3,H3,H1) end
+'rumerge3_2'/7 = fun (_0,_1,_2,_3,_4,_5,_6) -> case <_0,_1,_2,_3,_4,_5,_6> of <T1,[H2|T2],H2M,M,T3,H3,H1> when call 'erlang':'=<' (H1,H2) -> (case <T1,H1,T2,H2,M,T3,H3,H2M> of (<_23,_24,_25,_26,_27,_28,_29,_30> when (call ('erlang'-|['compiler_generated'] ):('=<'-|['compiler_generated'] ) (_26,_29)-|['compiler_generated'] ) -> (apply 'rumerge3_12_3'/7 (_23,_25,_26,([_30|_27]-|['compiler_generated'] ),_28,_29,_24)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_31,_32,_33,_34,_35,_36,_37,_38> when ('true'-|['compiler_generated'] ) -> (apply 'rumerge3_2'/7 (_31,_33,_34,([_38|_35]-|['compiler_generated'] ),_36,_37,_32)-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+<T1,[H2|T2],H2M,M,T3,H3,H1> when call 'erlang':'==' (H1,H2M) -> apply 'rumerge3_1'/6 (T1,T2,H2,[H1|M],T3,H3)
+<T1,[H2|T2],H2M,M,T3,H3,H1> when call 'erlang':'=<' (H1,H3) -> apply 'rumerge3_21_3'/7 (T1,T2,H2,[H2M|M],T3,H3,H1)
+<T1,[H2|T2],H2M,M,T3,H3,H1> when 'true' -> apply 'rumerge3_1'/6 (T1,T2,H2,[H1|[H2M|M]],T3,H3)
+<T1,[],H2M,M,T3,H3,H1> when call 'erlang':'==' (H1,H2M) -> apply 'rumerge2_1'/4 (T1,T3,[H1|M],H3)
+<T1,[],H2M,M,T3,H3,H1> when call 'erlang':'=<' (H1,H3) -> apply 'rumerge2_2'/5 (T1,T3,[H2M|M],H3,H1)
+<T1,[],H2M,M,T3,H3,H1> when 'true' -> apply 'rumerge2_1'/4 (T1,T3,[H1|[H2M|M]],H3)
+(<_13,_12,_11,_10,_9,_8,_7> when 'true' -> (primop 'match_fail' ({'function_clause',_13,_12,_11,_10,_9,_8,_7})-|[{'function_name',{'rumerge3_2',7}}] )-|['compiler_generated'] ) end
+'rumerge3_12b'/8 = fun (_0,_1,_2,_3,_4,_5,_6,_7) -> case <_0,_1,_2,_3,_4,_5,_6,_7> of <T1,H1,T2,H2,M,T3,H3,H2M> when call 'erlang':'=<' (H2,H3) -> apply 'rumerge3_12_3'/7 (T1,T2,H2,[H2M|M],T3,H3,H1)
+<T1,H1,T2,H2,M,T3,H3,H2M> when 'true' -> apply 'rumerge3_2'/7 (T1,T2,H2,[H2M|M],T3,H3,H1) end
+'rumerge3_12_3'/7 = fun (_0,_1,_2,_3,_4,_5,_6) -> case <_0,_1,_2,_3,_4,_5,_6> of <T1,T2,H2,M,[H3|T3],H3M,H1> when call 'erlang':'=<' (H2,H3) -> apply 'rumerge3_12_3'/7 (T1,T2,H2,[H3M|M],T3,H3,H1)
+<T1,T2,H2,M,[H3|T3],H3M,H1> when call 'erlang':'==' (H2,H3M) -> apply 'rumerge3_2'/7 (T1,T2,H2,M,T3,H3,H1)
+<T1,T2,H2,M,[H3|T3],H3M,H1> when 'true' -> apply 'rumerge3_2'/7 (T1,T2,H2,[H3M|M],T3,H3,H1)
+<T1,T2,H2,M,[],H3M,H1> when call 'erlang':'==' (H2,H3M) -> apply 'rumerge2_2'/5 (T1,T2,M,H2,H1)
+<T1,T2,H2,M,[],H3M,H1> when 'true' -> apply 'rumerge2_2'/5 (T1,T2,[H3M|M],H2,H1)
+(<_13,_12,_11,_10,_9,_8,_7> when 'true' -> (primop 'match_fail' ({'function_clause',_13,_12,_11,_10,_9,_8,_7})-|[{'function_name',{'rumerge3_12_3',7}}] )-|['compiler_generated'] ) end
+'rumerge3_21_3'/7 = fun (_0,_1,_2,_3,_4,_5,_6) -> case <_0,_1,_2,_3,_4,_5,_6> of <T1,T2,H2,M,[H3|T3],H3M,H1> when call 'erlang':'=<' (H1,H3) -> apply 'rumerge3_21_3'/7 (T1,T2,H2,[H3M|M],T3,H3,H1)
+<T1,T2,H2,M,[H3|T3],H3M,H1> when call 'erlang':'==' (H1,H3M) -> apply 'rumerge3_1'/6 (T1,T2,H2,[H1|M],T3,H3)
+<T1,T2,H2,M,[H3|T3],H3M,H1> when 'true' -> apply 'rumerge3_1'/6 (T1,T2,H2,[H1|[H3M|M]],T3,H3)
+<T1,T2,H2,M,[],H3M,H1> when call 'erlang':'==' (H1,H3M) -> apply 'rumerge2_1'/4 (T1,T2,[H1|M],H2)
+<T1,T2,H2,M,[],H3M,H1> when 'true' -> apply 'rumerge2_1'/4 (T1,T2,[H1|[H3M|M]],H2)
+(<_13,_12,_11,_10,_9,_8,_7> when 'true' -> (primop 'match_fail' ({'function_clause',_13,_12,_11,_10,_9,_8,_7})-|[{'function_name',{'rumerge3_21_3',7}}] )-|['compiler_generated'] ) end
+'umerge2_1'/5 = fun (_0,_1,_2,_3,_4) -> case <_0,_1,_2,_3,_4> of <[H1|T1],T2,M,_X_HdM,H2> when call 'erlang':'=<' (H1,H2) -> apply 'umerge2_1'/5 (T1,T2,[H1|M],H1,H2)
+<[H1|T1],T2,M,HdM,H2> when call 'erlang':'==' (H2,HdM) -> apply 'umerge2_2'/4 (T1,T2,M,H1)
+<[H1|T1],T2,M,_X_HdM,H2> when 'true' -> apply 'umerge2_2'/4 (T1,T2,[H2|M],H1)
+<[],T2,M,HdM,H2> when call 'erlang':'==' (H2,HdM) -> call 'lists':'reverse' (T2,M)
+<[],T2,M,_X_HdM,H2> when 'true' -> call 'lists':'reverse' (T2,[H2|M])
+(<_9,_8,_7,_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_9,_8,_7,_6,_5})-|[{'function_name',{'umerge2_1',5}}] )-|['compiler_generated'] ) end
+'umerge2_2'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <T1,[H2|T2],M,H1> when call 'erlang':'=<' (H1,H2) -> apply 'umerge2_1'/5 (T1,T2,[H1|M],H1,H2)
+<T1,[H2|T2],M,H1> when 'true' -> apply 'umerge2_2'/4 (T1,T2,[H2|M],H1)
+<T1,[],M,H1> when 'true' -> call 'lists':'reverse' (T1,[H1|M])
+(<_7,_6,_5,_4> when 'true' -> (primop 'match_fail' ({'function_clause',_7,_6,_5,_4})-|[{'function_name',{'umerge2_2',4}}] )-|['compiler_generated'] ) end
+'rumerge2_1'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <[H1|T1],T2,M,H2> when call 'erlang':'=<' (H1,H2) -> apply 'rumerge2_2'/5 (T1,T2,M,H2,H1)
+<[H1|T1],T2,M,H2> when 'true' -> apply 'rumerge2_1'/4 (T1,T2,[H1|M],H2)
+<[],T2,M,H2> when 'true' -> call 'lists':'reverse' (T2,[H2|M])
+(<_7,_6,_5,_4> when 'true' -> (primop 'match_fail' ({'function_clause',_7,_6,_5,_4})-|[{'function_name',{'rumerge2_1',4}}] )-|['compiler_generated'] ) end
+'rumerge2_2'/5 = fun (_0,_1,_2,_3,_4) -> case <_0,_1,_2,_3,_4> of <T1,[H2|T2],M,H2M,H1> when call 'erlang':'=<' (H1,H2) -> apply 'rumerge2_2'/5 (T1,T2,[H2M|M],H2,H1)
+<T1,[H2|T2],M,H2M,H1> when call 'erlang':'==' (H1,H2M) -> apply 'rumerge2_1'/4 (T1,T2,[H1|M],H2)
+<T1,[H2|T2],M,H2M,H1> when 'true' -> apply 'rumerge2_1'/4 (T1,T2,[H1|[H2M|M]],H2)
+<T1,[],M,H2M,H1> when call 'erlang':'==' (H1,H2M) -> call 'lists':'reverse' (T1,[H1|M])
+<T1,[],M,H2M,H1> when 'true' -> call 'lists':'reverse' (T1,[H1|[H2M|M]])
+(<_9,_8,_7,_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_9,_8,_7,_6,_5})-|[{'function_name',{'rumerge2_2',5}}] )-|['compiler_generated'] ) end
+'keysplit_1'/8 = fun (_0,_1,_2,_3,_4,_5,_6,_7) -> case <_0,_1,_2,_3,_4,_5,_6,_7> of <I,X,EX,Y,EY,[Z|L],R,Rs> when 'true' -> case call 'erlang':'element' (I,Z) of <EZ> when call 'erlang':'=<' (EY,EZ) -> apply 'keysplit_1'/8 (I,Y,EY,Z,EZ,L,[X|R],Rs)
+<EZ> when call 'erlang':'=<' (EX,EZ) -> apply 'keysplit_1'/8 (I,Z,EZ,Y,EY,L,[X|R],Rs)
+<_X_EZ> when call 'erlang':'=:=' (R,[]) -> apply 'keysplit_1'/8 (I,X,EX,Y,EY,L,[Z|[]],Rs)
+<EZ> when 'true' -> apply 'keysplit_1_1'/10 (I,X,EX,Y,EY,EZ,R,Rs,Z,L) end
+<I,X,_X_EX,Y,_X_EY,[],R,Rs> when 'true' -> apply 'rkeymergel'/4 (I,[[Y|[X|R]]|Rs],[],'asc')
+(<_16,_15,_14,_13,_12,_11,_10,_9> when 'true' -> (primop 'match_fail' ({'function_clause',_16,_15,_14,_13,_12,_11,_10,_9})-|[{'function_name',{'keysplit_1',8}}] )-|['compiler_generated'] ) end
+'keysplit_1_1'/10 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8,_9) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8,_9> of <I,X,EX,Y,EY,ES,R,Rs,S,[Z|L]> when 'true' -> case call 'erlang':'element' (I,Z) of <EZ> when call 'erlang':'=<' (EY,EZ) -> apply 'keysplit_1_1'/10 (I,Y,EY,Z,EZ,ES,[X|R],Rs,S,L)
+<EZ> when call 'erlang':'=<' (EX,EZ) -> apply 'keysplit_1_1'/10 (I,Z,EZ,Y,EY,ES,[X|R],Rs,S,L)
+<EZ> when call 'erlang':'=<' (ES,EZ) -> apply 'keysplit_1'/8 (I,S,ES,Z,EZ,L,[],[[Y|[X|R]]|Rs])
+<EZ> when 'true' -> apply 'keysplit_1'/8 (I,Z,EZ,S,ES,L,[],[[Y|[X|R]]|Rs]) end
+<I,X,_X_EX,Y,_X_EY,_X_ES,R,Rs,S,[]> when 'true' -> apply 'rkeymergel'/4 (I,[[S|[]]|[[Y|[X|R]]|Rs]],[],'asc')
+(<_20,_19,_18,_17,_16,_15,_14,_13,_12,_11> when 'true' -> (primop 'match_fail' ({'function_clause',_20,_19,_18,_17,_16,_15,_14,_13,_12,_11})-|[{'function_name',{'keysplit_1_1',10}}] )-|['compiler_generated'] ) end
+'keysplit_2'/8 = fun (_0,_1,_2,_3,_4,_5,_6,_7) -> case <_0,_1,_2,_3,_4,_5,_6,_7> of <I,X,EX,Y,EY,[Z|L],R,Rs> when 'true' -> case call 'erlang':'element' (I,Z) of <EZ> when call 'erlang':'>' (EY,EZ) -> apply 'keysplit_2'/8 (I,Y,EY,Z,EZ,L,[X|R],Rs)
+<EZ> when call 'erlang':'>' (EX,EZ) -> apply 'keysplit_2'/8 (I,Z,EZ,Y,EY,L,[X|R],Rs)
+<_X_EZ> when call 'erlang':'=:=' (R,[]) -> apply 'keysplit_2'/8 (I,X,EX,Y,EY,L,[Z|[]],Rs)
+<EZ> when 'true' -> apply 'keysplit_2_1'/10 (I,X,EX,Y,EY,EZ,R,Rs,Z,L) end
+<I,X,_X_EX,Y,_X_EY,[],R,Rs> when 'true' -> apply 'keymergel'/4 (I,[[Y|[X|R]]|Rs],[],'desc')
+(<_16,_15,_14,_13,_12,_11,_10,_9> when 'true' -> (primop 'match_fail' ({'function_clause',_16,_15,_14,_13,_12,_11,_10,_9})-|[{'function_name',{'keysplit_2',8}}] )-|['compiler_generated'] ) end
+'keysplit_2_1'/10 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8,_9) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8,_9> of <I,X,EX,Y,EY,ES,R,Rs,S,[Z|L]> when 'true' -> case call 'erlang':'element' (I,Z) of <EZ> when call 'erlang':'>' (EY,EZ) -> apply 'keysplit_2_1'/10 (I,Y,EY,Z,EZ,ES,[X|R],Rs,S,L)
+<EZ> when call 'erlang':'>' (EX,EZ) -> apply 'keysplit_2_1'/10 (I,Z,EZ,Y,EY,ES,[X|R],Rs,S,L)
+<EZ> when call 'erlang':'>' (ES,EZ) -> apply 'keysplit_2'/8 (I,S,ES,Z,EZ,L,[],[[Y|[X|R]]|Rs])
+<EZ> when 'true' -> apply 'keysplit_2'/8 (I,Z,EZ,S,ES,L,[],[[Y|[X|R]]|Rs]) end
+<I,X,_X_EX,Y,_X_EY,_X_ES,R,Rs,S,[]> when 'true' -> apply 'keymergel'/4 (I,[[S|[]]|[[Y|[X|R]]|Rs]],[],'desc')
+(<_20,_19,_18,_17,_16,_15,_14,_13,_12,_11> when 'true' -> (primop 'match_fail' ({'function_clause',_20,_19,_18,_17,_16,_15,_14,_13,_12,_11})-|[{'function_name',{'keysplit_2_1',10}}] )-|['compiler_generated'] ) end
+'keymergel'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <I,[T1|[[H2|T2]|[[H3|T3]|L]]],Acc,O> when call 'erlang':'=:=' (O,'asc') -> let <_5> = call 'erlang':'element' (I,H2) in let <_4> = call 'erlang':'element' (I,H3) in let <M> = apply 'keymerge3_1'/10 (I,T1,[],O,_5,H2,T2,_4,H3,T3) in apply 'keymergel'/4 (I,L,[M|Acc],O)
+<I,[[H3|T3]|[[H2|T2]|[T1|L]]],Acc,O> when call 'erlang':'=:=' (O,'desc') -> let <_8> = call 'erlang':'element' (I,H2) in let <_7> = call 'erlang':'element' (I,H3) in let <M> = apply 'keymerge3_1'/10 (I,T1,[],O,_8,H2,T2,_7,H3,T3) in apply 'keymergel'/4 (I,L,[M|Acc],O)
+<I,[T1|[[H2|T2]|L]],Acc,'asc'> when 'true' -> let <_10> = call 'erlang':'element' (I,H2) in let <_11> = apply 'keymerge2_1'/6 (I,T1,_10,H2,T2,[]) in apply 'keymergel'/4 (I,L,[_11|Acc],'asc')
+<I,[[H2|T2]|[T1|L]],Acc,'desc'> when 'true' -> let <_12> = call 'erlang':'element' (I,H2) in let <_13> = apply 'keymerge2_1'/6 (I,T1,_12,H2,T2,[]) in apply 'keymergel'/4 (I,L,[_13|Acc],'desc')
+<_X_I,[L|[]],[],_X_O> when 'true' -> L
+<I,[L|[]],Acc,O> when 'true' -> let <_14> = call 'lists':'reverse' (L,[]) in apply 'rkeymergel'/4 (I,[_14|Acc],[],O)
+<I,[],Acc,O> when 'true' -> apply 'rkeymergel'/4 (I,Acc,[],O)
+(<_18,_17,_16,_15> when 'true' -> (primop 'match_fail' ({'function_clause',_18,_17,_16,_15})-|[{'function_name',{'keymergel',4}}] )-|['compiler_generated'] ) end
+'rkeymergel'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <I,[[H3|T3]|[[H2|T2]|[T1|L]]],Acc,O> when call 'erlang':'=:=' (O,'asc') -> let <_5> = call 'erlang':'element' (I,H2) in let <_4> = call 'erlang':'element' (I,H3) in let <M> = apply 'rkeymerge3_1'/10 (I,T1,[],O,_5,H2,T2,_4,H3,T3) in apply 'rkeymergel'/4 (I,L,[M|Acc],O)
+<I,[T1|[[H2|T2]|[[H3|T3]|L]]],Acc,O> when call 'erlang':'=:=' (O,'desc') -> let <_8> = call 'erlang':'element' (I,H2) in let <_7> = call 'erlang':'element' (I,H3) in let <M> = apply 'rkeymerge3_1'/10 (I,T1,[],O,_8,H2,T2,_7,H3,T3) in apply 'rkeymergel'/4 (I,L,[M|Acc],O)
+<I,[[H2|T2]|[T1|L]],Acc,'asc'> when 'true' -> let <_10> = call 'erlang':'element' (I,H2) in let <_11> = apply 'rkeymerge2_1'/6 (I,T1,_10,H2,T2,[]) in apply 'rkeymergel'/4 (I,L,[_11|Acc],'asc')
+<I,[T1|[[H2|T2]|L]],Acc,'desc'> when 'true' -> let <_12> = call 'erlang':'element' (I,H2) in let <_13> = apply 'rkeymerge2_1'/6 (I,T1,_12,H2,T2,[]) in apply 'rkeymergel'/4 (I,L,[_13|Acc],'desc')
+<I,[L|[]],Acc,O> when 'true' -> let <_14> = call 'lists':'reverse' (L,[]) in apply 'keymergel'/4 (I,[_14|Acc],[],O)
+<I,[],Acc,O> when 'true' -> apply 'keymergel'/4 (I,Acc,[],O)
+(<_18,_17,_16,_15> when 'true' -> (primop 'match_fail' ({'function_clause',_18,_17,_16,_15})-|[{'function_name',{'rkeymergel',4}}] )-|['compiler_generated'] ) end
+'keymerge3_1'/10 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8,_9) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8,_9> of <I,[H1|T1],M,D,E2,H2,T2,E3,H3,T3> when 'true' -> case call 'erlang':'element' (I,H1) of <E1> when call 'erlang':'=<' (E1,E2) -> (case <I,E1,H1,T1,E2,H2,T2,E3,H3,T3,M,D> of (<_34,_35,_36,_37,_38,_39,_40,_41,_42,_43,_44,_45> when (call ('erlang'-|['compiler_generated'] ):('=<'-|['compiler_generated'] ) (_35,_41)-|['compiler_generated'] ) -> (apply 'keymerge3_1'/10 (_34,_37,([_36|_44]-|['compiler_generated'] ),_45,_38,_39,_40,_41,_42,_43)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_46,_47,_48,_49,_50,_51,_52,_X_E3,_53,_54,_55,_X_D> when ('true'-|['compiler_generated'] ) -> (apply 'keymerge3_12_3'/9 (_46,_47,_48,_49,_50,_51,_52,_54,([_53|_55]-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+<E1> when 'true' -> (case <I,E1,H1,T1,E2,H2,T2,E3,H3,T3,M,T2> of (<_66,_67,_68,_69,_70,_71,_72,_73,_74,_75,_76,_77> when (call ('erlang'-|['compiler_generated'] ):('=<'-|['compiler_generated'] ) (_70,_73)-|['compiler_generated'] ) -> (apply 'keymerge3_2'/10 (_66,_67,_68,_69,_72,([_71|_76]-|['compiler_generated'] ),_77,_73,_74,_75)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_78,_79,_80,_81,_82,_83,_84,_X_E3,_85,_86,_87,_X_D> when ('true'-|['compiler_generated'] ) -> (apply 'keymerge3_21_3'/9 (_78,_79,_80,_81,_82,_83,_84,_86,([_85|_87]-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] ) end
+<I,[],M,_X_D,E2,H2,T2,E3,H3,T3> when call 'erlang':'=<' (E2,E3) -> apply 'keymerge2_1'/6 (I,T2,E3,H3,T3,[H2|M])
+<I,[],M,_X_D,E2,H2,T2,_X_E3,H3,T3> when 'true' -> apply 'keymerge2_2'/7 (I,T2,E2,H3,T3,M,H2)
+(<_20,_19,_18,_17,_16,_15,_14,_13,_12,_11> when 'true' -> (primop 'match_fail' ({'function_clause',_20,_19,_18,_17,_16,_15,_14,_13,_12,_11})-|[{'function_name',{'keymerge3_1',10}}] )-|['compiler_generated'] ) end
+'keymerge3_2'/10 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8,_9) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8,_9> of <I,E1,H1,T1,[H2|T2],M,D,E3,H3,T3> when 'true' -> case call 'erlang':'element' (I,H2) of <E2> when call 'erlang':'=<' (E1,E2) -> (case <I,E1,H1,T1,E2,H2,T2,E3,H3,T3,M,T1> of (<_34,_35,_36,_37,_38,_39,_40,_41,_42,_43,_44,_45> when (call ('erlang'-|['compiler_generated'] ):('=<'-|['compiler_generated'] ) (_35,_41)-|['compiler_generated'] ) -> (apply 'keymerge3_1'/10 (_34,_37,([_36|_44]-|['compiler_generated'] ),_45,_38,_39,_40,_41,_42,_43)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_46,_47,_48,_49,_50,_51,_52,_X_E3,_53,_54,_55,_X_D> when ('true'-|['compiler_generated'] ) -> (apply 'keymerge3_12_3'/9 (_46,_47,_48,_49,_50,_51,_52,_54,([_53|_55]-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+<E2> when 'true' -> (case <I,E1,H1,T1,E2,H2,T2,E3,H3,T3,M,D> of (<_66,_67,_68,_69,_70,_71,_72,_73,_74,_75,_76,_77> when (call ('erlang'-|['compiler_generated'] ):('=<'-|['compiler_generated'] ) (_70,_73)-|['compiler_generated'] ) -> (apply 'keymerge3_2'/10 (_66,_67,_68,_69,_72,([_71|_76]-|['compiler_generated'] ),_77,_73,_74,_75)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_78,_79,_80,_81,_82,_83,_84,_X_E3,_85,_86,_87,_X_D> when ('true'-|['compiler_generated'] ) -> (apply 'keymerge3_21_3'/9 (_78,_79,_80,_81,_82,_83,_84,_86,([_85|_87]-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] ) end
+<I,E1,H1,T1,[],M,_X_D,E3,H3,T3> when call 'erlang':'=<' (E1,E3) -> apply 'keymerge2_1'/6 (I,T1,E3,H3,T3,[H1|M])
+<I,E1,H1,T1,[],M,_X_D,_X_E3,H3,T3> when 'true' -> apply 'keymerge2_2'/7 (I,T1,E1,H3,T3,M,H1)
+(<_20,_19,_18,_17,_16,_15,_14,_13,_12,_11> when 'true' -> (primop 'match_fail' ({'function_clause',_20,_19,_18,_17,_16,_15,_14,_13,_12,_11})-|[{'function_name',{'keymerge3_2',10}}] )-|['compiler_generated'] ) end
+'keymerge3_12'/12 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11> of <I,E1,H1,T1,E2,H2,T2,E3,H3,T3,M,D> when call 'erlang':'=<' (E1,E3) -> apply 'keymerge3_1'/10 (I,T1,[H1|M],D,E2,H2,T2,E3,H3,T3)
+<I,E1,H1,T1,E2,H2,T2,_X_E3,H3,T3,M,_X_D> when 'true' -> apply 'keymerge3_12_3'/9 (I,E1,H1,T1,E2,H2,T2,T3,[H3|M]) end
+'keymerge3_12_3'/9 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8> of <I,E1,H1,T1,E2,H2,T2,[H3|T3],M> when 'true' -> case call 'erlang':'element' (I,H3) of <E3> when call 'erlang':'=<' (E1,E3) -> apply 'keymerge3_1'/10 (I,T1,[H1|M],T1,E2,H2,T2,E3,H3,T3)
+<_X_E3> when 'true' -> apply 'keymerge3_12_3'/9 (I,E1,H1,T1,E2,H2,T2,T3,[H3|M]) end
+<I,_X_E1,H1,T1,E2,H2,T2,[],M> when 'true' -> apply 'keymerge2_1'/6 (I,T1,E2,H2,T2,[H1|M])
+(<_18,_17,_16,_15,_14,_13,_12,_11,_10> when 'true' -> (primop 'match_fail' ({'function_clause',_18,_17,_16,_15,_14,_13,_12,_11,_10})-|[{'function_name',{'keymerge3_12_3',9}}] )-|['compiler_generated'] ) end
+'keymerge3_21'/12 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11> of <I,E1,H1,T1,E2,H2,T2,E3,H3,T3,M,D> when call 'erlang':'=<' (E2,E3) -> apply 'keymerge3_2'/10 (I,E1,H1,T1,T2,[H2|M],D,E3,H3,T3)
+<I,E1,H1,T1,E2,H2,T2,_X_E3,H3,T3,M,_X_D> when 'true' -> apply 'keymerge3_21_3'/9 (I,E1,H1,T1,E2,H2,T2,T3,[H3|M]) end
+'keymerge3_21_3'/9 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8> of <I,E1,H1,T1,E2,H2,T2,[H3|T3],M> when 'true' -> case call 'erlang':'element' (I,H3) of <E3> when call 'erlang':'=<' (E2,E3) -> apply 'keymerge3_2'/10 (I,E1,H1,T1,T2,[H2|M],T2,E3,H3,T3)
+<_X_E3> when 'true' -> apply 'keymerge3_21_3'/9 (I,E1,H1,T1,E2,H2,T2,T3,[H3|M]) end
+<I,E1,H1,T1,_X_E2,H2,T2,[],M> when 'true' -> apply 'keymerge2_2'/7 (I,T1,E1,H2,T2,M,H1)
+(<_18,_17,_16,_15,_14,_13,_12,_11,_10> when 'true' -> (primop 'match_fail' ({'function_clause',_18,_17,_16,_15,_14,_13,_12,_11,_10})-|[{'function_name',{'keymerge3_21_3',9}}] )-|['compiler_generated'] ) end
+'rkeymerge3_1'/10 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8,_9) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8,_9> of <I,[H1|T1],M,D,E2,H2,T2,E3,H3,T3> when 'true' -> case call 'erlang':'element' (I,H1) of <E1> when call 'erlang':'=<' (E1,E2) -> (case <I,E1,H1,T1,E2,H2,T2,E3,H3,T3,M,T2> of (<_34,_35,_36,_37,_38,_39,_40,_41,_42,_43,_44,_X_D> when (call ('erlang'-|['compiler_generated'] ):('=<'-|['compiler_generated'] ) (_38,_41)-|['compiler_generated'] ) -> (apply 'rkeymerge3_12_3'/9 (_34,_35,_36,_37,_38,_39,_40,_43,([_42|_44]-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] )
+(<_45,_46,_47,_48,_X_E2,_49,_50,_51,_52,_53,_54,_55> when ('true'-|['compiler_generated'] ) -> (apply 'rkeymerge3_2'/10 (_45,_46,_47,_48,_50,([_49|_54]-|['compiler_generated'] ),_55,_51,_52,_53)-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+<E1> when 'true' -> (case <I,E1,H1,T1,E2,H2,T2,E3,H3,T3,M,D> of (<_66,_67,_68,_69,_70,_71,_72,_73,_74,_75,_76,_X_D> when (call ('erlang'-|['compiler_generated'] ):('=<'-|['compiler_generated'] ) (_67,_73)-|['compiler_generated'] ) -> (apply 'rkeymerge3_21_3'/9 (_66,_67,_68,_69,_70,_71,_72,_75,([_74|_76]-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] )
+(<_77,_X_E1,_78,_79,_80,_81,_82,_83,_84,_85,_86,_87> when ('true'-|['compiler_generated'] ) -> (apply 'rkeymerge3_1'/10 (_77,_79,([_78|_86]-|['compiler_generated'] ),_87,_80,_81,_82,_83,_84,_85)-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] ) end
+<I,[],M,_X_D,E2,H2,T2,E3,H3,T3> when call 'erlang':'=<' (E2,E3) -> apply 'rkeymerge2_2'/7 (I,E2,T2,H3,T3,M,H2)
+<I,[],M,_X_D,_X_E2,H2,T2,E3,H3,T3> when 'true' -> apply 'rkeymerge2_1'/6 (I,T2,E3,H3,T3,[H2|M])
+(<_20,_19,_18,_17,_16,_15,_14,_13,_12,_11> when 'true' -> (primop 'match_fail' ({'function_clause',_20,_19,_18,_17,_16,_15,_14,_13,_12,_11})-|[{'function_name',{'rkeymerge3_1',10}}] )-|['compiler_generated'] ) end
+'rkeymerge3_2'/10 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8,_9) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8,_9> of <I,E1,H1,T1,[H2|T2],M,D,E3,H3,T3> when 'true' -> case call 'erlang':'element' (I,H2) of <E2> when call 'erlang':'=<' (E1,E2) -> (case <I,E1,H1,T1,E2,H2,T2,E3,H3,T3,M,D> of (<_34,_35,_36,_37,_38,_39,_40,_41,_42,_43,_44,_X_D> when (call ('erlang'-|['compiler_generated'] ):('=<'-|['compiler_generated'] ) (_38,_41)-|['compiler_generated'] ) -> (apply 'rkeymerge3_12_3'/9 (_34,_35,_36,_37,_38,_39,_40,_43,([_42|_44]-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] )
+(<_45,_46,_47,_48,_X_E2,_49,_50,_51,_52,_53,_54,_55> when ('true'-|['compiler_generated'] ) -> (apply 'rkeymerge3_2'/10 (_45,_46,_47,_48,_50,([_49|_54]-|['compiler_generated'] ),_55,_51,_52,_53)-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+<E2> when 'true' -> (case <I,E1,H1,T1,E2,H2,T2,E3,H3,T3,M,T1> of (<_66,_67,_68,_69,_70,_71,_72,_73,_74,_75,_76,_X_D> when (call ('erlang'-|['compiler_generated'] ):('=<'-|['compiler_generated'] ) (_67,_73)-|['compiler_generated'] ) -> (apply 'rkeymerge3_21_3'/9 (_66,_67,_68,_69,_70,_71,_72,_75,([_74|_76]-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] )
+(<_77,_X_E1,_78,_79,_80,_81,_82,_83,_84,_85,_86,_87> when ('true'-|['compiler_generated'] ) -> (apply 'rkeymerge3_1'/10 (_77,_79,([_78|_86]-|['compiler_generated'] ),_87,_80,_81,_82,_83,_84,_85)-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] ) end
+<I,E1,H1,T1,[],M,_X_D,E3,H3,T3> when call 'erlang':'=<' (E1,E3) -> apply 'rkeymerge2_2'/7 (I,E1,T1,H3,T3,M,H1)
+<I,_X_E1,H1,T1,[],M,_X_D,E3,H3,T3> when 'true' -> apply 'rkeymerge2_1'/6 (I,T1,E3,H3,T3,[H1|M])
+(<_20,_19,_18,_17,_16,_15,_14,_13,_12,_11> when 'true' -> (primop 'match_fail' ({'function_clause',_20,_19,_18,_17,_16,_15,_14,_13,_12,_11})-|[{'function_name',{'rkeymerge3_2',10}}] )-|['compiler_generated'] ) end
+'rkeymerge3_12'/12 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11> of <I,E1,H1,T1,E2,H2,T2,E3,H3,T3,M,_X_D> when call 'erlang':'=<' (E2,E3) -> apply 'rkeymerge3_12_3'/9 (I,E1,H1,T1,E2,H2,T2,T3,[H3|M])
+<I,E1,H1,T1,_X_E2,H2,T2,E3,H3,T3,M,D> when 'true' -> apply 'rkeymerge3_2'/10 (I,E1,H1,T1,T2,[H2|M],D,E3,H3,T3) end
+'rkeymerge3_12_3'/9 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8> of <I,E1,H1,T1,E2,H2,T2,[H3|T3],M> when 'true' -> case call 'erlang':'element' (I,H3) of <E3> when call 'erlang':'=<' (E2,E3) -> apply 'rkeymerge3_12_3'/9 (I,E1,H1,T1,E2,H2,T2,T3,[H3|M])
+<E3> when 'true' -> apply 'rkeymerge3_2'/10 (I,E1,H1,T1,T2,[H2|M],T2,E3,H3,T3) end
+<I,E1,H1,T1,_X_E2,H2,T2,[],M> when 'true' -> apply 'rkeymerge2_2'/7 (I,E1,T1,H2,T2,M,H1)
+(<_18,_17,_16,_15,_14,_13,_12,_11,_10> when 'true' -> (primop 'match_fail' ({'function_clause',_18,_17,_16,_15,_14,_13,_12,_11,_10})-|[{'function_name',{'rkeymerge3_12_3',9}}] )-|['compiler_generated'] ) end
+'rkeymerge3_21'/12 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11> of <I,E1,H1,T1,E2,H2,T2,E3,H3,T3,M,_X_D> when call 'erlang':'=<' (E1,E3) -> apply 'rkeymerge3_21_3'/9 (I,E1,H1,T1,E2,H2,T2,T3,[H3|M])
+<I,_X_E1,H1,T1,E2,H2,T2,E3,H3,T3,M,D> when 'true' -> apply 'rkeymerge3_1'/10 (I,T1,[H1|M],D,E2,H2,T2,E3,H3,T3) end
+'rkeymerge3_21_3'/9 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8> of <I,E1,H1,T1,E2,H2,T2,[H3|T3],M> when 'true' -> case call 'erlang':'element' (I,H3) of <E3> when call 'erlang':'=<' (E1,E3) -> apply 'rkeymerge3_21_3'/9 (I,E1,H1,T1,E2,H2,T2,T3,[H3|M])
+<E3> when 'true' -> apply 'rkeymerge3_1'/10 (I,T1,[H1|M],T1,E2,H2,T2,E3,H3,T3) end
+<I,_X_E1,H1,T1,E2,H2,T2,[],M> when 'true' -> apply 'rkeymerge2_1'/6 (I,T1,E2,H2,T2,[H1|M])
+(<_18,_17,_16,_15,_14,_13,_12,_11,_10> when 'true' -> (primop 'match_fail' ({'function_clause',_18,_17,_16,_15,_14,_13,_12,_11,_10})-|[{'function_name',{'rkeymerge3_21_3',9}}] )-|['compiler_generated'] ) end
+'keymerge2_1'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <I,[H1|T1],E2,H2,T2,M> when 'true' -> case call 'erlang':'element' (I,H1) of <E1> when call 'erlang':'=<' (E1,E2) -> apply 'keymerge2_1'/6 (I,T1,E2,H2,T2,[H1|M])
+<E1> when 'true' -> apply 'keymerge2_2'/7 (I,T1,E1,H2,T2,M,H1) end
+<_X_I,[],_X_E2,H2,T2,M> when 'true' -> call 'lists':'reverse' (T2,[H2|M])
+(<_12,_11,_10,_9,_8,_7> when 'true' -> (primop 'match_fail' ({'function_clause',_12,_11,_10,_9,_8,_7})-|[{'function_name',{'keymerge2_1',6}}] )-|['compiler_generated'] ) end
+'keymerge2_2'/7 = fun (_0,_1,_2,_3,_4,_5,_6) -> case <_0,_1,_2,_3,_4,_5,_6> of <I,T1,E1,HdM,[H2|T2],M,H1> when 'true' -> case call 'erlang':'element' (I,H2) of <E2> when call 'erlang':'=<' (E1,E2) -> apply 'keymerge2_1'/6 (I,T1,E2,H2,T2,[H1|[HdM|M]])
+<_X_E2> when 'true' -> apply 'keymerge2_2'/7 (I,T1,E1,H2,T2,[HdM|M],H1) end
+<_X_I,T1,_X_E1,HdM,[],M,H1> when 'true' -> call 'lists':'reverse' (T1,[H1|[HdM|M]])
+(<_14,_13,_12,_11,_10,_9,_8> when 'true' -> (primop 'match_fail' ({'function_clause',_14,_13,_12,_11,_10,_9,_8})-|[{'function_name',{'keymerge2_2',7}}] )-|['compiler_generated'] ) end
+'rkeymerge2_1'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <I,[H1|T1],E2,H2,T2,M> when 'true' -> case call 'erlang':'element' (I,H1) of <E1> when call 'erlang':'=<' (E1,E2) -> apply 'rkeymerge2_2'/7 (I,E1,T1,H2,T2,M,H1)
+<_X_E1> when 'true' -> apply 'rkeymerge2_1'/6 (I,T1,E2,H2,T2,[H1|M]) end
+<_X_I,[],_X_E2,H2,T2,M> when 'true' -> call 'lists':'reverse' (T2,[H2|M])
+(<_12,_11,_10,_9,_8,_7> when 'true' -> (primop 'match_fail' ({'function_clause',_12,_11,_10,_9,_8,_7})-|[{'function_name',{'rkeymerge2_1',6}}] )-|['compiler_generated'] ) end
+'rkeymerge2_2'/7 = fun (_0,_1,_2,_3,_4,_5,_6) -> case <_0,_1,_2,_3,_4,_5,_6> of <I,E1,T1,HdM,[H2|T2],M,H1> when 'true' -> case call 'erlang':'element' (I,H2) of <E2> when call 'erlang':'=<' (E1,E2) -> apply 'rkeymerge2_2'/7 (I,E1,T1,H2,T2,[HdM|M],H1)
+<E2> when 'true' -> apply 'rkeymerge2_1'/6 (I,T1,E2,H2,T2,[H1|[HdM|M]]) end
+<_X_I,_X_E1,T1,HdM,[],M,H1> when 'true' -> call 'lists':'reverse' (T1,[H1|[HdM|M]])
+(<_14,_13,_12,_11,_10,_9,_8> when 'true' -> (primop 'match_fail' ({'function_clause',_14,_13,_12,_11,_10,_9,_8})-|[{'function_name',{'rkeymerge2_2',7}}] )-|['compiler_generated'] ) end
+'ukeysplit_1'/8 = fun (_0,_1,_2,_3,_4,_5,_6,_7) -> case <_0,_1,_2,_3,_4,_5,_6,_7> of <I,X,EX,Y,EY,[Z|L],R,Rs> when 'true' -> case call 'erlang':'element' (I,Z) of <EZ> when call 'erlang':'==' (EY,EZ) -> apply 'ukeysplit_1'/8 (I,X,EX,Y,EY,L,R,Rs)
+<EZ> when call 'erlang':'<' (EY,EZ) -> apply 'ukeysplit_1'/8 (I,Y,EY,Z,EZ,L,[X|R],Rs)
+<EZ> when call 'erlang':'==' (EX,EZ) -> apply 'ukeysplit_1'/8 (I,X,EX,Y,EY,L,R,Rs)
+<EZ> when call 'erlang':'<' (EX,EZ) -> apply 'ukeysplit_1'/8 (I,Z,EZ,Y,EY,L,[X|R],Rs)
+<_X_EZ> when call 'erlang':'=:=' (R,[]) -> apply 'ukeysplit_1'/8 (I,X,EX,Y,EY,L,[Z|[]],Rs)
+<EZ> when 'true' -> apply 'ukeysplit_1_1'/10 (I,X,EX,Y,EY,L,R,Rs,Z,EZ) end
+<I,X,_X_EX,Y,_X_EY,[],R,Rs> when 'true' -> apply 'rukeymergel'/3 (I,[[Y|[X|R]]|Rs],[])
+(<_16,_15,_14,_13,_12,_11,_10,_9> when 'true' -> (primop 'match_fail' ({'function_clause',_16,_15,_14,_13,_12,_11,_10,_9})-|[{'function_name',{'ukeysplit_1',8}}] )-|['compiler_generated'] ) end
+'ukeysplit_1_1'/10 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8,_9) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8,_9> of <I,X,EX,Y,EY,[Z|L],R,Rs,S,ES> when 'true' -> case call 'erlang':'element' (I,Z) of <EZ> when call 'erlang':'==' (EY,EZ) -> apply 'ukeysplit_1_1'/10 (I,X,EX,Y,EY,L,R,Rs,S,ES)
+<EZ> when call 'erlang':'<' (EY,EZ) -> apply 'ukeysplit_1_1'/10 (I,Y,EY,Z,EZ,L,[X|R],Rs,S,ES)
+<EZ> when call 'erlang':'==' (EX,EZ) -> apply 'ukeysplit_1_1'/10 (I,X,EX,Y,EY,L,R,Rs,S,ES)
+<EZ> when call 'erlang':'<' (EX,EZ) -> apply 'ukeysplit_1_1'/10 (I,Z,EZ,Y,EY,L,[X|R],Rs,S,ES)
+<EZ> when call 'erlang':'==' (ES,EZ) -> apply 'ukeysplit_1_1'/10 (I,X,EX,Y,EY,L,R,Rs,S,ES)
+<EZ> when call 'erlang':'<' (ES,EZ) -> apply 'ukeysplit_1'/8 (I,S,ES,Z,EZ,L,[],[[Y|[X|R]]|Rs])
+<EZ> when 'true' -> apply 'ukeysplit_1'/8 (I,Z,EZ,S,ES,L,[],[[Y|[X|R]]|Rs]) end
+<I,X,_X_EX,Y,_X_EY,[],R,Rs,S,_X_ES> when 'true' -> apply 'rukeymergel'/3 (I,[[S|[]]|[[Y|[X|R]]|Rs]],[])
+(<_20,_19,_18,_17,_16,_15,_14,_13,_12,_11> when 'true' -> (primop 'match_fail' ({'function_clause',_20,_19,_18,_17,_16,_15,_14,_13,_12,_11})-|[{'function_name',{'ukeysplit_1_1',10}}] )-|['compiler_generated'] ) end
+'ukeysplit_2'/5 = fun (_0,_1,_2,_3,_4) -> case <_0,_1,_2,_3,_4> of <I,Y,EY,[Z|L],R> when 'true' -> case call 'erlang':'element' (I,Z) of <EZ> when call 'erlang':'==' (EY,EZ) -> apply 'ukeysplit_2'/5 (I,Y,EY,L,R)
+<EZ> when call 'erlang':'<' (EY,EZ) -> let <_5> = call 'lists':'reverse' (R,[]) in apply 'ukeysplit_1'/8 (I,Y,EY,Z,EZ,L,[],[_5|[]])
+<EZ> when 'true' -> apply 'ukeysplit_2'/5 (I,Z,EZ,L,[Y|R]) end
+<_X_I,Y,_X_EY,[],R> when 'true' -> [Y|R]
+(<_11,_10,_9,_8,_7> when 'true' -> (primop 'match_fail' ({'function_clause',_11,_10,_9,_8,_7})-|[{'function_name',{'ukeysplit_2',5}}] )-|['compiler_generated'] ) end
+'ukeymergel'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <I,[T1|[[H2|T2]|[[H3|T3]|L]]],Acc> when 'true' -> let <_4> = call 'erlang':'element' (I,H2) in let <_3> = call 'erlang':'element' (I,H3) in let <M> = apply 'ukeymerge3_1'/11 (I,T1,Acc,[H2|H3],_4,H2,T2,[],_3,H3,T3) in apply 'ukeymergel'/3 (I,L,[M|Acc])
+<I,[[H1|T1]|[T2|L]],Acc> when 'true' -> let <_6> = call 'erlang':'element' (I,H1) in let <_7> = apply 'ukeymerge2_2'/6 (I,T1,_6,H1,T2,[]) in apply 'ukeymergel'/3 (I,L,[_7|Acc])
+<_X_I,[L|[]],[]> when 'true' -> L
+<I,[L|[]],Acc> when 'true' -> let <_8> = call 'lists':'reverse' (L,[]) in apply 'rukeymergel'/3 (I,[_8|Acc],[])
+<I,[],Acc> when 'true' -> apply 'rukeymergel'/3 (I,Acc,[])
+(<_11,_10,_9> when 'true' -> (primop 'match_fail' ({'function_clause',_11,_10,_9})-|[{'function_name',{'ukeymergel',3}}] )-|['compiler_generated'] ) end
+'rukeymergel'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <I,[[H3|T3]|[[H2|T2]|[T1|L]]],Acc> when 'true' -> let <_4> = call 'erlang':'element' (I,H2) in let <_3> = call 'erlang':'element' (I,H3) in let <M> = apply 'rukeymerge3_1'/11 (I,T1,Acc,[],_4,H2,T2,[],_3,H3,T3) in apply 'rukeymergel'/3 (I,L,[M|Acc])
+<I,[[H2|T2]|[T1|L]],Acc> when 'true' -> let <_6> = call 'erlang':'element' (I,H2) in let <_7> = apply 'rukeymerge2_1'/6 (I,T1,_6,T2,[],H2) in apply 'rukeymergel'/3 (I,L,[_7|Acc])
+<I,[L|[]],Acc> when 'true' -> let <_8> = call 'lists':'reverse' (L,[]) in apply 'ukeymergel'/3 (I,[_8|Acc],[])
+<I,[],Acc> when 'true' -> apply 'ukeymergel'/3 (I,Acc,[])
+(<_11,_10,_9> when 'true' -> (primop 'match_fail' ({'function_clause',_11,_10,_9})-|[{'function_name',{'rukeymergel',3}}] )-|['compiler_generated'] ) end
+'ukeymerge3_1'/11 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10> of <I,[H1|T1],D,HdM,E2,H2,T2,M,E3,H3,T3> when 'true' -> case call 'erlang':'element' (I,H1) of <E1> when call 'erlang':'=<' (E1,E2) -> (case <I,E1,T1,H1,E2,H2,T2,E3,H3,T3,M,HdM,D> of (<_37,_38,_39,_40,_41,_42,_43,_44,_45,_46,_47,_X_HdM,_48> when (call ('erlang'-|['compiler_generated'] ):('=<'-|['compiler_generated'] ) (_38,_44)-|['compiler_generated'] ) -> (apply 'ukeymerge3_1'/11 (_37,_39,_48,_38,_41,_42,_43,([_40|_47]-|['compiler_generated'] ),_44,_45,_46)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_49,_50,_51,_52,_53,_54,_55,_56,_X_H3,_57,_58,_59,_X_D> when (call ('erlang'-|['compiler_generated'] ):('=='-|['compiler_generated'] ) (_56,_59)-|['compiler_generated'] ) -> (apply 'ukeymerge3_12_3'/9 (_49,_50,_51,_52,_53,_54,_55,_58,_57)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_60,_61,_62,_63,_64,_65,_66,_X_E3,_67,_68,_69,_X_HdM,_X_D> when ('true'-|['compiler_generated'] ) -> (apply 'ukeymerge3_12_3'/9 (_60,_61,_62,_63,_64,_65,_66,([_67|_69]-|['compiler_generated'] ),_68)-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+<E1> when call 'erlang':'==' (E2,HdM) -> apply 'ukeymerge3_2'/11 (I,E1,T1,H1,T2,HdM,T2,M,E3,H3,T3)
+<E1> when 'true' -> (case <I,E1,T1,H1,E2,H2,T2,E3,H3,T3,M,HdM,T2> of (<_81,_82,_83,_84,_85,_86,_87,_88,_89,_90,_91,_X_HdM,_92> when (call ('erlang'-|['compiler_generated'] ):('=<'-|['compiler_generated'] ) (_85,_88)-|['compiler_generated'] ) -> (apply 'ukeymerge3_2'/11 (_81,_82,_83,_84,_87,_85,_92,([_86|_91]-|['compiler_generated'] ),_88,_89,_90)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_93,_94,_95,_96,_97,_98,_99,_100,_X_H3,_101,_102,_103,_X_D> when (call ('erlang'-|['compiler_generated'] ):('=='-|['compiler_generated'] ) (_100,_103)-|['compiler_generated'] ) -> (apply 'ukeymerge3_21_3'/9 (_93,_94,_95,_96,_97,_98,_99,_102,_101)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_104,_105,_106,_107,_108,_109,_110,_X_E3,_111,_112,_113,_X_HdM,_X_D> when ('true'-|['compiler_generated'] ) -> (apply 'ukeymerge3_21_3'/9 (_104,_105,_106,_107,_108,_109,_110,([_111|_113]-|['compiler_generated'] ),_112)-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] ) end
+<I,[],_X_D,HdM,E2,_X_H2,T2,M,E3,H3,T3> when call 'erlang':'==' (E2,HdM) -> apply 'ukeymerge2_1'/7 (I,T2,E3,HdM,T3,M,H3)
+<I,[],_X_D,_X_HdM,E2,H2,T2,M,E3,H3,T3> when call 'erlang':'=<' (E2,E3) -> apply 'ukeymerge2_1'/7 (I,T2,E3,E2,T3,[H2|M],H3)
+<I,[],_X_D,HdM,E2,H2,T2,M,E3,_X_H3,T3> when call 'erlang':'==' (E3,HdM) -> apply 'ukeymerge2_2'/6 (I,T2,E2,H2,T3,M)
+<I,[],_X_D,_X_HdM,E2,H2,T2,M,_X_E3,H3,T3> when 'true' -> apply 'ukeymerge2_2'/6 (I,T2,E2,H2,T3,[H3|M])
+(<_22,_21,_20,_19,_18,_17,_16,_15,_14,_13,_12> when 'true' -> (primop 'match_fail' ({'function_clause',_22,_21,_20,_19,_18,_17,_16,_15,_14,_13,_12})-|[{'function_name',{'ukeymerge3_1',11}}] )-|['compiler_generated'] ) end
+'ukeymerge3_2'/11 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10> of <I,E1,T1,H1,[H2|T2],HdM,D,M,E3,H3,T3> when 'true' -> case call 'erlang':'element' (I,H2) of <E2> when call 'erlang':'=<' (E1,E2) -> (case <I,E1,T1,H1,E2,H2,T2,E3,H3,T3,M,HdM,T1> of (<_37,_38,_39,_40,_41,_42,_43,_44,_45,_46,_47,_X_HdM,_48> when (call ('erlang'-|['compiler_generated'] ):('=<'-|['compiler_generated'] ) (_38,_44)-|['compiler_generated'] ) -> (apply 'ukeymerge3_1'/11 (_37,_39,_48,_38,_41,_42,_43,([_40|_47]-|['compiler_generated'] ),_44,_45,_46)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_49,_50,_51,_52,_53,_54,_55,_56,_X_H3,_57,_58,_59,_X_D> when (call ('erlang'-|['compiler_generated'] ):('=='-|['compiler_generated'] ) (_56,_59)-|['compiler_generated'] ) -> (apply 'ukeymerge3_12_3'/9 (_49,_50,_51,_52,_53,_54,_55,_58,_57)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_60,_61,_62,_63,_64,_65,_66,_X_E3,_67,_68,_69,_X_HdM,_X_D> when ('true'-|['compiler_generated'] ) -> (apply 'ukeymerge3_12_3'/9 (_60,_61,_62,_63,_64,_65,_66,([_67|_69]-|['compiler_generated'] ),_68)-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+<E2> when 'true' -> (case <I,E1,T1,H1,E2,H2,T2,E3,H3,T3,M,HdM,D> of (<_81,_82,_83,_84,_85,_86,_87,_88,_89,_90,_91,_X_HdM,_92> when (call ('erlang'-|['compiler_generated'] ):('=<'-|['compiler_generated'] ) (_85,_88)-|['compiler_generated'] ) -> (apply 'ukeymerge3_2'/11 (_81,_82,_83,_84,_87,_85,_92,([_86|_91]-|['compiler_generated'] ),_88,_89,_90)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_93,_94,_95,_96,_97,_98,_99,_100,_X_H3,_101,_102,_103,_X_D> when (call ('erlang'-|['compiler_generated'] ):('=='-|['compiler_generated'] ) (_100,_103)-|['compiler_generated'] ) -> (apply 'ukeymerge3_21_3'/9 (_93,_94,_95,_96,_97,_98,_99,_102,_101)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_104,_105,_106,_107,_108,_109,_110,_X_E3,_111,_112,_113,_X_HdM,_X_D> when ('true'-|['compiler_generated'] ) -> (apply 'ukeymerge3_21_3'/9 (_104,_105,_106,_107,_108,_109,_110,([_111|_113]-|['compiler_generated'] ),_112)-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] ) end
+<I,E1,T1,H1,[],_X_HdM,_X_D,M,E3,H3,T3> when call 'erlang':'=<' (E1,E3) -> apply 'ukeymerge2_1'/7 (I,T1,E3,E1,T3,[H1|M],H3)
+<I,E1,T1,H1,[],HdM,_X_D,M,E3,_X_H3,T3> when call 'erlang':'==' (E3,HdM) -> apply 'ukeymerge2_2'/6 (I,T1,E1,H1,T3,M)
+<I,E1,T1,H1,[],_X_HdM,_X_D,M,_X_E3,H3,T3> when 'true' -> apply 'ukeymerge2_2'/6 (I,T1,E1,H1,T3,[H3|M])
+(<_22,_21,_20,_19,_18,_17,_16,_15,_14,_13,_12> when 'true' -> (primop 'match_fail' ({'function_clause',_22,_21,_20,_19,_18,_17,_16,_15,_14,_13,_12})-|[{'function_name',{'ukeymerge3_2',11}}] )-|['compiler_generated'] ) end
+'ukeymerge3_12'/13 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12> of <I,E1,T1,H1,E2,H2,T2,E3,H3,T3,M,_X_HdM,D> when call 'erlang':'=<' (E1,E3) -> apply 'ukeymerge3_1'/11 (I,T1,D,E1,E2,H2,T2,[H1|M],E3,H3,T3)
+<I,E1,T1,H1,E2,H2,T2,E3,_X_H3,T3,M,HdM,_X_D> when call 'erlang':'==' (E3,HdM) -> apply 'ukeymerge3_12_3'/9 (I,E1,T1,H1,E2,H2,T2,M,T3)
+<I,E1,T1,H1,E2,H2,T2,_X_E3,H3,T3,M,_X_HdM,_X_D> when 'true' -> apply 'ukeymerge3_12_3'/9 (I,E1,T1,H1,E2,H2,T2,[H3|M],T3) end
+'ukeymerge3_12_3'/9 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8> of <I,E1,T1,H1,E2,H2,T2,M,[H3|T3]> when 'true' -> case call 'erlang':'element' (I,H3) of <E3> when call 'erlang':'=<' (E1,E3) -> apply 'ukeymerge3_1'/11 (I,T1,T1,E1,E2,H2,T2,[H1|M],E3,H3,T3)
+<_X_E3> when 'true' -> apply 'ukeymerge3_12_3'/9 (I,E1,T1,H1,E2,H2,T2,[H3|M],T3) end
+<I,E1,T1,H1,E2,H2,T2,M,[]> when 'true' -> apply 'ukeymerge2_1'/7 (I,T1,E2,E1,T2,[H1|M],H2)
+(<_18,_17,_16,_15,_14,_13,_12,_11,_10> when 'true' -> (primop 'match_fail' ({'function_clause',_18,_17,_16,_15,_14,_13,_12,_11,_10})-|[{'function_name',{'ukeymerge3_12_3',9}}] )-|['compiler_generated'] ) end
+'ukeymerge3_21'/13 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12> of <I,E1,T1,H1,E2,H2,T2,E3,H3,T3,M,_X_HdM,D> when call 'erlang':'=<' (E2,E3) -> apply 'ukeymerge3_2'/11 (I,E1,T1,H1,T2,E2,D,[H2|M],E3,H3,T3)
+<I,E1,T1,H1,E2,H2,T2,E3,_X_H3,T3,M,HdM,_X_D> when call 'erlang':'==' (E3,HdM) -> apply 'ukeymerge3_21_3'/9 (I,E1,T1,H1,E2,H2,T2,M,T3)
+<I,E1,T1,H1,E2,H2,T2,_X_E3,H3,T3,M,_X_HdM,_X_D> when 'true' -> apply 'ukeymerge3_21_3'/9 (I,E1,T1,H1,E2,H2,T2,[H3|M],T3) end
+'ukeymerge3_21_3'/9 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8> of <I,E1,T1,H1,E2,H2,T2,M,[H3|T3]> when 'true' -> case call 'erlang':'element' (I,H3) of <E3> when call 'erlang':'=<' (E2,E3) -> apply 'ukeymerge3_2'/11 (I,E1,T1,H1,T2,E2,T2,[H2|M],E3,H3,T3)
+<_X_E3> when 'true' -> apply 'ukeymerge3_21_3'/9 (I,E1,T1,H1,E2,H2,T2,[H3|M],T3) end
+<I,E1,T1,H1,_X_E2,H2,T2,M,[]> when 'true' -> apply 'ukeymerge2_2'/6 (I,T1,E1,H1,T2,[H2|M])
+(<_18,_17,_16,_15,_14,_13,_12,_11,_10> when 'true' -> (primop 'match_fail' ({'function_clause',_18,_17,_16,_15,_14,_13,_12,_11,_10})-|[{'function_name',{'ukeymerge3_21_3',9}}] )-|['compiler_generated'] ) end
+'rukeymerge3_1'/11 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10> of <I,[H1|T1],D1,D2,E2,H2,T2,M,E3,H3,T3> when 'true' -> case call 'erlang':'element' (I,H1) of <E1> when call 'erlang':'=<' (E1,E2) -> (case <I,E1,H1,T1,E2,H2,T2,E3,H3,T3,M> of (<_37,_38,_39,_40,_41,_42,_43,_44,_45,_46,_47> when (call ('erlang'-|['compiler_generated'] ):('=<'-|['compiler_generated'] ) (_41,_44)-|['compiler_generated'] ) -> (apply 'rukeymerge3_12_3'/11 (_37,_38,_39,_40,_41,_42,_43,_47,_44,_45,_46)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_48,_49,_50,_51,_52,_53,_54,_55,_56,_57,_58> when ('true'-|['compiler_generated'] ) -> (apply 'rukeymerge3_2'/11 (_48,_49,_50,_51,_54,_53,_52,_58,_55,_56,_57)-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+<E1> when 'true' -> (case <I,E1,H1,T1,E2,H2,T2,E3,H3,T3,M,D1,D2> of (<_70,_71,_72,_73,_74,_75,_76,_77,_78,_79,_80,_X_D1,_X_D2> when (call ('erlang'-|['compiler_generated'] ):('=<'-|['compiler_generated'] ) (_71,_77)-|['compiler_generated'] ) -> (apply 'rukeymerge3_21_3'/11 (_70,_71,_72,_73,_74,_75,_76,_80,_77,_78,_79)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_81,_X_E1,_82,_83,_84,_85,_86,_87,_88,_89,_90,_91,_92> when ('true'-|['compiler_generated'] ) -> (apply 'rukeymerge3_1'/11 (_81,_83,_91,_92,_84,_85,_86,([_82|_90]-|['compiler_generated'] ),_87,_88,_89)-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] ) end
+<I,[],_X_D1,_X_D2,E2,H2,T2,M,E3,H3,T3> when call 'erlang':'=<' (E2,E3) -> apply 'rukeymerge2_2'/8 (I,T2,E2,T3,M,E3,H3,H2)
+<I,[],_X_D1,_X_D2,_X_E2,H2,T2,M,E3,H3,T3> when 'true' -> apply 'rukeymerge2_1'/6 (I,T2,E3,T3,[H2|M],H3)
+(<_22,_21,_20,_19,_18,_17,_16,_15,_14,_13,_12> when 'true' -> (primop 'match_fail' ({'function_clause',_22,_21,_20,_19,_18,_17,_16,_15,_14,_13,_12})-|[{'function_name',{'rukeymerge3_1',11}}] )-|['compiler_generated'] ) end
+'rukeymerge3_12a'/11 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10> of <I,E1,H1,T1,E2,H2,T2,E3,H3,T3,M> when call 'erlang':'=<' (E2,E3) -> apply 'rukeymerge3_12_3'/11 (I,E1,H1,T1,E2,H2,T2,M,E3,H3,T3)
+<I,E1,H1,T1,E2,H2,T2,E3,H3,T3,M> when 'true' -> apply 'rukeymerge3_2'/11 (I,E1,H1,T1,T2,H2,E2,M,E3,H3,T3) end
+'rukeymerge3_21a'/13 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12> of <I,E1,H1,T1,E2,H2,T2,E3,H3,T3,M,_X_D1,_X_D2> when call 'erlang':'=<' (E1,E3) -> apply 'rukeymerge3_21_3'/11 (I,E1,H1,T1,E2,H2,T2,M,E3,H3,T3)
+<I,_X_E1,H1,T1,E2,H2,T2,E3,H3,T3,M,D1,D2> when 'true' -> apply 'rukeymerge3_1'/11 (I,T1,D1,D2,E2,H2,T2,[H1|M],E3,H3,T3) end
+'rukeymerge3_2'/11 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10> of <I,E1,H1,T1,[H2|T2],H2M,E2M,M,E3,H3,T3> when 'true' -> case call 'erlang':'element' (I,H2) of <E2> when call 'erlang':'=<' (E1,E2) -> (case <I,E1,H1,T1,E2,H2,T2,E3,H3,T3,M,H2M> of (<_35,_36,_37,_38,_39,_40,_41,_42,_43,_44,_45,_46> when (call ('erlang'-|['compiler_generated'] ):('=<'-|['compiler_generated'] ) (_39,_42)-|['compiler_generated'] ) -> (apply 'rukeymerge3_12_3'/11 (_35,_36,_37,_38,_39,_40,_41,([_46|_45]-|['compiler_generated'] ),_42,_43,_44)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_47,_48,_49,_50,_51,_52,_53,_54,_55,_56,_57,_58> when ('true'-|['compiler_generated'] ) -> (apply 'rukeymerge3_2'/11 (_47,_48,_49,_50,_53,_52,_51,([_58|_57]-|['compiler_generated'] ),_54,_55,_56)-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+<E2> when call 'erlang':'==' (E1,E2M) -> apply 'rukeymerge3_1'/11 (I,T1,H1,T1,E2,H2,T2,[H1|M],E3,H3,T3)
+<E2> when 'true' -> (case <I,E1,H1,T1,E2,H2,T2,E3,H3,T3,M,H2M> of (<_70,_71,_72,_73,_74,_75,_76,_77,_78,_79,_80,_81> when (call ('erlang'-|['compiler_generated'] ):('=<'-|['compiler_generated'] ) (_71,_77)-|['compiler_generated'] ) -> (apply 'rukeymerge3_21_3'/11 (_70,_71,_72,_73,_74,_75,_76,([_81|_80]-|['compiler_generated'] ),_77,_78,_79)-|['compiler_generated'] )-|['compiler_generated'] )
+(<_82,_X_E1,_83,_84,_85,_86,_87,_88,_89,_90,_91,_92> when ('true'-|['compiler_generated'] ) -> (apply 'rukeymerge3_1'/11 (_82,_84,_83,_84,_85,_86,_87,([_83|([_92|_91]-|['compiler_generated'] )]-|['compiler_generated'] ),_88,_89,_90)-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] ) end
+<I,E1,H1,T1,[],_X_H2M,E2M,M,E3,H3,T3> when call 'erlang':'==' (E1,E2M) -> apply 'rukeymerge2_1'/6 (I,T1,E3,T3,[H1|M],H3)
+<I,E1,H1,T1,[],H2M,_X_E2M,M,E3,H3,T3> when call 'erlang':'=<' (E1,E3) -> apply 'rukeymerge2_2'/8 (I,T1,E1,T3,[H2M|M],E3,H3,H1)
+<I,_X_E1,H1,T1,[],H2M,_X_E2M,M,E3,H3,T3> when 'true' -> apply 'rukeymerge2_1'/6 (I,T1,E3,T3,[H1|[H2M|M]],H3)
+(<_22,_21,_20,_19,_18,_17,_16,_15,_14,_13,_12> when 'true' -> (primop 'match_fail' ({'function_clause',_22,_21,_20,_19,_18,_17,_16,_15,_14,_13,_12})-|[{'function_name',{'rukeymerge3_2',11}}] )-|['compiler_generated'] ) end
+'rukeymerge3_12b'/12 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11> of <I,E1,H1,T1,E2,H2,T2,E3,H3,T3,M,H2M> when call 'erlang':'=<' (E2,E3) -> apply 'rukeymerge3_12_3'/11 (I,E1,H1,T1,E2,H2,T2,[H2M|M],E3,H3,T3)
+<I,E1,H1,T1,E2,H2,T2,E3,H3,T3,M,H2M> when 'true' -> apply 'rukeymerge3_2'/11 (I,E1,H1,T1,T2,H2,E2,[H2M|M],E3,H3,T3) end
+'rukeymerge3_21b'/12 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11> of <I,E1,H1,T1,E2,H2,T2,E3,H3,T3,M,H2M> when call 'erlang':'=<' (E1,E3) -> apply 'rukeymerge3_21_3'/11 (I,E1,H1,T1,E2,H2,T2,[H2M|M],E3,H3,T3)
+<I,_X_E1,H1,T1,E2,H2,T2,E3,H3,T3,M,H2M> when 'true' -> apply 'rukeymerge3_1'/11 (I,T1,H1,T1,E2,H2,T2,[H1|[H2M|M]],E3,H3,T3) end
+'rukeymerge3_12_3'/11 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10> of <I,E1,H1,T1,E2,H2,T2,M,E3M,H3M,[H3|T3]> when 'true' -> case call 'erlang':'element' (I,H3) of <E3> when call 'erlang':'=<' (E2,E3) -> apply 'rukeymerge3_12_3'/11 (I,E1,H1,T1,E2,H2,T2,[H3M|M],E3,H3,T3)
+<E3> when call 'erlang':'==' (E2,E3M) -> apply 'rukeymerge3_2'/11 (I,E1,H1,T1,T2,H2,E2,M,E3,H3,T3)
+<E3> when 'true' -> apply 'rukeymerge3_2'/11 (I,E1,H1,T1,T2,H2,E2,[H3M|M],E3,H3,T3) end
+<I,E1,H1,T1,E2,H2,T2,M,E3M,_X_H3M,[]> when call 'erlang':'==' (E2,E3M) -> apply 'rukeymerge2_2'/8 (I,T1,E1,T2,M,E2,H2,H1)
+<I,E1,H1,T1,E2,H2,T2,M,_X_E3M,H3M,[]> when 'true' -> apply 'rukeymerge2_2'/8 (I,T1,E1,T2,[H3M|M],E2,H2,H1)
+(<_22,_21,_20,_19,_18,_17,_16,_15,_14,_13,_12> when 'true' -> (primop 'match_fail' ({'function_clause',_22,_21,_20,_19,_18,_17,_16,_15,_14,_13,_12})-|[{'function_name',{'rukeymerge3_12_3',11}}] )-|['compiler_generated'] ) end
+'rukeymerge3_21_3'/11 = fun (_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10) -> case <_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10> of <I,E1,H1,T1,E2,H2,T2,M,E3M,H3M,[H3|T3]> when 'true' -> case call 'erlang':'element' (I,H3) of <E3> when call 'erlang':'=<' (E1,E3) -> apply 'rukeymerge3_21_3'/11 (I,E1,H1,T1,E2,H2,T2,[H3M|M],E3,H3,T3)
+<E3> when call 'erlang':'==' (E1,E3M) -> apply 'rukeymerge3_1'/11 (I,T1,H1,T1,E2,H2,T2,[H1|M],E3,H3,T3)
+<E3> when 'true' -> apply 'rukeymerge3_1'/11 (I,T1,H1,T1,E2,H2,T2,[H1|[H3M|M]],E3,H3,T3) end
+<I,E1,H1,T1,E2,H2,T2,M,E3M,_X_H3M,[]> when call 'erlang':'==' (E1,E3M) -> apply 'rukeymerge2_1'/6 (I,T1,E2,T2,[H1|M],H2)
+<I,_X_E1,H1,T1,E2,H2,T2,M,_X_E3M,H3M,[]> when 'true' -> apply 'rukeymerge2_1'/6 (I,T1,E2,T2,[H1|[H3M|M]],H2)
+(<_22,_21,_20,_19,_18,_17,_16,_15,_14,_13,_12> when 'true' -> (primop 'match_fail' ({'function_clause',_22,_21,_20,_19,_18,_17,_16,_15,_14,_13,_12})-|[{'function_name',{'rukeymerge3_21_3',11}}] )-|['compiler_generated'] ) end
+'ukeymerge2_1'/7 = fun (_0,_1,_2,_3,_4,_5,_6) -> case <_0,_1,_2,_3,_4,_5,_6> of <I,[H1|T1],E2,HdM,T2,M,H2> when 'true' -> case call 'erlang':'element' (I,H1) of <E1> when call 'erlang':'=<' (E1,E2) -> apply 'ukeymerge2_1'/7 (I,T1,E2,E1,T2,[H1|M],H2)
+<E1> when call 'erlang':'==' (E2,HdM) -> apply 'ukeymerge2_2'/6 (I,T1,E1,H1,T2,M)
+<E1> when 'true' -> apply 'ukeymerge2_2'/6 (I,T1,E1,H1,T2,[H2|M]) end
+<_X_I,[],E2,HdM,T2,M,_X_H2> when call 'erlang':'==' (E2,HdM) -> call 'lists':'reverse' (T2,M)
+<_X_I,[],_X_E2,_X_HdM,T2,M,H2> when 'true' -> call 'lists':'reverse' (T2,[H2|M])
+(<_14,_13,_12,_11,_10,_9,_8> when 'true' -> (primop 'match_fail' ({'function_clause',_14,_13,_12,_11,_10,_9,_8})-|[{'function_name',{'ukeymerge2_1',7}}] )-|['compiler_generated'] ) end
+'ukeymerge2_2'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <I,T1,E1,H1,[H2|T2],M> when 'true' -> case call 'erlang':'element' (I,H2) of <E2> when call 'erlang':'=<' (E1,E2) -> apply 'ukeymerge2_1'/7 (I,T1,E2,E1,T2,[H1|M],H2)
+<_X_E2> when 'true' -> apply 'ukeymerge2_2'/6 (I,T1,E1,H1,T2,[H2|M]) end
+<_X_I,T1,_X_E1,H1,[],M> when 'true' -> call 'lists':'reverse' (T1,[H1|M])
+(<_12,_11,_10,_9,_8,_7> when 'true' -> (primop 'match_fail' ({'function_clause',_12,_11,_10,_9,_8,_7})-|[{'function_name',{'ukeymerge2_2',6}}] )-|['compiler_generated'] ) end
+'rukeymerge2_1'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <I,[H1|T1],E2,T2,M,H2> when 'true' -> case call 'erlang':'element' (I,H1) of <E1> when call 'erlang':'=<' (E1,E2) -> apply 'rukeymerge2_2'/8 (I,T1,E1,T2,M,E2,H2,H1)
+<_X_E1> when 'true' -> apply 'rukeymerge2_1'/6 (I,T1,E2,T2,[H1|M],H2) end
+<_X_I,[],_X_E2,T2,M,H2> when 'true' -> call 'lists':'reverse' (T2,[H2|M])
+(<_12,_11,_10,_9,_8,_7> when 'true' -> (primop 'match_fail' ({'function_clause',_12,_11,_10,_9,_8,_7})-|[{'function_name',{'rukeymerge2_1',6}}] )-|['compiler_generated'] ) end
+'rukeymerge2_2'/8 = fun (_0,_1,_2,_3,_4,_5,_6,_7) -> case <_0,_1,_2,_3,_4,_5,_6,_7> of <I,T1,E1,[H2|T2],M,E2M,H2M,H1> when 'true' -> case call 'erlang':'element' (I,H2) of <E2> when call 'erlang':'=<' (E1,E2) -> apply 'rukeymerge2_2'/8 (I,T1,E1,T2,[H2M|M],E2,H2,H1)
+<E2> when call 'erlang':'==' (E1,E2M) -> apply 'rukeymerge2_1'/6 (I,T1,E2,T2,[H1|M],H2)
+<E2> when 'true' -> apply 'rukeymerge2_1'/6 (I,T1,E2,T2,[H1|[H2M|M]],H2) end
+<_X_I,T1,E1,[],M,E2M,_X_H2M,H1> when call 'erlang':'==' (E1,E2M) -> call 'lists':'reverse' (T1,[H1|M])
+<_X_I,T1,_X_E1,[],M,_X_E2M,H2M,H1> when 'true' -> call 'lists':'reverse' (T1,[H1|[H2M|M]])
+(<_16,_15,_14,_13,_12,_11,_10,_9> when 'true' -> (primop 'match_fail' ({'function_clause',_16,_15,_14,_13,_12,_11,_10,_9})-|[{'function_name',{'rukeymerge2_2',8}}] )-|['compiler_generated'] ) end
+'fsplit_1'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <Y,X,Fun,[Z|L],R,Rs> when 'true' -> case apply Fun (Y,Z) of <'true'> when 'true' -> apply 'fsplit_1'/6 (Z,Y,Fun,L,[X|R],Rs)
+<'false'> when 'true' -> case apply Fun (X,Z) of <'true'> when 'true' -> apply 'fsplit_1'/6 (Y,Z,Fun,L,[X|R],Rs)
+<'false'> when call 'erlang':'=:=' (R,[]) -> apply 'fsplit_1'/6 (Y,X,Fun,L,[Z|[]],Rs)
+<'false'> when 'true' -> apply 'fsplit_1_1'/7 (Y,X,Fun,L,R,Rs,Z)
+(<_6> when 'true' -> primop 'match_fail' ({'case_clause',_6})-|['compiler_generated'] ) end
+(<_7> when 'true' -> primop 'match_fail' ({'case_clause',_7})-|['compiler_generated'] ) end
+<Y,X,Fun,[],R,Rs> when 'true' -> apply 'rfmergel'/4 ([[Y|[X|R]]|Rs],[],Fun,'asc')
+(<_13,_12,_11,_10,_9,_8> when 'true' -> (primop 'match_fail' ({'function_clause',_13,_12,_11,_10,_9,_8})-|[{'function_name',{'fsplit_1',6}}] )-|['compiler_generated'] ) end
+'fsplit_1_1'/7 = fun (_0,_1,_2,_3,_4,_5,_6) -> case <_0,_1,_2,_3,_4,_5,_6> of <Y,X,Fun,[Z|L],R,Rs,S> when 'true' -> case apply Fun (Y,Z) of <'true'> when 'true' -> apply 'fsplit_1_1'/7 (Z,Y,Fun,L,[X|R],Rs,S)
+<'false'> when 'true' -> case apply Fun (X,Z) of <'true'> when 'true' -> apply 'fsplit_1_1'/7 (Y,Z,Fun,L,[X|R],Rs,S)
+<'false'> when 'true' -> case apply Fun (S,Z) of <'true'> when 'true' -> apply 'fsplit_1'/6 (Z,S,Fun,L,[],[[Y|[X|R]]|Rs])
+<'false'> when 'true' -> apply 'fsplit_1'/6 (S,Z,Fun,L,[],[[Y|[X|R]]|Rs])
+(<_7> when 'true' -> primop 'match_fail' ({'case_clause',_7})-|['compiler_generated'] ) end
+(<_8> when 'true' -> primop 'match_fail' ({'case_clause',_8})-|['compiler_generated'] ) end
+(<_9> when 'true' -> primop 'match_fail' ({'case_clause',_9})-|['compiler_generated'] ) end
+<Y,X,Fun,[],R,Rs,S> when 'true' -> apply 'rfmergel'/4 ([[S|[]]|[[Y|[X|R]]|Rs]],[],Fun,'asc')
+(<_16,_15,_14,_13,_12,_11,_10> when 'true' -> (primop 'match_fail' ({'function_clause',_16,_15,_14,_13,_12,_11,_10})-|[{'function_name',{'fsplit_1_1',7}}] )-|['compiler_generated'] ) end
+'fsplit_2'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <Y,X,Fun,[Z|L],R,Rs> when 'true' -> case apply Fun (Y,Z) of <'false'> when 'true' -> apply 'fsplit_2'/6 (Z,Y,Fun,L,[X|R],Rs)
+<'true'> when 'true' -> case apply Fun (X,Z) of <'false'> when 'true' -> apply 'fsplit_2'/6 (Y,Z,Fun,L,[X|R],Rs)
+<'true'> when call 'erlang':'=:=' (R,[]) -> apply 'fsplit_2'/6 (Y,X,Fun,L,[Z|[]],Rs)
+<'true'> when 'true' -> apply 'fsplit_2_1'/7 (Y,X,Fun,L,R,Rs,Z)
+(<_6> when 'true' -> primop 'match_fail' ({'case_clause',_6})-|['compiler_generated'] ) end
+(<_7> when 'true' -> primop 'match_fail' ({'case_clause',_7})-|['compiler_generated'] ) end
+<Y,X,Fun,[],R,Rs> when 'true' -> apply 'fmergel'/4 ([[Y|[X|R]]|Rs],[],Fun,'desc')
+(<_13,_12,_11,_10,_9,_8> when 'true' -> (primop 'match_fail' ({'function_clause',_13,_12,_11,_10,_9,_8})-|[{'function_name',{'fsplit_2',6}}] )-|['compiler_generated'] ) end
+'fsplit_2_1'/7 = fun (_0,_1,_2,_3,_4,_5,_6) -> case <_0,_1,_2,_3,_4,_5,_6> of <Y,X,Fun,[Z|L],R,Rs,S> when 'true' -> case apply Fun (Y,Z) of <'false'> when 'true' -> apply 'fsplit_2_1'/7 (Z,Y,Fun,L,[X|R],Rs,S)
+<'true'> when 'true' -> case apply Fun (X,Z) of <'false'> when 'true' -> apply 'fsplit_2_1'/7 (Y,Z,Fun,L,[X|R],Rs,S)
+<'true'> when 'true' -> case apply Fun (S,Z) of <'false'> when 'true' -> apply 'fsplit_2'/6 (Z,S,Fun,L,[],[[Y|[X|R]]|Rs])
+<'true'> when 'true' -> apply 'fsplit_2'/6 (S,Z,Fun,L,[],[[Y|[X|R]]|Rs])
+(<_7> when 'true' -> primop 'match_fail' ({'case_clause',_7})-|['compiler_generated'] ) end
+(<_8> when 'true' -> primop 'match_fail' ({'case_clause',_8})-|['compiler_generated'] ) end
+(<_9> when 'true' -> primop 'match_fail' ({'case_clause',_9})-|['compiler_generated'] ) end
+<Y,X,Fun,[],R,Rs,S> when 'true' -> apply 'fmergel'/4 ([[S|[]]|[[Y|[X|R]]|Rs]],[],Fun,'desc')
+(<_16,_15,_14,_13,_12,_11,_10> when 'true' -> (primop 'match_fail' ({'function_clause',_16,_15,_14,_13,_12,_11,_10})-|[{'function_name',{'fsplit_2_1',7}}] )-|['compiler_generated'] ) end
+'fmergel'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <[T1|[[H2|T2]|L]],Acc,Fun,'asc'> when 'true' -> let <_4> = apply 'fmerge2_1'/5 (T1,H2,Fun,T2,[]) in apply 'fmergel'/4 (L,[_4|Acc],Fun,'asc')
+<[[H2|T2]|[T1|L]],Acc,Fun,'desc'> when 'true' -> let <_5> = apply 'fmerge2_1'/5 (T1,H2,Fun,T2,[]) in apply 'fmergel'/4 (L,[_5|Acc],Fun,'desc')
+<[L|[]],[],_X_Fun,_X_O> when 'true' -> L
+<[L|[]],Acc,Fun,O> when 'true' -> let <_6> = call 'lists':'reverse' (L,[]) in apply 'rfmergel'/4 ([_6|Acc],[],Fun,O)
+<[],Acc,Fun,O> when 'true' -> apply 'rfmergel'/4 (Acc,[],Fun,O)
+(<_10,_9,_8,_7> when 'true' -> (primop 'match_fail' ({'function_clause',_10,_9,_8,_7})-|[{'function_name',{'fmergel',4}}] )-|['compiler_generated'] ) end
+'rfmergel'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <[[H2|T2]|[T1|L]],Acc,Fun,'asc'> when 'true' -> let <_4> = apply 'rfmerge2_1'/5 (T1,H2,Fun,T2,[]) in apply 'rfmergel'/4 (L,[_4|Acc],Fun,'asc')
+<[T1|[[H2|T2]|L]],Acc,Fun,'desc'> when 'true' -> let <_5> = apply 'rfmerge2_1'/5 (T1,H2,Fun,T2,[]) in apply 'rfmergel'/4 (L,[_5|Acc],Fun,'desc')
+<[L|[]],Acc,Fun,O> when 'true' -> let <_6> = call 'lists':'reverse' (L,[]) in apply 'fmergel'/4 ([_6|Acc],[],Fun,O)
+<[],Acc,Fun,O> when 'true' -> apply 'fmergel'/4 (Acc,[],Fun,O)
+(<_10,_9,_8,_7> when 'true' -> (primop 'match_fail' ({'function_clause',_10,_9,_8,_7})-|[{'function_name',{'rfmergel',4}}] )-|['compiler_generated'] ) end
+'fmerge2_1'/5 = fun (_0,_1,_2,_3,_4) -> case <_0,_1,_2,_3,_4> of <[H1|T1],H2,Fun,T2,M> when 'true' -> case apply Fun (H1,H2) of <'true'> when 'true' -> apply 'fmerge2_1'/5 (T1,H2,Fun,T2,[H1|M])
+<'false'> when 'true' -> apply 'fmerge2_2'/5 (H1,T1,Fun,T2,[H2|M])
+(<_5> when 'true' -> primop 'match_fail' ({'case_clause',_5})-|['compiler_generated'] ) end
+<[],H2,_X_Fun,T2,M> when 'true' -> call 'lists':'reverse' (T2,[H2|M])
+(<_10,_9,_8,_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_10,_9,_8,_7,_6})-|[{'function_name',{'fmerge2_1',5}}] )-|['compiler_generated'] ) end
+'fmerge2_2'/5 = fun (_0,_1,_2,_3,_4) -> case <_0,_1,_2,_3,_4> of <H1,T1,Fun,[H2|T2],M> when 'true' -> case apply Fun (H1,H2) of <'true'> when 'true' -> apply 'fmerge2_1'/5 (T1,H2,Fun,T2,[H1|M])
+<'false'> when 'true' -> apply 'fmerge2_2'/5 (H1,T1,Fun,T2,[H2|M])
+(<_5> when 'true' -> primop 'match_fail' ({'case_clause',_5})-|['compiler_generated'] ) end
+<H1,T1,_X_Fun,[],M> when 'true' -> call 'lists':'reverse' (T1,[H1|M])
+(<_10,_9,_8,_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_10,_9,_8,_7,_6})-|[{'function_name',{'fmerge2_2',5}}] )-|['compiler_generated'] ) end
+'rfmerge2_1'/5 = fun (_0,_1,_2,_3,_4) -> case <_0,_1,_2,_3,_4> of <[H1|T1],H2,Fun,T2,M> when 'true' -> case apply Fun (H1,H2) of <'true'> when 'true' -> apply 'rfmerge2_2'/5 (H1,T1,Fun,T2,[H2|M])
+<'false'> when 'true' -> apply 'rfmerge2_1'/5 (T1,H2,Fun,T2,[H1|M])
+(<_5> when 'true' -> primop 'match_fail' ({'case_clause',_5})-|['compiler_generated'] ) end
+<[],H2,_X_Fun,T2,M> when 'true' -> call 'lists':'reverse' (T2,[H2|M])
+(<_10,_9,_8,_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_10,_9,_8,_7,_6})-|[{'function_name',{'rfmerge2_1',5}}] )-|['compiler_generated'] ) end
+'rfmerge2_2'/5 = fun (_0,_1,_2,_3,_4) -> case <_0,_1,_2,_3,_4> of <H1,T1,Fun,[H2|T2],M> when 'true' -> case apply Fun (H1,H2) of <'true'> when 'true' -> apply 'rfmerge2_2'/5 (H1,T1,Fun,T2,[H2|M])
+<'false'> when 'true' -> apply 'rfmerge2_1'/5 (T1,H2,Fun,T2,[H1|M])
+(<_5> when 'true' -> primop 'match_fail' ({'case_clause',_5})-|['compiler_generated'] ) end
+<H1,T1,_X_Fun,[],M> when 'true' -> call 'lists':'reverse' (T1,[H1|M])
+(<_10,_9,_8,_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_10,_9,_8,_7,_6})-|[{'function_name',{'rfmerge2_2',5}}] )-|['compiler_generated'] ) end
+'ufsplit_1'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <Y,X,Fun,[Z|L],R,Rs> when 'true' -> case apply Fun (Y,Z) of <'true'> when 'true' -> case apply Fun (Z,Y) of <'true'> when 'true' -> apply 'ufsplit_1'/6 (Y,X,Fun,L,R,Rs)
+<'false'> when 'true' -> apply 'ufsplit_1'/6 (Z,Y,Fun,L,[X|R],Rs)
+(<_6> when 'true' -> primop 'match_fail' ({'case_clause',_6})-|['compiler_generated'] ) end
+<'false'> when 'true' -> case apply Fun (X,Z) of <'true'> when 'true' -> case apply Fun (Z,X) of <'true'> when 'true' -> apply 'ufsplit_1'/6 (Y,X,Fun,L,R,Rs)
+<'false'> when 'true' -> apply 'ufsplit_1'/6 (Y,Z,Fun,L,[X|R],Rs)
+(<_7> when 'true' -> primop 'match_fail' ({'case_clause',_7})-|['compiler_generated'] ) end
+<'false'> when call 'erlang':'=:=' (R,[]) -> apply 'ufsplit_1'/6 (Y,X,Fun,L,[Z|[]],Rs)
+<'false'> when 'true' -> apply 'ufsplit_1_1'/7 (Y,X,Fun,L,R,Rs,Z)
+(<_8> when 'true' -> primop 'match_fail' ({'case_clause',_8})-|['compiler_generated'] ) end
+(<_9> when 'true' -> primop 'match_fail' ({'case_clause',_9})-|['compiler_generated'] ) end
+<Y,X,Fun,[],R,Rs> when 'true' -> apply 'rufmergel'/3 ([[Y|[X|R]]|Rs],[],Fun)
+(<_15,_14,_13,_12,_11,_10> when 'true' -> (primop 'match_fail' ({'function_clause',_15,_14,_13,_12,_11,_10})-|[{'function_name',{'ufsplit_1',6}}] )-|['compiler_generated'] ) end
+'ufsplit_1_1'/7 = fun (_0,_1,_2,_3,_4,_5,_6) -> case <_0,_1,_2,_3,_4,_5,_6> of <Y,X,Fun,[Z|L],R,Rs,S> when 'true' -> case apply Fun (Y,Z) of <'true'> when 'true' -> case apply Fun (Z,Y) of <'true'> when 'true' -> apply 'ufsplit_1_1'/7 (Y,X,Fun,L,R,Rs,S)
+<'false'> when 'true' -> apply 'ufsplit_1_1'/7 (Z,Y,Fun,L,[X|R],Rs,S)
+(<_7> when 'true' -> primop 'match_fail' ({'case_clause',_7})-|['compiler_generated'] ) end
+<'false'> when 'true' -> case apply Fun (X,Z) of <'true'> when 'true' -> case apply Fun (Z,X) of <'true'> when 'true' -> apply 'ufsplit_1_1'/7 (Y,X,Fun,L,R,Rs,S)
+<'false'> when 'true' -> apply 'ufsplit_1_1'/7 (Y,Z,Fun,L,[X|R],Rs,S)
+(<_8> when 'true' -> primop 'match_fail' ({'case_clause',_8})-|['compiler_generated'] ) end
+<'false'> when 'true' -> case apply Fun (S,Z) of <'true'> when 'true' -> case apply Fun (Z,S) of <'true'> when 'true' -> apply 'ufsplit_1_1'/7 (Y,X,Fun,L,R,Rs,S)
+<'false'> when 'true' -> apply 'ufsplit_1'/6 (Z,S,Fun,L,[],[[Y|[X|R]]|Rs])
+(<_9> when 'true' -> primop 'match_fail' ({'case_clause',_9})-|['compiler_generated'] ) end
+<'false'> when 'true' -> apply 'ufsplit_1'/6 (S,Z,Fun,L,[],[[Y|[X|R]]|Rs])
+(<_10> when 'true' -> primop 'match_fail' ({'case_clause',_10})-|['compiler_generated'] ) end
+(<_11> when 'true' -> primop 'match_fail' ({'case_clause',_11})-|['compiler_generated'] ) end
+(<_12> when 'true' -> primop 'match_fail' ({'case_clause',_12})-|['compiler_generated'] ) end
+<Y,X,Fun,[],R,Rs,S> when 'true' -> apply 'rufmergel'/3 ([[S|[]]|[[Y|[X|R]]|Rs]],[],Fun)
+(<_19,_18,_17,_16,_15,_14,_13> when 'true' -> (primop 'match_fail' ({'function_clause',_19,_18,_17,_16,_15,_14,_13})-|[{'function_name',{'ufsplit_1_1',7}}] )-|['compiler_generated'] ) end
+'ufsplit_2'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <Y,[Z|L],Fun,R> when 'true' -> case apply Fun (Y,Z) of <'true'> when 'true' -> case apply Fun (Z,Y) of <'true'> when 'true' -> apply 'ufsplit_2'/4 (Y,L,Fun,R)
+<'false'> when 'true' -> let <_4> = call 'lists':'reverse' (R,[]) in apply 'ufsplit_1'/6 (Z,Y,Fun,L,[],[_4|[]])
+(<_5> when 'true' -> primop 'match_fail' ({'case_clause',_5})-|['compiler_generated'] ) end
+<'false'> when 'true' -> apply 'ufsplit_2'/4 (Z,L,Fun,[Y|R])
+(<_6> when 'true' -> primop 'match_fail' ({'case_clause',_6})-|['compiler_generated'] ) end
+<Y,[],_X_Fun,R> when 'true' -> [Y|R]
+(<_10,_9,_8,_7> when 'true' -> (primop 'match_fail' ({'function_clause',_10,_9,_8,_7})-|[{'function_name',{'ufsplit_2',4}}] )-|['compiler_generated'] ) end
+'ufmergel'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <[[H1|T1]|[T2|L]],Acc,Fun> when 'true' -> let <_3> = apply 'ufmerge2_2'/5 (H1,T1,Fun,T2,[]) in apply 'ufmergel'/3 (L,[_3|Acc],Fun)
+<[L|[]],[],_X_Fun> when 'true' -> L
+<[L|[]],Acc,Fun> when 'true' -> let <_4> = call 'lists':'reverse' (L,[]) in apply 'rufmergel'/3 ([_4|Acc],[],Fun)
+<[],Acc,Fun> when 'true' -> apply 'rufmergel'/3 (Acc,[],Fun)
+(<_7,_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_7,_6,_5})-|[{'function_name',{'ufmergel',3}}] )-|['compiler_generated'] ) end
+'rufmergel'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <[[H2|T2]|[T1|L]],Acc,Fun> when 'true' -> let <_3> = apply 'rufmerge2_1'/5 (T1,H2,Fun,T2,[]) in apply 'rufmergel'/3 (L,[_3|Acc],Fun)
+<[L|[]],Acc,Fun> when 'true' -> let <_4> = call 'lists':'reverse' (L,[]) in apply 'ufmergel'/3 ([_4|Acc],[],Fun)
+<[],Acc,Fun> when 'true' -> apply 'ufmergel'/3 (Acc,[],Fun)
+(<_7,_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_7,_6,_5})-|[{'function_name',{'rufmergel',3}}] )-|['compiler_generated'] ) end
+'ufmerge2_1'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <[H1|T1],H2,Fun,T2,M,HdM> when 'true' -> case apply Fun (H1,H2) of <'true'> when 'true' -> apply 'ufmerge2_1'/6 (T1,H2,Fun,T2,[H1|M],H1)
+<'false'> when 'true' -> case apply Fun (H2,HdM) of <'true'> when 'true' -> apply 'ufmerge2_2'/5 (H1,T1,Fun,T2,M)
+<'false'> when 'true' -> apply 'ufmerge2_2'/5 (H1,T1,Fun,T2,[H2|M])
+(<_6> when 'true' -> primop 'match_fail' ({'case_clause',_6})-|['compiler_generated'] ) end
+(<_7> when 'true' -> primop 'match_fail' ({'case_clause',_7})-|['compiler_generated'] ) end
+<[],H2,Fun,T2,M,HdM> when 'true' -> case apply Fun (H2,HdM) of <'true'> when 'true' -> call 'lists':'reverse' (T2,M)
+<'false'> when 'true' -> call 'lists':'reverse' (T2,[H2|M])
+(<_8> when 'true' -> primop 'match_fail' ({'case_clause',_8})-|['compiler_generated'] ) end
+(<_14,_13,_12,_11,_10,_9> when 'true' -> (primop 'match_fail' ({'function_clause',_14,_13,_12,_11,_10,_9})-|[{'function_name',{'ufmerge2_1',6}}] )-|['compiler_generated'] ) end
+'ufmerge2_2'/5 = fun (_0,_1,_2,_3,_4) -> case <_0,_1,_2,_3,_4> of <H1,T1,Fun,[H2|T2],M> when 'true' -> case apply Fun (H1,H2) of <'true'> when 'true' -> apply 'ufmerge2_1'/6 (T1,H2,Fun,T2,[H1|M],H1)
+<'false'> when 'true' -> apply 'ufmerge2_2'/5 (H1,T1,Fun,T2,[H2|M])
+(<_5> when 'true' -> primop 'match_fail' ({'case_clause',_5})-|['compiler_generated'] ) end
+<H1,T1,_X_Fun,[],M> when 'true' -> call 'lists':'reverse' (T1,[H1|M])
+(<_10,_9,_8,_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_10,_9,_8,_7,_6})-|[{'function_name',{'ufmerge2_2',5}}] )-|['compiler_generated'] ) end
+'rufmerge2_1'/5 = fun (_0,_1,_2,_3,_4) -> case <_0,_1,_2,_3,_4> of <[H1|T1],H2,Fun,T2,M> when 'true' -> case apply Fun (H1,H2) of <'true'> when 'true' -> apply 'rufmerge2_2'/6 (H1,T1,Fun,T2,M,H2)
+<'false'> when 'true' -> apply 'rufmerge2_1'/5 (T1,H2,Fun,T2,[H1|M])
+(<_5> when 'true' -> primop 'match_fail' ({'case_clause',_5})-|['compiler_generated'] ) end
+<[],H2,_X_Fun,T2,M> when 'true' -> call 'lists':'reverse' (T2,[H2|M])
+(<_10,_9,_8,_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_10,_9,_8,_7,_6})-|[{'function_name',{'rufmerge2_1',5}}] )-|['compiler_generated'] ) end
+'rufmerge2_2'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <H1,T1,Fun,[H2|T2],M,H2M> when 'true' -> case apply Fun (H1,H2) of <'true'> when 'true' -> apply 'rufmerge2_2'/6 (H1,T1,Fun,T2,[H2M|M],H2)
+<'false'> when 'true' -> case apply Fun (H2M,H1) of <'true'> when 'true' -> apply 'rufmerge2_1'/5 (T1,H2,Fun,T2,[H1|M])
+<'false'> when 'true' -> apply 'rufmerge2_1'/5 (T1,H2,Fun,T2,[H1|[H2M|M]])
+(<_6> when 'true' -> primop 'match_fail' ({'case_clause',_6})-|['compiler_generated'] ) end
+(<_7> when 'true' -> primop 'match_fail' ({'case_clause',_7})-|['compiler_generated'] ) end
+<H1,T1,Fun,[],M,H2M> when 'true' -> case apply Fun (H2M,H1) of <'true'> when 'true' -> call 'lists':'reverse' (T1,[H1|M])
+<'false'> when 'true' -> call 'lists':'reverse' (T1,[H1|[H2M|M]])
+(<_8> when 'true' -> primop 'match_fail' ({'case_clause',_8})-|['compiler_generated'] ) end
+(<_14,_13,_12,_11,_10,_9> when 'true' -> (primop 'match_fail' ({'function_clause',_14,_13,_12,_11,_10,_9})-|[{'function_name',{'rufmerge2_2',6}}] )-|['compiler_generated'] ) end
+'module_info'/0 = fun () -> call 'erlang':'get_module_info' ('lists')
+'module_info'/1 = fun (_0) -> call 'erlang':'get_module_info' ('lists',_0) end

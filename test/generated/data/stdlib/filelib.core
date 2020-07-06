@@ -1,0 +1,329 @@
+module 'filelib' ['compile_wildcard'/1,'ensure_dir'/1,'file_size'/1,'file_size'/2,'find_file'/2,'find_file'/3,'find_source'/1,'find_source'/2,'find_source'/3,'fold_files'/5,'fold_files'/6,'is_dir'/1,'is_dir'/2,'is_file'/1,'is_file'/2,'is_regular'/1,'is_regular'/2,'last_modified'/1,'last_modified'/2,'module_info'/0,'module_info'/1,'safe_relative_path'/2,'wildcard'/1,'wildcard'/2,'wildcard'/3] attributes [ 'file' = [{[115|[114|[99|[47|[102|[105|[108|[101|[108|[105|[98|[46|[101|[114|[108]]]]]]]]]]]]]]],1}]
+, 'file' = [{[47|[117|[115|[114|[47|[108|[111|[99|[97|[108|[47|[67|[101|[108|[108|[97|[114|[47|[101|[114|[108|[97|[110|[103|[47|[50|[50|[46|[50|[47|[108|[105|[98|[47|[101|[114|[108|[97|[110|[103|[47|[108|[105|[98|[47|[107|[101|[114|[110|[101|[108|[45|[54|[46|[53|[46|[49|[47|[105|[110|[99|[108|[117|[100|[101|[47|[102|[105|[108|[101|[46|[104|[114|[108]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]],1}]
+, 'record' = [{'file_info',[{'typed_record_field',{'record_field',26,{'atom',26,'size'}},{'type',26,'union',[{'type',26,'non_neg_integer',[]}|[{'atom',26,'undefined'}]]}}|[{'typed_record_field',{'record_field',27,{'atom',27,'type'}},{'type',27,'union',[{'atom',27,'device'}|[{'atom',27,'directory'}|[{'atom',27,'other'}|[{'atom',27,'regular'}|[{'atom',27,'symlink'}|[{'atom',28,'undefined'}]]]]]]}}|[{'typed_record_field',{'record_field',29,{'atom',29,'access'}},{'type',29,'union',[{'atom',29,'read'}|[{'atom',29,'write'}|[{'atom',29,'read_write'}|[{'atom',29,'none'}|[{'atom',29,'undefined'}]]]]]}}|[{'typed_record_field',{'record_field',30,{'atom',30,'atime'}},{'type',30,'union',[{'remote_type',30,[{'atom',30,'file'}|[{'atom',30,'date_time'}|[[]]]]}|[{'type',30,'non_neg_integer',[]}|[{'atom',30,'undefined'}]]]}}|[{'typed_record_field',{'record_field',34,{'atom',34,'mtime'}},{'type',34,'union',[{'remote_type',34,[{'atom',34,'file'}|[{'atom',34,'date_time'}|[[]]]]}|[{'type',34,'non_neg_integer',[]}|[{'atom',34,'undefined'}]]]}}|[{'typed_record_field',{'record_field',36,{'atom',36,'ctime'}},{'type',36,'union',[{'remote_type',36,[{'atom',36,'file'}|[{'atom',36,'date_time'}|[[]]]]}|[{'type',36,'non_neg_integer',[]}|[{'atom',36,'undefined'}]]]}}|[{'typed_record_field',{'record_field',42,{'atom',42,'mode'}},{'type',42,'union',[{'type',42,'non_neg_integer',[]}|[{'atom',42,'undefined'}]]}}|[{'typed_record_field',{'record_field',46,{'atom',46,'links'}},{'type',46,'union',[{'type',46,'non_neg_integer',[]}|[{'atom',46,'undefined'}]]}}|[{'typed_record_field',{'record_field',49,{'atom',49,'major_device'}},{'type',49,'union',[{'type',49,'non_neg_integer',[]}|[{'atom',49,'undefined'}]]}}|[{'typed_record_field',{'record_field',55,{'atom',55,'minor_device'}},{'type',55,'union',[{'type',55,'non_neg_integer',[]}|[{'atom',55,'undefined'}]]}}|[{'typed_record_field',{'record_field',57,{'atom',57,'inode'}},{'type',57,'union',[{'type',57,'non_neg_integer',[]}|[{'atom',57,'undefined'}]]}}|[{'typed_record_field',{'record_field',58,{'atom',58,'uid'}},{'type',58,'union',[{'type',58,'non_neg_integer',[]}|[{'atom',58,'undefined'}]]}}|[{'typed_record_field',{'record_field',59,{'atom',59,'gid'}},{'type',59,'union',[{'type',59,'non_neg_integer',[]}|[{'atom',59,'undefined'}]]}}]]]]]]]]]]]]]}]
+, 'record' = [{'file_descriptor',[{'typed_record_field',{'record_field',63,{'atom',63,'module'}},{'type',63,'module',[]}}|[{'typed_record_field',{'record_field',64,{'atom',64,'data'}},{'type',64,'term',[]}}]]}]
+, 'file' = [{[115|[114|[99|[47|[102|[105|[108|[101|[108|[105|[98|[46|[101|[114|[108]]]]]]]]]]]]]]],34}]
+, 'type' = [{'filename',{'remote_type',44,[{'atom',44,'file'}|[{'atom',44,'name'}|[[]]]]},[]}]
+, 'type' = [{'dirname',{'user_type',45,'filename',[]},[]}]
+, 'type' = [{'filename_all',{'remote_type',47,[{'atom',47,'file'}|[{'atom',47,'name_all'}|[[]]]]},[]}]
+, 'type' = [{'dirname_all',{'user_type',48,'filename_all',[]},[]}]
+, 'spec' = [{{'wildcard',1},[{'type',52,'bounded_fun',[{'type',52,'fun',[{'type',52,'product',[{'var',52,'Wildcard'}]}|[{'type',52,'list',[{'remote_type',52,[{'atom',52,'file'}|[{'atom',52,'filename'}|[[]]]]}]}]]}|[[{'type',53,'constraint',[{'atom',53,'is_subtype'}|[[{'var',53,'Wildcard'}|[{'type',53,'union',[{'user_type',53,'filename',[]}|[{'user_type',53,'dirname',[]}]]}]]]]}]]]}]}]
+, 'spec' = [{{'wildcard',2},[{'type',57,'bounded_fun',[{'type',57,'fun',[{'type',57,'product',[{'var',57,'Wildcard'}|[{'var',57,'Cwd'}]]}|[{'type',57,'list',[{'remote_type',57,[{'atom',57,'file'}|[{'atom',57,'filename'}|[[]]]]}]}]]}|[[{'type',58,'constraint',[{'atom',58,'is_subtype'}|[[{'var',58,'Wildcard'}|[{'type',58,'union',[{'user_type',58,'filename',[]}|[{'user_type',58,'dirname',[]}]]}]]]]}|[{'type',59,'constraint',[{'atom',59,'is_subtype'}|[[{'var',59,'Cwd'}|[{'user_type',59,'dirname',[]}]]]]}]]]]}]}]
+, 'spec' = [{{'wildcard',3},[{'type',65,'fun',[{'type',65,'product',[{'remote_type',65,[{'atom',65,'file'}|[{'atom',65,'name'}|[[]]]]}|[{'remote_type',65,[{'atom',65,'file'}|[{'atom',65,'name'}|[[]]]]}|[{'type',65,'atom',[]}]]]}|[{'type',65,'list',[{'remote_type',65,[{'atom',65,'file'}|[{'atom',65,'filename'}|[[]]]]}]}]]}]}]
+, 'spec' = [{{'is_dir',1},[{'type',70,'bounded_fun',[{'type',70,'fun',[{'type',70,'product',[{'var',70,'Name'}]}|[{'type',70,'boolean',[]}]]}|[[{'type',71,'constraint',[{'atom',71,'is_subtype'}|[[{'var',71,'Name'}|[{'type',71,'union',[{'user_type',71,'filename_all',[]}|[{'user_type',71,'dirname_all',[]}]]}]]]]}]]]}]}]
+, 'spec' = [{{'is_dir',2},[{'type',75,'fun',[{'type',75,'product',[{'remote_type',75,[{'atom',75,'file'}|[{'atom',75,'name_all'}|[[]]]]}|[{'type',75,'atom',[]}]]}|[{'type',75,'boolean',[]}]]}]}]
+, 'spec' = [{{'is_file',1},[{'type',79,'bounded_fun',[{'type',79,'fun',[{'type',79,'product',[{'var',79,'Name'}]}|[{'type',79,'boolean',[]}]]}|[[{'type',80,'constraint',[{'atom',80,'is_subtype'}|[[{'var',80,'Name'}|[{'type',80,'union',[{'user_type',80,'filename_all',[]}|[{'user_type',80,'dirname_all',[]}]]}]]]]}]]]}]}]
+, 'spec' = [{{'is_file',2},[{'type',84,'fun',[{'type',84,'product',[{'remote_type',84,[{'atom',84,'file'}|[{'atom',84,'name_all'}|[[]]]]}|[{'type',84,'atom',[]}]]}|[{'type',84,'boolean',[]}]]}]}]
+, 'spec' = [{{'is_regular',1},[{'type',88,'bounded_fun',[{'type',88,'fun',[{'type',88,'product',[{'var',88,'Name'}]}|[{'type',88,'boolean',[]}]]}|[[{'type',89,'constraint',[{'atom',89,'is_subtype'}|[[{'var',89,'Name'}|[{'user_type',89,'filename_all',[]}]]]]}]]]}]}]
+, 'spec' = [{{'is_regular',2},[{'type',93,'fun',[{'type',93,'product',[{'remote_type',93,[{'atom',93,'file'}|[{'atom',93,'name_all'}|[[]]]]}|[{'type',93,'atom',[]}]]}|[{'type',93,'boolean',[]}]]}]}]
+, 'spec' = [{{'fold_files',5},[{'type',97,'bounded_fun',[{'type',97,'fun',[{'type',97,'product',[{'var',97,'Dir'}|[{'var',97,'RegExp'}|[{'var',97,'Recursive'}|[{'var',97,'Fun'}|[{'var',97,'AccIn'}]]]]]}|[{'var',97,'AccOut'}]]}|[[{'type',98,'constraint',[{'atom',98,'is_subtype'}|[[{'var',98,'Dir'}|[{'user_type',98,'dirname',[]}]]]]}|[{'type',99,'constraint',[{'atom',99,'is_subtype'}|[[{'var',99,'RegExp'}|[{'type',99,'string',[]}]]]]}|[{'type',100,'constraint',[{'atom',100,'is_subtype'}|[[{'var',100,'Recursive'}|[{'type',100,'boolean',[]}]]]]}|[{'type',101,'constraint',[{'atom',101,'is_subtype'}|[[{'var',101,'Fun'}|[{'type',101,'fun',[{'type',101,'product',[{'ann_type',101,[{'var',101,'F'}|[{'remote_type',101,[{'atom',101,'file'}|[{'atom',101,'filename'}|[[]]]]}]]}|[{'var',101,'AccIn'}]]}|[{'var',101,'AccOut'}]]}]]]]}|[{'type',102,'constraint',[{'atom',102,'is_subtype'}|[[{'var',102,'AccIn'}|[{'type',102,'term',[]}]]]]}|[{'type',103,'constraint',[{'atom',103,'is_subtype'}|[[{'var',103,'AccOut'}|[{'type',103,'term',[]}]]]]}]]]]]]]]}]}]
+, 'spec' = [{{'fold_files',6},[{'type',107,'fun',[{'type',107,'product',[{'remote_type',107,[{'atom',107,'file'}|[{'atom',107,'name'}|[[]]]]}|[{'type',107,'string',[]}|[{'type',107,'boolean',[]}|[{'type',107,'fun',[{'type',107,'product',[{'var',107,'_'}|[{'var',107,'_'}]]}|[{'var',107,'_'}]]}|[{'var',107,'_'}|[{'type',107,'atom',[]}]]]]]]}|[{'var',107,'_'}]]}]}]
+, 'spec' = [{{'last_modified',1},[{'type',111,'bounded_fun',[{'type',111,'fun',[{'type',111,'product',[{'var',111,'Name'}]}|[{'type',111,'union',[{'remote_type',111,[{'atom',111,'file'}|[{'atom',111,'date_time'}|[[]]]]}|[{'integer',111,0}]]}]]}|[[{'type',112,'constraint',[{'atom',112,'is_subtype'}|[[{'var',112,'Name'}|[{'type',112,'union',[{'user_type',112,'filename_all',[]}|[{'user_type',112,'dirname_all',[]}]]}]]]]}]]]}]}]
+, 'spec' = [{{'last_modified',2},[{'type',116,'fun',[{'type',116,'product',[{'remote_type',116,[{'atom',116,'file'}|[{'atom',116,'name_all'}|[[]]]]}|[{'type',116,'atom',[]}]]}|[{'type',116,'union',[{'remote_type',116,[{'atom',116,'file'}|[{'atom',116,'date_time'}|[[]]]]}|[{'integer',116,0}]]}]]}]}]
+, 'spec' = [{{'file_size',1},[{'type',120,'bounded_fun',[{'type',120,'fun',[{'type',120,'product',[{'var',120,'Filename'}]}|[{'type',120,'non_neg_integer',[]}]]}|[[{'type',121,'constraint',[{'atom',121,'is_subtype'}|[[{'var',121,'Filename'}|[{'user_type',121,'filename_all',[]}]]]]}]]]}]}]
+, 'spec' = [{{'file_size',2},[{'type',125,'fun',[{'type',125,'product',[{'remote_type',125,[{'atom',125,'file'}|[{'atom',125,'name'}|[[]]]]}|[{'type',125,'atom',[]}]]}|[{'type',125,'non_neg_integer',[]}]]}]}]
+, 'spec' = [{{'ensure_dir',1},[{'type',226,'bounded_fun',[{'type',226,'fun',[{'type',226,'product',[{'var',226,'Name'}]}|[{'type',226,'union',[{'atom',226,'ok'}|[{'type',226,'tuple',[{'atom',226,'error'}|[{'var',226,'Reason'}]]}]]}]]}|[[{'type',227,'constraint',[{'atom',227,'is_subtype'}|[[{'var',227,'Name'}|[{'type',227,'union',[{'user_type',227,'filename_all',[]}|[{'user_type',227,'dirname_all',[]}]]}]]]]}|[{'type',228,'constraint',[{'atom',228,'is_subtype'}|[[{'var',228,'Reason'}|[{'remote_type',228,[{'atom',228,'file'}|[{'atom',228,'posix'}|[[]]]]}]]]]}]]]]}]}]
+, 'type' = [{'find_file_rule',{'type',636,'tuple',[{'ann_type',636,[{'var',636,'ObjDirSuffix'}|[{'type',636,'string',[]}]]}|[{'ann_type',636,[{'var',636,'SrcDirSuffix'}|[{'type',636,'string',[]}]]}]]},[]}]
+, 'spec' = [{{'find_file',2},[{'type',638,'fun',[{'type',638,'product',[{'user_type',638,'filename',[]}|[{'user_type',638,'filename',[]}]]}|[{'type',639,'union',[{'type',639,'tuple',[{'atom',639,'ok'}|[{'user_type',639,'filename',[]}]]}|[{'type',639,'tuple',[{'atom',639,'error'}|[{'atom',639,'not_found'}]]}]]}]]}]}]
+, 'spec' = [{{'find_file',3},[{'type',643,'fun',[{'type',643,'product',[{'user_type',643,'filename',[]}|[{'user_type',643,'filename',[]}|[{'type',643,'list',[{'user_type',643,'find_file_rule',[]}]}]]]}|[{'type',644,'union',[{'type',644,'tuple',[{'atom',644,'ok'}|[{'user_type',644,'filename',[]}]]}|[{'type',644,'tuple',[{'atom',644,'error'}|[{'atom',644,'not_found'}]]}]]}]]}]}]
+, 'type' = [{'find_source_rule',{'type',652,'tuple',[{'ann_type',652,[{'var',652,'ObjExtension'}|[{'type',652,'string',[]}]]}|[{'ann_type',652,[{'var',652,'SrcExtension'}|[{'type',652,'string',[]}]]}|[{'type',653,'list',[{'user_type',653,'find_file_rule',[]}]}]]]},[]}]
+, 'spec' = [{{'find_source',1},[{'type',655,'fun',[{'type',655,'product',[{'user_type',655,'filename',[]}]}|[{'type',656,'union',[{'type',656,'tuple',[{'atom',656,'ok'}|[{'user_type',656,'filename',[]}]]}|[{'type',656,'tuple',[{'atom',656,'error'}|[{'atom',656,'not_found'}]]}]]}]]}]}]
+, 'spec' = [{{'find_source',2},[{'type',660,'fun',[{'type',660,'product',[{'user_type',660,'filename',[]}|[{'user_type',660,'filename',[]}]]}|[{'type',661,'union',[{'type',661,'tuple',[{'atom',661,'ok'}|[{'user_type',661,'filename',[]}]]}|[{'type',661,'tuple',[{'atom',661,'error'}|[{'atom',661,'not_found'}]]}]]}]]}]}]
+, 'spec' = [{{'find_source',3},[{'type',665,'fun',[{'type',665,'product',[{'user_type',665,'filename',[]}|[{'user_type',665,'filename',[]}|[{'type',665,'list',[{'user_type',665,'find_source_rule',[]}]}]]]}|[{'type',666,'union',[{'type',666,'tuple',[{'atom',666,'ok'}|[{'user_type',666,'filename',[]}]]}|[{'type',666,'tuple',[{'atom',666,'error'}|[{'atom',666,'not_found'}]]}]]}]]}]}]
+, 'spec' = [{{'safe_relative_path',2},[{'type',723,'bounded_fun',[{'type',723,'fun',[{'type',723,'product',[{'var',723,'Filename'}|[{'var',723,'Cwd'}]]}|[{'type',723,'union',[{'atom',723,'unsafe'}|[{'var',723,'SafeFilename'}]]}]]}|[[{'type',724,'constraint',[{'atom',724,'is_subtype'}|[[{'var',724,'Filename'}|[{'user_type',724,'filename_all',[]}]]]]}|[{'type',725,'constraint',[{'atom',725,'is_subtype'}|[[{'var',725,'Cwd'}|[{'user_type',725,'filename_all',[]}]]]]}|[{'type',726,'constraint',[{'atom',726,'is_subtype'}|[[{'var',726,'SafeFilename'}|[{'user_type',726,'filename_all',[]}]]]]}]]]]]}]}] ] 'wildcard'/1 = fun (_0) -> case _0 of <Pattern> when call 'erlang':'is_list' (_0) -> try apply 'do_wildcard'/3 (Pattern,[46],'file') of <_1> -> _1 catch <_4,_3,_2> -> case <_4,_3,_2> of <('error'-|['compiler_generated'] ),UnUsUalVaRiAbLeNaMe = ({('badpattern'-|['compiler_generated'] ),_6}-|['compiler_generated'] ),_7> when 'true' -> call 'erlang':'error' (UnUsUalVaRiAbLeNaMe)
+(<_8,_9,_10> when 'true' -> primop 'raise' (_10,_9)-|['compiler_generated'] ) end
+(<_5> when 'true' -> (primop 'match_fail' ({'function_clause',_5})-|[{'function_name',{'wildcard',1}}] )-|['compiler_generated'] ) end
+'wildcard'/2 = fun (_0,_1) -> case <_0,_1> of <Pattern,Cwd> when let <_2> = call 'erlang':'is_list' (Pattern) in let <_3> = call 'erlang':'is_list' (Cwd) in call 'erlang':'and' (_2,_3) -> try apply 'do_wildcard'/3 (Pattern,Cwd,'file') of <_4> -> _4 catch <_7,_6,_5> -> case <_7,_6,_5> of <('error'-|['compiler_generated'] ),UnUsUalVaRiAbLeNaMe = ({('badpattern'-|['compiler_generated'] ),_16}-|['compiler_generated'] ),_17> when 'true' -> call 'erlang':'error' (UnUsUalVaRiAbLeNaMe)
+(<_20,_21,_22> when 'true' -> primop 'raise' (_22,_21)-|['compiler_generated'] ) end
+<Pattern,Mod> when let <_8> = call 'erlang':'is_list' (Pattern) in let <_9> = call 'erlang':'is_atom' (Mod) in call 'erlang':'and' (_8,_9) -> try apply 'do_wildcard'/3 (Pattern,[46],Mod) of <_10> -> _10 catch <_13,_12,_11> -> case <_13,_12,_11> of <('error'-|['compiler_generated'] ),UnUsUalVaRiAbLeNaMe = ({('badpattern'-|['compiler_generated'] ),_18}-|['compiler_generated'] ),_19> when 'true' -> call 'erlang':'error' (UnUsUalVaRiAbLeNaMe)
+(<_23,_24,_25> when 'true' -> primop 'raise' (_25,_24)-|['compiler_generated'] ) end
+(<_15,_14> when 'true' -> (primop 'match_fail' ({'function_clause',_15,_14})-|[{'function_name',{'wildcard',2}}] )-|['compiler_generated'] ) end
+'wildcard'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Pattern,Cwd,Mod> when try let <_3> = call 'erlang':'is_list' (Pattern) in let <_4> = call 'erlang':'is_list' (Cwd) in let <_5> = call 'erlang':'is_atom' (Mod) in let <_6> = call 'erlang':'and' (_4,_5) in call 'erlang':'and' (_3,_6) of <Try> -> Try catch <T,R> -> 'false' -> try apply 'do_wildcard'/3 (Pattern,Cwd,Mod) of <_7> -> _7 catch <_10,_9,_8> -> case <_10,_9,_8> of <('error'-|['compiler_generated'] ),UnUsUalVaRiAbLeNaMe = ({('badpattern'-|['compiler_generated'] ),_14}-|['compiler_generated'] ),_15> when 'true' -> call 'erlang':'error' (UnUsUalVaRiAbLeNaMe)
+(<_16,_17,_18> when 'true' -> primop 'raise' (_18,_17)-|['compiler_generated'] ) end
+(<_13,_12,_11> when 'true' -> (primop 'match_fail' ({'function_clause',_13,_12,_11})-|[{'function_name',{'wildcard',3}}] )-|['compiler_generated'] ) end
+'is_dir'/1 = fun (_0) -> apply 'do_is_dir'/2 (_0,'file')
+'is_dir'/2 = fun (_0,_1) -> case <_0,_1> of <Dir,Mod> when call 'erlang':'is_atom' (Mod) -> apply 'do_is_dir'/2 (Dir,Mod)
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'is_dir',2}}] )-|['compiler_generated'] ) end
+'is_file'/1 = fun (_0) -> apply 'do_is_file'/2 (_0,'file')
+'is_file'/2 = fun (_0,_1) -> case <_0,_1> of <File,Mod> when call 'erlang':'is_atom' (Mod) -> apply 'do_is_file'/2 (File,Mod)
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'is_file',2}}] )-|['compiler_generated'] ) end
+'is_regular'/1 = fun (_0) -> apply 'do_is_regular'/2 (_0,'file')
+'is_regular'/2 = fun (_0,_1) -> case <_0,_1> of <File,Mod> when call 'erlang':'is_atom' (Mod) -> apply 'do_is_regular'/2 (File,Mod)
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'is_regular',2}}] )-|['compiler_generated'] ) end
+'fold_files'/5 = fun (_0,_1,_2,_3,_4) -> apply 'do_fold_files'/6 (_0,_1,_2,_3,_4,'file')
+'fold_files'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <Dir,RegExp,Recursive,Fun,Acc,Mod> when call 'erlang':'is_atom' (Mod) -> apply 'do_fold_files'/6 (Dir,RegExp,Recursive,Fun,Acc,Mod)
+(<_11,_10,_9,_8,_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_11,_10,_9,_8,_7,_6})-|[{'function_name',{'fold_files',6}}] )-|['compiler_generated'] ) end
+'last_modified'/1 = fun (_0) -> apply 'do_last_modified'/2 (_0,'file')
+'last_modified'/2 = fun (_0,_1) -> case <_0,_1> of <File,Mod> when call 'erlang':'is_atom' (Mod) -> apply 'do_last_modified'/2 (File,Mod)
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'last_modified',2}}] )-|['compiler_generated'] ) end
+'file_size'/1 = fun (_0) -> apply 'do_file_size'/2 (_0,'file')
+'file_size'/2 = fun (_0,_1) -> case <_0,_1> of <File,Mod> when call 'erlang':'is_atom' (Mod) -> apply 'do_file_size'/2 (File,Mod)
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'file_size',2}}] )-|['compiler_generated'] ) end
+'do_is_dir'/2 = fun (_0,_1) -> case apply 'eval_read_file_info'/2 (_0,_1) of <{'ok',{'file_info',_5,'directory',_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16}}> when 'true' -> 'true'
+<_17> when 'true' -> 'false' end
+'do_is_file'/2 = fun (_0,_1) -> case apply 'eval_read_file_info'/2 (_0,_1) of <{'ok',{'file_info',_5,'regular',_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16}}> when 'true' -> 'true'
+<{'ok',{'file_info',_17,'directory',_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28}}> when 'true' -> 'true'
+<_29> when 'true' -> 'false' end
+'do_is_regular'/2 = fun (_0,_1) -> case apply 'eval_read_file_info'/2 (_0,_1) of <{'ok',{'file_info',_5,'regular',_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16}}> when 'true' -> 'true'
+<_17> when 'true' -> 'false' end
+'do_fold_files'/6 = fun (_0,_1,_2,_3,_4,_5) -> case call 're':'compile' (_1,['unicode']) of <{'ok',Re1}> when 'true' -> apply 'do_fold_files1'/7 (_0,Re1,_1,_2,_3,_4,_5)
+(<_6> when 'true' -> primop 'match_fail' ({'badmatch',_6})-|['compiler_generated'] ) end
+'do_fold_files1'/7 = fun (_0,_1,_2,_3,_4,_5,_6) -> case apply 'eval_list_dir'/2 (_0,_6) of <{'ok',Files}> when 'true' -> apply 'do_fold_files2'/8 (Files,_0,_1,_2,_3,_4,_5,_6)
+<{'error',_15}> when 'true' -> _5
+(<_7> when 'true' -> primop 'match_fail' ({'case_clause',_7})-|['compiler_generated'] ) end
+'do_fold_files2'/8 = fun (_0,_1,_2,_3,_4,_5,_6,_7) -> case <_0,_1,_2,_3,_4,_5,_6,_7> of <[],_X_Dir,_X_RegExp,_X_OrigRE,_X_Recursive,_X_Fun,Acc,_X_Mod> when 'true' -> Acc
+<[File|T],Dir,RegExp,OrigRE,Recursive,Fun,Acc0,Mod> when 'true' -> let <FullName> = call 'filename':'join' (Dir,File) in case apply 'do_is_regular'/2 (FullName,Mod) of <'true'> when 'true' -> let <_10> = catch let <_9> = case <> of <> when call 'erlang':'is_binary' (File) -> OrigRE
+<> when 'true' -> RegExp end in call 're':'run' (File,_9,[{'capture','none'}]) in case _10 of <'match'> when 'true' -> let <Acc> = apply Fun (FullName,Acc0) in apply 'do_fold_files2'/8 (T,Dir,RegExp,OrigRE,Recursive,Fun,Acc,Mod)
+<{'EXIT',_27}> when 'true' -> apply 'do_fold_files2'/8 (T,Dir,RegExp,OrigRE,Recursive,Fun,Acc0,Mod)
+<'nomatch'> when 'true' -> apply 'do_fold_files2'/8 (T,Dir,RegExp,OrigRE,Recursive,Fun,Acc0,Mod)
+(<_12> when 'true' -> primop 'match_fail' ({'case_clause',_12})-|['compiler_generated'] ) end
+<'false'> when 'true' -> let <_15> = case Recursive of (<('true'-|['compiler_generated'] )> when 'true' -> apply 'do_is_dir'/2 (FullName,Mod)-|['compiler_generated'] )
+(<('false'-|['compiler_generated'] )> when 'true' -> 'false'-|['compiler_generated'] )
+(<_13> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({('badarg'-|['compiler_generated'] ),_13}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end in case _15 of <'true'> when 'true' -> let <Acc1> = apply 'do_fold_files1'/7 (FullName,RegExp,OrigRE,Recursive,Fun,Acc0,Mod) in apply 'do_fold_files2'/8 (T,Dir,RegExp,OrigRE,Recursive,Fun,Acc1,Mod)
+<'false'> when 'true' -> apply 'do_fold_files2'/8 (T,Dir,RegExp,OrigRE,Recursive,Fun,Acc0,Mod)
+(<_17> when 'true' -> primop 'match_fail' ({'case_clause',_17})-|['compiler_generated'] ) end
+(<_18> when 'true' -> primop 'match_fail' ({'case_clause',_18})-|['compiler_generated'] ) end
+(<_26,_25,_24,_23,_22,_21,_20,_19> when 'true' -> (primop 'match_fail' ({'function_clause',_26,_25,_24,_23,_22,_21,_20,_19})-|[{'function_name',{'do_fold_files2',8}}] )-|['compiler_generated'] ) end
+'do_last_modified'/2 = fun (_0,_1) -> case apply 'eval_read_file_info'/2 (_0,_1) of <{'ok',Info}> when 'true' -> (case Info of (<({'file_info',_6,_7,_8,_9,_rec0,_10,_11,_12,_13,_14,_15,_16,_17}-|['compiler_generated'] )> when 'true' -> _rec0-|['compiler_generated'] )
+(<_18> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','file_info'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+<_19> when 'true' -> 0 end
+'do_file_size'/2 = fun (_0,_1) -> case apply 'eval_read_file_info'/2 (_0,_1) of <{'ok',Info}> when 'true' -> (case Info of (<({'file_info',_rec1,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17}-|['compiler_generated'] )> when 'true' -> _rec1-|['compiler_generated'] )
+(<_18> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','file_info'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+<_19> when 'true' -> 0 end
+'ensure_dir'/1 = fun (_0) -> case _0 of <[47]> when 'true' -> 'ok'
+<F> when 'true' -> let <Dir> = call 'filename':'dirname' (F) in case apply 'do_is_dir'/2 (Dir,'file') of <'true'> when 'true' -> 'ok'
+<'false'> when call 'erlang':'=:=' (Dir,F) -> {'error','einval'}
+<'false'> when 'true' -> do apply 'ensure_dir'/1 (Dir) case call 'file':'make_dir' (Dir) of <EExist = {'error','eexist'}> when 'true' -> case apply 'do_is_dir'/2 (Dir,'file') of <'true'> when 'true' -> 'ok'
+<'false'> when 'true' -> EExist
+(<_3> when 'true' -> primop 'match_fail' ({'case_clause',_3})-|['compiler_generated'] ) end
+<Err> when 'true' -> Err end
+(<_5> when 'true' -> primop 'match_fail' ({'case_clause',_5})-|['compiler_generated'] ) end end
+'do_wildcard'/3 = fun (_0,_1,_2) -> case apply 'compile_wildcard'/2 (_0,_1) of <{Compiled,PrefixLen}> when 'true' -> let <Files0> = apply 'do_wildcard_1'/2 (Compiled,_2) in let <_10> = case <> of <> when call 'erlang':'=:=' (PrefixLen,0) -> Files0
+<> when 'true' -> (letrec 'lc$^0'/1 = fun (_7) -> case _7 of <[File|_6]> when 'true' -> let <_8> = call 'lists':'nthtail' (PrefixLen,File) in let <_9> = apply 'lc$^0'/1 (_6) in ([_8|_9]-|['compiler_generated'] )
+<[]> when 'true' -> []
+(<_15> when 'true' -> (primop 'match_fail' ({'function_clause',_15})-|[{'function_name',{'lc$^0',1}}] )-|['compiler_generated'] ) end in apply 'lc$^0'/1 (Files0)-|['list_comprehension'] ) end in call 'lists':'sort' (_10)
+(<_3> when 'true' -> primop 'match_fail' ({'badmatch',_3})-|['compiler_generated'] ) end
+'do_wildcard_1'/2 = fun (_0,_1) -> case <_0,_1> of <{'exists',File},Mod> when 'true' -> case apply 'eval_read_link_info'/2 (File,Mod) of <{'ok',_5}> when 'true' -> [File|[]]
+<_6> when 'true' -> [] end
+<[Base|Rest],Mod> when 'true' -> apply 'do_wildcard_2'/4 ([Base|[]],Rest,[],Mod)
+(<_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_4,_3})-|[{'function_name',{'do_wildcard_1',2}}] )-|['compiler_generated'] ) end
+'do_wildcard_2'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <[File|Rest],Pattern,Result,Mod> when 'true' -> let <_4> = apply 'do_wildcard_3'/4 (File,Pattern,Result,Mod) in apply 'do_wildcard_2'/4 (Rest,Pattern,_4,Mod)
+<[],_9,Result,_X_Mod> when 'true' -> Result
+(<_8,_7,_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_8,_7,_6,_5})-|[{'function_name',{'do_wildcard_2',4}}] )-|['compiler_generated'] ) end
+'do_wildcard_3'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <Base,[['double_star']|Rest],Result,Mod> when 'true' -> apply 'do_double_star'/6 ([46],[Base|[]],Rest,Result,Mod,'true')
+<Base,[[46|[46]]|Rest],Result,Mod> when 'true' -> case apply 'do_is_dir'/2 (Base,Mod) of <'true'> when 'true' -> let <_4> = call 'filename':'join' (Base,[46|[46]]) in let <Matches> = [_4|[]] in apply 'do_wildcard_2'/4 (Matches,Rest,Result,Mod)
+<'false'> when 'true' -> Result
+(<_6> when 'true' -> primop 'match_fail' ({'case_clause',_6})-|['compiler_generated'] ) end
+<Base0,[Pattern|Rest],Result,Mod> when 'true' -> case apply 'do_list_dir'/2 (Base0,Mod) of <{'ok',Files}> when 'true' -> let <Base> = apply 'prepare_base'/1 (Base0) in let <Matches> = apply 'do_wildcard_4'/3 (Pattern,Base,Files) in apply 'do_wildcard_2'/4 (Matches,Rest,Result,Mod)
+<_14> when 'true' -> Result end
+<Base,[],Result,_X_Mod> when 'true' -> [Base|Result]
+(<_13,_12,_11,_10> when 'true' -> (primop 'match_fail' ({'function_clause',_13,_12,_11,_10})-|[{'function_name',{'do_wildcard_3',4}}] )-|['compiler_generated'] ) end
+'do_wildcard_4'/3 = fun (_0,_1,_2) -> case apply 'will_always_match'/1 (_0) of <'false'> when 'true' -> (letrec 'lc$^0'/1 = fun (_5) -> case _5 of <[F|_4]> when 'true' -> (case apply 'match_part'/2 (_0,F) of <'true'> when 'true' -> let <_6> = call 'erlang':'++' (_1,F) in let <_7> = apply 'lc$^0'/1 (_4) in ([_6|_7]-|['compiler_generated'] )
+(<'false'> when 'true' -> apply 'lc$^0'/1 (_4)-|['compiler_generated'] )
+(<_8> when 'true' -> primop 'match_fail' ({'case_clause',_8})-|['compiler_generated'] ) end-|['list_comprehension'] )
+<[]> when 'true' -> []
+(<_18> when 'true' -> (primop 'match_fail' ({'function_clause',_18})-|[{'function_name',{'lc$^0',1}}] )-|['compiler_generated'] ) end in apply 'lc$^0'/1 (_2)-|['list_comprehension'] )
+<'true'> when 'true' -> (letrec 'lc$^1'/1 = fun (_11) -> case _11 of <[F|_10]> when 'true' -> let <_12> = call 'erlang':'++' (_1,F) in let <_13> = apply 'lc$^1'/1 (_10) in ([_12|_13]-|['compiler_generated'] )
+<[]> when 'true' -> []
+(<_19> when 'true' -> (primop 'match_fail' ({'function_clause',_19})-|[{'function_name',{'lc$^1',1}}] )-|['compiler_generated'] ) end in apply 'lc$^1'/1 (_2)-|['list_comprehension'] )
+(<_14> when 'true' -> primop 'match_fail' ({'case_clause',_14})-|['compiler_generated'] ) end
+'match_part'/2 = fun (_0,_1) -> case <_0,_1> of <['question'|Rest1],[_8|Rest2]> when 'true' -> apply 'match_part'/2 (Rest1,Rest2)
+<['accept'],_9> when 'true' -> 'true'
+<['double_star'],_10> when 'true' -> 'true'
+<['star'|Rest],File> when 'true' -> apply 'do_star'/2 (Rest,File)
+<[{'one_of',Ordset}|Rest],[C|File]> when 'true' -> (case call 'gb_sets':'is_element' (C,Ordset) of (<('true'-|['compiler_generated'] )> when 'true' -> apply 'match_part'/2 (Rest,File)-|['compiler_generated'] )
+(<('false'-|['compiler_generated'] )> when 'true' -> 'false'-|['compiler_generated'] )
+(<_2> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({('badarg'-|['compiler_generated'] ),_2}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+<[{'alt',Alts}|[]],File> when 'true' -> apply 'do_alt'/2 (Alts,File)
+<[C|Rest1],[_11|Rest2]> when let <_12> = call 'erlang':'=:=' (_11,C) in let <_13> = call 'erlang':'is_integer' (C) in call 'erlang':'and' (_12,_13) -> apply 'match_part'/2 (Rest1,Rest2)
+<[X|_14],[Y|_15]> when let <_4> = call 'erlang':'is_integer' (X) in let <_5> = call 'erlang':'is_integer' (Y) in call 'erlang':'and' (_4,_5) -> 'false'
+<[],[]> when 'true' -> 'true'
+<[],[_16|_17]> when 'true' -> 'false'
+<[_18|_19],[]> when 'true' -> 'false'
+(<_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_7,_6})-|[{'function_name',{'match_part',2}}] )-|['compiler_generated'] ) end
+'will_always_match'/1 = fun (_0) -> case _0 of <['accept']> when 'true' -> 'true'
+<['double_star']> when 'true' -> 'true'
+<_2> when 'true' -> 'false' end
+'prepare_base'/1 = fun (_0) -> let <Base1> = call 'filename':'join' (_0,[120]) in case call 'lists':'reverse' (Base1) of <[120|Base2]> when 'true' -> call 'lists':'reverse' (Base2)
+(<_2> when 'true' -> primop 'match_fail' ({'badmatch',_2})-|['compiler_generated'] ) end
+'do_double_star'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <Base,[H|T],Patterns,Result0,Mod,Root> when 'true' -> let <_7> = case Root of <'false'> when 'true' -> call 'filename':'join' (Base,H)
+<'true'> when 'true' -> H
+(<_6> when 'true' -> primop 'match_fail' ({'case_clause',_6})-|['compiler_generated'] ) end in let <_10> = case apply 'do_list_dir'/2 (_7,Mod) of <{'ok',Files}> when 'true' -> apply 'do_double_star'/6 (_7,Files,Patterns,Result0,Mod,'false')
+<_22> when 'true' -> Result0 end in let <_14> = case Patterns of <_23> when (call 'erlang':'=:=' (Root,'true')-|['compiler_generated'] ) -> _10
+<[]> when 'true' -> [_7|_10]
+<[Pattern|Rest]> when 'true' -> case apply 'match_part'/2 (Pattern,H) of <'true'> when 'true' -> apply 'do_wildcard_2'/4 ([_7|[]],Rest,_10,Mod)
+<'false'> when 'true' -> _10
+(<_12> when 'true' -> primop 'match_fail' ({'case_clause',_12})-|['compiler_generated'] ) end
+(<_13> when 'true' -> primop 'match_fail' ({'case_clause',_13})-|['compiler_generated'] ) end in apply 'do_double_star'/6 (Base,T,Patterns,_14,Mod,Root)
+<_X_Base,[],_X_Patterns,Result,_X_Mod,_X_Root> when 'true' -> Result
+(<_21,_20,_19,_18,_17,_16> when 'true' -> (primop 'match_fail' ({'function_clause',_21,_20,_19,_18,_17,_16})-|[{'function_name',{'do_double_star',6}}] )-|['compiler_generated'] ) end
+'do_star'/2 = fun (_0,_1) -> case <_0,_1> of <Pattern,File = [_6|Rest]> when 'true' -> (case apply 'match_part'/2 (Pattern,File) of (<('true'-|['compiler_generated'] )> when 'true' -> 'true'-|['compiler_generated'] )
+(<('false'-|['compiler_generated'] )> when 'true' -> apply 'do_star'/2 (Pattern,Rest)-|['compiler_generated'] )
+(<_2> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({('badarg'-|['compiler_generated'] ),_2}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+<Pattern,[]> when 'true' -> apply 'match_part'/2 (Pattern,[])
+(<_5,_4> when 'true' -> (primop 'match_fail' ({'function_clause',_5,_4})-|[{'function_name',{'do_star',2}}] )-|['compiler_generated'] ) end
+'do_alt'/2 = fun (_0,_1) -> case <_0,_1> of <[Alt|Rest],File> when 'true' -> (case apply 'match_part'/2 (Alt,File) of (<('true'-|['compiler_generated'] )> when 'true' -> 'true'-|['compiler_generated'] )
+(<('false'-|['compiler_generated'] )> when 'true' -> apply 'do_alt'/2 (Rest,File)-|['compiler_generated'] )
+(<_2> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({('badarg'-|['compiler_generated'] ),_2}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+<[],_X_File> when 'true' -> 'false'
+(<_5,_4> when 'true' -> (primop 'match_fail' ({'function_clause',_5,_4})-|[{'function_name',{'do_alt',2}}] )-|['compiler_generated'] ) end
+'do_list_dir'/2 = fun (_0,_1) -> apply 'eval_list_dir'/2 (_0,_1)
+'compile_wildcard'/1 = fun (_0) -> case _0 of <Pattern> when call 'erlang':'is_list' (_0) -> let <_5> = try apply 'compile_wildcard'/2 (Pattern,[46]) of <_1> -> _1 catch <_4,_3,_2> -> case <_4,_3,_2> of <('error'-|['compiler_generated'] ),UnUsUalVaRiAbLeNaMe = ({('badpattern'-|['compiler_generated'] ),_7}-|['compiler_generated'] ),_8> when 'true' -> call 'erlang':'error' (UnUsUalVaRiAbLeNaMe)
+(<_9,_10,_11> when 'true' -> primop 'raise' (_11,_10)-|['compiler_generated'] ) end in {'compiled_wildcard',_5}
+(<_6> when 'true' -> (primop 'match_fail' ({'function_clause',_6})-|[{'function_name',{'compile_wildcard',1}}] )-|['compiler_generated'] ) end
+'compile_wildcard'/2 = fun (_0,_1) -> let <Pattern> = apply 'convert_escapes'/1 (_0) in case call 'filename':'split' (Pattern) of <_@r0 = [Root|Rest]> when 'true' -> case call 'filename':'pathtype' (Root) of <'relative'> when 'true' -> let <Cwd> = apply 'prepare_base'/1 (_1) in apply 'compile_wildcard_2'/2 (_@r0,{'cwd',Cwd})
+<_8> when 'true' -> apply 'compile_wildcard_2'/2 (Rest,{'root',0,Root}) end
+(<_3> when 'true' -> primop 'match_fail' ({'badmatch',_3})-|['compiler_generated'] ) end
+'compile_wildcard_2'/2 = fun (_0,_1) -> case <_0,_1> of <[Part|Rest],Root> when 'true' -> let <Pattern> = apply 'compile_part'/1 (Part) in case apply 'is_literal_pattern'/1 (Pattern) of <'true'> when 'true' -> let <_3> = apply 'compile_join'/2 (Root,Pattern) in apply 'compile_wildcard_2'/2 (Rest,_3)
+<'false'> when 'true' -> apply 'compile_wildcard_3'/2 (Rest,[Pattern|[Root|[]]])
+(<_4> when 'true' -> primop 'match_fail' ({'case_clause',_4})-|['compiler_generated'] ) end
+<[],{'root',PrefixLen,Root}> when 'true' -> {{'exists',Root},PrefixLen}
+(<_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_6,_5})-|[{'function_name',{'compile_wildcard_2',2}}] )-|['compiler_generated'] ) end
+'is_literal_pattern'/1 = fun (_0) -> case _0 of <[H|T]> when 'true' -> (case <> of (<> when call 'erlang':'is_integer' (H) -> apply 'is_literal_pattern'/1 (T)-|['compiler_generated'] )
+(<> when 'true' -> 'false'-|['compiler_generated'] ) end-|['compiler_generated'] )
+<[]> when 'true' -> 'true'
+(<_3> when 'true' -> (primop 'match_fail' ({'function_clause',_3})-|[{'function_name',{'is_literal_pattern',1}}] )-|['compiler_generated'] ) end
+'compile_wildcard_3'/2 = fun (_0,_1) -> case <_0,_1> of <[Part|Rest],Result> when 'true' -> let <_2> = apply 'compile_part'/1 (Part) in apply 'compile_wildcard_3'/2 (Rest,[_2|Result])
+<[],Result> when 'true' -> case call 'lists':'reverse' (Result) of <[{'root',PrefixLen,Root}|Compiled]> when 'true' -> {[Root|Compiled],PrefixLen}
+<[{'cwd',Root}|Compiled]> when 'true' -> let <_3> = call 'filename':'join' (Root,[120]) in let <_4> = call 'erlang':'length' (_3) in let <_5> = call 'erlang':'-' (_4,1) in {[Root|Compiled],_5}
+(<_6> when 'true' -> primop 'match_fail' ({'case_clause',_6})-|['compiler_generated'] ) end
+(<_8,_7> when 'true' -> (primop 'match_fail' ({'function_clause',_8,_7})-|[{'function_name',{'compile_wildcard_3',2}}] )-|['compiler_generated'] ) end
+'compile_join'/2 = fun (_0,_1) -> case <_0,_1> of <{'cwd',[46]},File> when 'true' -> {'root',0,File}
+<{'cwd',Cwd},File0> when 'true' -> let <File> = call 'filename':'join' ([File0|[]]) in let <Root> = call 'filename':'join' (Cwd,File) in let <_5> = call 'erlang':'length' (Root) in let <_4> = call 'erlang':'length' (File) in let <PrefixLen> = call 'erlang':'-' (_5,_4) in {'root',PrefixLen,Root}
+<{'root',PrefixLen,Root},File> when 'true' -> let <_7> = call 'filename':'join' (Root,File) in {'root',PrefixLen,_7}
+(<_9,_8> when 'true' -> (primop 'match_fail' ({'function_clause',_9,_8})-|[{'function_name',{'compile_join',2}}] )-|['compiler_generated'] ) end
+'compile_part'/1 = fun (_0) -> let <Part> = apply 'wrap_escapes'/1 (_0) in apply 'compile_part'/3 (Part,'false',[])
+'compile_part_to_sep'/1 = fun (_0) -> apply 'compile_part'/3 (_0,'true',[])
+'compile_part'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <[],'true',_11> when 'true' -> apply 'badpattern'/1 ('missing_delimiter')
+<[44|Rest],'true',Result> when 'true' -> let <_3> = call 'lists':'reverse' (Result) in {'ok',44,_3,Rest}
+<[125|Rest],'true',Result> when 'true' -> let <_4> = call 'lists':'reverse' (Result) in {'ok',125,_4,Rest}
+<[63|Rest],Upto,Result> when 'true' -> apply 'compile_part'/3 (Rest,Upto,['question'|Result])
+<[42|[42]],Upto,Result> when 'true' -> apply 'compile_part'/3 ([],Upto,['double_star'|Result])
+<[42|[42|Rest]],Upto,Result> when 'true' -> apply 'compile_part'/3 (Rest,Upto,['star'|Result])
+<[42],Upto,Result> when 'true' -> apply 'compile_part'/3 ([],Upto,['accept'|Result])
+<[42|Rest],Upto,Result> when 'true' -> apply 'compile_part'/3 (Rest,Upto,['star'|Result])
+<[91|Rest],Upto,Result> when 'true' -> let <_5> = call 'ordsets':'new' () in case apply 'compile_charset'/2 (Rest,_5) of <{'ok',Charset,Rest1}> when 'true' -> apply 'compile_part'/3 (Rest1,Upto,[Charset|Result])
+<'error'> when 'true' -> apply 'compile_part'/3 (Rest,Upto,[91|Result])
+(<_6> when 'true' -> primop 'match_fail' ({'case_clause',_6})-|['compiler_generated'] ) end
+<[123|Rest],Upto,Result> when 'true' -> case apply 'compile_alt'/1 (Rest) of <{'ok',Alt}> when 'true' -> call 'lists':'reverse' (Result,[Alt|[]])
+<'error'> when 'true' -> apply 'compile_part'/3 (Rest,Upto,[123|Result])
+(<_7> when 'true' -> primop 'match_fail' ({'case_clause',_7})-|['compiler_generated'] ) end
+<[{'escaped',X}|Rest],Upto,Result> when 'true' -> apply 'compile_part'/3 (Rest,Upto,[X|Result])
+<[X|Rest],Upto,Result> when 'true' -> apply 'compile_part'/3 (Rest,Upto,[X|Result])
+<[],_X_Upto,Result> when 'true' -> call 'lists':'reverse' (Result)
+(<_10,_9,_8> when 'true' -> (primop 'match_fail' ({'function_clause',_10,_9,_8})-|[{'function_name',{'compile_part',3}}] )-|['compiler_generated'] ) end
+'compile_charset'/2 = fun (_0,_1) -> case <_0,_1> of <[93|Rest],Ordset> when 'true' -> let <_2> = call 'ordsets':'add_element' (93,Ordset) in apply 'compile_charset1'/2 (Rest,_2)
+<[],_X_Ordset> when 'true' -> 'error'
+<List,Ordset> when 'true' -> apply 'compile_charset1'/2 (List,Ordset) end
+'compile_charset1'/2 = fun (_0,_1) -> case <_0,_1> of <[Lower|[45|[Upper|Rest]]],Ordset> when call 'erlang':'=<' (Lower,Upper) -> let <_2> = apply 'compile_range'/3 (Lower,Upper,Ordset) in apply 'compile_charset1'/2 (Rest,_2)
+<[93|Rest],Ordset> when 'true' -> let <_3> = call 'gb_sets':'from_ordset' (Ordset) in {'ok',{'one_of',_3},Rest}
+<[{'escaped',X}|Rest],Ordset> when 'true' -> let <_4> = call 'ordsets':'add_element' (X,Ordset) in apply 'compile_charset1'/2 (Rest,_4)
+<[X|Rest],Ordset> when 'true' -> let <_5> = call 'ordsets':'add_element' (X,Ordset) in apply 'compile_charset1'/2 (Rest,_5)
+<[],_X_Ordset> when 'true' -> 'error'
+(<_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_7,_6})-|[{'function_name',{'compile_charset1',2}}] )-|['compiler_generated'] ) end
+'compile_range'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Lower,Current,Ordset> when call 'erlang':'=<' (Lower,Current) -> let <_4> = call 'erlang':'-' (Current,1) in let <_3> = call 'ordsets':'add_element' (Current,Ordset) in apply 'compile_range'/3 (Lower,_4,_3)
+<_8,_9,Ordset> when 'true' -> Ordset end
+'compile_alt'/1 = fun (_0) -> apply 'compile_alt'/2 (_0,[])
+'compile_alt'/2 = fun (_0,_1) -> case apply 'compile_part_to_sep'/1 (_0) of <{'ok',44,AltPattern,Rest}> when 'true' -> apply 'compile_alt'/2 (Rest,[AltPattern|_1])
+<{'ok',125,AltPattern,Rest}> when 'true' -> let <NewResult> = [AltPattern|_1] in let <RestPattern> = apply 'compile_part'/1 (Rest) in let <_9> = letrec 'lc$^0'/1 = fun (_6) -> case _6 of <[Alt|_5]> when 'true' -> let <_7> = call 'erlang':'++' (Alt,RestPattern) in let <_8> = apply 'lc$^0'/1 (_5) in ([_7|_8]-|['compiler_generated'] )
+<[]> when 'true' -> []
+(<_14> when 'true' -> (primop 'match_fail' ({'function_clause',_14})-|[{'function_name',{'lc$^0',1}}] )-|['compiler_generated'] ) end in apply 'lc$^0'/1 (NewResult) in {'ok',{'alt',_9}}
+<_13> when call 'erlang':'=:=' (_13,_0) -> 'error'
+(<_10> when 'true' -> primop 'match_fail' ({'case_clause',_10})-|['compiler_generated'] ) end
+'convert_escapes'/1 = fun (_0) -> case _0 of <[64|T]> when 'true' -> let <_1> = apply 'convert_escapes'/1 (T) in [64|[64|_1]]
+<[92|T]> when 'true' -> let <_2> = apply 'convert_escapes'/1 (T) in [64|[101|_2]]
+<[H|T]> when 'true' -> let <_3> = apply 'convert_escapes'/1 (T) in [H|_3]
+<[]> when 'true' -> []
+(<_4> when 'true' -> (primop 'match_fail' ({'function_clause',_4})-|[{'function_name',{'convert_escapes',1}}] )-|['compiler_generated'] ) end
+'wrap_escapes'/1 = fun (_0) -> case _0 of <[64|[64|T]]> when 'true' -> let <_1> = apply 'wrap_escapes'/1 (T) in [64|_1]
+<[64|[101|[C|T]]]> when 'true' -> let <_2> = apply 'wrap_escapes'/1 (T) in [{'escaped',C}|_2]
+<[64|[101]]> when 'true' -> []
+<[H|T]> when 'true' -> let <_3> = apply 'wrap_escapes'/1 (T) in [H|_3]
+<[]> when 'true' -> []
+(<_4> when 'true' -> (primop 'match_fail' ({'function_clause',_4})-|[{'function_name',{'wrap_escapes',1}}] )-|['compiler_generated'] ) end
+'badpattern'/1 = fun (_0) -> call 'erlang':'error' ({'badpattern',_0})
+'eval_read_file_info'/2 = fun (_0,_1) -> case <_0,_1> of <File,'file'> when 'true' -> call 'file':'read_file_info' (File)
+<File,'erl_prim_loader'> when 'true' -> case call 'erl_prim_loader':'read_file_info' (File) of <'error'> when 'true' -> {'error','erl_prim_loader'}
+<Res> when 'true' -> Res end
+<File,Mod> when 'true' -> call Mod:'read_file_info' (File) end
+'eval_read_link_info'/2 = fun (_0,_1) -> case <_0,_1> of <File,'file'> when 'true' -> call 'file':'read_link_info' (File)
+<File,'erl_prim_loader'> when 'true' -> case call 'erl_prim_loader':'read_link_info' (File) of <'error'> when 'true' -> {'error','erl_prim_loader'}
+<Res> when 'true' -> Res end
+<File,Mod> when 'true' -> call Mod:'read_link_info' (File) end
+'eval_list_dir'/2 = fun (_0,_1) -> case <_0,_1> of <Dir,'file'> when 'true' -> call 'file':'list_dir' (Dir)
+<Dir,'erl_prim_loader'> when 'true' -> case call 'erl_prim_loader':'list_dir' (Dir) of <'error'> when 'true' -> {'error','erl_prim_loader'}
+<Res> when 'true' -> Res end
+<Dir,Mod> when 'true' -> call Mod:'list_dir' (Dir) end
+'keep_dir_search_rules'/1 = fun (_0) -> (letrec 'lc$^0'/1 = fun (_3) -> case _3 of <[T = {_6,_7}|_2]> when 'true' -> let <_4> = apply 'lc$^0'/1 (_2) in ([T|_4]-|['compiler_generated'] )
+(<[_1|_2]> when 'true' -> apply 'lc$^0'/1 (_2)-|['compiler_generated'] )
+<[]> when 'true' -> []
+(<_8> when 'true' -> (primop 'match_fail' ({'function_clause',_8})-|[{'function_name',{'lc$^0',1}}] )-|['compiler_generated'] ) end in apply 'lc$^0'/1 (_0)-|['list_comprehension'] )
+'keep_suffix_search_rules'/1 = fun (_0) -> (letrec 'lc$^0'/1 = fun (_3) -> case _3 of <[T = {_6,_7,_8}|_2]> when 'true' -> let <_4> = apply 'lc$^0'/1 (_2) in ([T|_4]-|['compiler_generated'] )
+(<[_1|_2]> when 'true' -> apply 'lc$^0'/1 (_2)-|['compiler_generated'] )
+<[]> when 'true' -> []
+(<_9> when 'true' -> (primop 'match_fail' ({'function_clause',_9})-|[{'function_name',{'lc$^0',1}}] )-|['compiler_generated'] ) end in apply 'lc$^0'/1 (_0)-|['list_comprehension'] )
+'get_search_rules'/0 = fun () -> case call 'application':'get_env' ('kernel','source_search_rules') of <'undefined'> when 'true' -> apply 'default_search_rules'/0 ()
+<{'ok',[]}> when 'true' -> apply 'default_search_rules'/0 ()
+<{'ok',R}> when call 'erlang':'is_list' (R) -> R
+(<_0> when 'true' -> primop 'match_fail' ({'case_clause',_0})-|['compiler_generated'] ) end
+'default_search_rules'/0 = fun () -> let <_1> = apply 'erl_source_search_rules'/0 () in let <_2> = apply 'erl_source_search_rules'/0 () in let <_3> = apply 'c_source_search_rules'/0 () in let <_4> = apply 'c_source_search_rules'/0 () in let <_5> = apply 'c_source_search_rules'/0 () in let <_6> = apply 'basic_source_search_rules'/0 () in let <_0> = apply 'erl_source_search_rules'/0 () in [{[46|[98|[101|[97|[109]]]]],[46|[101|[114|[108]]]],_1}|[{[46|[101|[114|[108]]]],[46|[121|[114|[108]]]],[]}|[{[],[46|[115|[114|[99]]]],_2}|[{[46|[115|[111]]],[46|[99]],_3}|[{[46|[111]],[46|[99]],_4}|[{[],[46|[99]],_5}|[{[],[46|[105|[110]]],_6}|[{[],[]}|_0]]]]]]]]
+'basic_source_search_rules'/0 = fun () -> let <_1> = apply 'erl_source_search_rules'/0 () in let <_0> = apply 'c_source_search_rules'/0 () in call 'erlang':'++' (_1,_0)
+'erl_source_search_rules'/0 = fun () -> let <_0> = call 'filename':'join' ([115|[114|[99]]],[42]) in let <_1> = call 'filename':'join' ([101|[115|[114|[99]]]],[42]) in [{[101|[98|[105|[110]]]],[115|[114|[99]]]}|[{[101|[98|[105|[110]]]],[101|[115|[114|[99]]]]}|[{[101|[98|[105|[110]]]],_0}|[{[101|[98|[105|[110]]]],_1}|[]]]]]
+'c_source_search_rules'/0 = fun () -> [{[112|[114|[105|[118]]]],[99|[95|[115|[114|[99]]]]]}|[{[112|[114|[105|[118]]]],[115|[114|[99]]]}|[{[98|[105|[110]]],[99|[95|[115|[114|[99]]]]]}|[{[98|[105|[110]]],[115|[114|[99]]]}|[{[],[115|[114|[99]]]}]]]]]
+'find_file'/2 = fun (_0,_1) -> apply 'find_file'/3 (_0,_1,[])
+'find_file'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Filename,Dir,[]> when 'true' -> let <_3> = apply 'get_search_rules'/0 () in apply 'find_file'/3 (Filename,Dir,_3)
+<Filename,Dir,Rules> when 'true' -> let <_4> = apply 'keep_dir_search_rules'/1 (Rules) in apply 'try_dir_rules'/3 (_4,Filename,Dir) end
+'find_source'/1 = fun (_0) -> let <_2> = call 'filename':'basename' (_0) in let <_1> = call 'filename':'dirname' (_0) in apply 'find_source'/2 (_2,_1)
+'find_source'/2 = fun (_0,_1) -> apply 'find_source'/3 (_0,_1,[])
+'find_source'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Filename,Dir,[]> when 'true' -> let <_3> = apply 'get_search_rules'/0 () in apply 'find_source'/3 (Filename,Dir,_3)
+<Filename,Dir,Rules> when 'true' -> let <_4> = apply 'keep_suffix_search_rules'/1 (Rules) in apply 'try_suffix_rules'/3 (_4,Filename,Dir) end
+'try_suffix_rules'/3 = fun (_0,_1,_2) -> let <Ext> = call 'filename':'extension' (_1) in let <_4> = call 'filename':'rootname' (_1,Ext) in apply 'try_suffix_rules'/4 (_0,_4,_2,Ext)
+'try_suffix_rules'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <[{Ext,Src,Rules}|Rest],Root,Dir,_13> when let <_14> = call 'erlang':'=:=' (_13,Ext) in let <_4> = call 'erlang':'is_list' (Src) in let <_5> = call 'erlang':'is_list' (Rules) in let <_15> = call 'erlang':'and' (_4,_5) in call 'erlang':'and' (_14,_15) -> let <_7> = apply 'add_local_search'/1 (Rules) in let <_6> = call 'erlang':'++' (Root,Src) in case apply 'try_dir_rules'/3 (_7,_6,Dir) of <_@r0 = {'ok',File}> when 'true' -> _@r0
+<_X_Other> when 'true' -> apply 'try_suffix_rules'/4 (Rest,Root,Dir,Ext) end
+<[_16|Rest],Root,Dir,Ext> when 'true' -> apply 'try_suffix_rules'/4 (Rest,Root,Dir,Ext)
+<[],_X_Root,_X_Dir,_X_Ext> when 'true' -> {'error','not_found'}
+(<_12,_11,_10,_9> when 'true' -> (primop 'match_fail' ({'function_clause',_12,_11,_10,_9})-|[{'function_name',{'try_suffix_rules',4}}] )-|['compiler_generated'] ) end
+'add_local_search'/1 = fun (_0) -> let <_4> = fun (_2) -> call 'erlang':'=/=' (_2,{[],[]}) in let <_5> = call 'lists':'filter' (_4,_0) in [{[],[]}|_5]
+'try_dir_rules'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <[{From,To}|Rest],Filename,Dir> when let <_3> = call 'erlang':'is_list' (From) in let <_4> = call 'erlang':'is_list' (To) in call 'erlang':'and' (_3,_4) -> case apply 'try_dir_rule'/4 (Dir,Filename,From,To) of <_@r0 = {'ok',File}> when 'true' -> _@r0
+<'error'> when 'true' -> apply 'try_dir_rules'/3 (Rest,Filename,Dir)
+(<_5> when 'true' -> primop 'match_fail' ({'case_clause',_5})-|['compiler_generated'] ) end
+<[],_X_Filename,_X_Dir> when 'true' -> {'error','not_found'}
+(<_8,_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_8,_7,_6})-|[{'function_name',{'try_dir_rules',3}}] )-|['compiler_generated'] ) end
+'try_dir_rule'/4 = fun (_0,_1,_2,_3) -> case call 'lists':'suffix' (_2,_0) of <'true'> when 'true' -> let <_5> = call 'erlang':'length' (_0) in let <_4> = call 'erlang':'length' (_2) in let <_6> = call 'erlang':'-' (_5,_4) in let <_7> = call 'lists':'sublist' (_0,1,_6) in let <NewDir> = call 'erlang':'++' (_7,_3) in let <Src> = call 'filename':'join' (NewDir,_1) in case apply 'is_regular'/1 (Src) of <'true'> when 'true' -> {'ok',Src}
+<'false'> when 'true' -> let <_10> = apply 'wildcard'/1 (Src) in apply 'find_regular_file'/1 (_10)
+(<_11> when 'true' -> primop 'match_fail' ({'case_clause',_11})-|['compiler_generated'] ) end
+<'false'> when 'true' -> 'error'
+(<_12> when 'true' -> primop 'match_fail' ({'case_clause',_12})-|['compiler_generated'] ) end
+'find_regular_file'/1 = fun (_0) -> case _0 of <[]> when 'true' -> 'error'
+<[File|Files]> when 'true' -> case apply 'is_regular'/1 (File) of <'true'> when 'true' -> {'ok',File}
+<'false'> when 'true' -> apply 'find_regular_file'/1 (Files)
+(<_1> when 'true' -> primop 'match_fail' ({'case_clause',_1})-|['compiler_generated'] ) end
+(<_2> when 'true' -> (primop 'match_fail' ({'function_clause',_2})-|[{'function_name',{'find_regular_file',1}}] )-|['compiler_generated'] ) end
+'safe_relative_path'/2 = fun (_0,_1) -> case call 'filename':'pathtype' (_0) of <'relative'> when 'true' -> let <_2> = call 'filename':'split' (_0) in apply 'safe_relative_path'/4 (_2,_1,[],[])
+<_6> when 'true' -> 'unsafe' end
+'safe_relative_path'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <[],_X_Cwd,_X_PrevLinks,Acc> when 'true' -> Acc
+<[Segment|Segments],Cwd,PrevLinks,Acc> when 'true' -> let <AccSegment> = apply 'join'/2 (Acc,Segment) in case apply 'safe_relative_path'/1 (AccSegment) of <'unsafe'> when 'true' -> 'unsafe'
+<SafeAccSegment> when 'true' -> let <_5> = apply 'join'/2 (Cwd,SafeAccSegment) in case call 'file':'read_link' (_5) of <{'ok',LinkPath}> when 'true' -> case call 'lists':'member' (LinkPath,PrevLinks) of <'true'> when 'true' -> 'unsafe'
+<'false'> when 'true' -> let <_6> = call 'filename':'split' (LinkPath) in case apply 'safe_relative_path'/4 (_6,Cwd,[LinkPath|PrevLinks],Acc) of <'unsafe'> when 'true' -> 'unsafe'
+<NewAcc> when 'true' -> apply 'safe_relative_path'/4 (Segments,Cwd,[],NewAcc) end
+(<_8> when 'true' -> primop 'match_fail' ({'case_clause',_8})-|['compiler_generated'] ) end
+<{'error',_15}> when 'true' -> apply 'safe_relative_path'/4 (Segments,Cwd,PrevLinks,SafeAccSegment)
+(<_9> when 'true' -> primop 'match_fail' ({'case_clause',_9})-|['compiler_generated'] ) end end
+(<_14,_13,_12,_11> when 'true' -> (primop 'match_fail' ({'function_clause',_14,_13,_12,_11})-|[{'function_name',{'safe_relative_path',4}}] )-|['compiler_generated'] ) end
+'join'/2 = fun (_0,_1) -> case <_0,_1> of <[],Path> when 'true' -> Path
+<Left,Right> when 'true' -> call 'filename':'join' (Left,Right) end
+'safe_relative_path'/1 = fun (_0) -> case call 'filename':'pathtype' (_0) of <'relative'> when 'true' -> let <Cs0> = call 'filename':'split' (_0) in apply 'safe_relative_path_1'/2 (Cs0,[])
+<_4> when 'true' -> 'unsafe' end
+'safe_relative_path_1'/2 = fun (_0,_1) -> case <_0,_1> of <[[46]|T],Acc> when 'true' -> apply 'safe_relative_path_1'/2 (T,Acc)
+<[#{#<46>(8,1,'integer',['unsigned'|['big']])}#|T],Acc> when 'true' -> apply 'safe_relative_path_1'/2 (T,Acc)
+<[[46|[46]]|T],Acc> when 'true' -> apply 'climb'/2 (T,Acc)
+<[#{#<46>(8,1,'integer',['unsigned'|['big']]),#<46>(8,1,'integer',['unsigned'|['big']])}#|T],Acc> when 'true' -> apply 'climb'/2 (T,Acc)
+<[H|T],Acc> when 'true' -> apply 'safe_relative_path_1'/2 (T,[H|Acc])
+<[],[]> when 'true' -> []
+<[],Acc> when 'true' -> let <_2> = call 'lists':'reverse' (Acc) in call 'filename':'join' (_2)
+(<_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_4,_3})-|[{'function_name',{'safe_relative_path_1',2}}] )-|['compiler_generated'] ) end
+'climb'/2 = fun (_0,_1) -> case <_0,_1> of <_4,[]> when 'true' -> 'unsafe'
+<T,[_5|Acc]> when 'true' -> apply 'safe_relative_path_1'/2 (T,Acc)
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'climb',2}}] )-|['compiler_generated'] ) end
+'module_info'/0 = fun () -> call 'erlang':'get_module_info' ('filelib')
+'module_info'/1 = fun (_0) -> call 'erlang':'get_module_info' ('filelib',_0) end

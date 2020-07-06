@@ -1,0 +1,132 @@
+module 'erlsrv' ['disable_service'/1,'disable_service'/2,'enable_service'/1,'enable_service'/2,'erlsrv'/1,'get_all_services'/0,'get_service'/1,'get_service'/2,'module_info'/0,'module_info'/1,'new_service'/3,'new_service'/4,'remove_service'/1,'rename_service'/2,'rename_service'/3,'store_service'/1,'store_service'/2] attributes [ 'file' = [{[115|[114|[99|[47|[101|[114|[108|[115|[114|[118|[46|[101|[114|[108]]]]]]]]]]]]]],1}] ] 'erlsrv'/1 = (fun (_0) -> let <Root> = call 'code':'root_dir' () in let <_2> = call 'erlang':'++' ([101|[114|[116|[115|[45]]]]],(_0-|[{'function',{'erlsrv',1}}] )) in call 'filename':'join' ([Root|[_2|[[98|[105|[110]]]|[[101|[114|[108|[115|[114|[118|[46|[101|[120|[101]]]]]]]]]]]]]])-|[{'function',{'erlsrv',1}}] )
+'current_version'/0 = (fun () -> let <_0> = call 'erlang':'system_info' ('version') in let <_1> = call 'string':'lexemes' (_0,[95|[32]]) in call 'erlang':'hd' (_1)-|[{'function',{'current_version',0}}] )
+'run_erlsrv'/1 = (fun (_0) -> let <_1> = apply 'current_version'/0 () in apply 'run_erlsrv'/2 (_1,(_0-|[{'function',{'run_erlsrv',1}}] ))-|[{'function',{'run_erlsrv',1}}] )
+'run_erlsrv'/2 = (fun (_0,_1) -> let <_6> = catch let <_3> = apply 'erlsrv'/1 (_0) in let <_2> = [34|[32|_1]] in let <_4> = call 'erlang':'++' (_3,_2) in let <_5> = [34|_4] in call 'erlang':'open_port' ({'spawn',_5},[{'line',1000}|['in'|['eof']]]) in case _6 of <{'EXIT',{Reason,_11}}> when 'true' -> {'port_error',Reason}
+<Port> when 'true' -> case apply 'read_all_data'/1 (Port) of <[]> when 'true' -> 'failed'
+<X> when 'true' -> {'ok',X} end end-|[{'function',{'run_erlsrv',2}}] )
+'run_erlsrv_interactive'/2 = (fun (_0,_1) -> let <_5> = catch let <_2> = apply 'erlsrv'/1 (_0) in let <_3> = call 'erlang':'++' (_2,[34|[32|[114|[101|[97|[100|[97|[114|[103|[115]]]]]]]]]]) in let <_4> = [34|_3] in call 'erlang':'open_port' ({'spawn',_4},[{'line',1000}|['eof']]) in case _5 of <{'EXIT',{Reason,_10}}> when 'true' -> {'port_error',Reason}
+<Port> when 'true' -> do apply 'write_all_data'/2 (Port,_1) case apply 'read_all_data'/1 (Port) of <[]> when 'true' -> 'failed'
+<X> when 'true' -> {'ok',X} end end-|[{'function',{'run_erlsrv_interactive',2}}] )
+'write_all_data'/2 = (fun (_0,_1) -> (case <_0,_1> of <Port,[]> when 'true' -> let <_3> = call 'erlang':'self' () in let <_2> = call 'io_lib':'nl' () in do call 'erlang':'!' (Port,{_3,{'command',_2}}) 'ok'
+<Port,[H|T]> when 'true' -> let <_6> = call 'erlang':'self' () in let <_4> = call 'io_lib':'nl' () in let <_5> = call 'unicode':'characters_to_binary' ([H|[_4|[]]]) in do call 'erlang':'!' (Port,{_6,{'command',_5}}) apply 'write_all_data'/2 (Port,T)
+(<_8,_7> when 'true' -> primop 'match_fail' ({'function_clause',_8,_7})-|['compiler_generated'] ) end-|[{'function',{'write_all_data',2}}] )-|[{'function',{'write_all_data',2}}] )
+'read_all_data'/1 = (fun (_0) -> let <_1> = apply 'read_all_data'/3 ((_0-|[{'function',{'read_all_data',1}}] ),[],[]) in let <Data0> = call 'lists':'reverse' (_1) in (letrec 'lc$^0'/1 = fun (_5) -> case _5 of <[Data|_4]> when 'true' -> let <_7> = call 'erlang':'list_to_binary' (Data) in let <_8> = call 'unicode':'characters_to_list' (_7) in let <_9> = apply 'lc$^0'/1 (_4) in ([_8|_9]-|['compiler_generated'] )
+<[]> when 'true' -> []
+(<_6> when 'true' -> primop 'match_fail' ({'function_clause',_6})-|['compiler_generated'] ) end in apply 'lc$^0'/1 (Data0)-|['list_comprehension'] )-|[{'function',{'read_all_data',1}}] )
+'read_all_data'/3 = (fun (_0,_1,_2) -> (letrec 'recv$^1'/0 = fun () -> let <_20,_18> = primop 'recv_peek_message' () in case _20 of <'true'> when 'true' -> case _18 of <{_10,{'data',{'noeol',Data}}}> when call 'erlang':'=:=' (_10,_0) -> do primop 'remove_message' () let <_3> = call 'erlang':'++' (_1,Data) in apply 'read_all_data'/3 (_0,_3,_2)
+<{_11,{'data',{'eol',Data}}}> when call 'erlang':'=:=' (_11,_0) -> do primop 'remove_message' () let <_4> = call 'erlang':'++' (_1,Data) in apply 'read_all_data'/3 (_0,[],[_4|_2])
+<{_12,_X_Other}> when call 'erlang':'=:=' (_12,_0) -> do primop 'remove_message' () let <_5> = call 'erlang':'self' () in do call 'erlang':'!' (_0,{_5,'close'}) (letrec 'recv$^0'/0 = fun () -> let <_17,_15> = primop 'recv_peek_message' () in case _17 of <'true'> when 'true' -> case _15 of <{_13,'closed'}> when call 'erlang':'=:=' (_13,_0) -> do primop 'remove_message' () case _1 of <[]> when 'true' -> _2
+<_14> when 'true' -> [_1|_2] end
+(<Other> when 'true' -> do primop 'recv_next' () (apply 'recv$^0'/0 ()-|['dialyzer_ignore'] )-|['compiler_generated','dialyzer_ignore'] ) end
+(<'false'> when 'true' -> let <_16> = primop 'recv_wait_timeout' ('infinity') in case _16 of <'true'> when 'true' -> do primop 'timeout' () 'true'
+(<'false'> when 'true' -> (apply 'recv$^0'/0 ()-|['dialyzer_ignore'] )-|['dialyzer_ignore'] ) end-|['dialyzer_ignore'] ) end in (apply 'recv$^0'/0 ()-|['dialyzer_ignore'] )-|['letrec_goto'] )
+(<Other> when 'true' -> do primop 'recv_next' () (apply 'recv$^1'/0 ()-|['dialyzer_ignore'] )-|['compiler_generated','dialyzer_ignore'] ) end
+(<'false'> when 'true' -> let <_19> = primop 'recv_wait_timeout' ('infinity') in case _19 of <'true'> when 'true' -> do primop 'timeout' () 'true'
+(<'false'> when 'true' -> (apply 'recv$^1'/0 ()-|['dialyzer_ignore'] )-|['dialyzer_ignore'] ) end-|['dialyzer_ignore'] ) end in (apply 'recv$^1'/0 ()-|['dialyzer_ignore'] )-|['letrec_goto'] )-|[{'function',{'read_all_data',3}}] )
+'get_all_services'/0 = (fun () -> case apply 'run_erlsrv'/1 ([108|[105|[115|[116]]]]) of <'failed'> when 'true' -> []
+<{'ok',[_5|[]]}> when 'true' -> []
+<{'ok',[_X_H|T]}> when 'true' -> let <F> = fun (_1) -> let <_0> = call 'string':'lexemes' (_1,[9|[32]]) in call 'erlang':'hd' (_0) in call 'lists':'map' (F,T)
+<_6> when 'true' -> {'error','external_program_failed'} end-|[{'function',{'get_all_services',0}}] )
+'disable_service'/1 = (fun (_0) -> let <_1> = apply 'current_version'/0 () in apply 'disable_service'/2 (_1,(_0-|[{'function',{'disable_service',1}}] ))-|[{'function',{'disable_service',1}}] )
+'disable_service'/2 = (fun (_0,_1) -> let <_2> = call 'erlang':'++' ([100|[105|[115|[97|[98|[108|[101|[32]]]]]]]],_1) in apply 'run_erlsrv'/2 (_0,_2)-|[{'function',{'disable_service',2}}] )
+'enable_service'/1 = (fun (_0) -> let <_1> = apply 'current_version'/0 () in apply 'enable_service'/2 (_1,(_0-|[{'function',{'enable_service',1}}] ))-|[{'function',{'enable_service',1}}] )
+'enable_service'/2 = (fun (_0,_1) -> let <_2> = call 'erlang':'++' ([101|[110|[97|[98|[108|[101|[32]]]]]]],_1) in apply 'run_erlsrv'/2 (_0,_2)-|[{'function',{'enable_service',2}}] )
+'remove_service'/1 = (fun (_0) -> let <_1> = call 'erlang':'++' ([114|[101|[109|[111|[118|[101|[32]]]]]]],(_0-|[{'function',{'remove_service',1}}] )) in apply 'run_erlsrv'/1 (_1)-|[{'function',{'remove_service',1}}] )
+'rename_service'/2 = (fun (_0,_1) -> let <_2> = apply 'current_version'/0 () in apply 'rename_service'/3 (_2,_0,_1)-|[{'function',{'rename_service',2}}] )
+'rename_service'/3 = (fun (_0,_1,_2) -> let <_3> = [32|_2] in let <_4> = call 'erlang':'++' (_1,_3) in let <_5> = call 'erlang':'++' ([114|[101|[110|[97|[109|[101|[32]]]]]]],_4) in apply 'run_erlsrv'/2 (_0,_5)-|[{'function',{'rename_service',3}}] )
+'get_service'/1 = (fun (_0) -> let <_1> = apply 'current_version'/0 () in apply 'get_service'/2 (_1,(_0-|[{'function',{'get_service',1}}] ))-|[{'function',{'get_service',1}}] )
+'get_service'/2 = (fun (_0,_1) -> let <_2> = call 'erlang':'++' ([108|[105|[115|[116|[32]]]]],_1) in case apply 'run_erlsrv'/2 (_0,_2) of <'failed'> when 'true' -> {'error','no_such_service'}
+<_@r0 = {'port_error',Reason}> when 'true' -> {'error',_@r0}
+<{'ok',Data}> when 'true' -> let <F> = fun (_6) -> case apply 'splitline'/1 (_6) of <{Name,Value}> when 'true' -> case call 'lists':'keysearch' (Name,1,[{[83|[101|[114|[118|[105|[99|[101|[32|[110|[97|[109|[101]]]]]]]]]]]],'servicename',[]}|[{[83|[116|[111|[112|[65|[99|[116|[105|[111|[110]]]]]]]]]],'stopaction',[]}|[{[79|[110|[70|[97|[105|[108]]]]]],'onfail',[105|[103|[110|[111|[114|[101]]]]]]}|[{[77|[97|[99|[104|[105|[110|[101]]]]]]],'machine',[]}|[{[87|[111|[114|[107|[68|[105|[114]]]]]]],'workdir',[]}|[{[83|[78|[97|[109|[101]]]]],'sname',[]}|[{[78|[97|[109|[101]]]],'name',[]}|[{[80|[114|[105|[111|[114|[105|[116|[121]]]]]]]],'priority',[100|[101|[102|[97|[117|[108|[116]]]]]]]}|[{[68|[101|[98|[117|[103|[84|[121|[112|[101]]]]]]]]],'debugtype',[110|[111|[110|[101]]]]}|[{[65|[114|[103|[115]]]],'args',[]}|[{[73|[110|[116|[101|[114|[110|[97|[108|[83|[101|[114|[118|[105|[99|[101|[78|[97|[109|[101]]]]]]]]]]]]]]]]]]],'internalservicename',[]}|[{[67|[111|[109|[109|[101|[110|[116]]]]]]],'comment',[]}]]]]]]]]]]]]) of <{'value',{_28,_X_Atom,_29}}> when let <_30> = call 'erlang':'=:=' (_28,Name) in let <_31> = call 'erlang':'=:=' (_29,Value) in call 'erlang':'and' (_30,_31) -> []
+<{'value',{_32,Atom,_33}}> when call 'erlang':'=:=' (_32,Name) -> {Atom,Value}
+<_34> when 'true' -> [] end
+(<_4> when 'true' -> primop 'match_fail' ({'badmatch',_4})-|['compiler_generated'] ) end in case apply 'split_by_env'/1 (Data) of <{Before,After}> when 'true' -> let <_10> = call 'lists':'map' (F,Before) in let <FirstPass> = call 'lists':'flatten' (_10) in let <SecondPass> = apply 'split_arglist'/1 (FirstPass) in let <_22> = fun (_20) -> let <X> = call 'string':'trim' (_20,'leading',[36|[9]]) in let <_14> = call 'string':'lexemes' (X,[61]) in case call 'erlang':'hd' (_14) of <_35> when call 'erlang':'=:=' (_35,X) -> {X,[]}
+<Y> when 'true' -> let <_16> = call 'erlang':'length' (Y) in let <_17> = call 'erlang':'+' (_16,2) in let <_15> = call 'erlang':'length' (X) in let <_18> = call 'lists':'sublist' (X,_17,_15) in {Y,_18} end in let <EnvParts> = call 'lists':'map' (_22,After) in case EnvParts of <[]> when 'true' -> SecondPass
+<_36> when 'true' -> call 'lists':'append' (SecondPass,[{'env',EnvParts}|[]]) end
+(<_9> when 'true' -> primop 'match_fail' ({'badmatch',_9})-|['compiler_generated'] ) end
+(<_25> when 'true' -> primop 'match_fail' ({'case_clause',_25})-|['compiler_generated'] ) end-|[{'function',{'get_service',2}}] )
+'store_service'/1 = (fun (_0) -> let <_1> = apply 'current_version'/0 () in apply 'store_service'/2 (_1,(_0-|[{'function',{'store_service',1}}] ))-|[{'function',{'store_service',1}}] )
+'store_service'/2 = (fun (_0,_1) -> case call 'lists':'keysearch' ('servicename',1,_1) of <'false'> when 'true' -> {'error','no_servicename'}
+<{'value',{_12,Name}}> when 'true' -> let <_16,_17> = case apply 'get_service'/2 (_0,Name) of <{'error','no_such_service'}> when 'true' -> <[97|[100|[100]]],_1>
+<_13> when 'true' -> let <_2> = call 'lists':'keydelete' ('internalservicename',1,_1) in <[115|[101|[116]]],_2> end in let <_6> = apply 'build_commands'/2 (Name,(_17-|['compiler_generated'] )) in let <Commands> = [(_16-|['compiler_generated'] )|_6] in case apply 'run_erlsrv_interactive'/2 (_0,Commands) of <{'ok',_14}> when 'true' -> 'ok'
+<X> when 'true' -> {'error',X} end
+<_15> when 'true' -> {'error','malformed_description'} end-|[{'function',{'store_service',2}}] )
+'build_commands'/2 = (fun (_0,_1) -> let <_2> = apply 'build_commands2'/2 (_1,[]) in let <_3> = call 'lists':'reverse' (_2) in [_0|_3]-|[{'function',{'build_commands',2}}] )
+'build_commands2'/2 = (fun (_0,_1) -> (case <_0,_1> of <[],A> when 'true' -> A
+<[{'env',[]}|T],A> when 'true' -> apply 'build_commands2'/2 (T,A)
+<[{'env',[{Var,Val}|Et]}|T],A> when 'true' -> let <_2> = [61|Val] in let <_3> = call 'erlang':'++' (Var,_2) in apply 'build_commands2'/2 ([{'env',Et}|T],[_3|[[45|[101|[110|[118]]]]|A]])
+<[{'servicename',_11}|T],A> when 'true' -> apply 'build_commands2'/2 (T,A)
+<[{Atom,[]}|T],A> when 'true' -> let <_4> = call 'erlang':'atom_to_list' (Atom) in let <_5> = [45|_4] in apply 'build_commands2'/2 (T,[_5|A])
+<[{'args',L}|T],A> when 'true' -> let <_6> = apply 'concat_args'/1 (L) in apply 'build_commands2'/2 (T,[_6|[[45|[97|[114|[103|[115]]]]]|A]])
+<[{Atom,Value}|T],A> when 'true' -> let <_7> = call 'erlang':'atom_to_list' (Atom) in let <_8> = [45|_7] in apply 'build_commands2'/2 (T,[Value|[_8|A]])
+(<_10,_9> when 'true' -> primop 'match_fail' ({'function_clause',_10,_9})-|['compiler_generated'] ) end-|[{'function',{'build_commands2',2}}] )-|[{'function',{'build_commands2',2}}] )
+'concat_args'/1 = (fun (_0) -> (case (_0-|[{'function',{'concat_args',1}}] ) of <[H|T]> when 'true' -> let <_1> = apply 'concat_args2'/1 (T) in call 'erlang':'++' (H,_1)
+(<_2> when 'true' -> primop 'match_fail' ({'function_clause',_2})-|['compiler_generated'] ) end-|[{'function',{'concat_args',1}}] )-|[{'function',{'concat_args',1}}] )
+'concat_args2'/1 = (fun (_0) -> (case (_0-|[{'function',{'concat_args2',1}}] ) of <[]> when 'true' -> []
+<[H|T]> when 'true' -> let <_1> = apply 'concat_args2'/1 (T) in let <_2> = call 'erlang':'++' (H,_1) in [32|_2]
+(<_3> when 'true' -> primop 'match_fail' ({'function_clause',_3})-|['compiler_generated'] ) end-|[{'function',{'concat_args2',1}}] )-|[{'function',{'concat_args2',1}}] )
+'new_service'/3 = (fun (_0,_1,_2) -> apply 'new_service'/4 (_0,_1,_2,[])-|[{'function',{'new_service',3}}] )
+'new_service'/4 = (fun (_0,_1,_2,_3) -> let <Tmp0> = call 'lists':'keydelete' ('internalservicename',1,_1) in let <Tmp1> = call 'lists':'keyreplace' ('servicename',1,Tmp0,{'servicename',_0}) in let <_8> = case call 'lists':'keysearch' ('env',1,Tmp1) of <{'value',{'env',Env0}}> when 'true' -> let <Env1> = call 'lists':'keydelete' ([69|[82|[76|[83|[82|[86|[95|[83|[69|[82|[86|[73|[67|[69|[95|[78|[65|[77|[69]]]]]]]]]]]]]]]]]]],1,Env0) in call 'lists':'keyreplace' ('env',1,Tmp1,{'env',[{[69|[82|[76|[83|[82|[86|[95|[83|[69|[82|[86|[73|[67|[69|[95|[78|[65|[77|[69]]]]]]]]]]]]]]]]]]],_3}|Env1]})
+<_42> when 'true' -> Tmp1 end in let <_11> = case call 'lists':'keysearch' ('args',1,_8) of <'false'> when 'true' -> []
+<{'value',{'args',OldArgs}}> when 'true' -> OldArgs
+(<_10> when 'true' -> primop 'match_fail' ({'case_clause',_10})-|['compiler_generated'] ) end in let <Args> = apply 'backstrip'/2 (_11,[43|[43]]) in let <_19> = fun (_16,_15) -> case <_16,_15> of <A,_@r0 = {Flag,AccIn}> when 'true' -> case <Flag,A> of <('true'-|['compiler_generated'] ),_43> when 'true' -> _@r0
+<'false',[43|[43]]> when 'true' -> {'true',AccIn}
+<(_51-|['compiler_generated'] ),(_52-|['compiler_generated'] )> when 'true' -> {'false',[A|AccIn]} end
+(<_18,_17> when 'true' -> primop 'match_fail' ({'function_clause',_18,_17})-|['compiler_generated'] ) end in case call 'lists':'foldr' (_19,{'false',[]},Args) of <{Found,Tail}> when 'true' -> let <_22> = case Found of <'true'> when 'true' -> apply 'check_tail'/1 (Tail)
+<'false'> when 'true' -> {[],'false'}
+(<_21> when 'true' -> primop 'match_fail' ({'case_clause',_21})-|['compiler_generated'] ) end in case _22 of <{OtherFlags,_X_DataDir}> when 'true' -> let <_25> = case _2 of <[]> when 'true' -> OtherFlags
+<_45> when 'true' -> [[45|[100|[97|[116|[97]]]]]|[_2|OtherFlags]] end in case Found of <'false'> when 'true' -> let <_28> = case _25 of <[]> when 'true' -> []
+<_46> when 'true' -> [[43|[43]]|_25] end in case <Args,_28> of <[],[]> when 'true' -> _8
+<([]-|['compiler_generated'] ),_47> when 'true' -> call 'erlang':'++' (_8,[{'args',_28}|[]])
+<_48,_49> when 'true' -> let <_30> = call 'erlang':'++' (Args,_28) in call 'lists':'keyreplace' ('args',1,_8,{'args',_30}) end
+<'true'> when 'true' -> let <StripArgs> = apply 'backstrip'/2 (Args,[[43|[43]]|Tail]) in let <_34> = case _25 of <[]> when 'true' -> []
+<_50> when 'true' -> [[43|[43]]|_25] end in let <NewArgs> = call 'erlang':'++' (StripArgs,_34) in call 'lists':'keyreplace' ('args',1,_8,{'args',NewArgs})
+(<_37> when 'true' -> primop 'match_fail' ({'case_clause',_37})-|['compiler_generated'] ) end
+(<_23> when 'true' -> primop 'match_fail' ({'badmatch',_23})-|['compiler_generated'] ) end
+(<_20> when 'true' -> primop 'match_fail' ({'badmatch',_20})-|['compiler_generated'] ) end-|[{'function',{'new_service',4}}] )
+'backstrip'/2 = (fun (_0,_1) -> let <_3> = call 'lists':'reverse' (_0) in let <_2> = call 'lists':'reverse' (_1) in let <_4> = apply 'backstrip2'/2 (_3,_2) in call 'lists':'reverse' (_4)-|[{'function',{'backstrip',2}}] )
+'backstrip2'/2 = (fun (_0,_1) -> (case <_0,_1> of <[A|T1],[_4|T2]> when call 'erlang':'=:=' (_4,A) -> apply 'backstrip2'/2 (T1,T2)
+<L,_5> when 'true' -> L end-|[{'function',{'backstrip2',2}}] )-|[{'function',{'backstrip2',2}}] )
+'check_tail'/1 = (fun (_0) -> case apply 'check_tail'/3 ((_0-|[{'function',{'check_tail',1}}] ),[],'false') of <{A,B}> when 'true' -> let <_2> = call 'lists':'reverse' (A) in {_2,B}
+(<_1> when 'true' -> primop 'match_fail' ({'badmatch',_1})-|['compiler_generated'] ) end-|[{'function',{'check_tail',1}}] )
+'check_tail'/3 = (fun (_0,_1,_2) -> (case <_0,_1,_2> of <[],OtherFlags,DataDir> when 'true' -> {OtherFlags,DataDir}
+<[[45|[100|[97|[116|[97]]]]]|[TheDataDir|T]],OtherFlags,_X_DataDir> when 'true' -> apply 'check_tail'/3 (T,OtherFlags,TheDataDir)
+<[H|T],OtherFlags,DataDir> when 'true' -> apply 'check_tail'/3 (T,[H|OtherFlags],DataDir)
+(<_5,_4,_3> when 'true' -> primop 'match_fail' ({'function_clause',_5,_4,_3})-|['compiler_generated'] ) end-|[{'function',{'check_tail',3}}] )-|[{'function',{'check_tail',3}}] )
+'split_arglist'/1 = (fun (_0) -> (case (_0-|[{'function',{'split_arglist',1}}] ) of <[]> when 'true' -> []
+<[{'args',Str}|T]> when 'true' -> let <_1> = apply 'parse_arglist'/1 (Str) in [{'args',_1}|T]
+<[H|T]> when 'true' -> let <_2> = apply 'split_arglist'/1 (T) in [H|_2]
+(<_3> when 'true' -> primop 'match_fail' ({'function_clause',_3})-|['compiler_generated'] ) end-|[{'function',{'split_arglist',1}}] )-|[{'function',{'split_arglist',1}}] )
+'parse_arglist'/1 = (fun (_0) -> let <_1> = apply 'parse_arglist'/2 ((_0-|[{'function',{'parse_arglist',1}}] ),[]) in call 'lists':'reverse' (_1)-|[{'function',{'parse_arglist',1}}] )
+'parse_arglist'/2 = (fun (_0,_1) -> let <Stripped> = call 'string':'trim' (_0,'leading') in case call 'erlang':'length' (Stripped) of <0> when 'true' -> _1
+<_7> when 'true' -> case apply 'pick_argument'/1 (_0) of <{Next,Rest}> when 'true' -> apply 'parse_arglist'/2 (Rest,[Next|_1])
+(<_3> when 'true' -> primop 'match_fail' ({'badmatch',_3})-|['compiler_generated'] ) end end-|[{'function',{'parse_arglist',2}}] )
+'pick_argument'/1 = (fun (_0) -> case apply 'pick_argument'/3 ('normal',(_0-|[{'function',{'pick_argument',1}}] ),[]) of <{Rev,Rest}> when 'true' -> let <_2> = call 'lists':'reverse' (Rev) in {_2,Rest}
+(<_1> when 'true' -> primop 'match_fail' ({'badmatch',_1})-|['compiler_generated'] ) end-|[{'function',{'pick_argument',1}}] )
+'pick_argument'/3 = (fun (_0,_1,_2) -> (case <_0,_1,_2> of <_6,[],Acc> when 'true' -> {Acc,[]}
+<'normal',[32|T],Acc> when 'true' -> {Acc,T}
+<'normal',[92|T],Acc> when 'true' -> apply 'pick_argument'/3 ('normal_escaped',T,[92|Acc])
+<'normal',[34|T],Acc> when 'true' -> apply 'pick_argument'/3 ('quoted',T,[34|Acc])
+<'normal_escaped',[34|T],Acc> when 'true' -> apply 'pick_argument'/3 ('bquoted',T,[34|Acc])
+<'normal_escaped',[A|T],Acc> when 'true' -> apply 'pick_argument'/3 ('normal',T,[A|Acc])
+<'quoted_escaped',[H|T],Acc> when 'true' -> apply 'pick_argument'/3 ('quoted',T,[H|Acc])
+<'quoted',[34|T],Acc> when 'true' -> apply 'pick_argument'/3 ('normal',T,[34|Acc])
+<'quoted',[92|T],Acc> when 'true' -> apply 'pick_argument'/3 ('quoted_escaped',T,[92|Acc])
+<'quoted',[H|T],Acc> when 'true' -> apply 'pick_argument'/3 ('quoted',T,[H|Acc])
+<'bquoted_escaped',[34|T],Acc> when 'true' -> apply 'pick_argument'/3 ('normal',T,[34|Acc])
+<'bquoted_escaped',[H|T],Acc> when 'true' -> apply 'pick_argument'/3 ('bquoted',T,[H|Acc])
+<'bquoted',[92|T],Acc> when 'true' -> apply 'pick_argument'/3 ('bquoted_escaped',T,[92|Acc])
+<'bquoted',[H|T],Acc> when 'true' -> apply 'pick_argument'/3 ('bquoted',T,[H|Acc])
+<'normal',[H|T],Acc> when 'true' -> apply 'pick_argument'/3 ('normal',T,[H|Acc])
+(<_5,_4,_3> when 'true' -> primop 'match_fail' ({'function_clause',_5,_4,_3})-|['compiler_generated'] ) end-|[{'function',{'pick_argument',3}}] )-|[{'function',{'pick_argument',3}}] )
+'split_helper'/2 = (fun (_0,_1) -> (case <_0,_1> of <[69|[110|[118|[58]]]],{Where,0}> when 'true' -> let <_2> = call 'erlang':'+' (Where,1) in {_2,Where}
+<_6,{Where,Pos}> when 'true' -> let <_3> = call 'erlang':'+' (Where,1) in {_3,Pos}
+(<_5,_4> when 'true' -> primop 'match_fail' ({'function_clause',_5,_4})-|['compiler_generated'] ) end-|[{'function',{'split_helper',2}}] )-|[{'function',{'split_helper',2}}] )
+'split_by_env'/1 = (fun (_0) -> let <_1> = 'split_helper'/2 in case call 'lists':'foldl' (_1,{0,0},(_0-|[{'function',{'split_by_env',1}}] )) of <{_7,0}> when 'true' -> {(_0-|[{'function',{'split_by_env',1}}] ),[]}
+<{Len,Pos}> when 'true' -> let <_4> = call 'lists':'sublist' ((_0-|[{'function',{'split_by_env',1}}] ),Pos) in let <_2> = call 'erlang':'+' (Pos,2) in let <_3> = call 'lists':'sublist' ((_0-|[{'function',{'split_by_env',1}}] ),_2,Len) in {_4,_3}
+(<_5> when 'true' -> primop 'match_fail' ({'case_clause',_5})-|['compiler_generated'] ) end-|[{'function',{'split_by_env',1}}] )
+'splitline'/1 = (fun (_0) -> case call 'string':'split' ((_0-|[{'function',{'splitline',1}}] ),[58]) of <[_4|[]]> when 'true' -> {(_0-|[{'function',{'splitline',1}}] ),[]}
+<[N|[V|[]]]> when 'true' -> let <_1> = call 'string':'slice' (V,1) in {N,_1}
+(<_2> when 'true' -> primop 'match_fail' ({'case_clause',_2})-|['compiler_generated'] ) end-|[{'function',{'splitline',1}}] )
+'module_info'/0 = (fun () -> call 'erlang':'get_module_info' ('erlsrv')-|[{'function',{'module_info',0}}] )
+'module_info'/1 = (fun (_0) -> call 'erlang':'get_module_info' ('erlsrv',(_0-|[{'function',{'module_info',1}}] ))-|[{'function',{'module_info',1}}] ) end

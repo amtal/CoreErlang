@@ -1,0 +1,187 @@
+module 'gb_trees' ['balance'/1,'delete'/2,'delete_any'/2,'empty'/0,'enter'/3,'from_orddict'/1,'get'/2,'insert'/3,'is_defined'/2,'is_empty'/1,'iterator'/1,'iterator_from'/2,'keys'/1,'largest'/1,'lookup'/2,'map'/2,'module_info'/0,'module_info'/1,'next'/1,'size'/1,'smallest'/1,'take'/2,'take_any'/2,'take_largest'/1,'take_smallest'/1,'to_list'/1,'update'/3,'values'/1] attributes [ 'file' = [{[115|[114|[99|[47|[103|[98|[95|[116|[114|[101|[101|[115|[46|[101|[114|[108]]]]]]]]]]]]]]]],1}]
+, 'export_type' = [{'tree',0}|[{'tree',2}|[{'iter',0}|[{'iter',2}]]]]
+, 'type' = [{'gb_tree_node',{'type',163,'union',[{'atom',163,'nil'}|[{'type',164,'tuple',[{'var',164,'K'}|[{'var',164,'V'}|[{'user_type',164,'gb_tree_node',[{'var',164,'K'}|[{'var',164,'V'}]]}|[{'user_type',164,'gb_tree_node',[{'var',164,'K'}|[{'var',164,'V'}]]}]]]]}]]},[{'var',163,'K'}|[{'var',163,'V'}]]}]
+, 'opaque' = [{'tree',{'type',165,'tuple',[{'type',165,'non_neg_integer',[]}|[{'user_type',165,'gb_tree_node',[{'var',165,'Key'}|[{'var',165,'Value'}]]}]]},[{'var',165,'Key'}|[{'var',165,'Value'}]]}]
+, 'type' = [{'tree',{'user_type',166,'tree',[{'var',166,'_'}|[{'var',166,'_'}]]},[]}]
+, 'opaque' = [{'iter',{'type',167,'list',[{'user_type',167,'gb_tree_node',[{'var',167,'Key'}|[{'var',167,'Value'}]]}]},[{'var',167,'Key'}|[{'var',167,'Value'}]]}]
+, 'type' = [{'iter',{'user_type',168,'iter',[{'var',168,'_'}|[{'var',168,'_'}]]},[]}]
+, 'spec' = [{{'empty',0},[{'type',172,'fun',[{'type',172,'product',[]}|[{'user_type',172,'tree',[]}]]}]}]
+, 'spec' = [{{'is_empty',1},[{'type',177,'bounded_fun',[{'type',177,'fun',[{'type',177,'product',[{'var',177,'Tree'}]}|[{'type',177,'boolean',[]}]]}|[[{'type',178,'constraint',[{'atom',178,'is_subtype'}|[[{'var',178,'Tree'}|[{'user_type',178,'tree',[]}]]]]}]]]}]}]
+, 'spec' = [{{'size',1},[{'type',185,'bounded_fun',[{'type',185,'fun',[{'type',185,'product',[{'var',185,'Tree'}]}|[{'type',185,'non_neg_integer',[]}]]}|[[{'type',186,'constraint',[{'atom',186,'is_subtype'}|[[{'var',186,'Tree'}|[{'user_type',186,'tree',[]}]]]]}]]]}]}]
+, 'spec' = [{{'lookup',2},[{'type',193,'bounded_fun',[{'type',193,'fun',[{'type',193,'product',[{'var',193,'Key'}|[{'var',193,'Tree'}]]}|[{'type',193,'union',[{'atom',193,'none'}|[{'type',193,'tuple',[{'atom',193,'value'}|[{'var',193,'Value'}]]}]]}]]}|[[{'type',194,'constraint',[{'atom',194,'is_subtype'}|[[{'var',194,'Tree'}|[{'user_type',194,'tree',[{'var',194,'Key'}|[{'var',194,'Value'}]]}]]]]}]]]}]}]
+, 'spec' = [{{'is_defined',2},[{'type',219,'bounded_fun',[{'type',219,'fun',[{'type',219,'product',[{'var',219,'Key'}|[{'var',219,'Tree'}]]}|[{'type',219,'boolean',[]}]]}|[[{'type',220,'constraint',[{'atom',220,'is_subtype'}|[[{'var',220,'Tree'}|[{'user_type',220,'tree',[{'var',220,'Key'}|[{'ann_type',220,[{'var',220,'Value'}|[{'type',220,'term',[]}]]}]]}]]]]}]]]}]}]
+, 'spec' = [{{'get',2},[{'type',238,'bounded_fun',[{'type',238,'fun',[{'type',238,'product',[{'var',238,'Key'}|[{'var',238,'Tree'}]]}|[{'var',238,'Value'}]]}|[[{'type',239,'constraint',[{'atom',239,'is_subtype'}|[[{'var',239,'Tree'}|[{'user_type',239,'tree',[{'var',239,'Key'}|[{'var',239,'Value'}]]}]]]]}]]]}]}]
+, 'spec' = [{{'update',3},[{'type',253,'bounded_fun',[{'type',253,'fun',[{'type',253,'product',[{'var',253,'Key'}|[{'var',253,'Value'}|[{'var',253,'Tree1'}]]]}|[{'var',253,'Tree2'}]]}|[[{'type',254,'constraint',[{'atom',254,'is_subtype'}|[[{'var',254,'Tree1'}|[{'user_type',254,'tree',[{'var',254,'Key'}|[{'var',254,'Value'}]]}]]]]}|[{'type',255,'constraint',[{'atom',255,'is_subtype'}|[[{'var',255,'Tree2'}|[{'user_type',255,'tree',[{'var',255,'Key'}|[{'var',255,'Value'}]]}]]]]}]]]]}]}]
+, 'spec' = [{{'insert',3},[{'type',272,'bounded_fun',[{'type',272,'fun',[{'type',272,'product',[{'var',272,'Key'}|[{'var',272,'Value'}|[{'var',272,'Tree1'}]]]}|[{'var',272,'Tree2'}]]}|[[{'type',273,'constraint',[{'atom',273,'is_subtype'}|[[{'var',273,'Tree1'}|[{'user_type',273,'tree',[{'var',273,'Key'}|[{'var',273,'Value'}]]}]]]]}|[{'type',274,'constraint',[{'atom',274,'is_subtype'}|[[{'var',274,'Tree2'}|[{'user_type',274,'tree',[{'var',274,'Key'}|[{'var',274,'Value'}]]}]]]]}]]]]}]}]
+, 'spec' = [{{'enter',3},[{'type',323,'bounded_fun',[{'type',323,'fun',[{'type',323,'product',[{'var',323,'Key'}|[{'var',323,'Value'}|[{'var',323,'Tree1'}]]]}|[{'var',323,'Tree2'}]]}|[[{'type',324,'constraint',[{'atom',324,'is_subtype'}|[[{'var',324,'Tree1'}|[{'user_type',324,'tree',[{'var',324,'Key'}|[{'var',324,'Value'}]]}]]]]}|[{'type',325,'constraint',[{'atom',325,'is_subtype'}|[[{'var',325,'Tree2'}|[{'user_type',325,'tree',[{'var',325,'Key'}|[{'var',325,'Value'}]]}]]]]}]]]]}]}]
+, 'spec' = [{{'balance',1},[{'type',348,'bounded_fun',[{'type',348,'fun',[{'type',348,'product',[{'var',348,'Tree1'}]}|[{'var',348,'Tree2'}]]}|[[{'type',349,'constraint',[{'atom',349,'is_subtype'}|[[{'var',349,'Tree1'}|[{'user_type',349,'tree',[{'var',349,'Key'}|[{'var',349,'Value'}]]}]]]]}|[{'type',350,'constraint',[{'atom',350,'is_subtype'}|[[{'var',350,'Tree2'}|[{'user_type',350,'tree',[{'var',350,'Key'}|[{'var',350,'Value'}]]}]]]]}]]]]}]}]
+, 'spec' = [{{'from_orddict',1},[{'type',375,'bounded_fun',[{'type',375,'fun',[{'type',375,'product',[{'var',375,'List'}]}|[{'var',375,'Tree'}]]}|[[{'type',376,'constraint',[{'atom',376,'is_subtype'}|[[{'var',376,'List'}|[{'type',376,'list',[{'type',376,'tuple',[{'var',376,'Key'}|[{'var',376,'Value'}]]}]}]]]]}|[{'type',377,'constraint',[{'atom',377,'is_subtype'}|[[{'var',377,'Tree'}|[{'user_type',377,'tree',[{'var',377,'Key'}|[{'var',377,'Value'}]]}]]]]}]]]]}]}]
+, 'spec' = [{{'delete_any',2},[{'type',385,'bounded_fun',[{'type',385,'fun',[{'type',385,'product',[{'var',385,'Key'}|[{'var',385,'Tree1'}]]}|[{'var',385,'Tree2'}]]}|[[{'type',386,'constraint',[{'atom',386,'is_subtype'}|[[{'var',386,'Tree1'}|[{'user_type',386,'tree',[{'var',386,'Key'}|[{'var',386,'Value'}]]}]]]]}|[{'type',387,'constraint',[{'atom',387,'is_subtype'}|[[{'var',387,'Tree2'}|[{'user_type',387,'tree',[{'var',387,'Key'}|[{'var',387,'Value'}]]}]]]]}]]]]}]}]
+, 'spec' = [{{'delete',2},[{'type',399,'bounded_fun',[{'type',399,'fun',[{'type',399,'product',[{'var',399,'Key'}|[{'var',399,'Tree1'}]]}|[{'var',399,'Tree2'}]]}|[[{'type',400,'constraint',[{'atom',400,'is_subtype'}|[[{'var',400,'Tree1'}|[{'user_type',400,'tree',[{'var',400,'Key'}|[{'var',400,'Value'}]]}]]]]}|[{'type',401,'constraint',[{'atom',401,'is_subtype'}|[[{'var',401,'Tree2'}|[{'user_type',401,'tree',[{'var',401,'Key'}|[{'var',401,'Value'}]]}]]]]}]]]]}]}]
+, 'spec' = [{{'take_any',2},[{'type',427,'bounded_fun',[{'type',427,'fun',[{'type',427,'product',[{'var',427,'Key'}|[{'var',427,'Tree1'}]]}|[{'type',427,'union',[{'type',427,'tuple',[{'var',427,'Value'}|[{'var',427,'Tree2'}]]}|[{'atom',427,'error'}]]}]]}|[[{'type',428,'constraint',[{'atom',428,'is_subtype'}|[[{'var',428,'Tree1'}|[{'user_type',428,'tree',[{'var',428,'Key'}|[{'var',428,'_'}]]}]]]]}|[{'type',429,'constraint',[{'atom',429,'is_subtype'}|[[{'var',429,'Tree2'}|[{'user_type',429,'tree',[{'var',429,'Key'}|[{'var',429,'_'}]]}]]]]}|[{'type',430,'constraint',[{'atom',430,'is_subtype'}|[[{'var',430,'Key'}|[{'type',430,'term',[]}]]]]}|[{'type',431,'constraint',[{'atom',431,'is_subtype'}|[[{'var',431,'Value'}|[{'type',431,'term',[]}]]]]}]]]]]]}]}]
+, 'spec' = [{{'take',2},[{'type',441,'bounded_fun',[{'type',441,'fun',[{'type',441,'product',[{'var',441,'Key'}|[{'var',441,'Tree1'}]]}|[{'type',441,'tuple',[{'var',441,'Value'}|[{'var',441,'Tree2'}]]}]]}|[[{'type',442,'constraint',[{'atom',442,'is_subtype'}|[[{'var',442,'Tree1'}|[{'user_type',442,'tree',[{'var',442,'Key'}|[{'var',442,'_'}]]}]]]]}|[{'type',443,'constraint',[{'atom',443,'is_subtype'}|[[{'var',443,'Tree2'}|[{'user_type',443,'tree',[{'var',443,'Key'}|[{'var',443,'_'}]]}]]]]}|[{'type',444,'constraint',[{'atom',444,'is_subtype'}|[[{'var',444,'Key'}|[{'type',444,'term',[]}]]]]}|[{'type',445,'constraint',[{'atom',445,'is_subtype'}|[[{'var',445,'Value'}|[{'type',445,'term',[]}]]]]}]]]]]]}]}]
+, 'spec' = [{{'take_smallest',1},[{'type',462,'bounded_fun',[{'type',462,'fun',[{'type',462,'product',[{'var',462,'Tree1'}]}|[{'type',462,'tuple',[{'var',462,'Key'}|[{'var',462,'Value'}|[{'var',462,'Tree2'}]]]}]]}|[[{'type',463,'constraint',[{'atom',463,'is_subtype'}|[[{'var',463,'Tree1'}|[{'user_type',463,'tree',[{'var',463,'Key'}|[{'var',463,'Value'}]]}]]]]}|[{'type',464,'constraint',[{'atom',464,'is_subtype'}|[[{'var',464,'Tree2'}|[{'user_type',464,'tree',[{'var',464,'Key'}|[{'var',464,'Value'}]]}]]]]}]]]]}]}]
+, 'spec' = [{{'smallest',1},[{'type',476,'bounded_fun',[{'type',476,'fun',[{'type',476,'product',[{'var',476,'Tree'}]}|[{'type',476,'tuple',[{'var',476,'Key'}|[{'var',476,'Value'}]]}]]}|[[{'type',477,'constraint',[{'atom',477,'is_subtype'}|[[{'var',477,'Tree'}|[{'user_type',477,'tree',[{'var',477,'Key'}|[{'var',477,'Value'}]]}]]]]}]]]}]}]
+, 'spec' = [{{'take_largest',1},[{'type',487,'bounded_fun',[{'type',487,'fun',[{'type',487,'product',[{'var',487,'Tree1'}]}|[{'type',487,'tuple',[{'var',487,'Key'}|[{'var',487,'Value'}|[{'var',487,'Tree2'}]]]}]]}|[[{'type',488,'constraint',[{'atom',488,'is_subtype'}|[[{'var',488,'Tree1'}|[{'user_type',488,'tree',[{'var',488,'Key'}|[{'var',488,'Value'}]]}]]]]}|[{'type',489,'constraint',[{'atom',489,'is_subtype'}|[[{'var',489,'Tree2'}|[{'user_type',489,'tree',[{'var',489,'Key'}|[{'var',489,'Value'}]]}]]]]}]]]]}]}]
+, 'spec' = [{{'largest',1},[{'type',501,'bounded_fun',[{'type',501,'fun',[{'type',501,'product',[{'var',501,'Tree'}]}|[{'type',501,'tuple',[{'var',501,'Key'}|[{'var',501,'Value'}]]}]]}|[[{'type',502,'constraint',[{'atom',502,'is_subtype'}|[[{'var',502,'Tree'}|[{'user_type',502,'tree',[{'var',502,'Key'}|[{'var',502,'Value'}]]}]]]]}]]]}]}]
+, 'spec' = [{{'to_list',1},[{'type',514,'bounded_fun',[{'type',514,'fun',[{'type',514,'product',[{'var',514,'Tree'}]}|[{'type',514,'list',[{'type',514,'tuple',[{'var',514,'Key'}|[{'var',514,'Value'}]]}]}]]}|[[{'type',515,'constraint',[{'atom',515,'is_subtype'}|[[{'var',515,'Tree'}|[{'user_type',515,'tree',[{'var',515,'Key'}|[{'var',515,'Value'}]]}]]]]}]]]}]}]
+, 'spec' = [{{'keys',1},[{'type',528,'bounded_fun',[{'type',528,'fun',[{'type',528,'product',[{'var',528,'Tree'}]}|[{'type',528,'list',[{'var',528,'Key'}]}]]}|[[{'type',529,'constraint',[{'atom',529,'is_subtype'}|[[{'var',529,'Tree'}|[{'user_type',529,'tree',[{'var',529,'Key'}|[{'ann_type',529,[{'var',529,'Value'}|[{'type',529,'term',[]}]]}]]}]]]]}]]]}]}]
+, 'spec' = [{{'values',1},[{'type',540,'bounded_fun',[{'type',540,'fun',[{'type',540,'product',[{'var',540,'Tree'}]}|[{'type',540,'list',[{'var',540,'Value'}]}]]}|[[{'type',541,'constraint',[{'atom',541,'is_subtype'}|[[{'var',541,'Tree'}|[{'user_type',541,'tree',[{'ann_type',541,[{'var',541,'Key'}|[{'type',541,'term',[]}]]}|[{'var',541,'Value'}]]}]]]]}]]]}]}]
+, 'spec' = [{{'iterator',1},[{'type',552,'bounded_fun',[{'type',552,'fun',[{'type',552,'product',[{'var',552,'Tree'}]}|[{'var',552,'Iter'}]]}|[[{'type',553,'constraint',[{'atom',553,'is_subtype'}|[[{'var',553,'Tree'}|[{'user_type',553,'tree',[{'var',553,'Key'}|[{'var',553,'Value'}]]}]]]]}|[{'type',554,'constraint',[{'atom',554,'is_subtype'}|[[{'var',554,'Iter'}|[{'user_type',554,'iter',[{'var',554,'Key'}|[{'var',554,'Value'}]]}]]]]}]]]]}]}]
+, 'spec' = [{{'iterator_from',2},[{'type',574,'bounded_fun',[{'type',574,'fun',[{'type',574,'product',[{'var',574,'Key'}|[{'var',574,'Tree'}]]}|[{'var',574,'Iter'}]]}|[[{'type',575,'constraint',[{'atom',575,'is_subtype'}|[[{'var',575,'Tree'}|[{'user_type',575,'tree',[{'var',575,'Key'}|[{'var',575,'Value'}]]}]]]]}|[{'type',576,'constraint',[{'atom',576,'is_subtype'}|[[{'var',576,'Iter'}|[{'user_type',576,'iter',[{'var',576,'Key'}|[{'var',576,'Value'}]]}]]]]}]]]]}]}]
+, 'spec' = [{{'next',1},[{'type',595,'bounded_fun',[{'type',595,'fun',[{'type',595,'product',[{'var',595,'Iter1'}]}|[{'type',595,'union',[{'atom',595,'none'}|[{'type',595,'tuple',[{'var',595,'Key'}|[{'var',595,'Value'}|[{'var',595,'Iter2'}]]]}]]}]]}|[[{'type',596,'constraint',[{'atom',596,'is_subtype'}|[[{'var',596,'Iter1'}|[{'user_type',596,'iter',[{'var',596,'Key'}|[{'var',596,'Value'}]]}]]]]}|[{'type',597,'constraint',[{'atom',597,'is_subtype'}|[[{'var',597,'Iter2'}|[{'user_type',597,'iter',[{'var',597,'Key'}|[{'var',597,'Value'}]]}]]]]}]]]]}]}]
+, 'spec' = [{{'map',2},[{'type',606,'bounded_fun',[{'type',606,'fun',[{'type',606,'product',[{'var',606,'Function'}|[{'var',606,'Tree1'}]]}|[{'var',606,'Tree2'}]]}|[[{'type',607,'constraint',[{'atom',607,'is_subtype'}|[[{'var',607,'Function'}|[{'type',607,'fun',[{'type',607,'product',[{'ann_type',607,[{'var',607,'K'}|[{'var',607,'Key'}]]}|[{'ann_type',607,[{'var',607,'V1'}|[{'var',607,'Value1'}]]}]]}|[{'ann_type',607,[{'var',607,'V2'}|[{'var',607,'Value2'}]]}]]}]]]]}|[{'type',608,'constraint',[{'atom',608,'is_subtype'}|[[{'var',608,'Tree1'}|[{'user_type',608,'tree',[{'var',608,'Key'}|[{'var',608,'Value1'}]]}]]]]}|[{'type',609,'constraint',[{'atom',609,'is_subtype'}|[[{'var',609,'Tree2'}|[{'user_type',609,'tree',[{'var',609,'Key'}|[{'var',609,'Value2'}]]}]]]]}]]]]]}]}] ] 'empty'/0 = fun () -> {0,'nil'}
+'is_empty'/1 = fun (_0) -> case _0 of <{0,'nil'}> when 'true' -> 'true'
+<_2> when 'true' -> 'false' end
+'size'/1 = fun (_0) -> case _0 of <{Size,_4}> when let <_1> = call 'erlang':'is_integer' (Size) in let <_2> = call 'erlang':'>=' (Size,0) in call 'erlang':'and' (_1,_2) -> Size
+(<_3> when 'true' -> (primop 'match_fail' ({'function_clause',_3})-|[{'function_name',{'size',1}}] )-|['compiler_generated'] ) end
+'lookup'/2 = fun (_0,_1) -> case <_0,_1> of <Key,{_4,T}> when 'true' -> apply 'lookup_1'/2 (Key,T)
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'lookup',2}}] )-|['compiler_generated'] ) end
+'lookup_1'/2 = fun (_0,_1) -> case <_0,_1> of <Key,{Key1,_4,Smaller,_5}> when call 'erlang':'<' (Key,Key1) -> apply 'lookup_1'/2 (Key,Smaller)
+<Key,{Key1,_6,_7,Bigger}> when call 'erlang':'>' (Key,Key1) -> apply 'lookup_1'/2 (Key,Bigger)
+<_8,{_9,Value,_10,_11}> when 'true' -> {'value',Value}
+<_12,'nil'> when 'true' -> 'none'
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'lookup_1',2}}] )-|['compiler_generated'] ) end
+'is_defined'/2 = fun (_0,_1) -> case <_0,_1> of <Key,{_4,T}> when 'true' -> apply 'is_defined_1'/2 (Key,T)
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'is_defined',2}}] )-|['compiler_generated'] ) end
+'is_defined_1'/2 = fun (_0,_1) -> case <_0,_1> of <Key,{Key1,_4,Smaller,_5}> when call 'erlang':'<' (Key,Key1) -> apply 'is_defined_1'/2 (Key,Smaller)
+<Key,{Key1,_6,_7,Bigger}> when call 'erlang':'>' (Key,Key1) -> apply 'is_defined_1'/2 (Key,Bigger)
+<_8,{_9,_10,_11,_12}> when 'true' -> 'true'
+<_13,'nil'> when 'true' -> 'false'
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'is_defined_1',2}}] )-|['compiler_generated'] ) end
+'get'/2 = fun (_0,_1) -> case <_0,_1> of <Key,{_4,T}> when 'true' -> apply 'get_1'/2 (Key,T)
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'get',2}}] )-|['compiler_generated'] ) end
+'get_1'/2 = fun (_0,_1) -> case <_0,_1> of <Key,{Key1,_4,Smaller,_5}> when call 'erlang':'<' (Key,Key1) -> apply 'get_1'/2 (Key,Smaller)
+<Key,{Key1,_6,_7,Bigger}> when call 'erlang':'>' (Key,Key1) -> apply 'get_1'/2 (Key,Bigger)
+<_8,{_9,Value,_10,_11}> when 'true' -> Value
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'get_1',2}}] )-|['compiler_generated'] ) end
+'update'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Key,Val,{S,T}> when 'true' -> let <T1> = apply 'update_1'/3 (Key,Val,T) in {S,T1}
+(<_6,_5,_4> when 'true' -> (primop 'match_fail' ({'function_clause',_6,_5,_4})-|[{'function_name',{'update',3}}] )-|['compiler_generated'] ) end
+'update_1'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Key,Value,{Key1,V,Smaller,Bigger}> when call 'erlang':'<' (Key,Key1) -> let <_3> = apply 'update_1'/3 (Key,Value,Smaller) in {Key1,V,_3,Bigger}
+<Key,Value,{Key1,V,Smaller,Bigger}> when call 'erlang':'>' (Key,Key1) -> let <_4> = apply 'update_1'/3 (Key,Value,Bigger) in {Key1,V,Smaller,_4}
+<Key,Value,{_8,_9,Smaller,Bigger}> when 'true' -> {Key,Value,Smaller,Bigger}
+(<_7,_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_7,_6,_5})-|[{'function_name',{'update_1',3}}] )-|['compiler_generated'] ) end
+'insert'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Key,Val,{S,T}> when call 'erlang':'is_integer' (S) -> let <S1> = call 'erlang':'+' (S,1) in let <_4> = call 'erlang':'*' (S1,S1) in let <_5> = apply 'insert_1'/4 (Key,Val,T,_4) in {S1,_5}
+(<_8,_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_8,_7,_6})-|[{'function_name',{'insert',3}}] )-|['compiler_generated'] ) end
+'insert_1'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <Key,Value,{Key1,V,Smaller,Bigger},S> when call 'erlang':'<' (Key,Key1) -> let <_4> = call 'erlang':'bsr' (S,1) in case apply 'insert_1'/4 (Key,Value,Smaller,_4) of <{T1,H1,S1}> when 'true' -> let <T> = {Key1,V,T1,Bigger} in case apply 'count'/1 (Bigger) of <{H2,S2}> when 'true' -> let <_7> = call 'erlang':'max' (H1,H2) in let <H> = call 'erlang':'bsl' (_7,1) in let <_9> = call 'erlang':'+' (S1,S2) in let <SS> = call 'erlang':'+' (_9,1) in let <P> = call 'erlang':'*' (SS,SS) in case <> of <> when call 'erlang':'>' (H,P) -> apply 'balance'/2 (T,SS)
+<> when 'true' -> {T,H,SS} end
+(<_6> when 'true' -> primop 'match_fail' ({'badmatch',_6})-|['compiler_generated'] ) end
+<T1> when 'true' -> {Key1,V,T1,Bigger} end
+<Key,Value,{Key1,V,Smaller,Bigger},S> when call 'erlang':'>' (Key,Key1) -> let <_13> = call 'erlang':'bsr' (S,1) in case apply 'insert_1'/4 (Key,Value,Bigger,_13) of <{T1,H1,S1}> when 'true' -> let <T> = {Key1,V,Smaller,T1} in case apply 'count'/1 (Smaller) of <{H2,S2}> when 'true' -> let <_16> = call 'erlang':'max' (H1,H2) in let <H> = call 'erlang':'bsl' (_16,1) in let <_18> = call 'erlang':'+' (S1,S2) in let <SS> = call 'erlang':'+' (_18,1) in let <P> = call 'erlang':'*' (SS,SS) in case <> of <> when call 'erlang':'>' (H,P) -> apply 'balance'/2 (T,SS)
+<> when 'true' -> {T,H,SS} end
+(<_15> when 'true' -> primop 'match_fail' ({'badmatch',_15})-|['compiler_generated'] ) end
+<T1> when 'true' -> {Key1,V,Smaller,T1} end
+<Key,Value,'nil',S> when call 'erlang':'=:=' (S,0) -> {{Key,Value,'nil','nil'},1,1}
+<Key,Value,'nil',_X_S> when 'true' -> {Key,Value,'nil','nil'}
+<Key,_26,_27,_28> when 'true' -> call 'erlang':'error' ({'key_exists',Key}) end
+'enter'/3 = fun (_0,_1,_2) -> case apply 'is_defined'/2 (_0,_2) of <'true'> when 'true' -> apply 'update'/3 (_0,_1,_2)
+<'false'> when 'true' -> apply 'insert'/3 (_0,_1,_2)
+(<_3> when 'true' -> primop 'match_fail' ({'case_clause',_3})-|['compiler_generated'] ) end
+'count'/1 = fun (_0) -> case _0 of <{_8,_9,'nil','nil'}> when 'true' -> {1,1}
+<{_10,_11,Sm,Bi}> when 'true' -> case apply 'count'/1 (Sm) of <{H1,S1}> when 'true' -> case apply 'count'/1 (Bi) of <{H2,S2}> when 'true' -> let <_5> = call 'erlang':'max' (H1,H2) in let <_6> = call 'erlang':'bsl' (_5,1) in let <_3> = call 'erlang':'+' (S1,S2) in let <_4> = call 'erlang':'+' (_3,1) in {_6,_4}
+(<_2> when 'true' -> primop 'match_fail' ({'badmatch',_2})-|['compiler_generated'] ) end
+(<_1> when 'true' -> primop 'match_fail' ({'badmatch',_1})-|['compiler_generated'] ) end
+<'nil'> when 'true' -> {1,0}
+(<_7> when 'true' -> (primop 'match_fail' ({'function_clause',_7})-|[{'function_name',{'count',1}}] )-|['compiler_generated'] ) end
+'balance'/1 = fun (_0) -> case _0 of <{S,T}> when 'true' -> let <_1> = apply 'balance'/2 (T,S) in {S,_1}
+(<_2> when 'true' -> (primop 'match_fail' ({'function_clause',_2})-|[{'function_name',{'balance',1}}] )-|['compiler_generated'] ) end
+'balance'/2 = fun (_0,_1) -> let <_2> = apply 'to_list_1'/1 (_0) in apply 'balance_list'/2 (_2,_1)
+'balance_list'/2 = fun (_0,_1) -> case apply 'balance_list_1'/2 (_0,_1) of <{T,[]}> when 'true' -> T
+(<_2> when 'true' -> primop 'match_fail' ({'badmatch',_2})-|['compiler_generated'] ) end
+'balance_list_1'/2 = fun (_0,_1) -> case <_0,_1> of <L,S> when call 'erlang':'>' (S,1) -> let <Sm> = call 'erlang':'-' (S,1) in let <S2> = call 'erlang':'div' (Sm,2) in let <S1> = call 'erlang':'-' (Sm,S2) in case apply 'balance_list_1'/2 (L,S1) of <{T1,[{K,V}|L1]}> when 'true' -> case apply 'balance_list_1'/2 (L1,S2) of <{T2,L2}> when 'true' -> let <T> = {K,V,T1,T2} in {T,L2}
+(<_6> when 'true' -> primop 'match_fail' ({'badmatch',_6})-|['compiler_generated'] ) end
+(<_5> when 'true' -> primop 'match_fail' ({'badmatch',_5})-|['compiler_generated'] ) end
+<[{Key,Val}|L],1> when 'true' -> {{Key,Val,'nil','nil'},L}
+<L,0> when 'true' -> {'nil',L}
+(<_9,_8> when 'true' -> (primop 'match_fail' ({'function_clause',_9,_8})-|[{'function_name',{'balance_list_1',2}}] )-|['compiler_generated'] ) end
+'from_orddict'/1 = fun (_0) -> let <S> = call 'erlang':'length' (_0) in let <_2> = apply 'balance_list'/2 (_0,S) in {S,_2}
+'delete_any'/2 = fun (_0,_1) -> case apply 'is_defined'/2 (_0,_1) of <'true'> when 'true' -> apply 'delete'/2 (_0,_1)
+<'false'> when 'true' -> _1
+(<_2> when 'true' -> primop 'match_fail' ({'case_clause',_2})-|['compiler_generated'] ) end
+'delete'/2 = fun (_0,_1) -> case <_0,_1> of <Key,{S,T}> when let <_2> = call 'erlang':'is_integer' (S) in let <_3> = call 'erlang':'>=' (S,0) in call 'erlang':'and' (_2,_3) -> let <_5> = call 'erlang':'-' (S,1) in let <_4> = apply 'delete_1'/2 (Key,T) in {_5,_4}
+(<_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_7,_6})-|[{'function_name',{'delete',2}}] )-|['compiler_generated'] ) end
+'delete_1'/2 = fun (_0,_1) -> case <_0,_1> of <Key,{Key1,Value,Smaller,Larger}> when call 'erlang':'<' (Key,Key1) -> let <Smaller1> = apply 'delete_1'/2 (Key,Smaller) in {Key1,Value,Smaller1,Larger}
+<Key,{Key1,Value,Smaller,Bigger}> when call 'erlang':'>' (Key,Key1) -> let <Bigger1> = apply 'delete_1'/2 (Key,Bigger) in {Key1,Value,Smaller,Bigger1}
+<_6,{_7,_8,Smaller,Larger}> when 'true' -> apply 'merge'/2 (Smaller,Larger)
+(<_5,_4> when 'true' -> (primop 'match_fail' ({'function_clause',_5,_4})-|[{'function_name',{'delete_1',2}}] )-|['compiler_generated'] ) end
+'merge'/2 = fun (_0,_1) -> case <_0,_1> of <Smaller,'nil'> when 'true' -> Smaller
+<'nil',Larger> when 'true' -> Larger
+<Smaller,Larger> when 'true' -> case apply 'take_smallest1'/1 (Larger) of <{Key,Value,Larger1}> when 'true' -> {Key,Value,Smaller,Larger1}
+(<_2> when 'true' -> primop 'match_fail' ({'badmatch',_2})-|['compiler_generated'] ) end end
+'take_any'/2 = fun (_0,_1) -> case apply 'is_defined'/2 (_0,_1) of <'true'> when 'true' -> apply 'take'/2 (_0,_1)
+<'false'> when 'true' -> 'error'
+(<_2> when 'true' -> primop 'match_fail' ({'case_clause',_2})-|['compiler_generated'] ) end
+'take'/2 = fun (_0,_1) -> case <_0,_1> of <Key,{S,T}> when let <_2> = call 'erlang':'is_integer' (S) in let <_3> = call 'erlang':'>=' (S,0) in call 'erlang':'and' (_2,_3) -> case apply 'take_1'/2 (Key,T) of <{Value,Res}> when 'true' -> let <_5> = call 'erlang':'-' (S,1) in {Value,{_5,Res}}
+(<_4> when 'true' -> primop 'match_fail' ({'badmatch',_4})-|['compiler_generated'] ) end
+(<_7,_6> when 'true' -> (primop 'match_fail' ({'function_clause',_7,_6})-|[{'function_name',{'take',2}}] )-|['compiler_generated'] ) end
+'take_1'/2 = fun (_0,_1) -> case <_0,_1> of <Key,{Key1,Value,Smaller,Larger}> when call 'erlang':'<' (Key,Key1) -> case apply 'take_1'/2 (Key,Smaller) of <{Value2,Smaller1}> when 'true' -> {Value2,{Key1,Value,Smaller1,Larger}}
+(<_2> when 'true' -> primop 'match_fail' ({'badmatch',_2})-|['compiler_generated'] ) end
+<Key,{Key1,Value,Smaller,Bigger}> when call 'erlang':'>' (Key,Key1) -> case apply 'take_1'/2 (Key,Bigger) of <{Value2,Bigger1}> when 'true' -> {Value2,{Key1,Value,Smaller,Bigger1}}
+(<_3> when 'true' -> primop 'match_fail' ({'badmatch',_3})-|['compiler_generated'] ) end
+<_7,{_X_Key,Value,Smaller,Larger}> when 'true' -> let <_4> = apply 'merge'/2 (Smaller,Larger) in {Value,_4}
+(<_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_6,_5})-|[{'function_name',{'take_1',2}}] )-|['compiler_generated'] ) end
+'take_smallest'/1 = fun (_0) -> case _0 of <{Size,Tree}> when let <_1> = call 'erlang':'is_integer' (Size) in let <_2> = call 'erlang':'>=' (Size,0) in call 'erlang':'and' (_1,_2) -> case apply 'take_smallest1'/1 (Tree) of <{Key,Value,Larger}> when 'true' -> let <_4> = call 'erlang':'-' (Size,1) in {Key,Value,{_4,Larger}}
+(<_3> when 'true' -> primop 'match_fail' ({'badmatch',_3})-|['compiler_generated'] ) end
+(<_5> when 'true' -> (primop 'match_fail' ({'function_clause',_5})-|[{'function_name',{'take_smallest',1}}] )-|['compiler_generated'] ) end
+'take_smallest1'/1 = fun (_0) -> case _0 of <{Key,Value,'nil',Larger}> when 'true' -> {Key,Value,Larger}
+<{Key,Value,Smaller,Larger}> when 'true' -> case apply 'take_smallest1'/1 (Smaller) of <{Key1,Value1,Smaller1}> when 'true' -> {Key1,Value1,{Key,Value,Smaller1,Larger}}
+(<_1> when 'true' -> primop 'match_fail' ({'badmatch',_1})-|['compiler_generated'] ) end
+(<_2> when 'true' -> (primop 'match_fail' ({'function_clause',_2})-|[{'function_name',{'take_smallest1',1}}] )-|['compiler_generated'] ) end
+'smallest'/1 = fun (_0) -> case _0 of <{_2,Tree}> when 'true' -> apply 'smallest_1'/1 (Tree)
+(<_1> when 'true' -> (primop 'match_fail' ({'function_clause',_1})-|[{'function_name',{'smallest',1}}] )-|['compiler_generated'] ) end
+'smallest_1'/1 = fun (_0) -> case _0 of <{Key,Value,'nil',_X_Larger}> when 'true' -> {Key,Value}
+<{_X_Key,_X_Value,Smaller,_X_Larger}> when 'true' -> apply 'smallest_1'/1 (Smaller)
+(<_1> when 'true' -> (primop 'match_fail' ({'function_clause',_1})-|[{'function_name',{'smallest_1',1}}] )-|['compiler_generated'] ) end
+'take_largest'/1 = fun (_0) -> case _0 of <{Size,Tree}> when let <_1> = call 'erlang':'is_integer' (Size) in let <_2> = call 'erlang':'>=' (Size,0) in call 'erlang':'and' (_1,_2) -> case apply 'take_largest1'/1 (Tree) of <{Key,Value,Smaller}> when 'true' -> let <_4> = call 'erlang':'-' (Size,1) in {Key,Value,{_4,Smaller}}
+(<_3> when 'true' -> primop 'match_fail' ({'badmatch',_3})-|['compiler_generated'] ) end
+(<_5> when 'true' -> (primop 'match_fail' ({'function_clause',_5})-|[{'function_name',{'take_largest',1}}] )-|['compiler_generated'] ) end
+'take_largest1'/1 = fun (_0) -> case _0 of <{Key,Value,Smaller,'nil'}> when 'true' -> {Key,Value,Smaller}
+<{Key,Value,Smaller,Larger}> when 'true' -> case apply 'take_largest1'/1 (Larger) of <{Key1,Value1,Larger1}> when 'true' -> {Key1,Value1,{Key,Value,Smaller,Larger1}}
+(<_1> when 'true' -> primop 'match_fail' ({'badmatch',_1})-|['compiler_generated'] ) end
+(<_2> when 'true' -> (primop 'match_fail' ({'function_clause',_2})-|[{'function_name',{'take_largest1',1}}] )-|['compiler_generated'] ) end
+'largest'/1 = fun (_0) -> case _0 of <{_2,Tree}> when 'true' -> apply 'largest_1'/1 (Tree)
+(<_1> when 'true' -> (primop 'match_fail' ({'function_clause',_1})-|[{'function_name',{'largest',1}}] )-|['compiler_generated'] ) end
+'largest_1'/1 = fun (_0) -> case _0 of <{Key,Value,_X_Smaller,'nil'}> when 'true' -> {Key,Value}
+<{_X_Key,_X_Value,_X_Smaller,Larger}> when 'true' -> apply 'largest_1'/1 (Larger)
+(<_1> when 'true' -> (primop 'match_fail' ({'function_clause',_1})-|[{'function_name',{'largest_1',1}}] )-|['compiler_generated'] ) end
+'to_list'/1 = fun (_0) -> case _0 of <{_2,T}> when 'true' -> apply 'to_list'/2 (T,[])
+(<_1> when 'true' -> (primop 'match_fail' ({'function_clause',_1})-|[{'function_name',{'to_list',1}}] )-|['compiler_generated'] ) end
+'to_list_1'/1 = fun (_0) -> apply 'to_list'/2 (_0,[])
+'to_list'/2 = fun (_0,_1) -> case <_0,_1> of <{Key,Value,Small,Big},L> when 'true' -> let <_2> = apply 'to_list'/2 (Big,L) in apply 'to_list'/2 (Small,[{Key,Value}|_2])
+<'nil',L> when 'true' -> L
+(<_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_4,_3})-|[{'function_name',{'to_list',2}}] )-|['compiler_generated'] ) end
+'keys'/1 = fun (_0) -> case _0 of <{_2,T}> when 'true' -> apply 'keys'/2 (T,[])
+(<_1> when 'true' -> (primop 'match_fail' ({'function_clause',_1})-|[{'function_name',{'keys',1}}] )-|['compiler_generated'] ) end
+'keys'/2 = fun (_0,_1) -> case <_0,_1> of <{Key,_X_Value,Small,Big},L> when 'true' -> let <_2> = apply 'keys'/2 (Big,L) in apply 'keys'/2 (Small,[Key|_2])
+<'nil',L> when 'true' -> L
+(<_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_4,_3})-|[{'function_name',{'keys',2}}] )-|['compiler_generated'] ) end
+'values'/1 = fun (_0) -> case _0 of <{_2,T}> when 'true' -> apply 'values'/2 (T,[])
+(<_1> when 'true' -> (primop 'match_fail' ({'function_clause',_1})-|[{'function_name',{'values',1}}] )-|['compiler_generated'] ) end
+'values'/2 = fun (_0,_1) -> case <_0,_1> of <{_X_Key,Value,Small,Big},L> when 'true' -> let <_2> = apply 'values'/2 (Big,L) in apply 'values'/2 (Small,[Value|_2])
+<'nil',L> when 'true' -> L
+(<_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_4,_3})-|[{'function_name',{'values',2}}] )-|['compiler_generated'] ) end
+'iterator'/1 = fun (_0) -> case _0 of <{_2,T}> when 'true' -> apply 'iterator_1'/1 (T)
+(<_1> when 'true' -> (primop 'match_fail' ({'function_clause',_1})-|[{'function_name',{'iterator',1}}] )-|['compiler_generated'] ) end
+'iterator_1'/1 = fun (_0) -> apply 'iterator'/2 (_0,[])
+'iterator'/2 = fun (_0,_1) -> case <_0,_1> of <T = {_4,_5,'nil',_6},As> when 'true' -> [T|As]
+<T = {_7,_8,L,_9},As> when 'true' -> apply 'iterator'/2 (L,[T|As])
+<'nil',As> when 'true' -> As
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'iterator',2}}] )-|['compiler_generated'] ) end
+'iterator_from'/2 = fun (_0,_1) -> case <_0,_1> of <S,{_4,T}> when 'true' -> apply 'iterator_1_from'/2 (S,T)
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'iterator_from',2}}] )-|['compiler_generated'] ) end
+'iterator_1_from'/2 = fun (_0,_1) -> apply 'iterator_from'/3 (_0,_1,[])
+'iterator_from'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <S,{K,_6,_7,T},As> when call 'erlang':'<' (K,S) -> apply 'iterator_from'/3 (S,T,As)
+<_8,T = {_9,_10,'nil',_11},As> when 'true' -> [T|As]
+<S,T = {_12,_13,L,_14},As> when 'true' -> apply 'iterator_from'/3 (S,L,[T|As])
+<_15,'nil',As> when 'true' -> As
+(<_5,_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_5,_4,_3})-|[{'function_name',{'iterator_from',3}}] )-|['compiler_generated'] ) end
+'next'/1 = fun (_0) -> case _0 of <[{X,V,_3,T}|As]> when 'true' -> let <_1> = apply 'iterator'/2 (T,As) in {X,V,_1}
+<[]> when 'true' -> 'none'
+(<_2> when 'true' -> (primop 'match_fail' ({'function_clause',_2})-|[{'function_name',{'next',1}}] )-|['compiler_generated'] ) end
+'map'/2 = fun (_0,_1) -> case <_0,_1> of <F,{Size,Tree}> when call 'erlang':'is_function' (F,2) -> let <_2> = apply 'map_1'/2 (F,Tree) in {Size,_2}
+(<_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_4,_3})-|[{'function_name',{'map',2}}] )-|['compiler_generated'] ) end
+'map_1'/2 = fun (_0,_1) -> case <_0,_1> of <_7,'nil'> when 'true' -> 'nil'
+<F,{K,V,Smaller,Larger}> when 'true' -> let <_4> = apply F (K,V) in let <_3> = apply 'map_1'/2 (F,Smaller) in let <_2> = apply 'map_1'/2 (F,Larger) in {K,_4,_3,_2}
+(<_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_6,_5})-|[{'function_name',{'map_1',2}}] )-|['compiler_generated'] ) end
+'module_info'/0 = fun () -> call 'erlang':'get_module_info' ('gb_trees')
+'module_info'/1 = fun (_0) -> call 'erlang':'get_module_info' ('gb_trees',_0) end

@@ -1,0 +1,61 @@
+module 'systools_lib' ['file_term2binary'/2,'get_dirs'/1,'get_path'/1,'module_info'/0,'module_info'/1,'read_term'/1,'read_term_from_stream'/2,'werror'/2] attributes [ 'file' = [{[115|[114|[99|[47|[115|[121|[115|[116|[111|[111|[108|[115|[95|[108|[105|[98|[46|[101|[114|[108]]]]]]]]]]]]]]]]]]]],1}]
+, 'file' = [{[47|[117|[115|[114|[47|[108|[111|[99|[97|[108|[47|[67|[101|[108|[108|[97|[114|[47|[101|[114|[108|[97|[110|[103|[47|[50|[50|[46|[50|[47|[108|[105|[98|[47|[101|[114|[108|[97|[110|[103|[47|[108|[105|[98|[47|[107|[101|[114|[110|[101|[108|[45|[54|[46|[53|[46|[49|[47|[105|[110|[99|[108|[117|[100|[101|[47|[102|[105|[108|[101|[46|[104|[114|[108]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]],1}]
+, 'record' = [{'file_info',[{'typed_record_field',{'record_field',26,{'atom',26,'size'}},{'type',26,'union',[{'type',26,'non_neg_integer',[]}|[{'atom',26,'undefined'}]]}}|[{'typed_record_field',{'record_field',27,{'atom',27,'type'}},{'type',27,'union',[{'atom',27,'device'}|[{'atom',27,'directory'}|[{'atom',27,'other'}|[{'atom',27,'regular'}|[{'atom',27,'symlink'}|[{'atom',28,'undefined'}]]]]]]}}|[{'typed_record_field',{'record_field',29,{'atom',29,'access'}},{'type',29,'union',[{'atom',29,'read'}|[{'atom',29,'write'}|[{'atom',29,'read_write'}|[{'atom',29,'none'}|[{'atom',29,'undefined'}]]]]]}}|[{'typed_record_field',{'record_field',30,{'atom',30,'atime'}},{'type',30,'union',[{'remote_type',30,[{'atom',30,'file'}|[{'atom',30,'date_time'}|[[]]]]}|[{'type',30,'non_neg_integer',[]}|[{'atom',30,'undefined'}]]]}}|[{'typed_record_field',{'record_field',34,{'atom',34,'mtime'}},{'type',34,'union',[{'remote_type',34,[{'atom',34,'file'}|[{'atom',34,'date_time'}|[[]]]]}|[{'type',34,'non_neg_integer',[]}|[{'atom',34,'undefined'}]]]}}|[{'typed_record_field',{'record_field',36,{'atom',36,'ctime'}},{'type',36,'union',[{'remote_type',36,[{'atom',36,'file'}|[{'atom',36,'date_time'}|[[]]]]}|[{'type',36,'non_neg_integer',[]}|[{'atom',36,'undefined'}]]]}}|[{'typed_record_field',{'record_field',42,{'atom',42,'mode'}},{'type',42,'union',[{'type',42,'non_neg_integer',[]}|[{'atom',42,'undefined'}]]}}|[{'typed_record_field',{'record_field',46,{'atom',46,'links'}},{'type',46,'union',[{'type',46,'non_neg_integer',[]}|[{'atom',46,'undefined'}]]}}|[{'typed_record_field',{'record_field',49,{'atom',49,'major_device'}},{'type',49,'union',[{'type',49,'non_neg_integer',[]}|[{'atom',49,'undefined'}]]}}|[{'typed_record_field',{'record_field',55,{'atom',55,'minor_device'}},{'type',55,'union',[{'type',55,'non_neg_integer',[]}|[{'atom',55,'undefined'}]]}}|[{'typed_record_field',{'record_field',57,{'atom',57,'inode'}},{'type',57,'union',[{'type',57,'non_neg_integer',[]}|[{'atom',57,'undefined'}]]}}|[{'typed_record_field',{'record_field',58,{'atom',58,'uid'}},{'type',58,'union',[{'type',58,'non_neg_integer',[]}|[{'atom',58,'undefined'}]]}}|[{'typed_record_field',{'record_field',59,{'atom',59,'gid'}},{'type',59,'union',[{'type',59,'non_neg_integer',[]}|[{'atom',59,'undefined'}]]}}]]]]]]]]]]]]]}]
+, 'record' = [{'file_descriptor',[{'typed_record_field',{'record_field',63,{'atom',63,'module'}},{'type',63,'module',[]}}|[{'typed_record_field',{'record_field',64,{'atom',64,'data'}},{'type',64,'term',[]}}]]}]
+, 'file' = [{[115|[114|[99|[47|[115|[121|[115|[116|[111|[111|[108|[115|[95|[108|[105|[98|[46|[101|[114|[108]]]]]]]]]]]]]]]]]]]],31}] ] 'file_term2binary'/2 = fun (_0,_1) -> case apply 'read_term'/1 (_0) of <{'ok',Term}> when 'true' -> let <_2> = call 'erlang':'term_to_binary' (Term) in case call 'file':'write_file' (_1,_2) of <'ok'> when 'true' -> 'ok'
+<{'error',Error}> when 'true' -> {'error',{'open',_1,Error}}
+(<_3> when 'true' -> primop 'match_fail' ({'case_clause',_3})-|['compiler_generated'] ) end
+<Other> when 'true' -> Other end
+'read_term'/1 = fun (_0) -> case call 'file':'open' (_0,['read']) of <{'ok',Stream}> when 'true' -> let <Res> = apply 'read_term_from_stream'/2 (Stream,_0) in case call 'file':'close' (Stream) of <'ok'> when 'true' -> Res
+<{'error',Error}> when 'true' -> {'error',{'close',_0,Error}}
+(<_2> when 'true' -> primop 'match_fail' ({'case_clause',_2})-|['compiler_generated'] ) end
+<{'error',Error}> when 'true' -> {'error',{'open',_0,Error}}
+(<_3> when 'true' -> primop 'match_fail' ({'case_clause',_3})-|['compiler_generated'] ) end
+'read_term_from_stream'/2 = fun (_0,_1) -> let <Encoding> = call 'epp':'set_encoding' (_0) in case call 'io':'request' (_0,{'get_until',Encoding,'','erl_scan','tokens',[1]}) of <{'ok',Toks,_X_EndLine}> when 'true' -> case call 'erl_parse':'parse_term' (Toks) of <_@r0 = {'ok',Term}> when 'true' -> _@r0
+<{'error',Error}> when 'true' -> {'error',{'parse',_1,Error}}
+(<_4> when 'true' -> primop 'match_fail' ({'case_clause',_4})-|['compiler_generated'] ) end
+<{'error',_X_E,_X_EndLine}> when 'true' -> {'error',{'read',_1}}
+<{'eof',_X_EndLine}> when 'true' -> {'error',{'read',_1}}
+(<_5> when 'true' -> primop 'match_fail' ({'case_clause',_5})-|['compiler_generated'] ) end
+'get_dirs'/1 = fun (_0) -> case _0 of <RegPath> when call 'erlang':'is_list' (_0) -> let <Names> = call 'filename':'split' (RegPath) in let <ExpNames> = apply 'expand_names'/1 (Names) in catch apply 'get_dirs'/3 (ExpNames,[],'true')
+<_4> when 'true' -> {'error','badarg'} end
+'get_path'/1 = fun (_0) -> case _0 of <RegPath> when call 'erlang':'is_list' (_0) -> let <F> = fun (_2) -> case apply 'get_dirs'/1 (_2) of <{'ok',Dirs}> when 'true' -> {'true',Dirs}
+<_7> when 'true' -> 'false' end in let <_5> = call 'lists':'zf' (F,RegPath) in apply 'flat'/2 (_5,[])
+<_8> when 'true' -> [] end
+'expand_names'/1 = fun (_0) -> let <_5> = fun (_3) -> case _3 of <[42]> when 'true' -> {'true',[91|[94|[47|[93|[43]]]]]}
+<N> when 'true' -> case call 'lists':'member' (42,N) of <'true'> when 'true' -> let <_1> = apply 'expand'/2 (N,[]) in {'true',_1}
+<_7> when 'true' -> {'false',N} end end in call 'lists':'map' (_5,_0)
+'expand'/2 = fun (_0,_1) -> case <_0,_1> of <[42|T],Ack> when 'true' -> let <_2> = call 'erlang':'++' ([42|[93|[47|[94|[91]]]]],Ack) in apply 'expand'/2 (T,_2)
+<[H|T],Ack> when 'true' -> apply 'expand'/2 (T,[H|Ack])
+<[],Ack> when 'true' -> call 'lists':'reverse' (Ack)
+(<_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_4,_3})-|[{'function_name',{'expand',2}}] )-|['compiler_generated'] ) end
+'get_dirs'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <[{'false',Name}|T],F,Root> when 'true' -> let <_3> = apply 'add_dir'/3 (Name,F,Root) in apply 'get_dirs'/3 (T,_3,'false')
+<[{'true',RegName}|T],F,Root> when 'true' -> let <_4> = apply 'add_dirs'/3 (RegName,F,Root) in apply 'get_dirs'/3 (T,_4,'false')
+<[],F,_8> when 'true' -> {'ok',F}
+(<_7,_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_7,_6,_5})-|[{'function_name',{'get_dirs',3}}] )-|['compiler_generated'] ) end
+'add_dir'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Name,[],'true'> when 'true' -> case apply 'dir_p'/1 (Name) of <'true'> when 'true' -> [Name|[]]
+<_12> when 'true' -> [] end
+<Name,Dirs,_X_Root> when 'true' -> let <_8> = fun (_6) -> let <D> = call 'filename':'join' (_6,Name) in case apply 'dir_p'/1 (D) of <'true'> when 'true' -> {'true',D}
+<_13> when 'true' -> 'false' end in call 'lists':'zf' (_8,Dirs) end
+'add_dirs'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <RegName,_X_Dirs,'true'> when 'true' -> case apply 'regexp_match'/3 (RegName,[46],'true') of <{'true',AddDirs}> when 'true' -> AddDirs
+<_11> when 'true' -> [] end
+<RegName,Dirs,Root> when 'true' -> let <Fun> = fun (_4) -> apply 'regexp_match'/3 (RegName,_4,Root) in let <_7> = call 'lists':'zf' (Fun,Dirs) in apply 'flat'/2 (_7,[]) end
+'regexp_match'/3 = fun (_0,_1,_2) -> case call 'file':'list_dir' (_1) of <{'ok',Files}> when try let <_3> = call 'erlang':'length' (Files) in call 'erlang':'>' (_3,0) of <Try> -> Try catch <T,R> -> 'false' -> case call 're':'compile' (_0,['unicode']) of <{'ok',MP}> when 'true' -> let <FR> = fun (_7) -> case call 're':'run' (_7,MP,[{'capture','first','list'}]) of <{'match',[_16|[]]}> when call 'erlang':'=:=' (_16,_7) -> let <DirF> = apply 'join'/3 (_1,_7,_2) in case apply 'dir_p'/1 (DirF) of <'true'> when 'true' -> {'true',DirF}
+<_17> when 'true' -> 'false' end
+<_18> when 'true' -> 'false' end in let <_10> = call 'lists':'zf' (FR,Files) in {'true',_10}
+<_19> when 'true' -> 'false' end
+<_20> when 'true' -> 'false' end
+'join'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <_6,F,'true'> when 'true' -> F
+<Dir,F,_7> when 'true' -> call 'filename':'join' (Dir,F) end
+'dir_p'/1 = fun (_0) -> case call 'file':'read_file_info' (_0) of <{'ok',Info = {'file_info',_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21}}> when (try let <_5> = call 'erlang':'element' (3,Info) in call 'erlang':'=:=' (_5,'directory') of <Try> -> Try catch <T,R> -> 'false'-|['compiler_generated'] ) -> 'true'
+<_22> when 'true' -> 'false' end
+'flat'/2 = fun (_0,_1) -> case <_0,_1> of <[H|T],Ack> when try let <_2> = call 'erlang':'hd' (H) in call 'erlang':'is_list' (_2) of <Try> -> Try catch <T,R> -> 'false' -> let <_3> = call 'lists':'reverse' (H) in let <_4> = call 'erlang':'++' (_3,Ack) in apply 'flat'/2 (T,_4)
+<[[]|T],Ack> when 'true' -> apply 'flat'/2 (T,Ack)
+<[H|T],Ack> when 'true' -> apply 'flat'/2 (T,[H|Ack])
+<[],Ack> when 'true' -> call 'lists':'reverse' (Ack)
+(<_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_6,_5})-|[{'function_name',{'flat',2}}] )-|['compiler_generated'] ) end
+'werror'/2 = fun (_0,_1) -> (case call 'lists':'member' ('warnings_as_errors',_0) of (<('true'-|['compiler_generated'] )> when 'true' -> call 'erlang':'=/=' (_1,[])-|['compiler_generated'] )
+(<('false'-|['compiler_generated'] )> when 'true' -> 'false'-|['compiler_generated'] )
+(<_2> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({('badarg'-|['compiler_generated'] ),_2}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+'module_info'/0 = fun () -> call 'erlang':'get_module_info' ('systools_lib')
+'module_info'/1 = fun (_0) -> call 'erlang':'get_module_info' ('systools_lib',_0) end

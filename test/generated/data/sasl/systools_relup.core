@@ -1,0 +1,192 @@
+module 'systools_relup' ['appup_search_for_version'/2,'format_error'/1,'format_warning'/1,'mk_relup'/3,'mk_relup'/4,'module_info'/0,'module_info'/1] attributes [ 'file' = [{[115|[114|[99|[47|[115|[121|[115|[116|[111|[111|[108|[115|[95|[114|[101|[108|[117|[112|[46|[101|[114|[108]]]]]]]]]]]]]]]]]]]]]],1}]
+, 'file' = [{[115|[114|[99|[47|[115|[121|[115|[116|[111|[111|[108|[115|[46|[104|[114|[108]]]]]]]]]]]]]]]],1}]
+, 'record' = [{'release',[{'record_field',29,{'atom',29,'name'}}|[{'record_field',30,{'atom',30,'vsn'}}|[{'record_field',31,{'atom',31,'erts_vsn'}}|[{'record_field',32,{'atom',32,'applications'}}|[{'record_field',35,{'atom',35,'incl_apps'}}]]]]]}]
+, 'record' = [{'application',[{'record_field',41,{'atom',41,'name'}}|[{'record_field',42,{'atom',42,'type'},{'atom',42,'permanent'}}|[{'record_field',43,{'atom',43,'vsn'},{'string',43,[]}}|[{'record_field',44,{'atom',44,'id'},{'string',44,[]}}|[{'record_field',45,{'atom',45,'description'},{'string',45,[]}}|[{'record_field',46,{'atom',46,'modules'},{'nil',46}}|[{'record_field',49,{'atom',49,'uses'},{'nil',49}}|[{'record_field',51,{'atom',51,'includes'},{'nil',51}}|[{'record_field',53,{'atom',53,'regs'},{'nil',53}}|[{'record_field',56,{'atom',56,'env'},{'nil',56}}|[{'record_field',58,{'atom',58,'maxT'},{'atom',58,'infinity'}}|[{'record_field',60,{'atom',60,'maxP'},{'atom',60,'infinity'}}|[{'record_field',62,{'atom',62,'mod'},{'nil',62}}|[{'record_field',64,{'atom',64,'start_phases'}}|[{'record_field',67,{'atom',67,'dir'},{'string',67,[]}}]]]]]]]]]]]]]]]}]
+, 'file' = [{[115|[114|[99|[47|[115|[121|[115|[116|[111|[111|[108|[115|[95|[114|[101|[108|[117|[112|[46|[101|[114|[108]]]]]]]]]]]]]]]]]]]]]],115}] ] 'mk_relup'/3 = fun (_0,_1,_2) -> apply 'mk_relup'/4 (_0,_1,_2,[])
+'mk_relup'/4 = fun (_0,_1,_2,_3) -> case apply 'check_opts'/1 (_3) of <[]> when 'true' -> let <_9> = try let <_4> = apply 'add_code_path'/1 (_3) in apply 'do_mk_relup'/5 (_0,_1,_2,_4,_3) of <_5> -> _5 catch <_8,_7,_6> -> case <_8,_7,_6> of <('throw'-|['compiler_generated'] ),Error,_16> when 'true' -> Error
+(<_17,_18,_19> when 'true' -> primop 'raise' (_19,_18)-|['compiler_generated'] ) end in apply 'done_mk_relup'/2 (_3,_9)
+<BadArg> when 'true' -> call 'erlang':'error' ({'badarg',BadArg}) end
+'check_opts'/1 = fun (_0) -> case _0 of <[{'outdir',Dir}|_X_Opts]> when call 'erlang':'is_list' (Dir) -> []
+<[_@r0 = {'outdir',BadArg}|_X_Opts]> when 'true' -> [_@r0|[]]
+<[_X_Opt|Opts]> when 'true' -> apply 'check_opts'/1 (Opts)
+<[]> when 'true' -> []
+(<_1> when 'true' -> (primop 'match_fail' ({'function_clause',_1})-|[{'function_name',{'check_opts',1}}] )-|['compiler_generated'] ) end
+'do_mk_relup'/5 = fun (_0,_1,_2,_3,_4) -> let <_5> = apply 'to_list'/1 (_0) in case call 'systools_make':'get_release' (_5,_3) of <{'ok',TopRel,NameVsnApps,Ws0}> when 'true' -> do case call 'lists':'member' ({'warning','missing_sasl'},Ws0) of <'true'> when 'true' -> call 'erlang':'throw' ({'error','systools_relup',{'missing_sasl',TopRel}})
+<'false'> when 'true' -> 'ok'
+(<_6> when 'true' -> primop 'match_fail' ({'case_clause',_6})-|['compiler_generated'] ) end let <_9> = fun (_7) -> case _7 of <{_22,App}> when 'true' -> App
+(<_8> when 'true' -> (primop 'match_fail' ({'function_clause',_8})-|[{'function_name',{'-do_mk_relup/5-fun-0-',1}}] )-|['compiler_generated'] ) end in let <TopApps> = call 'lists':'map' (_9,NameVsnApps) in case apply 'foreach_baserel_up'/6 (TopRel,TopApps,_1,_3,_4,Ws0) of <{Up,Ws1}> when 'true' -> case apply 'foreach_baserel_dn'/6 (TopRel,TopApps,_2,_3,_4,Ws1) of <{Dn,Ws2}> when 'true' -> (case TopRel of (<({'release',_23,_rec0,_24,_25,_26}-|['compiler_generated'] )> when 'true' -> let <Relup> = {_rec0,Up,Dn} in {'ok',Relup,Ws2}-|['compiler_generated'] )
+(<_27> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','release'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+(<_12> when 'true' -> primop 'match_fail' ({'badmatch',_12})-|['compiler_generated'] ) end
+(<_11> when 'true' -> primop 'match_fail' ({'badmatch',_11})-|['compiler_generated'] ) end
+<Other> when 'true' -> Other end
+'done_mk_relup'/2 = fun (_0,_1) -> case <_0,_1> of <Opts,{'ok',Relup,Ws}> when 'true' -> let <WAE> = apply 'get_opt'/2 ('warnings_as_errors',Opts) in let <Silent> = apply 'get_opt'/2 ('silent',Opts) in let <Noexec> = apply 'get_opt'/2 ('noexec',Opts) in case <> of <> when try (let <_7> = case WAE of (<('true'-|['compiler_generated'] )> when 'true' -> call 'erlang':'=/=' (Ws,[])-|['compiler_generated'] )
+(<('false'-|['compiler_generated'] )> when 'true' -> 'false'-|['compiler_generated'] )
+(<_5> when 'true' -> _5-|['compiler_generated'] ) end in (call 'erlang':'=:=' ((_7-|['compiler_generated'] ),'true')-|['compiler_generated'] )-|['compiler_generated'] ) of <Try> -> Try catch <T,R> -> 'false' -> apply 'return_error'/2 (Silent,{'error','systools_relup',{'warnings_treated_as_errors',Ws}})
+<> when (call 'erlang':'=:=' (Noexec,'false')-|['compiler_generated'] ) -> case apply 'write_relup_file'/2 (Relup,Opts) of <'ok'> when 'true' -> apply 'return_ok'/3 (Silent,Relup,Ws)
+<Error> when 'true' -> apply 'return_error'/2 (Silent,Error) end
+<> when 'true' -> apply 'return_ok'/3 ('true',Relup,Ws) end
+<Opts,Error> when 'true' -> let <_12> = case apply 'get_opt'/2 ('silent',Opts) of (<('true'-|['compiler_generated'] )> when 'true' -> 'true'-|['compiler_generated'] )
+(<('false'-|['compiler_generated'] )> when 'true' -> apply 'get_opt'/2 ('noexec',Opts)-|['compiler_generated'] )
+(<_10> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({('badarg'-|['compiler_generated'] ),_10}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end in apply 'return_error'/2 (_12,Error) end
+'return_error'/2 = fun (_0,_1) -> case <_0,_1> of <'true',Error> when 'true' -> Error
+<'false',Error> when 'true' -> do apply 'print_error'/1 (Error) 'error'
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'return_error',2}}] )-|['compiler_generated'] ) end
+'return_ok'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <'true',Relup,Ws> when 'true' -> {'ok',Relup,'systools_relup',Ws}
+<'false',_X_Relup,Ws> when 'true' -> do apply 'print_warnings'/1 (Ws) 'ok'
+(<_5,_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_5,_4,_3})-|[{'function_name',{'return_ok',3}}] )-|['compiler_generated'] ) end
+'foreach_baserel_up'/6 = fun (_0,_1,_2,_3,_4,_5) -> apply 'foreach_baserel_up'/7 (_0,_1,_2,_3,_4,_5,[])
+'foreach_baserel_up'/7 = fun (_0,_1,_2,_3,_4,_5,_6) -> case <_0,_1,_2,_3,_4,_5,_6> of <TopRel,TopApps,[BaseRelDc|BaseRelDcs],Path,Opts,Ws,Acc> when 'true' -> let <BaseRelFile> = apply 'extract_filename'/1 (BaseRelDc) in case call 'systools_make':'get_release' (BaseRelFile,Path) of <{'ok',BR,NameVsnApps,Warns}> when 'true' -> let <_40,_41,_42> = case call 'lists':'member' ({'warning','missing_sasl'},Warns) of <'true'> when 'true' -> call 'erlang':'throw' ({'error','systools_relup',{'missing_sasl',BR}})
+<'false'> when 'true' -> let <_8> = call 'lists':'unzip' (NameVsnApps) in <BR,_8,Warns>
+(<_9> when 'true' -> primop 'match_fail' ({'case_clause',_9})-|['compiler_generated'] ) end in case (<(_40-|['compiler_generated'] ),(_41-|['compiler_generated'] ),(_42-|['compiler_generated'] )>-|['compiler_generated'] ) of <BaseRel,({BaseNameVsns,BaseApps}-|['compiler_generated'] ),Ws0> when 'true' -> let <_13> = call 'erlang':'++' (Ws0,Ws) in case apply 'collect_appup_scripts'/5 ('up',TopApps,BaseRel,_13,[]) of <{RUs1,Ws1}> when 'true' -> case apply 'create_add_app_scripts'/4 (BaseRel,TopRel,RUs1,Ws1) of <{RUs2,Ws2}> when 'true' -> case apply 'create_remove_app_scripts'/4 (BaseRel,TopRel,RUs2,Ws2) of <{RUs3,Ws3}> when 'true' -> case apply 'check_for_emulator_restart'/5 (TopRel,BaseRel,RUs3,Ws3,Opts) of <{RUs4,Ws4}> when 'true' -> case call 'systools_rc':'translate_scripts' ('up',RUs4,TopApps,BaseApps) of <{'ok',RUs5}> when 'true' -> case apply 'fix_r15_sasl_upgrade'/3 (RUs5,Ws4,BaseNameVsns) of <{RUs,Ws5}> when 'true' -> (case BaseRel of (<({'release',_31,_rec1,_32,_33,_34}-|['compiler_generated'] )> when 'true' -> let <_19> = apply 'extract_description'/1 (BaseRelDc) in let <VDR> = {_rec1,_19,RUs} in apply 'foreach_baserel_up'/7 (TopRel,TopApps,BaseRelDcs,Path,Opts,Ws5,[VDR|Acc])-|['compiler_generated'] )
+(<_35> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','release'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+(<_18> when 'true' -> primop 'match_fail' ({'badmatch',_18})-|['compiler_generated'] ) end
+<XXX> when 'true' -> call 'erlang':'throw' (XXX) end
+(<_17> when 'true' -> primop 'match_fail' ({'badmatch',_17})-|['compiler_generated'] ) end
+(<_16> when 'true' -> primop 'match_fail' ({'badmatch',_16})-|['compiler_generated'] ) end
+(<_15> when 'true' -> primop 'match_fail' ({'badmatch',_15})-|['compiler_generated'] ) end
+(<_14> when 'true' -> primop 'match_fail' ({'badmatch',_14})-|['compiler_generated'] ) end
+(<(_43-|['compiler_generated'] ),(_44-|['compiler_generated'] ),(_45-|['compiler_generated'] )> when 'true' -> let <_12> = {(_43-|['compiler_generated'] ),(_44-|['compiler_generated'] ),(_45-|['compiler_generated'] )} in primop 'match_fail' ({'badmatch',_12})-|['compiler_generated'] ) end
+<Other1> when 'true' -> call 'erlang':'throw' (Other1) end
+<_36,_37,[],_38,_39,Ws,Acc> when 'true' -> {Acc,Ws}
+(<_30,_29,_28,_27,_26,_25,_24> when 'true' -> (primop 'match_fail' ({'function_clause',_30,_29,_28,_27,_26,_25,_24})-|[{'function_name',{'foreach_baserel_up',7}}] )-|['compiler_generated'] ) end
+'foreach_baserel_dn'/6 = fun (_0,_1,_2,_3,_4,_5) -> apply 'foreach_baserel_dn'/7 (_0,_1,_2,_3,_4,_5,[])
+'foreach_baserel_dn'/7 = fun (_0,_1,_2,_3,_4,_5,_6) -> case <_0,_1,_2,_3,_4,_5,_6> of <TopRel,TopApps,[BaseRelDc|BaseRelDcs],Path,Opts,Ws,Acc> when 'true' -> let <BaseRelFile> = apply 'extract_filename'/1 (BaseRelDc) in case call 'systools_make':'get_release' (BaseRelFile,Path) of <{'ok',BR,NameVsnApps,Warns}> when 'true' -> let <_43,_44,_45> = case call 'lists':'member' ({'warning','missing_sasl'},Warns) of <'true'> when 'true' -> call 'erlang':'throw' ({'error','systools_relup',{'missing_sasl',BR}})
+<'false'> when 'true' -> let <_10> = fun (_8) -> case _8 of <{_33,App}> when 'true' -> App
+(<_9> when 'true' -> (primop 'match_fail' ({'function_clause',_9})-|[{'function_name',{'-foreach_baserel_dn/7-fun-0-',1}}] )-|['compiler_generated'] ) end in let <NApps> = call 'lists':'map' (_10,NameVsnApps) in <BR,NApps,Warns>
+(<_12> when 'true' -> primop 'match_fail' ({'case_clause',_12})-|['compiler_generated'] ) end in let <_16> = call 'erlang':'++' ((_45-|['compiler_generated'] ),Ws) in case apply 'collect_appup_scripts'/5 ('dn',TopApps,(_43-|['compiler_generated'] ),_16,[]) of <{RUs1,Ws1}> when 'true' -> case apply 'create_add_app_scripts'/4 (TopRel,(_43-|['compiler_generated'] ),RUs1,Ws1) of <{RUs2,Ws2}> when 'true' -> case apply 'create_remove_app_scripts'/4 (TopRel,(_43-|['compiler_generated'] ),RUs2,Ws2) of <{RUs3,Ws3}> when 'true' -> case apply 'check_for_emulator_restart'/5 (TopRel,(_43-|['compiler_generated'] ),RUs3,Ws3,Opts) of <{RUs4,Ws4}> when 'true' -> case call 'systools_rc':'translate_scripts' ('dn',RUs4,(_44-|['compiler_generated'] ),TopApps) of <{'ok',RUs}> when 'true' -> (case (_43-|['compiler_generated'] ) of (<({'release',_34,_rec2,_35,_36,_37}-|['compiler_generated'] )> when 'true' -> let <_21> = apply 'extract_description'/1 (BaseRelDc) in let <VDR> = {_rec2,_21,RUs} in apply 'foreach_baserel_dn'/7 (TopRel,TopApps,BaseRelDcs,Path,Opts,Ws4,[VDR|Acc])-|['compiler_generated'] )
+(<_38> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','release'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+<XXX> when 'true' -> call 'erlang':'throw' (XXX) end
+(<_20> when 'true' -> primop 'match_fail' ({'badmatch',_20})-|['compiler_generated'] ) end
+(<_19> when 'true' -> primop 'match_fail' ({'badmatch',_19})-|['compiler_generated'] ) end
+(<_18> when 'true' -> primop 'match_fail' ({'badmatch',_18})-|['compiler_generated'] ) end
+(<_17> when 'true' -> primop 'match_fail' ({'badmatch',_17})-|['compiler_generated'] ) end
+<Other> when 'true' -> call 'erlang':'throw' (Other) end
+<_39,_40,[],_41,_42,Ws,Acc> when 'true' -> {Acc,Ws}
+(<_32,_31,_30,_29,_28,_27,_26> when 'true' -> (primop 'match_fail' ({'function_clause',_32,_31,_30,_29,_28,_27,_26})-|[{'function_name',{'foreach_baserel_dn',7}}] )-|['compiler_generated'] ) end
+'check_for_emulator_restart'/5 = fun (_0,_1,_2,_3,_4) -> case <_0,_1,_2,_3,_4> of <{'release',N1,_12,Vsn1,_13,_14},{'release',N2,_15,Vsn2,_16,_17},RUs,Ws,Opts> when call 'erlang':'/=' (Vsn1,Vsn2) -> let <NewRUs> = [['restart_new_emulator']|RUs] in let <NewWs> = [{'erts_vsn_changed',{{N1,Vsn1},{N2,Vsn2}}}|Ws] in apply 'check_for_restart_emulator_opt'/3 (NewRUs,NewWs,Opts)
+<_18,_19,RUs,Ws,Opts> when 'true' -> apply 'check_for_restart_emulator_opt'/3 (RUs,Ws,Opts) end
+'check_for_restart_emulator_opt'/3 = fun (_0,_1,_2) -> case apply 'get_opt'/2 ('restart_emulator',_2) of <'true'> when 'true' -> let <_3> = call 'erlang':'++' (_0,[['restart_emulator']]) in {_3,_1}
+<_8> when 'true' -> {_0,_1} end
+'fix_r15_sasl_upgrade'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <RUs = ['restart_new_emulator'|RestRUs],Ws,BaseApps> when 'true' -> case call 'lists':'keyfind' ('sasl',1,BaseApps) of <{'sasl',Vsn}> when call 'erlang':'<' (Vsn,[50|[46|[50]]]) -> let <_3> = call 'lists':'delete' ('restart_emulator',RestRUs) in let <_4> = call 'erlang':'++' (_3,['restart_new_emulator']) in {_4,['pre_R15_emulator_upgrade'|Ws]}
+<_9> when 'true' -> {RUs,Ws} end
+<RUs,Ws,_X_BaseApps> when 'true' -> {RUs,Ws} end
+'collect_appup_scripts'/5 = fun (_0,_1,_2,_3,_4) -> case <_0,_1,_2,_3,_4> of <Mode,[TopApp|TopApps],BaseRel,Ws,RUs> when 'true' -> (case TopApp of (<({'application',_rec3,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,_35}-|['compiler_generated'] )> when 'true' -> (case BaseRel of (<({'release',_37,_38,_39,_rec4,_40}-|['compiler_generated'] )> when 'true' -> case call 'lists':'keysearch' (_rec3,1,_rec4) of <{'value',{_X_Name,BaseVsn,_X_Type}}> when 'true' -> case <> of <> when (try (let <_11> = case (call ('erlang'-|['compiler_generated'] ):('is_record'-|['compiler_generated'] ) (TopApp,('application'-|['compiler_generated'] ),(16-|['compiler_generated'] ))-|['compiler_generated'] ) of (<('true'-|['compiler_generated'] )> when 'true' -> ('true'-|['compiler_generated'] )-|['compiler_generated'] )
+(<('false'-|['compiler_generated'] )> when 'true' -> ('fail'-|['compiler_generated'] )-|['compiler_generated'] )
+(<(_9-|['compiler_generated'] )> when 'true' -> (_9-|['compiler_generated'] )-|['compiler_generated'] ) end in let <_12> = call 'erlang':'=:=' ((_11-|['compiler_generated'] ),'true') in let <_13> = call 'erlang':'element' (4,TopApp) in let <_14> = call 'erlang':'==' (_13,BaseVsn) in (call ('erlang'-|['compiler_generated'] ):('and'-|['compiler_generated'] ) (_12,_14)-|['compiler_generated'] )-|['compiler_generated'] ) of <Try> -> Try catch <T,R> -> 'false'-|['compiler_generated'] ) -> apply 'collect_appup_scripts'/5 (Mode,TopApps,BaseRel,Ws,RUs)
+<> when 'true' -> case apply 'get_script_from_appup'/5 (Mode,TopApp,BaseVsn,Ws,RUs) of <{RU1s,Ws1}> when 'true' -> apply 'collect_appup_scripts'/5 (Mode,TopApps,BaseRel,Ws1,RU1s)
+(<_15> when 'true' -> primop 'match_fail' ({'badmatch',_15})-|['compiler_generated'] ) end end
+<'false'> when 'true' -> apply 'collect_appup_scripts'/5 (Mode,TopApps,BaseRel,Ws,RUs)
+(<_16> when 'true' -> primop 'match_fail' ({'case_clause',_16})-|['compiler_generated'] ) end-|['compiler_generated'] )
+(<_41> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','release'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )-|['compiler_generated'] )
+(<_36> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','application'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+<_42,[],_43,Ws,RUs> when 'true' -> {RUs,Ws}
+(<_21,_20,_19,_18,_17> when 'true' -> (primop 'match_fail' ({'function_clause',_21,_20,_19,_18,_17})-|[{'function_name',{'collect_appup_scripts',5}}] )-|['compiler_generated'] ) end
+'create_add_app_scripts'/4 = fun (_0,_1,_2,_3) -> let <_14> = letrec 'lc$^0'/1 = fun (_11) -> case _11 of <[{N,_X_V,T}|_5]> when 'true' -> (case _0 of (<({'release',_27,_28,_29,_rec6,_30}-|['compiler_generated'] )> when 'true' -> (case call 'lists':'keymember' (N,1,_rec6) of <'false'> when 'true' -> let <_12> = apply 'lc$^0'/1 (_5) in ([{N,T}|_12]-|['compiler_generated'] )
+(<'true'> when 'true' -> apply 'lc$^0'/1 (_5)-|['compiler_generated'] )
+(<_cor_variable> when 'true' -> call 'erlang':'error' ('badarg')-|['compiler_generated'] ) end-|['list_comprehension'] )-|['compiler_generated'] )
+(<_31> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','release'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+(<[_4|_5]> when 'true' -> apply 'lc$^0'/1 (_5)-|['compiler_generated'] )
+<[]> when 'true' -> []
+(<_37> when 'true' -> (primop 'match_fail' ({'function_clause',_37})-|[{'function_name',{'lc$^0',1}}] )-|['compiler_generated'] ) end in (case _1 of (<({'release',_32,_33,_34,_rec5,_35}-|['compiler_generated'] )> when 'true' -> apply 'lc$^0'/1 (_rec5)-|['compiler_generated'] )
+(<_36> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','release'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] ) in let <_20> = letrec 'lc$^1'/1 = fun (_18) -> case _18 of <[{N,T}|_17]> when 'true' -> let <_19> = apply 'lc$^1'/1 (_17) in ([[{'add_application',N,T}|[]]|_19]-|['compiler_generated'] )
+(<[_16|_17]> when 'true' -> apply 'lc$^1'/1 (_17)-|['compiler_generated'] )
+<[]> when 'true' -> []
+(<_38> when 'true' -> (primop 'match_fail' ({'function_clause',_38})-|[{'function_name',{'lc$^1',1}}] )-|['compiler_generated'] ) end in apply 'lc$^1'/1 (_14) in let <_22> = call 'erlang':'++' (_20,_2) in {_22,_3}
+'create_remove_app_scripts'/4 = fun (_0,_1,_2,_3) -> let <_14> = letrec 'lc$^0'/1 = fun (_11) -> case _11 of <[{N,_X_V,_X_T}|_5]> when 'true' -> (case _1 of (<({'release',_27,_28,_29,_rec8,_30}-|['compiler_generated'] )> when 'true' -> (case call 'lists':'keymember' (N,1,_rec8) of <'false'> when 'true' -> let <_12> = apply 'lc$^0'/1 (_5) in ([N|_12]-|['compiler_generated'] )
+(<'true'> when 'true' -> apply 'lc$^0'/1 (_5)-|['compiler_generated'] )
+(<_cor_variable> when 'true' -> call 'erlang':'error' ('badarg')-|['compiler_generated'] ) end-|['list_comprehension'] )-|['compiler_generated'] )
+(<_31> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','release'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+(<[_4|_5]> when 'true' -> apply 'lc$^0'/1 (_5)-|['compiler_generated'] )
+<[]> when 'true' -> []
+(<_37> when 'true' -> (primop 'match_fail' ({'function_clause',_37})-|[{'function_name',{'lc$^0',1}}] )-|['compiler_generated'] ) end in (case _0 of (<({'release',_32,_33,_34,_rec7,_35}-|['compiler_generated'] )> when 'true' -> apply 'lc$^0'/1 (_rec7)-|['compiler_generated'] )
+(<_36> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','release'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] ) in let <_20> = letrec 'lc$^1'/1 = fun (_18) -> case _18 of <[N|_17]> when 'true' -> let <_19> = apply 'lc$^1'/1 (_17) in ([[{'remove_application',N}|[]]|_19]-|['compiler_generated'] )
+<[]> when 'true' -> []
+(<_38> when 'true' -> (primop 'match_fail' ({'function_clause',_38})-|[{'function_name',{'lc$^1',1}}] )-|['compiler_generated'] ) end in apply 'lc$^1'/1 (_14) in let <_22> = call 'erlang':'++' (_20,_2) in {_22,_3}
+'get_script_from_appup'/5 = fun (_0,_1,_2,_3,_4) -> (case _1 of (<({'application',_35,_36,_37,_38,_39,_40,_41,_42,_43,_44,_45,_46,_47,_48,_rec9}-|['compiler_generated'] )> when 'true' -> (case _1 of (<({'application',_rec10,_50,_51,_52,_53,_54,_55,_56,_57,_58,_59,_60,_61,_62,_63}-|['compiler_generated'] )> when 'true' -> let <_9> = apply 'to_list'/1 (_rec10) in let <_10> = call 'erlang':'++' (_9,[46|[97|[112|[112|[117|[112]]]]]]) in let <FName> = call 'filename':'join' ([_rec9|[_10|[]]]) in case call 'systools_lib':'read_term' (FName) of <{'ok',{TopVsn0,UpVsnRUs,DnVsnRUs}}> when 'true' -> let <_13> = case _0 of <'up'> when 'true' -> UpVsnRUs
+<'dn'> when 'true' -> DnVsnRUs
+(<_12> when 'true' -> primop 'match_fail' ({'case_clause',_12})-|['compiler_generated'] ) end in let <_26> = case <> of <> when (try (let <_20> = case (call ('erlang'-|['compiler_generated'] ):('is_record'-|['compiler_generated'] ) (_1,('application'-|['compiler_generated'] ),(16-|['compiler_generated'] ))-|['compiler_generated'] ) of (<('true'-|['compiler_generated'] )> when 'true' -> ('true'-|['compiler_generated'] )-|['compiler_generated'] )
+(<('false'-|['compiler_generated'] )> when 'true' -> ('fail'-|['compiler_generated'] )-|['compiler_generated'] )
+(<(_18-|['compiler_generated'] )> when 'true' -> (_18-|['compiler_generated'] )-|['compiler_generated'] ) end in let <_21> = call 'erlang':'=:=' ((_20-|['compiler_generated'] ),'true') in let <_22> = call 'erlang':'element' (4,_1) in let <_23> = call 'erlang':'==' (_22,(TopVsn0-|['compiler_generated'] )) in (call ('erlang'-|['compiler_generated'] ):('and'-|['compiler_generated'] ) (_21,_23)-|['compiler_generated'] )-|['compiler_generated'] ) of <Try> -> Try catch <T,R> -> 'false'-|['compiler_generated'] ) -> _3
+<> when 'true' -> (case _1 of (<({'application',_65,_66,_rec11,_67,_68,_69,_70,_71,_72,_73,_74,_75,_76,_77,_78}-|['compiler_generated'] )> when 'true' -> [{'bad_vsn',{(TopVsn0-|['compiler_generated'] ),_rec11}}|_3]-|['compiler_generated'] )
+(<_79> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','application'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] ) end in case apply 'appup_search_for_version'/2 (_2,(_13-|['compiler_generated'] )) of <{'ok',RU}> when 'true' -> let <_28> = call 'erlang':'++' (_4,[RU|[]]) in {_28,_26}
+<'error'> when 'true' -> call 'erlang':'throw' ({'error','systools_relup',{'no_relup',FName,_1,_2}})
+(<_29> when 'true' -> primop 'match_fail' ({'case_clause',_29})-|['compiler_generated'] ) end
+<X> when 'true' -> call 'erlang':'throw' ({'error','systools_relup',{'file_problem',{FName,X}}}) end-|['compiler_generated'] )
+(<_64> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','application'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )-|['compiler_generated'] )
+(<_49> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','application'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+'appup_search_for_version'/2 = fun (_0,_1) -> case <_0,_1> of <BaseVsn,[{_5,RU}|_6]> when call 'erlang':'=:=' (_5,BaseVsn) -> {'ok',RU}
+<BaseVsn,[{Vsn,RU}|VsnRUs]> when call 'erlang':'is_binary' (Vsn) -> case call 're':'run' (BaseVsn,Vsn,['unicode'|[{'capture','first','list'}]]) of <{'match',[_7|[]]}> when call 'erlang':'=:=' (_7,BaseVsn) -> {'ok',RU}
+<_8> when 'true' -> apply 'appup_search_for_version'/2 (BaseVsn,VsnRUs) end
+<BaseVsn,[_9|VsnRUs]> when 'true' -> apply 'appup_search_for_version'/2 (BaseVsn,VsnRUs)
+<_10,[]> when 'true' -> 'error'
+(<_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_4,_3})-|[{'function_name',{'appup_search_for_version',2}}] )-|['compiler_generated'] ) end
+'extract_filename'/1 = fun (_0) -> case _0 of <{N,_X_D}> when 'true' -> apply 'to_list'/1 (N)
+<N> when 'true' -> apply 'to_list'/1 (N) end
+'extract_description'/1 = fun (_0) -> case _0 of <{_X_N,D}> when 'true' -> D
+<_2> when 'true' -> [] end
+'to_list'/1 = fun (_0) -> case _0 of <X> when call 'erlang':'is_atom' (_0) -> call 'erlang':'atom_to_list' (X)
+<X> when call 'erlang':'is_list' (_0) -> X
+(<_1> when 'true' -> (primop 'match_fail' ({'function_clause',_1})-|[{'function_name',{'to_list',1}}] )-|['compiler_generated'] ) end
+'write_relup_file'/2 = fun (_0,_1) -> let <_2> = apply 'get_opt'/2 ('outdir',_1) in let <_3> = call 'filename':'absname' (_2) in let <Filename> = call 'filename':'join' (_3,[114|[101|[108|[117|[112]]]]]) in case call 'file':'open' (Filename,['write'|[{'encoding','utf8'}]]) of <{'ok',Fd}> when 'true' -> let <_5> = call 'epp':'encoding_to_string' ('utf8') in do call 'io':'format' (Fd,[37|[37|[32|[126|[115|[126|[110|[126|[116|[112|[46|[126|[110]]]]]]]]]]]]],[_5|[_0|[]]]) case call 'file':'close' (Fd) of <'ok'> when 'true' -> 'ok'
+<{'error',Reason}> when 'true' -> {'error','systools_relup',{'file_problem',{[114|[101|[108|[117|[112]]]]],{'close',Reason}}}}
+(<_6> when 'true' -> primop 'match_fail' ({'case_clause',_6})-|['compiler_generated'] ) end
+<{'error',Reason}> when 'true' -> {'error','systools_relup',{'file_problem',{[114|[101|[108|[117|[112]]]]],{'open',Reason}}}}
+(<_7> when 'true' -> primop 'match_fail' ({'case_clause',_7})-|['compiler_generated'] ) end
+'add_code_path'/1 = fun (_0) -> case apply 'get_opt'/2 ('path',_0) of <'false'> when 'true' -> call 'code':'get_path' ()
+<Paths0> when 'true' -> let <_6> = letrec 'lc$^0'/1 = fun (_3) -> case _3 of <[P|_2]> when 'true' -> let <_4> = apply 'to_list'/1 (P) in let <_5> = apply 'lc$^0'/1 (_2) in ([_4|_5]-|['compiler_generated'] )
+<[]> when 'true' -> []
+(<_13> when 'true' -> (primop 'match_fail' ({'function_clause',_13})-|[{'function_name',{'lc$^0',1}}] )-|['compiler_generated'] ) end in apply 'lc$^0'/1 (Paths0) in let <Paths2> = call 'systools_lib':'get_path' (_6) in let <_9> = call 'code':'get_path' () in let <_10> = call 'erlang':'++' (Paths2,_9) in apply 'make_set'/1 (_10) end
+'get_opt'/2 = fun (_0,_1) -> case call 'lists':'keysearch' (_0,1,_1) of <{'value',{_6,Val}}> when 'true' -> Val
+<_7> when 'true' -> case call 'lists':'member' (_0,_1) of <'true'> when 'true' -> 'true'
+<_8> when 'true' -> apply 'default'/1 (_0) end end
+'make_set'/1 = fun (_0) -> case _0 of <[]> when 'true' -> []
+<[H|T]> when 'true' -> let <_6> = letrec 'lc$^0'/1 = fun (_4) -> case _4 of <[Y|_2]> when call 'erlang':'=/=' (Y,H) -> let <_5> = apply 'lc$^0'/1 (_2) in ([Y|_5]-|['compiler_generated'] )
+(<[Y|_2]> when 'true' -> apply 'lc$^0'/1 (_2)-|['compiler_generated'] )
+<[]> when 'true' -> []
+(<_8> when 'true' -> (primop 'match_fail' ({'function_clause',_8})-|[{'function_name',{'lc$^0',1}}] )-|['compiler_generated'] ) end in let <_3> = apply 'make_set'/1 (T) in apply 'lc$^0'/1 (_3) in [H|_6]
+(<_7> when 'true' -> (primop 'match_fail' ({'function_clause',_7})-|[{'function_name',{'make_set',1}}] )-|['compiler_generated'] ) end
+'default'/1 = fun (_0) -> case _0 of <'path'> when 'true' -> 'false'
+<'noexec'> when 'true' -> 'false'
+<'silent'> when 'true' -> 'false'
+<'restart_emulator'> when 'true' -> 'false'
+<'outdir'> when 'true' -> [46]
+<'warnings_as_errors'> when 'true' -> 'false'
+(<_1> when 'true' -> (primop 'match_fail' ({'function_clause',_1})-|[{'function_name',{'default',1}}] )-|['compiler_generated'] ) end
+'print_error'/1 = fun (_0) -> case _0 of <{'error',Mod,Error}> when 'true' -> let <S> = call Mod:'format_error' (Error) in call 'io':'format' ([126|[116|[115]]],[S|[]])
+<Other> when 'true' -> call 'io':'format' ([69|[114|[114|[111|[114|[58|[32|[126|[116|[112|[126|[110]]]]]]]]]]]],[Other|[]]) end
+'format_error'/1 = fun (_0) -> case _0 of <{'file_problem',{File,What}}> when 'true' -> let <_1> = apply 'get_reason'/1 (What) in call 'io_lib':'format' ([67|[111|[117|[108|[100|[32|[110|[111|[116|[32|[126|[119|[32|[102|[105|[108|[101|[32|[126|[116|[115|[126|[110]]]]]]]]]]]]]]]]]]]]]]],[_1|[File|[]]])
+<{'no_relup',File,App,Vsn}> when 'true' -> (case App of (<({'application',_rec12,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32}-|['compiler_generated'] )> when 'true' -> (case App of (<({'application',_34,_35,_rec13,_36,_37,_38,_39,_40,_41,_42,_43,_44,_45,_46,_47}-|['compiler_generated'] )> when 'true' -> (case App of (<({'application',_rec14,_49,_50,_51,_52,_53,_54,_55,_56,_57,_58,_59,_60,_61,_62}-|['compiler_generated'] )> when 'true' -> call 'io_lib':'format' ([78|[111|[32|[114|[101|[108|[101|[97|[115|[101|[32|[117|[112|[103|[114|[97|[100|[101|[32|[115|[99|[114|[105|[112|[116|[32|[101|[110|[116|[114|[121|[32|[102|[111|[114|[32|[126|[119|[45|[126|[116|[115|[32|[116|[111|[32|[126|[119|[45|[126|[116|[115|[32|[105|[110|[32|[102|[105|[108|[101|[32|[126|[116|[115|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]],[_rec12|[_rec13|[_rec14|[Vsn|[File|[]]]]]])-|['compiler_generated'] )
+(<_63> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','application'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )-|['compiler_generated'] )
+(<_48> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','application'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )-|['compiler_generated'] )
+(<_33> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','application'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+<{'missing_sasl',Release}> when 'true' -> (case Release of (<({'release',_rec15,_64,_65,_66,_67}-|['compiler_generated'] )> when 'true' -> (case Release of (<({'release',_69,_rec16,_70,_71,_72}-|['compiler_generated'] )> when 'true' -> call 'io_lib':'format' ([78|[111|[32|[115|[97|[115|[108|[32|[97|[112|[112|[108|[105|[99|[97|[116|[105|[111|[110|[32|[105|[110|[32|[114|[101|[108|[101|[97|[115|[101|[32|[126|[116|[115|[44|[32|[126|[116|[115|[46|[32|[67|[97|[110|[32|[110|[111|[116|[32|[98|[101|[32|[117|[112|[103|[114|[97|[100|[101|[100|[46]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]],[_rec15|[_rec16|[]]])-|['compiler_generated'] )
+(<_73> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','release'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )-|['compiler_generated'] )
+(<_68> when 'true' -> (call ('erlang'-|['compiler_generated'] ):('error'-|['compiler_generated'] ) (({'badrecord','release'}-|['compiler_generated'] ))-|['compiler_generated'] )-|['compiler_generated'] ) end-|['compiler_generated'] )
+<{'warnings_treated_as_errors',Warnings}> when 'true' -> let <_17> = letrec 'lc$^0'/1 = fun (_14) -> case _14 of <[W|_13]> when 'true' -> let <_15> = apply 'format_warning'/2 ([],W) in let <_16> = apply 'lc$^0'/1 (_13) in ([_15|_16]-|['compiler_generated'] )
+<[]> when 'true' -> []
+(<_74> when 'true' -> (primop 'match_fail' ({'function_clause',_74})-|[{'function_name',{'lc$^0',1}}] )-|['compiler_generated'] ) end in apply 'lc$^0'/1 (Warnings) in call 'io_lib':'format' ([87|[97|[114|[110|[105|[110|[103|[115|[32|[98|[101|[105|[110|[103|[32|[116|[114|[101|[97|[116|[101|[100|[32|[97|[115|[32|[101|[114|[114|[111|[114|[115|[58|[126|[110|[126|[116|[115]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]],[_17|[]])
+<Error> when 'true' -> call 'io_lib':'format' ([126|[116|[112|[126|[110]]]]],[Error|[]]) end
+'print_warnings'/1 = fun (_0) -> case _0 of <Ws> when call 'erlang':'is_list' (_0) -> let <_3> = fun (_1) -> apply 'print_warning'/1 (_1) in call 'lists':'foreach' (_3,Ws)
+<W> when 'true' -> apply 'print_warning'/1 (W) end
+'print_warning'/1 = fun (_0) -> let <_1> = apply 'format_warning'/1 (_0) in call 'io':'format' ([126|[116|[115]]],[_1|[]])
+'format_warning'/1 = fun (_0) -> apply 'format_warning'/2 ([42|[87|[65|[82|[78|[73|[78|[71|[42|[32]]]]]]]]]],_0)
+'format_warning'/2 = fun (_0,_1) -> case <_0,_1> of <Prefix,{'erts_vsn_changed',{Rel1,Rel2}}> when 'true' -> call 'io_lib':'format' ([126|[116|[115|[84|[104|[101|[32|[69|[82|[84|[83|[32|[118|[101|[114|[115|[105|[111|[110|[32|[99|[104|[97|[110|[103|[101|[100|[32|[98|[101|[116|[119|[101|[101|[110|[32|[126|[116|[112|[32|[97|[110|[100|[32|[126|[116|[112|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]],[Prefix|[Rel1|[Rel2|[]]]])
+<Prefix,'pre_R15_emulator_upgrade'> when 'true' -> call 'io_lib':'format' ([126|[116|[115|[85|[112|[103|[114|[97|[100|[101|[32|[102|[114|[111|[109|[32|[97|[110|[32|[79|[84|[80|[32|[118|[101|[114|[115|[105|[111|[110|[32|[101|[97|[114|[108|[105|[101|[114|[32|[116|[104|[97|[110|[32|[82|[49|[53|[46|[32|[78|[101|[119|[32|[99|[111|[100|[101|[32|[115|[104|[111|[117|[108|[100|[32|[98|[101|[32|[99|[111|[109|[112|[105|[108|[101|[100|[32|[119|[105|[116|[104|[32|[116|[104|[101|[32|[111|[108|[100|[32|[101|[109|[117|[108|[97|[116|[111|[114|[46|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]],[Prefix|[]])
+<Prefix,What> when 'true' -> call 'io_lib':'format' ([126|[116|[115|[126|[116|[112|[126|[110]]]]]]]],[Prefix|[What|[]]]) end
+'get_reason'/1 = fun (_0) -> case _0 of <{'error',{'open',_2,_3}}> when 'true' -> 'open'
+<{'error',{'read',_4,_5}}> when 'true' -> 'read'
+<{'error',{'parse',_6,_7}}> when 'true' -> 'parse'
+<{'error',{'close',_8,_9}}> when 'true' -> 'close'
+<{'error',{'open',_10}}> when 'true' -> 'open'
+<{'error',{'read',_11}}> when 'true' -> 'read'
+<{'error',{'parse',_12}}> when 'true' -> 'parse'
+<{'open',_13}> when 'true' -> 'open'
+<{'read',_14}> when 'true' -> 'read'
+<{'parse',_15}> when 'true' -> 'parse'
+<{'close',_16}> when 'true' -> 'close'
+<'open'> when 'true' -> 'open'
+<'read'> when 'true' -> 'read'
+<'parse'> when 'true' -> 'parse'
+(<_1> when 'true' -> (primop 'match_fail' ({'function_clause',_1})-|[{'function_name',{'get_reason',1}}] )-|['compiler_generated'] ) end
+'module_info'/0 = fun () -> call 'erlang':'get_module_info' ('systools_relup')
+'module_info'/1 = fun (_0) -> call 'erlang':'get_module_info' ('systools_relup',_0) end

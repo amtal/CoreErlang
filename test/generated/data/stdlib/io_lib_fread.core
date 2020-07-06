@@ -1,0 +1,191 @@
+module 'io_lib_fread' ['fread'/2,'fread'/3,'module_info'/0,'module_info'/1] attributes [ 'file' = [{[115|[114|[99|[47|[105|[111|[95|[108|[105|[98|[95|[102|[114|[101|[97|[100|[46|[101|[114|[108]]]]]]]]]]]]]]]]]]]],1}]
+, 'spec' = [{{'fread',3},[{'type',39,'bounded_fun',[{'type',39,'fun',[{'type',39,'product',[{'var',39,'Continuation'}|[{'var',39,'String'}|[{'var',39,'Format'}]]]}|[{'var',39,'Return'}]]}|[[{'type',40,'constraint',[{'atom',40,'is_subtype'}|[[{'var',40,'Continuation'}|[{'type',40,'union',[{'remote_type',40,[{'atom',40,'io_lib'}|[{'atom',40,'continuation'}|[[]]]]}|[{'type',40,'nil',[]}]]}]]]]}|[{'type',41,'constraint',[{'atom',41,'is_subtype'}|[[{'var',41,'String'}|[{'type',41,'union',[{'type',41,'string',[]}|[{'atom',41,'eof'}]]}]]]]}|[{'type',42,'constraint',[{'atom',42,'is_subtype'}|[[{'var',42,'Format'}|[{'type',42,'string',[]}]]]]}|[{'type',43,'constraint',[{'atom',43,'is_subtype'}|[[{'var',43,'Return'}|[{'type',43,'union',[{'type',43,'tuple',[{'atom',43,'more'}|[{'ann_type',43,[{'var',43,'Continuation1'}|[{'remote_type',43,[{'atom',43,'io_lib'}|[{'atom',43,'continuation'}|[[]]]]}]]}]]}|[{'type',44,'tuple',[{'atom',44,'done'}|[{'var',44,'Result'}|[{'ann_type',44,[{'var',44,'LeftOverChars'}|[{'type',44,'string',[]}]]}]]]}]]}]]]]}|[{'type',45,'constraint',[{'atom',45,'is_subtype'}|[[{'var',45,'Result'}|[{'type',45,'union',[{'type',45,'tuple',[{'atom',45,'ok'}|[{'ann_type',45,[{'var',45,'InputList'}|[{'type',45,'list',[{'remote_type',45,[{'atom',45,'io_lib'}|[{'atom',45,'fread_item'}|[[]]]]}]}]]}]]}|[{'atom',46,'eof'}|[{'type',47,'tuple',[{'atom',47,'error'}|[{'type',47,'tuple',[{'atom',47,'fread'}|[{'ann_type',47,[{'var',47,'What'}|[{'remote_type',47,[{'atom',47,'io_lib'}|[{'atom',47,'fread_error'}|[[]]]]}]]}]]}]]}]]]}]]]]}]]]]]]]}]}]
+, 'spec' = [{{'fread',2},[{'type',102,'bounded_fun',[{'type',102,'fun',[{'type',102,'product',[{'var',102,'Format'}|[{'var',102,'String'}]]}|[{'var',102,'Result'}]]}|[[{'type',103,'constraint',[{'atom',103,'is_subtype'}|[[{'var',103,'Format'}|[{'type',103,'string',[]}]]]]}|[{'type',104,'constraint',[{'atom',104,'is_subtype'}|[[{'var',104,'String'}|[{'type',104,'string',[]}]]]]}|[{'type',105,'constraint',[{'atom',105,'is_subtype'}|[[{'var',105,'Result'}|[{'type',105,'union',[{'type',105,'tuple',[{'atom',105,'ok'}|[{'ann_type',105,[{'var',105,'InputList'}|[{'type',105,'list',[{'remote_type',105,[{'atom',105,'io_lib'}|[{'atom',105,'fread_item'}|[[]]]]}]}]]}|[{'ann_type',106,[{'var',106,'LeftOverChars'}|[{'type',106,'string',[]}]]}]]]}|[{'type',107,'tuple',[{'atom',107,'more'}|[{'ann_type',107,[{'var',107,'RestFormat'}|[{'type',107,'string',[]}]]}|[{'ann_type',108,[{'var',108,'Nchars'}|[{'type',108,'non_neg_integer',[]}]]}|[{'ann_type',109,[{'var',109,'InputStack'}|[{'remote_type',109,[{'atom',109,'io_lib'}|[{'atom',109,'chars'}|[[]]]]}]]}]]]]}|[{'type',110,'tuple',[{'atom',110,'error'}|[{'type',110,'tuple',[{'atom',110,'fread'}|[{'ann_type',110,[{'var',110,'What'}|[{'remote_type',110,[{'atom',110,'io_lib'}|[{'atom',110,'fread_error'}|[[]]]]}]]}]]}]]}]]]}]]]]}]]]]]}]}] ] 'fread'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <[],Chars,Format> when 'true' -> apply 'fread_collect'/5 (Format,[],0,[],Chars)
+<_X_Continuation = {Format,Stack,N,Results},Chars,_6> when 'true' -> apply 'fread_collect'/5 (Format,Stack,N,Results,Chars)
+(<_5,_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_5,_4,_3})-|[{'function_name',{'fread',3}}] )-|['compiler_generated'] ) end
+'fread_collect'/5 = fun (_0,_1,_2,_3,_4) -> case <_0,_1,_2,_3,_4> of <Format,[13|Stack],N,Results,[10|Chars]> when 'true' -> let <_5> = call 'lists':'reverse' (Stack) in apply 'fread_line'/6 (Format,_5,N,Results,Chars,[13|[10]])
+<Format,Stack,N,Results,[10|Chars]> when 'true' -> let <_6> = call 'lists':'reverse' (Stack) in apply 'fread_line'/6 (Format,_6,N,Results,Chars,[10])
+<Format,Stack,N,Results,[]> when 'true' -> let <Continuation> = {Format,Stack,N,Results} in {'more',Continuation}
+<Format,[13|Stack],N,Results,Chars> when 'true' -> let <_8> = call 'lists':'reverse' (Stack) in apply 'fread_line'/6 (Format,_8,N,Results,Chars,[13])
+<Format,Stack,N,Results,[C|Chars]> when 'true' -> apply 'fread_collect'/5 (Format,[C|Stack],N,Results,Chars)
+<Format,Stack,N,Results,Chars> when 'true' -> let <_9> = call 'lists':'reverse' (Stack) in apply 'fread_line'/6 (Format,_9,N,Results,Chars,[]) end
+'fread_line'/6 = fun (_0,_1,_2,_3,_4,_5) -> let <_6> = case <> of <> when call 'erlang':'is_list' (_4) -> _4
+<> when 'true' -> [] end in case apply 'fread'/4 (_0,_1,_2,_3) of <{'ok',Results,[]}> when 'true' -> {'done',{'ok',Results},_6}
+<{'ok',Results,Rest}> when 'true' -> let <_8> = call 'erlang':'++' (_5,_6) in let <_9> = call 'erlang':'++' (Rest,_8) in {'done',{'ok',Results},_9}
+<{'more',Format,N,Results}> when let <_10> = call 'erlang':'is_list' (_1) in let <_11> = call 'erlang':'is_list' (_4) in call 'erlang':'and' (_10,_11) -> let <_12> = call 'erlang':'length' (_5) in let <_13> = call 'erlang':'+' (N,_12) in apply 'fread_collect'/5 (Format,[],_13,Results,_4)
+<{'more',Format,N,Results}> when call 'erlang':'is_list' (_1) -> let <_14> = call 'erlang':'length' (_5) in let <_15> = call 'erlang':'+' (N,_14) in apply 'fread_line'/6 (Format,'eof',_15,Results,_4,[])
+<Other> when 'true' -> {'done',Other,_4} end
+'fread'/2 = fun (_0,_1) -> apply 'fread'/4 (_0,_1,0,[])
+'fread'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <AllFormat = [126|Format0],Line,N,Results> when 'true' -> case apply 'fread_field'/1 (Format0) of <{Format,F,Sup,Unicode}> when 'true' -> apply 'fread1'/8 (Format,F,Sup,Unicode,Line,N,Results,AllFormat)
+(<_4> when 'true' -> primop 'match_fail' ({'badmatch',_4})-|['compiler_generated'] ) end
+<[C|Format],Line,N,Results> when try (let <_11> = case call 'erlang':'=:=' (C,32) of (<('true'-|['compiler_generated'] )> when 'true' -> 'true'-|['compiler_generated'] )
+(<('false'-|['compiler_generated'] )> when 'true' -> (case call 'erlang':'=:=' (C,9) of (<('true'-|['compiler_generated'] )> when 'true' -> 'true'-|['compiler_generated'] )
+(<('false'-|['compiler_generated'] )> when 'true' -> (case call 'erlang':'=:=' (C,13) of (<('true'-|['compiler_generated'] )> when 'true' -> 'true'-|['compiler_generated'] )
+(<('false'-|['compiler_generated'] )> when 'true' -> call 'erlang':'=:=' (C,10)-|['compiler_generated'] )
+(<_7> when 'true' -> _7-|['compiler_generated'] ) end-|['compiler_generated'] )-|['compiler_generated'] )
+(<_6> when 'true' -> _6-|['compiler_generated'] ) end-|['compiler_generated'] )-|['compiler_generated'] )
+(<_5> when 'true' -> _5-|['compiler_generated'] ) end in (call 'erlang':'=:=' ((_11-|['compiler_generated'] ),'true')-|['compiler_generated'] )-|['compiler_generated'] ) of <Try> -> Try catch <T,R> -> 'false' -> apply 'fread_skip_white'/4 (Format,Line,N,Results)
+<[C|Format],[_18|Line],N,Results> when call 'erlang':'=:=' (_18,C) -> let <_12> = call 'erlang':'+' (N,1) in apply 'fread'/4 (Format,Line,_12,Results)
+<[_X_F|_X_Format],[_X_C|_X_Line],_X_N,_X_Results> when 'true' -> apply 'fread_error'/1 ('input')
+<Format = [_19|_20],[],N,Results> when 'true' -> {'more',Format,N,Results}
+<[_21|_22],'eof',0,[]> when 'true' -> 'eof'
+<[_23|_24],'eof',_X_N,_X_Results> when 'true' -> apply 'fread_error'/1 ('input')
+<[],Line,_X_N,Results> when 'true' -> let <_13> = call 'lists':'reverse' (Results) in {'ok',_13,Line}
+(<_17,_16,_15,_14> when 'true' -> (primop 'match_fail' ({'function_clause',_17,_16,_15,_14})-|[{'function_name',{'fread',4}}] )-|['compiler_generated'] ) end
+'fread_skip_white'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <Format,[C|Line],N,Results> when try (let <_10> = case call 'erlang':'=:=' (C,32) of (<('true'-|['compiler_generated'] )> when 'true' -> 'true'-|['compiler_generated'] )
+(<('false'-|['compiler_generated'] )> when 'true' -> (case call 'erlang':'=:=' (C,9) of (<('true'-|['compiler_generated'] )> when 'true' -> 'true'-|['compiler_generated'] )
+(<('false'-|['compiler_generated'] )> when 'true' -> (case call 'erlang':'=:=' (C,13) of (<('true'-|['compiler_generated'] )> when 'true' -> 'true'-|['compiler_generated'] )
+(<('false'-|['compiler_generated'] )> when 'true' -> call 'erlang':'=:=' (C,10)-|['compiler_generated'] )
+(<_6> when 'true' -> _6-|['compiler_generated'] ) end-|['compiler_generated'] )-|['compiler_generated'] )
+(<_5> when 'true' -> _5-|['compiler_generated'] ) end-|['compiler_generated'] )-|['compiler_generated'] )
+(<_4> when 'true' -> _4-|['compiler_generated'] ) end in (call 'erlang':'=:=' ((_10-|['compiler_generated'] ),'true')-|['compiler_generated'] )-|['compiler_generated'] ) of <Try> -> Try catch <T,R> -> 'false' -> let <_11> = call 'erlang':'+' (N,1) in apply 'fread_skip_white'/4 (Format,Line,_11,Results)
+<Format,Line,N,Results> when 'true' -> apply 'fread'/4 (Format,Line,N,Results) end
+'fread_field'/1 = fun (_0) -> case _0 of <[42|Format]> when 'true' -> apply 'fread_field'/3 (Format,'true','false')
+<Format> when 'true' -> apply 'fread_field'/3 (Format,'false','false') end
+'fread_field'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <[C|Format],Sup,Unic> when let <_3> = call 'erlang':'>=' (C,48) in let <_4> = call 'erlang':'=<' (C,57) in call 'erlang':'and' (_3,_4) -> let <_5> = call 'erlang':'-' (C,48) in apply 'fread_field'/4 (Format,_5,Sup,Unic)
+<[116|Format],Sup,_X_Unic> when 'true' -> {Format,'none',Sup,'true'}
+<Format,Sup,Unic> when 'true' -> {Format,'none',Sup,Unic} end
+'fread_field'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <[C|Format],F,Sup,Unic> when let <_4> = call 'erlang':'>=' (C,48) in let <_5> = call 'erlang':'=<' (C,57) in call 'erlang':'and' (_4,_5) -> let <_6> = call 'erlang':'*' (10,F) in let <_7> = call 'erlang':'+' (_6,C) in let <_8> = call 'erlang':'-' (_7,48) in apply 'fread_field'/4 (Format,_8,Sup,Unic)
+<[116|Format],F,Sup,_X_Unic> when 'true' -> {Format,F,Sup,'true'}
+<Format,F,Sup,Unic> when 'true' -> {Format,F,Sup,Unic} end
+'fread1'/8 = fun (_0,_1,_2,_3,_4,_5,_6,_7) -> case <_0,_1,_2,_3,_4,_5,_6,_7> of <[108|Format],_X_F,Sup,_X_U,Line,N,Res,_X_AllFormat> when 'true' -> let <_8> = apply 'fread_result'/3 (Sup,N,Res) in apply 'fread'/4 (Format,Line,N,_8)
+<_X_Format,_X_F,_X_Sup,_X_U,[],N,Res,AllFormat> when 'true' -> {'more',AllFormat,N,Res}
+<_X_Format,_X_F,_X_Sup,_X_U,'eof',0,[],_X_AllFormat> when 'true' -> 'eof'
+<_X_Format,_X_F,_X_Sup,_X_U,'eof',_X_N,_X_Res,_X_AllFormat> when 'true' -> apply 'fread_error'/1 ('input')
+<Format,F,Sup,U,Line,N,Res,_X_AllFormat> when 'true' -> apply 'fread1'/7 (Format,F,Sup,U,Line,N,Res) end
+'fread1'/7 = fun (_0,_1,_2,_3,_4,_5,_6) -> case <_0,_1,_2,_3,_4,_5,_6> of <[102|Format],'none',Sup,'false',Line0,N0,Res> when 'true' -> case apply 'fread_float_cs'/2 (Line0,N0) of <{Line,N,Cs}> when 'true' -> apply 'fread_float'/6 (Cs,Sup,Format,Line,N,Res)
+(<_7> when 'true' -> primop 'match_fail' ({'badmatch',_7})-|['compiler_generated'] ) end
+<[102|Format],F,Sup,'false',Line0,N,Res> when 'true' -> case apply 'fread_chars'/3 (Line0,F,'false') of <{Line,Cs}> when 'true' -> let <_9> = call 'erlang':'+' (N,F) in apply 'fread_float'/6 (Cs,Sup,Format,Line,_9,Res)
+(<_8> when 'true' -> primop 'match_fail' ({'badmatch',_8})-|['compiler_generated'] ) end
+<[100|Format],'none',Sup,'false',Line0,N0,Res> when 'true' -> case apply 'fread_int_cs'/2 (Line0,N0) of <{Line,N,Cs}> when 'true' -> apply 'fread_integer'/7 (Cs,10,Sup,Format,Line,N,Res)
+(<_10> when 'true' -> primop 'match_fail' ({'badmatch',_10})-|['compiler_generated'] ) end
+<[100|Format],F,Sup,'false',Line0,N,Res> when 'true' -> case apply 'fread_chars'/3 (Line0,F,'false') of <{Line,Cs}> when 'true' -> let <_12> = call 'erlang':'+' (N,F) in apply 'fread_integer'/7 (Cs,10,Sup,Format,Line,_12,Res)
+(<_11> when 'true' -> primop 'match_fail' ({'badmatch',_11})-|['compiler_generated'] ) end
+<[117|Format],'none',Sup,'false',Line0,N0,Res> when 'true' -> case apply 'fread_digits'/4 (Line0,N0,10,[]) of <{Line,N,Cs}> when 'true' -> apply 'fread_unsigned'/7 (Cs,10,Sup,Format,Line,N,Res)
+(<_13> when 'true' -> primop 'match_fail' ({'badmatch',_13})-|['compiler_generated'] ) end
+<[117|Format],F,Sup,'false',Line0,N0,Res> when let <_14> = call 'erlang':'>=' (F,2) in let <_18> = call 'erlang':'=<' (F,36) in call 'erlang':'and' (_14,_18) -> case apply 'fread_digits'/4 (Line0,N0,F,[]) of <{Line,N,Cs}> when 'true' -> apply 'fread_unsigned'/7 (Cs,F,Sup,Format,Line,N,Res)
+(<_19> when 'true' -> primop 'match_fail' ({'badmatch',_19})-|['compiler_generated'] ) end
+<[45|Format],_X_F,Sup,'false',Line,N,Res> when 'true' -> apply 'fread_sign_char'/5 (Sup,Format,Line,N,Res)
+<[35|Format],'none',Sup,'false',Line0,N0,Res> when 'true' -> let <_30> = catch case apply 'fread_base'/2 (Line0,N0) of <{Line1,N1,B1}> when 'true' -> let <B> = call 'erlang':'abs' (B1) in let <_26> = call 'erlang':'>=' (B,2) in let <_25> = call 'erlang':'=<' (B,36) in case call 'erlang':'and' (_26,_25) of <'true'> when 'true' -> case apply 'fread_digits'/4 (Line1,N1,B,[]) of <{Line2,N2,Cs2}> when 'true' -> let <_29> = call 'lists':'reverse' (Cs2) in apply 'fread_based'/7 (_29,B1,Sup,Format,Line2,N2,Res)
+(<_28> when 'true' -> primop 'match_fail' ({'badmatch',_28})-|['compiler_generated'] ) end
+(<_27> when 'true' -> primop 'match_fail' ({'badmatch',_27})-|['compiler_generated'] ) end
+(<_20> when 'true' -> primop 'match_fail' ({'badmatch',_20})-|['compiler_generated'] ) end in case _30 of <{'EXIT',_62}> when 'true' -> apply 'fread_error'/1 ('based')
+<Other> when 'true' -> Other end
+<[35|Format],F,Sup,'false',Line0,N,Res> when 'true' -> let <_42> = catch case apply 'fread_chars'/3 (Line0,F,'false') of <{Line1,Cs1}> when 'true' -> let <_33> = call 'lists':'reverse' (Cs1) in case apply 'fread_base'/2 (_33,N) of <{Line2,_63,B2}> when 'true' -> let <_39> = call 'erlang':'>=' (B2,2) in let <_38> = call 'erlang':'=<' (B2,36) in case call 'erlang':'and' (_39,_38) of <'true'> when 'true' -> let <_41> = call 'erlang':'+' (N,F) in apply 'fread_based'/7 (Line2,B2,Sup,Format,Line1,_41,Res)
+(<_40> when 'true' -> primop 'match_fail' ({'badmatch',_40})-|['compiler_generated'] ) end
+(<_34> when 'true' -> primop 'match_fail' ({'badmatch',_34})-|['compiler_generated'] ) end
+(<_32> when 'true' -> primop 'match_fail' ({'badmatch',_32})-|['compiler_generated'] ) end in case _42 of <{'EXIT',_64}> when 'true' -> apply 'fread_error'/1 ('based')
+<Other> when 'true' -> Other end
+<[115|Format],'none',Sup,U,Line0,N0,Res> when 'true' -> case apply 'fread_string_cs'/3 (Line0,N0,U) of <{Line,N,Cs}> when 'true' -> apply 'fread_string'/7 (Cs,Sup,U,Format,Line,N,Res)
+(<_44> when 'true' -> primop 'match_fail' ({'badmatch',_44})-|['compiler_generated'] ) end
+<[115|Format],F,Sup,U,Line0,N,Res> when 'true' -> case apply 'fread_chars'/3 (Line0,F,U) of <{Line,Cs}> when 'true' -> let <_46> = call 'erlang':'+' (N,F) in apply 'fread_string'/7 (Cs,Sup,U,Format,Line,_46,Res)
+(<_45> when 'true' -> primop 'match_fail' ({'badmatch',_45})-|['compiler_generated'] ) end
+<[97|Format],'none',Sup,U,Line0,N0,Res> when 'true' -> case apply 'fread_string_cs'/3 (Line0,N0,U) of <{Line,N,Cs}> when 'true' -> apply 'fread_atom'/6 (Cs,Sup,Format,Line,N,Res)
+(<_47> when 'true' -> primop 'match_fail' ({'badmatch',_47})-|['compiler_generated'] ) end
+<[97|Format],F,Sup,'false',Line0,N,Res> when 'true' -> case apply 'fread_chars'/3 (Line0,F,'false') of <{Line,Cs}> when 'true' -> let <_49> = call 'erlang':'+' (N,F) in apply 'fread_atom'/6 (Cs,Sup,Format,Line,_49,Res)
+(<_48> when 'true' -> primop 'match_fail' ({'badmatch',_48})-|['compiler_generated'] ) end
+<[99|Format],'none',Sup,U,Line0,N,Res> when 'true' -> case apply 'fread_chars'/3 (Line0,1,U) of <{Line,Cs}> when 'true' -> let <_51> = call 'erlang':'+' (N,1) in apply 'fread_chars'/7 (Cs,Sup,U,Format,Line,_51,Res)
+(<_50> when 'true' -> primop 'match_fail' ({'badmatch',_50})-|['compiler_generated'] ) end
+<[99|Format],F,Sup,U,Line0,N,Res> when 'true' -> case apply 'fread_chars'/3 (Line0,F,U) of <{Line,Cs}> when 'true' -> let <_53> = call 'erlang':'+' (N,F) in apply 'fread_chars'/7 (Cs,Sup,U,Format,Line,_53,Res)
+(<_52> when 'true' -> primop 'match_fail' ({'badmatch',_52})-|['compiler_generated'] ) end
+<[126|Format],_X_F,_X_Sup,_X_U,[126|Line],N,Res> when 'true' -> let <_54> = call 'erlang':'+' (N,1) in apply 'fread'/4 (Format,Line,_54,Res)
+<_X_Format,_X_F,_X_Sup,_X_U,_X_Line,_X_N,_X_Res> when 'true' -> apply 'fread_error'/1 ('format') end
+'fread_float'/6 = fun (_0,_1,_2,_3,_4,_5) -> let <_8> = catch let <_6> = call 'lists':'reverse' (_0) in let <_7> = apply 'fread_skip_white'/1 (_6) in call 'erlang':'list_to_float' (_7) in case _8 of <{'EXIT',_17}> when 'true' -> apply 'fread_error'/1 ('float')
+<Float> when 'true' -> let <_9> = apply 'fread_result'/3 (_1,Float,_5) in apply 'fread'/4 (_2,_3,_4,_9) end
+'fread_integer'/7 = fun (_0,_1,_2,_3,_4,_5,_6) -> let <_9> = catch let <_7> = call 'lists':'reverse' (_0) in let <_8> = apply 'fread_skip_white'/1 (_7) in call 'erlang':'list_to_integer' (_8,_1) in case _9 of <{'EXIT',_19}> when 'true' -> apply 'fread_error'/1 ('integer')
+<Integer> when 'true' -> let <_10> = apply 'fread_result'/3 (_2,Integer,_6) in apply 'fread'/4 (_3,_4,_5,_10) end
+'fread_unsigned'/7 = fun (_0,_1,_2,_3,_4,_5,_6) -> let <_9> = catch let <_7> = call 'lists':'reverse' (_0) in let <_8> = apply 'fread_skip_white'/1 (_7) in call 'erlang':'list_to_integer' (_8,_1) in case _9 of <{'EXIT',_19}> when 'true' -> apply 'fread_error'/1 ('unsigned')
+<Integer> when 'true' -> let <_10> = apply 'fread_result'/3 (_2,Integer,_6) in apply 'fread'/4 (_3,_4,_5,_10) end
+'fread_based'/7 = fun (_0,_1,_2,_3,_4,_5,_6) -> let <_19,_20> = case <> of <> when call 'erlang':'<' (_1,0) -> let <_7> = call 'erlang':'-' (_1) in <[45|_0],_7>
+<> when 'true' -> <_0,_1> end in let <I> = call 'erlang':'list_to_integer' ((_19-|['compiler_generated'] ),(_20-|['compiler_generated'] )) in let <_11> = apply 'fread_result'/3 (_2,I,_6) in apply 'fread'/4 (_3,_4,_5,_11)
+'fread_sign_char'/5 = fun (_0,_1,_2,_3,_4) -> case <_0,_1,_2,_3,_4> of <Sup,Format,[45|Line],N,Res> when 'true' -> let <_7> = call 'erlang':'+' (N,1) in let <_6> = apply 'fread_result'/3 (Sup,-1,Res) in apply 'fread'/4 (Format,Line,_7,_6)
+<Sup,Format,[43|Line],N,Res> when 'true' -> let <_10> = call 'erlang':'+' (N,1) in let <_9> = apply 'fread_result'/3 (Sup,1,Res) in apply 'fread'/4 (Format,Line,_10,_9)
+<Sup,Format,Line,N,Res> when 'true' -> let <_11> = apply 'fread_result'/3 (Sup,1,Res) in apply 'fread'/4 (Format,Line,N,_11) end
+'fread_string'/7 = fun (_0,_1,_2,_3,_4,_5,_6) -> case <_0,_1,_2,_3,_4,_5,_6> of <'error',_X_Sup,_X_U,_X_Format,_X_Line,_X_N,_X_Res> when 'true' -> apply 'fread_error'/1 ('string')
+<Cs0,Sup,U,Format,Line,N,Res> when 'true' -> let <_7> = apply 'fread_skip_white'/1 (Cs0) in let <_8> = call 'lists':'reverse' (_7) in let <Cs> = apply 'fread_skip_white'/1 (_8) in let <_10> = apply 'fread_result'/3 (Sup,Cs,Res) in let <_11> = apply 'fread_convert'/2 (_10,U) in apply 'fread'/4 (Format,Line,N,_11) end
+'fread_atom'/6 = fun (_0,_1,_2,_3,_4,_5) -> case <_0,_1,_2,_3,_4,_5> of <'error',_X_Sup,_X_Format,_X_Line,_X_N,_X_Res> when 'true' -> apply 'fread_error'/1 ('atom')
+<Cs0,Sup,Format,Line,N,Res> when 'true' -> let <_6> = apply 'fread_skip_white'/1 (Cs0) in let <_7> = call 'lists':'reverse' (_6) in let <Cs> = apply 'fread_skip_white'/1 (_7) in let <_9> = call 'erlang':'list_to_atom' (Cs) in let <_10> = apply 'fread_result'/3 (Sup,_9,Res) in apply 'fread'/4 (Format,Line,N,_10) end
+'fread_chars'/7 = fun (_0,_1,_2,_3,_4,_5,_6) -> case <_0,_1,_2,_3,_4,_5,_6> of <'error',_X_Sup,_X_U,_X_Format,_X_Line,_X_N,_X_Res> when 'true' -> apply 'fread_error'/1 ('character')
+<Cs,Sup,U,Format,Line,N,Res> when 'true' -> let <_7> = call 'lists':'reverse' (Cs) in let <_8> = apply 'fread_result'/3 (Sup,_7,Res) in let <_9> = apply 'fread_convert'/2 (_8,U) in apply 'fread'/4 (Format,Line,N,_9) end
+'fread_chars'/3 = fun (_0,_1,_2) -> apply 'fread_chars'/4 (_1,_0,_2,[])
+'fread_chars'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <0,Line,_X_U,Cs> when 'true' -> {Line,Cs}
+<_X_N,_@r0 = [10|Line],_X_U,_X_Cs> when 'true' -> {_@r0,'error'}
+<N,[C|Line],'true',Cs> when 'true' -> let <_4> = call 'erlang':'-' (N,1) in apply 'fread_chars'/4 (_4,Line,'true',[C|Cs])
+<N,[C|Line],'false',Cs> when let <_5> = call 'erlang':'>=' (C,0) in let <_6> = call 'erlang':'=<' (C,255) in call 'erlang':'and' (_5,_6) -> let <_7> = call 'erlang':'-' (N,1) in apply 'fread_chars'/4 (_7,Line,'false',[C|Cs])
+<_X_N,L,_X_U,_X_Cs> when 'true' -> {L,'error'} end
+'fread_int_cs'/2 = fun (_0,_1) -> case apply 'fread_skip_white'/2 (_0,_1) of <{Line1,N1}> when 'true' -> case apply 'fread_sign'/3 (Line1,N1,[]) of <{Line,N,Cs}> when 'true' -> apply 'fread_digits'/3 (Line,N,Cs)
+(<_3> when 'true' -> primop 'match_fail' ({'badmatch',_3})-|['compiler_generated'] ) end
+(<_2> when 'true' -> primop 'match_fail' ({'badmatch',_2})-|['compiler_generated'] ) end
+'fread_float_cs'/2 = fun (_0,_1) -> case apply 'fread_skip_white'/2 (_0,_1) of <{Line1,N1}> when 'true' -> case apply 'fread_sign'/3 (Line1,N1,[]) of <{Line2,N2,Cs2}> when 'true' -> case apply 'fread_digits'/3 (Line2,N2,Cs2) of <{Line,N,Cs}> when 'true' -> apply 'fread_float_cs_1'/3 (Line,N,Cs)
+(<_4> when 'true' -> primop 'match_fail' ({'badmatch',_4})-|['compiler_generated'] ) end
+(<_3> when 'true' -> primop 'match_fail' ({'badmatch',_3})-|['compiler_generated'] ) end
+(<_2> when 'true' -> primop 'match_fail' ({'badmatch',_2})-|['compiler_generated'] ) end
+'fread_float_cs_1'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <[46|Line0],N0,Cs0> when 'true' -> let <_3> = call 'erlang':'+' (N0,1) in case apply 'fread_digits'/3 (Line0,_3,[46|Cs0]) of <{Line,N,Cs}> when 'true' -> apply 'fread_float_cs_2'/3 (Line,N,Cs)
+(<_4> when 'true' -> primop 'match_fail' ({'badmatch',_4})-|['compiler_generated'] ) end
+<Line,N,Cs> when 'true' -> {Line,N,Cs} end
+'fread_float_cs_2'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <[101|Line0],N0,Cs0> when 'true' -> let <_3> = call 'erlang':'+' (N0,1) in case apply 'fread_sign'/3 (Line0,_3,[101|Cs0]) of <{Line,N,Cs}> when 'true' -> apply 'fread_digits'/3 (Line,N,Cs)
+(<_4> when 'true' -> primop 'match_fail' ({'badmatch',_4})-|['compiler_generated'] ) end
+<[69|Line0],N0,Cs0> when 'true' -> let <_5> = call 'erlang':'+' (N0,1) in case apply 'fread_sign'/3 (Line0,_5,[69|Cs0]) of <{Line,N,Cs}> when 'true' -> apply 'fread_digits'/3 (Line,N,Cs)
+(<_6> when 'true' -> primop 'match_fail' ({'badmatch',_6})-|['compiler_generated'] ) end
+<Line,N,Cs> when 'true' -> {Line,N,Cs} end
+'fread_string_cs'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <Line0,N0,'false'> when 'true' -> case apply 'fread_skip_white'/2 (Line0,N0) of <{Line,N}> when 'true' -> apply 'fread_skip_latin1_nonwhite'/3 (Line,N,[])
+(<_3> when 'true' -> primop 'match_fail' ({'badmatch',_3})-|['compiler_generated'] ) end
+<Line0,N0,'true'> when 'true' -> case apply 'fread_skip_white'/2 (Line0,N0) of <{Line,N}> when 'true' -> apply 'fread_skip_nonwhite'/3 (Line,N,[])
+(<_4> when 'true' -> primop 'match_fail' ({'badmatch',_4})-|['compiler_generated'] ) end
+(<_7,_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_7,_6,_5})-|[{'function_name',{'fread_string_cs',3}}] )-|['compiler_generated'] ) end
+'fread_skip_white'/1 = fun (_0) -> case _0 of <[C|Line]> when try (let <_7> = case call 'erlang':'=:=' (C,32) of (<('true'-|['compiler_generated'] )> when 'true' -> 'true'-|['compiler_generated'] )
+(<('false'-|['compiler_generated'] )> when 'true' -> (case call 'erlang':'=:=' (C,9) of (<('true'-|['compiler_generated'] )> when 'true' -> 'true'-|['compiler_generated'] )
+(<('false'-|['compiler_generated'] )> when 'true' -> (case call 'erlang':'=:=' (C,13) of (<('true'-|['compiler_generated'] )> when 'true' -> 'true'-|['compiler_generated'] )
+(<('false'-|['compiler_generated'] )> when 'true' -> call 'erlang':'=:=' (C,10)-|['compiler_generated'] )
+(<_3> when 'true' -> _3-|['compiler_generated'] ) end-|['compiler_generated'] )-|['compiler_generated'] )
+(<_2> when 'true' -> _2-|['compiler_generated'] ) end-|['compiler_generated'] )-|['compiler_generated'] )
+(<_1> when 'true' -> _1-|['compiler_generated'] ) end in (call 'erlang':'=:=' ((_7-|['compiler_generated'] ),'true')-|['compiler_generated'] )-|['compiler_generated'] ) of <Try> -> Try catch <T,R> -> 'false' -> apply 'fread_skip_white'/1 (Line)
+<Line> when 'true' -> Line end
+'fread_skip_white'/2 = fun (_0,_1) -> case <_0,_1> of <[C|Line],N> when try (let <_8> = case call 'erlang':'=:=' (C,32) of (<('true'-|['compiler_generated'] )> when 'true' -> 'true'-|['compiler_generated'] )
+(<('false'-|['compiler_generated'] )> when 'true' -> (case call 'erlang':'=:=' (C,9) of (<('true'-|['compiler_generated'] )> when 'true' -> 'true'-|['compiler_generated'] )
+(<('false'-|['compiler_generated'] )> when 'true' -> (case call 'erlang':'=:=' (C,13) of (<('true'-|['compiler_generated'] )> when 'true' -> 'true'-|['compiler_generated'] )
+(<('false'-|['compiler_generated'] )> when 'true' -> call 'erlang':'=:=' (C,10)-|['compiler_generated'] )
+(<_4> when 'true' -> _4-|['compiler_generated'] ) end-|['compiler_generated'] )-|['compiler_generated'] )
+(<_3> when 'true' -> _3-|['compiler_generated'] ) end-|['compiler_generated'] )-|['compiler_generated'] )
+(<_2> when 'true' -> _2-|['compiler_generated'] ) end in (call 'erlang':'=:=' ((_8-|['compiler_generated'] ),'true')-|['compiler_generated'] )-|['compiler_generated'] ) of <Try> -> Try catch <T,R> -> 'false' -> let <_9> = call 'erlang':'+' (N,1) in apply 'fread_skip_white'/2 (Line,_9)
+<Line,N> when 'true' -> {Line,N} end
+'fread_skip_latin1_nonwhite'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <_@r0 = [C|Line],N,Cs> when try (let <_9> = case call 'erlang':'=:=' (C,32) of (<('true'-|['compiler_generated'] )> when 'true' -> 'true'-|['compiler_generated'] )
+(<('false'-|['compiler_generated'] )> when 'true' -> (case call 'erlang':'=:=' (C,9) of (<('true'-|['compiler_generated'] )> when 'true' -> 'true'-|['compiler_generated'] )
+(<('false'-|['compiler_generated'] )> when 'true' -> (case call 'erlang':'=:=' (C,13) of (<('true'-|['compiler_generated'] )> when 'true' -> 'true'-|['compiler_generated'] )
+(<('false'-|['compiler_generated'] )> when 'true' -> call 'erlang':'=:=' (C,10)-|['compiler_generated'] )
+(<_5> when 'true' -> _5-|['compiler_generated'] ) end-|['compiler_generated'] )-|['compiler_generated'] )
+(<_4> when 'true' -> _4-|['compiler_generated'] ) end-|['compiler_generated'] )-|['compiler_generated'] )
+(<_3> when 'true' -> _3-|['compiler_generated'] ) end in (call 'erlang':'=:=' ((_9-|['compiler_generated'] ),'true')-|['compiler_generated'] )-|['compiler_generated'] ) of <Try> -> Try catch <T,R> -> 'false' -> {_@r0,N,Cs}
+<_@r1 = [C|Line],N,[]> when call 'erlang':'>' (C,255) -> {_@r1,N,'error'}
+<_@r2 = [C|Line],N,Cs> when call 'erlang':'>' (C,255) -> {_@r2,N,Cs}
+<[C|Line],N,Cs> when 'true' -> let <_10> = call 'erlang':'+' (N,1) in apply 'fread_skip_latin1_nonwhite'/3 (Line,_10,[C|Cs])
+<[],N,Cs> when 'true' -> {[],N,Cs}
+(<_13,_12,_11> when 'true' -> (primop 'match_fail' ({'function_clause',_13,_12,_11})-|[{'function_name',{'fread_skip_latin1_nonwhite',3}}] )-|['compiler_generated'] ) end
+'fread_skip_nonwhite'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <_@r0 = [C|Line],N,Cs> when try (let <_9> = case call 'erlang':'=:=' (C,32) of (<('true'-|['compiler_generated'] )> when 'true' -> 'true'-|['compiler_generated'] )
+(<('false'-|['compiler_generated'] )> when 'true' -> (case call 'erlang':'=:=' (C,9) of (<('true'-|['compiler_generated'] )> when 'true' -> 'true'-|['compiler_generated'] )
+(<('false'-|['compiler_generated'] )> when 'true' -> (case call 'erlang':'=:=' (C,13) of (<('true'-|['compiler_generated'] )> when 'true' -> 'true'-|['compiler_generated'] )
+(<('false'-|['compiler_generated'] )> when 'true' -> call 'erlang':'=:=' (C,10)-|['compiler_generated'] )
+(<_5> when 'true' -> _5-|['compiler_generated'] ) end-|['compiler_generated'] )-|['compiler_generated'] )
+(<_4> when 'true' -> _4-|['compiler_generated'] ) end-|['compiler_generated'] )-|['compiler_generated'] )
+(<_3> when 'true' -> _3-|['compiler_generated'] ) end in (call 'erlang':'=:=' ((_9-|['compiler_generated'] ),'true')-|['compiler_generated'] )-|['compiler_generated'] ) of <Try> -> Try catch <T,R> -> 'false' -> {_@r0,N,Cs}
+<[C|Line],N,Cs> when 'true' -> let <_10> = call 'erlang':'+' (N,1) in apply 'fread_skip_nonwhite'/3 (Line,_10,[C|Cs])
+<[],N,Cs> when 'true' -> {[],N,Cs}
+(<_13,_12,_11> when 'true' -> (primop 'match_fail' ({'function_clause',_13,_12,_11})-|[{'function_name',{'fread_skip_nonwhite',3}}] )-|['compiler_generated'] ) end
+'fread_sign'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <[43|Line],N,Cs> when 'true' -> let <_3> = call 'erlang':'+' (N,1) in {Line,_3,[43|Cs]}
+<[45|Line],N,Cs> when 'true' -> let <_4> = call 'erlang':'+' (N,1) in {Line,_4,[45|Cs]}
+<Line,N,Cs> when 'true' -> {Line,N,Cs} end
+'fread_base'/2 = fun (_0,_1) -> case apply 'fread_int_cs'/2 (_0,_1) of <{[35|Line1],N1,Cs1}> when 'true' -> let <_3> = call 'lists':'reverse' (Cs1) in let <B> = call 'erlang':'list_to_integer' (_3) in let <_5> = call 'erlang':'+' (N1,1) in {Line1,_5,B}
+(<_2> when 'true' -> primop 'match_fail' ({'badmatch',_2})-|['compiler_generated'] ) end
+'fread_digits'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <[C|Line],N,Cs> when let <_3> = call 'erlang':'>=' (C,48) in let <_4> = call 'erlang':'=<' (C,57) in call 'erlang':'and' (_3,_4) -> let <_5> = call 'erlang':'+' (N,1) in apply 'fread_digits'/3 (Line,_5,[C|Cs])
+<Line,N,Cs> when 'true' -> {Line,N,Cs} end
+'fread_digits'/4 = fun (_0,_1,_2,_3) -> case <_0,_1,_2,_3> of <[C|Line],N,Base,Cs> when let <_4> = call 'erlang':'>=' (C,48) in let <_5> = call 'erlang':'=<' (C,57) in call 'erlang':'and' (_4,_5) -> let <_6> = call 'erlang':'+' (N,1) in apply 'fread_digits'/4 (Line,_6,Base,[C|Cs])
+<[C|Line],N,Base,Cs> when try let <_7> = call 'erlang':'>=' (C,65) in let <_8> = call 'erlang':'+' (65,Base) in let <_9> = call 'erlang':'-' (_8,10) in let <_10> = call 'erlang':'<' (C,_9) in call 'erlang':'and' (_7,_10) of <Try> -> Try catch <T,R> -> 'false' -> let <_11> = call 'erlang':'+' (N,1) in apply 'fread_digits'/4 (Line,_11,Base,[C|Cs])
+<[C|Line],N,Base,Cs> when try let <_12> = call 'erlang':'>=' (C,97) in let <_13> = call 'erlang':'+' (97,Base) in let <_14> = call 'erlang':'-' (_13,10) in let <_15> = call 'erlang':'<' (C,_14) in call 'erlang':'and' (_12,_15) of <Try> -> Try catch <T,R> -> 'false' -> let <_16> = call 'erlang':'+' (N,1) in apply 'fread_digits'/4 (Line,_16,Base,[C|Cs])
+<Line,N,_X_Base,Cs> when 'true' -> {Line,N,Cs} end
+'fread_result'/3 = fun (_0,_1,_2) -> case <_0,_1,_2> of <'true',_X_V,Res> when 'true' -> Res
+<'false',V,Res> when 'true' -> [V|Res]
+(<_5,_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_5,_4,_3})-|[{'function_name',{'fread_result',3}}] )-|['compiler_generated'] ) end
+'fread_convert'/2 = fun (_0,_1) -> _0
+'fread_error'/1 = fun (_0) -> {'error',{'fread',_0}}
+'module_info'/0 = fun () -> call 'erlang':'get_module_info' ('io_lib_fread')
+'module_info'/1 = fun (_0) -> call 'erlang':'get_module_info' ('io_lib_fread',_0) end

@@ -1,0 +1,88 @@
+module 'ordsets' ['add_element'/2,'del_element'/2,'filter'/2,'fold'/3,'from_list'/1,'intersection'/1,'intersection'/2,'is_disjoint'/2,'is_element'/2,'is_empty'/1,'is_set'/1,'is_subset'/2,'module_info'/0,'module_info'/1,'new'/0,'size'/1,'subtract'/2,'to_list'/1,'union'/1,'union'/2] attributes [ 'file' = [{[115|[114|[99|[47|[111|[114|[100|[115|[101|[116|[115|[46|[101|[114|[108]]]]]]]]]]]]]]],1}]
+, 'export_type' = [{'ordset',1}]
+, 'type' = [{'ordset',{'type',31,'list',[{'var',31,'T'}]},[{'var',31,'T'}]}]
+, 'spec' = [{{'new',0},[{'type',36,'fun',[{'type',36,'product',[]}|[{'type',36,'nil',[]}]]}]}]
+, 'spec' = [{{'is_set',1},[{'type',43,'bounded_fun',[{'type',43,'fun',[{'type',43,'product',[{'var',43,'Ordset'}]}|[{'type',43,'boolean',[]}]]}|[[{'type',44,'constraint',[{'atom',44,'is_subtype'}|[[{'var',44,'Ordset'}|[{'type',44,'term',[]}]]]]}]]]}]}]
+, 'spec' = [{{'size',1},[{'type',58,'bounded_fun',[{'type',58,'fun',[{'type',58,'product',[{'var',58,'Ordset'}]}|[{'type',58,'non_neg_integer',[]}]]}|[[{'type',59,'constraint',[{'atom',59,'is_subtype'}|[[{'var',59,'Ordset'}|[{'user_type',59,'ordset',[{'var',59,'_'}]}]]]]}]]]}]}]
+, 'spec' = [{{'is_empty',1},[{'type',65,'bounded_fun',[{'type',65,'fun',[{'type',65,'product',[{'var',65,'Ordset'}]}|[{'type',65,'boolean',[]}]]}|[[{'type',66,'constraint',[{'atom',66,'is_subtype'}|[[{'var',66,'Ordset'}|[{'user_type',66,'ordset',[{'var',66,'_'}]}]]]]}]]]}]}]
+, 'spec' = [{{'to_list',1},[{'type',73,'bounded_fun',[{'type',73,'fun',[{'type',73,'product',[{'var',73,'Ordset'}]}|[{'var',73,'List'}]]}|[[{'type',74,'constraint',[{'atom',74,'is_subtype'}|[[{'var',74,'Ordset'}|[{'user_type',74,'ordset',[{'var',74,'T'}]}]]]]}|[{'type',75,'constraint',[{'atom',75,'is_subtype'}|[[{'var',75,'List'}|[{'type',75,'list',[{'var',75,'T'}]}]]]]}]]]]}]}]
+, 'spec' = [{{'from_list',1},[{'type',82,'bounded_fun',[{'type',82,'fun',[{'type',82,'product',[{'var',82,'List'}]}|[{'var',82,'Ordset'}]]}|[[{'type',83,'constraint',[{'atom',83,'is_subtype'}|[[{'var',83,'List'}|[{'type',83,'list',[{'var',83,'T'}]}]]]]}|[{'type',84,'constraint',[{'atom',84,'is_subtype'}|[[{'var',84,'Ordset'}|[{'user_type',84,'ordset',[{'var',84,'T'}]}]]]]}]]]]}]}]
+, 'spec' = [{{'is_element',2},[{'type',92,'bounded_fun',[{'type',92,'fun',[{'type',92,'product',[{'var',92,'Element'}|[{'var',92,'Ordset'}]]}|[{'type',92,'boolean',[]}]]}|[[{'type',93,'constraint',[{'atom',93,'is_subtype'}|[[{'var',93,'Element'}|[{'type',93,'term',[]}]]]]}|[{'type',94,'constraint',[{'atom',94,'is_subtype'}|[[{'var',94,'Ordset'}|[{'user_type',94,'ordset',[{'var',94,'_'}]}]]]]}]]]]}]}]
+, 'spec' = [{{'add_element',2},[{'type',104,'bounded_fun',[{'type',104,'fun',[{'type',104,'product',[{'var',104,'Element'}|[{'var',104,'Ordset1'}]]}|[{'var',104,'Ordset2'}]]}|[[{'type',105,'constraint',[{'atom',105,'is_subtype'}|[[{'var',105,'Element'}|[{'var',105,'E'}]]]]}|[{'type',106,'constraint',[{'atom',106,'is_subtype'}|[[{'var',106,'Ordset1'}|[{'user_type',106,'ordset',[{'var',106,'T'}]}]]]]}|[{'type',107,'constraint',[{'atom',107,'is_subtype'}|[[{'var',107,'Ordset2'}|[{'user_type',107,'ordset',[{'type',107,'union',[{'var',107,'T'}|[{'var',107,'E'}]]}]}]]]]}]]]]]}]}]
+, 'spec' = [{{'del_element',2},[{'type',119,'bounded_fun',[{'type',119,'fun',[{'type',119,'product',[{'var',119,'Element'}|[{'var',119,'Ordset1'}]]}|[{'var',119,'Ordset2'}]]}|[[{'type',120,'constraint',[{'atom',120,'is_subtype'}|[[{'var',120,'Element'}|[{'type',120,'term',[]}]]]]}|[{'type',121,'constraint',[{'atom',121,'is_subtype'}|[[{'var',121,'Ordset1'}|[{'user_type',121,'ordset',[{'var',121,'T'}]}]]]]}|[{'type',122,'constraint',[{'atom',122,'is_subtype'}|[[{'var',122,'Ordset2'}|[{'user_type',122,'ordset',[{'var',122,'T'}]}]]]]}]]]]]}]}]
+, 'spec' = [{{'union',2},[{'type',132,'bounded_fun',[{'type',132,'fun',[{'type',132,'product',[{'var',132,'Ordset1'}|[{'var',132,'Ordset2'}]]}|[{'var',132,'Ordset3'}]]}|[[{'type',133,'constraint',[{'atom',133,'is_subtype'}|[[{'var',133,'Ordset1'}|[{'user_type',133,'ordset',[{'var',133,'T1'}]}]]]]}|[{'type',134,'constraint',[{'atom',134,'is_subtype'}|[[{'var',134,'Ordset2'}|[{'user_type',134,'ordset',[{'var',134,'T2'}]}]]]]}|[{'type',135,'constraint',[{'atom',135,'is_subtype'}|[[{'var',135,'Ordset3'}|[{'user_type',135,'ordset',[{'type',135,'union',[{'var',135,'T1'}|[{'var',135,'T2'}]]}]}]]]]}]]]]]}]}]
+, 'spec' = [{{'union',1},[{'type',149,'bounded_fun',[{'type',149,'fun',[{'type',149,'product',[{'var',149,'OrdsetList'}]}|[{'var',149,'Ordset'}]]}|[[{'type',150,'constraint',[{'atom',150,'is_subtype'}|[[{'var',150,'OrdsetList'}|[{'type',150,'list',[{'user_type',150,'ordset',[{'var',150,'T'}]}]}]]]]}|[{'type',151,'constraint',[{'atom',151,'is_subtype'}|[[{'var',151,'Ordset'}|[{'user_type',151,'ordset',[{'var',151,'T'}]}]]]]}]]]]}]}]
+, 'spec' = [{{'intersection',2},[{'type',159,'bounded_fun',[{'type',159,'fun',[{'type',159,'product',[{'var',159,'Ordset1'}|[{'var',159,'Ordset2'}]]}|[{'var',159,'Ordset3'}]]}|[[{'type',160,'constraint',[{'atom',160,'is_subtype'}|[[{'var',160,'Ordset1'}|[{'user_type',160,'ordset',[{'var',160,'_'}]}]]]]}|[{'type',161,'constraint',[{'atom',161,'is_subtype'}|[[{'var',161,'Ordset2'}|[{'user_type',161,'ordset',[{'var',161,'_'}]}]]]]}|[{'type',162,'constraint',[{'atom',162,'is_subtype'}|[[{'var',162,'Ordset3'}|[{'user_type',162,'ordset',[{'var',162,'_'}]}]]]]}]]]]]}]}]
+, 'spec' = [{{'intersection',1},[{'type',178,'bounded_fun',[{'type',178,'fun',[{'type',178,'product',[{'var',178,'OrdsetList'}]}|[{'var',178,'Ordset'}]]}|[[{'type',179,'constraint',[{'atom',179,'is_subtype'}|[[{'var',179,'OrdsetList'}|[{'type',179,'nonempty_list',[{'user_type',179,'ordset',[{'var',179,'_'}]}]}]]]]}|[{'type',180,'constraint',[{'atom',180,'is_subtype'}|[[{'var',180,'Ordset'}|[{'user_type',180,'ordset',[{'var',180,'_'}]}]]]]}]]]]}]}]
+, 'spec' = [{{'is_disjoint',2},[{'type',193,'bounded_fun',[{'type',193,'fun',[{'type',193,'product',[{'var',193,'Ordset1'}|[{'var',193,'Ordset2'}]]}|[{'type',193,'boolean',[]}]]}|[[{'type',194,'constraint',[{'atom',194,'is_subtype'}|[[{'var',194,'Ordset1'}|[{'user_type',194,'ordset',[{'var',194,'_'}]}]]]]}|[{'type',195,'constraint',[{'atom',195,'is_subtype'}|[[{'var',195,'Ordset2'}|[{'user_type',195,'ordset',[{'var',195,'_'}]}]]]]}]]]]}]}]
+, 'spec' = [{{'subtract',2},[{'type',212,'bounded_fun',[{'type',212,'fun',[{'type',212,'product',[{'var',212,'Ordset1'}|[{'var',212,'Ordset2'}]]}|[{'var',212,'Ordset3'}]]}|[[{'type',213,'constraint',[{'atom',213,'is_subtype'}|[[{'var',213,'Ordset1'}|[{'user_type',213,'ordset',[{'var',213,'_'}]}]]]]}|[{'type',214,'constraint',[{'atom',214,'is_subtype'}|[[{'var',214,'Ordset2'}|[{'user_type',214,'ordset',[{'var',214,'_'}]}]]]]}|[{'type',215,'constraint',[{'atom',215,'is_subtype'}|[[{'var',215,'Ordset3'}|[{'user_type',215,'ordset',[{'var',215,'_'}]}]]]]}]]]]]}]}]
+, 'spec' = [{{'is_subset',2},[{'type',230,'bounded_fun',[{'type',230,'fun',[{'type',230,'product',[{'var',230,'Ordset1'}|[{'var',230,'Ordset2'}]]}|[{'type',230,'boolean',[]}]]}|[[{'type',231,'constraint',[{'atom',231,'is_subtype'}|[[{'var',231,'Ordset1'}|[{'user_type',231,'ordset',[{'var',231,'_'}]}]]]]}|[{'type',232,'constraint',[{'atom',232,'is_subtype'}|[[{'var',232,'Ordset2'}|[{'user_type',232,'ordset',[{'var',232,'_'}]}]]]]}]]]]}]}]
+, 'spec' = [{{'fold',3},[{'type',246,'bounded_fun',[{'type',246,'fun',[{'type',246,'product',[{'var',246,'Function'}|[{'var',246,'Acc0'}|[{'var',246,'Ordset'}]]]}|[{'var',246,'Acc1'}]]}|[[{'type',247,'constraint',[{'atom',247,'is_subtype'}|[[{'var',247,'Function'}|[{'type',247,'fun',[{'type',247,'product',[{'ann_type',247,[{'var',247,'Element'}|[{'var',247,'T'}]]}|[{'ann_type',247,[{'var',247,'AccIn'}|[{'type',247,'term',[]}]]}]]}|[{'ann_type',247,[{'var',247,'AccOut'}|[{'type',247,'term',[]}]]}]]}]]]]}|[{'type',248,'constraint',[{'atom',248,'is_subtype'}|[[{'var',248,'Ordset'}|[{'user_type',248,'ordset',[{'var',248,'T'}]}]]]]}|[{'type',249,'constraint',[{'atom',249,'is_subtype'}|[[{'var',249,'Acc0'}|[{'type',249,'term',[]}]]]]}|[{'type',250,'constraint',[{'atom',250,'is_subtype'}|[[{'var',250,'Acc1'}|[{'type',250,'term',[]}]]]]}]]]]]]}]}]
+, 'spec' = [{{'filter',2},[{'type',258,'bounded_fun',[{'type',258,'fun',[{'type',258,'product',[{'var',258,'Pred'}|[{'var',258,'Ordset1'}]]}|[{'var',258,'Ordset2'}]]}|[[{'type',259,'constraint',[{'atom',259,'is_subtype'}|[[{'var',259,'Pred'}|[{'type',259,'fun',[{'type',259,'product',[{'ann_type',259,[{'var',259,'Element'}|[{'var',259,'T'}]]}]}|[{'type',259,'boolean',[]}]]}]]]]}|[{'type',260,'constraint',[{'atom',260,'is_subtype'}|[[{'var',260,'Ordset1'}|[{'user_type',260,'ordset',[{'var',260,'T'}]}]]]]}|[{'type',261,'constraint',[{'atom',261,'is_subtype'}|[[{'var',261,'Ordset2'}|[{'user_type',261,'ordset',[{'var',261,'T'}]}]]]]}]]]]]}]}] ] 'new'/0 = fun () -> []
+'is_set'/1 = fun (_0) -> case _0 of <[E|Es]> when 'true' -> apply 'is_set'/2 (Es,E)
+<[]> when 'true' -> 'true'
+<_2> when 'true' -> 'false' end
+'is_set'/2 = fun (_0,_1) -> case <_0,_1> of <[E2|Es],E1> when call 'erlang':'<' (E1,E2) -> apply 'is_set'/2 (Es,E2)
+<[_4|_5],_6> when 'true' -> 'false'
+<[],_7> when 'true' -> 'true'
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'is_set',2}}] )-|['compiler_generated'] ) end
+'size'/1 = fun (_0) -> call 'erlang':'length' (_0)
+'is_empty'/1 = fun (_0) -> call 'erlang':'=:=' (_0,[])
+'to_list'/1 = fun (_0) -> _0
+'from_list'/1 = fun (_0) -> call 'lists':'usort' (_0)
+'is_element'/2 = fun (_0,_1) -> case <_0,_1> of <E,[H|Es]> when call 'erlang':'>' (E,H) -> apply 'is_element'/2 (E,Es)
+<E,[H|_4]> when call 'erlang':'<' (E,H) -> 'false'
+<_X_E,[_X_H|_5]> when 'true' -> 'true'
+<_6,[]> when 'true' -> 'false'
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'is_element',2}}] )-|['compiler_generated'] ) end
+'add_element'/2 = fun (_0,_1) -> case <_0,_1> of <E,[H|Es]> when call 'erlang':'>' (E,H) -> let <_2> = apply 'add_element'/2 (E,Es) in [H|_2]
+<E,Set = [H|_5]> when call 'erlang':'<' (E,H) -> [E|Set]
+<_X_E,Set = [_X_H|_6]> when 'true' -> Set
+<E,[]> when 'true' -> [E|[]]
+(<_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_4,_3})-|[{'function_name',{'add_element',2}}] )-|['compiler_generated'] ) end
+'del_element'/2 = fun (_0,_1) -> case <_0,_1> of <E,[H|Es]> when call 'erlang':'>' (E,H) -> let <_2> = apply 'del_element'/2 (E,Es) in [H|_2]
+<E,Set = [H|_5]> when call 'erlang':'<' (E,H) -> Set
+<_X_E,[_X_H|Es]> when 'true' -> Es
+<_6,[]> when 'true' -> []
+(<_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_4,_3})-|[{'function_name',{'del_element',2}}] )-|['compiler_generated'] ) end
+'union'/2 = fun (_0,_1) -> case <_0,_1> of <[E1|Es1],Set2 = [E2|_7]> when call 'erlang':'<' (E1,E2) -> let <_2> = apply 'union'/2 (Es1,Set2) in [E1|_2]
+<Set1 = [E1|_8],[E2|Es2]> when call 'erlang':'>' (E1,E2) -> let <_3> = apply 'union'/2 (Es2,Set1) in [E2|_3]
+<[E1|Es1],[_X_E2|Es2]> when 'true' -> let <_4> = apply 'union'/2 (Es1,Es2) in [E1|_4]
+<[],Es2> when 'true' -> Es2
+<Es1,[]> when 'true' -> Es1
+(<_6,_5> when 'true' -> (primop 'match_fail' ({'function_clause',_6,_5})-|[{'function_name',{'union',2}}] )-|['compiler_generated'] ) end
+'union'/1 = fun (_0) -> call 'lists':'umerge' (_0)
+'intersection'/2 = fun (_0,_1) -> case <_0,_1> of <[E1|Es1],Set2 = [E2|_5]> when call 'erlang':'<' (E1,E2) -> apply 'intersection'/2 (Es1,Set2)
+<Set1 = [E1|_6],[E2|Es2]> when call 'erlang':'>' (E1,E2) -> apply 'intersection'/2 (Es2,Set1)
+<[E1|Es1],[_X_E2|Es2]> when 'true' -> let <_2> = apply 'intersection'/2 (Es1,Es2) in [E1|_2]
+<[],_7> when 'true' -> []
+<_8,[]> when 'true' -> []
+(<_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_4,_3})-|[{'function_name',{'intersection',2}}] )-|['compiler_generated'] ) end
+'intersection'/1 = fun (_0) -> case _0 of <[S1|[S2|Ss]]> when 'true' -> let <_1> = apply 'intersection'/2 (S1,S2) in apply 'intersection1'/2 (_1,Ss)
+<[S|[]]> when 'true' -> S
+(<_2> when 'true' -> (primop 'match_fail' ({'function_clause',_2})-|[{'function_name',{'intersection',1}}] )-|['compiler_generated'] ) end
+'intersection1'/2 = fun (_0,_1) -> case <_0,_1> of <S1,[S2|Ss]> when 'true' -> let <_2> = apply 'intersection'/2 (S1,S2) in apply 'intersection1'/2 (_2,Ss)
+<S1,[]> when 'true' -> S1
+(<_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_4,_3})-|[{'function_name',{'intersection1',2}}] )-|['compiler_generated'] ) end
+'is_disjoint'/2 = fun (_0,_1) -> case <_0,_1> of <[E1|Es1],Set2 = [E2|_4]> when call 'erlang':'<' (E1,E2) -> apply 'is_disjoint'/2 (Es1,Set2)
+<Set1 = [E1|_5],[E2|Es2]> when call 'erlang':'>' (E1,E2) -> apply 'is_disjoint'/2 (Es2,Set1)
+<[_X_E1|_X_Es1],[_X_E2|_X_Es2]> when 'true' -> 'false'
+<[],_6> when 'true' -> 'true'
+<_7,[]> when 'true' -> 'true'
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'is_disjoint',2}}] )-|['compiler_generated'] ) end
+'subtract'/2 = fun (_0,_1) -> case <_0,_1> of <[E1|Es1],Set2 = [E2|_5]> when call 'erlang':'<' (E1,E2) -> let <_2> = apply 'subtract'/2 (Es1,Set2) in [E1|_2]
+<Set1 = [E1|_6],[E2|Es2]> when call 'erlang':'>' (E1,E2) -> apply 'subtract'/2 (Set1,Es2)
+<[_X_E1|Es1],[_X_E2|Es2]> when 'true' -> apply 'subtract'/2 (Es1,Es2)
+<[],_7> when 'true' -> []
+<Es1,[]> when 'true' -> Es1
+(<_4,_3> when 'true' -> (primop 'match_fail' ({'function_clause',_4,_3})-|[{'function_name',{'subtract',2}}] )-|['compiler_generated'] ) end
+'is_subset'/2 = fun (_0,_1) -> case <_0,_1> of <[E1|_4],[E2|_5]> when call 'erlang':'<' (E1,E2) -> 'false'
+<Set1 = [E1|_6],[E2|Es2]> when call 'erlang':'>' (E1,E2) -> apply 'is_subset'/2 (Set1,Es2)
+<[_X_E1|Es1],[_X_E2|Es2]> when 'true' -> apply 'is_subset'/2 (Es1,Es2)
+<[],_7> when 'true' -> 'true'
+<_8,[]> when 'true' -> 'false'
+(<_3,_2> when 'true' -> (primop 'match_fail' ({'function_clause',_3,_2})-|[{'function_name',{'is_subset',2}}] )-|['compiler_generated'] ) end
+'fold'/3 = fun (_0,_1,_2) -> call 'lists':'foldl' (_0,_1,_2)
+'filter'/2 = fun (_0,_1) -> call 'lists':'filter' (_0,_1)
+'module_info'/0 = fun () -> call 'erlang':'get_module_info' ('ordsets')
+'module_info'/1 = fun (_0) -> call 'erlang':'get_module_info' ('ordsets',_0) end
