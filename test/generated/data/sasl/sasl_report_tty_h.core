@@ -1,9 +1,0 @@
-module 'sasl_report_tty_h' ['handle_call'/2,'handle_event'/2,'handle_info'/2,'init'/1,'module_info'/0,'module_info'/1,'terminate'/2] attributes [ 'file' = [{[115|[114|[99|[47|[115|[97|[115|[108|[95|[114|[101|[112|[111|[114|[116|[95|[116|[116|[121|[95|[104|[46|[101|[114|[108]]]]]]]]]]]]]]]]]]]]]]]]],1}] ] 'init'/1 = fun (_0) -> {'ok',_0}
-'handle_event'/2 = fun (_0,_1) -> case <_0,_1> of <{Type,GL,_X_Msg},_8> when let <_9> = call 'erlang':'=:=' (_8,Type) in let <_10> = try let <_3> = call 'erlang':'node' (GL) in let <_2> = call 'erlang':'node' () in call 'erlang':'/=' (_3,_2) of <Try> -> Try catch <T,R> -> 'false' in call 'erlang':'and' (_9,_10) -> {'ok',Type}
-<Event,Type> when 'true' -> let <_4> = apply 'tag_event'/1 (Event) in do (call ('sasl_report'-|['result_not_wanted'] ):('write_report'-|['result_not_wanted'] ) (('standard_io'-|['result_not_wanted'] ),Type,_4)-|['result_not_wanted'] ) {'ok',Type} end
-'handle_info'/2 = fun (_0,_1) -> {'ok',_1}
-'handle_call'/2 = fun (_0,_1) -> {'error','bad_query'}
-'terminate'/2 = fun (_0,_1) -> []
-'tag_event'/1 = fun (_0) -> let <_1> = call 'calendar':'local_time' () in {_1,_0}
-'module_info'/0 = fun () -> call 'erlang':'get_module_info' ('sasl_report_tty_h')
-'module_info'/1 = fun (_0) -> call 'erlang':'get_module_info' ('sasl_report_tty_h',_0) end
