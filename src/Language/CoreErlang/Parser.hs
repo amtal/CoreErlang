@@ -35,8 +35,8 @@ upper = upperChar
 lower :: Parser Char
 lower = lowerChar
 
-digit :: Parser Char
-digit = digitChar
+-- digit :: Parser Char
+-- digit = digitChar
 
 nameChar :: Parser Char
 nameChar = digitChar
@@ -85,14 +85,14 @@ square p = (commaSep p) `wrappedBy` "[" $ "]"
 angle p = (commaSep p) `wrappedBy` "<" $ ">"
 
 
-listAtom :: Parser [Atom]
-listAtom = (:) <$ symbol "["
-       <*> atom
-       <*> (symbol "]" *> pure []
-       <|>  symbol "|" *> listAtom <* symbol "]")
-       <*  whitespace
+-- listAtom :: Parser [Atom]
+-- listAtom = (:) <$ symbol "["
+--        <*> atom
+--        <*> (symbol "]" *> pure []
+--        <|>  symbol "|" *> listAtom <* symbol "]")
+--        <*  whitespace
 
-list :: Parser a -> Parser (List a)
+list :: Parser a -> Parser (List a ann)
 list p = symbol "["
       *> (p >>= \x -> option (L x)
                              (LL x <$ symbol "|" <*> p) )
@@ -103,7 +103,7 @@ list p = symbol "["
 --                   <*> name
 --                   <*  whitespace
 
-atom :: Parser Atom
+atom :: Parser (Text -> Atom Text)
 atom = Atom <$> text '\''
 
 charP :: Parser Char
@@ -118,7 +118,7 @@ integer = L.signed space L.decimal
 float :: Parser Float
 float = L.signed space L.float
 
-keyV :: Parser k -> Parser v -> Parser (KeyV k v)
+keyV :: Parser k -> Parser v -> Parser (Text -> KeyV k v Text)
 keyV k v = try(Insert <$> k <* symbol "=>" <*> v <* whitespace)
        <|> Update <$> k <* symbol ":=" <*> v <* whitespace
 
@@ -128,51 +128,51 @@ keyV' p = (,) <$> p <* symbol "=>" <*> p <* whitespace
 mapC :: Parser a -> Parser [a]
 mapC p = (commaSep p) `wrappedBy` "~{" $ "}~"
 
-mapE :: Parser kv -> Parser a -> Parser (Map kv a)
+mapE :: Parser kv -> Parser a -> Parser (Map kv a ann)
 mapE kv p = try (Map <$> (mapC kv))
          <|>  ((UMap <$> (commaSep kv)
                     <* symbol "|" <*> p)
              `wrappedBy` "~{" $ "}~")
 
-binary :: Parser a -> Parser [Bitstring a]
-binary p = (commaSep (bitstring p)) `wrappedBy` "#{" $ "}#"
+-- binary :: Parser a -> Parser [Bitstring a]
+-- binary p = (commaSep (bitstring p)) `wrappedBy` "#{" $ "}#"
 
-binaryA :: Parser a -> Parser [BitstringA a]
-binaryA p = (commaSep (bitstringA p)) `wrappedBy` "#{" $ "}#"
+binary :: Parser a -> Parser (Binary a Text)
+binary p = (commaSep (bitstringA p)) `wrappedBy` "#{" $ "}#"
 
-bitstring :: Parser a -> Parser (Bitstring a)
+bitstring :: Parser a -> Parser (Text -> Bitstring a Text)
 bitstring p = Bitstring <$> (p `wrappedBy` "#<" $ ">")
                         <*  symbol "("
                         <*> p         <* symbol ","
                         <*> p         <* symbol ","
-                        <*> p     <* symbol ","
+                        <*> p         <* symbol ","
                         <*> p
                         <*  symbol ")"
 
-attr :: Parser (Atom, ConstA)
-attr = (,) <$> atom <*> (symbol "=" *> constA)
+attr :: Parser (Atom Text, Const Text)
+attr = (,) <$> atomA <*> (symbol "=" *> constA)
 
-variables :: Parser [VarA]
+variables :: Parser [Var Text]
 variables = angle variableA
 
 --------------------------------------------------------------------------------
 
-moduleP :: Parser Module
+moduleP :: Parser (Text -> Module Text)
 moduleP = Module <$  symbol "module"
-                 <*> atom
+                 <*> atomA
                  <*> square funnameA
                  <*> attrsA
-                 <*> many fundefA
+                 <*> many fundef
                  <*  symbol "end"
 
-funname :: Parser FunName
-funname = FunName <$> atom <* char '/' <*> integer <* whitespace
+funname :: Parser (Text -> FunName Text)
+funname = FunName <$> atomA <* char '/' <*> integer <* whitespace
 
-attrs :: Parser Attrs
-attrs = symbol "attributes"
-     *> square attr
+attrs :: Parser (Text -> Attrs Text)
+attrs = Attrs <$ symbol "attributes"
+     <*> square attr
 
-constP :: Parser Const
+constP :: Parser (Text -> Const Text)
 constP = (CTuple  <$> tuple constA
      <|> try (CLit    <$> literalA)
      <|> CList   <$> list constA
@@ -180,124 +180,126 @@ constP = (CTuple  <$> tuple constA
      <|> CBinary <$> binary constA)
      <*  whitespace
 
-literal :: Parser Literal
+literal :: Parser (Text -> Literal Text)
 literal = (LChar  <$> charP
       <|> LString <$> stringP
       <|> try (LFloat  <$> float)
       <|> LInt    <$> integer
-      <|> LAtom   <$> atom
+      <|> LAtom   <$> atomA
       <|> LNil    <$ symbol "[" <* symbol "]")
       <*  whitespace
 
-fun :: Parser a -> Parser (Fun a)
-fun p = symbol "fun"
-     *> ((try $ Fun
-        <$> parens variableA
+fun :: Parser (Text -> Fun Text)
+fun = (try $ Fun
+        <$ symbol "fun"
+        <*> parens variableA
         <*  symbol "->"
-        <*> p)
-    <|> ExtFun <$> atom <* symbol ":" <*> funname)
+        <*> exprsA)
+    <|> ExtFun <$ symbol "fun" <*> atomA <* symbol ":" <*> funnameA
 
-fundef :: Parser FunDef
+fundef :: Parser (FunDef Text)
 fundef = FunDef <$> funnameA
                 <*  symbol "="
-                <*> funA exprsA
+                <*> funA
 
-variable :: Parser Var
+variable :: Parser (Text -> Var Text)
 variable = Var <$> (cons <$> (char '_' <|> upperChar)
                          <*> name)
                <*  whitespace
 
-exprs :: Parser Exprs
-exprs = Exprs <$> angle (exprA exprsA)
-    <|> Expr  <$> exprA exprsA
+exprs :: Parser (Text -> Exprs Text)
+exprs = Exprs <$> angle (exprA)
+    <|> Expr  <$> exprA
 
-expr :: Parser a -> Parser (Expr a)
-expr p = EVar     <$> variableA
+expr :: Parser (Text -> Expr Text)
+expr  = EVar     <$> variableA
      <|> EFunN    <$> (try funnameA)
-     -- <|> ExtFun Atom FunName
      <|> ELit     <$> (try literalA)
-     <|> EFun     <$> funA p
-     <|> EList    <$> list (exprA p)
-     <|> ETuple   <$> tuple p
-     <|> EMap     <$> mapE (keyV p p) p
-     <|> EBinary  <$> binaryA p
-     <|> ELetRec  <$  symbol "letrec"  <*> many fundefA <* symbol "in" <*> p
-     <|> ELet     <$  symbol "let"     <*> variables <* symbol "=" <*> p <* symbol "in" <*> p
-     <|> ECase    <$  symbol "case"    <*> p <* symbol "of" <*> some (clauseA p) <* symbol "end"
-     <|> EApp     <$  symbol "apply"   <*> p <*> parens p
-     <|> EModCall <$  symbol "call"    <*> p <* symbol ":" <*> p <*> parens p
-     <|> EPrimOp  <$  symbol "primop"  <*> annotation atom <*> parens p
-     <|> EReceive <$  symbol "receive" <*> many (clauseA p) <* symbol "after" <*> p <* symbol "->" <*> p
-     <|> ETry     <$  symbol "try"     <*> p <* symbol "of" <*> variables <* symbol "->" <*> p
-                  <*  symbol "catch"   <*> variables <* symbol "->" <*> p
-     <|> EDo      <$  symbol "do"      <*> p <*> p
-     <|> ECatch   <$  symbol "catch"   <*> p
+     <|> EFun     <$> funA
+     <|> EList    <$> list exprA
+     <|> ETuple   <$> tuple exprsA
+     <|> EMap     <$> mapE (keyVA exprsA exprsA) exprsA
+     <|> EBinary  <$> binary exprsA
+     <|> ELetRec  <$  symbol "letrec"  <*> many fundef <* symbol "in" <*> exprsA
+     <|> ELet     <$  symbol "let"     <*> variables <* symbol "=" <*> exprsA <* symbol "in" <*> exprsA
+     <|> ECase    <$  symbol "case"    <*> exprsA <* symbol "of" <*> some clauseA <* symbol "end"
+     <|> EApp     <$  symbol "apply"   <*> exprsA <*> parens exprsA
+     <|> EModCall <$  symbol "call"    <*> exprsA <* symbol ":" <*> exprsA <*> parens exprsA
+     <|> EPrimOp  <$  symbol "primop"  <*> atomA <*> parens exprsA
+     <|> EReceive <$  symbol "receive" <*> many clauseA <* symbol "after" <*> exprsA <* symbol "->" <*> exprsA
+     <|> ETry     <$  symbol "try"     <*> exprsA <* symbol "of" <*> variables <* symbol "->" <*> exprsA
+                  <*  symbol "catch"   <*> variables <* symbol "->" <*> exprsA
+     <|> EDo      <$  symbol "do"      <*> exprsA <*> exprsA
+     <|> ECatch   <$  symbol "catch"   <*> exprsA
 
-clause :: Parser a -> Parser (Clause a)
-clause p = Clause <$> (angle patA
-                  <|> (:[]) <$> patA)
-                  <* symbol "when" <*> p <* symbol "->" <*> p
+clause :: Parser (Text -> Clause Text)
+clause = Clause <$> (angle patA
+                <|> (:[]) <$> patA)
+                <* symbol "when" <*> exprsA <* symbol "->" <*> exprsA
 
-pat :: Parser Pat
+pat :: Parser (Text -> Pat Text)
 pat = try (PAlias <$> variableA <* symbol "=" <*> patA)
   <|> try (PLiteral <$> literalA)
   <|> PList   <$> list patA
   <|> PTuple  <$> tuple patA
-  <|> PBinary <$> binaryA patA
+  <|> PBinary <$> binary patA
   <|> PMap    <$> mapE (keyVA patA patA) patA
   <|> PVar    <$> variableA
 
 --------------------------------------------------------------------------------
-moduleA :: Parser ModuleA
+moduleA :: Parser (Module Text)
 moduleA = annotation moduleP
 
-funnameA :: Parser FunNameA
+funnameA :: Parser (FunName Text)
 funnameA = annotation funname
 
-attrsA :: Parser AttrsA
+attrsA :: Parser (Attrs Text)
 attrsA = annotation attrs
 
-constA :: Parser ConstA
+constA :: Parser (Const Text)
 constA = annotation constP
 
-literalA :: Parser LiteralA
+literalA :: Parser (Literal Text)
 literalA = annotation literal
 
-funA :: Parser a -> Parser (FunA a)
-funA = annotation . fun
+funA :: Parser (Fun Text)
+funA = annotation fun
 
-fundefA :: Parser FunDefA
-fundefA = annotation fundef
+-- fundefA :: Parser (FunDef Text)
+-- fundefA = annotation fundef
 
-variableA :: Parser VarA
+variableA :: Parser (Var Text)
 variableA = annotation variable
 
-exprsA :: Parser ExprsA
+exprsA :: Parser (Exprs Text)
 exprsA = annotation exprs
 
-exprA :: Parser a -> Parser (ExprA a)
-exprA = annotation . expr
+exprA :: Parser (Expr Text)
+exprA = annotation expr
 
-clauseA :: Parser a -> Parser (ClauseA a)
-clauseA = annotation . clause
+clauseA :: Parser (Clause Text)
+clauseA = annotation clause
 
-patA :: Parser PatA
+patA :: Parser (Pat Text)
 patA = annotation pat
 
-bitstringA :: Parser a -> Parser (BitstringA a)
+atomA :: Parser (Atom Text)
+atomA = annotation atom
+
+bitstringA :: Parser a -> Parser (Bitstring a Text)
 bitstringA = annotation . bitstring
 
-keyVA :: Parser k -> Parser v -> Parser (KeyVA k v)
+keyVA :: Parser k -> Parser v -> Parser (KeyV k v Text)
 keyVA = (annotation .) . keyV
 --------------------------------------------------------------------------------
 
-annotation :: Parser a -> Parser (Ann a)
-annotation p = (try ((Ann <$> p <* symbol "-|" <*> takeWhileP (Just "annotation") (/= ')') ) `wrappedBy` "(" $ ")")
-           <|> Ann <$> p <*> (pure Data.Text.empty)) <* whitespace
+annotation :: Parser (Text -> a) -> Parser a
+annotation p = (try ((p <* symbol "-|" <*> takeWhileP (Just "annotation") (/= ')') ) `wrappedBy` "(" $ ")")
+           <|> p <*> (pure Data.Text.empty)) <* whitespace
 
 --------------------------------------------------------------------------------
 
 type ParseErr = ParseErrorBundle Text Void
 
-parseModuleA :: Text -> Either ParseErr (ModuleA)
+parseModuleA :: Text -> Either ParseErr (Module Text)
 parseModuleA = parse moduleA ""
