@@ -32,7 +32,7 @@ library
       Language.CoreErlang
   other-modules:
       Language.CoreErlang.Parser
-      Language.CoreErlang.Pretty
+      -- Language.CoreErlang.Pretty
       Language.CoreErlang.Syntax
       Paths_CoreErlang
   hs-source-dirs:

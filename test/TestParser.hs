@@ -13,23 +13,23 @@ import Data.Text.Prettyprint.Doc.Render.Text
 main :: IO ()
 main = do
   fps <- getCoreFiles "./test/data"
-  mapM generatePrettyCore fps
+  -- mapM generatePrettyCore fps
   spec1 <- testSpec "parser" spec
-  spec2 <- testSpec "pretty" specPretty
-  defaultMain $ testGroup "Tests" [spec1, spec2]
+  -- spec2 <- testSpec "pretty" specPretty
+  defaultMain $ testGroup "Tests" [spec1] --, spec2]
 
 
 spec :: Spec
 spec = do
   fps <- runIO $ getCoreFiles "./test"
   forM_ fps testParser
+--
+-- specPretty :: Spec
+-- specPretty = do
+--   fps <- runIO $ getCoreFiles "./test/generated"
+--   forM_ fps testPretty
 
-specPretty :: Spec
-specPretty = do
-  fps <- runIO $ getCoreFiles "./test/generated"
-  forM_ fps testPretty
-
-moduleName (Ann (Module name _ _ _) _)  = name
+moduleName (Module name _ _ _ _)  = name
 
 testParser :: FilePath -> Spec
 testParser f = do
@@ -39,23 +39,23 @@ testParser f = do
       Left r       -> expectationFailure (errorBundlePretty r)
       Right annMod -> return ()
 
-testPretty :: FilePath -> Spec
-testPretty f = do
-  specify f $ do
-    r <- parseFile f
-    case r of
-      Left r       -> expectationFailure (errorBundlePretty r)
-      Right annMod -> return ()
-
-generatePrettyCore :: FilePath -> IO ()
-generatePrettyCore fp =
-  do x <- parseFile fp
-     let new = "./test/generated/" ++ drop 6 fp
-     createDirectoryIfMissing True $ (takeDirectory new)
-     h <- openFile new WriteMode
-     hPutDoc h (pretty x)
-     hClose h
-
+-- testPretty :: FilePath -> Spec
+-- testPretty f = do
+--   specify f $ do
+--     r <- parseFile f
+--     case r of
+--       Left r       -> expectationFailure (errorBundlePretty r)
+--       Right annMod -> return ()
+--
+-- generatePrettyCore :: FilePath -> IO ()
+-- generatePrettyCore fp =
+--   do x <- parseFile fp
+--      let new = "./test/generated/" ++ drop 6 fp
+--      createDirectoryIfMissing True $ (takeDirectory new)
+--      h <- openFile new WriteMode
+--      hPutDoc h (pretty x)
+--      hClose h
+--
 
 isCoreFile :: String -> Bool
 isCoreFile fname = (== "eroc") $ take 4 $ reverse $ fname

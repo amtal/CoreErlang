@@ -18,7 +18,7 @@ module Language.CoreErlang
   ) where
 
 import Language.CoreErlang.Parser as CE
-import Language.CoreErlang.Pretty as CE
+-- import Language.CoreErlang.Pretty as CE
 import Language.CoreErlang.Syntax as CE
 import Data.Text.IO (readFile)
 import Prelude hiding (readFile)
@@ -41,7 +41,7 @@ import Prelude hiding (readFile)
 -- printResult (Left err) = print err
 -- printResult (Right annMod) = putStrLn $ prettyPrint annMod
 
-parseFile :: FilePath -> IO (Either ParseErr (Ann Module))
+parseFile :: FilePath -> IO (Either ParseErr (Module Text))
 parseFile fp = readFile fp >>= return . parseModuleA
 
 
