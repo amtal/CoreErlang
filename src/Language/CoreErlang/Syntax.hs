@@ -1,3 +1,4 @@
+{-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 module Language.CoreErlang.Syntax where
 import Data.Text(Text)
@@ -59,7 +60,7 @@ data Fun a = Fun    [Var a] (Exprs a)    a
            | ExtFun (Atom a) (FunName a) a
            deriving (Eq, Ord, Show, Data, Typeable)
 
-data Var a = Var a Text
+data Var a = Var Text a
   deriving (Eq, Ord, Show, Data, Typeable)
 
 data Exprs a = Expr  (Expr a) a
@@ -100,3 +101,49 @@ data Pat a = PVar     (Var a)                                  a
            deriving (Eq, Ord, Show, Data, Typeable)
 
 ------------------------------------------------------------------------------
+
+class Ann m a where 
+  annText :: a -> (a -> m a) -> m a
+
+instance Ann Atom Text where 
+  annText a f = f a
+
+instance Ann (KeyV k v) Text where 
+  annText a f = f a
+
+instance Ann (Bitstring a) Text where 
+  annText a f = f a
+
+instance Ann Module Text where 
+  annText a f = f a
+
+instance Ann FunName Text where 
+  annText a f = f a
+
+instance Ann Attrs Text where 
+  annText a f = f a
+
+instance Ann Const Text where 
+  annText a f = f a
+
+instance Ann Literal Text where 
+  annText a f = f a
+
+instance Ann Fun Text where 
+  annText a f = f a
+
+instance Ann Var Text where 
+  annText a f = f a
+
+instance Ann Exprs Text where 
+  annText a f = f a
+
+instance Ann Expr Text where 
+  annText a f = f a
+
+instance Ann Clause Text where 
+  annText a f = f a
+
+instance Ann Pat Text where 
+  annText a f = f a
+
