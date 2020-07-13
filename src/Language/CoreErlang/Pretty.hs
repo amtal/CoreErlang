@@ -14,10 +14,11 @@
 -- <http://erlang.org/doc/apps/compiler/compiler.pdf>
 module Language.CoreErlang.Pretty (Pretty(..)) where
 
-import Data.Text (empty, replace)
+import Data.Text (empty, replace, Text)
 import Language.CoreErlang.Syntax
 import Data.Text.Prettyprint.Doc
 import Text.Megaparsec (errorBundlePretty, ParseErrorBundle(..), Stream(..), ShowErrorComponent(..))
+import Data.Text.Prettyprint.Doc.Render.Text
 
 commaSep :: Pretty a => [a] -> Doc ann
 commaSep xs = concatWith (surround ",") (map pretty xs)
@@ -147,7 +148,7 @@ prettyAnn y doc
     where
       y' = pretty y
 
-
-
+prettyText :: Pretty a => a -> Text
+prettyText x = renderStrict (layoutSmart defaultLayoutOptions (pretty x))
 --------------------
 --simple test

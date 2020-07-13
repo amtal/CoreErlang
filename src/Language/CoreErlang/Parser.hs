@@ -115,7 +115,7 @@ stringP = text '\"'
 integer :: Parser Integer
 integer = L.signed space L.decimal
 
-float :: Parser Float
+float :: Parser Double
 float = L.signed space L.float
 
 keyV :: Parser k -> Parser v -> Parser (Text -> KeyV k v Text)

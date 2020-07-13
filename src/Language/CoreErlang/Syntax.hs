@@ -51,7 +51,7 @@ data Const a = CLit    (Literal a)             a
 data Literal a = LChar  Char     a     -- ^ character literal
                | LString Text    a     -- ^ string literal
                | LInt   Integer  a     -- ^ integer literal
-               | LFloat Float    a     -- ^ floating point literal
+               | LFloat Double    a     -- ^ floating point literal
                | LAtom  (Atom a) a     -- ^ atom literal
                | LNil            a     -- ^ empty list
               deriving (Eq, Ord, Show, Data, Typeable)
