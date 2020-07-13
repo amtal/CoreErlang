@@ -15,6 +15,7 @@
 module Language.CoreErlang.Pretty (Pretty(..), prettyText) where
 
 import Data.Text (empty, replace, Text)
+import Data.Char as C
 import Language.CoreErlang.Syntax
 import Data.Text.Prettyprint.Doc
 import Text.Megaparsec (errorBundlePretty, ParseErrorBundle(..), Stream(..), ShowErrorComponent(..))
@@ -88,7 +89,7 @@ instance Pretty a => Pretty (Const a) where
   pretty (CBinary bstrings ann) = prettyAnn ann $ binaryPretty bstrings
 
 instance Pretty a => Pretty (Literal a) where
-  pretty (LChar   x ann) = prettyAnn ann $ pretty x
+  pretty (LChar   x ann) = prettyAnn ann $ (pretty . toInteger . C.ord $ x)
   pretty (LString x ann) = prettyAnn ann $ pretty (show x)
   pretty (LInt    x ann) = prettyAnn ann $ pretty x
   pretty (LFloat  x ann) = prettyAnn ann $ pretty x
