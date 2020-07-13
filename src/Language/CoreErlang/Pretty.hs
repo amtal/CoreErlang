@@ -89,7 +89,7 @@ instance Pretty a => Pretty (Const a) where
 
 instance Pretty a => Pretty (Literal a) where
   pretty (LChar   x ann) = prettyAnn ann $ pretty x
-  pretty (LString x ann) = prettyAnn ann $ pretty (replace "\\" "\\\\" x)
+  pretty (LString x ann) = prettyAnn ann $ pretty (show x)
   pretty (LInt    x ann) = prettyAnn ann $ pretty x
   pretty (LFloat  x ann) = prettyAnn ann $ pretty x
   pretty (LAtom   x ann) = prettyAnn ann $ pretty x
