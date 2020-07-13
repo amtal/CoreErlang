@@ -72,8 +72,8 @@ instance Pretty a => Pretty (Module a) where
         = prettyAnn ann $
           nest 4 ("module" <+> pretty atom
        <> (align . list . map pretty) funnames <> hardline
-      <+> (align "attributes" <+> pretty attrs)) <> hardline
-      <> vsep (pretty <$> fundefs) <+> "end"
+       <> (align "attributes" <+> pretty attrs)) <> hardline
+       <> vsep (pretty <$> fundefs) <+> "end"
 
 instance Pretty a => Pretty (FunName a) where
   pretty (FunName atom n ann) = prettyAnn ann $ pretty atom <> "/" <> pretty n
