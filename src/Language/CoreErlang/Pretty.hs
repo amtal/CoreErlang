@@ -12,7 +12,7 @@
 --
 -- Parser for CoreErlang.
 -- <http://erlang.org/doc/apps/compiler/compiler.pdf>
-module Language.CoreErlang.Pretty (Pretty(..)) where
+module Language.CoreErlang.Pretty (Pretty(..), prettyText) where
 
 import Data.Text (empty, replace, Text)
 import Language.CoreErlang.Syntax
