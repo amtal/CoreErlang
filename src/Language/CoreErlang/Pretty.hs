@@ -45,7 +45,7 @@ instance (Stream s, ShowErrorComponent e, Pretty a) => Pretty (Either (ParseErro
   pretty (Left  r) = error ("parseFail" ++ errorBundlePretty r)
 
 instance Pretty ann => Pretty (Atom ann) where
-  pretty (Atom x ann) = prettyAnn ann . squotes . pretty . replace "\\" "\\\\" $ x
+  pretty (Atom x ann) = prettyAnn ann . squotes . pretty . replace "'" "\\'" . replace "\\" "\\\\" $ x
 
 instance (Pretty a, Pretty ann) => Pretty (List a ann) where
   pretty (L  x)   = brackets $ pretty x
