@@ -14,7 +14,7 @@
 -- <http://erlang.org/doc/apps/compiler/compiler.pdf>
 module Language.CoreErlang.Pretty (Pretty(..), prettyText) where
 
-import Data.Text (empty, replace, Text)
+import Data.Text (empty, unpack, replace, Text)
 import Data.Char as C
 import Language.CoreErlang.Syntax
 import Data.Text.Prettyprint.Doc
@@ -90,7 +90,7 @@ instance Pretty a => Pretty (Const a) where
 
 instance Pretty a => Pretty (Literal a) where
   pretty (LChar   x ann) = prettyAnn ann $ (pretty . toInteger . C.ord $ x)
-  pretty (LString x ann) = prettyAnn ann $ pretty (show x)
+  pretty (LString x ann) = prettyAnn ann $ brackets $ commaSep $ (fmap (toInteger . C.ord)) $ unpack x
   pretty (LInt    x ann) = prettyAnn ann $ pretty x
   pretty (LFloat  x ann) = prettyAnn ann $ pretty x
   pretty (LAtom   x ann) = prettyAnn ann $ pretty x
