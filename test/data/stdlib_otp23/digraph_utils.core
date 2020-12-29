@@ -1,0 +1,1272 @@
+module 'digraph_utils' ['arborescence_root'/1,
+			'components'/1,
+			'condensation'/1,
+			'cyclic_strong_components'/1,
+			'is_acyclic'/1,
+			'is_arborescence'/1,
+			'is_tree'/1,
+			'loop_vertices'/1,
+			'module_info'/0,
+			'module_info'/1,
+			'postorder'/1,
+			'preorder'/1,
+			'reachable'/2,
+			'reachable_neighbours'/2,
+			'reaching'/2,
+			'reaching_neighbours'/2,
+			'strong_components'/1,
+			'subgraph'/2,
+			'subgraph'/3,
+			'topsort'/1]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[100|[105|[103|[114|[97|[112|[104|[95|[117|[116|[105|[108|[115|[46|[101|[114|[108]]]]]]]]]]]]]]]]]]]]],1}],
+		%% Line 46
+		'spec' =
+		    %% Line 46
+		    [{{'components',1},[{'type',46,'bounded_fun',[{'type',46,'fun',[{'type',46,'product',[{'var',46,'Digraph'}]}|[{'type',46,'list',[{'var',46,'Component'}]}]]}|[[{'type',47,'constraint',[{'atom',47,'is_subtype'}|[[{'var',47,'Digraph'}|[{'remote_type',47,[{'atom',47,'digraph'}|[{'atom',47,'graph'}|[[]]]]}]]]]}|[{'type',48,'constraint',[{'atom',48,'is_subtype'}|[[{'var',48,'Component'}|[{'type',48,'list',[{'remote_type',48,[{'atom',48,'digraph'}|[{'atom',48,'vertex'}|[[]]]]}]}]]]]}]]]]}]}],
+		%% Line 53
+		'spec' =
+		    %% Line 53
+		    [{{'strong_components',1},[{'type',53,'bounded_fun',[{'type',53,'fun',[{'type',53,'product',[{'var',53,'Digraph'}]}|[{'type',53,'list',[{'var',53,'StrongComponent'}]}]]}|[[{'type',54,'constraint',[{'atom',54,'is_subtype'}|[[{'var',54,'Digraph'}|[{'remote_type',54,[{'atom',54,'digraph'}|[{'atom',54,'graph'}|[[]]]]}]]]]}|[{'type',55,'constraint',[{'atom',55,'is_subtype'}|[[{'var',55,'StrongComponent'}|[{'type',55,'list',[{'remote_type',55,[{'atom',55,'digraph'}|[{'atom',55,'vertex'}|[[]]]]}]}]]]]}]]]]}]}],
+		%% Line 60
+		'spec' =
+		    %% Line 60
+		    [{{'cyclic_strong_components',1},[{'type',60,'bounded_fun',[{'type',60,'fun',[{'type',60,'product',[{'var',60,'Digraph'}]}|[{'type',60,'list',[{'var',60,'StrongComponent'}]}]]}|[[{'type',61,'constraint',[{'atom',61,'is_subtype'}|[[{'var',61,'Digraph'}|[{'remote_type',61,[{'atom',61,'digraph'}|[{'atom',61,'graph'}|[[]]]]}]]]]}|[{'type',62,'constraint',[{'atom',62,'is_subtype'}|[[{'var',62,'StrongComponent'}|[{'type',62,'list',[{'remote_type',62,[{'atom',62,'digraph'}|[{'atom',62,'vertex'}|[[]]]]}]}]]]]}]]]]}]}],
+		%% Line 67
+		'spec' =
+		    %% Line 67
+		    [{{'reachable',2},[{'type',67,'bounded_fun',[{'type',67,'fun',[{'type',67,'product',[{'var',67,'Vertices'}|[{'var',67,'Digraph'}]]}|[{'var',67,'Reachable'}]]}|[[{'type',68,'constraint',[{'atom',68,'is_subtype'}|[[{'var',68,'Digraph'}|[{'remote_type',68,[{'atom',68,'digraph'}|[{'atom',68,'graph'}|[[]]]]}]]]]}|[{'type',69,'constraint',[{'atom',69,'is_subtype'}|[[{'var',69,'Vertices'}|[{'type',69,'list',[{'remote_type',69,[{'atom',69,'digraph'}|[{'atom',69,'vertex'}|[[]]]]}]}]]]]}|[{'type',70,'constraint',[{'atom',70,'is_subtype'}|[[{'var',70,'Reachable'}|[{'type',70,'list',[{'remote_type',70,[{'atom',70,'digraph'}|[{'atom',70,'vertex'}|[[]]]]}]}]]]]}]]]]]}]}],
+		%% Line 75
+		'spec' =
+		    %% Line 75
+		    [{{'reachable_neighbours',2},[{'type',75,'bounded_fun',[{'type',75,'fun',[{'type',75,'product',[{'var',75,'Vertices'}|[{'var',75,'Digraph'}]]}|[{'var',75,'Reachable'}]]}|[[{'type',76,'constraint',[{'atom',76,'is_subtype'}|[[{'var',76,'Digraph'}|[{'remote_type',76,[{'atom',76,'digraph'}|[{'atom',76,'graph'}|[[]]]]}]]]]}|[{'type',77,'constraint',[{'atom',77,'is_subtype'}|[[{'var',77,'Vertices'}|[{'type',77,'list',[{'remote_type',77,[{'atom',77,'digraph'}|[{'atom',77,'vertex'}|[[]]]]}]}]]]]}|[{'type',78,'constraint',[{'atom',78,'is_subtype'}|[[{'var',78,'Reachable'}|[{'type',78,'list',[{'remote_type',78,[{'atom',78,'digraph'}|[{'atom',78,'vertex'}|[[]]]]}]}]]]]}]]]]]}]}],
+		%% Line 83
+		'spec' =
+		    %% Line 83
+		    [{{'reaching',2},[{'type',83,'bounded_fun',[{'type',83,'fun',[{'type',83,'product',[{'var',83,'Vertices'}|[{'var',83,'Digraph'}]]}|[{'var',83,'Reaching'}]]}|[[{'type',84,'constraint',[{'atom',84,'is_subtype'}|[[{'var',84,'Digraph'}|[{'remote_type',84,[{'atom',84,'digraph'}|[{'atom',84,'graph'}|[[]]]]}]]]]}|[{'type',85,'constraint',[{'atom',85,'is_subtype'}|[[{'var',85,'Vertices'}|[{'type',85,'list',[{'remote_type',85,[{'atom',85,'digraph'}|[{'atom',85,'vertex'}|[[]]]]}]}]]]]}|[{'type',86,'constraint',[{'atom',86,'is_subtype'}|[[{'var',86,'Reaching'}|[{'type',86,'list',[{'remote_type',86,[{'atom',86,'digraph'}|[{'atom',86,'vertex'}|[[]]]]}]}]]]]}]]]]]}]}],
+		%% Line 91
+		'spec' =
+		    %% Line 91
+		    [{{'reaching_neighbours',2},[{'type',91,'bounded_fun',[{'type',91,'fun',[{'type',91,'product',[{'var',91,'Vertices'}|[{'var',91,'Digraph'}]]}|[{'var',91,'Reaching'}]]}|[[{'type',92,'constraint',[{'atom',92,'is_subtype'}|[[{'var',92,'Digraph'}|[{'remote_type',92,[{'atom',92,'digraph'}|[{'atom',92,'graph'}|[[]]]]}]]]]}|[{'type',93,'constraint',[{'atom',93,'is_subtype'}|[[{'var',93,'Vertices'}|[{'type',93,'list',[{'remote_type',93,[{'atom',93,'digraph'}|[{'atom',93,'vertex'}|[[]]]]}]}]]]]}|[{'type',94,'constraint',[{'atom',94,'is_subtype'}|[[{'var',94,'Reaching'}|[{'type',94,'list',[{'remote_type',94,[{'atom',94,'digraph'}|[{'atom',94,'vertex'}|[[]]]]}]}]]]]}]]]]]}]}],
+		%% Line 99
+		'spec' =
+		    %% Line 99
+		    [{{'topsort',1},[{'type',99,'bounded_fun',[{'type',99,'fun',[{'type',99,'product',[{'var',99,'Digraph'}]}|[{'type',99,'union',[{'var',99,'Vertices'}|[{'atom',99,'false'}]]}]]}|[[{'type',100,'constraint',[{'atom',100,'is_subtype'}|[[{'var',100,'Digraph'}|[{'remote_type',100,[{'atom',100,'digraph'}|[{'atom',100,'graph'}|[[]]]]}]]]]}|[{'type',101,'constraint',[{'atom',101,'is_subtype'}|[[{'var',101,'Vertices'}|[{'type',101,'list',[{'remote_type',101,[{'atom',101,'digraph'}|[{'atom',101,'vertex'}|[[]]]]}]}]]]]}]]]]}]}],
+		%% Line 110
+		'spec' =
+		    %% Line 110
+		    [{{'is_acyclic',1},[{'type',110,'bounded_fun',[{'type',110,'fun',[{'type',110,'product',[{'var',110,'Digraph'}]}|[{'type',110,'boolean',[]}]]}|[[{'type',111,'constraint',[{'atom',111,'is_subtype'}|[[{'var',111,'Digraph'}|[{'remote_type',111,[{'atom',111,'digraph'}|[{'atom',111,'graph'}|[[]]]]}]]]]}]]]}]}],
+		%% Line 116
+		'spec' =
+		    %% Line 116
+		    [{{'arborescence_root',1},[{'type',116,'bounded_fun',[{'type',116,'fun',[{'type',116,'product',[{'var',116,'Digraph'}]}|[{'type',116,'union',[{'atom',116,'no'}|[{'type',116,'tuple',[{'atom',116,'yes'}|[{'var',116,'Root'}]]}]]}]]}|[[{'type',117,'constraint',[{'atom',117,'is_subtype'}|[[{'var',117,'Digraph'}|[{'remote_type',117,[{'atom',117,'digraph'}|[{'atom',117,'graph'}|[[]]]]}]]]]}|[{'type',118,'constraint',[{'atom',118,'is_subtype'}|[[{'var',118,'Root'}|[{'remote_type',118,[{'atom',118,'digraph'}|[{'atom',118,'vertex'}|[[]]]]}]]]]}]]]]}]}],
+		%% Line 139
+		'spec' =
+		    %% Line 139
+		    [{{'is_arborescence',1},[{'type',139,'bounded_fun',[{'type',139,'fun',[{'type',139,'product',[{'var',139,'Digraph'}]}|[{'type',139,'boolean',[]}]]}|[[{'type',140,'constraint',[{'atom',140,'is_subtype'}|[[{'var',140,'Digraph'}|[{'remote_type',140,[{'atom',140,'digraph'}|[{'atom',140,'graph'}|[[]]]]}]]]]}]]]}]}],
+		%% Line 145
+		'spec' =
+		    %% Line 145
+		    [{{'is_tree',1},[{'type',145,'bounded_fun',[{'type',145,'fun',[{'type',145,'product',[{'var',145,'Digraph'}]}|[{'type',145,'boolean',[]}]]}|[[{'type',146,'constraint',[{'atom',146,'is_subtype'}|[[{'var',146,'Digraph'}|[{'remote_type',146,[{'atom',146,'digraph'}|[{'atom',146,'graph'}|[[]]]]}]]]]}]]]}]}],
+		%% Line 152
+		'spec' =
+		    %% Line 152
+		    [{{'loop_vertices',1},[{'type',152,'bounded_fun',[{'type',152,'fun',[{'type',152,'product',[{'var',152,'Digraph'}]}|[{'var',152,'Vertices'}]]}|[[{'type',153,'constraint',[{'atom',153,'is_subtype'}|[[{'var',153,'Digraph'}|[{'remote_type',153,[{'atom',153,'digraph'}|[{'atom',153,'graph'}|[[]]]]}]]]]}|[{'type',154,'constraint',[{'atom',154,'is_subtype'}|[[{'var',154,'Vertices'}|[{'type',154,'list',[{'remote_type',154,[{'atom',154,'digraph'}|[{'atom',154,'vertex'}|[[]]]]}]}]]]]}]]]]}]}],
+		%% Line 159
+		'spec' =
+		    %% Line 159
+		    [{{'subgraph',2},[{'type',159,'bounded_fun',[{'type',159,'fun',[{'type',159,'product',[{'var',159,'Digraph'}|[{'var',159,'Vertices'}]]}|[{'var',159,'SubGraph'}]]}|[[{'type',160,'constraint',[{'atom',160,'is_subtype'}|[[{'var',160,'Digraph'}|[{'remote_type',160,[{'atom',160,'digraph'}|[{'atom',160,'graph'}|[[]]]]}]]]]}|[{'type',161,'constraint',[{'atom',161,'is_subtype'}|[[{'var',161,'Vertices'}|[{'type',161,'list',[{'remote_type',161,[{'atom',161,'digraph'}|[{'atom',161,'vertex'}|[[]]]]}]}]]]]}|[{'type',162,'constraint',[{'atom',162,'is_subtype'}|[[{'var',162,'SubGraph'}|[{'remote_type',162,[{'atom',162,'digraph'}|[{'atom',162,'graph'}|[[]]]]}]]]]}]]]]]}]}],
+		%% Line 172
+		'spec' =
+		    %% Line 172
+		    [{{'subgraph',3},[{'type',172,'bounded_fun',[{'type',172,'fun',[{'type',172,'product',[{'var',172,'Digraph'}|[{'var',172,'Vertices'}|[{'var',172,'Options'}]]]}|[{'var',172,'SubGraph'}]]}|[[{'type',173,'constraint',[{'atom',173,'is_subtype'}|[[{'var',173,'Digraph'}|[{'remote_type',173,[{'atom',173,'digraph'}|[{'atom',173,'graph'}|[[]]]]}]]]]}|[{'type',174,'constraint',[{'atom',174,'is_subtype'}|[[{'var',174,'SubGraph'}|[{'remote_type',174,[{'atom',174,'digraph'}|[{'atom',174,'graph'}|[[]]]]}]]]]}|[{'type',175,'constraint',[{'atom',175,'is_subtype'}|[[{'var',175,'Vertices'}|[{'type',175,'list',[{'remote_type',175,[{'atom',175,'digraph'}|[{'atom',175,'vertex'}|[[]]]]}]}]]]]}|[{'type',176,'constraint',[{'atom',176,'is_subtype'}|[[{'var',176,'Options'}|[{'type',176,'list',[{'type',176,'union',[{'type',176,'tuple',[{'atom',176,'type'}|[{'var',176,'SubgraphType'}]]}|[{'type',176,'tuple',[{'atom',176,'keep_labels'}|[{'type',176,'boolean',[]}]]}]]}]}]]]]}|[{'type',177,'constraint',[{'atom',177,'is_subtype'}|[[{'var',177,'SubgraphType'}|[{'type',177,'union',[{'atom',177,'inherit'}|[{'type',177,'list',[{'remote_type',177,[{'atom',177,'digraph'}|[{'atom',177,'d_type'}|[[]]]]}]}]]}]]]]}]]]]]]]}]}],
+		%% Line 187
+		'spec' =
+		    %% Line 187
+		    [{{'condensation',1},[{'type',187,'bounded_fun',[{'type',187,'fun',[{'type',187,'product',[{'var',187,'Digraph'}]}|[{'var',187,'CondensedDigraph'}]]}|[[{'type',188,'constraint',[{'atom',188,'is_subtype'}|[[{'var',188,'Digraph'}|[{'remote_type',188,[{'atom',188,'digraph'}|[{'atom',188,'graph'}|[[]]]]}]]]]}|[{'type',189,'constraint',[{'atom',189,'is_subtype'}|[[{'var',189,'CondensedDigraph'}|[{'remote_type',189,[{'atom',189,'digraph'}|[{'atom',189,'graph'}|[[]]]]}]]]]}]]]]}]}],
+		%% Line 212
+		'spec' =
+		    %% Line 212
+		    [{{'preorder',1},[{'type',212,'bounded_fun',[{'type',212,'fun',[{'type',212,'product',[{'var',212,'Digraph'}]}|[{'var',212,'Vertices'}]]}|[[{'type',213,'constraint',[{'atom',213,'is_subtype'}|[[{'var',213,'Digraph'}|[{'remote_type',213,[{'atom',213,'digraph'}|[{'atom',213,'graph'}|[[]]]]}]]]]}|[{'type',214,'constraint',[{'atom',214,'is_subtype'}|[[{'var',214,'Vertices'}|[{'type',214,'list',[{'remote_type',214,[{'atom',214,'digraph'}|[{'atom',214,'vertex'}|[[]]]]}]}]]]]}]]]]}]}],
+		%% Line 219
+		'spec' =
+		    %% Line 219
+		    [{{'postorder',1},[{'type',219,'bounded_fun',[{'type',219,'fun',[{'type',219,'product',[{'var',219,'Digraph'}]}|[{'var',219,'Vertices'}]]}|[[{'type',220,'constraint',[{'atom',220,'is_subtype'}|[[{'var',220,'Digraph'}|[{'remote_type',220,[{'atom',220,'digraph'}|[{'atom',220,'graph'}|[[]]]]}]]]]}|[{'type',221,'constraint',[{'atom',221,'is_subtype'}|[[{'var',221,'Vertices'}|[{'type',221,'list',[{'remote_type',221,[{'atom',221,'digraph'}|[{'atom',221,'vertex'}|[[]]]]}]}]]]]}]]]]}]}]]
+'components'/1 =
+    %% Line 50
+    ( fun (_0) ->
+	  let <_1> = 'inout'/3
+	  in  %% Line 51
+	      apply 'forest'/2
+		  (( _0
+		     -| [{'function',{'components',1}}] ), _1)
+      -| [{'function',{'components',1}}] )
+'strong_components'/1 =
+    %% Line 57
+    ( fun (_0) ->
+	  let <_2> = 'in'/3
+	  in  let <_1> =
+		  apply %% Line 58
+			'revpostorder'/1
+		      (( _0
+			 -| [{'function',{'strong_components',1}}] ))
+	      in  %% Line 58
+		  apply 'forest'/3
+		      (( _0
+			 -| [{'function',{'strong_components',1}}] ), _2, _1)
+      -| [{'function',{'strong_components',1}}] )
+'cyclic_strong_components'/1 =
+    %% Line 64
+    ( fun (_0) ->
+	  let <_1> =
+	      apply %% Line 65
+		    'strong_components'/1
+		  (( _0
+		     -| [{'function',{'cyclic_strong_components',1}}] ))
+	  in  %% Line 65
+	      apply 'remove_singletons'/3
+		  (_1, ( _0
+			 -| [{'function',{'cyclic_strong_components',1}}] ), [])
+      -| [{'function',{'cyclic_strong_components',1}}] )
+'reachable'/2 =
+    %% Line 72
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <Vs,G>
+		  when call 'erlang':'is_list'
+			(Vs) ->
+		  let <_2> = 'out'/3
+		  in  let <_3> =
+			  apply %% Line 73
+				'forest'/4
+			      (%% Line 73
+			       G, _2, %% Line 73
+				      Vs, %% Line 73
+					  'first')
+		      in  %% Line 73
+			  call 'lists':'append'
+			      (_3)
+	      ( <_5,_4> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_5,_4})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'reachable',2}}] )
+      -| [{'function',{'reachable',2}}] )
+'reachable_neighbours'/2 =
+    %% Line 80
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <Vs,G>
+		  when call 'erlang':'is_list'
+			(Vs) ->
+		  let <_2> = 'out'/3
+		  in  let <_3> =
+			  apply %% Line 81
+				'forest'/4
+			      (%% Line 81
+			       G, _2, %% Line 81
+				      Vs, %% Line 81
+					  'not_first')
+		      in  %% Line 81
+			  call 'lists':'append'
+			      (_3)
+	      ( <_5,_4> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_5,_4})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'reachable_neighbours',2}}] )
+      -| [{'function',{'reachable_neighbours',2}}] )
+'reaching'/2 =
+    %% Line 88
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <Vs,G>
+		  when call 'erlang':'is_list'
+			(Vs) ->
+		  let <_2> = 'in'/3
+		  in  let <_3> =
+			  apply %% Line 89
+				'forest'/4
+			      (%% Line 89
+			       G, _2, %% Line 89
+				      Vs, %% Line 89
+					  'first')
+		      in  %% Line 89
+			  call 'lists':'append'
+			      (_3)
+	      ( <_5,_4> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_5,_4})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'reaching',2}}] )
+      -| [{'function',{'reaching',2}}] )
+'reaching_neighbours'/2 =
+    %% Line 96
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <Vs,G>
+		  when call 'erlang':'is_list'
+			(Vs) ->
+		  let <_2> = 'in'/3
+		  in  let <_3> =
+			  apply %% Line 97
+				'forest'/4
+			      (%% Line 97
+			       G, _2, %% Line 97
+				      Vs, %% Line 97
+					  'not_first')
+		      in  %% Line 97
+			  call 'lists':'append'
+			      (_3)
+	      ( <_5,_4> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_5,_4})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'reaching_neighbours',2}}] )
+      -| [{'function',{'reaching_neighbours',2}}] )
+'topsort'/1 =
+    %% Line 103
+    ( fun (_0) ->
+	  let <L> =
+	      apply %% Line 104
+		    'revpostorder'/1
+		  (( _0
+		     -| [{'function',{'topsort',1}}] ))
+	  in  let <_4> = 'in'/3
+	      in  let <_5> =
+		      apply %% Line 105
+			    'forest'/3
+			  (( _0
+			     -| [{'function',{'topsort',1}}] ), _4, %% Line 105
+								    L)
+		  in  let <_6> =
+			  call %% Line 105
+			       'erlang':%% Line 105
+					'length'
+			      (_5)
+		      in  let <_2> =
+			      call %% Line 105
+				   'digraph':%% Line 105
+					     'vertices'
+				  (( _0
+				     -| [{'function',{'topsort',1}}] ))
+			  in  let <_3> =
+				  call %% Line 105
+				       'erlang':%% Line 105
+						'length'
+				      (_2)
+			      in  %% Line 105
+				  case call 'erlang':'=:='
+					   (_6, _3) of
+				    %% Line 106
+				    <'true'> when 'true' ->
+					L
+				    %% Line 107
+				    <'false'> when 'true' ->
+					'false'
+				  end
+      -| [{'function',{'topsort',1}}] )
+'is_acyclic'/1 =
+    %% Line 113
+    ( fun (_0) ->
+	  let <_2> =
+	      apply %% Line 114
+		    'loop_vertices'/1
+		  (( _0
+		     -| [{'function',{'is_acyclic',1}}] ))
+	  in  %% Line 114
+	      ( case call 'erlang':'=:='
+			 (_2, []) of
+		  ( <( 'true'
+		       -| ['compiler_generated'] )> when 'true' ->
+			let <_3> =
+			    apply 'topsort'/1
+				(( _0
+				   -| [{'function',{'is_acyclic',1}}] ))
+			in  call 'erlang':'=/='
+				(_3, 'false')
+		    -| ['compiler_generated'] )
+		  ( <( 'false'
+		       -| ['compiler_generated'] )> when 'true' ->
+			'false'
+		    -| ['compiler_generated'] )
+		end
+		-| ['compiler_generated'] )
+      -| [{'function',{'is_acyclic',1}}] )
+'arborescence_root'/1 =
+    %% Line 120
+    ( fun (_0) ->
+	  let <_3> =
+	      call %% Line 121
+		   'digraph':%% Line 121
+			     'no_edges'
+		  (( _0
+		     -| [{'function',{'arborescence_root',1}}] ))
+	  in  let <_1> =
+		  call %% Line 121
+		       'digraph':%% Line 121
+				 'no_vertices'
+		      (( _0
+			 -| [{'function',{'arborescence_root',1}}] ))
+	      in  let <_2> =
+		      call %% Line 121
+			   'erlang':%% Line 121
+				    '-'
+			  (_1, %% Line 121
+			       1)
+		  in  %% Line 121
+		      case call 'erlang':'=:='
+			       (_3, _2) of
+			%% Line 122
+			<'true'> when 'true' ->
+			    %% Line 123
+			    try
+				let <F> =
+				    fun (_6,_5) ->
+					%% Line 125
+					case call 'digraph':'in_degree'
+						 (( _0
+						    -| [{'function',{'arborescence_root',1}}] ), _6) of
+					  %% Line 126
+					  <1> when 'true' ->
+					      _5
+					  %% Line 127
+					  <0>
+					      when call 'erlang':'=:='
+						    (_5,
+						     []) ->
+					      [_6|[]]
+					  ( <_4> when 'true' ->
+						primop 'match_fail'
+						    ({'case_clause',_4})
+					    -| ['compiler_generated'] )
+					end
+				in  let <_10> =
+					call %% Line 130
+					     'digraph':%% Line 130
+						       'vertices'
+					    (( _0
+					       -| [{'function',{'arborescence_root',1}}] ))
+				    in  %% Line 130
+					case call 'lists':'foldl'
+						 (F, [], _10) of
+					  <[Root|[]]> when 'true' ->
+					      %% Line 131
+					      {'yes',Root}
+					  ( <_11> when 'true' ->
+						primop 'match_fail'
+						    ({'badmatch',_11})
+					    -| ['compiler_generated'] )
+					end
+			    of <_12> ->
+				_12
+			    catch <_15,_14,_13> ->
+				%% Line 133
+				'no'
+			%% Line 135
+			<'false'> when 'true' ->
+			    %% Line 136
+			    'no'
+		      end
+      -| [{'function',{'arborescence_root',1}}] )
+'is_arborescence'/1 =
+    %% Line 142
+    ( fun (_0) ->
+	  let <_1> =
+	      apply %% Line 143
+		    'arborescence_root'/1
+		  (( _0
+		     -| [{'function',{'is_arborescence',1}}] ))
+	  in  %% Line 143
+	      call 'erlang':'=/='
+		  (_1, 'no')
+      -| [{'function',{'is_arborescence',1}}] )
+'is_tree'/1 =
+    %% Line 148
+    ( fun (_0) ->
+	  let <_4> =
+	      call %% Line 149
+		   'digraph':%% Line 149
+			     'no_edges'
+		  (( _0
+		     -| [{'function',{'is_tree',1}}] ))
+	  in  let <_2> =
+		  call %% Line 149
+		       'digraph':%% Line 149
+				 'no_vertices'
+		      (( _0
+			 -| [{'function',{'is_tree',1}}] ))
+	      in  let <_3> =
+		      call %% Line 149
+			   'erlang':%% Line 149
+				    '-'
+			  (_2, %% Line 149
+			       1)
+		  in  %% Line 150
+		      ( case call 'erlang':'=:='
+				 (_4, _3) of
+			  ( <( 'true'
+			       -| ['compiler_generated'] )> when 'true' ->
+				let <_5> =
+				    apply 'components'/1
+					(( _0
+					   -| [{'function',{'is_tree',1}}] ))
+				in  let <_6> =
+					call 'erlang':'length'
+					    (_5)
+				    in  call 'erlang':'=:='
+					    (_6, 1)
+			    -| ['compiler_generated'] )
+			  ( <( 'false'
+			       -| ['compiler_generated'] )> when 'true' ->
+				'false'
+			    -| ['compiler_generated'] )
+			end
+			-| ['compiler_generated'] )
+      -| [{'function',{'is_tree',1}}] )
+'loop_vertices'/1 =
+    %% Line 156
+    ( fun (_0) ->
+	  %% Line 157
+	  ( letrec
+		'lc$^0'/1 =
+		    fun (_4) ->
+			case _4 of
+			  <[V|_2]> when 'true' ->
+			      ( case apply 'is_reflexive_vertex'/2
+					 (V, ( _0
+					       -| [{'function',{'loop_vertices',1}}] )) of
+				  <'true'> when 'true' ->
+				      let <_6> =
+					  apply 'lc$^0'/1
+					      (_2)
+				      in  ( [V|_6]
+					    -| ['compiler_generated'] )
+				  ( <'false'> when 'true' ->
+					apply 'lc$^0'/1
+					    (_2)
+				    -| ['compiler_generated'] )
+				  ( <_7> when 'true' ->
+					primop 'match_fail'
+					    ({'case_clause',_7})
+				    -| ['compiler_generated'] )
+				end
+				-| ['list_comprehension'] )
+			  <[]> when 'true' ->
+			      []
+			  ( <_5> when 'true' ->
+				primop 'match_fail'
+				    ({'function_clause',_5})
+			    -| ['compiler_generated'] )
+			end
+	    in  let <_3> =
+		    call 'digraph':'vertices'
+			(( _0
+			   -| [{'function',{'loop_vertices',1}}] ))
+		in  apply 'lc$^0'/1
+			(_3)
+	    -| ['list_comprehension'] )
+      -| [{'function',{'loop_vertices',1}}] )
+'subgraph'/2 =
+    %% Line 164
+    ( fun (_0,_1) ->
+	  %% Line 165
+	  try
+	      %% Line 166
+	      apply 'subgraph_opts'/3
+		  (_0, _1, [])
+	  of <_2> ->
+	      _2
+	  catch <_5,_4,_3> ->
+	      %% Line 168
+	      case <_5,_4,_3> of
+		<( 'throw'
+		   -| ['compiler_generated'] ),( 'badarg'
+						 -| ['compiler_generated'] ),_8> when 'true' ->
+		    %% Line 169
+		    call 'erlang':'error'
+			('badarg')
+		( <_9,_10,_11> when 'true' ->
+		      primop 'raise'
+			  (_11, _10)
+		  -| ['compiler_generated'] )
+	      end
+      -| [{'function',{'subgraph',2}}] )
+'subgraph'/3 =
+    %% Line 179
+    ( fun (_0,_1,_2) ->
+	  %% Line 180
+	  try
+	      %% Line 181
+	      apply 'subgraph_opts'/3
+		  (_0, _1, _2)
+	  of <_3> ->
+	      _3
+	  catch <_6,_5,_4> ->
+	      %% Line 183
+	      case <_6,_5,_4> of
+		<( 'throw'
+		   -| ['compiler_generated'] ),( 'badarg'
+						 -| ['compiler_generated'] ),_10> when 'true' ->
+		    %% Line 184
+		    call 'erlang':'error'
+			('badarg')
+		( <_11,_12,_13> when 'true' ->
+		      primop 'raise'
+			  (_13, _12)
+		  -| ['compiler_generated'] )
+	      end
+      -| [{'function',{'subgraph',3}}] )
+'condensation'/1 =
+    %% Line 191
+    ( fun (_0) ->
+	  let <SCs> =
+	      apply %% Line 192
+		    'strong_components'/1
+		  (( _0
+		     -| [{'function',{'condensation',1}}] ))
+	  in  let <V2I> =
+		  call %% Line 196
+		       'ets':%% Line 196
+			     'new'
+		      (%% Line 196
+		       'condensation', %% Line 196
+				       [])
+	      in  let <I2C> =
+		      call %% Line 197
+			   'ets':%% Line 197
+				 'new'
+			  (%% Line 197
+			   'condensation', %% Line 197
+					   [])
+		  in  let <CFun> =
+			  fun (_10,_9) ->
+			      let <_7> =
+				  fun (_5) ->
+				      let <_19> =
+					  call %% Line 199
+					       'ets':%% Line 199
+						     'insert'
+					      (%% Line 199
+					       V2I, %% Line 199
+						    {_5,_9})
+				      in  %% Line 199
+					  case _19 of
+					    <'true'> when 'true' ->
+						( _19
+						  -| ['compiler_generated'] )
+					    ( <_4> when 'true' ->
+						  primop 'match_fail'
+						      ({'badmatch',_4})
+					      -| ['compiler_generated'] )
+					  end
+			      in  do  %% Line 198
+				      call 'lists':'foreach'
+					  (_7, _10)
+				      %% Line 202
+				      case call 'ets':'insert'
+					       (I2C, {_9,_10}) of
+					<'true'> when 'true' ->
+					    %% Line 203
+					    call 'erlang':'+'
+						(_9, 1)
+					( <_8> when 'true' ->
+					      primop 'match_fail'
+						  ({'badmatch',_8})
+					  -| ['compiler_generated'] )
+				      end
+		      in  do  %% Line 205
+			      call 'lists':'foldl'
+				  (CFun, 1, SCs)
+			      let <SCG> =
+				  apply %% Line 206
+					'subgraph_opts'/3
+				      (( _0
+					 -| [{'function',{'condensation',1}}] ), %% Line 206
+										 [], %% Line 206
+										     [])
+			      in  let <_17> =
+				      fun (_15) ->
+					  %% Line 207
+					  apply 'condense'/5
+					      (_15, ( _0
+						      -| [{'function',{'condensation',1}}] ), SCG, V2I, I2C)
+				  in  do  %% Line 207
+					  call 'lists':'foreach'
+					      (_17, SCs)
+					  do  %% Line 208
+					      call 'ets':'delete'
+						  (V2I)
+					      do  %% Line 209
+						  call 'ets':'delete'
+						      (I2C)
+						  %% Line 210
+						  SCG
+      -| [{'function',{'condensation',1}}] )
+'preorder'/1 =
+    %% Line 216
+    ( fun (_0) ->
+	  let <_1> =
+	      apply %% Line 217
+		    'revpreorder'/1
+		  (( _0
+		     -| [{'function',{'preorder',1}}] ))
+	  in  %% Line 217
+	      call 'lists':'reverse'
+		  (_1)
+      -| [{'function',{'preorder',1}}] )
+'postorder'/1 =
+    %% Line 223
+    ( fun (_0) ->
+	  let <_1> =
+	      apply %% Line 224
+		    'revpostorder'/1
+		  (( _0
+		     -| [{'function',{'postorder',1}}] ))
+	  in  %% Line 224
+	      call 'lists':'reverse'
+		  (_1)
+      -| [{'function',{'postorder',1}}] )
+'forest'/2 =
+    %% Line 230
+    ( fun (_0,_1) ->
+	  let <_2> =
+	      call %% Line 231
+		   'digraph':%% Line 231
+			     'vertices'
+		  (_0)
+	  in  %% Line 231
+	      apply 'forest'/3
+		  (_0, _1, _2)
+      -| [{'function',{'forest',2}}] )
+'forest'/3 =
+    %% Line 233
+    ( fun (_0,_1,_2) ->
+	  %% Line 234
+	  apply 'forest'/4
+	      (_0, _1, _2, 'first')
+      -| [{'function',{'forest',3}}] )
+'forest'/4 =
+    %% Line 236
+    ( fun (_0,_1,_2,_3) ->
+	  let <T> =
+	      call %% Line 237
+		   'ets':%% Line 237
+			 'new'
+		  (%% Line 237
+		   'forest', %% Line 237
+			     ['set'])
+	  in  let <F> =
+		  fun (_6,_5) ->
+		      %% Line 238
+		      apply 'pretraverse'/6
+			  (_3, _6, _1, _0, T, _5)
+	      in  let <LL> =
+		      call %% Line 239
+			   'lists':%% Line 239
+				   'foldl'
+			  (%% Line 239
+			   F, %% Line 239
+			      [], _2)
+		  in  do  %% Line 240
+			  call 'ets':'delete'
+			      (T)
+			  %% Line 241
+			  LL
+      -| [{'function',{'forest',4}}] )
+'pretraverse'/6 =
+    %% Line 243
+    ( fun (_0,_1,_2,_3,_4,_5) ->
+	  ( case <_0,_1,_2,_3,_4,_5> of
+	      <'first',V,SF,G,T,LL> when 'true' ->
+		  %% Line 244
+		  apply 'ptraverse'/6
+		      ([V|[]], SF, G, T, [], LL)
+	      %% Line 245
+	      <'not_first',V,SF,G,T,LL> when 'true' ->
+		  %% Line 246
+		  case call 'ets':'member'
+			   (T, V) of
+		    %% Line 247
+		    <'false'> when 'true' ->
+			let <_6> =
+			    apply SF
+				(G, V, [])
+			in  apply 'ptraverse'/6
+				(_6, SF, G, T, [], LL)
+		    %% Line 248
+		    <'true'> when 'true' ->
+			LL
+		    ( <_7> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_7})
+		      -| ['compiler_generated'] )
+		  end
+	      ( <_13,_12,_11,_10,_9,_8> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_13,_12,_11,_10,_9,_8})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'pretraverse',6}}] )
+      -| [{'function',{'pretraverse',6}}] )
+'ptraverse'/6 =
+    %% Line 251
+    ( fun (_0,_1,_2,_3,_4,_5) ->
+	  ( case <_0,_1,_2,_3,_4,_5> of
+	      <[V|Vs],SF,G,T,Rs,LL> when 'true' ->
+		  %% Line 252
+		  case call 'ets':'member'
+			   (T, V) of
+		    %% Line 253
+		    <'false'> when 'true' ->
+			do  %% Line 254
+			    call 'ets':'insert'
+				(T, {V})
+			    let <_6> =
+				apply %% Line 255
+				      SF
+				    (%% Line 255
+				     G, %% Line 255
+					V, %% Line 255
+					   Vs)
+			    in  %% Line 255
+				apply 'ptraverse'/6
+				    (_6, SF, G, T, [V|Rs], LL)
+		    %% Line 256
+		    <'true'> when 'true' ->
+			%% Line 257
+			apply 'ptraverse'/6
+			    (Vs, SF, G, T, Rs, LL)
+		    ( <_7> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_7})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 259
+	      <[],_X_SF,_X_G,_X_T,[],LL> when 'true' ->
+		  %% Line 260
+		  LL
+	      %% Line 261
+	      <[],_X_SF,_X_G,_X_T,Rs,LL> when 'true' ->
+		  %% Line 262
+		  [Rs|LL]
+	      ( <_13,_12,_11,_10,_9,_8> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_13,_12,_11,_10,_9,_8})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'ptraverse',6}}] )
+      -| [{'function',{'ptraverse',6}}] )
+'revpreorder'/1 =
+    %% Line 264
+    ( fun (_0) ->
+	  let <_1> = 'out'/3
+	  in  let <_2> =
+		  apply %% Line 265
+			'forest'/2
+		      (( _0
+			 -| [{'function',{'revpreorder',1}}] ), _1)
+	      in  %% Line 265
+		  call 'lists':'append'
+		      (_2)
+      -| [{'function',{'revpreorder',1}}] )
+'revpostorder'/1 =
+    %% Line 267
+    ( fun (_0) ->
+	  let <T> =
+	      call %% Line 268
+		   'ets':%% Line 268
+			 'new'
+		  (%% Line 268
+		   'forest', %% Line 268
+			     ['set'])
+	  in  let <_2> =
+		  call %% Line 269
+		       'digraph':%% Line 269
+				 'vertices'
+		      (( _0
+			 -| [{'function',{'revpostorder',1}}] ))
+	      in  let <L> =
+		      apply %% Line 269
+			    'posttraverse'/4
+			  (_2, ( _0
+				 -| [{'function',{'revpostorder',1}}] ), %% Line 269
+									 T, %% Line 269
+									    [])
+		  in  do  %% Line 270
+			  call 'ets':'delete'
+			      (T)
+			  %% Line 271
+			  L
+      -| [{'function',{'revpostorder',1}}] )
+'posttraverse'/4 =
+    %% Line 273
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <[V|Vs],G,T,L> when 'true' ->
+		  let <_7> =
+		      case %% Line 274
+			   call 'ets':'member'
+			       (T, V) of
+			%% Line 275
+			<'false'> when 'true' ->
+			    do  %% Line 276
+				call 'ets':'insert'
+				    (T, {V})
+				let <_4> =
+				    apply %% Line 277
+					  'out'/3
+					(%% Line 277
+					 G, %% Line 277
+					    V, %% Line 277
+					       [])
+				in  let <_5> =
+					apply %% Line 277
+					      'posttraverse'/4
+					    (_4, %% Line 277
+						 G, %% Line 277
+						    T, %% Line 277
+						       L)
+				    in  %% Line 277
+					[V|_5]
+			%% Line 278
+			<'true'> when 'true' ->
+			    %% Line 279
+			    L
+			( <_6> when 'true' ->
+			      %% Line 274
+			      primop 'match_fail'
+				  ({'case_clause',_6})
+			  -| ['compiler_generated'] )
+		      end
+		  in  %% Line 281
+		      apply 'posttraverse'/4
+			  (Vs, G, T, _7)
+	      %% Line 282
+	      <[],_X_G,_X_T,L> when 'true' ->
+		  %% Line 283
+		  L
+	      ( <_12,_11,_10,_9> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_12,_11,_10,_9})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'posttraverse',4}}] )
+      -| [{'function',{'posttraverse',4}}] )
+'in'/3 =
+    %% Line 285
+    ( fun (_0,_1,_2) ->
+	  let <_3> =
+	      call %% Line 286
+		   'digraph':%% Line 286
+			     'in_neighbours'
+		  (_0, _1)
+	  in  %% Line 286
+	      call 'erlang':'++'
+		  (_3, _2)
+      -| [{'function',{'in',3}}] )
+'out'/3 =
+    %% Line 288
+    ( fun (_0,_1,_2) ->
+	  let <_3> =
+	      call %% Line 289
+		   'digraph':%% Line 289
+			     'out_neighbours'
+		  (_0, _1)
+	  in  %% Line 289
+	      call 'erlang':'++'
+		  (_3, _2)
+      -| [{'function',{'out',3}}] )
+'inout'/3 =
+    %% Line 291
+    ( fun (_0,_1,_2) ->
+	  let <_3> =
+	      apply %% Line 292
+		    'out'/3
+		  (_0, _1, _2)
+	  in  %% Line 292
+	      apply 'in'/3
+		  (_0, _1, _3)
+      -| [{'function',{'inout',3}}] )
+'remove_singletons'/3 =
+    %% Line 294
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <[C = [V|[]]|Cs],G,L> when 'true' ->
+		  %% Line 295
+		  case apply 'is_reflexive_vertex'/2
+			   (V, G) of
+		    %% Line 296
+		    <'true'> when 'true' ->
+			apply 'remove_singletons'/3
+			    (Cs, G, [C|L])
+		    %% Line 297
+		    <'false'> when 'true' ->
+			apply 'remove_singletons'/3
+			    (Cs, G, L)
+		    ( <_3> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_3})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 299
+	      <[C|Cs],G,L> when 'true' ->
+		  %% Line 300
+		  apply 'remove_singletons'/3
+		      (Cs, G, [C|L])
+	      %% Line 301
+	      <[],_X_G,L> when 'true' ->
+		  %% Line 302
+		  L
+	      ( <_6,_5,_4> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_6,_5,_4})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'remove_singletons',3}}] )
+      -| [{'function',{'remove_singletons',3}}] )
+'is_reflexive_vertex'/2 =
+    %% Line 304
+    ( fun (_0,_1) ->
+	  let <_2> =
+	      call %% Line 305
+		   'digraph':%% Line 305
+			     'out_neighbours'
+		  (_1, _0)
+	  in  %% Line 305
+	      call 'lists':'member'
+		  (_0, _2)
+      -| [{'function',{'is_reflexive_vertex',2}}] )
+'subgraph_opts'/3 =
+    %% Line 307
+    ( fun (_0,_1,_2) ->
+	  %% Line 308
+	  apply 'subgraph_opts'/5
+	      (_2, 'inherit', 'true', _0, _1)
+      -| [{'function',{'subgraph_opts',3}}] )
+'subgraph_opts'/5 =
+    %% Line 310
+    ( fun (_0,_1,_2,_3,_4) ->
+	  ( case <_0,_1,_2,_3,_4> of
+	      <[{'type',Type}|Opts],_X_Type0,Keep,G,Vs>
+		  when let <_5> =
+			call %% Line 311
+			     'erlang':%% Line 311
+				      '=:='
+			    (%% Line 311
+			     Type, %% Line 311
+				   'inherit')
+		    in  let <_6> =
+			    call %% Line 311
+				 'erlang':%% Line 311
+					  'is_list'
+				(%% Line 311
+				 Type)
+			in  %% Line 311
+			    call 'erlang':'or'
+				(_5, _6) ->
+		  %% Line 312
+		  apply 'subgraph_opts'/5
+		      (Opts, Type, Keep, G, Vs)
+	      %% Line 313
+	      <[{'keep_labels',Keep}|Opts],Type,_X_Keep0,G,Vs>
+		  when %% Line 314
+		    call 'erlang':'is_boolean'
+			(Keep) ->
+		  %% Line 315
+		  apply 'subgraph_opts'/5
+		      (Opts, Type, Keep, G, Vs)
+	      %% Line 316
+	      <[],'inherit',Keep,G,Vs> when 'true' ->
+		  let <Info> =
+		      call %% Line 317
+			   'digraph':%% Line 317
+				     'info'
+			  (%% Line 317
+			   G)
+		  in  %% Line 318
+		      case call 'lists':'keysearch'
+			       ('cyclicity', 1, Info) of
+			<{_15,{_16,Cyclicity}}> when 'true' ->
+			    %% Line 319
+			    case call 'lists':'keysearch'
+				     ('protection', 1, Info) of
+			      <{_17,{_18,Protection}}> when 'true' ->
+				  %% Line 320
+				  apply 'subgraph'/4
+				      (G, Vs, [Cyclicity|[Protection|[]]], Keep)
+			      ( <_9> when 'true' ->
+				    primop 'match_fail'
+					({'badmatch',_9})
+				-| ['compiler_generated'] )
+			    end
+			( <_8> when 'true' ->
+			      primop 'match_fail'
+				  ({'badmatch',_8})
+			  -| ['compiler_generated'] )
+		      end
+	      %% Line 321
+	      <[],Type,Keep,G,Vs> when 'true' ->
+		  %% Line 322
+		  apply 'subgraph'/4
+		      (G, Vs, Type, Keep)
+	      %% Line 323
+	      <_19,_X_Type,_X_Keep,_X_G,_X_Vs> when 'true' ->
+		  %% Line 324
+		  call 'erlang':'throw'
+		      ('badarg')
+	    end
+	    -| [{'function',{'subgraph_opts',5}}] )
+      -| [{'function',{'subgraph_opts',5}}] )
+'subgraph'/4 =
+    %% Line 326
+    ( fun (_0,_1,_2,_3) ->
+	  %% Line 327
+	  try
+	      call 'digraph':'new'
+		  (_2)
+	  of <_4> ->
+	      let <_7> =
+		  fun (_5) ->
+		      %% Line 329
+		      apply 'subgraph_vertex'/4
+			  (_5, _0, _4, _3)
+	      in  do  %% Line 329
+		      call 'lists':'foreach'
+			  (_7, _1)
+		      let <EFun> =
+			  fun (_12) ->
+			      let <_11> =
+				  fun (_9) ->
+				      %% Line 331
+				      apply 'subgraph_edge'/4
+					  (_9, _0, _4, _3)
+			      in  let <_8> =
+				      call %% Line 333
+					   'digraph':%% Line 333
+						     'out_edges'
+					  (_0, %% Line 330
+					       _12)
+				  in  %% Line 330
+				      call 'lists':'foreach'
+					  (_11, _8)
+		      in  let <_15> =
+			      call %% Line 335
+				   'digraph':%% Line 335
+					     'vertices'
+				  (_4)
+			  in  do  %% Line 335
+				  call 'lists':'foreach'
+				      (EFun, _15)
+				  _4
+	  catch <_19,_18,_17> ->
+	      %% Line 338
+	      case <_19,_18,_17> of
+		<( 'error'
+		   -| ['compiler_generated'] ),( 'badarg'
+						 -| ['compiler_generated'] ),_24> when 'true' ->
+		    %% Line 339
+		    call 'erlang':'throw'
+			('badarg')
+		( <_29,_30,_31> when 'true' ->
+		      primop 'raise'
+			  (_31, _30)
+		  -| ['compiler_generated'] )
+	      end
+      -| [{'function',{'subgraph',4}}] )
+'subgraph_vertex'/4 =
+    %% Line 342
+    ( fun (_0,_1,_2,_3) ->
+	  %% Line 343
+	  case call 'digraph':'vertex'
+		   (_1, _0) of
+	    %% Line 344
+	    <'false'> when 'true' ->
+		'ok'
+	    %% Line 345
+	    <_10>
+		when ( call 'erlang':'=:='
+			(_3,
+			 'false')
+		    -| ['compiler_generated'] ) ->
+		call 'digraph':'add_vertex'
+		    (_2, _0)
+	    %% Line 346
+	    <{_X_V,Label}>
+		when ( call 'erlang':'=:='
+			(_3,
+			 'true')
+		    -| ['compiler_generated'] ) ->
+		call 'digraph':'add_vertex'
+		    (_2, _0, Label)
+	    ( <_5> when 'true' ->
+		  primop 'match_fail'
+		      ({'case_clause',_5})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'subgraph_vertex',4}}] )
+'subgraph_edge'/4 =
+    %% Line 349
+    ( fun (_0,_1,_2,_3) ->
+	  %% Line 350
+	  case call 'digraph':'edge'
+		   (_1, _0) of
+	    <{_X_E,V1,V2,Label}> when 'true' ->
+		%% Line 351
+		case call 'digraph':'vertex'
+			 (_2, V2) of
+		  %% Line 352
+		  <'false'> when 'true' ->
+		      'ok'
+		  %% Line 353
+		  <_11>
+		      when ( call 'erlang':'=:='
+			      (_3,
+			       'false')
+			  -| ['compiler_generated'] ) ->
+		      call 'digraph':'add_edge'
+			  (_2, _0, V1, V2, [])
+		  %% Line 354
+		  <_12>
+		      when ( call 'erlang':'=:='
+			      (_3,
+			       'true')
+			  -| ['compiler_generated'] ) ->
+		      call 'digraph':'add_edge'
+			  (_2, _0, V1, V2, Label)
+		  ( <_6> when 'true' ->
+			primop 'match_fail'
+			    ({'case_clause',_6})
+		    -| ['compiler_generated'] )
+		end
+	    ( <_4> when 'true' ->
+		  primop 'match_fail'
+		      ({'badmatch',_4})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'subgraph_edge',4}}] )
+'condense'/5 =
+    %% Line 357
+    ( fun (_0,_1,_2,_3,_4) ->
+	  let <T> =
+	      call %% Line 358
+		   'ets':%% Line 358
+			 'new'
+		  (%% Line 358
+		   'condense', %% Line 358
+			       [])
+	  in  let <NFun> =
+		  fun (_7) ->
+		      %% Line 360
+		      case call 'ets':'lookup'
+			       (_3, _7) of
+			<[{_X_V,I}|[]]> when 'true' ->
+			    %% Line 361
+			    call 'ets':'insert'
+				(T, {I})
+			( <_6> when 'true' ->
+			      primop 'match_fail'
+				  ({'badmatch',_6})
+			  -| ['compiler_generated'] )
+		      end
+	      in  let <VFun> =
+		      fun (_11) ->
+			  let <_10> =
+			      call %% Line 363
+				   'digraph':%% Line 363
+					     'out_neighbours'
+				  (_1, %% Line 363
+				       _11)
+			  in  %% Line 363
+			      call 'lists':'foreach'
+				  (NFun, _10)
+		  in  do  %% Line 364
+			  call 'lists':'foreach'
+			      (VFun, _0)
+			  do  %% Line 365
+			      call 'digraph':'add_vertex'
+				  (_2, _0)
+			      let <_14> =
+				  call %% Line 366
+				       'ets':%% Line 366
+					     'first'
+				      (%% Line 366
+				       T)
+			      in  do  %% Line 366
+				      apply 'condense'/6
+					  (_14, T, _0, _1, _2, _4)
+				      %% Line 367
+				      call 'ets':'delete'
+					  (T)
+      -| [{'function',{'condense',5}}] )
+'condense'/6 =
+    %% Line 369
+    ( fun (_0,_1,_2,_3,_4,_5) ->
+	  ( case <_0,_1,_2,_3,_4,_5> of
+	      <'$end_of_table',_X_T,_X_SC,_X_G,_X_SCG,_X_I2C> when 'true' ->
+		  %% Line 370
+		  'ok'
+	      %% Line 371
+	      <I,T,SC,G,SCG,I2C> when 'true' ->
+		  %% Line 372
+		  case call 'ets':'lookup'
+			   (I2C, I) of
+		    <[{_17,C}|[]]> when 'true' ->
+			do  %% Line 373
+			    call 'digraph':'add_vertex'
+				(SCG, C)
+			    do  %% Line 374
+				( case <> of
+				    <>
+					when ( call ( 'erlang'
+						   -| ['result_not_wanted'] ):( '=/='
+										-| ['result_not_wanted'] )
+						(C,
+						 SC)
+					    -| ['result_not_wanted'] ) ->
+					( call ( 'digraph'
+						 -| ['result_not_wanted'] ):( 'add_edge'
+									      -| ['result_not_wanted'] )
+					      (SCG, SC, C)
+					  -| ['result_not_wanted'] )
+				    ( <> when 'true' ->
+					  []
+				      -| ['compiler_generated'] )
+				  end
+				  -| ['list_comprehension'] )
+				let <_10> =
+				    call %% Line 375
+					 'ets':%% Line 375
+					       'next'
+					(%% Line 375
+					 T, %% Line 375
+					    I)
+				in  %% Line 375
+				    apply 'condense'/6
+					(_10, T, SC, G, SCG, I2C)
+		    ( <_6> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_6})
+		      -| ['compiler_generated'] )
+		  end
+	    end
+	    -| [{'function',{'condense',6}}] )
+      -| [{'function',{'condense',6}}] )
+'module_info'/0 =
+    ( fun () ->
+	  call 'erlang':'get_module_info'
+	      ('digraph_utils')
+      -| [{'function',{'module_info',0}}] )
+'module_info'/1 =
+    ( fun (_0) ->
+	  call 'erlang':'get_module_info'
+	      ('digraph_utils', ( _0
+				  -| [{'function',{'module_info',1}}] ))
+      -| [{'function',{'module_info',1}}] )
+end

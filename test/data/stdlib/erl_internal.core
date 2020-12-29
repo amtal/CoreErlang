@@ -1,0 +1,2027 @@
+module 'erl_internal' ['add_predefined_functions'/1,
+		       'arith_op'/2,
+		       'bif'/2,
+		       'bif'/3,
+		       'bool_op'/2,
+		       'comp_op'/2,
+		       'guard_bif'/2,
+		       'is_type'/2,
+		       'list_op'/2,
+		       'module_info'/0,
+		       'module_info'/1,
+		       'new_type_test'/2,
+		       'old_bif'/2,
+		       'old_type_test'/2,
+		       'op_type'/2,
+		       'send_op'/2,
+		       'type_test'/2]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[101|[114|[108|[95|[105|[110|[116|[101|[114|[110|[97|[108|[46|[101|[114|[108]]]]]]]]]]]]]]]]]]]],1}],
+		%% Line 62
+		'spec' =
+		    %% Line 62
+		    [{{'guard_bif',2},[{'type',62,'bounded_fun',[{'type',62,'fun',[{'type',62,'product',[{'var',62,'Name'}|[{'var',62,'Arity'}]]}|[{'type',62,'boolean',[]}]]}|[[{'type',63,'constraint',[{'atom',63,'is_subtype'}|[[{'var',63,'Name'}|[{'type',63,'atom',[]}]]]]}|[{'type',64,'constraint',[{'atom',64,'is_subtype'}|[[{'var',64,'Arity'}|[{'type',64,'arity',[]}]]]]}]]]]}]}],
+		%% Line 92
+		'spec' =
+		    %% Line 92
+		    [{{'type_test',2},[{'type',92,'bounded_fun',[{'type',92,'fun',[{'type',92,'product',[{'var',92,'Name'}|[{'var',92,'Arity'}]]}|[{'type',92,'boolean',[]}]]}|[[{'type',93,'constraint',[{'atom',93,'is_subtype'}|[[{'var',93,'Name'}|[{'type',93,'atom',[]}]]]]}|[{'type',94,'constraint',[{'atom',94,'is_subtype'}|[[{'var',94,'Arity'}|[{'type',94,'arity',[]}]]]]}]]]]}]}],
+		%% Line 100
+		'spec' =
+		    %% Line 100
+		    [{{'new_type_test',2},[{'type',100,'fun',[{'type',100,'product',[{'ann_type',100,[{'var',100,'Name'}|[{'type',100,'atom',[]}]]}|[{'ann_type',100,[{'var',100,'Arity'}|[{'type',100,'arity',[]}]]}]]}|[{'type',100,'boolean',[]}]]}]}],
+		%% Line 123
+		'spec' =
+		    %% Line 123
+		    [{{'old_type_test',2},[{'type',123,'fun',[{'type',123,'product',[{'ann_type',123,[{'var',123,'Name'}|[{'type',123,'atom',[]}]]}|[{'ann_type',123,[{'var',123,'Arity'}|[{'type',123,'arity',[]}]]}]]}|[{'type',123,'boolean',[]}]]}]}],
+		%% Line 139
+		'spec' =
+		    %% Line 139
+		    [{{'arith_op',2},[{'type',139,'bounded_fun',[{'type',139,'fun',[{'type',139,'product',[{'var',139,'OpName'}|[{'var',139,'Arity'}]]}|[{'type',139,'boolean',[]}]]}|[[{'type',140,'constraint',[{'atom',140,'is_subtype'}|[[{'var',140,'OpName'}|[{'type',140,'atom',[]}]]]]}|[{'type',141,'constraint',[{'atom',141,'is_subtype'}|[[{'var',141,'Arity'}|[{'type',141,'arity',[]}]]]]}]]]]}]}],
+		%% Line 159
+		'spec' =
+		    %% Line 159
+		    [{{'bool_op',2},[{'type',159,'bounded_fun',[{'type',159,'fun',[{'type',159,'product',[{'var',159,'OpName'}|[{'var',159,'Arity'}]]}|[{'type',159,'boolean',[]}]]}|[[{'type',160,'constraint',[{'atom',160,'is_subtype'}|[[{'var',160,'OpName'}|[{'type',160,'atom',[]}]]]]}|[{'type',161,'constraint',[{'atom',161,'is_subtype'}|[[{'var',161,'Arity'}|[{'type',161,'arity',[]}]]]]}]]]]}]}],
+		%% Line 169
+		'spec' =
+		    %% Line 169
+		    [{{'comp_op',2},[{'type',169,'bounded_fun',[{'type',169,'fun',[{'type',169,'product',[{'var',169,'OpName'}|[{'var',169,'Arity'}]]}|[{'type',169,'boolean',[]}]]}|[[{'type',170,'constraint',[{'atom',170,'is_subtype'}|[[{'var',170,'OpName'}|[{'type',170,'atom',[]}]]]]}|[{'type',171,'constraint',[{'atom',171,'is_subtype'}|[[{'var',171,'Arity'}|[{'type',171,'arity',[]}]]]]}]]]]}]}],
+		%% Line 183
+		'spec' =
+		    %% Line 183
+		    [{{'list_op',2},[{'type',183,'bounded_fun',[{'type',183,'fun',[{'type',183,'product',[{'var',183,'OpName'}|[{'var',183,'Arity'}]]}|[{'type',183,'boolean',[]}]]}|[[{'type',184,'constraint',[{'atom',184,'is_subtype'}|[[{'var',184,'OpName'}|[{'type',184,'atom',[]}]]]]}|[{'type',185,'constraint',[{'atom',185,'is_subtype'}|[[{'var',185,'Arity'}|[{'type',185,'arity',[]}]]]]}]]]]}]}],
+		%% Line 191
+		'spec' =
+		    %% Line 191
+		    [{{'send_op',2},[{'type',191,'bounded_fun',[{'type',191,'fun',[{'type',191,'product',[{'var',191,'OpName'}|[{'var',191,'Arity'}]]}|[{'type',191,'boolean',[]}]]}|[[{'type',192,'constraint',[{'atom',192,'is_subtype'}|[[{'var',192,'OpName'}|[{'type',192,'atom',[]}]]]]}|[{'type',193,'constraint',[{'atom',193,'is_subtype'}|[[{'var',193,'Arity'}|[{'type',193,'arity',[]}]]]]}]]]]}]}],
+		%% Line 198
+		'spec' =
+		    %% Line 198
+		    [{{'op_type',2},[{'type',198,'bounded_fun',[{'type',198,'fun',[{'type',198,'product',[{'var',198,'OpName'}|[{'var',198,'Arity'}]]}|[{'var',198,'Type'}]]}|[[{'type',199,'constraint',[{'atom',199,'is_subtype'}|[[{'var',199,'OpName'}|[{'type',199,'atom',[]}]]]]}|[{'type',200,'constraint',[{'atom',200,'is_subtype'}|[[{'var',200,'Arity'}|[{'type',200,'arity',[]}]]]]}|[{'type',201,'constraint',[{'atom',201,'is_subtype'}|[[{'var',201,'Type'}|[{'type',201,'union',[{'atom',201,'arith'}|[{'atom',201,'bool'}|[{'atom',201,'comp'}|[{'atom',201,'list'}|[{'atom',201,'send'}]]]]]}]]]]}]]]]]}]}],
+		%% Line 233
+		'spec' =
+		    %% Line 233
+		    [{{'bif',3},[{'type',233,'fun',[{'type',233,'product',[{'ann_type',233,[{'var',233,'Mod'}|[{'type',233,'atom',[]}]]}|[{'ann_type',233,[{'var',233,'Name'}|[{'type',233,'atom',[]}]]}|[{'ann_type',233,[{'var',233,'Arity'}|[{'type',233,'arity',[]}]]}]]]}|[{'type',233,'boolean',[]}]]}]}],
+		%% Line 238
+		'spec' =
+		    %% Line 238
+		    [{{'bif',2},[{'type',238,'bounded_fun',[{'type',238,'fun',[{'type',238,'product',[{'var',238,'Name'}|[{'var',238,'Arity'}]]}|[{'type',238,'boolean',[]}]]}|[[{'type',239,'constraint',[{'atom',239,'is_subtype'}|[[{'var',239,'Name'}|[{'type',239,'atom',[]}]]]]}|[{'type',240,'constraint',[{'atom',240,'is_subtype'}|[[{'var',240,'Arity'}|[{'type',240,'arity',[]}]]]]}]]]]}]}],
+		%% Line 420
+		'spec' =
+		    %% Line 420
+		    [{{'old_bif',2},[{'type',420,'fun',[{'type',420,'product',[{'ann_type',420,[{'var',420,'Name'}|[{'type',420,'atom',[]}]]}|[{'ann_type',420,[{'var',420,'Arity'}|[{'type',420,'arity',[]}]]}]]}|[{'type',420,'boolean',[]}]]}]}],
+		%% Line 550
+		'spec' =
+		    %% Line 550
+		    [{{'is_type',2},[{'type',550,'bounded_fun',[{'type',550,'fun',[{'type',550,'product',[{'var',550,'Name'}|[{'var',550,'NumberOfTypeVariables'}]]}|[{'type',550,'boolean',[]}]]}|[[{'type',551,'constraint',[{'atom',551,'is_subtype'}|[[{'var',551,'Name'}|[{'type',551,'atom',[]}]]]]}|[{'type',552,'constraint',[{'atom',552,'is_subtype'}|[[{'var',552,'NumberOfTypeVariables'}|[{'type',552,'non_neg_integer',[]}]]]]}]]]]}]}],
+		%% Line 608
+		'spec' =
+		    %% Line 608
+		    [{{'add_predefined_functions',1},[{'type',608,'bounded_fun',[{'type',608,'fun',[{'type',608,'product',[{'var',608,'Forms'}]}|[{'var',608,'UpdatedForms'}]]}|[[{'type',609,'constraint',[{'atom',609,'is_subtype'}|[[{'var',609,'Forms'}|[{'type',609,'list',[{'type',609,'union',[{'remote_type',609,[{'atom',609,'erl_parse'}|[{'atom',609,'abstract_form'}|[[]]]]}|[{'remote_type',609,[{'atom',609,'erl_parse'}|[{'atom',609,'form_info'}|[[]]]]}]]}]}]]]]}|[{'type',610,'constraint',[{'atom',610,'is_subtype'}|[[{'var',610,'UpdatedForms'}|[{'type',610,'list',[{'type',610,'union',[{'remote_type',610,[{'atom',610,'erl_parse'}|[{'atom',610,'abstract_form'}|[[]]]]}|[{'remote_type',610,[{'atom',610,'erl_parse'}|[{'atom',610,'form_info'}|[[]]]]}]]}]}]]]]}]]]]}]}]]
+'guard_bif'/2 =
+    %% Line 67
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <'abs',1> when 'true' ->
+	      'true'
+	  %% Line 68
+	  <'binary_part',2> when 'true' ->
+	      'true'
+	  %% Line 69
+	  <'binary_part',3> when 'true' ->
+	      'true'
+	  %% Line 70
+	  <'bit_size',1> when 'true' ->
+	      'true'
+	  %% Line 71
+	  <'byte_size',1> when 'true' ->
+	      'true'
+	  %% Line 72
+	  <'ceil',1> when 'true' ->
+	      'true'
+	  %% Line 73
+	  <'element',2> when 'true' ->
+	      'true'
+	  %% Line 74
+	  <'float',1> when 'true' ->
+	      'true'
+	  %% Line 75
+	  <'floor',1> when 'true' ->
+	      'true'
+	  %% Line 76
+	  <'hd',1> when 'true' ->
+	      'true'
+	  %% Line 77
+	  <'is_map_key',2> when 'true' ->
+	      'true'
+	  %% Line 78
+	  <'length',1> when 'true' ->
+	      'true'
+	  %% Line 79
+	  <'map_size',1> when 'true' ->
+	      'true'
+	  %% Line 80
+	  <'map_get',2> when 'true' ->
+	      'true'
+	  %% Line 81
+	  <'node',0> when 'true' ->
+	      'true'
+	  %% Line 82
+	  <'node',1> when 'true' ->
+	      'true'
+	  %% Line 83
+	  <'round',1> when 'true' ->
+	      'true'
+	  %% Line 84
+	  <'self',0> when 'true' ->
+	      'true'
+	  %% Line 85
+	  <'size',1> when 'true' ->
+	      'true'
+	  %% Line 86
+	  <'tl',1> when 'true' ->
+	      'true'
+	  %% Line 87
+	  <'trunc',1> when 'true' ->
+	      'true'
+	  %% Line 88
+	  <'tuple_size',1> when 'true' ->
+	      'true'
+	  %% Line 89
+	  <Name,A> when 'true' ->
+	      apply 'new_type_test'/2
+		  (Name, A)
+	end
+'type_test'/2 =
+    %% Line 96
+    fun (_0,_1) ->
+	%% Line 97
+	( case apply 'new_type_test'/2
+		   (_0, _1) of
+	    ( <( 'true'
+		 -| ['compiler_generated'] )> when 'true' ->
+		  'true'
+	      -| ['compiler_generated'] )
+	    ( <( 'false'
+		 -| ['compiler_generated'] )> when 'true' ->
+		  apply 'old_type_test'/2
+		      (_0, _1)
+	      -| ['compiler_generated'] )
+	    ( <_2> when 'true' ->
+		  ( call ( 'erlang'
+			   -| ['compiler_generated'] ):( 'error'
+							 -| ['compiler_generated'] )
+			(( {( 'badarg'
+			      -| ['compiler_generated'] ),_2}
+			   -| ['compiler_generated'] ))
+		    -| ['compiler_generated'] )
+	      -| ['compiler_generated'] )
+	  end
+	  -| ['compiler_generated'] )
+'new_type_test'/2 =
+    %% Line 103
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <'is_atom',1> when 'true' ->
+	      'true'
+	  %% Line 104
+	  <'is_binary',1> when 'true' ->
+	      'true'
+	  %% Line 105
+	  <'is_bitstring',1> when 'true' ->
+	      'true'
+	  %% Line 106
+	  <'is_boolean',1> when 'true' ->
+	      'true'
+	  %% Line 107
+	  <'is_float',1> when 'true' ->
+	      'true'
+	  %% Line 108
+	  <'is_function',1> when 'true' ->
+	      'true'
+	  %% Line 109
+	  <'is_function',2> when 'true' ->
+	      'true'
+	  %% Line 110
+	  <'is_integer',1> when 'true' ->
+	      'true'
+	  %% Line 111
+	  <'is_list',1> when 'true' ->
+	      'true'
+	  %% Line 112
+	  <'is_map',1> when 'true' ->
+	      'true'
+	  %% Line 113
+	  <'is_number',1> when 'true' ->
+	      'true'
+	  %% Line 114
+	  <'is_pid',1> when 'true' ->
+	      'true'
+	  %% Line 115
+	  <'is_port',1> when 'true' ->
+	      'true'
+	  %% Line 116
+	  <'is_record',2> when 'true' ->
+	      'true'
+	  %% Line 117
+	  <'is_record',3> when 'true' ->
+	      'true'
+	  %% Line 118
+	  <'is_reference',1> when 'true' ->
+	      'true'
+	  %% Line 119
+	  <'is_tuple',1> when 'true' ->
+	      'true'
+	  %% Line 120
+	  <Name,A>
+	      when let <_2> =
+		    call 'erlang':'is_atom'
+			(Name)
+		in  let <_3> =
+			call 'erlang':'is_integer'
+			    (A)
+		    in  call 'erlang':'and'
+			    (_2, _3) ->
+	      'false'
+	  ( <_5,_4> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_5,_4})
+		  -| [{'function_name',{'new_type_test',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'old_type_test'/2 =
+    %% Line 125
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <'integer',1> when 'true' ->
+	      'true'
+	  %% Line 126
+	  <'float',1> when 'true' ->
+	      'true'
+	  %% Line 127
+	  <'number',1> when 'true' ->
+	      'true'
+	  %% Line 128
+	  <'atom',1> when 'true' ->
+	      'true'
+	  %% Line 129
+	  <'list',1> when 'true' ->
+	      'true'
+	  %% Line 130
+	  <'tuple',1> when 'true' ->
+	      'true'
+	  %% Line 131
+	  <'pid',1> when 'true' ->
+	      'true'
+	  %% Line 132
+	  <'reference',1> when 'true' ->
+	      'true'
+	  %% Line 133
+	  <'port',1> when 'true' ->
+	      'true'
+	  %% Line 134
+	  <'binary',1> when 'true' ->
+	      'true'
+	  %% Line 135
+	  <'record',2> when 'true' ->
+	      'true'
+	  %% Line 136
+	  <'function',1> when 'true' ->
+	      'true'
+	  %% Line 137
+	  <Name,A>
+	      when let <_2> =
+		    call 'erlang':'is_atom'
+			(Name)
+		in  let <_3> =
+			call 'erlang':'is_integer'
+			    (A)
+		    in  call 'erlang':'and'
+			    (_2, _3) ->
+	      'false'
+	  ( <_5,_4> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_5,_4})
+		  -| [{'function_name',{'old_type_test',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'arith_op'/2 =
+    %% Line 143
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <'+',1> when 'true' ->
+	      'true'
+	  %% Line 144
+	  <'-',1> when 'true' ->
+	      'true'
+	  %% Line 145
+	  <'*',2> when 'true' ->
+	      'true'
+	  %% Line 146
+	  <'/',2> when 'true' ->
+	      'true'
+	  %% Line 147
+	  <'+',2> when 'true' ->
+	      'true'
+	  %% Line 148
+	  <'-',2> when 'true' ->
+	      'true'
+	  %% Line 149
+	  <'bnot',1> when 'true' ->
+	      'true'
+	  %% Line 150
+	  <'div',2> when 'true' ->
+	      'true'
+	  %% Line 151
+	  <'rem',2> when 'true' ->
+	      'true'
+	  %% Line 152
+	  <'band',2> when 'true' ->
+	      'true'
+	  %% Line 153
+	  <'bor',2> when 'true' ->
+	      'true'
+	  %% Line 154
+	  <'bxor',2> when 'true' ->
+	      'true'
+	  %% Line 155
+	  <'bsl',2> when 'true' ->
+	      'true'
+	  %% Line 156
+	  <'bsr',2> when 'true' ->
+	      'true'
+	  %% Line 157
+	  <Op,A>
+	      when let <_2> =
+		    call 'erlang':'is_atom'
+			(Op)
+		in  let <_3> =
+			call 'erlang':'is_integer'
+			    (A)
+		    in  call 'erlang':'and'
+			    (_2, _3) ->
+	      'false'
+	  ( <_5,_4> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_5,_4})
+		  -| [{'function_name',{'arith_op',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'bool_op'/2 =
+    %% Line 163
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <'not',1> when 'true' ->
+	      'true'
+	  %% Line 164
+	  <'and',2> when 'true' ->
+	      'true'
+	  %% Line 165
+	  <'or',2> when 'true' ->
+	      'true'
+	  %% Line 166
+	  <'xor',2> when 'true' ->
+	      'true'
+	  %% Line 167
+	  <Op,A>
+	      when let <_2> =
+		    call 'erlang':'is_atom'
+			(Op)
+		in  let <_3> =
+			call 'erlang':'is_integer'
+			    (A)
+		    in  call 'erlang':'and'
+			    (_2, _3) ->
+	      'false'
+	  ( <_5,_4> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_5,_4})
+		  -| [{'function_name',{'bool_op',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'comp_op'/2 =
+    %% Line 173
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <'==',2> when 'true' ->
+	      'true'
+	  %% Line 174
+	  <'/=',2> when 'true' ->
+	      'true'
+	  %% Line 175
+	  <'=<',2> when 'true' ->
+	      'true'
+	  %% Line 176
+	  <'<',2> when 'true' ->
+	      'true'
+	  %% Line 177
+	  <'>=',2> when 'true' ->
+	      'true'
+	  %% Line 178
+	  <'>',2> when 'true' ->
+	      'true'
+	  %% Line 179
+	  <'=:=',2> when 'true' ->
+	      'true'
+	  %% Line 180
+	  <'=/=',2> when 'true' ->
+	      'true'
+	  %% Line 181
+	  <Op,A>
+	      when let <_2> =
+		    call 'erlang':'is_atom'
+			(Op)
+		in  let <_3> =
+			call 'erlang':'is_integer'
+			    (A)
+		    in  call 'erlang':'and'
+			    (_2, _3) ->
+	      'false'
+	  ( <_5,_4> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_5,_4})
+		  -| [{'function_name',{'comp_op',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'list_op'/2 =
+    %% Line 187
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <'++',2> when 'true' ->
+	      'true'
+	  %% Line 188
+	  <'--',2> when 'true' ->
+	      'true'
+	  %% Line 189
+	  <Op,A>
+	      when let <_2> =
+		    call 'erlang':'is_atom'
+			(Op)
+		in  let <_3> =
+			call 'erlang':'is_integer'
+			    (A)
+		    in  call 'erlang':'and'
+			    (_2, _3) ->
+	      'false'
+	  ( <_5,_4> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_5,_4})
+		  -| [{'function_name',{'list_op',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'send_op'/2 =
+    %% Line 195
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <'!',2> when 'true' ->
+	      'true'
+	  %% Line 196
+	  <Op,A>
+	      when let <_2> =
+		    call 'erlang':'is_atom'
+			(Op)
+		in  let <_3> =
+			call 'erlang':'is_integer'
+			    (A)
+		    in  call 'erlang':'and'
+			    (_2, _3) ->
+	      'false'
+	  ( <_5,_4> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_5,_4})
+		  -| [{'function_name',{'send_op',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'op_type'/2 =
+    %% Line 203
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <'+',1> when 'true' ->
+	      'arith'
+	  %% Line 204
+	  <'-',1> when 'true' ->
+	      'arith'
+	  %% Line 205
+	  <'*',2> when 'true' ->
+	      'arith'
+	  %% Line 206
+	  <'/',2> when 'true' ->
+	      'arith'
+	  %% Line 207
+	  <'+',2> when 'true' ->
+	      'arith'
+	  %% Line 208
+	  <'-',2> when 'true' ->
+	      'arith'
+	  %% Line 209
+	  <'bnot',1> when 'true' ->
+	      'arith'
+	  %% Line 210
+	  <'div',2> when 'true' ->
+	      'arith'
+	  %% Line 211
+	  <'rem',2> when 'true' ->
+	      'arith'
+	  %% Line 212
+	  <'band',2> when 'true' ->
+	      'arith'
+	  %% Line 213
+	  <'bor',2> when 'true' ->
+	      'arith'
+	  %% Line 214
+	  <'bxor',2> when 'true' ->
+	      'arith'
+	  %% Line 215
+	  <'bsl',2> when 'true' ->
+	      'arith'
+	  %% Line 216
+	  <'bsr',2> when 'true' ->
+	      'arith'
+	  %% Line 217
+	  <'not',1> when 'true' ->
+	      'bool'
+	  %% Line 218
+	  <'and',2> when 'true' ->
+	      'bool'
+	  %% Line 219
+	  <'or',2> when 'true' ->
+	      'bool'
+	  %% Line 220
+	  <'xor',2> when 'true' ->
+	      'bool'
+	  %% Line 221
+	  <'==',2> when 'true' ->
+	      'comp'
+	  %% Line 222
+	  <'/=',2> when 'true' ->
+	      'comp'
+	  %% Line 223
+	  <'=<',2> when 'true' ->
+	      'comp'
+	  %% Line 224
+	  <'<',2> when 'true' ->
+	      'comp'
+	  %% Line 225
+	  <'>=',2> when 'true' ->
+	      'comp'
+	  %% Line 226
+	  <'>',2> when 'true' ->
+	      'comp'
+	  %% Line 227
+	  <'=:=',2> when 'true' ->
+	      'comp'
+	  %% Line 228
+	  <'=/=',2> when 'true' ->
+	      'comp'
+	  %% Line 229
+	  <'++',2> when 'true' ->
+	      'list'
+	  %% Line 230
+	  <'--',2> when 'true' ->
+	      'list'
+	  %% Line 231
+	  <'!',2> when 'true' ->
+	      'send'
+	  ( <_3,_2> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_3,_2})
+		  -| [{'function_name',{'op_type',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'bif'/3 =
+    %% Line 235
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <'erlang',Name,Arity> when 'true' ->
+	      apply 'bif'/2
+		  (Name, Arity)
+	  %% Line 236
+	  <M,F,A>
+	      when try
+		    let <_3> =
+			call 'erlang':'is_atom'
+			    (M)
+		    in  let <_4> =
+			    call 'erlang':'is_atom'
+				(F)
+			in  let <_5> =
+				call 'erlang':'is_integer'
+				    (A)
+			    in  let <_6> =
+				    call 'erlang':'and'
+					(_4, _5)
+				in  call 'erlang':'and'
+					(_3, _6)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      'false'
+	  ( <_9,_8,_7> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_9,_8,_7})
+		  -| [{'function_name',{'bif',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'bif'/2 =
+    %% Line 245
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <'abs',1> when 'true' ->
+	      'true'
+	  %% Line 246
+	  <'apply',2> when 'true' ->
+	      'true'
+	  %% Line 247
+	  <'apply',3> when 'true' ->
+	      'true'
+	  %% Line 248
+	  <'atom_to_binary',1> when 'true' ->
+	      'true'
+	  %% Line 249
+	  <'atom_to_binary',2> when 'true' ->
+	      'true'
+	  %% Line 250
+	  <'atom_to_list',1> when 'true' ->
+	      'true'
+	  %% Line 251
+	  <'binary_part',2> when 'true' ->
+	      'true'
+	  %% Line 252
+	  <'binary_part',3> when 'true' ->
+	      'true'
+	  %% Line 253
+	  <'binary_to_atom',1> when 'true' ->
+	      'true'
+	  %% Line 254
+	  <'binary_to_atom',2> when 'true' ->
+	      'true'
+	  %% Line 255
+	  <'binary_to_existing_atom',1> when 'true' ->
+	      'true'
+	  %% Line 256
+	  <'binary_to_existing_atom',2> when 'true' ->
+	      'true'
+	  %% Line 257
+	  <'binary_to_integer',1> when 'true' ->
+	      'true'
+	  %% Line 258
+	  <'binary_to_integer',2> when 'true' ->
+	      'true'
+	  %% Line 259
+	  <'binary_to_float',1> when 'true' ->
+	      'true'
+	  %% Line 260
+	  <'binary_to_list',1> when 'true' ->
+	      'true'
+	  %% Line 261
+	  <'binary_to_list',3> when 'true' ->
+	      'true'
+	  %% Line 262
+	  <'binary_to_term',1> when 'true' ->
+	      'true'
+	  %% Line 263
+	  <'binary_to_term',2> when 'true' ->
+	      'true'
+	  %% Line 264
+	  <'bitsize',1> when 'true' ->
+	      'true'
+	  %% Line 265
+	  <'bit_size',1> when 'true' ->
+	      'true'
+	  %% Line 266
+	  <'bitstring_to_list',1> when 'true' ->
+	      'true'
+	  %% Line 267
+	  <'byte_size',1> when 'true' ->
+	      'true'
+	  %% Line 268
+	  <'ceil',1> when 'true' ->
+	      'true'
+	  %% Line 269
+	  <'check_old_code',1> when 'true' ->
+	      'true'
+	  %% Line 270
+	  <'check_process_code',2> when 'true' ->
+	      'true'
+	  %% Line 271
+	  <'check_process_code',3> when 'true' ->
+	      'true'
+	  %% Line 272
+	  <'date',0> when 'true' ->
+	      'true'
+	  %% Line 273
+	  <'delete_module',1> when 'true' ->
+	      'true'
+	  %% Line 274
+	  <'demonitor',1> when 'true' ->
+	      'true'
+	  %% Line 275
+	  <'demonitor',2> when 'true' ->
+	      'true'
+	  %% Line 276
+	  <'disconnect_node',1> when 'true' ->
+	      'true'
+	  %% Line 277
+	  <'element',2> when 'true' ->
+	      'true'
+	  %% Line 278
+	  <'erase',0> when 'true' ->
+	      'true'
+	  %% Line 279
+	  <'erase',1> when 'true' ->
+	      'true'
+	  %% Line 280
+	  <'error',1> when 'true' ->
+	      'true'
+	  %% Line 281
+	  <'error',2> when 'true' ->
+	      'true'
+	  %% Line 282
+	  <'exit',1> when 'true' ->
+	      'true'
+	  %% Line 283
+	  <'exit',2> when 'true' ->
+	      'true'
+	  %% Line 284
+	  <'float',1> when 'true' ->
+	      'true'
+	  %% Line 285
+	  <'float_to_list',1> when 'true' ->
+	      'true'
+	  %% Line 286
+	  <'float_to_list',2> when 'true' ->
+	      'true'
+	  %% Line 287
+	  <'float_to_binary',1> when 'true' ->
+	      'true'
+	  %% Line 288
+	  <'float_to_binary',2> when 'true' ->
+	      'true'
+	  %% Line 289
+	  <'floor',1> when 'true' ->
+	      'true'
+	  %% Line 290
+	  <'garbage_collect',0> when 'true' ->
+	      'true'
+	  %% Line 291
+	  <'garbage_collect',1> when 'true' ->
+	      'true'
+	  %% Line 292
+	  <'garbage_collect',2> when 'true' ->
+	      'true'
+	  %% Line 293
+	  <'get',0> when 'true' ->
+	      'true'
+	  %% Line 294
+	  <'get',1> when 'true' ->
+	      'true'
+	  %% Line 295
+	  <'get_keys',0> when 'true' ->
+	      'true'
+	  %% Line 296
+	  <'get_keys',1> when 'true' ->
+	      'true'
+	  %% Line 297
+	  <'group_leader',0> when 'true' ->
+	      'true'
+	  %% Line 298
+	  <'group_leader',2> when 'true' ->
+	      'true'
+	  %% Line 299
+	  <'halt',0> when 'true' ->
+	      'true'
+	  %% Line 300
+	  <'halt',1> when 'true' ->
+	      'true'
+	  %% Line 301
+	  <'halt',2> when 'true' ->
+	      'true'
+	  %% Line 302
+	  <'hd',1> when 'true' ->
+	      'true'
+	  %% Line 303
+	  <'integer_to_binary',1> when 'true' ->
+	      'true'
+	  %% Line 304
+	  <'integer_to_binary',2> when 'true' ->
+	      'true'
+	  %% Line 305
+	  <'integer_to_list',1> when 'true' ->
+	      'true'
+	  %% Line 306
+	  <'integer_to_list',2> when 'true' ->
+	      'true'
+	  %% Line 307
+	  <'iolist_size',1> when 'true' ->
+	      'true'
+	  %% Line 308
+	  <'iolist_to_binary',1> when 'true' ->
+	      'true'
+	  %% Line 309
+	  <'is_alive',0> when 'true' ->
+	      'true'
+	  %% Line 310
+	  <'is_process_alive',1> when 'true' ->
+	      'true'
+	  %% Line 311
+	  <'is_atom',1> when 'true' ->
+	      'true'
+	  %% Line 312
+	  <'is_boolean',1> when 'true' ->
+	      'true'
+	  %% Line 313
+	  <'is_binary',1> when 'true' ->
+	      'true'
+	  %% Line 314
+	  <'is_bitstr',1> when 'true' ->
+	      'true'
+	  %% Line 315
+	  <'is_bitstring',1> when 'true' ->
+	      'true'
+	  %% Line 316
+	  <'is_float',1> when 'true' ->
+	      'true'
+	  %% Line 317
+	  <'is_function',1> when 'true' ->
+	      'true'
+	  %% Line 318
+	  <'is_function',2> when 'true' ->
+	      'true'
+	  %% Line 319
+	  <'is_integer',1> when 'true' ->
+	      'true'
+	  %% Line 320
+	  <'is_list',1> when 'true' ->
+	      'true'
+	  %% Line 321
+	  <'is_map',1> when 'true' ->
+	      'true'
+	  %% Line 322
+	  <'is_map_key',2> when 'true' ->
+	      'true'
+	  %% Line 323
+	  <'is_number',1> when 'true' ->
+	      'true'
+	  %% Line 324
+	  <'is_pid',1> when 'true' ->
+	      'true'
+	  %% Line 325
+	  <'is_port',1> when 'true' ->
+	      'true'
+	  %% Line 326
+	  <'is_reference',1> when 'true' ->
+	      'true'
+	  %% Line 327
+	  <'is_tuple',1> when 'true' ->
+	      'true'
+	  %% Line 328
+	  <'is_record',2> when 'true' ->
+	      'true'
+	  %% Line 329
+	  <'is_record',3> when 'true' ->
+	      'true'
+	  %% Line 330
+	  <'length',1> when 'true' ->
+	      'true'
+	  %% Line 331
+	  <'link',1> when 'true' ->
+	      'true'
+	  %% Line 332
+	  <'list_to_atom',1> when 'true' ->
+	      'true'
+	  %% Line 333
+	  <'list_to_binary',1> when 'true' ->
+	      'true'
+	  %% Line 334
+	  <'list_to_bitstring',1> when 'true' ->
+	      'true'
+	  %% Line 335
+	  <'list_to_existing_atom',1> when 'true' ->
+	      'true'
+	  %% Line 336
+	  <'list_to_float',1> when 'true' ->
+	      'true'
+	  %% Line 337
+	  <'list_to_integer',1> when 'true' ->
+	      'true'
+	  %% Line 338
+	  <'list_to_integer',2> when 'true' ->
+	      'true'
+	  %% Line 339
+	  <'list_to_pid',1> when 'true' ->
+	      'true'
+	  %% Line 340
+	  <'list_to_port',1> when 'true' ->
+	      'true'
+	  %% Line 341
+	  <'list_to_ref',1> when 'true' ->
+	      'true'
+	  %% Line 342
+	  <'list_to_tuple',1> when 'true' ->
+	      'true'
+	  %% Line 343
+	  <'load_module',2> when 'true' ->
+	      'true'
+	  %% Line 344
+	  <'make_ref',0> when 'true' ->
+	      'true'
+	  %% Line 345
+	  <'map_size',1> when 'true' ->
+	      'true'
+	  %% Line 346
+	  <'map_get',2> when 'true' ->
+	      'true'
+	  %% Line 347
+	  <'max',2> when 'true' ->
+	      'true'
+	  %% Line 348
+	  <'min',2> when 'true' ->
+	      'true'
+	  %% Line 349
+	  <'module_loaded',1> when 'true' ->
+	      'true'
+	  %% Line 350
+	  <'monitor',2> when 'true' ->
+	      'true'
+	  %% Line 351
+	  <'monitor',3> when 'true' ->
+	      'true'
+	  %% Line 352
+	  <'monitor_node',2> when 'true' ->
+	      'true'
+	  %% Line 353
+	  <'node',0> when 'true' ->
+	      'true'
+	  %% Line 354
+	  <'node',1> when 'true' ->
+	      'true'
+	  %% Line 355
+	  <'nodes',0> when 'true' ->
+	      'true'
+	  %% Line 356
+	  <'nodes',1> when 'true' ->
+	      'true'
+	  %% Line 357
+	  <'now',0> when 'true' ->
+	      'true'
+	  %% Line 358
+	  <'open_port',2> when 'true' ->
+	      'true'
+	  %% Line 359
+	  <'pid_to_list',1> when 'true' ->
+	      'true'
+	  %% Line 360
+	  <'port_to_list',1> when 'true' ->
+	      'true'
+	  %% Line 361
+	  <'port_close',1> when 'true' ->
+	      'true'
+	  %% Line 362
+	  <'port_command',2> when 'true' ->
+	      'true'
+	  %% Line 363
+	  <'port_command',3> when 'true' ->
+	      'true'
+	  %% Line 364
+	  <'port_connect',2> when 'true' ->
+	      'true'
+	  %% Line 365
+	  <'port_control',3> when 'true' ->
+	      'true'
+	  %% Line 366
+	  <'pre_loaded',0> when 'true' ->
+	      'true'
+	  %% Line 367
+	  <'process_flag',2> when 'true' ->
+	      'true'
+	  %% Line 368
+	  <'process_flag',3> when 'true' ->
+	      'true'
+	  %% Line 369
+	  <'process_info',1> when 'true' ->
+	      'true'
+	  %% Line 370
+	  <'process_info',2> when 'true' ->
+	      'true'
+	  %% Line 371
+	  <'processes',0> when 'true' ->
+	      'true'
+	  %% Line 372
+	  <'purge_module',1> when 'true' ->
+	      'true'
+	  %% Line 373
+	  <'put',2> when 'true' ->
+	      'true'
+	  %% Line 374
+	  <'ref_to_list',1> when 'true' ->
+	      'true'
+	  %% Line 375
+	  <'register',2> when 'true' ->
+	      'true'
+	  %% Line 376
+	  <'registered',0> when 'true' ->
+	      'true'
+	  %% Line 377
+	  <'round',1> when 'true' ->
+	      'true'
+	  %% Line 378
+	  <'self',0> when 'true' ->
+	      'true'
+	  %% Line 379
+	  <'setelement',3> when 'true' ->
+	      'true'
+	  %% Line 380
+	  <'size',1> when 'true' ->
+	      'true'
+	  %% Line 381
+	  <'spawn',1> when 'true' ->
+	      'true'
+	  %% Line 382
+	  <'spawn',2> when 'true' ->
+	      'true'
+	  %% Line 383
+	  <'spawn',3> when 'true' ->
+	      'true'
+	  %% Line 384
+	  <'spawn',4> when 'true' ->
+	      'true'
+	  %% Line 385
+	  <'spawn_link',1> when 'true' ->
+	      'true'
+	  %% Line 386
+	  <'spawn_link',2> when 'true' ->
+	      'true'
+	  %% Line 387
+	  <'spawn_link',3> when 'true' ->
+	      'true'
+	  %% Line 388
+	  <'spawn_link',4> when 'true' ->
+	      'true'
+	  %% Line 389
+	  <'spawn_request',1> when 'true' ->
+	      'true'
+	  %% Line 390
+	  <'spawn_request',2> when 'true' ->
+	      'true'
+	  %% Line 391
+	  <'spawn_request',3> when 'true' ->
+	      'true'
+	  %% Line 392
+	  <'spawn_request',4> when 'true' ->
+	      'true'
+	  %% Line 393
+	  <'spawn_request',5> when 'true' ->
+	      'true'
+	  %% Line 394
+	  <'spawn_request_abandon',1> when 'true' ->
+	      'true'
+	  %% Line 395
+	  <'spawn_monitor',1> when 'true' ->
+	      'true'
+	  %% Line 396
+	  <'spawn_monitor',2> when 'true' ->
+	      'true'
+	  %% Line 397
+	  <'spawn_monitor',3> when 'true' ->
+	      'true'
+	  %% Line 398
+	  <'spawn_monitor',4> when 'true' ->
+	      'true'
+	  %% Line 399
+	  <'spawn_opt',2> when 'true' ->
+	      'true'
+	  %% Line 400
+	  <'spawn_opt',3> when 'true' ->
+	      'true'
+	  %% Line 401
+	  <'spawn_opt',4> when 'true' ->
+	      'true'
+	  %% Line 402
+	  <'spawn_opt',5> when 'true' ->
+	      'true'
+	  %% Line 403
+	  <'split_binary',2> when 'true' ->
+	      'true'
+	  %% Line 404
+	  <'statistics',1> when 'true' ->
+	      'true'
+	  %% Line 405
+	  <'term_to_binary',1> when 'true' ->
+	      'true'
+	  %% Line 406
+	  <'term_to_binary',2> when 'true' ->
+	      'true'
+	  %% Line 407
+	  <'term_to_iovec',1> when 'true' ->
+	      'true'
+	  %% Line 408
+	  <'term_to_iovec',2> when 'true' ->
+	      'true'
+	  %% Line 409
+	  <'throw',1> when 'true' ->
+	      'true'
+	  %% Line 410
+	  <'time',0> when 'true' ->
+	      'true'
+	  %% Line 411
+	  <'tl',1> when 'true' ->
+	      'true'
+	  %% Line 412
+	  <'trunc',1> when 'true' ->
+	      'true'
+	  %% Line 413
+	  <'tuple_size',1> when 'true' ->
+	      'true'
+	  %% Line 414
+	  <'tuple_to_list',1> when 'true' ->
+	      'true'
+	  %% Line 415
+	  <'unlink',1> when 'true' ->
+	      'true'
+	  %% Line 416
+	  <'unregister',1> when 'true' ->
+	      'true'
+	  %% Line 417
+	  <'whereis',1> when 'true' ->
+	      'true'
+	  %% Line 418
+	  <Name,A>
+	      when let <_2> =
+		    call 'erlang':'is_atom'
+			(Name)
+		in  let <_3> =
+			call 'erlang':'is_integer'
+			    (A)
+		    in  call 'erlang':'and'
+			    (_2, _3) ->
+	      'false'
+	  ( <_5,_4> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_5,_4})
+		  -| [{'function_name',{'bif',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'old_bif'/2 =
+    %% Line 425
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <'abs',1> when 'true' ->
+	      'true'
+	  %% Line 426
+	  <'apply',2> when 'true' ->
+	      'true'
+	  %% Line 427
+	  <'apply',3> when 'true' ->
+	      'true'
+	  %% Line 428
+	  <'atom_to_binary',2> when 'true' ->
+	      'true'
+	  %% Line 429
+	  <'atom_to_list',1> when 'true' ->
+	      'true'
+	  %% Line 430
+	  <'binary_to_atom',2> when 'true' ->
+	      'true'
+	  %% Line 431
+	  <'binary_to_existing_atom',2> when 'true' ->
+	      'true'
+	  %% Line 432
+	  <'binary_to_list',1> when 'true' ->
+	      'true'
+	  %% Line 433
+	  <'binary_to_list',3> when 'true' ->
+	      'true'
+	  %% Line 434
+	  <'binary_to_term',1> when 'true' ->
+	      'true'
+	  %% Line 435
+	  <'bitsize',1> when 'true' ->
+	      'true'
+	  %% Line 436
+	  <'bit_size',1> when 'true' ->
+	      'true'
+	  %% Line 437
+	  <'bitstring_to_list',1> when 'true' ->
+	      'true'
+	  %% Line 438
+	  <'byte_size',1> when 'true' ->
+	      'true'
+	  %% Line 439
+	  <'check_process_code',2> when 'true' ->
+	      'true'
+	  %% Line 440
+	  <'date',0> when 'true' ->
+	      'true'
+	  %% Line 441
+	  <'delete_module',1> when 'true' ->
+	      'true'
+	  %% Line 442
+	  <'disconnect_node',1> when 'true' ->
+	      'true'
+	  %% Line 443
+	  <'element',2> when 'true' ->
+	      'true'
+	  %% Line 444
+	  <'erase',0> when 'true' ->
+	      'true'
+	  %% Line 445
+	  <'erase',1> when 'true' ->
+	      'true'
+	  %% Line 446
+	  <'exit',1> when 'true' ->
+	      'true'
+	  %% Line 447
+	  <'exit',2> when 'true' ->
+	      'true'
+	  %% Line 448
+	  <'float',1> when 'true' ->
+	      'true'
+	  %% Line 449
+	  <'float_to_list',1> when 'true' ->
+	      'true'
+	  %% Line 450
+	  <'garbage_collect',0> when 'true' ->
+	      'true'
+	  %% Line 451
+	  <'garbage_collect',1> when 'true' ->
+	      'true'
+	  %% Line 452
+	  <'get',0> when 'true' ->
+	      'true'
+	  %% Line 453
+	  <'get',1> when 'true' ->
+	      'true'
+	  %% Line 454
+	  <'get_keys',1> when 'true' ->
+	      'true'
+	  %% Line 455
+	  <'group_leader',0> when 'true' ->
+	      'true'
+	  %% Line 456
+	  <'group_leader',2> when 'true' ->
+	      'true'
+	  %% Line 457
+	  <'halt',0> when 'true' ->
+	      'true'
+	  %% Line 458
+	  <'halt',1> when 'true' ->
+	      'true'
+	  %% Line 459
+	  <'hd',1> when 'true' ->
+	      'true'
+	  %% Line 460
+	  <'integer_to_list',1> when 'true' ->
+	      'true'
+	  %% Line 461
+	  <'iolist_size',1> when 'true' ->
+	      'true'
+	  %% Line 462
+	  <'iolist_to_binary',1> when 'true' ->
+	      'true'
+	  %% Line 463
+	  <'is_alive',0> when 'true' ->
+	      'true'
+	  %% Line 464
+	  <'is_process_alive',1> when 'true' ->
+	      'true'
+	  %% Line 465
+	  <'is_atom',1> when 'true' ->
+	      'true'
+	  %% Line 466
+	  <'is_boolean',1> when 'true' ->
+	      'true'
+	  %% Line 467
+	  <'is_binary',1> when 'true' ->
+	      'true'
+	  %% Line 468
+	  <'is_bitstr',1> when 'true' ->
+	      'true'
+	  %% Line 469
+	  <'is_bitstring',1> when 'true' ->
+	      'true'
+	  %% Line 470
+	  <'is_float',1> when 'true' ->
+	      'true'
+	  %% Line 471
+	  <'is_function',1> when 'true' ->
+	      'true'
+	  %% Line 472
+	  <'is_function',2> when 'true' ->
+	      'true'
+	  %% Line 473
+	  <'is_integer',1> when 'true' ->
+	      'true'
+	  %% Line 474
+	  <'is_list',1> when 'true' ->
+	      'true'
+	  %% Line 475
+	  <'is_number',1> when 'true' ->
+	      'true'
+	  %% Line 476
+	  <'is_pid',1> when 'true' ->
+	      'true'
+	  %% Line 477
+	  <'is_port',1> when 'true' ->
+	      'true'
+	  %% Line 478
+	  <'is_reference',1> when 'true' ->
+	      'true'
+	  %% Line 479
+	  <'is_tuple',1> when 'true' ->
+	      'true'
+	  %% Line 480
+	  <'is_record',2> when 'true' ->
+	      'true'
+	  %% Line 481
+	  <'is_record',3> when 'true' ->
+	      'true'
+	  %% Line 482
+	  <'length',1> when 'true' ->
+	      'true'
+	  %% Line 483
+	  <'link',1> when 'true' ->
+	      'true'
+	  %% Line 484
+	  <'list_to_atom',1> when 'true' ->
+	      'true'
+	  %% Line 485
+	  <'list_to_binary',1> when 'true' ->
+	      'true'
+	  %% Line 486
+	  <'list_to_bitstring',1> when 'true' ->
+	      'true'
+	  %% Line 487
+	  <'list_to_existing_atom',1> when 'true' ->
+	      'true'
+	  %% Line 488
+	  <'list_to_float',1> when 'true' ->
+	      'true'
+	  %% Line 489
+	  <'list_to_integer',1> when 'true' ->
+	      'true'
+	  %% Line 490
+	  <'list_to_pid',1> when 'true' ->
+	      'true'
+	  %% Line 491
+	  <'list_to_tuple',1> when 'true' ->
+	      'true'
+	  %% Line 492
+	  <'load_module',2> when 'true' ->
+	      'true'
+	  %% Line 493
+	  <'make_ref',0> when 'true' ->
+	      'true'
+	  %% Line 494
+	  <'module_loaded',1> when 'true' ->
+	      'true'
+	  %% Line 495
+	  <'monitor_node',2> when 'true' ->
+	      'true'
+	  %% Line 496
+	  <'node',0> when 'true' ->
+	      'true'
+	  %% Line 497
+	  <'node',1> when 'true' ->
+	      'true'
+	  %% Line 498
+	  <'nodes',0> when 'true' ->
+	      'true'
+	  %% Line 499
+	  <'nodes',1> when 'true' ->
+	      'true'
+	  %% Line 500
+	  <'now',0> when 'true' ->
+	      'true'
+	  %% Line 501
+	  <'open_port',2> when 'true' ->
+	      'true'
+	  %% Line 502
+	  <'pid_to_list',1> when 'true' ->
+	      'true'
+	  %% Line 503
+	  <'port_close',1> when 'true' ->
+	      'true'
+	  %% Line 504
+	  <'port_command',2> when 'true' ->
+	      'true'
+	  %% Line 505
+	  <'port_connect',2> when 'true' ->
+	      'true'
+	  %% Line 506
+	  <'port_control',3> when 'true' ->
+	      'true'
+	  %% Line 507
+	  <'pre_loaded',0> when 'true' ->
+	      'true'
+	  %% Line 508
+	  <'process_flag',2> when 'true' ->
+	      'true'
+	  %% Line 509
+	  <'process_flag',3> when 'true' ->
+	      'true'
+	  %% Line 510
+	  <'process_info',1> when 'true' ->
+	      'true'
+	  %% Line 511
+	  <'process_info',2> when 'true' ->
+	      'true'
+	  %% Line 512
+	  <'processes',0> when 'true' ->
+	      'true'
+	  %% Line 513
+	  <'purge_module',1> when 'true' ->
+	      'true'
+	  %% Line 514
+	  <'put',2> when 'true' ->
+	      'true'
+	  %% Line 515
+	  <'register',2> when 'true' ->
+	      'true'
+	  %% Line 516
+	  <'registered',0> when 'true' ->
+	      'true'
+	  %% Line 517
+	  <'round',1> when 'true' ->
+	      'true'
+	  %% Line 518
+	  <'self',0> when 'true' ->
+	      'true'
+	  %% Line 519
+	  <'setelement',3> when 'true' ->
+	      'true'
+	  %% Line 520
+	  <'size',1> when 'true' ->
+	      'true'
+	  %% Line 521
+	  <'spawn',1> when 'true' ->
+	      'true'
+	  %% Line 522
+	  <'spawn',2> when 'true' ->
+	      'true'
+	  %% Line 523
+	  <'spawn',3> when 'true' ->
+	      'true'
+	  %% Line 524
+	  <'spawn',4> when 'true' ->
+	      'true'
+	  %% Line 525
+	  <'spawn_link',1> when 'true' ->
+	      'true'
+	  %% Line 526
+	  <'spawn_link',2> when 'true' ->
+	      'true'
+	  %% Line 527
+	  <'spawn_link',3> when 'true' ->
+	      'true'
+	  %% Line 528
+	  <'spawn_link',4> when 'true' ->
+	      'true'
+	  %% Line 529
+	  <'spawn_monitor',1> when 'true' ->
+	      'true'
+	  %% Line 530
+	  <'spawn_monitor',3> when 'true' ->
+	      'true'
+	  %% Line 531
+	  <'spawn_opt',2> when 'true' ->
+	      'true'
+	  %% Line 532
+	  <'spawn_opt',3> when 'true' ->
+	      'true'
+	  %% Line 533
+	  <'spawn_opt',4> when 'true' ->
+	      'true'
+	  %% Line 534
+	  <'spawn_opt',5> when 'true' ->
+	      'true'
+	  %% Line 535
+	  <'split_binary',2> when 'true' ->
+	      'true'
+	  %% Line 536
+	  <'statistics',1> when 'true' ->
+	      'true'
+	  %% Line 537
+	  <'term_to_binary',1> when 'true' ->
+	      'true'
+	  %% Line 538
+	  <'term_to_binary',2> when 'true' ->
+	      'true'
+	  %% Line 539
+	  <'throw',1> when 'true' ->
+	      'true'
+	  %% Line 540
+	  <'time',0> when 'true' ->
+	      'true'
+	  %% Line 541
+	  <'tl',1> when 'true' ->
+	      'true'
+	  %% Line 542
+	  <'trunc',1> when 'true' ->
+	      'true'
+	  %% Line 543
+	  <'tuple_size',1> when 'true' ->
+	      'true'
+	  %% Line 544
+	  <'tuple_to_list',1> when 'true' ->
+	      'true'
+	  %% Line 545
+	  <'unlink',1> when 'true' ->
+	      'true'
+	  %% Line 546
+	  <'unregister',1> when 'true' ->
+	      'true'
+	  %% Line 547
+	  <'whereis',1> when 'true' ->
+	      'true'
+	  %% Line 548
+	  <Name,A>
+	      when let <_2> =
+		    call 'erlang':'is_atom'
+			(Name)
+		in  let <_3> =
+			call 'erlang':'is_integer'
+			    (A)
+		    in  call 'erlang':'and'
+			    (_2, _3) ->
+	      'false'
+	  ( <_5,_4> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_5,_4})
+		  -| [{'function_name',{'old_bif',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'is_type'/2 =
+    %% Line 555
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <'any',0> when 'true' ->
+	      'true'
+	  %% Line 556
+	  <'arity',0> when 'true' ->
+	      'true'
+	  %% Line 557
+	  <'atom',0> when 'true' ->
+	      'true'
+	  %% Line 558
+	  <'binary',0> when 'true' ->
+	      'true'
+	  %% Line 559
+	  <'bitstring',0> when 'true' ->
+	      'true'
+	  %% Line 560
+	  <'bool',0> when 'true' ->
+	      'true'
+	  %% Line 561
+	  <'boolean',0> when 'true' ->
+	      'true'
+	  %% Line 562
+	  <'byte',0> when 'true' ->
+	      'true'
+	  %% Line 563
+	  <'char',0> when 'true' ->
+	      'true'
+	  %% Line 564
+	  <'float',0> when 'true' ->
+	      'true'
+	  %% Line 565
+	  <'function',0> when 'true' ->
+	      'true'
+	  %% Line 566
+	  <'identifier',0> when 'true' ->
+	      'true'
+	  %% Line 567
+	  <'integer',0> when 'true' ->
+	      'true'
+	  %% Line 568
+	  <'iodata',0> when 'true' ->
+	      'true'
+	  %% Line 569
+	  <'iolist',0> when 'true' ->
+	      'true'
+	  %% Line 570
+	  <'list',0> when 'true' ->
+	      'true'
+	  %% Line 571
+	  <'list',1> when 'true' ->
+	      'true'
+	  %% Line 572
+	  <'map',0> when 'true' ->
+	      'true'
+	  %% Line 573
+	  <'maybe_improper_list',0> when 'true' ->
+	      'true'
+	  %% Line 574
+	  <'maybe_improper_list',2> when 'true' ->
+	      'true'
+	  %% Line 575
+	  <'mfa',0> when 'true' ->
+	      'true'
+	  %% Line 576
+	  <'module',0> when 'true' ->
+	      'true'
+	  %% Line 577
+	  <'neg_integer',0> when 'true' ->
+	      'true'
+	  %% Line 578
+	  <'nil',0> when 'true' ->
+	      'true'
+	  %% Line 579
+	  <'no_return',0> when 'true' ->
+	      'true'
+	  %% Line 580
+	  <'node',0> when 'true' ->
+	      'true'
+	  %% Line 581
+	  <'non_neg_integer',0> when 'true' ->
+	      'true'
+	  %% Line 582
+	  <'none',0> when 'true' ->
+	      'true'
+	  %% Line 583
+	  <'nonempty_improper_list',2> when 'true' ->
+	      'true'
+	  %% Line 584
+	  <'nonempty_list',0> when 'true' ->
+	      'true'
+	  %% Line 585
+	  <'nonempty_list',1> when 'true' ->
+	      'true'
+	  %% Line 586
+	  <'nonempty_maybe_improper_list',0> when 'true' ->
+	      'true'
+	  %% Line 587
+	  <'nonempty_maybe_improper_list',2> when 'true' ->
+	      'true'
+	  %% Line 588
+	  <'nonempty_string',0> when 'true' ->
+	      'true'
+	  %% Line 589
+	  <'number',0> when 'true' ->
+	      'true'
+	  %% Line 590
+	  <'pid',0> when 'true' ->
+	      'true'
+	  %% Line 591
+	  <'port',0> when 'true' ->
+	      'true'
+	  %% Line 592
+	  <'pos_integer',0> when 'true' ->
+	      'true'
+	  %% Line 593
+	  <'reference',0> when 'true' ->
+	      'true'
+	  %% Line 594
+	  <'string',0> when 'true' ->
+	      'true'
+	  %% Line 595
+	  <'term',0> when 'true' ->
+	      'true'
+	  %% Line 596
+	  <'timeout',0> when 'true' ->
+	      'true'
+	  %% Line 597
+	  <'tuple',0> when 'true' ->
+	      'true'
+	  %% Line 598
+	  <_4,_5> when 'true' ->
+	      'false'
+	end
+'add_predefined_functions'/1 =
+    %% Line 612
+    fun (_0) ->
+	let <_1> =
+	    apply %% Line 613
+		  'predefined_functions'/1
+		(_0)
+	in  %% Line 613
+	    call 'erlang':'++'
+		(_0, _1)
+'predefined_functions'/1 =
+    %% Line 615
+    fun (_0) ->
+	let <_5> =
+	    letrec
+		'lc$^0'/1 =
+		    %% Line 616
+		    fun (_3) ->
+			case _3 of
+			  <[{'attribute',_32,Name,Val}|_2]> when 'true' ->
+			      let <_4> =
+				  apply 'lc$^0'/1
+				      (_2)
+			      in  ( [{Name,Val}|_4]
+				    -| ['compiler_generated'] )
+			  ( <[_1|_2]> when 'true' ->
+				apply 'lc$^0'/1
+				    (_2)
+			    -| ['compiler_generated'] )
+			  <[]> when 'true' ->
+			      []
+			  ( <_35> when 'true' ->
+				( primop 'match_fail'
+				      ({'function_clause',_35})
+				  -| [{'function_name',{'lc$^0',1}}] )
+			    -| ['compiler_generated'] )
+			end
+	    in  %% Line 616
+		apply 'lc$^0'/1
+		    (_0)
+	in  %% Line 617
+	    case call 'lists':'keyfind'
+		     ('module', 1, _5) of
+	      <{'module',Mod}> when 'true' ->
+		  let <_12> =
+		      letrec
+			  'lc$^1'/1 =
+			      %% Line 618
+			      fun (_10) ->
+				  case _10 of
+				    <[{'callback',Callback}|_9]> when 'true' ->
+					let <_11> =
+					    apply 'lc$^1'/1
+						(_9)
+					in  ( [Callback|_11]
+					      -| ['compiler_generated'] )
+				    ( <[_8|_9]> when 'true' ->
+					  apply 'lc$^1'/1
+					      (_9)
+				      -| ['compiler_generated'] )
+				    <[]> when 'true' ->
+					[]
+				    ( <_36> when 'true' ->
+					  ( primop 'match_fail'
+						({'function_clause',_36})
+					    -| [{'function_name',{'lc$^1',1}}] )
+				      -| ['compiler_generated'] )
+				  end
+		      in  %% Line 618
+			  apply 'lc$^1'/1
+			      (_5)
+		  in  let <OptionalCallbacks> =
+			  apply %% Line 619
+				'get_optional_callbacks'/1
+			      (_5)
+		      in  let <Mpf1> =
+			      apply %% Line 620
+				    'module_predef_func_beh_info'/2
+				  (_12, %% Line 620
+					OptionalCallbacks)
+			  in  let <Mpf2> =
+				  apply %% Line 621
+					'module_predef_funcs_mod_info'/1
+				      (%% Line 621
+				       Mod)
+			      in  let <_23> =
+				      letrec
+					  'lc$^2'/1 =
+					      %% Line 622
+					      fun (_20) ->
+						  case _20 of
+						    <[F|_18]> when 'true' ->
+							let <_21> =
+							    call 'erl_parse':'new_anno'
+								(F)
+							in  let <_22> =
+								apply 'lc$^2'/1
+								    (_18)
+							    in  ( [_21|_22]
+								  -| ['compiler_generated'] )
+						    <[]> when 'true' ->
+							[]
+						    ( <_37> when 'true' ->
+							  ( primop 'match_fail'
+								({'function_clause',_37})
+							    -| [{'function_name',{'lc$^2',1}}] )
+						      -| ['compiler_generated'] )
+						  end
+				      in  let <_19> =
+					      call %% Line 622
+						   'erlang':%% Line 622
+							    '++'
+						  (%% Line 622
+						   Mpf1, %% Line 622
+							 Mpf2)
+					  in  %% Line 622
+					      apply 'lc$^2'/1
+						  (_19)
+				  in  let <_29> =
+					  letrec
+					      'lc$^3'/1 =
+						  %% Line 623
+						  fun (_27) ->
+						      case _27 of
+							<[{'function',_33,F,A,_34}|_26]> when 'true' ->
+							    let <_28> =
+								apply 'lc$^3'/1
+								    (_26)
+							    in  ( [{F,A}|_28]
+								  -| ['compiler_generated'] )
+							( <[_25|_26]> when 'true' ->
+							      apply 'lc$^3'/1
+								  (_26)
+							  -| ['compiler_generated'] )
+							<[]> when 'true' ->
+							    []
+							( <_38> when 'true' ->
+							      ( primop 'match_fail'
+								    ({'function_clause',_38})
+								-| [{'function_name',{'lc$^3',1}}] )
+							  -| ['compiler_generated'] )
+						      end
+					  in  %% Line 623
+					      apply 'lc$^3'/1
+						  (_23)
+				      in  %% Line 624
+					  [{'attribute',0,'export',_29}|_23]
+	      ( <_7> when 'true' ->
+		    primop 'match_fail'
+			({'badmatch',_7})
+		-| ['compiler_generated'] )
+	    end
+'get_optional_callbacks'/1 =
+    %% Line 626
+    fun (_0) ->
+	let <_6> =
+	    letrec
+		'lc$^0'/1 =
+		    %% Line 627
+		    fun (_3) ->
+			case _3 of
+			  <[{'optional_callbacks',O}|_2]> when 'true' ->
+			      ( case apply 'is_fa_list'/1
+					 (O) of
+				  <'true'> when 'true' ->
+				      let <_4> =
+					  apply 'lc$^0'/1
+					      (_2)
+				      in  ( [O|_4]
+					    -| ['compiler_generated'] )
+				  ( <'false'> when 'true' ->
+					apply 'lc$^0'/1
+					    (_2)
+				    -| ['compiler_generated'] )
+				  ( <_5> when 'true' ->
+					primop 'match_fail'
+					    ({'case_clause',_5})
+				    -| ['compiler_generated'] )
+				end
+				-| ['list_comprehension'] )
+			  ( <[_1|_2]> when 'true' ->
+				apply 'lc$^0'/1
+				    (_2)
+			    -| ['compiler_generated'] )
+			  <[]> when 'true' ->
+			      []
+			  ( <_9> when 'true' ->
+				( primop 'match_fail'
+				      ({'function_clause',_9})
+				  -| [{'function_name',{'lc$^0',1}}] )
+			    -| ['compiler_generated'] )
+			end
+	    in  %% Line 627
+		apply 'lc$^0'/1
+		    (_0)
+	in  %% Line 628
+	    call 'lists':'append'
+		(_6)
+'is_fa_list'/1 =
+    %% Line 630
+    fun (_0) ->
+	case _0 of
+	  <[{FuncName,Arity}|L]>
+	      when %% Line 631
+		try
+		    let <_1> =
+			call 'erlang':'is_atom'
+			    (FuncName)
+		    in  let <_2> =
+			    call 'erlang':'is_integer'
+				(Arity)
+			in  let <_3> =
+				call 'erlang':'>='
+				    (Arity, 0)
+			    in  let <_4> =
+				    call 'erlang':'and'
+					(_2, _3)
+				in  call 'erlang':'and'
+					(_1, _4)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      %% Line 632
+	      apply 'is_fa_list'/1
+		  (L)
+	  %% Line 633
+	  <[]> when 'true' ->
+	      'true'
+	  %% Line 634
+	  <_6> when 'true' ->
+	      'false'
+	end
+'module_predef_func_beh_info'/2 =
+    %% Line 636
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <[],_12> when 'true' ->
+	      %% Line 637
+	      []
+	  %% Line 638
+	  <Callbacks0,OptionalCallbacks> when 'true' ->
+	      let <_6> =
+		  letrec
+		      'lc$^0'/1 =
+			  %% Line 639
+			  fun (_4) ->
+			      case _4 of
+				<[{FA = {_13,_14},_15}|_3]> when 'true' ->
+				    let <_5> =
+					apply 'lc$^0'/1
+					    (_3)
+				    in  ( [FA|_5]
+					  -| ['compiler_generated'] )
+				( <[_2|_3]> when 'true' ->
+				      apply 'lc$^0'/1
+					  (_3)
+				  -| ['compiler_generated'] )
+				<[]> when 'true' ->
+				    []
+				( <_16> when 'true' ->
+				      ( primop 'match_fail'
+					    ({'function_clause',_16})
+					-| [{'function_name',{'lc$^0',1}}] )
+				  -| ['compiler_generated'] )
+			      end
+		  in  %% Line 639
+		      apply 'lc$^0'/1
+			  (Callbacks0)
+	      in  let <List> =
+		      apply %% Line 640
+			    'make_list'/1
+			  (_6)
+		  in  let <OptionalList> =
+			  apply %% Line 641
+				'make_list'/1
+			      (%% Line 641
+			       OptionalCallbacks)
+		      in  %% Line 642
+			  [{'function',0,'behaviour_info',1,%% Line 643
+							    [{'clause',0,[{'atom',0,'callbacks'}],[],[List|[]]}|%% Line 644
+														[{'clause',0,[{'atom',0,'optional_callbacks'}],[],[OptionalList|[]]}|[]]]}|%% Line 644
+																							   []]
+	end
+'make_list'/1 =
+    %% Line 646
+    fun (_0) ->
+	case _0 of
+	  <[]> when 'true' ->
+	      {'nil',0}
+	  %% Line 647
+	  <[{Name,Arity}|Rest]> when 'true' ->
+	      let <_1> =
+		  apply %% Line 652
+			'make_list'/1
+		      (%% Line 652
+		       Rest)
+	      in  %% Line 648
+		  {'cons',0,%% Line 649
+			    {'tuple',0,%% Line 650
+				       [{'atom',0,Name}|%% Line 651
+							[{'integer',0,Arity}|[]]]},_1}
+	  ( <_2> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_2})
+		  -| [{'function_name',{'make_list',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'module_predef_funcs_mod_info'/1 =
+    %% Line 654
+    fun (_0) ->
+	let <ModAtom> = {%% Line 655
+	     'atom',%% Line 655
+		    0,_0}
+	in  %% Line 656
+	    [{'function',0,'module_info',0,%% Line 657
+					   [{'clause',0,[],[],%% Line 658
+							      [{'call',0,{'remote',0,{'atom',0,'erlang'},{'atom',0,'get_module_info'}},%% Line 659
+																       [ModAtom|[]]}|%% Line 659
+																		     []]}|%% Line 659
+																			  []]}|%% Line 660
+																			       [{'function',0,'module_info',1,%% Line 661
+																							      [{'clause',0,[{'var',0,'X'}],[],%% Line 662
+																											      [{'call',0,{'remote',0,{'atom',0,'erlang'},{'atom',0,'get_module_info'}},%% Line 663
+																																				       [ModAtom|[{'var',0,'X'}]]}|%% Line 663
+																																								  []]}|%% Line 663
+																																								       []]}|%% Line 663
+																																									    []]]
+'module_info'/0 =
+    fun () ->
+	call 'erlang':'get_module_info'
+	    ('erl_internal')
+'module_info'/1 =
+    fun (_0) ->
+	call 'erlang':'get_module_info'
+	    ('erl_internal', _0)
+end

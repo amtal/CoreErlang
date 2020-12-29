@@ -1,0 +1,266 @@
+module 'misc_supp' ['assq'/2,
+		    'format_pdict'/3,
+		    'format_tuples'/2,
+		    'is_string'/1,
+		    'modifier'/1,
+		    'module_info'/0,
+		    'module_info'/1,
+		    'multi_map'/2,
+		    'passq'/2]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[109|[105|[115|[99|[95|[115|[117|[112|[112|[46|[101|[114|[108]]]]]]]]]]]]]]]]],1}]]
+'format_pdict'/3 =
+    %% Line 43
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <'normal',_X_PDict,_X_Exclude> when 'true' ->
+		  %% Line 44
+		  []
+	      %% Line 45
+	      <'all',PDict,Exclude> when 'true' ->
+		  %% Line 46
+		  case apply 'format_tuples'/2
+			   (PDict, ['$sys_dict$'|Exclude]) of
+		    %% Line 47
+		    <[]> when 'true' ->
+			[]
+		    %% Line 48
+		    <Data> when 'true' ->
+			[{'newline',1}|Data]
+		  end
+	      ( <_6,_5,_4> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_6,_5,_4})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'format_pdict',3}}] )
+      -| [{'function',{'format_pdict',3}}] )
+'format_tuples'/2 =
+    %% Line 56
+    ( fun (_0,_1) ->
+	  %% Line 57
+	  case apply 'format_tuples'/3
+		   (_0, _1, []) of
+	    %% Line 58
+	    <[]> when 'true' ->
+		[]
+	    %% Line 59
+	    <Data> when 'true' ->
+		[{'data',Data}|[]]
+	  end
+      -| [{'function',{'format_tuples',2}}] )
+'format_tuples'/3 =
+    %% Line 61
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <[],_X_Exclude,Res> when 'true' ->
+		  Res
+	      %% Line 62
+	      <[_@r0 = {Key,Value}|T],Exclude,Res> when 'true' ->
+		  %% Line 63
+		  case call 'lists':'member'
+			   (Key, Exclude) of
+		    %% Line 64
+		    <'true'> when 'true' ->
+			%% Line 65
+			apply 'format_tuples'/3
+			    (T, Exclude, Res)
+		    %% Line 66
+		    <'false'> when 'true' ->
+			%% Line 67
+			apply 'format_tuples'/3
+			    (T, Exclude, [_@r0|Res])
+		    ( <_3> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_3})
+		      -| ['compiler_generated'] )
+		  end
+	      ( <_6,_5,_4> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_6,_5,_4})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'format_tuples',3}}] )
+      -| [{'function',{'format_tuples',3}}] )
+'assq'/2 =
+    %% Line 75
+    ( fun (_0,_1) ->
+	  %% Line 76
+	  case call 'lists':'keysearch'
+		   (_0, 1, _1) of
+	    %% Line 77
+	    <{'value',{_5,Val}}>
+		when call 'erlang':'=:='
+		      (_5,
+		       _0) ->
+		{'value',Val}
+	    %% Line 78
+	    <_6> when 'true' ->
+		'false'
+	  end
+      -| [{'function',{'assq',2}}] )
+'passq'/2 =
+    %% Line 82
+    ( fun (_0,_1) ->
+	  %% Line 83
+	  case call 'lists':'keysearch'
+		   (_0, 1, _1) of
+	    %% Line 84
+	    <{'value',{_5,Val}}>
+		when call 'erlang':'=:='
+		      (_5,
+		       _0) ->
+		Val
+	    %% Line 85
+	    <_6> when 'true' ->
+		'undefined'
+	  end
+      -| [{'function',{'passq',2}}] )
+'is_string'/1 =
+    %% Line 89
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'is_string',1}}] ) of
+	      <[]> when 'true' ->
+		  'false'
+	      %% Line 90
+	      <X> when 'true' ->
+		  apply 'is_string_2'/1
+		      (X)
+	    end
+	    -| [{'function',{'is_string',1}}] )
+      -| [{'function',{'is_string',1}}] )
+'is_string_2'/1 =
+    %% Line 92
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'is_string_2',1}}] ) of
+	      <[]> when 'true' ->
+		  'true'
+	      %% Line 93
+	      <[H|T]>
+		  when try
+			let <_1> =
+			    call 'erlang':'is_integer'
+				(H)
+			in  let <_2> =
+				call 'erlang':'>='
+				    (H, 32)
+			    in  let <_3> =
+				    call 'erlang':'=<'
+					(H, 255)
+				in  let <_4> =
+					call 'erlang':'and'
+					    (_2, _3)
+				    in  call 'erlang':'and'
+					    (_1, _4)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 94
+		  apply 'is_string_2'/1
+		      (T)
+	      %% Line 95
+	      <_6> when 'true' ->
+		  'false'
+	    end
+	    -| [{'function',{'is_string_2',1}}] )
+      -| [{'function',{'is_string_2',1}}] )
+'multi_map'/2 =
+    %% Line 103
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <_X_Func,[[]|_X_ListOfLists]> when 'true' ->
+		  []
+	      %% Line 104
+	      <Func,ListOfLists> when 'true' ->
+		  let <_4> =
+		      fun (_2) ->
+			  %% Line 105
+			  call 'erlang':'hd'
+			      (_2)
+		  in  let <_5> =
+			  call %% Line 105
+			       'lists':%% Line 105
+				       'map'
+			      (_4, %% Line 105
+				   ListOfLists)
+		      in  let <_6> =
+			      call %% Line 105
+				   'erlang':%% Line 105
+					    'apply'
+				  (%% Line 105
+				   Func, _5)
+			  in  let <_9> =
+				  fun (_7) ->
+				      %% Line 107
+				      call 'erlang':'tl'
+					  (_7)
+			      in  let <_10> =
+				      call %% Line 107
+					   'lists':%% Line 107
+						   'map'
+					  (_9, %% Line 107
+					       ListOfLists)
+				  in  let <_11> =
+					  apply %% Line 106
+						'multi_map'/2
+					      (%% Line 106
+					       Func, _10)
+				      in  %% Line 105
+					  [_6|_11]
+	    end
+	    -| [{'function',{'multi_map',2}}] )
+      -| [{'function',{'multi_map',2}}] )
+'modifier'/1 =
+    %% Line 112
+    ( fun (_0) ->
+	  let <_2> =
+	      case %% Line 114
+		   call 'io':'getopts'
+		       (( _0
+			  -| [{'function',{'modifier',1}}] )) of
+		%% Line 115
+		<List>
+		    when call 'erlang':'is_list'
+			  (List) ->
+		    %% Line 116
+		    call 'proplists':'get_value'
+			('encoding', List, 'latin1')
+		%% Line 117
+		<_5> when 'true' ->
+		    %% Line 118
+		    'latin1'
+	      end
+	  in  %% Line 120
+	      apply 'encoding_to_modifier'/1
+		  (_2)
+      -| [{'function',{'modifier',1}}] )
+'encoding_to_modifier'/1 =
+    %% Line 122
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'encoding_to_modifier',1}}] ) of
+	      <'latin1'> when 'true' ->
+		  []
+	      %% Line 123
+	      <_2> when 'true' ->
+		  [116]
+	    end
+	    -| [{'function',{'encoding_to_modifier',1}}] )
+      -| [{'function',{'encoding_to_modifier',1}}] )
+'module_info'/0 =
+    ( fun () ->
+	  call 'erlang':'get_module_info'
+	      ('misc_supp')
+      -| [{'function',{'module_info',0}}] )
+'module_info'/1 =
+    ( fun (_0) ->
+	  call 'erlang':'get_module_info'
+	      ('misc_supp', ( _0
+			      -| [{'function',{'module_info',1}}] ))
+      -| [{'function',{'module_info',1}}] )
+end

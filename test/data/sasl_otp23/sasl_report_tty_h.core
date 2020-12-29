@@ -1,0 +1,103 @@
+module 'sasl_report_tty_h' ['handle_call'/2,
+			    'handle_event'/2,
+			    'handle_info'/2,
+			    'init'/1,
+			    'module_info'/0,
+			    'module_info'/1,
+			    'terminate'/2]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[115|[97|[115|[108|[95|[114|[101|[112|[111|[114|[116|[95|[116|[116|[121|[95|[104|[46|[101|[114|[108]]]]]]]]]]]]]]]]]]]]]]]]],1}]]
+'init'/1 =
+    %% Line 32
+    ( fun (_0) ->
+	  %% Line 34
+	  {'ok',( _0
+		  -| [{'function',{'init',1}}] )}
+      -| [{'function',{'init',1}}] )
+'handle_event'/2 =
+    %% Line 36
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <{Type,GL,_X_Msg},_8>
+		  when let <_9> =
+			call 'erlang':'=:='
+			    (_8, Type)
+		    in  let <_10> =
+			    try
+				let <_3> =
+				    call 'erlang':'node'
+					(GL)
+				in  let <_2> =
+					call 'erlang':'node'
+					    ()
+				    in  call 'erlang':'/='
+					    (_3, _2)
+			    of <Try> ->
+				Try
+			    catch <T,R> ->
+				'false'
+			in  call 'erlang':'and'
+				(_9, _10) ->
+		  %% Line 37
+		  {'ok',Type}
+	      %% Line 38
+	      <Event,Type> when 'true' ->
+		  let <_4> =
+		      apply %% Line 39
+			    'tag_event'/1
+			  (%% Line 39
+			   Event)
+		  in  do  %% Line 39
+			  ( call ( 'sasl_report'
+				   -| ['result_not_wanted'] ):( 'write_report'
+								-| ['result_not_wanted'] )
+				(( 'standard_io'
+				   -| ['result_not_wanted'] ), Type, _4)
+			    -| ['result_not_wanted'] )
+			  %% Line 40
+			  {'ok',Type}
+	    end
+	    -| [{'function',{'handle_event',2}}] )
+      -| [{'function',{'handle_event',2}}] )
+'handle_info'/2 =
+    %% Line 42
+    ( fun (_0,_1) ->
+	  {'ok',_1}
+      -| [{'function',{'handle_info',2}}] )
+'handle_call'/2 =
+    %% Line 44
+    ( fun (_0,_1) ->
+	  {'error','bad_query'}
+      -| [{'function',{'handle_call',2}}] )
+'terminate'/2 =
+    %% Line 46
+    ( fun (_0,_1) ->
+	  %% Line 47
+	  []
+      -| [{'function',{'terminate',2}}] )
+'tag_event'/1 =
+    %% Line 49
+    ( fun (_0) ->
+	  let <_1> =
+	      call %% Line 50
+		   'calendar':%% Line 50
+			      'local_time'
+		  ()
+	  in  %% Line 50
+	      {_1,( _0
+		    -| [{'function',{'tag_event',1}}] )}
+      -| [{'function',{'tag_event',1}}] )
+'module_info'/0 =
+    ( fun () ->
+	  call 'erlang':'get_module_info'
+	      ('sasl_report_tty_h')
+      -| [{'function',{'module_info',0}}] )
+'module_info'/1 =
+    ( fun (_0) ->
+	  call 'erlang':'get_module_info'
+	      ('sasl_report_tty_h', ( _0
+				      -| [{'function',{'module_info',1}}] ))
+      -| [{'function',{'module_info',1}}] )
+end

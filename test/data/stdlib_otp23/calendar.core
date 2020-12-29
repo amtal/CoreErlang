@@ -1,0 +1,2957 @@
+module 'calendar' ['date_to_gregorian_days'/1,
+		   'date_to_gregorian_days'/3,
+		   'datetime_to_gregorian_seconds'/1,
+		   'day_of_the_week'/1,
+		   'day_of_the_week'/3,
+		   'gregorian_days_to_date'/1,
+		   'gregorian_seconds_to_datetime'/1,
+		   'is_leap_year'/1,
+		   'iso_week_number'/0,
+		   'iso_week_number'/1,
+		   'last_day_of_the_month'/2,
+		   'local_time'/0,
+		   'local_time_to_universal_time'/1,
+		   'local_time_to_universal_time'/2,
+		   'local_time_to_universal_time_dst'/1,
+		   'module_info'/0,
+		   'module_info'/1,
+		   'now_to_datetime'/1,
+		   'now_to_local_time'/1,
+		   'now_to_universal_time'/1,
+		   'rfc3339_to_system_time'/1,
+		   'rfc3339_to_system_time'/2,
+		   'seconds_to_daystime'/1,
+		   'seconds_to_time'/1,
+		   'system_time_to_local_time'/2,
+		   'system_time_to_rfc3339'/1,
+		   'system_time_to_rfc3339'/2,
+		   'system_time_to_universal_time'/2,
+		   'time_difference'/2,
+		   'time_to_seconds'/1,
+		   'universal_time'/0,
+		   'universal_time_to_local_time'/1,
+		   'valid_date'/1,
+		   'valid_date'/3]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[99|[97|[108|[101|[110|[100|[97|[114|[46|[101|[114|[108]]]]]]]]]]]]]]]],1}],
+		%% Line 57
+		'deprecated' =
+		    %% Line 57
+		    [{'local_time_to_universal_time',1,[117|[115|[101|[32|[99|[97|[108|[101|[110|[100|[97|[114|[58|[108|[111|[99|[97|[108|[95|[116|[105|[109|[101|[95|[116|[111|[95|[117|[110|[105|[118|[101|[114|[115|[97|[108|[95|[116|[105|[109|[101|[95|[100|[115|[116|[47|[49|[32|[105|[110|[115|[116|[101|[97|[100]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]}],
+		%% Line 77
+		'export_type' =
+		    %% Line 77
+		    [{'date',0}|[{'time',0}|[{'datetime',0}|[{'datetime1970',0}]]]],
+		%% Line 79
+		'type' =
+		    %% Line 79
+		    [{'year',{'type',79,'non_neg_integer',[]},[]}],
+		%% Line 80
+		'type' =
+		    %% Line 80
+		    [{'year1970',{'type',80,'range',[{'integer',80,1970}|[{'integer',80,10000}]]},[]}],
+		%% Line 81
+		'type' =
+		    %% Line 81
+		    [{'month',{'type',81,'range',[{'integer',81,1}|[{'integer',81,12}]]},[]}],
+		%% Line 82
+		'type' =
+		    %% Line 82
+		    [{'day',{'type',82,'range',[{'integer',82,1}|[{'integer',82,31}]]},[]}],
+		%% Line 83
+		'type' =
+		    %% Line 83
+		    [{'hour',{'type',83,'range',[{'integer',83,0}|[{'integer',83,23}]]},[]}],
+		%% Line 84
+		'type' =
+		    %% Line 84
+		    [{'minute',{'type',84,'range',[{'integer',84,0}|[{'integer',84,59}]]},[]}],
+		%% Line 85
+		'type' =
+		    %% Line 85
+		    [{'second',{'type',85,'range',[{'integer',85,0}|[{'integer',85,59}]]},[]}],
+		%% Line 86
+		'type' =
+		    %% Line 86
+		    [{'daynum',{'type',86,'range',[{'integer',86,1}|[{'integer',86,7}]]},[]}],
+		%% Line 87
+		'type' =
+		    %% Line 87
+		    [{'ldom',{'type',87,'union',[{'integer',87,28}|[{'integer',87,29}|[{'integer',87,30}|[{'integer',87,31}]]]]},[]}],
+		%% Line 88
+		'type' =
+		    %% Line 88
+		    [{'weeknum',{'type',88,'range',[{'integer',88,1}|[{'integer',88,53}]]},[]}],
+		%% Line 90
+		'type' =
+		    %% Line 90
+		    [{'date',{'type',90,'tuple',[{'user_type',90,'year',[]}|[{'user_type',90,'month',[]}|[{'user_type',90,'day',[]}]]]},[]}],
+		%% Line 91
+		'type' =
+		    %% Line 91
+		    [{'time',{'type',91,'tuple',[{'user_type',91,'hour',[]}|[{'user_type',91,'minute',[]}|[{'user_type',91,'second',[]}]]]},[]}],
+		%% Line 92
+		'type' =
+		    %% Line 92
+		    [{'datetime',{'type',92,'tuple',[{'user_type',92,'date',[]}|[{'user_type',92,'time',[]}]]},[]}],
+		%% Line 93
+		'type' =
+		    %% Line 93
+		    [{'datetime1970',{'type',93,'tuple',[{'type',93,'tuple',[{'user_type',93,'year1970',[]}|[{'user_type',93,'month',[]}|[{'user_type',93,'day',[]}]]]}|[{'user_type',93,'time',[]}]]},[]}],
+		%% Line 94
+		'type' =
+		    %% Line 94
+		    [{'yearweeknum',{'type',94,'tuple',[{'user_type',94,'year',[]}|[{'user_type',94,'weeknum',[]}]]},[]}],
+		%% Line 96
+		'type' =
+		    %% Line 96
+		    [{'rfc3339_string',{'type',96,'nonempty_list',[{'type',96,'byte',[]}]},[]}],
+		%% Line 98
+		'type' =
+		    %% Line 98
+		    [{'rfc3339_time_unit',{'type',98,'union',[{'atom',98,'microsecond'}|[{'atom',99,'millisecond'}|[{'atom',100,'nanosecond'}|[{'atom',101,'second'}]]]]},[]}],
+		%% Line 127
+		'spec' =
+		    %% Line 127
+		    [{{'date_to_gregorian_days',3},[{'type',127,'bounded_fun',[{'type',127,'fun',[{'type',127,'product',[{'var',127,'Year'}|[{'var',127,'Month'}|[{'var',127,'Day'}]]]}|[{'var',127,'Days'}]]}|[[{'type',128,'constraint',[{'atom',128,'is_subtype'}|[[{'var',128,'Year'}|[{'user_type',128,'year',[]}]]]]}|[{'type',129,'constraint',[{'atom',129,'is_subtype'}|[[{'var',129,'Month'}|[{'user_type',129,'month',[]}]]]]}|[{'type',130,'constraint',[{'atom',130,'is_subtype'}|[[{'var',130,'Day'}|[{'user_type',130,'day',[]}]]]]}|[{'type',131,'constraint',[{'atom',131,'is_subtype'}|[[{'var',131,'Days'}|[{'type',131,'non_neg_integer',[]}]]]]}]]]]]]}]}],
+		%% Line 139
+		'spec' =
+		    %% Line 139
+		    [{{'date_to_gregorian_days',1},[{'type',139,'bounded_fun',[{'type',139,'fun',[{'type',139,'product',[{'var',139,'Date'}]}|[{'var',139,'Days'}]]}|[[{'type',140,'constraint',[{'atom',140,'is_subtype'}|[[{'var',140,'Date'}|[{'user_type',140,'date',[]}]]]]}|[{'type',141,'constraint',[{'atom',141,'is_subtype'}|[[{'var',141,'Days'}|[{'type',141,'non_neg_integer',[]}]]]]}]]]]}]}],
+		%% Line 151
+		'spec' =
+		    %% Line 151
+		    [{{'datetime_to_gregorian_seconds',1},[{'type',151,'bounded_fun',[{'type',151,'fun',[{'type',151,'product',[{'var',151,'DateTime'}]}|[{'var',151,'Seconds'}]]}|[[{'type',152,'constraint',[{'atom',152,'is_subtype'}|[[{'var',152,'DateTime'}|[{'user_type',152,'datetime',[]}]]]]}|[{'type',153,'constraint',[{'atom',153,'is_subtype'}|[[{'var',153,'Seconds'}|[{'type',153,'non_neg_integer',[]}]]]]}]]]]}]}],
+		%% Line 164
+		'spec' =
+		    %% Line 164
+		    [{{'day_of_the_week',3},[{'type',164,'bounded_fun',[{'type',164,'fun',[{'type',164,'product',[{'var',164,'Year'}|[{'var',164,'Month'}|[{'var',164,'Day'}]]]}|[{'user_type',164,'daynum',[]}]]}|[[{'type',165,'constraint',[{'atom',165,'is_subtype'}|[[{'var',165,'Year'}|[{'user_type',165,'year',[]}]]]]}|[{'type',166,'constraint',[{'atom',166,'is_subtype'}|[[{'var',166,'Month'}|[{'user_type',166,'month',[]}]]]]}|[{'type',167,'constraint',[{'atom',167,'is_subtype'}|[[{'var',167,'Day'}|[{'user_type',167,'day',[]}]]]]}]]]]]}]}],
+		%% Line 171
+		'spec' =
+		    %% Line 171
+		    [{{'day_of_the_week',1},[{'type',171,'bounded_fun',[{'type',171,'fun',[{'type',171,'product',[{'var',171,'Date'}]}|[{'user_type',171,'daynum',[]}]]}|[[{'type',172,'constraint',[{'atom',172,'is_subtype'}|[[{'var',172,'Date'}|[{'user_type',172,'date',[]}]]]]}]]]}]}],
+		%% Line 179
+		'spec' =
+		    %% Line 179
+		    [{{'gregorian_days_to_date',1},[{'type',179,'bounded_fun',[{'type',179,'fun',[{'type',179,'product',[{'var',179,'Days'}]}|[{'user_type',179,'date',[]}]]}|[[{'type',180,'constraint',[{'atom',180,'is_subtype'}|[[{'var',180,'Days'}|[{'type',180,'non_neg_integer',[]}]]]]}]]]}]}],
+		%% Line 189
+		'spec' =
+		    %% Line 189
+		    [{{'gregorian_seconds_to_datetime',1},[{'type',189,'bounded_fun',[{'type',189,'fun',[{'type',189,'product',[{'var',189,'Seconds'}]}|[{'user_type',189,'datetime',[]}]]}|[[{'type',190,'constraint',[{'atom',190,'is_subtype'}|[[{'var',190,'Seconds'}|[{'type',190,'non_neg_integer',[]}]]]]}]]]}]}],
+		%% Line 199
+		'spec' =
+		    %% Line 199
+		    [{{'is_leap_year',1},[{'type',199,'bounded_fun',[{'type',199,'fun',[{'type',199,'product',[{'var',199,'Year'}]}|[{'type',199,'boolean',[]}]]}|[[{'type',200,'constraint',[{'atom',200,'is_subtype'}|[[{'var',200,'Year'}|[{'user_type',200,'year',[]}]]]]}]]]}]}],
+		%% Line 204
+		'spec' =
+		    %% Line 204
+		    [{{'is_leap_year1',1},[{'type',204,'fun',[{'type',204,'product',[{'user_type',204,'year',[]}]}|[{'type',204,'boolean',[]}]]}]}],
+		%% Line 215
+		'spec' =
+		    %% Line 215
+		    [{{'iso_week_number',0},[{'type',215,'fun',[{'type',215,'product',[]}|[{'user_type',215,'yearweeknum',[]}]]}]}],
+		%% Line 224
+		'spec' =
+		    %% Line 224
+		    [{{'iso_week_number',1},[{'type',224,'bounded_fun',[{'type',224,'fun',[{'type',224,'product',[{'var',224,'Date'}]}|[{'user_type',224,'yearweeknum',[]}]]}|[[{'type',225,'constraint',[{'atom',225,'is_subtype'}|[[{'var',225,'Date'}|[{'user_type',225,'date',[]}]]]]}]]]}]}],
+		%% Line 253
+		'spec' =
+		    %% Line 253
+		    [{{'last_day_of_the_month',2},[{'type',253,'bounded_fun',[{'type',253,'fun',[{'type',253,'product',[{'var',253,'Year'}|[{'var',253,'Month'}]]}|[{'var',253,'LastDay'}]]}|[[{'type',254,'constraint',[{'atom',254,'is_subtype'}|[[{'var',254,'Year'}|[{'user_type',254,'year',[]}]]]]}|[{'type',255,'constraint',[{'atom',255,'is_subtype'}|[[{'var',255,'Month'}|[{'user_type',255,'month',[]}]]]]}|[{'type',256,'constraint',[{'atom',256,'is_subtype'}|[[{'var',256,'LastDay'}|[{'user_type',256,'ldom',[]}]]]]}]]]]]}]}],
+		%% Line 260
+		'spec' =
+		    %% Line 260
+		    [{{'last_day_of_the_month1',2},[{'type',260,'fun',[{'type',260,'product',[{'user_type',260,'year',[]}|[{'user_type',260,'month',[]}]]}|[{'user_type',260,'ldom',[]}]]}]}],
+		%% Line 277
+		'spec' =
+		    %% Line 277
+		    [{{'local_time',0},[{'type',277,'fun',[{'type',277,'product',[]}|[{'user_type',277,'datetime',[]}]]}]}],
+		%% Line 284
+		'spec' =
+		    %% Line 284
+		    [{{'local_time_to_universal_time',1},[{'type',284,'bounded_fun',[{'type',284,'fun',[{'type',284,'product',[{'var',284,'DateTime1'}]}|[{'var',284,'DateTime2'}]]}|[[{'type',285,'constraint',[{'atom',285,'is_subtype'}|[[{'var',285,'DateTime1'}|[{'user_type',285,'datetime1970',[]}]]]]}|[{'type',286,'constraint',[{'atom',286,'is_subtype'}|[[{'var',286,'DateTime2'}|[{'user_type',286,'datetime1970',[]}]]]]}]]]]}]}],
+		%% Line 290
+		'spec' =
+		    %% Line 290
+		    [{{'local_time_to_universal_time',2},[{'type',290,'fun',[{'type',290,'product',[{'user_type',290,'datetime1970',[]}|[{'type',291,'union',[{'atom',291,'true'}|[{'atom',291,'false'}|[{'atom',291,'undefined'}]]]}]]}|[{'user_type',292,'datetime1970',[]}]]}]}],
+		%% Line 296
+		'spec' =
+		    %% Line 296
+		    [{{'local_time_to_universal_time_dst',1},[{'type',296,'bounded_fun',[{'type',296,'fun',[{'type',296,'product',[{'var',296,'DateTime1'}]}|[{'type',296,'list',[{'var',296,'DateTime'}]}]]}|[[{'type',297,'constraint',[{'atom',297,'is_subtype'}|[[{'var',297,'DateTime1'}|[{'user_type',297,'datetime1970',[]}]]]]}|[{'type',298,'constraint',[{'atom',298,'is_subtype'}|[[{'var',298,'DateTime'}|[{'user_type',298,'datetime1970',[]}]]]]}]]]]}]}],
+		%% Line 326
+		'spec' =
+		    %% Line 326
+		    [{{'now_to_datetime',1},[{'type',326,'bounded_fun',[{'type',326,'fun',[{'type',326,'product',[{'var',326,'Now'}]}|[{'user_type',326,'datetime1970',[]}]]}|[[{'type',327,'constraint',[{'atom',327,'is_subtype'}|[[{'var',327,'Now'}|[{'remote_type',327,[{'atom',327,'erlang'}|[{'atom',327,'timestamp'}|[[]]]]}]]]]}]]]}]}],
+		%% Line 331
+		'spec' =
+		    %% Line 331
+		    [{{'now_to_universal_time',1},[{'type',331,'bounded_fun',[{'type',331,'fun',[{'type',331,'product',[{'var',331,'Now'}]}|[{'user_type',331,'datetime1970',[]}]]}|[[{'type',332,'constraint',[{'atom',332,'is_subtype'}|[[{'var',332,'Now'}|[{'remote_type',332,[{'atom',332,'erlang'}|[{'atom',332,'timestamp'}|[[]]]]}]]]]}]]]}]}],
+		%% Line 341
+		'spec' =
+		    %% Line 341
+		    [{{'now_to_local_time',1},[{'type',341,'bounded_fun',[{'type',341,'fun',[{'type',341,'product',[{'var',341,'Now'}]}|[{'user_type',341,'datetime1970',[]}]]}|[[{'type',342,'constraint',[{'atom',342,'is_subtype'}|[[{'var',342,'Now'}|[{'remote_type',342,[{'atom',342,'erlang'}|[{'atom',342,'timestamp'}|[[]]]]}]]]]}]]]}]}],
+		%% Line 347
+		'spec' =
+		    %% Line 347
+		    [{{'rfc3339_to_system_time',1},[{'type',347,'bounded_fun',[{'type',347,'fun',[{'type',347,'product',[{'var',347,'DateTimeString'}]}|[{'type',347,'integer',[]}]]}|[[{'type',348,'constraint',[{'atom',348,'is_subtype'}|[[{'var',348,'DateTimeString'}|[{'user_type',348,'rfc3339_string',[]}]]]]}]]]}]}],
+		%% Line 353
+		'spec' =
+		    %% Line 353
+		    [{{'rfc3339_to_system_time',2},[{'type',353,'bounded_fun',[{'type',353,'fun',[{'type',353,'product',[{'var',353,'DateTimeString'}|[{'var',353,'Options'}]]}|[{'type',353,'integer',[]}]]}|[[{'type',354,'constraint',[{'atom',354,'is_subtype'}|[[{'var',354,'DateTimeString'}|[{'user_type',354,'rfc3339_string',[]}]]]]}|[{'type',355,'constraint',[{'atom',355,'is_subtype'}|[[{'var',355,'Options'}|[{'type',355,'list',[{'var',355,'Option'}]}]]]]}|[{'type',356,'constraint',[{'atom',356,'is_subtype'}|[[{'var',356,'Option'}|[{'type',356,'tuple',[{'atom',356,'unit'}|[{'user_type',356,'rfc3339_time_unit',[]}]]}]]]]}]]]]]}]}],
+		%% Line 382
+		'spec' =
+		    %% Line 382
+		    [{{'seconds_to_daystime',1},[{'type',382,'bounded_fun',[{'type',382,'fun',[{'type',382,'product',[{'var',382,'Seconds'}]}|[{'type',382,'tuple',[{'var',382,'Days'}|[{'var',382,'Time'}]]}]]}|[[{'type',383,'constraint',[{'atom',383,'is_subtype'}|[[{'var',383,'Seconds'}|[{'type',383,'integer',[]}]]]]}|[{'type',384,'constraint',[{'atom',384,'is_subtype'}|[[{'var',384,'Days'}|[{'type',384,'integer',[]}]]]]}|[{'type',385,'constraint',[{'atom',385,'is_subtype'}|[[{'var',385,'Time'}|[{'user_type',385,'time',[]}]]]]}]]]]]}]}],
+		%% Line 402
+		'type' =
+		    %% Line 402
+		    [{'secs_per_day',{'type',402,'range',[{'integer',402,0}|[{'integer',402,86400}]]},[]}],
+		%% Line 403
+		'spec' =
+		    %% Line 403
+		    [{{'seconds_to_time',1},[{'type',403,'bounded_fun',[{'type',403,'fun',[{'type',403,'product',[{'var',403,'Seconds'}]}|[{'user_type',403,'time',[]}]]}|[[{'type',404,'constraint',[{'atom',404,'is_subtype'}|[[{'var',404,'Seconds'}|[{'user_type',404,'secs_per_day',[]}]]]]}]]]}]}],
+		%% Line 413
+		'spec' =
+		    %% Line 413
+		    [{{'system_time_to_local_time',2},[{'type',413,'bounded_fun',[{'type',413,'fun',[{'type',413,'product',[{'var',413,'Time'}|[{'var',413,'TimeUnit'}]]}|[{'user_type',413,'datetime',[]}]]}|[[{'type',414,'constraint',[{'atom',414,'is_subtype'}|[[{'var',414,'Time'}|[{'type',414,'integer',[]}]]]]}|[{'type',415,'constraint',[{'atom',415,'is_subtype'}|[[{'var',415,'TimeUnit'}|[{'remote_type',415,[{'atom',415,'erlang'}|[{'atom',415,'time_unit'}|[[]]]]}]]]]}]]]]}]}],
+		%% Line 421
+		'spec' =
+		    %% Line 421
+		    [{{'system_time_to_universal_time',2},[{'type',421,'bounded_fun',[{'type',421,'fun',[{'type',421,'product',[{'var',421,'Time'}|[{'var',421,'TimeUnit'}]]}|[{'user_type',421,'datetime',[]}]]}|[[{'type',422,'constraint',[{'atom',422,'is_subtype'}|[[{'var',422,'Time'}|[{'type',422,'integer',[]}]]]]}|[{'type',423,'constraint',[{'atom',423,'is_subtype'}|[[{'var',423,'TimeUnit'}|[{'remote_type',423,[{'atom',423,'erlang'}|[{'atom',423,'time_unit'}|[[]]]]}]]]]}]]]]}]}],
+		%% Line 429
+		'spec' =
+		    %% Line 429
+		    [{{'system_time_to_rfc3339',1},[{'type',429,'bounded_fun',[{'type',429,'fun',[{'type',429,'product',[{'var',429,'Time'}]}|[{'var',429,'DateTimeString'}]]}|[[{'type',430,'constraint',[{'atom',430,'is_subtype'}|[[{'var',430,'Time'}|[{'type',430,'integer',[]}]]]]}|[{'type',431,'constraint',[{'atom',431,'is_subtype'}|[[{'var',431,'DateTimeString'}|[{'user_type',431,'rfc3339_string',[]}]]]]}]]]]}]}],
+		%% Line 436
+		'type' =
+		    %% Line 436
+		    [{'offset',{'type',436,'union',[{'type',436,'list',[{'type',436,'byte',[]}]}|[{'ann_type',436,[{'var',436,'Time'}|[{'type',436,'integer',[]}]]}]]},[]}],
+		%% Line 437
+		'spec' =
+		    %% Line 437
+		    [{{'system_time_to_rfc3339',2},[{'type',437,'bounded_fun',[{'type',437,'fun',[{'type',437,'product',[{'var',437,'Time'}|[{'var',437,'Options'}]]}|[{'var',437,'DateTimeString'}]]}|[[{'type',438,'constraint',[{'atom',438,'is_subtype'}|[[{'var',438,'Time'}|[{'type',438,'integer',[]}]]]]}|[{'type',439,'constraint',[{'atom',439,'is_subtype'}|[[{'var',439,'Options'}|[{'type',439,'list',[{'var',439,'Option'}]}]]]]}|[{'type',440,'constraint',[{'atom',440,'is_subtype'}|[[{'var',440,'Option'}|[{'type',440,'union',[{'type',440,'tuple',[{'atom',440,'offset'}|[{'user_type',440,'offset',[]}]]}|[{'type',441,'tuple',[{'atom',441,'time_designator'}|[{'type',441,'byte',[]}]]}|[{'type',442,'tuple',[{'atom',442,'unit'}|[{'user_type',442,'rfc3339_time_unit',[]}]]}]]]}]]]]}|[{'type',443,'constraint',[{'atom',443,'is_subtype'}|[[{'var',443,'DateTimeString'}|[{'user_type',443,'rfc3339_string',[]}]]]]}]]]]]]}]}],
+		%% Line 471
+		'spec' =
+		    %% Line 471
+		    [{{'time_difference',2},[{'type',471,'bounded_fun',[{'type',471,'fun',[{'type',471,'product',[{'var',471,'T1'}|[{'var',471,'T2'}]]}|[{'type',471,'tuple',[{'var',471,'Days'}|[{'var',471,'Time'}]]}]]}|[[{'type',472,'constraint',[{'atom',472,'is_subtype'}|[[{'var',472,'T1'}|[{'user_type',472,'datetime',[]}]]]]}|[{'type',473,'constraint',[{'atom',473,'is_subtype'}|[[{'var',473,'T2'}|[{'user_type',473,'datetime',[]}]]]]}|[{'type',474,'constraint',[{'atom',474,'is_subtype'}|[[{'var',474,'Days'}|[{'type',474,'integer',[]}]]]]}|[{'type',475,'constraint',[{'atom',475,'is_subtype'}|[[{'var',475,'Time'}|[{'user_type',475,'time',[]}]]]]}]]]]]]}]}],
+		%% Line 486
+		'spec' =
+		    %% Line 486
+		    [{{'time_to_seconds',1},[{'type',486,'bounded_fun',[{'type',486,'fun',[{'type',486,'product',[{'var',486,'Time'}]}|[{'user_type',486,'secs_per_day',[]}]]}|[[{'type',487,'constraint',[{'atom',487,'is_subtype'}|[[{'var',487,'Time'}|[{'user_type',487,'time',[]}]]]]}]]]}]}],
+		%% Line 496
+		'spec' =
+		    %% Line 496
+		    [{{'universal_time',0},[{'type',496,'fun',[{'type',496,'product',[]}|[{'user_type',496,'datetime',[]}]]}]}],
+		%% Line 503
+		'spec' =
+		    %% Line 503
+		    [{{'universal_time_to_local_time',1},[{'type',503,'bounded_fun',[{'type',503,'fun',[{'type',503,'product',[{'var',503,'DateTime'}]}|[{'user_type',503,'datetime',[]}]]}|[[{'type',504,'constraint',[{'atom',504,'is_subtype'}|[[{'var',504,'DateTime'}|[{'user_type',504,'datetime1970',[]}]]]]}]]]}]}],
+		%% Line 512
+		'spec' =
+		    %% Line 512
+		    [{{'valid_date',3},[{'type',512,'bounded_fun',[{'type',512,'fun',[{'type',512,'product',[{'var',512,'Year'}|[{'var',512,'Month'}|[{'var',512,'Day'}]]]}|[{'type',512,'boolean',[]}]]}|[[{'type',513,'constraint',[{'atom',513,'is_subtype'}|[[{'var',513,'Year'}|[{'type',513,'integer',[]}]]]]}|[{'type',514,'constraint',[{'atom',514,'is_subtype'}|[[{'var',514,'Month'}|[{'type',514,'integer',[]}]]]]}|[{'type',515,'constraint',[{'atom',515,'is_subtype'}|[[{'var',515,'Day'}|[{'type',515,'integer',[]}]]]]}]]]]]}]}],
+		%% Line 519
+		'spec' =
+		    %% Line 519
+		    [{{'valid_date1',3},[{'type',519,'fun',[{'type',519,'product',[{'type',519,'integer',[]}|[{'type',519,'integer',[]}|[{'type',519,'integer',[]}]]]}|[{'type',519,'boolean',[]}]]}]}],
+		%% Line 525
+		'spec' =
+		    %% Line 525
+		    [{{'valid_date',1},[{'type',525,'bounded_fun',[{'type',525,'fun',[{'type',525,'product',[{'var',525,'Date'}]}|[{'type',525,'boolean',[]}]]}|[[{'type',526,'constraint',[{'atom',526,'is_subtype'}|[[{'var',526,'Date'}|[{'user_type',526,'date',[]}]]]]}]]]}]}],
+		%% Line 534
+		'type' =
+		    %% Line 534
+		    [{'day_of_year',{'type',534,'range',[{'integer',534,0}|[{'integer',534,365}]]},[]}],
+		%% Line 543
+		'spec' =
+		    %% Line 543
+		    [{{'day_to_year',1},[{'type',543,'fun',[{'type',543,'product',[{'type',543,'non_neg_integer',[]}]}|[{'type',543,'tuple',[{'user_type',543,'year',[]}|[{'user_type',543,'day_of_year',[]}]]}]]}]}],
+		%% Line 550
+		'spec' =
+		    %% Line 550
+		    [{{'dty',5},[{'type',550,'fun',[{'type',550,'product',[{'user_type',550,'year',[]}|[{'user_type',550,'year',[]}|[{'type',550,'non_neg_integer',[]}|[{'type',550,'non_neg_integer',[]}|[{'type',551,'non_neg_integer',[]}]]]]]}|[{'type',552,'tuple',[{'user_type',552,'year',[]}|[{'type',552,'non_neg_integer',[]}]]}]]}]}],
+		%% Line 577
+		'spec' =
+		    %% Line 577
+		    [{{'gregorian_days_of_iso_w01_1',1},[{'type',577,'fun',[{'type',577,'product',[{'user_type',577,'year',[]}]}|[{'type',577,'non_neg_integer',[]}]]}]}],
+		%% Line 591
+		'spec' =
+		    %% Line 591
+		    [{{'year_day_to_date',2},[{'type',591,'fun',[{'type',591,'product',[{'user_type',591,'year',[]}|[{'user_type',591,'day_of_year',[]}]]}|[{'type',591,'tuple',[{'user_type',591,'month',[]}|[{'user_type',591,'day',[]}]]}]]}]}],
+		%% Line 605
+		'spec' =
+		    %% Line 605
+		    [{{'year_day_to_date2',2},[{'type',605,'fun',[{'type',605,'product',[{'type',605,'union',[{'integer',605,0}|[{'integer',605,1}]]}|[{'user_type',605,'day_of_year',[]}]]}|[{'type',605,'tuple',[{'user_type',605,'month',[]}|[{'type',605,'range',[{'integer',605,0}|[{'integer',605,30}]]}]]}]]}]}],
+		%% Line 635
+		'spec' =
+		    %% Line 635
+		    [{{'dy',1},[{'type',635,'fun',[{'type',635,'product',[{'type',635,'integer',[]}]}|[{'type',635,'non_neg_integer',[]}]]}]}],
+		%% Line 648
+		'spec' =
+		    %% Line 648
+		    [{{'dm',1},[{'type',648,'fun',[{'type',648,'product',[{'user_type',648,'month',[]}]}|[{'type',649,'union',[{'integer',649,0}|[{'integer',649,31}|[{'integer',649,59}|[{'integer',649,90}|[{'integer',649,120}|[{'integer',649,151}|[{'integer',649,181}|[{'integer',649,212}|[{'integer',649,243}|[{'integer',649,273}|[{'integer',649,304}|[{'integer',649,334}]]]]]]]]]]]]}]]}]}],
+		%% Line 659
+		'spec' =
+		    %% Line 659
+		    [{{'df',2},[{'type',659,'fun',[{'type',659,'product',[{'user_type',659,'year',[]}|[{'user_type',659,'month',[]}]]}|[{'type',659,'union',[{'integer',659,0}|[{'integer',659,1}]]}]]}]}]]
+'date_to_gregorian_days'/3 =
+    %% Line 132
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <Year,Month,Day>
+		  when let <_3> =
+			call 'erlang':'is_integer'
+			    (Day)
+		    in  let <_4> =
+			    call 'erlang':'>'
+				(Day, 0)
+			in  call 'erlang':'and'
+				(_3, _4) ->
+		  let <Last> =
+		      apply %% Line 133
+			    'last_day_of_the_month'/2
+			  (%% Line 133
+			   Year, %% Line 133
+				 Month)
+		  in  %% Line 134
+		      case <> of
+			%% Line 135
+			<>
+			    when call 'erlang':'=<'
+				  (Day,
+				   Last) ->
+			    let <_8> =
+				apply %% Line 136
+				      'dy'/1
+				    (%% Line 136
+				     Year)
+			    in  let <_7> =
+				    apply %% Line 136
+					  'dm'/1
+					(%% Line 136
+					 Month)
+				in  let <_9> =
+					call %% Line 136
+					     'erlang':%% Line 136
+						      '+'
+					    (_8, _7)
+				    in  let <_6> =
+					    apply %% Line 136
+						  'df'/2
+						(%% Line 136
+						 Year, %% Line 136
+						       Month)
+					in  let <_10> =
+						call %% Line 136
+						     'erlang':%% Line 136
+							      '+'
+						    (_9, _6)
+					    in  let <_11> =
+						    call %% Line 136
+							 'erlang':%% Line 136
+								  '+'
+							(_10, %% Line 136
+							      Day)
+						in  %% Line 136
+						    call 'erlang':'-'
+							(_11, 1)
+			( <> when 'true' ->
+			      primop 'match_fail'
+				  ('if_clause')
+			  -| ['compiler_generated'] )
+		      end
+	      ( <_14,_13,_12> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_14,_13,_12})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'date_to_gregorian_days',3}}] )
+      -| [{'function',{'date_to_gregorian_days',3}}] )
+'date_to_gregorian_days'/1 =
+    %% Line 142
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'date_to_gregorian_days',1}}] ) of
+	      <{Year,Month,Day}> when 'true' ->
+		  %% Line 143
+		  apply 'date_to_gregorian_days'/3
+		      (Year, Month, Day)
+	      ( <_1> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_1})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'date_to_gregorian_days',1}}] )
+      -| [{'function',{'date_to_gregorian_days',1}}] )
+'datetime_to_gregorian_seconds'/1 =
+    %% Line 154
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'datetime_to_gregorian_seconds',1}}] ) of
+	      <{Date,Time}> when 'true' ->
+		  let <_2> =
+		      apply %% Line 155
+			    'date_to_gregorian_days'/1
+			  (%% Line 155
+			   Date)
+		  in  let <_3> =
+			  call %% Line 155
+			       'erlang':%% Line 155
+					'*'
+			      (%% Line 155
+			       86400, _2)
+		      in  let <_1> =
+			      apply %% Line 156
+				    'time_to_seconds'/1
+				  (%% Line 156
+				   Time)
+			  in  %% Line 155
+			      call 'erlang':'+'
+				  (_3, _1)
+	      ( <_4> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_4})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'datetime_to_gregorian_seconds',1}}] )
+      -| [{'function',{'datetime_to_gregorian_seconds',1}}] )
+'day_of_the_week'/3 =
+    %% Line 168
+    ( fun (_0,_1,_2) ->
+	  let <_3> =
+	      apply %% Line 169
+		    'date_to_gregorian_days'/3
+		  (_0, _1, _2)
+	  in  let <_4> =
+		  call %% Line 169
+		       'erlang':%% Line 169
+				'+'
+		      (_3, %% Line 169
+			   5)
+	      in  let <_5> =
+		      call %% Line 169
+			   'erlang':%% Line 169
+				    'rem'
+			  (_4, %% Line 169
+			       7)
+		  in  %% Line 169
+		      call 'erlang':'+'
+			  (_5, 1)
+      -| [{'function',{'day_of_the_week',3}}] )
+'day_of_the_week'/1 =
+    %% Line 173
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'day_of_the_week',1}}] ) of
+	      <{Year,Month,Day}> when 'true' ->
+		  %% Line 174
+		  apply 'day_of_the_week'/3
+		      (Year, Month, Day)
+	      ( <_1> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_1})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'day_of_the_week',1}}] )
+      -| [{'function',{'day_of_the_week',1}}] )
+'gregorian_days_to_date'/1 =
+    %% Line 181
+    ( fun (_0) ->
+	  %% Line 182
+	  case apply 'day_to_year'/1
+		   (( _0
+		      -| [{'function',{'gregorian_days_to_date',1}}] )) of
+	    <{Year,DayOfYear}> when 'true' ->
+		%% Line 183
+		case apply 'year_day_to_date'/2
+			 (Year, DayOfYear) of
+		  <{Month,DayOfMonth}> when 'true' ->
+		      %% Line 184
+		      {Year,Month,DayOfMonth}
+		  ( <_2> when 'true' ->
+			primop 'match_fail'
+			    ({'badmatch',_2})
+		    -| ['compiler_generated'] )
+		end
+	    ( <_1> when 'true' ->
+		  primop 'match_fail'
+		      ({'badmatch',_1})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'gregorian_days_to_date',1}}] )
+'gregorian_seconds_to_datetime'/1 =
+    %% Line 191
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'gregorian_seconds_to_datetime',1}}] ) of
+	      <Secs>
+		  when call 'erlang':'>='
+			(( _0
+			   -| [{'function',{'gregorian_seconds_to_datetime',1}}] ),
+			 0) ->
+		  let <Days> =
+		      call %% Line 192
+			   'erlang':%% Line 192
+				    'div'
+			  (%% Line 192
+			   Secs, %% Line 192
+				 86400)
+		  in  let <Rest> =
+			  call %% Line 193
+			       'erlang':%% Line 193
+					'rem'
+			      (%% Line 193
+			       Secs, %% Line 193
+				     86400)
+		      in  let <_4> =
+			      apply %% Line 194
+				    'gregorian_days_to_date'/1
+				  (%% Line 194
+				   Days)
+			  in  let <_3> =
+				  apply %% Line 194
+					'seconds_to_time'/1
+				      (%% Line 194
+				       Rest)
+			      in  %% Line 194
+				  {_4,_3}
+	      ( <_5> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_5})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'gregorian_seconds_to_datetime',1}}] )
+      -| [{'function',{'gregorian_seconds_to_datetime',1}}] )
+'is_leap_year'/1 =
+    %% Line 201
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'is_leap_year',1}}] ) of
+	      <Y>
+		  when let <_1> =
+			call 'erlang':'is_integer'
+			    (( _0
+			       -| [{'function',{'is_leap_year',1}}] ))
+		    in  let <_2> =
+			    call 'erlang':'>='
+				(( _0
+				   -| [{'function',{'is_leap_year',1}}] ), 0)
+			in  call 'erlang':'and'
+				(_1, _2) ->
+		  %% Line 202
+		  apply 'is_leap_year1'/1
+		      (Y)
+	      ( <_3> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_3})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'is_leap_year',1}}] )
+      -| [{'function',{'is_leap_year',1}}] )
+'is_leap_year1'/1 =
+    %% Line 205
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'is_leap_year1',1}}] ) of
+	      <Year>
+		  when try
+			let <_1> =
+			    call 'erlang':'rem'
+				(( _0
+				   -| [{'function',{'is_leap_year1',1}}] ), 4)
+			in  let <_2> =
+				call 'erlang':'=:='
+				    (_1, 0)
+			    in  let <_3> =
+				    call 'erlang':'rem'
+					(( _0
+					   -| [{'function',{'is_leap_year1',1}}] ), 100)
+				in  let <_4> =
+					call 'erlang':'>'
+					    (_3, 0)
+				    in  call 'erlang':'and'
+					    (_2, _4)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 206
+		  'true'
+	      %% Line 207
+	      <Year>
+		  when try
+			let <_5> =
+			    call 'erlang':'rem'
+				(( _0
+				   -| [{'function',{'is_leap_year1',1}}] ), 400)
+			in  call 'erlang':'=:='
+				(_5, 0)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 208
+		  'true'
+	      %% Line 209
+	      <_7> when 'true' ->
+		  'false'
+	    end
+	    -| [{'function',{'is_leap_year1',1}}] )
+      -| [{'function',{'is_leap_year1',1}}] )
+'iso_week_number'/0 =
+    %% Line 216
+    ( fun () ->
+	  %% Line 217
+	  case apply 'local_time'/0
+		   () of
+	    <{Date,_1}> when 'true' ->
+		%% Line 218
+		apply 'iso_week_number'/1
+		    (Date)
+	    ( <_0> when 'true' ->
+		  primop 'match_fail'
+		      ({'badmatch',_0})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'iso_week_number',0}}] )
+'iso_week_number'/1 =
+    %% Line 226
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'iso_week_number',1}}] ) of
+	      <_@r0 = {Year,Month,Day}> when 'true' ->
+		  let <D> =
+		      apply %% Line 227
+			    'date_to_gregorian_days'/1
+			  (%% Line 227
+			   _@r0)
+		  in  let <W01_1_Year> =
+			  apply %% Line 228
+				'gregorian_days_of_iso_w01_1'/1
+			      (%% Line 228
+			       Year)
+		      in  let <_3> =
+			      call %% Line 229
+				   'erlang':%% Line 229
+					    '+'
+				  (%% Line 229
+				   Year, %% Line 229
+					 1)
+			  in  let <W01_1_NextYear> =
+				  apply %% Line 229
+					'gregorian_days_of_iso_w01_1'/1
+				      (_3)
+			      in  %% Line 230
+				  case <> of
+				    <>
+					when try
+					      ( let <_7> =
+						    case call 'erlang':'=<'
+							     (W01_1_Year, D) of
+						      ( <( 'true'
+							   -| ['compiler_generated'] )> when 'true' ->
+							    call 'erlang':'<'
+								(D, W01_1_NextYear)
+							-| ['compiler_generated'] )
+						      ( <( 'false'
+							   -| ['compiler_generated'] )> when 'true' ->
+							    'false'
+							-| ['compiler_generated'] )
+						      ( <_5> when 'true' ->
+							    ( call ( 'erlang'
+								     -| ['compiler_generated'] ):( 'error'
+												   -| ['compiler_generated'] )
+								  (( {( 'badarg'
+									-| ['compiler_generated'] ),_5}
+								     -| ['compiler_generated'] ))
+							      -| ['compiler_generated'] )
+							-| ['compiler_generated'] )
+						    end
+						in  ( call 'erlang':'=:='
+							  (( _7
+							     -| ['compiler_generated'] ), 'true')
+						      -| ['compiler_generated'] )
+						-| ['compiler_generated'] )
+					  of <Try> ->
+					      Try
+					  catch <T,R> ->
+					      'false' ->
+					let <_8> =
+					    call %% Line 232
+						 'erlang':%% Line 232
+							  '-'
+						(%% Line 232
+						 D, %% Line 232
+						    W01_1_Year)
+					in  let <_9> =
+						call %% Line 232
+						     'erlang':%% Line 232
+							      'div'
+						    (_8, %% Line 232
+							 7)
+					    in  let <_10> =
+						    call %% Line 232
+							 'erlang':%% Line 232
+								  '+'
+							(_9, %% Line 232
+							     1)
+						in  %% Line 232
+						    {Year,_10}
+				    %% Line 233
+				    <>
+					when call 'erlang':'<'
+					      (D,
+					       W01_1_Year) ->
+					let <_11> =
+					    call %% Line 235
+						 'erlang':%% Line 235
+							  '-'
+						(%% Line 235
+						 Year, %% Line 235
+						       1)
+					in  let <_15> =
+						case %% Line 235
+						     apply 'day_of_the_week'/3
+							 (_11, 1, 1) of
+						  %% Line 236
+						  <4> when 'true' ->
+						      53
+						  %% Line 237
+						  <_20> when 'true' ->
+						      let <_12> =
+							  call 'erlang':'-'
+							      (Year, 1)
+						      in  case apply 'day_of_the_week'/3
+								   (_12, 12, 31) of
+							    %% Line 238
+							    <4> when 'true' ->
+								53
+							    %% Line 239
+							    <_21> when 'true' ->
+								52
+							  end
+						end
+					    in  let <_17> =
+						    call %% Line 242
+							 'erlang':%% Line 242
+								  '-'
+							(%% Line 242
+							 Year, %% Line 242
+							       1)
+						in  %% Line 242
+						    {_17,_15}
+				    %% Line 243
+				    <>
+					when call 'erlang':'=<'
+					      (W01_1_NextYear,
+					       D) ->
+					let <_18> =
+					    call %% Line 245
+						 'erlang':%% Line 245
+							  '+'
+						(%% Line 245
+						 Year, %% Line 245
+						       1)
+					in  %% Line 245
+					    {_18,1}
+				    ( <> when 'true' ->
+					  primop 'match_fail'
+					      ('if_clause')
+				      -| ['compiler_generated'] )
+				  end
+	      ( <_19> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_19})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'iso_week_number',1}}] )
+      -| [{'function',{'iso_week_number',1}}] )
+'last_day_of_the_month'/2 =
+    %% Line 257
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <Y,M>
+		  when let <_2> =
+			call 'erlang':'is_integer'
+			    (Y)
+		    in  let <_3> =
+			    call 'erlang':'>='
+				(Y, 0)
+			in  call 'erlang':'and'
+				(_2, _3) ->
+		  %% Line 258
+		  apply 'last_day_of_the_month1'/2
+		      (Y, M)
+	      ( <_5,_4> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_5,_4})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'last_day_of_the_month',2}}] )
+      -| [{'function',{'last_day_of_the_month',2}}] )
+'last_day_of_the_month1'/2 =
+    %% Line 261
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <_9,4> when 'true' ->
+		  30
+	      %% Line 262
+	      <_10,6> when 'true' ->
+		  30
+	      %% Line 263
+	      <_11,9> when 'true' ->
+		  30
+	      %% Line 264
+	      <_12,11> when 'true' ->
+		  30
+	      %% Line 265
+	      <Y,2> when 'true' ->
+		  %% Line 266
+		  case apply 'is_leap_year'/1
+			   (Y) of
+		    %% Line 267
+		    <'true'> when 'true' ->
+			29
+		    %% Line 268
+		    <_13> when 'true' ->
+			28
+		  end
+	      %% Line 270
+	      <_14,M>
+		  when try
+			let <_3> =
+			    call 'erlang':'is_integer'
+				(M)
+			in  let <_4> =
+				call 'erlang':'>'
+				    (M, 0)
+			    in  let <_5> =
+				    call 'erlang':'<'
+					(M, 13)
+				in  let <_6> =
+					call 'erlang':'and'
+					    (_4, _5)
+				    in  call 'erlang':'and'
+					    (_3, _6)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 271
+		  31
+	      ( <_8,_7> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_8,_7})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'last_day_of_the_month1',2}}] )
+      -| [{'function',{'last_day_of_the_month1',2}}] )
+'local_time'/0 =
+    %% Line 278
+    ( fun () ->
+	  %% Line 279
+	  call 'erlang':'localtime'
+	      ()
+      -| [{'function',{'local_time',0}}] )
+'local_time_to_universal_time'/1 =
+    %% Line 287
+    ( fun (_0) ->
+	  %% Line 288
+	  call 'erlang':'localtime_to_universaltime'
+	      (( _0
+		 -| [{'function',{'local_time_to_universal_time',1}}] ))
+      -| [{'function',{'local_time_to_universal_time',1}}] )
+'local_time_to_universal_time'/2 =
+    %% Line 293
+    ( fun (_0,_1) ->
+	  %% Line 294
+	  call 'erlang':'localtime_to_universaltime'
+	      (_0, _1)
+      -| [{'function',{'local_time_to_universal_time',2}}] )
+'local_time_to_universal_time_dst'/1 =
+    %% Line 299
+    ( fun (_0) ->
+	  let <UtDst> =
+	      call %% Line 300
+		   'erlang':%% Line 300
+			    'localtime_to_universaltime'
+		  (( _0
+		     -| [{'function',{'local_time_to_universal_time_dst',1}}] ), %% Line 300
+										 'true')
+	  in  let <Ut> =
+		  call %% Line 301
+		       'erlang':%% Line 301
+				'localtime_to_universaltime'
+		      (( _0
+			 -| [{'function',{'local_time_to_universal_time_dst',1}}] ), %% Line 301
+										     'false')
+	      in  let <LtDst> =
+		      call %% Line 303
+			   'erlang':%% Line 303
+				    'universaltime_to_localtime'
+			  (%% Line 303
+			   UtDst)
+		  in  let <Lt> =
+			  call %% Line 304
+			       'erlang':%% Line 304
+					'universaltime_to_localtime'
+			      (%% Line 304
+			       Ut)
+		      in  %% Line 306
+			  case <LtDst,Lt> of
+			    %% Line 307
+			    <_7,_8>
+				when let <_11> =
+				      call 'erlang':'=:='
+					  (_7, ( _0
+						 -| [{'function',{'local_time_to_universal_time_dst',1}}] ))
+				  in  let <_9> =
+					  call 'erlang':'=:='
+					      (_8, ( _0
+						     -| [{'function',{'local_time_to_universal_time_dst',1}}] ))
+				      in  let <_10> =
+					      call 'erlang':'=/='
+						  (UtDst, Ut)
+					  in  let <_12> =
+						  call 'erlang':'and'
+						      (_9, _10)
+					      in  call 'erlang':'and'
+						      (_11, _12) ->
+				%% Line 308
+				[UtDst|[Ut|[]]]
+			    %% Line 309
+			    <_13,_14>
+				when call 'erlang':'=:='
+				      (_13,
+				       ( _0
+					 -| [{'function',{'local_time_to_universal_time_dst',1}}] )) ->
+				%% Line 310
+				[UtDst|[]]
+			    %% Line 311
+			    <_15,_16>
+				when call 'erlang':'=:='
+				      (_16,
+				       ( _0
+					 -| [{'function',{'local_time_to_universal_time_dst',1}}] )) ->
+				%% Line 312
+				[Ut|[]]
+			    %% Line 313
+			    <_17,_18> when 'true' ->
+				%% Line 314
+				[]
+			  end
+      -| [{'function',{'local_time_to_universal_time_dst',1}}] )
+'now_to_datetime'/1 =
+    %% Line 328
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'now_to_datetime',1}}] ) of
+	      <{MSec,Sec,_X_uSec}> when 'true' ->
+		  let <_1> =
+		      call %% Line 329
+			   'erlang':%% Line 329
+				    '*'
+			  (%% Line 329
+			   MSec, %% Line 329
+				 1000000)
+		  in  let <_2> =
+			  call %% Line 329
+			       'erlang':%% Line 329
+					'+'
+			      (_1, %% Line 329
+				   Sec)
+		      in  %% Line 329
+			  apply 'system_time_to_datetime'/1
+			      (_2)
+	      ( <_3> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_3})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'now_to_datetime',1}}] )
+      -| [{'function',{'now_to_datetime',1}}] )
+'now_to_universal_time'/1 =
+    %% Line 333
+    ( fun (_0) ->
+	  %% Line 334
+	  apply 'now_to_datetime'/1
+	      (( _0
+		 -| [{'function',{'now_to_universal_time',1}}] ))
+      -| [{'function',{'now_to_universal_time',1}}] )
+'now_to_local_time'/1 =
+    %% Line 343
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'now_to_local_time',1}}] ) of
+	      <_@r0 = {MSec,Sec,_X_uSec}> when 'true' ->
+		  let <_1> =
+		      apply %% Line 345
+			    'now_to_universal_time'/1
+			  (%% Line 345
+			   _@r0)
+		  in  %% Line 344
+		      call 'erlang':'universaltime_to_localtime'
+			  (_1)
+	      ( <_2> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_2})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'now_to_local_time',1}}] )
+      -| [{'function',{'now_to_local_time',1}}] )
+'rfc3339_to_system_time'/1 =
+    %% Line 350
+    ( fun (_0) ->
+	  %% Line 351
+	  apply 'rfc3339_to_system_time'/2
+	      (( _0
+		 -| [{'function',{'rfc3339_to_system_time',1}}] ), [])
+      -| [{'function',{'rfc3339_to_system_time',1}}] )
+'rfc3339_to_system_time'/2 =
+    %% Line 358
+    ( fun (_0,_1) ->
+	  let <Unit> =
+	      call %% Line 359
+		   'proplists':%% Line 359
+			       'get_value'
+		  (%% Line 359
+		   'unit', _1, %% Line 359
+			       'second')
+	  in  %% Line 362
+	      case _0 of
+		<[Y1|[Y2|[Y3|[Y4|[45|[Mon1|[Mon2|[45|[D1|[D2|[_X_T|[H1|[H2|[58|[Min1|[Min2|[58|[S1|[S2|TimeStr]]]]]]]]]]]]]]]]]]]> when 'true' ->
+		    let <Hour> =
+			call %% Line 363
+			     'erlang':%% Line 363
+				      'list_to_integer'
+			    (%% Line 363
+			     [H1|[H2|[]]])
+		    in  let <Min> =
+			    call %% Line 364
+				 'erlang':%% Line 364
+					  'list_to_integer'
+				(%% Line 364
+				 [Min1|[Min2|[]]])
+			in  let <Sec> =
+				call %% Line 365
+				     'erlang':%% Line 365
+					      'list_to_integer'
+				    (%% Line 365
+				     [S1|[S2|[]]])
+			    in  let <Year> =
+				    call %% Line 366
+					 'erlang':%% Line 366
+						  'list_to_integer'
+					(%% Line 366
+					 [Y1|[Y2|[Y3|[Y4|[]]]]])
+				in  let <Month> =
+					call %% Line 367
+					     'erlang':%% Line 367
+						      'list_to_integer'
+					    (%% Line 367
+					     [Mon1|[Mon2|[]]])
+				    in  let <Day> =
+					    call %% Line 368
+						 'erlang':%% Line 368
+							  'list_to_integer'
+						(%% Line 368
+						 [D1|[D2|[]]])
+					in  let <DateTime> = {%% Line 369
+						 {Year,Month,Day},%% Line 369
+								  {Hour,Min,Sec}}
+					    in  let <IsFractionChar> =
+						    fun (_16) ->
+							let <_14> =
+							    case %% Line 370
+								 call 'erlang':'>='
+								     (_16, 48) of
+							      %% Line 370
+							      ( <( 'true'
+								   -| ['compiler_generated'] )> when 'true' ->
+								    call 'erlang':'=<'
+									(_16, 57)
+								-| ['compiler_generated'] )
+							      %% Line 370
+							      ( <( 'false'
+								   -| ['compiler_generated'] )> when 'true' ->
+								    'false'
+								-| ['compiler_generated'] )
+							    end
+							in  %% Line 370
+							    ( case _14 of
+								( <( 'true'
+								     -| ['compiler_generated'] )> when 'true' ->
+								      'true'
+								  -| ['compiler_generated'] )
+								( <( 'false'
+								     -| ['compiler_generated'] )> when 'true' ->
+								      call 'erlang':'=:='
+									  (_16, 46)
+								  -| ['compiler_generated'] )
+								( <_11> when 'true' ->
+								      ( call ( 'erlang'
+									       -| ['compiler_generated'] ):( 'error'
+													     -| ['compiler_generated'] )
+									    (( {( 'badarg'
+										  -| ['compiler_generated'] ),_11}
+									       -| ['compiler_generated'] ))
+									-| ['compiler_generated'] )
+								  -| ['compiler_generated'] )
+							      end
+							      -| ['compiler_generated'] )
+						in  %% Line 371
+						    case call 'lists':'splitwith'
+							     (IsFractionChar, TimeStr) of
+						      <{FractionStr,UtcOffset}> when 'true' ->
+							  let <Time> =
+							      apply %% Line 372
+								    'datetime_to_system_time'/1
+								  (%% Line 372
+								   DateTime)
+							  in  let <_21> =
+								  apply %% Line 373
+									'offset_string_adjustment'/3
+								      (%% Line 373
+								       Time, %% Line 373
+									     'second', %% Line 373
+										       UtcOffset)
+							      in  let <Secs> =
+								      call %% Line 373
+									   'erlang':%% Line 373
+										    '-'
+									  (%% Line 373
+									   Time, _21)
+								  in  do  %% Line 374
+									  apply 'check'/3
+									      (_0, _1, Secs)
+									  let <ScaledEpoch> =
+									      call %% Line 375
+										   'erlang':%% Line 375
+											    'convert_time_unit'
+										  (%% Line 375
+										   Secs, %% Line 375
+											 'second', %% Line 375
+												   Unit)
+									  in  let <_24> =
+										  apply %% Line 376
+											'fraction'/2
+										      (%% Line 376
+										       Unit, %% Line 376
+											     FractionStr)
+									      in  let <_25> =
+										      apply %% Line 376
+											    'copy_sign'/2
+											  (_24, %% Line 376
+												ScaledEpoch)
+										  in  %% Line 376
+										      call 'erlang':'+'
+											  (ScaledEpoch, _25)
+						      ( <_19> when 'true' ->
+							    primop 'match_fail'
+								({'badmatch',_19})
+							-| ['compiler_generated'] )
+						    end
+		( <_3> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_3})
+		  -| ['compiler_generated'] )
+	      end
+      -| [{'function',{'rfc3339_to_system_time',2}}] )
+'seconds_to_daystime'/1 =
+    %% Line 386
+    ( fun (_0) ->
+	  let <Days0> =
+	      call %% Line 387
+		   'erlang':%% Line 387
+			    'div'
+		  (( _0
+		     -| [{'function',{'seconds_to_daystime',1}}] ), %% Line 387
+								    86400)
+	  in  let <Secs0> =
+		  call %% Line 388
+		       'erlang':%% Line 388
+				'rem'
+		      (( _0
+			 -| [{'function',{'seconds_to_daystime',1}}] ), %% Line 388
+									86400)
+	      in  %% Line 389
+		  case <> of
+		    %% Line 390
+		    <>
+			when call 'erlang':'<'
+			      (Secs0,
+			       0) ->
+			let <_5> =
+			    call %% Line 391
+				 'erlang':%% Line 391
+					  '-'
+				(%% Line 391
+				 Days0, %% Line 391
+					1)
+			in  let <_3> =
+				call %% Line 391
+				     'erlang':%% Line 391
+					      '+'
+				    (%% Line 391
+				     Secs0, %% Line 391
+					    86400)
+			    in  let <_4> =
+				    apply %% Line 391
+					  'seconds_to_time'/1
+					(_3)
+				in  %% Line 391
+				    {_5,_4}
+		    %% Line 392
+		    <> when 'true' ->
+			let <_6> =
+			    apply %% Line 393
+				  'seconds_to_time'/1
+				(%% Line 393
+				 Secs0)
+			in  %% Line 393
+			    {Days0,_6}
+		  end
+      -| [{'function',{'seconds_to_daystime',1}}] )
+'seconds_to_time'/1 =
+    %% Line 405
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'seconds_to_time',1}}] ) of
+	      <Secs>
+		  when let <_1> =
+			call 'erlang':'>='
+			    (( _0
+			       -| [{'function',{'seconds_to_time',1}}] ), 0)
+		    in  let <_2> =
+			    call 'erlang':'<'
+				(( _0
+				   -| [{'function',{'seconds_to_time',1}}] ), 86400)
+			in  call 'erlang':'and'
+				(_1, _2) ->
+		  let <Secs0> =
+		      call %% Line 406
+			   'erlang':%% Line 406
+				    'rem'
+			  (%% Line 406
+			   Secs, %% Line 406
+				 86400)
+		  in  let <Hour> =
+			  call %% Line 407
+			       'erlang':%% Line 407
+					'div'
+			      (%% Line 407
+			       Secs0, %% Line 407
+				      3600)
+		      in  let <Secs1> =
+			      call %% Line 408
+				   'erlang':%% Line 408
+					    'rem'
+				  (%% Line 408
+				   Secs0, %% Line 408
+					  3600)
+			  in  let <Minute> =
+				  call %% Line 409
+				       'erlang':%% Line 409
+						'div'
+				      (%% Line 409
+				       Secs1, %% Line 409
+					      60)
+			      in  let <Second> =
+				      call %% Line 410
+					   'erlang':%% Line 410
+						    'rem'
+					  (%% Line 410
+					   Secs1, %% Line 410
+						  60)
+				  in  %% Line 411
+				      {Hour,Minute,Second}
+	      ( <_8> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_8})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'seconds_to_time',1}}] )
+      -| [{'function',{'seconds_to_time',1}}] )
+'system_time_to_local_time'/2 =
+    %% Line 417
+    ( fun (_0,_1) ->
+	  let <UniversalDate> =
+	      apply %% Line 418
+		    'system_time_to_universal_time'/2
+		  (_0, _1)
+	  in  %% Line 419
+	      call 'erlang':'universaltime_to_localtime'
+		  (UniversalDate)
+      -| [{'function',{'system_time_to_local_time',2}}] )
+'system_time_to_universal_time'/2 =
+    %% Line 425
+    ( fun (_0,_1) ->
+	  let <Secs> =
+	      call %% Line 426
+		   'erlang':%% Line 426
+			    'convert_time_unit'
+		  (_0, _1, %% Line 426
+			   'second')
+	  in  %% Line 427
+	      apply 'system_time_to_datetime'/1
+		  (Secs)
+      -| [{'function',{'system_time_to_universal_time',2}}] )
+'system_time_to_rfc3339'/1 =
+    %% Line 433
+    ( fun (_0) ->
+	  %% Line 434
+	  apply 'system_time_to_rfc3339'/2
+	      (( _0
+		 -| [{'function',{'system_time_to_rfc3339',1}}] ), [])
+      -| [{'function',{'system_time_to_rfc3339',1}}] )
+'system_time_to_rfc3339'/2 =
+    %% Line 445
+    ( fun (_0,_1) ->
+	  let <Unit> =
+	      call %% Line 446
+		   'proplists':%% Line 446
+			       'get_value'
+		  (%% Line 446
+		   'unit', _1, %% Line 446
+			       'second')
+	  in  let <OffsetOption> =
+		  call %% Line 447
+		       'proplists':%% Line 447
+				   'get_value'
+		      (%% Line 447
+		       'offset', _1, %% Line 447
+				     [])
+	      in  let <T> =
+		      call %% Line 448
+			   'proplists':%% Line 448
+				       'get_value'
+			  (%% Line 448
+			   'time_designator', _1, %% Line 448
+						  84)
+		  in  let <AdjustmentSecs> =
+			  apply %% Line 449
+				'offset_adjustment'/3
+			      (_0, %% Line 449
+				   Unit, %% Line 449
+					 OffsetOption)
+		      in  let <Offset> =
+			      apply %% Line 450
+				    'offset'/2
+				  (%% Line 450
+				   OffsetOption, %% Line 450
+						 AdjustmentSecs)
+			  in  let <Adjustment> =
+				  call %% Line 451
+				       'erlang':%% Line 451
+						'convert_time_unit'
+				      (%% Line 451
+				       AdjustmentSecs, %% Line 451
+						       'second', %% Line 451
+								 Unit)
+			      in  let <AdjustedTime> =
+				      call %% Line 452
+					   'erlang':%% Line 452
+						    '+'
+					  (_0, %% Line 452
+					       Adjustment)
+				  in  let <Factor> =
+					  apply %% Line 453
+						'factor'/1
+					      (%% Line 453
+					       Unit)
+				      in  let <Secs> =
+					      call %% Line 454
+						   'erlang':%% Line 454
+							    'div'
+						  (%% Line 454
+						   AdjustedTime, %% Line 454
+								 Factor)
+					  in  do  %% Line 455
+						  apply 'check'/3
+						      (_0, _1, Secs)
+						  %% Line 457
+						  case apply 'system_time_to_datetime'/1
+							   (Secs) of
+						    <{{Year,Month,Day},{Hour,Min,Sec}}> when 'true' ->
+							let <FractionStr> =
+							    apply %% Line 458
+								  'fraction_str'/2
+								(%% Line 458
+								 Factor, %% Line 458
+									 AdjustedTime)
+							in  let <_14> =
+								apply %% Line 459
+								      'pad4'/1
+								    (%% Line 459
+								     Year)
+							    in  let <_15> =
+								    apply %% Line 459
+									  'pad2'/1
+									(%% Line 459
+									 Month)
+								in  let <_16> =
+									apply %% Line 459
+									      'pad2'/1
+									    (%% Line 459
+									     Day)
+								    in  let <_17> =
+									    apply %% Line 460
+										  'pad2'/1
+										(%% Line 460
+										 Hour)
+									in  let <_18> =
+										apply %% Line 460
+										      'pad2'/1
+										    (%% Line 460
+										     Min)
+									    in  let <_19> =
+										    apply %% Line 460
+											  'pad2'/1
+											(%% Line 460
+											 Sec)
+										in  let <L> =
+											[_14|%% Line 459
+											     [[45]|[_15|[[45]|[_16|[[T|[]]|%% Line 460
+															   [_17|[[58]|[_18|[[58]|[_19|[FractionStr|[Offset|[]]]]]]]]]]]]]]
+										    in  %% Line 461
+											call 'lists':'append'
+											    (L)
+						    ( <_12> when 'true' ->
+							  primop 'match_fail'
+							      ({'badmatch',_12})
+						      -| ['compiler_generated'] )
+						  end
+      -| [{'function',{'system_time_to_rfc3339',2}}] )
+'time_difference'/2 =
+    %% Line 476
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <_@r1 = {{Y1,Mo1,D1},{H1,Mi1,S1}},%% Line 477
+						_@r0 = {{Y2,Mo2,D2},{H2,Mi2,S2}}> when 'true' ->
+		  let <_3> =
+		      apply %% Line 478
+			    'datetime_to_gregorian_seconds'/1
+			  (%% Line 478
+			   _@r0)
+		  in  let <_2> =
+			  apply %% Line 479
+				'datetime_to_gregorian_seconds'/1
+			      (%% Line 479
+			       _@r1)
+		      in  let <Secs> =
+			      call %% Line 478
+				   'erlang':%% Line 478
+					    '-'
+				  (_3, _2)
+			  in  %% Line 480
+			      apply 'seconds_to_daystime'/1
+				  (Secs)
+	      ( <_6,_5> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_6,_5})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'time_difference',2}}] )
+      -| [{'function',{'time_difference',2}}] )
+'time_to_seconds'/1 =
+    %% Line 488
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'time_to_seconds',1}}] ) of
+	      <{H,M,S}>
+		  when try
+			let <_1> =
+			    call 'erlang':'is_integer'
+				(H)
+			in  let <_2> =
+				call 'erlang':'is_integer'
+				    (M)
+			    in  let <_3> =
+				    call 'erlang':'is_integer'
+					(S)
+				in  let <_4> =
+					call 'erlang':'and'
+					    (_2, _3)
+				    in  call 'erlang':'and'
+					    (_1, _4)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  let <_6> =
+		      call %% Line 489
+			   'erlang':%% Line 489
+				    '*'
+			  (%% Line 489
+			   H, %% Line 489
+			      3600)
+		  in  let <_5> =
+			  call %% Line 490
+			       'erlang':%% Line 490
+					'*'
+			      (%% Line 490
+			       M, %% Line 490
+				  60)
+		      in  let <_7> =
+			      call %% Line 489
+				   'erlang':%% Line 489
+					    '+'
+				  (_6, _5)
+			  in  %% Line 490
+			      call 'erlang':'+'
+				  (_7, S)
+	      ( <_8> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_8})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'time_to_seconds',1}}] )
+      -| [{'function',{'time_to_seconds',1}}] )
+'universal_time'/0 =
+    %% Line 497
+    ( fun () ->
+	  %% Line 498
+	  call 'erlang':'universaltime'
+	      ()
+      -| [{'function',{'universal_time',0}}] )
+'universal_time_to_local_time'/1 =
+    %% Line 505
+    ( fun (_0) ->
+	  %% Line 506
+	  call 'erlang':'universaltime_to_localtime'
+	      (( _0
+		 -| [{'function',{'universal_time_to_local_time',1}}] ))
+      -| [{'function',{'universal_time_to_local_time',1}}] )
+'valid_date'/3 =
+    %% Line 516
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <Y,M,D>
+		  when try
+			let <_3> =
+			    call 'erlang':'is_integer'
+				(Y)
+			in  let <_4> =
+				call 'erlang':'is_integer'
+				    (M)
+			    in  let <_5> =
+				    call 'erlang':'is_integer'
+					(D)
+				in  let <_6> =
+					call 'erlang':'and'
+					    (_4, _5)
+				    in  call 'erlang':'and'
+					    (_3, _6)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 517
+		  apply 'valid_date1'/3
+		      (Y, M, D)
+	      ( <_9,_8,_7> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_9,_8,_7})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'valid_date',3}}] )
+      -| [{'function',{'valid_date',3}}] )
+'valid_date1'/3 =
+    %% Line 520
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <Y,M,D>
+		  when try
+			let <_3> =
+			    call 'erlang':'>='
+				(Y, 0)
+			in  let <_4> =
+				call 'erlang':'>'
+				    (M, 0)
+			    in  let <_5> =
+				    call 'erlang':'<'
+					(M, 13)
+				in  let <_6> =
+					call 'erlang':'>'
+					    (D, 0)
+				    in  let <_7> =
+					    call 'erlang':'and'
+						(_5, _6)
+					in  let <_8> =
+						call 'erlang':'and'
+						    (_4, _7)
+					    in  call 'erlang':'and'
+						    (_3, _8)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  let <_9> =
+		      apply %% Line 521
+			    'last_day_of_the_month'/2
+			  (%% Line 521
+			   Y, %% Line 521
+			      M)
+		  in  %% Line 521
+		      call 'erlang':'=<'
+			  (D, _9)
+	      %% Line 522
+	      <_13,_14,_15> when 'true' ->
+		  %% Line 523
+		  'false'
+	    end
+	    -| [{'function',{'valid_date1',3}}] )
+      -| [{'function',{'valid_date1',3}}] )
+'valid_date'/1 =
+    %% Line 527
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'valid_date',1}}] ) of
+	      <{Y,M,D}> when 'true' ->
+		  %% Line 528
+		  apply 'valid_date'/3
+		      (Y, M, D)
+	      ( <_1> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_1})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'valid_date',1}}] )
+      -| [{'function',{'valid_date',1}}] )
+'day_to_year'/1 =
+    %% Line 544
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'day_to_year',1}}] ) of
+	      <DayOfEpoch>
+		  when call 'erlang':'>='
+			(( _0
+			   -| [{'function',{'day_to_year',1}}] ),
+			 0) ->
+		  let <YMax> =
+		      call %% Line 545
+			   'erlang':%% Line 545
+				    'div'
+			  (%% Line 545
+			   DayOfEpoch, %% Line 545
+				       365)
+		  in  let <YMin> =
+			  call %% Line 546
+			       'erlang':%% Line 546
+					'div'
+			      (%% Line 546
+			       DayOfEpoch, %% Line 546
+					   366)
+		      in  let <_4> =
+			      apply %% Line 547
+				    'dy'/1
+				  (%% Line 547
+				   YMin)
+			  in  let <_3> =
+				  apply %% Line 547
+					'dy'/1
+				      (%% Line 547
+				       YMax)
+			      in  %% Line 547
+				  case apply 'dty'/5
+					   (YMin, YMax, DayOfEpoch, _4, _3) of
+				    <{Y1,D1}> when 'true' ->
+					let <_6> =
+					    call %% Line 548
+						 'erlang':%% Line 548
+							  '-'
+						(%% Line 548
+						 DayOfEpoch, %% Line 548
+							     D1)
+					in  %% Line 548
+					    {Y1,_6}
+				    ( <_5> when 'true' ->
+					  primop 'match_fail'
+					      ({'badmatch',_5})
+				      -| ['compiler_generated'] )
+				  end
+	      ( <_7> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_7})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'day_to_year',1}}] )
+      -| [{'function',{'day_to_year',1}}] )
+'dty'/5 =
+    %% Line 553
+    ( fun (_0,_1,_2,_3,_4) ->
+	  ( case <_0,_1,_2,_3,_4> of
+	      <Min,Max,_X_D1,DMin,_X_DMax>
+		  when call 'erlang':'=='
+			(Min,
+			 Max) ->
+		  %% Line 554
+		  {Min,DMin}
+	      %% Line 555
+	      <Min,Max,D1,DMin,DMax> when 'true' ->
+		  let <Diff> =
+		      call %% Line 556
+			   'erlang':%% Line 556
+				    '-'
+			  (%% Line 556
+			   Max, %% Line 556
+				Min)
+		  in  let <_7> =
+			  call %% Line 557
+			       'erlang':%% Line 557
+					'-'
+			      (%% Line 557
+			       D1, %% Line 557
+				   DMin)
+		      in  let <_8> =
+			      call %% Line 557
+				   'erlang':%% Line 557
+					    '*'
+				  (%% Line 557
+				   Diff, _7)
+			  in  let <_6> =
+				  call %% Line 557
+				       'erlang':%% Line 557
+						'-'
+				      (%% Line 557
+				       DMax, %% Line 557
+					     DMin)
+			      in  let <_9> =
+				      call %% Line 557
+					   'erlang':%% Line 557
+						    'div'
+					  (_8, _6)
+				  in  let <Mid> =
+					  call %% Line 557
+					       'erlang':%% Line 557
+							'+'
+					      (%% Line 557
+					       Min, _9)
+				      in  let <_12> =
+					      case %% Line 559
+						   apply 'is_leap_year'/1
+						       (Mid) of
+						%% Line 560
+						<'true'> when 'true' ->
+						    366
+						%% Line 561
+						<'false'> when 'true' ->
+						    365
+						( <_11> when 'true' ->
+						      %% Line 559
+						      primop 'match_fail'
+							  ({'case_clause',_11})
+						  -| ['compiler_generated'] )
+					      end
+					  in  %% Line 563
+					      case apply 'dy'/1
+						       (Mid) of
+						%% Line 564
+						<D2>
+						    when call 'erlang':'<'
+							  (D1,
+							   D2) ->
+						    let <NewMax> =
+							call %% Line 565
+							     'erlang':%% Line 565
+								      '-'
+							    (%% Line 565
+							     Mid, %% Line 565
+								  1)
+						    in  let <_15> =
+							    apply %% Line 566
+								  'dy'/1
+								(%% Line 566
+								 NewMax)
+							in  %% Line 566
+							    apply 'dty'/5
+								(Min, NewMax, D1, DMin, _15)
+						%% Line 567
+						<D2>
+						    when try
+							  let <_16> =
+							      call 'erlang':'-'
+								  (D1, D2)
+							  in  call 'erlang':'>='
+								  (_16, _12)
+						      of <Try> ->
+							  Try
+						      catch <T,R> ->
+							  'false' ->
+						    let <NewMin> =
+							call %% Line 568
+							     'erlang':%% Line 568
+								      '+'
+							    (%% Line 568
+							     Mid, %% Line 568
+								  1)
+						    in  let <_18> =
+							    apply %% Line 569
+								  'dy'/1
+								(%% Line 569
+								 NewMin)
+							in  %% Line 569
+							    apply 'dty'/5
+								(NewMin, Max, D1, _18, DMax)
+						%% Line 570
+						<D2> when 'true' ->
+						    %% Line 571
+						    {Mid,D2}
+					      end
+	    end
+	    -| [{'function',{'dty',5}}] )
+      -| [{'function',{'dty',5}}] )
+'gregorian_days_of_iso_w01_1'/1 =
+    %% Line 578
+    ( fun (_0) ->
+	  let <D0101> =
+	      apply %% Line 579
+		    'date_to_gregorian_days'/3
+		  (( _0
+		     -| [{'function',{'gregorian_days_of_iso_w01_1',1}}] ), %% Line 579
+									    1, %% Line 579
+									       1)
+	  in  let <DOW> =
+		  apply %% Line 580
+			'day_of_the_week'/3
+		      (( _0
+			 -| [{'function',{'gregorian_days_of_iso_w01_1',1}}] ), %% Line 580
+										1, %% Line 580
+										   1)
+	      in  %% Line 581
+		  case <> of
+		    <>
+			when call 'erlang':'=<'
+			      (DOW,
+			       4) ->
+			let <_3> =
+			    call %% Line 582
+				 'erlang':%% Line 582
+					  '-'
+				(%% Line 582
+				 D0101, %% Line 582
+					DOW)
+			in  %% Line 582
+			    call 'erlang':'+'
+				(_3, 1)
+		    %% Line 583
+		    <> when 'true' ->
+			let <_4> =
+			    call %% Line 584
+				 'erlang':%% Line 584
+					  '+'
+				(%% Line 584
+				 D0101, %% Line 584
+					7)
+			in  let <_5> =
+				call %% Line 584
+				     'erlang':%% Line 584
+					      '-'
+				    (_4, %% Line 584
+					 DOW)
+			    in  %% Line 584
+				call 'erlang':'+'
+				    (_5, 1)
+		  end
+      -| [{'function',{'gregorian_days_of_iso_w01_1',1}}] )
+'year_day_to_date'/2 =
+    %% Line 592
+    ( fun (_0,_1) ->
+	  let <_3> =
+	      case %% Line 593
+		   apply 'is_leap_year'/1
+		       (_0) of
+		%% Line 594
+		<'true'> when 'true' ->
+		    %% Line 595
+		    1
+		%% Line 596
+		<'false'> when 'true' ->
+		    %% Line 597
+		    0
+		( <_2> when 'true' ->
+		      %% Line 593
+		      primop 'match_fail'
+			  ({'case_clause',_2})
+		  -| ['compiler_generated'] )
+	      end
+	  in  %% Line 599
+	      case apply 'year_day_to_date2'/2
+		       (_3, _1) of
+		<{Month,Day}> when 'true' ->
+		    let <_6> =
+			call %% Line 600
+			     'erlang':%% Line 600
+				      '+'
+			    (%% Line 600
+			     Day, %% Line 600
+				  1)
+		    in  %% Line 600
+			{Month,_6}
+		( <_5> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_5})
+		  -| ['compiler_generated'] )
+	      end
+      -| [{'function',{'year_day_to_date',2}}] )
+'year_day_to_date2'/2 =
+    %% Line 606
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <_65,Day>
+		  when call 'erlang':'<'
+			(Day,
+			 31) ->
+		  %% Line 607
+		  {1,Day}
+	      %% Line 608
+	      <E,Day>
+		  when try
+			let <_2> =
+			    call 'erlang':'=<'
+				(31, Day)
+			in  let <_3> =
+				call 'erlang':'+'
+				    (59, E)
+			    in  let <_4> =
+				    call 'erlang':'<'
+					(Day, _3)
+				in  call 'erlang':'and'
+					(_2, _4)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  let <_5> =
+		      call %% Line 609
+			   'erlang':%% Line 609
+				    '-'
+			  (%% Line 609
+			   Day, %% Line 609
+				31)
+		  in  %% Line 609
+		      {2,_5}
+	      %% Line 610
+	      <E,Day>
+		  when try
+			let <_6> =
+			    call 'erlang':'+'
+				(59, E)
+			in  let <_7> =
+				call 'erlang':'=<'
+				    (_6, Day)
+			    in  let <_8> =
+				    call 'erlang':'+'
+					(90, E)
+				in  let <_9> =
+					call 'erlang':'<'
+					    (Day, _8)
+				    in  call 'erlang':'and'
+					    (_7, _9)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  let <_10> =
+		      call %% Line 611
+			   'erlang':%% Line 611
+				    '+'
+			  (%% Line 611
+			   59, %% Line 611
+			       E)
+		  in  let <_11> =
+			  call %% Line 611
+			       'erlang':%% Line 611
+					'-'
+			      (%% Line 611
+			       Day, _10)
+		      in  %% Line 611
+			  {3,_11}
+	      %% Line 612
+	      <E,Day>
+		  when try
+			let <_12> =
+			    call 'erlang':'+'
+				(90, E)
+			in  let <_13> =
+				call 'erlang':'=<'
+				    (_12, Day)
+			    in  let <_14> =
+				    call 'erlang':'+'
+					(120, E)
+				in  let <_15> =
+					call 'erlang':'<'
+					    (Day, _14)
+				    in  call 'erlang':'and'
+					    (_13, _15)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  let <_16> =
+		      call %% Line 613
+			   'erlang':%% Line 613
+				    '+'
+			  (%% Line 613
+			   90, %% Line 613
+			       E)
+		  in  let <_17> =
+			  call %% Line 613
+			       'erlang':%% Line 613
+					'-'
+			      (%% Line 613
+			       Day, _16)
+		      in  %% Line 613
+			  {4,_17}
+	      %% Line 614
+	      <E,Day>
+		  when try
+			let <_18> =
+			    call 'erlang':'+'
+				(120, E)
+			in  let <_19> =
+				call 'erlang':'=<'
+				    (_18, Day)
+			    in  let <_20> =
+				    call 'erlang':'+'
+					(151, E)
+				in  let <_21> =
+					call 'erlang':'<'
+					    (Day, _20)
+				    in  call 'erlang':'and'
+					    (_19, _21)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  let <_22> =
+		      call %% Line 615
+			   'erlang':%% Line 615
+				    '+'
+			  (%% Line 615
+			   120, %% Line 615
+				E)
+		  in  let <_23> =
+			  call %% Line 615
+			       'erlang':%% Line 615
+					'-'
+			      (%% Line 615
+			       Day, _22)
+		      in  %% Line 615
+			  {5,_23}
+	      %% Line 616
+	      <E,Day>
+		  when try
+			let <_24> =
+			    call 'erlang':'+'
+				(151, E)
+			in  let <_25> =
+				call 'erlang':'=<'
+				    (_24, Day)
+			    in  let <_26> =
+				    call 'erlang':'+'
+					(181, E)
+				in  let <_27> =
+					call 'erlang':'<'
+					    (Day, _26)
+				    in  call 'erlang':'and'
+					    (_25, _27)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  let <_28> =
+		      call %% Line 617
+			   'erlang':%% Line 617
+				    '+'
+			  (%% Line 617
+			   151, %% Line 617
+				E)
+		  in  let <_29> =
+			  call %% Line 617
+			       'erlang':%% Line 617
+					'-'
+			      (%% Line 617
+			       Day, _28)
+		      in  %% Line 617
+			  {6,_29}
+	      %% Line 618
+	      <E,Day>
+		  when try
+			let <_30> =
+			    call 'erlang':'+'
+				(181, E)
+			in  let <_31> =
+				call 'erlang':'=<'
+				    (_30, Day)
+			    in  let <_32> =
+				    call 'erlang':'+'
+					(212, E)
+				in  let <_33> =
+					call 'erlang':'<'
+					    (Day, _32)
+				    in  call 'erlang':'and'
+					    (_31, _33)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  let <_34> =
+		      call %% Line 619
+			   'erlang':%% Line 619
+				    '+'
+			  (%% Line 619
+			   181, %% Line 619
+				E)
+		  in  let <_35> =
+			  call %% Line 619
+			       'erlang':%% Line 619
+					'-'
+			      (%% Line 619
+			       Day, _34)
+		      in  %% Line 619
+			  {7,_35}
+	      %% Line 620
+	      <E,Day>
+		  when try
+			let <_36> =
+			    call 'erlang':'+'
+				(212, E)
+			in  let <_37> =
+				call 'erlang':'=<'
+				    (_36, Day)
+			    in  let <_38> =
+				    call 'erlang':'+'
+					(243, E)
+				in  let <_39> =
+					call 'erlang':'<'
+					    (Day, _38)
+				    in  call 'erlang':'and'
+					    (_37, _39)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  let <_40> =
+		      call %% Line 621
+			   'erlang':%% Line 621
+				    '+'
+			  (%% Line 621
+			   212, %% Line 621
+				E)
+		  in  let <_41> =
+			  call %% Line 621
+			       'erlang':%% Line 621
+					'-'
+			      (%% Line 621
+			       Day, _40)
+		      in  %% Line 621
+			  {8,_41}
+	      %% Line 622
+	      <E,Day>
+		  when try
+			let <_42> =
+			    call 'erlang':'+'
+				(243, E)
+			in  let <_43> =
+				call 'erlang':'=<'
+				    (_42, Day)
+			    in  let <_44> =
+				    call 'erlang':'+'
+					(273, E)
+				in  let <_45> =
+					call 'erlang':'<'
+					    (Day, _44)
+				    in  call 'erlang':'and'
+					    (_43, _45)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  let <_46> =
+		      call %% Line 623
+			   'erlang':%% Line 623
+				    '+'
+			  (%% Line 623
+			   243, %% Line 623
+				E)
+		  in  let <_47> =
+			  call %% Line 623
+			       'erlang':%% Line 623
+					'-'
+			      (%% Line 623
+			       Day, _46)
+		      in  %% Line 623
+			  {9,_47}
+	      %% Line 624
+	      <E,Day>
+		  when try
+			let <_48> =
+			    call 'erlang':'+'
+				(273, E)
+			in  let <_49> =
+				call 'erlang':'=<'
+				    (_48, Day)
+			    in  let <_50> =
+				    call 'erlang':'+'
+					(304, E)
+				in  let <_51> =
+					call 'erlang':'<'
+					    (Day, _50)
+				    in  call 'erlang':'and'
+					    (_49, _51)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  let <_52> =
+		      call %% Line 625
+			   'erlang':%% Line 625
+				    '+'
+			  (%% Line 625
+			   273, %% Line 625
+				E)
+		  in  let <_53> =
+			  call %% Line 625
+			       'erlang':%% Line 625
+					'-'
+			      (%% Line 625
+			       Day, _52)
+		      in  %% Line 625
+			  {10,_53}
+	      %% Line 626
+	      <E,Day>
+		  when try
+			let <_54> =
+			    call 'erlang':'+'
+				(304, E)
+			in  let <_55> =
+				call 'erlang':'=<'
+				    (_54, Day)
+			    in  let <_56> =
+				    call 'erlang':'+'
+					(334, E)
+				in  let <_57> =
+					call 'erlang':'<'
+					    (Day, _56)
+				    in  call 'erlang':'and'
+					    (_55, _57)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  let <_58> =
+		      call %% Line 627
+			   'erlang':%% Line 627
+				    '+'
+			  (%% Line 627
+			   304, %% Line 627
+				E)
+		  in  let <_59> =
+			  call %% Line 627
+			       'erlang':%% Line 627
+					'-'
+			      (%% Line 627
+			       Day, _58)
+		      in  %% Line 627
+			  {11,_59}
+	      %% Line 628
+	      <E,Day>
+		  when try
+			let <_60> =
+			    call 'erlang':'+'
+				(334, E)
+			in  call 'erlang':'=<'
+				(_60, Day)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  let <_61> =
+		      call %% Line 629
+			   'erlang':%% Line 629
+				    '+'
+			  (%% Line 629
+			   334, %% Line 629
+				E)
+		  in  let <_62> =
+			  call %% Line 629
+			       'erlang':%% Line 629
+					'-'
+			      (%% Line 629
+			       Day, _61)
+		      in  %% Line 629
+			  {12,_62}
+	      ( <_64,_63> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_64,_63})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'year_day_to_date2',2}}] )
+      -| [{'function',{'year_day_to_date2',2}}] )
+'dy'/1 =
+    %% Line 636
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'dy',1}}] ) of
+	      <Y>
+		  when call 'erlang':'=<'
+			(( _0
+			   -| [{'function',{'dy',1}}] ),
+			 0) ->
+		  %% Line 637
+		  0
+	      %% Line 638
+	      <Y> when 'true' ->
+		  let <X> =
+		      call %% Line 639
+			   'erlang':%% Line 639
+				    '-'
+			  (%% Line 639
+			   Y, %% Line 639
+			      1)
+		  in  let <_5> =
+			  call %% Line 640
+			       'erlang':%% Line 640
+					'div'
+			      (%% Line 640
+			       X, %% Line 640
+				  4)
+		      in  let <_4> =
+			      call %% Line 640
+				   'erlang':%% Line 640
+					    'div'
+				  (%% Line 640
+				   X, %% Line 640
+				      100)
+			  in  let <_6> =
+				  call %% Line 640
+				       'erlang':%% Line 640
+						'-'
+				      (_5, _4)
+			      in  let <_3> =
+				      call %% Line 640
+					   'erlang':%% Line 640
+						    'div'
+					  (%% Line 640
+					   X, %% Line 640
+					      400)
+				  in  let <_7> =
+					  call %% Line 640
+					       'erlang':%% Line 640
+							'+'
+					      (_6, _3)
+				      in  let <_2> =
+					      call %% Line 641
+						   'erlang':%% Line 641
+							    '*'
+						  (%% Line 641
+						   X, %% Line 641
+						      365)
+					  in  let <_8> =
+						  call %% Line 640
+						       'erlang':%% Line 640
+								'+'
+						      (_7, _2)
+					      in  %% Line 641
+						  call 'erlang':'+'
+						      (_8, 366)
+	    end
+	    -| [{'function',{'dy',1}}] )
+      -| [{'function',{'dy',1}}] )
+'dm'/1 =
+    %% Line 650
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'dm',1}}] ) of
+	      <1> when 'true' ->
+		  0
+	      <2> when 'true' ->
+		  31
+	      <3> when 'true' ->
+		  59
+	      <4> when 'true' ->
+		  90
+	      %% Line 651
+	      <5> when 'true' ->
+		  120
+	      %% Line 651
+	      <6> when 'true' ->
+		  151
+	      %% Line 651
+	      <7> when 'true' ->
+		  181
+	      %% Line 651
+	      <8> when 'true' ->
+		  212
+	      %% Line 652
+	      <9> when 'true' ->
+		  243
+	      %% Line 652
+	      <10> when 'true' ->
+		  273
+	      %% Line 652
+	      <11> when 'true' ->
+		  304
+	      %% Line 652
+	      <12> when 'true' ->
+		  334
+	      ( <_1> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_1})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'dm',1}}] )
+      -| [{'function',{'dm',1}}] )
+'df'/2 =
+    %% Line 660
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <_5,Month>
+		  when call 'erlang':'<'
+			(Month,
+			 3) ->
+		  %% Line 661
+		  0
+	      %% Line 662
+	      <Year,_6> when 'true' ->
+		  %% Line 663
+		  case apply 'is_leap_year'/1
+			   (Year) of
+		    %% Line 664
+		    <'true'> when 'true' ->
+			1
+		    %% Line 665
+		    <'false'> when 'true' ->
+			0
+		    ( <_2> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_2})
+		      -| ['compiler_generated'] )
+		  end
+	    end
+	    -| [{'function',{'df',2}}] )
+      -| [{'function',{'df',2}}] )
+'check'/3 =
+    %% Line 668
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <_X_Arg,_X_Options,Secs>
+		  when let <_5> =
+			call 'erlang':'>='
+			    (Secs, -62167219200)
+		    in  let <_7> =
+			    call %% Line 669
+				 'erlang':%% Line 669
+					  '<'
+				(%% Line 669
+				 Secs, %% Line 669
+				       253402300800)
+			in  call 'erlang':'and'
+				(_5, _7) ->
+		  %% Line 670
+		  'ok'
+	      %% Line 671
+	      <Arg,Options,_X_Secs> when 'true' ->
+		  %% Line 672
+		  call 'erlang':'error'
+		      ({'badarg',[Arg|[Options|[]]]})
+	    end
+	    -| [{'function',{'check',3}}] )
+      -| [{'function',{'check',3}}] )
+'datetime_to_system_time'/1 =
+    %% Line 674
+    ( fun (_0) ->
+	  let <_2> =
+	      apply %% Line 675
+		    'datetime_to_gregorian_seconds'/1
+		  (( _0
+		     -| [{'function',{'datetime_to_system_time',1}}] ))
+	  in  %% Line 675
+	      call 'erlang':'-'
+		  (_2, 62167219200)
+      -| [{'function',{'datetime_to_system_time',1}}] )
+'system_time_to_datetime'/1 =
+    %% Line 677
+    ( fun (_0) ->
+	  let <_2> =
+	      call %% Line 678
+		   'erlang':%% Line 678
+			    '+'
+		  (( _0
+		     -| [{'function',{'system_time_to_datetime',1}}] ), %% Line 678
+									62167219200)
+	  in  %% Line 678
+	      apply 'gregorian_seconds_to_datetime'/1
+		  (_2)
+      -| [{'function',{'system_time_to_datetime',1}}] )
+'offset'/2 =
+    %% Line 680
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <OffsetOption,Secs0>
+		  when let <_2> =
+			call 'erlang':'=:='
+			    (OffsetOption, [])
+		    in  let <_3> =
+			    call %% Line 681
+				 'erlang':%% Line 681
+					  'is_integer'
+				(%% Line 681
+				 OffsetOption)
+			in  call 'erlang':'or'
+				(_2, _3) ->
+		  let <_5> =
+		      case %% Line 682
+			   call 'erlang':'<'
+			       (Secs0, 0) of
+			%% Line 683
+			<'true'> when 'true' ->
+			    45
+			%% Line 684
+			<'false'> when 'true' ->
+			    43
+		      end
+		  in  let <Secs> =
+			  call %% Line 686
+			       'erlang':%% Line 686
+					'abs'
+			      (%% Line 686
+			       Secs0)
+		      in  let <Hour> =
+			      call %% Line 687
+				   'erlang':%% Line 687
+					    'div'
+				  (%% Line 687
+				   Secs, %% Line 687
+					 3600)
+			  in  let <_9> =
+				  call %% Line 688
+				       'erlang':%% Line 688
+						'rem'
+				      (%% Line 688
+				       Secs, %% Line 688
+					     3600)
+			      in  let <Min> =
+				      call %% Line 688
+					   'erlang':%% Line 688
+						    'div'
+					  (_9, %% Line 688
+					       60)
+				  in  let <_11> =
+					  apply %% Line 689
+						'pad2'/1
+					      (%% Line 689
+					       Hour)
+				      in  let <_12> =
+					      apply %% Line 689
+						    'pad2'/1
+						  (%% Line 689
+						   Min)
+					  in  let <_13> =
+						  call %% Line 689
+						       'lists':%% Line 689
+							       'append'
+						      (%% Line 689
+						       [_11|[[58]|[_12|[]]]])
+					      in  %% Line 689
+						  [_5|_13]
+	      %% Line 690
+	      <OffsetOption,_X_Secs> when 'true' ->
+		  %% Line 691
+		  OffsetOption
+	    end
+	    -| [{'function',{'offset',2}}] )
+      -| [{'function',{'offset',2}}] )
+'offset_adjustment'/3 =
+    %% Line 693
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <Time,Unit,[]> when 'true' ->
+		  %% Line 694
+		  apply 'local_offset'/2
+		      (Time, Unit)
+	      %% Line 695
+	      <Time,Unit,OffsetString>
+		  when call 'erlang':'is_list'
+			(OffsetString) ->
+		  %% Line 696
+		  apply 'offset_string_adjustment'/3
+		      (Time, Unit, OffsetString)
+	      %% Line 697
+	      <_X_Time,Unit,Offset>
+		  when call 'erlang':'is_integer'
+			(Offset) ->
+		  %% Line 698
+		  call 'erlang':'convert_time_unit'
+		      (Offset, Unit, 'second')
+	      ( <_5,_4,_3> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_5,_4,_3})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'offset_adjustment',3}}] )
+      -| [{'function',{'offset_adjustment',3}}] )
+'offset_string_adjustment'/3 =
+    %% Line 700
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <_X_Time,_X_Unit,[90]> when 'true' ->
+		  %% Line 701
+		  0
+	      %% Line 702
+	      <_X_Time,_X_Unit,[122]> when 'true' ->
+		  %% Line 703
+		  0
+	      %% Line 704
+	      <_X_Time,_X_Unit,Tz> when 'true' ->
+		  %% Line 705
+		  case Tz of
+		    <[Sign|[H1|[H2|[58|_@r0 = [M1|[M2|[]]]]]]]> when 'true' ->
+			let <Hour> =
+			    call %% Line 706
+				 'erlang':%% Line 706
+					  'list_to_integer'
+				(%% Line 706
+				 [H1|[H2|[]]])
+			in  let <Min> =
+				call %% Line 707
+				     'erlang':%% Line 707
+					      'list_to_integer'
+				    (%% Line 707
+				     _@r0)
+			    in  let <_7> =
+				    call %% Line 708
+					 'erlang':%% Line 708
+						  '*'
+					(%% Line 708
+					 3600, %% Line 708
+					       Hour)
+				in  let <_6> =
+					call %% Line 708
+					     'erlang':%% Line 708
+						      '*'
+					    (%% Line 708
+					     60, %% Line 708
+						 Min)
+				    in  let <Adjustment> =
+					    call %% Line 708
+						 'erlang':%% Line 708
+							  '+'
+						(_7, _6)
+					in  %% Line 709
+					    case Sign of
+					      %% Line 710
+					      <45> when 'true' ->
+						  call 'erlang':'-'
+						      (Adjustment)
+					      %% Line 711
+					      <43> when 'true' ->
+						  Adjustment
+					      ( <_9> when 'true' ->
+						    primop 'match_fail'
+							({'case_clause',_9})
+						-| ['compiler_generated'] )
+					    end
+		    ( <_3> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_3})
+		      -| ['compiler_generated'] )
+		  end
+	    end
+	    -| [{'function',{'offset_string_adjustment',3}}] )
+      -| [{'function',{'offset_string_adjustment',3}}] )
+'local_offset'/2 =
+    %% Line 714
+    ( fun (_0,_1) ->
+	  let <UniversalTime> =
+	      apply %% Line 716
+		    'system_time_to_universal_time'/2
+		  (_0, _1)
+	  in  let <LocalTime> =
+		  call %% Line 717
+		       'erlang':%% Line 717
+				'universaltime_to_localtime'
+		      (%% Line 717
+		       UniversalTime)
+	      in  let <LocalSecs> =
+		      apply %% Line 718
+			    'datetime_to_gregorian_seconds'/1
+			  (%% Line 718
+			   LocalTime)
+		  in  let <UniversalSecs> =
+			  apply %% Line 719
+				'datetime_to_gregorian_seconds'/1
+			      (%% Line 719
+			       UniversalTime)
+		      in  %% Line 720
+			  call 'erlang':'-'
+			      (LocalSecs, UniversalSecs)
+      -| [{'function',{'local_offset',2}}] )
+'fraction_str'/2 =
+    %% Line 722
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <1,_X_Time> when 'true' ->
+		  %% Line 723
+		  []
+	      %% Line 724
+	      <Factor,Time> when 'true' ->
+		  let <Fraction> =
+		      call %% Line 725
+			   'erlang':%% Line 725
+				    'rem'
+			  (%% Line 725
+			   Time, %% Line 725
+				 Factor)
+		  in  let <_3> =
+			  call %% Line 726
+			       'erlang':%% Line 726
+					'abs'
+			      (%% Line 726
+			       Fraction)
+		      in  let <S> =
+			      call %% Line 726
+				   'erlang':%% Line 726
+					    'integer_to_list'
+				  (_3)
+			  in  let <_6> =
+				  apply %% Line 727
+					'log10'/1
+				      (%% Line 727
+				       Factor)
+			      in  let <_5> =
+				      call %% Line 727
+					   'erlang':%% Line 727
+						    'length'
+					  (%% Line 727
+					   S)
+				  in  let <_7> =
+					  call %% Line 727
+					       'erlang':%% Line 727
+							'-'
+					      (_6, _5)
+				      in  let <_8> =
+					      apply %% Line 727
+						    'pad'/2
+						  (_7, %% Line 727
+						       S)
+					  in  %% Line 727
+					      [46|_8]
+	    end
+	    -| [{'function',{'fraction_str',2}}] )
+      -| [{'function',{'fraction_str',2}}] )
+'fraction'/2 =
+    %% Line 729
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <'second',_7> when 'true' ->
+		  %% Line 730
+		  0
+	      %% Line 731
+	      <_8,[]> when 'true' ->
+		  %% Line 732
+		  0
+	      %% Line 733
+	      <Unit,FractionStr> when 'true' ->
+		  let <_3> =
+		      apply %% Line 734
+			    'factor'/1
+			  (%% Line 734
+			   Unit)
+		  in  let <_2> =
+			  call %% Line 734
+			       'erlang':%% Line 734
+					'list_to_float'
+			      (%% Line 734
+			       [48|FractionStr])
+		      in  let <_4> =
+			      call %% Line 734
+				   'erlang':%% Line 734
+					    '*'
+				  (_3, _2)
+			  in  %% Line 734
+			      call 'erlang':'round'
+				  (_4)
+	    end
+	    -| [{'function',{'fraction',2}}] )
+      -| [{'function',{'fraction',2}}] )
+'copy_sign'/2 =
+    %% Line 736
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <N1,N2>
+		  when call 'erlang':'<'
+			(N2,
+			 0) ->
+		  call 'erlang':'-'
+		      (N1)
+	      %% Line 737
+	      <N1,_X_N2> when 'true' ->
+		  N1
+	    end
+	    -| [{'function',{'copy_sign',2}}] )
+      -| [{'function',{'copy_sign',2}}] )
+'factor'/1 =
+    %% Line 739
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'factor',1}}] ) of
+	      <'second'> when 'true' ->
+		  1
+	      %% Line 740
+	      <'millisecond'> when 'true' ->
+		  1000
+	      %% Line 741
+	      <'microsecond'> when 'true' ->
+		  1000000
+	      %% Line 742
+	      <'nanosecond'> when 'true' ->
+		  1000000000
+	      ( <_1> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_1})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'factor',1}}] )
+      -| [{'function',{'factor',1}}] )
+'log10'/1 =
+    %% Line 744
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'log10',1}}] ) of
+	      <1000> when 'true' ->
+		  3
+	      %% Line 745
+	      <1000000> when 'true' ->
+		  6
+	      %% Line 746
+	      <1000000000> when 'true' ->
+		  9
+	      ( <_1> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_1})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'log10',1}}] )
+      -| [{'function',{'log10',1}}] )
+'pad'/2 =
+    %% Line 748
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <0,S> when 'true' ->
+		  %% Line 749
+		  S
+	      %% Line 750
+	      <I,S> when 'true' ->
+		  let <_2> =
+		      call %% Line 751
+			   'erlang':%% Line 751
+				    '-'
+			  (%% Line 751
+			   I, %% Line 751
+			      1)
+		  in  let <_3> =
+			  apply %% Line 751
+				'pad'/2
+			      (_2, %% Line 751
+				   S)
+		      in  %% Line 751
+			  [48|_3]
+	    end
+	    -| [{'function',{'pad',2}}] )
+      -| [{'function',{'pad',2}}] )
+'pad2'/1 =
+    %% Line 753
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'pad2',1}}] ) of
+	      <N>
+		  when call 'erlang':'<'
+			(( _0
+			   -| [{'function',{'pad2',1}}] ),
+			 10) ->
+		  let <_1> =
+		      call %% Line 754
+			   'erlang':%% Line 754
+				    'integer_to_list'
+			  (%% Line 754
+			   N)
+		  in  %% Line 754
+		      [48|_1]
+	      %% Line 755
+	      <N> when 'true' ->
+		  %% Line 756
+		  call 'erlang':'integer_to_list'
+		      (N)
+	    end
+	    -| [{'function',{'pad2',1}}] )
+      -| [{'function',{'pad2',1}}] )
+'pad4'/1 =
+    %% Line 758
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'pad4',1}}] ) of
+	      <N>
+		  when call 'erlang':'<'
+			(( _0
+			   -| [{'function',{'pad4',1}}] ),
+			 10) ->
+		  let <_1> =
+		      call %% Line 759
+			   'erlang':%% Line 759
+				    'integer_to_list'
+			  (%% Line 759
+			   N)
+		  in  %% Line 759
+		      [48|[48|[48|_1]]]
+	      %% Line 760
+	      <N>
+		  when call 'erlang':'<'
+			(( _0
+			   -| [{'function',{'pad4',1}}] ),
+			 100) ->
+		  let <_2> =
+		      call %% Line 761
+			   'erlang':%% Line 761
+				    'integer_to_list'
+			  (%% Line 761
+			   N)
+		  in  %% Line 761
+		      [48|[48|_2]]
+	      %% Line 762
+	      <N>
+		  when call 'erlang':'<'
+			(( _0
+			   -| [{'function',{'pad4',1}}] ),
+			 1000) ->
+		  let <_3> =
+		      call %% Line 763
+			   'erlang':%% Line 763
+				    'integer_to_list'
+			  (%% Line 763
+			   N)
+		  in  %% Line 763
+		      [48|_3]
+	      %% Line 764
+	      <N> when 'true' ->
+		  %% Line 765
+		  call 'erlang':'integer_to_list'
+		      (N)
+	    end
+	    -| [{'function',{'pad4',1}}] )
+      -| [{'function',{'pad4',1}}] )
+'module_info'/0 =
+    ( fun () ->
+	  call 'erlang':'get_module_info'
+	      ('calendar')
+      -| [{'function',{'module_info',0}}] )
+'module_info'/1 =
+    ( fun (_0) ->
+	  call 'erlang':'get_module_info'
+	      ('calendar', ( _0
+			     -| [{'function',{'module_info',1}}] ))
+      -| [{'function',{'module_info',1}}] )
+end

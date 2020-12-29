@@ -1,0 +1,1586 @@
+module 'proplists' ['append_values'/2,
+		    'compact'/1,
+		    'delete'/2,
+		    'expand'/2,
+		    'get_all_values'/2,
+		    'get_bool'/2,
+		    'get_keys'/1,
+		    'get_value'/2,
+		    'get_value'/3,
+		    'is_defined'/2,
+		    'lookup'/2,
+		    'lookup_all'/2,
+		    'module_info'/0,
+		    'module_info'/1,
+		    'normalize'/2,
+		    'property'/1,
+		    'property'/2,
+		    'split'/2,
+		    'substitute_aliases'/2,
+		    'substitute_negations'/2,
+		    'unfold'/1]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[112|[114|[111|[112|[108|[105|[115|[116|[115|[46|[101|[114|[108]]]]]]]]]]]]]]]]],1}],
+		%% Line 42
+		'export_type' =
+		    %% Line 42
+		    [{'property',0}|[{'proplist',0}]],
+		%% Line 44
+		'type' =
+		    %% Line 44
+		    [{'property',{'type',44,'union',[{'type',44,'atom',[]}|[{'type',44,'tuple','any'}]]},[]}],
+		%% Line 45
+		'type' =
+		    %% Line 45
+		    [{'proplist',{'type',45,'list',[{'user_type',45,'property',[]}]},[]}],
+		%% Line 56
+		'spec' =
+		    %% Line 56
+		    [{{'property',1},[{'type',56,'bounded_fun',[{'type',56,'fun',[{'type',56,'product',[{'var',56,'PropertyIn'}]}|[{'var',56,'PropertyOut'}]]}|[[{'type',57,'constraint',[{'atom',57,'is_subtype'}|[[{'var',57,'PropertyIn'}|[{'user_type',57,'property',[]}]]]]}|[{'type',58,'constraint',[{'atom',58,'is_subtype'}|[[{'var',58,'PropertyOut'}|[{'user_type',58,'property',[]}]]]]}]]]]}]}],
+		%% Line 73
+		'spec' =
+		    %% Line 73
+		    [{{'property',2},[{'type',73,'bounded_fun',[{'type',73,'fun',[{'type',73,'product',[{'var',73,'Key'}|[{'var',73,'Value'}]]}|[{'var',73,'Property'}]]}|[[{'type',74,'constraint',[{'atom',74,'is_subtype'}|[[{'var',74,'Key'}|[{'type',74,'term',[]}]]]]}|[{'type',75,'constraint',[{'atom',75,'is_subtype'}|[[{'var',75,'Value'}|[{'type',75,'term',[]}]]]]}|[{'type',76,'constraint',[{'atom',76,'is_subtype'}|[[{'var',76,'Property'}|[{'type',76,'union',[{'type',76,'atom',[]}|[{'type',76,'tuple',[{'type',76,'term',[]}|[{'type',76,'term',[]}]]}]]}]]]]}]]]]]}]}],
+		%% Line 91
+		'spec' =
+		    %% Line 91
+		    [{{'unfold',1},[{'type',91,'bounded_fun',[{'type',91,'fun',[{'type',91,'product',[{'var',91,'ListIn'}]}|[{'var',91,'ListOut'}]]}|[[{'type',92,'constraint',[{'atom',92,'is_subtype'}|[[{'var',92,'ListIn'}|[{'type',92,'list',[{'type',92,'term',[]}]}]]]]}|[{'type',93,'constraint',[{'atom',93,'is_subtype'}|[[{'var',93,'ListOut'}|[{'type',93,'list',[{'type',93,'term',[]}]}]]]]}]]]]}]}],
+		%% Line 110
+		'spec' =
+		    %% Line 110
+		    [{{'compact',1},[{'type',110,'bounded_fun',[{'type',110,'fun',[{'type',110,'product',[{'var',110,'ListIn'}]}|[{'var',110,'ListOut'}]]}|[[{'type',111,'constraint',[{'atom',111,'is_subtype'}|[[{'var',111,'ListIn'}|[{'type',111,'list',[{'user_type',111,'property',[]}]}]]]]}|[{'type',112,'constraint',[{'atom',112,'is_subtype'}|[[{'var',112,'ListOut'}|[{'type',112,'list',[{'user_type',112,'property',[]}]}]]]]}]]]]}]}],
+		%% Line 129
+		'spec' =
+		    %% Line 129
+		    [{{'lookup',2},[{'type',129,'bounded_fun',[{'type',129,'fun',[{'type',129,'product',[{'var',129,'Key'}|[{'var',129,'List'}]]}|[{'type',129,'union',[{'atom',129,'none'}|[{'type',129,'tuple','any'}]]}]]}|[[{'type',130,'constraint',[{'atom',130,'is_subtype'}|[[{'var',130,'Key'}|[{'type',130,'term',[]}]]]]}|[{'type',131,'constraint',[{'atom',131,'is_subtype'}|[[{'var',131,'List'}|[{'type',131,'list',[{'type',131,'term',[]}]}]]]]}]]]]}]}],
+		%% Line 151
+		'spec' =
+		    %% Line 151
+		    [{{'lookup_all',2},[{'type',151,'bounded_fun',[{'type',151,'fun',[{'type',151,'product',[{'var',151,'Key'}|[{'var',151,'List'}]]}|[{'type',151,'list',[{'type',151,'tuple','any'}]}]]}|[[{'type',152,'constraint',[{'atom',152,'is_subtype'}|[[{'var',152,'Key'}|[{'type',152,'term',[]}]]]]}|[{'type',153,'constraint',[{'atom',153,'is_subtype'}|[[{'var',153,'List'}|[{'type',153,'list',[{'type',153,'term',[]}]}]]]]}]]]]}]}],
+		%% Line 173
+		'spec' =
+		    %% Line 173
+		    [{{'is_defined',2},[{'type',173,'bounded_fun',[{'type',173,'fun',[{'type',173,'product',[{'var',173,'Key'}|[{'var',173,'List'}]]}|[{'type',173,'boolean',[]}]]}|[[{'type',174,'constraint',[{'atom',174,'is_subtype'}|[[{'var',174,'Key'}|[{'type',174,'term',[]}]]]]}|[{'type',175,'constraint',[{'atom',175,'is_subtype'}|[[{'var',175,'List'}|[{'type',175,'list',[{'type',175,'term',[]}]}]]]]}]]]]}]}],
+		%% Line 193
+		'spec' =
+		    %% Line 193
+		    [{{'get_value',2},[{'type',193,'bounded_fun',[{'type',193,'fun',[{'type',193,'product',[{'var',193,'Key'}|[{'var',193,'List'}]]}|[{'type',193,'term',[]}]]}|[[{'type',194,'constraint',[{'atom',194,'is_subtype'}|[[{'var',194,'Key'}|[{'type',194,'term',[]}]]]]}|[{'type',195,'constraint',[{'atom',195,'is_subtype'}|[[{'var',195,'List'}|[{'type',195,'list',[{'type',195,'term',[]}]}]]]]}]]]]}]}],
+		%% Line 210
+		'spec' =
+		    %% Line 210
+		    [{{'get_value',3},[{'type',210,'bounded_fun',[{'type',210,'fun',[{'type',210,'product',[{'var',210,'Key'}|[{'var',210,'List'}|[{'var',210,'Default'}]]]}|[{'type',210,'term',[]}]]}|[[{'type',211,'constraint',[{'atom',211,'is_subtype'}|[[{'var',211,'Key'}|[{'type',211,'term',[]}]]]]}|[{'type',212,'constraint',[{'atom',212,'is_subtype'}|[[{'var',212,'List'}|[{'type',212,'list',[{'type',212,'term',[]}]}]]]]}|[{'type',213,'constraint',[{'atom',213,'is_subtype'}|[[{'var',213,'Default'}|[{'type',213,'term',[]}]]]]}]]]]]}]}],
+		%% Line 239
+		'spec' =
+		    %% Line 239
+		    [{{'get_all_values',2},[{'type',239,'bounded_fun',[{'type',239,'fun',[{'type',239,'product',[{'var',239,'Key'}|[{'var',239,'List'}]]}|[{'type',239,'list',[{'type',239,'term',[]}]}]]}|[[{'type',240,'constraint',[{'atom',240,'is_subtype'}|[[{'var',240,'Key'}|[{'type',240,'term',[]}]]]]}|[{'type',241,'constraint',[{'atom',241,'is_subtype'}|[[{'var',241,'List'}|[{'type',241,'list',[{'type',241,'term',[]}]}]]]]}]]]]}]}],
+		%% Line 268
+		'spec' =
+		    %% Line 268
+		    [{{'append_values',2},[{'type',268,'bounded_fun',[{'type',268,'fun',[{'type',268,'product',[{'var',268,'Key'}|[{'var',268,'ListIn'}]]}|[{'var',268,'ListOut'}]]}|[[{'type',269,'constraint',[{'atom',269,'is_subtype'}|[[{'var',269,'Key'}|[{'type',269,'term',[]}]]]]}|[{'type',270,'constraint',[{'atom',270,'is_subtype'}|[[{'var',270,'ListIn'}|[{'type',270,'list',[{'type',270,'term',[]}]}]]]]}|[{'type',271,'constraint',[{'atom',271,'is_subtype'}|[[{'var',271,'ListOut'}|[{'type',271,'list',[{'type',271,'term',[]}]}]]]]}]]]]]}]}],
+		%% Line 302
+		'spec' =
+		    %% Line 302
+		    [{{'get_bool',2},[{'type',302,'bounded_fun',[{'type',302,'fun',[{'type',302,'product',[{'var',302,'Key'}|[{'var',302,'List'}]]}|[{'type',302,'boolean',[]}]]}|[[{'type',303,'constraint',[{'atom',303,'is_subtype'}|[[{'var',303,'Key'}|[{'type',303,'term',[]}]]]]}|[{'type',304,'constraint',[{'atom',304,'is_subtype'}|[[{'var',304,'List'}|[{'type',304,'list',[{'type',304,'term',[]}]}]]]]}]]]]}]}],
+		%% Line 329
+		'spec' =
+		    %% Line 329
+		    [{{'get_keys',1},[{'type',329,'bounded_fun',[{'type',329,'fun',[{'type',329,'product',[{'var',329,'List'}]}|[{'type',329,'list',[{'type',329,'term',[]}]}]]}|[[{'type',330,'constraint',[{'atom',330,'is_subtype'}|[[{'var',330,'List'}|[{'type',330,'list',[{'type',330,'term',[]}]}]]]]}]]]}]}],
+		%% Line 352
+		'spec' =
+		    %% Line 352
+		    [{{'delete',2},[{'type',352,'bounded_fun',[{'type',352,'fun',[{'type',352,'product',[{'var',352,'Key'}|[{'var',352,'List'}]]}|[{'var',352,'List'}]]}|[[{'type',353,'constraint',[{'atom',353,'is_subtype'}|[[{'var',353,'Key'}|[{'type',353,'term',[]}]]]]}|[{'type',354,'constraint',[{'atom',354,'is_subtype'}|[[{'var',354,'List'}|[{'type',354,'list',[{'type',354,'term',[]}]}]]]]}]]]]}]}],
+		%% Line 385
+		'spec' =
+		    %% Line 385
+		    [{{'substitute_aliases',2},[{'type',385,'bounded_fun',[{'type',385,'fun',[{'type',385,'product',[{'var',385,'Aliases'}|[{'var',385,'ListIn'}]]}|[{'var',385,'ListOut'}]]}|[[{'type',386,'constraint',[{'atom',386,'is_subtype'}|[[{'var',386,'Aliases'}|[{'type',386,'list',[{'type',386,'tuple',[{'var',386,'Key'}|[{'var',386,'Key'}]]}]}]]]]}|[{'type',387,'constraint',[{'atom',387,'is_subtype'}|[[{'var',387,'Key'}|[{'type',387,'term',[]}]]]]}|[{'type',388,'constraint',[{'atom',388,'is_subtype'}|[[{'var',388,'ListIn'}|[{'type',388,'list',[{'type',388,'term',[]}]}]]]]}|[{'type',389,'constraint',[{'atom',389,'is_subtype'}|[[{'var',389,'ListOut'}|[{'type',389,'list',[{'type',389,'term',[]}]}]]]]}]]]]]]}]}],
+		%% Line 428
+		'spec' =
+		    %% Line 428
+		    [{{'substitute_negations',2},[{'type',428,'bounded_fun',[{'type',428,'fun',[{'type',428,'product',[{'var',428,'Negations'}|[{'var',428,'ListIn'}]]}|[{'var',428,'ListOut'}]]}|[[{'type',429,'constraint',[{'atom',429,'is_subtype'}|[[{'var',429,'Negations'}|[{'type',429,'list',[{'type',429,'tuple',[{'var',429,'Key1'}|[{'var',429,'Key2'}]]}]}]]]]}|[{'type',430,'constraint',[{'atom',430,'is_subtype'}|[[{'var',430,'Key1'}|[{'type',430,'term',[]}]]]]}|[{'type',431,'constraint',[{'atom',431,'is_subtype'}|[[{'var',431,'Key2'}|[{'type',431,'term',[]}]]]]}|[{'type',432,'constraint',[{'atom',432,'is_subtype'}|[[{'var',432,'ListIn'}|[{'type',432,'list',[{'type',432,'term',[]}]}]]]]}|[{'type',433,'constraint',[{'atom',433,'is_subtype'}|[[{'var',433,'ListOut'}|[{'type',433,'list',[{'type',433,'term',[]}]}]]]]}]]]]]]]}]}],
+		%% Line 496
+		'spec' =
+		    %% Line 496
+		    [{{'expand',2},[{'type',496,'bounded_fun',[{'type',496,'fun',[{'type',496,'product',[{'var',496,'Expansions'}|[{'var',496,'ListIn'}]]}|[{'var',496,'ListOut'}]]}|[[{'type',497,'constraint',[{'atom',497,'is_subtype'}|[[{'var',497,'Expansions'}|[{'type',497,'list',[{'type',497,'tuple',[{'ann_type',497,[{'var',497,'Property'}|[{'user_type',497,'property',[]}]]}|[{'ann_type',497,[{'var',497,'Expansion'}|[{'type',497,'list',[{'type',497,'term',[]}]}]]}]]}]}]]]]}|[{'type',498,'constraint',[{'atom',498,'is_subtype'}|[[{'var',498,'ListIn'}|[{'type',498,'list',[{'type',498,'term',[]}]}]]]]}|[{'type',499,'constraint',[{'atom',499,'is_subtype'}|[[{'var',499,'ListOut'}|[{'type',499,'list',[{'type',499,'term',[]}]}]]]]}]]]]]}]}],
+		%% Line 599
+		'spec' =
+		    %% Line 599
+		    [{{'normalize',2},[{'type',599,'bounded_fun',[{'type',599,'fun',[{'type',599,'product',[{'var',599,'ListIn'}|[{'var',599,'Stages'}]]}|[{'var',599,'ListOut'}]]}|[[{'type',600,'constraint',[{'atom',600,'is_subtype'}|[[{'var',600,'ListIn'}|[{'type',600,'list',[{'type',600,'term',[]}]}]]]]}|[{'type',601,'constraint',[{'atom',601,'is_subtype'}|[[{'var',601,'Stages'}|[{'type',601,'list',[{'var',601,'Operation'}]}]]]]}|[{'type',602,'constraint',[{'atom',602,'is_subtype'}|[[{'var',602,'Operation'}|[{'type',602,'union',[{'type',602,'tuple',[{'atom',602,'aliases'}|[{'var',602,'Aliases'}]]}|[{'type',603,'tuple',[{'atom',603,'negations'}|[{'var',603,'Negations'}]]}|[{'type',604,'tuple',[{'atom',604,'expand'}|[{'var',604,'Expansions'}]]}]]]}]]]]}|[{'type',605,'constraint',[{'atom',605,'is_subtype'}|[[{'var',605,'Aliases'}|[{'type',605,'list',[{'type',605,'tuple',[{'var',605,'Key'}|[{'var',605,'Key'}]]}]}]]]]}|[{'type',606,'constraint',[{'atom',606,'is_subtype'}|[[{'var',606,'Negations'}|[{'type',606,'list',[{'type',606,'tuple',[{'var',606,'Key'}|[{'var',606,'Key'}]]}]}]]]]}|[{'type',607,'constraint',[{'atom',607,'is_subtype'}|[[{'var',607,'Expansions'}|[{'type',607,'list',[{'type',607,'tuple',[{'ann_type',607,[{'var',607,'Property'}|[{'user_type',607,'property',[]}]]}|[{'ann_type',607,[{'var',607,'Expansion'}|[{'type',607,'list',[{'type',607,'term',[]}]}]]}]]}]}]]]]}|[{'type',608,'constraint',[{'atom',608,'is_subtype'}|[[{'var',608,'ListOut'}|[{'type',608,'list',[{'type',608,'term',[]}]}]]]]}]]]]]]]]]}]}],
+		%% Line 635
+		'spec' =
+		    %% Line 635
+		    [{{'split',2},[{'type',635,'bounded_fun',[{'type',635,'fun',[{'type',635,'product',[{'var',635,'List'}|[{'var',635,'Keys'}]]}|[{'type',635,'tuple',[{'var',635,'Lists'}|[{'var',635,'Rest'}]]}]]}|[[{'type',636,'constraint',[{'atom',636,'is_subtype'}|[[{'var',636,'List'}|[{'type',636,'list',[{'type',636,'term',[]}]}]]]]}|[{'type',637,'constraint',[{'atom',637,'is_subtype'}|[[{'var',637,'Keys'}|[{'type',637,'list',[{'type',637,'term',[]}]}]]]]}|[{'type',638,'constraint',[{'atom',638,'is_subtype'}|[[{'var',638,'Lists'}|[{'type',638,'list',[{'type',638,'list',[{'type',638,'term',[]}]}]}]]]]}|[{'type',639,'constraint',[{'atom',639,'is_subtype'}|[[{'var',639,'Rest'}|[{'type',639,'list',[{'type',639,'term',[]}]}]]]]}]]]]]]}]}]]
+'property'/1 =
+    %% Line 60
+    fun (_0) ->
+	case _0 of
+	  <{Key,'true'}>
+	      when call 'erlang':'is_atom'
+		    (Key) ->
+	      %% Line 61
+	      Key
+	  %% Line 62
+	  <Property> when 'true' ->
+	      %% Line 63
+	      Property
+	end
+'property'/2 =
+    %% Line 78
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Key,'true'>
+	      when call 'erlang':'is_atom'
+		    (Key) ->
+	      %% Line 79
+	      Key
+	  %% Line 80
+	  <Key,Value> when 'true' ->
+	      %% Line 81
+	      {Key,Value}
+	end
+'unfold'/1 =
+    %% Line 95
+    fun (_0) ->
+	case _0 of
+	  <[P|Ps]> when 'true' ->
+	      %% Line 96
+	      case <> of
+		<>
+		    when call 'erlang':'is_atom'
+			  (P) ->
+		    let <_1> =
+			apply %% Line 97
+			      'unfold'/1
+			    (%% Line 97
+			     Ps)
+		    in  %% Line 97
+			[{P,'true'}|_1]
+		%% Line 98
+		<> when 'true' ->
+		    let <_2> =
+			apply %% Line 99
+			      'unfold'/1
+			    (%% Line 99
+			     Ps)
+		    in  %% Line 99
+			[P|_2]
+	      end
+	  %% Line 101
+	  <[]> when 'true' ->
+	      %% Line 102
+	      []
+	  ( <_3> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_3})
+		  -| [{'function_name',{'unfold',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'compact'/1 =
+    %% Line 114
+    fun (_0) ->
+	%% Line 115
+	( letrec
+	      'lc$^0'/1 =
+		  fun (_3) ->
+		      case _3 of
+			<[P|_2]> when 'true' ->
+			    let <_4> =
+				apply 'property'/1
+				    (P)
+			    in  let <_5> =
+				    apply 'lc$^0'/1
+					(_2)
+				in  ( [_4|_5]
+				      -| ['compiler_generated'] )
+			<[]> when 'true' ->
+			    []
+			( <_7> when 'true' ->
+			      ( primop 'match_fail'
+				    ({'function_clause',_7})
+				-| [{'function_name',{'lc$^0',1}}] )
+			  -| ['compiler_generated'] )
+		      end
+	  in  apply 'lc$^0'/1
+		  (_0)
+	  -| ['list_comprehension'] )
+'lookup'/2 =
+    %% Line 133
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Key,[P|Ps]> when 'true' ->
+	      %% Line 134
+	      case <> of
+		<>
+		    when let <_2> =
+			  call 'erlang':'is_atom'
+			      (P)
+		      in  let <_3> =
+			      call 'erlang':'=:='
+				  (P, Key)
+			  in  call 'erlang':'and'
+				  (_2, _3) ->
+		    %% Line 135
+		    {Key,'true'}
+		%% Line 136
+		<>
+		    when try
+			  let <_4> =
+			      call 'erlang':'tuple_size'
+				  (P)
+			  in  let <_5> =
+				  call 'erlang':'>='
+				      (_4, 1)
+			      in  let <_6> =
+				      call 'erlang':'element'
+					  (1, P)
+				  in  let <_7> =
+					  call 'erlang':'=:='
+					      (_6, Key)
+				      in  call 'erlang':'and'
+					      (_5, _7)
+		      of <Try> ->
+			  Try
+		      catch <T,R> ->
+			  'false' ->
+		    %% Line 138
+		    P
+		%% Line 139
+		<> when 'true' ->
+		    %% Line 140
+		    apply 'lookup'/2
+			(Key, Ps)
+	      end
+	  %% Line 142
+	  <_X_Key,[]> when 'true' ->
+	      %% Line 143
+	      'none'
+	  ( <_9,_8> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_9,_8})
+		  -| [{'function_name',{'lookup',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'lookup_all'/2 =
+    %% Line 155
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Key,[P|Ps]> when 'true' ->
+	      %% Line 156
+	      case <> of
+		<>
+		    when let <_2> =
+			  call 'erlang':'is_atom'
+			      (P)
+		      in  let <_3> =
+			      call 'erlang':'=:='
+				  (P, Key)
+			  in  call 'erlang':'and'
+				  (_2, _3) ->
+		    let <_4> =
+			apply %% Line 157
+			      'lookup_all'/2
+			    (%% Line 157
+			     Key, %% Line 157
+				  Ps)
+		    in  %% Line 157
+			[{Key,'true'}|_4]
+		%% Line 158
+		<>
+		    when try
+			  let <_5> =
+			      call 'erlang':'tuple_size'
+				  (P)
+			  in  let <_6> =
+				  call 'erlang':'>='
+				      (_5, 1)
+			      in  let <_7> =
+				      call 'erlang':'element'
+					  (1, P)
+				  in  let <_8> =
+					  call 'erlang':'=:='
+					      (_7, Key)
+				      in  call 'erlang':'and'
+					      (_6, _8)
+		      of <Try> ->
+			  Try
+		      catch <T,R> ->
+			  'false' ->
+		    let <_9> =
+			apply %% Line 159
+			      'lookup_all'/2
+			    (%% Line 159
+			     Key, %% Line 159
+				  Ps)
+		    in  %% Line 159
+			[P|_9]
+		%% Line 160
+		<> when 'true' ->
+		    %% Line 161
+		    apply 'lookup_all'/2
+			(Key, Ps)
+	      end
+	  %% Line 163
+	  <_X_Key,[]> when 'true' ->
+	      %% Line 164
+	      []
+	  ( <_11,_10> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_11,_10})
+		  -| [{'function_name',{'lookup_all',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'is_defined'/2 =
+    %% Line 177
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Key,[P|Ps]> when 'true' ->
+	      %% Line 178
+	      case <> of
+		<>
+		    when let <_2> =
+			  call 'erlang':'is_atom'
+			      (P)
+		      in  let <_3> =
+			      call 'erlang':'=:='
+				  (P, Key)
+			  in  call 'erlang':'and'
+				  (_2, _3) ->
+		    %% Line 179
+		    'true'
+		%% Line 180
+		<>
+		    when try
+			  let <_4> =
+			      call 'erlang':'tuple_size'
+				  (P)
+			  in  let <_5> =
+				  call 'erlang':'>='
+				      (_4, 1)
+			      in  let <_6> =
+				      call 'erlang':'element'
+					  (1, P)
+				  in  let <_7> =
+					  call 'erlang':'=:='
+					      (_6, Key)
+				      in  call 'erlang':'and'
+					      (_5, _7)
+		      of <Try> ->
+			  Try
+		      catch <T,R> ->
+			  'false' ->
+		    %% Line 181
+		    'true'
+		%% Line 182
+		<> when 'true' ->
+		    %% Line 183
+		    apply 'is_defined'/2
+			(Key, Ps)
+	      end
+	  %% Line 185
+	  <_X_Key,[]> when 'true' ->
+	      %% Line 186
+	      'false'
+	  ( <_9,_8> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_9,_8})
+		  -| [{'function_name',{'is_defined',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'get_value'/2 =
+    %% Line 197
+    fun (_0,_1) ->
+	%% Line 198
+	apply 'get_value'/3
+	    (_0, _1, 'undefined')
+'get_value'/3 =
+    %% Line 215
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <Key,[P|Ps],Default> when 'true' ->
+	      %% Line 216
+	      case <> of
+		<>
+		    when let <_3> =
+			  call 'erlang':'is_atom'
+			      (P)
+		      in  let <_4> =
+			      call 'erlang':'=:='
+				  (P, Key)
+			  in  call 'erlang':'and'
+				  (_3, _4) ->
+		    %% Line 217
+		    'true'
+		%% Line 218
+		<>
+		    when try
+			  let <_5> =
+			      call 'erlang':'tuple_size'
+				  (P)
+			  in  let <_6> =
+				  call 'erlang':'>='
+				      (_5, 1)
+			      in  let <_7> =
+				      call 'erlang':'element'
+					  (1, P)
+				  in  let <_8> =
+					  call 'erlang':'=:='
+					      (_7, Key)
+				      in  call 'erlang':'and'
+					      (_6, _8)
+		      of <Try> ->
+			  Try
+		      catch <T,R> ->
+			  'false' ->
+		    %% Line 219
+		    case P of
+		      %% Line 220
+		      <{_13,Value}> when 'true' ->
+			  %% Line 221
+			  Value
+		      %% Line 222
+		      <_14> when 'true' ->
+			  %% Line 224
+			  Default
+		    end
+		%% Line 226
+		<> when 'true' ->
+		    %% Line 227
+		    apply 'get_value'/3
+			(Key, Ps, Default)
+	      end
+	  %% Line 229
+	  <_X_Key,[],Default> when 'true' ->
+	      %% Line 230
+	      Default
+	  ( <_12,_11,_10> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_12,_11,_10})
+		  -| [{'function_name',{'get_value',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'get_all_values'/2 =
+    %% Line 243
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Key,[P|Ps]> when 'true' ->
+	      %% Line 244
+	      case <> of
+		<>
+		    when let <_2> =
+			  call 'erlang':'is_atom'
+			      (P)
+		      in  let <_3> =
+			      call 'erlang':'=:='
+				  (P, Key)
+			  in  call 'erlang':'and'
+				  (_2, _3) ->
+		    let <_4> =
+			apply %% Line 245
+			      'get_all_values'/2
+			    (%% Line 245
+			     Key, %% Line 245
+				  Ps)
+		    in  %% Line 245
+			['true'|_4]
+		%% Line 246
+		<>
+		    when try
+			  let <_5> =
+			      call 'erlang':'tuple_size'
+				  (P)
+			  in  let <_6> =
+				  call 'erlang':'>='
+				      (_5, 1)
+			      in  let <_7> =
+				      call 'erlang':'element'
+					  (1, P)
+				  in  let <_8> =
+					  call 'erlang':'=:='
+					      (_7, Key)
+				      in  call 'erlang':'and'
+					      (_6, _8)
+		      of <Try> ->
+			  Try
+		      catch <T,R> ->
+			  'false' ->
+		    %% Line 247
+		    case P of
+		      %% Line 248
+		      <{_13,Value}> when 'true' ->
+			  let <_9> =
+			      apply %% Line 249
+				    'get_all_values'/2
+				  (%% Line 249
+				   Key, %% Line 249
+					Ps)
+			  in  %% Line 249
+			      [Value|_9]
+		      %% Line 250
+		      <_14> when 'true' ->
+			  %% Line 251
+			  apply 'get_all_values'/2
+			      (Key, Ps)
+		    end
+		%% Line 253
+		<> when 'true' ->
+		    %% Line 254
+		    apply 'get_all_values'/2
+			(Key, Ps)
+	      end
+	  %% Line 256
+	  <_X_Key,[]> when 'true' ->
+	      %% Line 257
+	      []
+	  ( <_12,_11> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_12,_11})
+		  -| [{'function_name',{'get_all_values',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'append_values'/2 =
+    %% Line 273
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Key,[P|Ps]> when 'true' ->
+	      %% Line 274
+	      case <> of
+		<>
+		    when let <_2> =
+			  call 'erlang':'is_atom'
+			      (P)
+		      in  let <_3> =
+			      call 'erlang':'=:='
+				  (P, Key)
+			  in  call 'erlang':'and'
+				  (_2, _3) ->
+		    let <_4> =
+			apply %% Line 275
+			      'append_values'/2
+			    (%% Line 275
+			     Key, %% Line 275
+				  Ps)
+		    in  %% Line 275
+			['true'|_4]
+		%% Line 276
+		<>
+		    when try
+			  let <_5> =
+			      call 'erlang':'tuple_size'
+				  (P)
+			  in  let <_6> =
+				  call 'erlang':'>='
+				      (_5, 1)
+			      in  let <_7> =
+				      call 'erlang':'element'
+					  (1, P)
+				  in  let <_8> =
+					  call 'erlang':'=:='
+					      (_7, Key)
+				      in  call 'erlang':'and'
+					      (_6, _8)
+		      of <Try> ->
+			  Try
+		      catch <T,R> ->
+			  'false' ->
+		    %% Line 277
+		    case P of
+		      %% Line 278
+		      <{_14,Value}>
+			  when call 'erlang':'is_list'
+				(Value) ->
+			  let <_9> =
+			      apply %% Line 279
+				    'append_values'/2
+				  (%% Line 279
+				   Key, %% Line 279
+					Ps)
+			  in  %% Line 279
+			      call 'erlang':'++'
+				  (Value, _9)
+		      %% Line 280
+		      <{_15,Value}> when 'true' ->
+			  let <_10> =
+			      apply %% Line 281
+				    'append_values'/2
+				  (%% Line 281
+				   Key, %% Line 281
+					Ps)
+			  in  %% Line 281
+			      [Value|_10]
+		      %% Line 282
+		      <_16> when 'true' ->
+			  %% Line 283
+			  apply 'append_values'/2
+			      (Key, Ps)
+		    end
+		%% Line 285
+		<> when 'true' ->
+		    %% Line 286
+		    apply 'append_values'/2
+			(Key, Ps)
+	      end
+	  %% Line 288
+	  <_X_Key,[]> when 'true' ->
+	      %% Line 289
+	      []
+	  ( <_13,_12> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_13,_12})
+		  -| [{'function_name',{'append_values',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'get_bool'/2 =
+    %% Line 306
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Key,[P|Ps]> when 'true' ->
+	      %% Line 307
+	      case <> of
+		<>
+		    when let <_2> =
+			  call 'erlang':'is_atom'
+			      (P)
+		      in  let <_3> =
+			      call 'erlang':'=:='
+				  (P, Key)
+			  in  call 'erlang':'and'
+				  (_2, _3) ->
+		    %% Line 308
+		    'true'
+		%% Line 309
+		<>
+		    when try
+			  let <_4> =
+			      call 'erlang':'tuple_size'
+				  (P)
+			  in  let <_5> =
+				  call 'erlang':'>='
+				      (_4, 1)
+			      in  let <_6> =
+				      call 'erlang':'element'
+					  (1, P)
+				  in  let <_7> =
+					  call 'erlang':'=:='
+					      (_6, Key)
+				      in  call 'erlang':'and'
+					      (_5, _7)
+		      of <Try> ->
+			  Try
+		      catch <T,R> ->
+			  'false' ->
+		    %% Line 310
+		    case P of
+		      %% Line 311
+		      <{_11,'true'}> when 'true' ->
+			  %% Line 312
+			  'true'
+		      %% Line 313
+		      <_12> when 'true' ->
+			  %% Line 315
+			  'false'
+		    end
+		%% Line 317
+		<> when 'true' ->
+		    %% Line 318
+		    apply 'get_bool'/2
+			(Key, Ps)
+	      end
+	  %% Line 320
+	  <_X_Key,[]> when 'true' ->
+	      %% Line 321
+	      'false'
+	  ( <_10,_9> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_10,_9})
+		  -| [{'function_name',{'get_bool',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'get_keys'/1 =
+    %% Line 332
+    fun (_0) ->
+	let <_1> =
+	    call %% Line 333
+		 'sets':%% Line 333
+			'new'
+		()
+	in  let <_2> =
+		apply %% Line 333
+		      'get_keys'/2
+		    (_0, _1)
+	    in  %% Line 333
+		call 'sets':'to_list'
+		    (_2)
+'get_keys'/2 =
+    %% Line 335
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <[P|Ps],Keys> when 'true' ->
+	      %% Line 336
+	      case <> of
+		<>
+		    when call 'erlang':'is_atom'
+			  (P) ->
+		    let <_2> =
+			call %% Line 337
+			     'sets':%% Line 337
+				    'add_element'
+			    (%% Line 337
+			     P, %% Line 337
+				Keys)
+		    in  %% Line 337
+			apply 'get_keys'/2
+			    (Ps, _2)
+		%% Line 338
+		<>
+		    when try
+			  let <_3> =
+			      call 'erlang':'tuple_size'
+				  (P)
+			  in  call 'erlang':'>='
+				  (_3, 1)
+		      of <Try> ->
+			  Try
+		      catch <T,R> ->
+			  'false' ->
+		    let <_4> =
+			call %% Line 339
+			     'erlang':%% Line 339
+				      'element'
+			    (%% Line 339
+			     1, %% Line 339
+				P)
+		    in  let <_5> =
+			    call %% Line 339
+				 'sets':%% Line 339
+					'add_element'
+				(_4, %% Line 339
+				     Keys)
+			in  %% Line 339
+			    apply 'get_keys'/2
+				(Ps, _5)
+		%% Line 340
+		<> when 'true' ->
+		    %% Line 341
+		    apply 'get_keys'/2
+			(Ps, Keys)
+	      end
+	  %% Line 343
+	  <[],Keys> when 'true' ->
+	      %% Line 344
+	      Keys
+	  ( <_7,_6> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_7,_6})
+		  -| [{'function_name',{'get_keys',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'delete'/2 =
+    %% Line 356
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Key,[P|Ps]> when 'true' ->
+	      %% Line 357
+	      case <> of
+		<>
+		    when let <_2> =
+			  call 'erlang':'is_atom'
+			      (P)
+		      in  let <_3> =
+			      call 'erlang':'=:='
+				  (P, Key)
+			  in  call 'erlang':'and'
+				  (_2, _3) ->
+		    %% Line 358
+		    apply 'delete'/2
+			(Key, Ps)
+		%% Line 359
+		<>
+		    when try
+			  let <_4> =
+			      call 'erlang':'tuple_size'
+				  (P)
+			  in  let <_5> =
+				  call 'erlang':'>='
+				      (_4, 1)
+			      in  let <_6> =
+				      call 'erlang':'element'
+					  (1, P)
+				  in  let <_7> =
+					  call 'erlang':'=:='
+					      (_6, Key)
+				      in  call 'erlang':'and'
+					      (_5, _7)
+		      of <Try> ->
+			  Try
+		      catch <T,R> ->
+			  'false' ->
+		    %% Line 360
+		    apply 'delete'/2
+			(Key, Ps)
+		%% Line 361
+		<> when 'true' ->
+		    let <_8> =
+			apply %% Line 362
+			      'delete'/2
+			    (%% Line 362
+			     Key, %% Line 362
+				  Ps)
+		    in  %% Line 362
+			[P|_8]
+	      end
+	  %% Line 364
+	  <_11,[]> when 'true' ->
+	      %% Line 365
+	      []
+	  ( <_10,_9> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_10,_9})
+		  -| [{'function_name',{'delete',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'substitute_aliases'/2 =
+    %% Line 391
+    fun (_0,_1) ->
+	%% Line 392
+	( letrec
+	      'lc$^0'/1 =
+		  fun (_4) ->
+		      case _4 of
+			<[P|_3]> when 'true' ->
+			    let <_5> =
+				apply 'substitute_aliases_1'/2
+				    (_0, P)
+			    in  let <_6> =
+				    apply 'lc$^0'/1
+					(_3)
+				in  ( [_5|_6]
+				      -| ['compiler_generated'] )
+			<[]> when 'true' ->
+			    []
+			( <_9> when 'true' ->
+			      ( primop 'match_fail'
+				    ({'function_clause',_9})
+				-| [{'function_name',{'lc$^0',1}}] )
+			  -| ['compiler_generated'] )
+		      end
+	  in  apply 'lc$^0'/1
+		  (_1)
+	  -| ['list_comprehension'] )
+'substitute_aliases_1'/2 =
+    %% Line 394
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <[{Key,Key1}|As],P> when 'true' ->
+	      %% Line 395
+	      case <> of
+		<>
+		    when let <_2> =
+			  call 'erlang':'is_atom'
+			      (P)
+		      in  let <_3> =
+			      call 'erlang':'=:='
+				  (P, Key)
+			  in  call 'erlang':'and'
+				  (_2, _3) ->
+		    %% Line 396
+		    apply 'property'/2
+			(Key1, 'true')
+		%% Line 397
+		<>
+		    when try
+			  let <_4> =
+			      call 'erlang':'tuple_size'
+				  (P)
+			  in  let <_5> =
+				  call 'erlang':'>='
+				      (_4, 1)
+			      in  let <_6> =
+				      call 'erlang':'element'
+					  (1, P)
+				  in  let <_7> =
+					  call 'erlang':'=:='
+					      (_6, Key)
+				      in  call 'erlang':'and'
+					      (_5, _7)
+		      of <Try> ->
+			  Try
+		      catch <T,R> ->
+			  'false' ->
+		    let <_8> =
+			call %% Line 398
+			     'erlang':%% Line 398
+				      'setelement'
+			    (%% Line 398
+			     1, %% Line 398
+				P, %% Line 398
+				   Key1)
+		    in  %% Line 398
+			apply 'property'/1
+			    (_8)
+		%% Line 399
+		<> when 'true' ->
+		    %% Line 400
+		    apply 'substitute_aliases_1'/2
+			(As, P)
+	      end
+	  %% Line 402
+	  <[],P> when 'true' ->
+	      %% Line 403
+	      P
+	  ( <_10,_9> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_10,_9})
+		  -| [{'function_name',{'substitute_aliases_1',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'substitute_negations'/2 =
+    %% Line 435
+    fun (_0,_1) ->
+	%% Line 436
+	( letrec
+	      'lc$^0'/1 =
+		  fun (_4) ->
+		      case _4 of
+			<[P|_3]> when 'true' ->
+			    let <_5> =
+				apply 'substitute_negations_1'/2
+				    (_0, P)
+			    in  let <_6> =
+				    apply 'lc$^0'/1
+					(_3)
+				in  ( [_5|_6]
+				      -| ['compiler_generated'] )
+			<[]> when 'true' ->
+			    []
+			( <_9> when 'true' ->
+			      ( primop 'match_fail'
+				    ({'function_clause',_9})
+				-| [{'function_name',{'lc$^0',1}}] )
+			  -| ['compiler_generated'] )
+		      end
+	  in  apply 'lc$^0'/1
+		  (_1)
+	  -| ['list_comprehension'] )
+'substitute_negations_1'/2 =
+    %% Line 438
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <[{Key,Key1}|As],P> when 'true' ->
+	      %% Line 439
+	      case <> of
+		<>
+		    when let <_2> =
+			  call 'erlang':'is_atom'
+			      (P)
+		      in  let <_3> =
+			      call 'erlang':'=:='
+				  (P, Key)
+			  in  call 'erlang':'and'
+				  (_2, _3) ->
+		    %% Line 440
+		    apply 'property'/2
+			(Key1, 'false')
+		%% Line 441
+		<>
+		    when try
+			  let <_4> =
+			      call 'erlang':'tuple_size'
+				  (P)
+			  in  let <_5> =
+				  call 'erlang':'>='
+				      (_4, 1)
+			      in  let <_6> =
+				      call 'erlang':'element'
+					  (1, P)
+				  in  let <_7> =
+					  call 'erlang':'=:='
+					      (_6, Key)
+				      in  call 'erlang':'and'
+					      (_5, _7)
+		      of <Try> ->
+			  Try
+		      catch <T,R> ->
+			  'false' ->
+		    %% Line 442
+		    case P of
+		      %% Line 443
+		      <{_11,'true'}> when 'true' ->
+			  %% Line 444
+			  apply 'property'/2
+			      (Key1, 'false')
+		      %% Line 445
+		      <{_12,'false'}> when 'true' ->
+			  %% Line 446
+			  apply 'property'/2
+			      (Key1, 'true')
+		      %% Line 447
+		      <_13> when 'true' ->
+			  %% Line 451
+			  apply 'property'/2
+			      (Key1, 'true')
+		    end
+		%% Line 453
+		<> when 'true' ->
+		    %% Line 454
+		    apply 'substitute_negations_1'/2
+			(As, P)
+	      end
+	  %% Line 456
+	  <[],P> when 'true' ->
+	      %% Line 457
+	      P
+	  ( <_10,_9> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_10,_9})
+		  -| [{'function_name',{'substitute_negations_1',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'expand'/2 =
+    %% Line 501
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Es,Ps>
+	      when call 'erlang':'is_list'
+		    (Ps) ->
+	      let <_7> =
+		  letrec
+		      'lc$^0'/1 =
+			  %% Line 502
+			  fun (_4) ->
+			      case _4 of
+				<[{P,V}|_3]> when 'true' ->
+				    let <_5> =
+					apply 'property'/1
+					    (P)
+				    in  let <_6> =
+					    apply 'lc$^0'/1
+						(_3)
+					in  ( [{_5,V}|_6]
+					      -| ['compiler_generated'] )
+				( <[_2|_3]> when 'true' ->
+				      apply 'lc$^0'/1
+					  (_3)
+				  -| ['compiler_generated'] )
+				<[]> when 'true' ->
+				    []
+				( <_13> when 'true' ->
+				      ( primop 'match_fail'
+					    ({'function_clause',_13})
+					-| [{'function_name',{'lc$^0',1}}] )
+				  -| ['compiler_generated'] )
+			      end
+		  in  %% Line 502
+		      apply 'lc$^0'/1
+			  (Es)
+	      in  let <_9> =
+		      apply %% Line 503
+			    'key_uniq'/1
+			  (_7)
+		  in  let <_10> =
+			  apply %% Line 503
+				'expand_0'/2
+			      (_9, %% Line 503
+				   Ps)
+		      in  %% Line 503
+			  apply 'flatten'/1
+			      (_10)
+	  ( <_12,_11> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_12,_11})
+		  -| [{'function_name',{'expand',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'expand_0'/2 =
+    %% Line 510
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <[{P,L}|Es],Ps> when 'true' ->
+	      let <_2> =
+		  apply %% Line 511
+			'expand_1'/3
+		      (%% Line 511
+		       P, %% Line 511
+			  L, %% Line 511
+			     Ps)
+	      in  %% Line 511
+		  apply 'expand_0'/2
+		      (Es, _2)
+	  %% Line 512
+	  <[],Ps> when 'true' ->
+	      %% Line 513
+	      Ps
+	  ( <_4,_3> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_4,_3})
+		  -| [{'function_name',{'expand_0',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'expand_1'/3 =
+    %% Line 515
+    fun (_0,_1,_2) ->
+	%% Line 518
+	case <> of
+	  <>
+	      when call 'erlang':'is_atom'
+		    (_0) ->
+	      %% Line 519
+	      apply 'expand_2'/4
+		  (_0, _0, _1, _2)
+	  %% Line 520
+	  <>
+	      when try
+		    let <_3> =
+			call 'erlang':'tuple_size'
+			    (_0)
+		    in  call 'erlang':'>='
+			    (_3, 1)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      let <_4> =
+		  call %% Line 521
+		       'erlang':%% Line 521
+				'element'
+		      (%% Line 521
+		       1, _0)
+	      in  %% Line 521
+		  apply 'expand_2'/4
+		      (_4, _0, _1, _2)
+	  %% Line 522
+	  <> when 'true' ->
+	      _2
+	end
+'expand_2'/4 =
+    %% Line 526
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <Key,P1,L,[P|Ps]> when 'true' ->
+	      %% Line 527
+	      case <> of
+		<>
+		    when let <_4> =
+			  call 'erlang':'is_atom'
+			      (P)
+		      in  let <_5> =
+			      call 'erlang':'=:='
+				  (P, Key)
+			  in  call 'erlang':'and'
+				  (_4, _5) ->
+		    %% Line 528
+		    apply 'expand_3'/5
+			(Key, P1, P, L, Ps)
+		%% Line 529
+		<>
+		    when try
+			  let <_6> =
+			      call 'erlang':'tuple_size'
+				  (P)
+			  in  let <_7> =
+				  call 'erlang':'>='
+				      (_6, 1)
+			      in  let <_8> =
+				      call 'erlang':'element'
+					  (1, P)
+				  in  let <_9> =
+					  call 'erlang':'=:='
+					      (_8, Key)
+				      in  call 'erlang':'and'
+					      (_7, _9)
+		      of <Try> ->
+			  Try
+		      catch <T,R> ->
+			  'false' ->
+		    let <_10> =
+			apply %% Line 530
+			      'property'/1
+			    (%% Line 530
+			     P)
+		    in  %% Line 530
+			apply 'expand_3'/5
+			    (Key, P1, _10, L, Ps)
+		%% Line 531
+		<> when 'true' ->
+		    let <_11> =
+			apply %% Line 535
+			      'expand_2'/4
+			    (%% Line 535
+			     Key, %% Line 535
+				  P1, %% Line 535
+				      L, %% Line 535
+					 Ps)
+		    in  %% Line 535
+			[P|_11]
+	      end
+	  %% Line 537
+	  <_16,_17,_18,[]> when 'true' ->
+	      %% Line 538
+	      []
+	  ( <_15,_14,_13,_12> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_15,_14,_13,_12})
+		  -| [{'function_name',{'expand_2',4}}] )
+	    -| ['compiler_generated'] )
+	end
+'expand_3'/5 =
+    %% Line 540
+    fun (_0,_1,_2,_3,_4) ->
+	%% Line 545
+	case <> of
+	  <>
+	      when call 'erlang':'=:='
+		    (_1,
+		     _2) ->
+	      let <_5> =
+		  apply %% Line 546
+			'delete'/2
+		      (_0, _4)
+	      in  %% Line 546
+		  [_3|_5]
+	  %% Line 547
+	  <> when 'true' ->
+	      %% Line 549
+	      [_2|_4]
+	end
+'key_uniq'/1 =
+    %% Line 552
+    fun (_0) ->
+	case _0 of
+	  <[_@r0 = {K,V}|Ps]> when 'true' ->
+	      let <_1> =
+		  apply %% Line 553
+			'key_uniq_1'/2
+		      (%% Line 553
+		       K, %% Line 553
+			  Ps)
+	      in  %% Line 553
+		  [_@r0|_1]
+	  %% Line 554
+	  <[]> when 'true' ->
+	      %% Line 555
+	      []
+	  ( <_2> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_2})
+		  -| [{'function_name',{'key_uniq',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'key_uniq_1'/2 =
+    %% Line 557
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <K,[_@r0 = {K1,V}|Ps]> when 'true' ->
+	      %% Line 558
+	      case <> of
+		<>
+		    when call 'erlang':'=:='
+			  (K,
+			   K1) ->
+		    %% Line 559
+		    apply 'key_uniq_1'/2
+			(K, Ps)
+		%% Line 560
+		<> when 'true' ->
+		    let <_2> =
+			apply %% Line 561
+			      'key_uniq_1'/2
+			    (%% Line 561
+			     K1, %% Line 561
+				 Ps)
+		    in  %% Line 561
+			[_@r0|_2]
+	      end
+	  %% Line 563
+	  <_5,[]> when 'true' ->
+	      %% Line 564
+	      []
+	  ( <_4,_3> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_4,_3})
+		  -| [{'function_name',{'key_uniq_1',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'flatten'/1 =
+    %% Line 568
+    fun (_0) ->
+	case _0 of
+	  <[E|Es]>
+	      when call 'erlang':'is_list'
+		    (E) ->
+	      let <_1> =
+		  apply %% Line 569
+			'flatten'/1
+		      (%% Line 569
+		       Es)
+	      in  %% Line 569
+		  call 'erlang':'++'
+		      (E, _1)
+	  %% Line 570
+	  <[E|Es]> when 'true' ->
+	      let <_2> =
+		  apply %% Line 571
+			'flatten'/1
+		      (%% Line 571
+		       Es)
+	      in  %% Line 571
+		  [E|_2]
+	  %% Line 572
+	  <[]> when 'true' ->
+	      %% Line 573
+	      []
+	  ( <_3> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_3})
+		  -| [{'function_name',{'flatten',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'normalize'/2 =
+    %% Line 610
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <L,[{'aliases',As}|Xs]> when 'true' ->
+	      let <_2> =
+		  apply %% Line 611
+			'substitute_aliases'/2
+		      (%% Line 611
+		       As, %% Line 611
+			   L)
+	      in  %% Line 611
+		  apply 'normalize'/2
+		      (_2, Xs)
+	  %% Line 612
+	  <L,[{'expand',Es}|Xs]> when 'true' ->
+	      let <_3> =
+		  apply %% Line 613
+			'expand'/2
+		      (%% Line 613
+		       Es, %% Line 613
+			   L)
+	      in  %% Line 613
+		  apply 'normalize'/2
+		      (_3, Xs)
+	  %% Line 614
+	  <L,[{'negations',Ns}|Xs]> when 'true' ->
+	      let <_4> =
+		  apply %% Line 615
+			'substitute_negations'/2
+		      (%% Line 615
+		       Ns, %% Line 615
+			   L)
+	      in  %% Line 615
+		  apply 'normalize'/2
+		      (_4, Xs)
+	  %% Line 616
+	  <L,[]> when 'true' ->
+	      %% Line 617
+	      apply 'compact'/1
+		  (L)
+	  ( <_6,_5> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_6,_5})
+		  -| [{'function_name',{'normalize',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'split'/2 =
+    %% Line 641
+    fun (_0,_1) ->
+	let <_6> =
+	    letrec
+		'lc$^0'/1 =
+		    %% Line 642
+		    fun (_4) ->
+			case _4 of
+			  <[K|_3]> when 'true' ->
+			      let <_5> =
+				  apply 'lc$^0'/1
+				      (_3)
+			      in  ( [{K,[]}|_5]
+				    -| ['compiler_generated'] )
+			  <[]> when 'true' ->
+			      []
+			  ( <_19> when 'true' ->
+				( primop 'match_fail'
+				      ({'function_clause',_19})
+				  -| [{'function_name',{'lc$^0',1}}] )
+			    -| ['compiler_generated'] )
+			end
+	    in  %% Line 642
+		apply 'lc$^0'/1
+		    (_1)
+	in  let <_7> =
+		call %% Line 642
+		     'maps':%% Line 642
+			    'from_list'
+		    (_6)
+	    in  %% Line 642
+		case apply 'split'/3
+			 (_0, _7, []) of
+		  <{Store,Rest}> when 'true' ->
+		      let <_16> =
+			  letrec
+			      'lc$^1'/1 =
+				  %% Line 643
+				  fun (_12) ->
+				      case _12 of
+					<[K|_11]> when 'true' ->
+					    let <_13> =
+						call 'erlang':'map_get'
+						    (K, Store)
+					    in  let <_14> =
+						    call 'lists':'reverse'
+							(_13)
+						in  let <_15> =
+							apply 'lc$^1'/1
+							    (_11)
+						    in  ( [_14|_15]
+							  -| ['compiler_generated'] )
+					<[]> when 'true' ->
+					    []
+					( <_20> when 'true' ->
+					      ( primop 'match_fail'
+						    ({'function_clause',_20})
+						-| [{'function_name',{'lc$^1',1}}] )
+					  -| ['compiler_generated'] )
+				      end
+			  in  %% Line 643
+			      apply 'lc$^1'/1
+				  (_1)
+		      in  let <_9> =
+			      call %% Line 644
+				   'lists':%% Line 644
+					   'reverse'
+				  (%% Line 644
+				   Rest)
+			  in  %% Line 643
+			      {_16,_9}
+		  ( <_8> when 'true' ->
+			primop 'match_fail'
+			    ({'badmatch',_8})
+		    -| ['compiler_generated'] )
+		end
+'split'/3 =
+    %% Line 646
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <[P|Ps],Store,Rest> when 'true' ->
+	      %% Line 647
+	      case <> of
+		<>
+		    when call 'erlang':'is_atom'
+			  (P) ->
+		    %% Line 648
+		    case call 'erlang':'is_map_key'
+			     (P, Store) of
+		      %% Line 649
+		      <'true'> when 'true' ->
+			  let <_3> =
+			      apply %% Line 650
+				    'maps_prepend'/3
+				  (%% Line 650
+				   P, %% Line 650
+				      P, %% Line 650
+					 Store)
+			  in  %% Line 650
+			      apply 'split'/3
+				  (Ps, _3, Rest)
+		      %% Line 651
+		      <'false'> when 'true' ->
+			  %% Line 652
+			  apply 'split'/3
+			      (Ps, Store, [P|Rest])
+		      ( <_4> when 'true' ->
+			    primop 'match_fail'
+				({'case_clause',_4})
+			-| ['compiler_generated'] )
+		    end
+		%% Line 654
+		<>
+		    when try
+			  let <_5> =
+			      call 'erlang':'tuple_size'
+				  (P)
+			  in  call 'erlang':'>='
+				  (_5, 1)
+		      of <Try> ->
+			  Try
+		      catch <T,R> ->
+			  'false' ->
+		    let <Key> =
+			call %% Line 656
+			     'erlang':%% Line 656
+				      'element'
+			    (%% Line 656
+			     1, %% Line 656
+				P)
+		    in  %% Line 657
+			case call 'erlang':'is_map_key'
+				 (Key, Store) of
+			  %% Line 658
+			  <'true'> when 'true' ->
+			      let <_7> =
+				  apply %% Line 659
+					'maps_prepend'/3
+				      (%% Line 659
+				       Key, %% Line 659
+					    P, %% Line 659
+					       Store)
+			      in  %% Line 659
+				  apply 'split'/3
+				      (Ps, _7, Rest)
+			  %% Line 660
+			  <'false'> when 'true' ->
+			      %% Line 661
+			      apply 'split'/3
+				  (Ps, Store, [P|Rest])
+			  ( <_8> when 'true' ->
+				primop 'match_fail'
+				    ({'case_clause',_8})
+			    -| ['compiler_generated'] )
+			end
+		%% Line 663
+		<> when 'true' ->
+		    %% Line 664
+		    apply 'split'/3
+			(Ps, Store, [P|Rest])
+	      end
+	  %% Line 666
+	  <[],Store,Rest> when 'true' ->
+	      %% Line 667
+	      {Store,Rest}
+	  ( <_11,_10,_9> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_11,_10,_9})
+		  -| [{'function_name',{'split',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'maps_prepend'/3 =
+    %% Line 669
+    fun (_0,_1,_2) ->
+	let <_3> =
+	    call %% Line 670
+		 'erlang':%% Line 670
+			  'map_get'
+		(_0, _2)
+	in  %% Line 670
+	    case <> of
+	      ( <>
+		    when call 'erlang':'is_map'
+			  (_2) ->
+		    ~{_0:=[_1|_3]|_2}~
+		-| ['compiler_generated'] )
+	      ( <> when 'true' ->
+		    ( primop 'match_fail'
+			  ({'badmap',_2})
+		      -| [{'eval_failure','badmap'}] )
+		-| ['compiler_generated'] )
+	    end
+'module_info'/0 =
+    fun () ->
+	call 'erlang':'get_module_info'
+	    ('proplists')
+'module_info'/1 =
+    fun (_0) ->
+	call 'erlang':'get_module_info'
+	    ('proplists', _0)
+end

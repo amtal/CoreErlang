@@ -1,0 +1,2390 @@
+module 'gb_sets' ['add'/2,
+		  'add_element'/2,
+		  'balance'/1,
+		  'del_element'/2,
+		  'delete'/2,
+		  'delete_any'/2,
+		  'difference'/2,
+		  'empty'/0,
+		  'filter'/2,
+		  'fold'/3,
+		  'from_list'/1,
+		  'from_ordset'/1,
+		  'insert'/2,
+		  'intersection'/1,
+		  'intersection'/2,
+		  'is_disjoint'/2,
+		  'is_element'/2,
+		  'is_empty'/1,
+		  'is_member'/2,
+		  'is_set'/1,
+		  'is_subset'/2,
+		  'iterator'/1,
+		  'iterator_from'/2,
+		  'largest'/1,
+		  'module_info'/0,
+		  'module_info'/1,
+		  'new'/0,
+		  'next'/1,
+		  'singleton'/1,
+		  'size'/1,
+		  'smallest'/1,
+		  'subtract'/2,
+		  'take_largest'/1,
+		  'take_smallest'/1,
+		  'to_list'/1,
+		  'union'/1,
+		  'union'/2]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[103|[98|[95|[115|[101|[116|[115|[46|[101|[114|[108]]]]]]]]]]]]]]],1}],
+		%% Line 197
+		'export_type' =
+		    %% Line 197
+		    [{'set',0}|[{'set',1}|[{'iter',0}|[{'iter',1}]]]],
+		%% Line 199
+		'type' =
+		    %% Line 199
+		    [{'gb_set_node',{'type',199,'union',[{'atom',199,'nil'}|[{'type',199,'tuple',[{'var',199,'Element'}|[{'var',199,'_'}|[{'var',199,'_'}]]]}]]},[{'var',199,'Element'}]}],
+		%% Line 200
+		'opaque' =
+		    %% Line 200
+		    [{'set',{'type',200,'tuple',[{'type',200,'non_neg_integer',[]}|[{'user_type',200,'gb_set_node',[{'var',200,'Element'}]}]]},[{'var',200,'Element'}]}],
+		%% Line 201
+		'type' =
+		    %% Line 201
+		    [{'set',{'user_type',201,'set',[{'var',201,'_'}]},[]}],
+		%% Line 202
+		'opaque' =
+		    %% Line 202
+		    [{'iter',{'type',202,'list',[{'user_type',202,'gb_set_node',[{'var',202,'Element'}]}]},[{'var',202,'Element'}]}],
+		%% Line 203
+		'type' =
+		    %% Line 203
+		    [{'iter',{'user_type',203,'iter',[{'var',203,'_'}]},[]}],
+		%% Line 207
+		'spec' =
+		    %% Line 207
+		    [{{'empty',0},[{'type',207,'bounded_fun',[{'type',207,'fun',[{'type',207,'product',[]}|[{'var',207,'Set'}]]}|[[{'type',208,'constraint',[{'atom',208,'is_subtype'}|[[{'var',208,'Set'}|[{'user_type',208,'set',[]}]]]]}]]]}]}],
+		%% Line 213
+		'spec' =
+		    %% Line 213
+		    [{{'new',0},[{'type',213,'bounded_fun',[{'type',213,'fun',[{'type',213,'product',[]}|[{'var',213,'Set'}]]}|[[{'type',214,'constraint',[{'atom',214,'is_subtype'}|[[{'var',214,'Set'}|[{'user_type',214,'set',[]}]]]]}]]]}]}],
+		%% Line 218
+		'spec' =
+		    %% Line 218
+		    [{{'is_empty',1},[{'type',218,'bounded_fun',[{'type',218,'fun',[{'type',218,'product',[{'var',218,'Set'}]}|[{'type',218,'boolean',[]}]]}|[[{'type',219,'constraint',[{'atom',219,'is_subtype'}|[[{'var',219,'Set'}|[{'user_type',219,'set',[]}]]]]}]]]}]}],
+		%% Line 226
+		'spec' =
+		    %% Line 226
+		    [{{'size',1},[{'type',226,'bounded_fun',[{'type',226,'fun',[{'type',226,'product',[{'var',226,'Set'}]}|[{'type',226,'non_neg_integer',[]}]]}|[[{'type',227,'constraint',[{'atom',227,'is_subtype'}|[[{'var',227,'Set'}|[{'user_type',227,'set',[]}]]]]}]]]}]}],
+		%% Line 232
+		'spec' =
+		    %% Line 232
+		    [{{'singleton',1},[{'type',232,'fun',[{'type',232,'product',[{'var',232,'Element'}]}|[{'user_type',232,'set',[{'var',232,'Element'}]}]]}]}],
+		%% Line 237
+		'spec' =
+		    %% Line 237
+		    [{{'is_element',2},[{'type',237,'bounded_fun',[{'type',237,'fun',[{'type',237,'product',[{'var',237,'Element'}|[{'var',237,'Set'}]]}|[{'type',237,'boolean',[]}]]}|[[{'type',238,'constraint',[{'atom',238,'is_subtype'}|[[{'var',238,'Set'}|[{'user_type',238,'set',[{'var',238,'Element'}]}]]]]}]]]}]}],
+		%% Line 243
+		'spec' =
+		    %% Line 243
+		    [{{'is_member',2},[{'type',243,'bounded_fun',[{'type',243,'fun',[{'type',243,'product',[{'var',243,'Element'}|[{'var',243,'Set'}]]}|[{'type',243,'boolean',[]}]]}|[[{'type',244,'constraint',[{'atom',244,'is_subtype'}|[[{'var',244,'Set'}|[{'user_type',244,'set',[{'var',244,'Element'}]}]]]]}]]]}]}],
+		%% Line 258
+		'spec' =
+		    %% Line 258
+		    [{{'insert',2},[{'type',258,'bounded_fun',[{'type',258,'fun',[{'type',258,'product',[{'var',258,'Element'}|[{'var',258,'Set1'}]]}|[{'var',258,'Set2'}]]}|[[{'type',259,'constraint',[{'atom',259,'is_subtype'}|[[{'var',259,'Set1'}|[{'user_type',259,'set',[{'var',259,'Element'}]}]]]]}|[{'type',260,'constraint',[{'atom',260,'is_subtype'}|[[{'var',260,'Set2'}|[{'user_type',260,'set',[{'var',260,'Element'}]}]]]]}]]]]}]}],
+		%% Line 316
+		'spec' =
+		    %% Line 316
+		    [{{'balance',1},[{'type',316,'bounded_fun',[{'type',316,'fun',[{'type',316,'product',[{'var',316,'Set1'}]}|[{'var',316,'Set2'}]]}|[[{'type',317,'constraint',[{'atom',317,'is_subtype'}|[[{'var',317,'Set1'}|[{'user_type',317,'set',[{'var',317,'Element'}]}]]]]}|[{'type',318,'constraint',[{'atom',318,'is_subtype'}|[[{'var',318,'Set2'}|[{'user_type',318,'set',[{'var',318,'Element'}]}]]]]}]]]]}]}],
+		%% Line 343
+		'spec' =
+		    %% Line 343
+		    [{{'add_element',2},[{'type',343,'bounded_fun',[{'type',343,'fun',[{'type',343,'product',[{'var',343,'Element'}|[{'var',343,'Set1'}]]}|[{'var',343,'Set2'}]]}|[[{'type',344,'constraint',[{'atom',344,'is_subtype'}|[[{'var',344,'Set1'}|[{'user_type',344,'set',[{'var',344,'Element'}]}]]]]}|[{'type',345,'constraint',[{'atom',345,'is_subtype'}|[[{'var',345,'Set2'}|[{'user_type',345,'set',[{'var',345,'Element'}]}]]]]}]]]]}]}],
+		%% Line 350
+		'spec' =
+		    %% Line 350
+		    [{{'add',2},[{'type',350,'bounded_fun',[{'type',350,'fun',[{'type',350,'product',[{'var',350,'Element'}|[{'var',350,'Set1'}]]}|[{'var',350,'Set2'}]]}|[[{'type',351,'constraint',[{'atom',351,'is_subtype'}|[[{'var',351,'Set1'}|[{'user_type',351,'set',[{'var',351,'Element'}]}]]]]}|[{'type',352,'constraint',[{'atom',352,'is_subtype'}|[[{'var',352,'Set2'}|[{'user_type',352,'set',[{'var',352,'Element'}]}]]]]}]]]]}]}],
+		%% Line 362
+		'spec' =
+		    %% Line 362
+		    [{{'from_list',1},[{'type',362,'bounded_fun',[{'type',362,'fun',[{'type',362,'product',[{'var',362,'List'}]}|[{'var',362,'Set'}]]}|[[{'type',363,'constraint',[{'atom',363,'is_subtype'}|[[{'var',363,'List'}|[{'type',363,'list',[{'var',363,'Element'}]}]]]]}|[{'type',364,'constraint',[{'atom',364,'is_subtype'}|[[{'var',364,'Set'}|[{'user_type',364,'set',[{'var',364,'Element'}]}]]]]}]]]]}]}],
+		%% Line 369
+		'spec' =
+		    %% Line 369
+		    [{{'from_ordset',1},[{'type',369,'bounded_fun',[{'type',369,'fun',[{'type',369,'product',[{'var',369,'List'}]}|[{'var',369,'Set'}]]}|[[{'type',370,'constraint',[{'atom',370,'is_subtype'}|[[{'var',370,'List'}|[{'type',370,'list',[{'var',370,'Element'}]}]]]]}|[{'type',371,'constraint',[{'atom',371,'is_subtype'}|[[{'var',371,'Set'}|[{'user_type',371,'set',[{'var',371,'Element'}]}]]]]}]]]]}]}],
+		%% Line 377
+		'spec' =
+		    %% Line 377
+		    [{{'del_element',2},[{'type',377,'bounded_fun',[{'type',377,'fun',[{'type',377,'product',[{'var',377,'Element'}|[{'var',377,'Set1'}]]}|[{'var',377,'Set2'}]]}|[[{'type',378,'constraint',[{'atom',378,'is_subtype'}|[[{'var',378,'Set1'}|[{'user_type',378,'set',[{'var',378,'Element'}]}]]]]}|[{'type',379,'constraint',[{'atom',379,'is_subtype'}|[[{'var',379,'Set2'}|[{'user_type',379,'set',[{'var',379,'Element'}]}]]]]}]]]]}]}],
+		%% Line 384
+		'spec' =
+		    %% Line 384
+		    [{{'delete_any',2},[{'type',384,'bounded_fun',[{'type',384,'fun',[{'type',384,'product',[{'var',384,'Element'}|[{'var',384,'Set1'}]]}|[{'var',384,'Set2'}]]}|[[{'type',385,'constraint',[{'atom',385,'is_subtype'}|[[{'var',385,'Set1'}|[{'user_type',385,'set',[{'var',385,'Element'}]}]]]]}|[{'type',386,'constraint',[{'atom',386,'is_subtype'}|[[{'var',386,'Set2'}|[{'user_type',386,'set',[{'var',386,'Element'}]}]]]]}]]]]}]}],
+		%% Line 396
+		'spec' =
+		    %% Line 396
+		    [{{'delete',2},[{'type',396,'bounded_fun',[{'type',396,'fun',[{'type',396,'product',[{'var',396,'Element'}|[{'var',396,'Set1'}]]}|[{'var',396,'Set2'}]]}|[[{'type',397,'constraint',[{'atom',397,'is_subtype'}|[[{'var',397,'Set1'}|[{'user_type',397,'set',[{'var',397,'Element'}]}]]]]}|[{'type',398,'constraint',[{'atom',398,'is_subtype'}|[[{'var',398,'Set2'}|[{'user_type',398,'set',[{'var',398,'Element'}]}]]]]}]]]]}]}],
+		%% Line 420
+		'spec' =
+		    %% Line 420
+		    [{{'take_smallest',1},[{'type',420,'bounded_fun',[{'type',420,'fun',[{'type',420,'product',[{'var',420,'Set1'}]}|[{'type',420,'tuple',[{'var',420,'Element'}|[{'var',420,'Set2'}]]}]]}|[[{'type',421,'constraint',[{'atom',421,'is_subtype'}|[[{'var',421,'Set1'}|[{'user_type',421,'set',[{'var',421,'Element'}]}]]]]}|[{'type',422,'constraint',[{'atom',422,'is_subtype'}|[[{'var',422,'Set2'}|[{'user_type',422,'set',[{'var',422,'Element'}]}]]]]}]]]]}]}],
+		%% Line 434
+		'spec' =
+		    %% Line 434
+		    [{{'smallest',1},[{'type',434,'bounded_fun',[{'type',434,'fun',[{'type',434,'product',[{'var',434,'Set'}]}|[{'var',434,'Element'}]]}|[[{'type',435,'constraint',[{'atom',435,'is_subtype'}|[[{'var',435,'Set'}|[{'user_type',435,'set',[{'var',435,'Element'}]}]]]]}]]]}]}],
+		%% Line 445
+		'spec' =
+		    %% Line 445
+		    [{{'take_largest',1},[{'type',445,'bounded_fun',[{'type',445,'fun',[{'type',445,'product',[{'var',445,'Set1'}]}|[{'type',445,'tuple',[{'var',445,'Element'}|[{'var',445,'Set2'}]]}]]}|[[{'type',446,'constraint',[{'atom',446,'is_subtype'}|[[{'var',446,'Set1'}|[{'user_type',446,'set',[{'var',446,'Element'}]}]]]]}|[{'type',447,'constraint',[{'atom',447,'is_subtype'}|[[{'var',447,'Set2'}|[{'user_type',447,'set',[{'var',447,'Element'}]}]]]]}]]]]}]}],
+		%% Line 459
+		'spec' =
+		    %% Line 459
+		    [{{'largest',1},[{'type',459,'bounded_fun',[{'type',459,'fun',[{'type',459,'product',[{'var',459,'Set'}]}|[{'var',459,'Element'}]]}|[[{'type',460,'constraint',[{'atom',460,'is_subtype'}|[[{'var',460,'Set'}|[{'user_type',460,'set',[{'var',460,'Element'}]}]]]]}]]]}]}],
+		%% Line 470
+		'spec' =
+		    %% Line 470
+		    [{{'to_list',1},[{'type',470,'bounded_fun',[{'type',470,'fun',[{'type',470,'product',[{'var',470,'Set'}]}|[{'var',470,'List'}]]}|[[{'type',471,'constraint',[{'atom',471,'is_subtype'}|[[{'var',471,'Set'}|[{'user_type',471,'set',[{'var',471,'Element'}]}]]]]}|[{'type',472,'constraint',[{'atom',472,'is_subtype'}|[[{'var',472,'List'}|[{'type',472,'list',[{'var',472,'Element'}]}]]]]}]]]]}]}],
+		%% Line 483
+		'spec' =
+		    %% Line 483
+		    [{{'iterator',1},[{'type',483,'bounded_fun',[{'type',483,'fun',[{'type',483,'product',[{'var',483,'Set'}]}|[{'var',483,'Iter'}]]}|[[{'type',484,'constraint',[{'atom',484,'is_subtype'}|[[{'var',484,'Set'}|[{'user_type',484,'set',[{'var',484,'Element'}]}]]]]}|[{'type',485,'constraint',[{'atom',485,'is_subtype'}|[[{'var',485,'Iter'}|[{'user_type',485,'iter',[{'var',485,'Element'}]}]]]]}]]]]}]}],
+		%% Line 500
+		'spec' =
+		    %% Line 500
+		    [{{'iterator_from',2},[{'type',500,'bounded_fun',[{'type',500,'fun',[{'type',500,'product',[{'var',500,'Element'}|[{'var',500,'Set'}]]}|[{'var',500,'Iter'}]]}|[[{'type',501,'constraint',[{'atom',501,'is_subtype'}|[[{'var',501,'Set'}|[{'user_type',501,'set',[{'var',501,'Element'}]}]]]]}|[{'type',502,'constraint',[{'atom',502,'is_subtype'}|[[{'var',502,'Iter'}|[{'user_type',502,'iter',[{'var',502,'Element'}]}]]]]}]]]]}]}],
+		%% Line 516
+		'spec' =
+		    %% Line 516
+		    [{{'next',1},[{'type',516,'bounded_fun',[{'type',516,'fun',[{'type',516,'product',[{'var',516,'Iter1'}]}|[{'type',516,'union',[{'type',516,'tuple',[{'var',516,'Element'}|[{'var',516,'Iter2'}]]}|[{'atom',516,'none'}]]}]]}|[[{'type',517,'constraint',[{'atom',517,'is_subtype'}|[[{'var',517,'Iter1'}|[{'user_type',517,'iter',[{'var',517,'Element'}]}]]]]}|[{'type',518,'constraint',[{'atom',518,'is_subtype'}|[[{'var',518,'Iter2'}|[{'user_type',518,'iter',[{'var',518,'Element'}]}]]]]}]]]]}]}],
+		%% Line 548
+		'spec' =
+		    %% Line 548
+		    [{{'union',2},[{'type',548,'bounded_fun',[{'type',548,'fun',[{'type',548,'product',[{'var',548,'Set1'}|[{'var',548,'Set2'}]]}|[{'var',548,'Set3'}]]}|[[{'type',549,'constraint',[{'atom',549,'is_subtype'}|[[{'var',549,'Set1'}|[{'user_type',549,'set',[{'var',549,'Element'}]}]]]]}|[{'type',550,'constraint',[{'atom',550,'is_subtype'}|[[{'var',550,'Set2'}|[{'user_type',550,'set',[{'var',550,'Element'}]}]]]]}|[{'type',551,'constraint',[{'atom',551,'is_subtype'}|[[{'var',551,'Set3'}|[{'user_type',551,'set',[{'var',551,'Element'}]}]]]]}]]]]]}]}],
+		%% Line 573
+		'spec' =
+		    %% Line 573
+		    [{{'mk_set',2},[{'type',573,'fun',[{'type',573,'product',[{'type',573,'non_neg_integer',[]}|[{'user_type',573,'gb_set_node',[{'var',573,'T'}]}]]}|[{'user_type',573,'set',[{'var',573,'T'}]}]]}]}],
+		%% Line 653
+		'spec' =
+		    %% Line 653
+		    [{{'union',1},[{'type',653,'bounded_fun',[{'type',653,'fun',[{'type',653,'product',[{'var',653,'SetList'}]}|[{'var',653,'Set'}]]}|[[{'type',654,'constraint',[{'atom',654,'is_subtype'}|[[{'var',654,'SetList'}|[{'type',654,'nonempty_list',[{'user_type',654,'set',[{'var',654,'Element'}]}]}]]]]}|[{'type',655,'constraint',[{'atom',655,'is_subtype'}|[[{'var',655,'Set'}|[{'user_type',655,'set',[{'var',655,'Element'}]}]]]]}]]]]}]}],
+		%% Line 668
+		'spec' =
+		    %% Line 668
+		    [{{'intersection',2},[{'type',668,'bounded_fun',[{'type',668,'fun',[{'type',668,'product',[{'var',668,'Set1'}|[{'var',668,'Set2'}]]}|[{'var',668,'Set3'}]]}|[[{'type',669,'constraint',[{'atom',669,'is_subtype'}|[[{'var',669,'Set1'}|[{'user_type',669,'set',[{'var',669,'Element'}]}]]]]}|[{'type',670,'constraint',[{'atom',670,'is_subtype'}|[[{'var',670,'Set2'}|[{'user_type',670,'set',[{'var',670,'Element'}]}]]]]}|[{'type',671,'constraint',[{'atom',671,'is_subtype'}|[[{'var',671,'Set3'}|[{'user_type',671,'set',[{'var',671,'Element'}]}]]]]}]]]]]}]}],
+		%% Line 719
+		'spec' =
+		    %% Line 719
+		    [{{'intersection',1},[{'type',719,'bounded_fun',[{'type',719,'fun',[{'type',719,'product',[{'var',719,'SetList'}]}|[{'var',719,'Set'}]]}|[[{'type',720,'constraint',[{'atom',720,'is_subtype'}|[[{'var',720,'SetList'}|[{'type',720,'nonempty_list',[{'user_type',720,'set',[{'var',720,'Element'}]}]}]]]]}|[{'type',721,'constraint',[{'atom',721,'is_subtype'}|[[{'var',721,'Set'}|[{'user_type',721,'set',[{'var',721,'Element'}]}]]]]}]]]]}]}],
+		%% Line 730
+		'spec' =
+		    %% Line 730
+		    [{{'is_disjoint',2},[{'type',730,'bounded_fun',[{'type',730,'fun',[{'type',730,'product',[{'var',730,'Set1'}|[{'var',730,'Set2'}]]}|[{'type',730,'boolean',[]}]]}|[[{'type',731,'constraint',[{'atom',731,'is_subtype'}|[[{'var',731,'Set1'}|[{'user_type',731,'set',[{'var',731,'Element'}]}]]]]}|[{'type',732,'constraint',[{'atom',732,'is_subtype'}|[[{'var',732,'Set2'}|[{'user_type',732,'set',[{'var',732,'Element'}]}]]]]}]]]]}]}],
+		%% Line 760
+		'spec' =
+		    %% Line 760
+		    [{{'subtract',2},[{'type',760,'bounded_fun',[{'type',760,'fun',[{'type',760,'product',[{'var',760,'Set1'}|[{'var',760,'Set2'}]]}|[{'var',760,'Set3'}]]}|[[{'type',761,'constraint',[{'atom',761,'is_subtype'}|[[{'var',761,'Set1'}|[{'user_type',761,'set',[{'var',761,'Element'}]}]]]]}|[{'type',762,'constraint',[{'atom',762,'is_subtype'}|[[{'var',762,'Set2'}|[{'user_type',762,'set',[{'var',762,'Element'}]}]]]]}|[{'type',763,'constraint',[{'atom',763,'is_subtype'}|[[{'var',763,'Set3'}|[{'user_type',763,'set',[{'var',763,'Element'}]}]]]]}]]]]]}]}],
+		%% Line 768
+		'spec' =
+		    %% Line 768
+		    [{{'difference',2},[{'type',768,'bounded_fun',[{'type',768,'fun',[{'type',768,'product',[{'var',768,'Set1'}|[{'var',768,'Set2'}]]}|[{'var',768,'Set3'}]]}|[[{'type',769,'constraint',[{'atom',769,'is_subtype'}|[[{'var',769,'Set1'}|[{'user_type',769,'set',[{'var',769,'Element'}]}]]]]}|[{'type',770,'constraint',[{'atom',770,'is_subtype'}|[[{'var',770,'Set2'}|[{'user_type',770,'set',[{'var',770,'Element'}]}]]]]}|[{'type',771,'constraint',[{'atom',771,'is_subtype'}|[[{'var',771,'Set3'}|[{'user_type',771,'set',[{'var',771,'Element'}]}]]]]}]]]]]}]}],
+		%% Line 819
+		'spec' =
+		    %% Line 819
+		    [{{'is_subset',2},[{'type',819,'bounded_fun',[{'type',819,'fun',[{'type',819,'product',[{'var',819,'Set1'}|[{'var',819,'Set2'}]]}|[{'type',819,'boolean',[]}]]}|[[{'type',820,'constraint',[{'atom',820,'is_subtype'}|[[{'var',820,'Set1'}|[{'user_type',820,'set',[{'var',820,'Element'}]}]]]]}|[{'type',821,'constraint',[{'atom',821,'is_subtype'}|[[{'var',821,'Set2'}|[{'user_type',821,'set',[{'var',821,'Element'}]}]]]]}]]]]}]}],
+		%% Line 862
+		'spec' =
+		    %% Line 862
+		    [{{'is_set',1},[{'type',862,'bounded_fun',[{'type',862,'fun',[{'type',862,'product',[{'var',862,'Term'}]}|[{'type',862,'boolean',[]}]]}|[[{'type',863,'constraint',[{'atom',863,'is_subtype'}|[[{'var',863,'Term'}|[{'type',863,'term',[]}]]]]}]]]}]}],
+		%% Line 869
+		'spec' =
+		    %% Line 869
+		    [{{'filter',2},[{'type',869,'bounded_fun',[{'type',869,'fun',[{'type',869,'product',[{'var',869,'Pred'}|[{'var',869,'Set1'}]]}|[{'var',869,'Set2'}]]}|[[{'type',870,'constraint',[{'atom',870,'is_subtype'}|[[{'var',870,'Pred'}|[{'type',870,'fun',[{'type',870,'product',[{'var',870,'Element'}]}|[{'type',870,'boolean',[]}]]}]]]]}|[{'type',871,'constraint',[{'atom',871,'is_subtype'}|[[{'var',871,'Set1'}|[{'user_type',871,'set',[{'var',871,'Element'}]}]]]]}|[{'type',872,'constraint',[{'atom',872,'is_subtype'}|[[{'var',872,'Set2'}|[{'user_type',872,'set',[{'var',872,'Element'}]}]]]]}]]]]]}]}],
+		%% Line 877
+		'spec' =
+		    %% Line 877
+		    [{{'fold',3},[{'type',877,'bounded_fun',[{'type',877,'fun',[{'type',877,'product',[{'var',877,'Function'}|[{'var',877,'Acc0'}|[{'var',877,'Set'}]]]}|[{'var',877,'Acc1'}]]}|[[{'type',878,'constraint',[{'atom',878,'is_subtype'}|[[{'var',878,'Function'}|[{'type',878,'fun',[{'type',878,'product',[{'var',878,'Element'}|[{'var',878,'AccIn'}]]}|[{'var',878,'AccOut'}]]}]]]]}|[{'type',879,'constraint',[{'atom',879,'is_subtype'}|[[{'var',879,'Acc0'}|[{'var',879,'Acc'}]]]]}|[{'type',880,'constraint',[{'atom',880,'is_subtype'}|[[{'var',880,'Acc1'}|[{'var',880,'Acc'}]]]]}|[{'type',881,'constraint',[{'atom',881,'is_subtype'}|[[{'var',881,'AccIn'}|[{'var',881,'Acc'}]]]]}|[{'type',882,'constraint',[{'atom',882,'is_subtype'}|[[{'var',882,'AccOut'}|[{'var',882,'Acc'}]]]]}|[{'type',883,'constraint',[{'atom',883,'is_subtype'}|[[{'var',883,'Set'}|[{'user_type',883,'set',[{'var',883,'Element'}]}]]]]}]]]]]]]]}]}]]
+'empty'/0 =
+    %% Line 210
+    fun () ->
+	%% Line 211
+	{0,'nil'}
+'new'/0 =
+    %% Line 216
+    fun () ->
+	apply 'empty'/0
+	    ()
+'is_empty'/1 =
+    %% Line 221
+    fun (_0) ->
+	case _0 of
+	  <{0,'nil'}> when 'true' ->
+	      %% Line 222
+	      'true'
+	  %% Line 223
+	  <_2> when 'true' ->
+	      %% Line 224
+	      'false'
+	end
+'size'/1 =
+    %% Line 229
+    fun (_0) ->
+	case _0 of
+	  <{Size,_2}> when 'true' ->
+	      %% Line 230
+	      Size
+	  ( <_1> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_1})
+		  -| [{'function_name',{'size',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'singleton'/1 =
+    %% Line 234
+    fun (_0) ->
+	%% Line 235
+	{1,{_0,'nil','nil'}}
+'is_element'/2 =
+    %% Line 240
+    fun (_0,_1) ->
+	%% Line 241
+	apply 'is_member'/2
+	    (_0, _1)
+'is_member'/2 =
+    %% Line 246
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Key,{_4,T}> when 'true' ->
+	      %% Line 247
+	      apply 'is_member_1'/2
+		  (Key, T)
+	  ( <_3,_2> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_3,_2})
+		  -| [{'function_name',{'is_member',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'is_member_1'/2 =
+    %% Line 249
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Key,{Key1,Smaller,_4}>
+	      when call 'erlang':'<'
+		    (Key,
+		     Key1) ->
+	      %% Line 250
+	      apply 'is_member_1'/2
+		  (Key, Smaller)
+	  %% Line 251
+	  <Key,{Key1,_5,Bigger}>
+	      when call 'erlang':'>'
+		    (Key,
+		     Key1) ->
+	      %% Line 252
+	      apply 'is_member_1'/2
+		  (Key, Bigger)
+	  %% Line 253
+	  <_6,{_7,_8,_9}> when 'true' ->
+	      %% Line 254
+	      'true'
+	  %% Line 255
+	  <_10,'nil'> when 'true' ->
+	      %% Line 256
+	      'false'
+	  ( <_3,_2> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_3,_2})
+		  -| [{'function_name',{'is_member_1',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'insert'/2 =
+    %% Line 262
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Key,{S,T}> when 'true' ->
+	      let <S1> =
+		  call %% Line 263
+		       'erlang':%% Line 263
+				'+'
+		      (%% Line 263
+		       S, %% Line 263
+			  1)
+	      in  let <_3> =
+		      call %% Line 264
+			   'erlang':%% Line 264
+				    '*'
+			  (%% Line 264
+			   S1, %% Line 264
+			       S1)
+		  in  let <_4> =
+			  apply %% Line 264
+				'insert_1'/3
+			      (%% Line 264
+			       Key, %% Line 264
+				    T, _3)
+		      in  %% Line 264
+			  {S1,_4}
+	  ( <_6,_5> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_6,_5})
+		  -| [{'function_name',{'insert',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'insert_1'/3 =
+    %% Line 266
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <Key,{Key1,Smaller,Bigger},S>
+	      when call 'erlang':'<'
+		    (Key,
+		     Key1) ->
+	      let <_3> =
+		  call %% Line 267
+		       'erlang':%% Line 267
+				'bsr'
+		      (%% Line 267
+		       S, %% Line 267
+			  1)
+	      in  %% Line 267
+		  case apply 'insert_1'/3
+			   (Key, Smaller, _3) of
+		    %% Line 268
+		    <{T1,H1,S1}>
+			when call 'erlang':'is_integer'
+			      (H1) ->
+			let <T> = {%% Line 269
+			     Key1,%% Line 269
+				  T1,%% Line 269
+				     Bigger}
+			in  %% Line 270
+			    case apply 'count'/1
+				     (Bigger) of
+			      <{H2,S2}> when 'true' ->
+				  let <_6> =
+				      call %% Line 271
+					   'erlang':%% Line 271
+						    'max'
+					  (%% Line 271
+					   H1, %% Line 271
+					       H2)
+				  in  let <H> =
+					  call %% Line 271
+					       'erlang':%% Line 271
+							'bsl'
+					      (_6, %% Line 271
+						   1)
+				      in  let <_8> =
+					      call %% Line 272
+						   'erlang':%% Line 272
+							    '+'
+						  (%% Line 272
+						   S1, %% Line 272
+						       S2)
+					  in  let <SS> =
+						  call %% Line 272
+						       'erlang':%% Line 272
+								'+'
+						      (_8, %% Line 272
+							   1)
+					      in  let <P> =
+						      call %% Line 273
+							   'erlang':%% Line 273
+								    '*'
+							  (%% Line 273
+							   SS, %% Line 273
+							       SS)
+						  in  %% Line 274
+						      case <> of
+							%% Line 275
+							<>
+							    when call 'erlang':'>'
+								  (H,
+								   P) ->
+							    %% Line 276
+							    apply 'balance'/2
+								(T, SS)
+							%% Line 277
+							<> when 'true' ->
+							    %% Line 278
+							    {T,H,SS}
+						      end
+			      ( <_5> when 'true' ->
+				    primop 'match_fail'
+					({'badmatch',_5})
+				-| ['compiler_generated'] )
+			    end
+		    %% Line 280
+		    <T1> when 'true' ->
+			%% Line 281
+			{Key1,T1,Bigger}
+		  end
+	  %% Line 283
+	  <Key,{Key1,Smaller,Bigger},S>
+	      when call 'erlang':'>'
+		    (Key,
+		     Key1) ->
+	      let <_12> =
+		  call %% Line 284
+		       'erlang':%% Line 284
+				'bsr'
+		      (%% Line 284
+		       S, %% Line 284
+			  1)
+	      in  %% Line 284
+		  case apply 'insert_1'/3
+			   (Key, Bigger, _12) of
+		    %% Line 285
+		    <{T1,H1,S1}>
+			when call 'erlang':'is_integer'
+			      (H1) ->
+			let <T> = {%% Line 286
+			     Key1,%% Line 286
+				  Smaller,%% Line 286
+					  T1}
+			in  %% Line 287
+			    case apply 'count'/1
+				     (Smaller) of
+			      <{H2,S2}> when 'true' ->
+				  let <_15> =
+				      call %% Line 288
+					   'erlang':%% Line 288
+						    'max'
+					  (%% Line 288
+					   H1, %% Line 288
+					       H2)
+				  in  let <H> =
+					  call %% Line 288
+					       'erlang':%% Line 288
+							'bsl'
+					      (_15, %% Line 288
+						    1)
+				      in  let <_17> =
+					      call %% Line 289
+						   'erlang':%% Line 289
+							    '+'
+						  (%% Line 289
+						   S1, %% Line 289
+						       S2)
+					  in  let <SS> =
+						  call %% Line 289
+						       'erlang':%% Line 289
+								'+'
+						      (_17, %% Line 289
+							    1)
+					      in  let <P> =
+						      call %% Line 290
+							   'erlang':%% Line 290
+								    '*'
+							  (%% Line 290
+							   SS, %% Line 290
+							       SS)
+						  in  %% Line 291
+						      case <> of
+							%% Line 292
+							<>
+							    when call 'erlang':'>'
+								  (H,
+								   P) ->
+							    %% Line 293
+							    apply 'balance'/2
+								(T, SS)
+							%% Line 294
+							<> when 'true' ->
+							    %% Line 295
+							    {T,H,SS}
+						      end
+			      ( <_14> when 'true' ->
+				    primop 'match_fail'
+					({'badmatch',_14})
+				-| ['compiler_generated'] )
+			    end
+		    %% Line 297
+		    <T1> when 'true' ->
+			%% Line 298
+			{Key1,Smaller,T1}
+		  end
+	  %% Line 300
+	  <Key,'nil',0> when 'true' ->
+	      %% Line 301
+	      {{Key,'nil','nil'},1,1}
+	  %% Line 302
+	  <Key,'nil',_24> when 'true' ->
+	      %% Line 303
+	      {Key,'nil','nil'}
+	  %% Line 304
+	  <Key,_25,_26> when 'true' ->
+	      %% Line 305
+	      call 'erlang':'error'
+		  ({'key_exists',Key})
+	end
+'count'/1 =
+    %% Line 307
+    fun (_0) ->
+	case _0 of
+	  <{_8,'nil','nil'}> when 'true' ->
+	      %% Line 308
+	      {1,1}
+	  %% Line 309
+	  <{_9,Sm,Bi}> when 'true' ->
+	      %% Line 310
+	      case apply 'count'/1
+		       (Sm) of
+		<{H1,S1}> when 'true' ->
+		    %% Line 311
+		    case apply 'count'/1
+			     (Bi) of
+		      <{H2,S2}> when 'true' ->
+			  let <_5> =
+			      call %% Line 312
+				   'erlang':%% Line 312
+					    'max'
+				  (%% Line 312
+				   H1, %% Line 312
+				       H2)
+			  in  let <_6> =
+				  call %% Line 312
+				       'erlang':%% Line 312
+						'bsl'
+				      (_5, %% Line 312
+					   1)
+			      in  let <_3> =
+				      call %% Line 312
+					   'erlang':%% Line 312
+						    '+'
+					  (%% Line 312
+					   S1, %% Line 312
+					       S2)
+				  in  let <_4> =
+					  call %% Line 312
+					       'erlang':%% Line 312
+							'+'
+					      (_3, %% Line 312
+						   1)
+				      in  %% Line 312
+					  {_6,_4}
+		      ( <_2> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_2})
+			-| ['compiler_generated'] )
+		    end
+		( <_1> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_1})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 313
+	  <'nil'> when 'true' ->
+	      %% Line 314
+	      {1,0}
+	  ( <_7> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_7})
+		  -| [{'function_name',{'count',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'balance'/1 =
+    %% Line 320
+    fun (_0) ->
+	case _0 of
+	  <{S,T}> when 'true' ->
+	      let <_1> =
+		  apply %% Line 321
+			'balance'/2
+		      (%% Line 321
+		       T, %% Line 321
+			  S)
+	      in  %% Line 321
+		  {S,_1}
+	  ( <_2> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_2})
+		  -| [{'function_name',{'balance',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'balance'/2 =
+    %% Line 323
+    fun (_0,_1) ->
+	let <_2> =
+	    apply %% Line 324
+		  'to_list_1'/1
+		(_0)
+	in  %% Line 324
+	    apply 'balance_list'/2
+		(_2, _1)
+'balance_list'/2 =
+    %% Line 326
+    fun (_0,_1) ->
+	%% Line 327
+	case apply 'balance_list_1'/2
+		 (_0, _1) of
+	  <{T,_5}> when 'true' ->
+	      %% Line 328
+	      T
+	  ( <_2> when 'true' ->
+		primop 'match_fail'
+		    ({'badmatch',_2})
+	    -| ['compiler_generated'] )
+	end
+'balance_list_1'/2 =
+    %% Line 330
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <L,S>
+	      when call 'erlang':'>'
+		    (S,
+		     1) ->
+	      let <Sm> =
+		  call %% Line 331
+		       'erlang':%% Line 331
+				'-'
+		      (%% Line 331
+		       S, %% Line 331
+			  1)
+	      in  let <S2> =
+		      call %% Line 332
+			   'erlang':%% Line 332
+				    'div'
+			  (%% Line 332
+			   Sm, %% Line 332
+			       2)
+		  in  let <S1> =
+			  call %% Line 333
+			       'erlang':%% Line 333
+					'-'
+			      (%% Line 333
+			       Sm, %% Line 333
+				   S2)
+		      in  %% Line 334
+			  case apply 'balance_list_1'/2
+				   (L, S1) of
+			    <{T1,[K|L1]}> when 'true' ->
+				%% Line 335
+				case apply 'balance_list_1'/2
+					 (L1, S2) of
+				  <{T2,L2}> when 'true' ->
+				      let <T> = {%% Line 336
+					   K,%% Line 336
+					     T1,%% Line 336
+						T2}
+				      in  %% Line 337
+					  {T,L2}
+				  ( <_6> when 'true' ->
+					primop 'match_fail'
+					    ({'badmatch',_6})
+				    -| ['compiler_generated'] )
+				end
+			    ( <_5> when 'true' ->
+				  primop 'match_fail'
+				      ({'badmatch',_5})
+			      -| ['compiler_generated'] )
+			  end
+	  %% Line 338
+	  <[Key|L],1> when 'true' ->
+	      %% Line 339
+	      {{Key,'nil','nil'},L}
+	  %% Line 340
+	  <L,0> when 'true' ->
+	      %% Line 341
+	      {'nil',L}
+	  ( <_9,_8> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_9,_8})
+		  -| [{'function_name',{'balance_list_1',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'add_element'/2 =
+    %% Line 347
+    fun (_0,_1) ->
+	%% Line 348
+	apply 'add'/2
+	    (_0, _1)
+'add'/2 =
+    %% Line 354
+    fun (_0,_1) ->
+	%% Line 355
+	case apply 'is_member'/2
+		 (_0, _1) of
+	  %% Line 356
+	  <'true'> when 'true' ->
+	      _1
+	  %% Line 358
+	  <'false'> when 'true' ->
+	      %% Line 359
+	      apply 'insert'/2
+		  (_0, _1)
+	  ( <_2> when 'true' ->
+		primop 'match_fail'
+		    ({'case_clause',_2})
+	    -| ['compiler_generated'] )
+	end
+'from_list'/1 =
+    %% Line 366
+    fun (_0) ->
+	let <_1> =
+	    call %% Line 367
+		 'ordsets':%% Line 367
+			   'from_list'
+		(_0)
+	in  %% Line 367
+	    apply 'from_ordset'/1
+		(_1)
+'from_ordset'/1 =
+    %% Line 373
+    fun (_0) ->
+	let <S> =
+	    call %% Line 374
+		 'erlang':%% Line 374
+			  'length'
+		(_0)
+	in  let <_2> =
+		apply %% Line 375
+		      'balance_list'/2
+		    (_0, %% Line 375
+			 S)
+	    in  %% Line 375
+		{S,_2}
+'del_element'/2 =
+    %% Line 381
+    fun (_0,_1) ->
+	%% Line 382
+	apply 'delete_any'/2
+	    (_0, _1)
+'delete_any'/2 =
+    %% Line 388
+    fun (_0,_1) ->
+	%% Line 389
+	case apply 'is_member'/2
+		 (_0, _1) of
+	  %% Line 390
+	  <'true'> when 'true' ->
+	      %% Line 391
+	      apply 'delete'/2
+		  (_0, _1)
+	  %% Line 392
+	  <'false'> when 'true' ->
+	      _1
+	  ( <_2> when 'true' ->
+		primop 'match_fail'
+		    ({'case_clause',_2})
+	    -| ['compiler_generated'] )
+	end
+'delete'/2 =
+    %% Line 400
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Key,{S,T}> when 'true' ->
+	      let <_3> =
+		  call %% Line 401
+		       'erlang':%% Line 401
+				'-'
+		      (%% Line 401
+		       S, %% Line 401
+			  1)
+	      in  let <_2> =
+		      apply %% Line 401
+			    'delete_1'/2
+			  (%% Line 401
+			   Key, %% Line 401
+				T)
+		  in  %% Line 401
+		      {_3,_2}
+	  ( <_5,_4> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_5,_4})
+		  -| [{'function_name',{'delete',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'delete_1'/2 =
+    %% Line 403
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Key,{Key1,Smaller,Larger}>
+	      when call 'erlang':'<'
+		    (Key,
+		     Key1) ->
+	      let <Smaller1> =
+		  apply %% Line 404
+			'delete_1'/2
+		      (%% Line 404
+		       Key, %% Line 404
+			    Smaller)
+	      in  %% Line 405
+		  {Key1,Smaller1,Larger}
+	  %% Line 406
+	  <Key,{Key1,Smaller,Bigger}>
+	      when call 'erlang':'>'
+		    (Key,
+		     Key1) ->
+	      let <Bigger1> =
+		  apply %% Line 407
+			'delete_1'/2
+		      (%% Line 407
+		       Key, %% Line 407
+			    Bigger)
+	      in  %% Line 408
+		  {Key1,Smaller,Bigger1}
+	  %% Line 409
+	  <_6,{_7,Smaller,Larger}> when 'true' ->
+	      %% Line 410
+	      apply 'merge'/2
+		  (Smaller, Larger)
+	  ( <_5,_4> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_5,_4})
+		  -| [{'function_name',{'delete_1',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'merge'/2 =
+    %% Line 412
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Smaller,'nil'> when 'true' ->
+	      %% Line 413
+	      Smaller
+	  %% Line 414
+	  <'nil',Larger> when 'true' ->
+	      %% Line 415
+	      Larger
+	  %% Line 416
+	  <Smaller,Larger> when 'true' ->
+	      %% Line 417
+	      case apply 'take_smallest1'/1
+		       (Larger) of
+		<{Key,Larger1}> when 'true' ->
+		    %% Line 418
+		    {Key,Smaller,Larger1}
+		( <_2> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_2})
+		  -| ['compiler_generated'] )
+	      end
+	end
+'take_smallest'/1 =
+    %% Line 424
+    fun (_0) ->
+	case _0 of
+	  <{S,T}> when 'true' ->
+	      %% Line 425
+	      case apply 'take_smallest1'/1
+		       (T) of
+		<{Key,Larger}> when 'true' ->
+		    let <_2> =
+			call %% Line 426
+			     'erlang':%% Line 426
+				      '-'
+			    (%% Line 426
+			     S, %% Line 426
+				1)
+		    in  %% Line 426
+			{Key,{_2,Larger}}
+		( <_1> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_1})
+		  -| ['compiler_generated'] )
+	      end
+	  ( <_3> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_3})
+		  -| [{'function_name',{'take_smallest',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'take_smallest1'/1 =
+    %% Line 428
+    fun (_0) ->
+	case _0 of
+	  <{Key,'nil',Larger}> when 'true' ->
+	      %% Line 429
+	      {Key,Larger}
+	  %% Line 430
+	  <{Key,Smaller,Larger}> when 'true' ->
+	      %% Line 431
+	      case apply 'take_smallest1'/1
+		       (Smaller) of
+		<{Key1,Smaller1}> when 'true' ->
+		    %% Line 432
+		    {Key1,{Key,Smaller1,Larger}}
+		( <_1> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_1})
+		  -| ['compiler_generated'] )
+	      end
+	  ( <_2> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_2})
+		  -| [{'function_name',{'take_smallest1',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'smallest'/1 =
+    %% Line 437
+    fun (_0) ->
+	case _0 of
+	  <{_2,T}> when 'true' ->
+	      %% Line 438
+	      apply 'smallest_1'/1
+		  (T)
+	  ( <_1> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_1})
+		  -| [{'function_name',{'smallest',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'smallest_1'/1 =
+    %% Line 440
+    fun (_0) ->
+	case _0 of
+	  <{Key,'nil',_X_Larger}> when 'true' ->
+	      %% Line 441
+	      Key
+	  %% Line 442
+	  <{_X_Key,Smaller,_X_Larger}> when 'true' ->
+	      %% Line 443
+	      apply 'smallest_1'/1
+		  (Smaller)
+	  ( <_1> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_1})
+		  -| [{'function_name',{'smallest_1',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'take_largest'/1 =
+    %% Line 449
+    fun (_0) ->
+	case _0 of
+	  <{S,T}> when 'true' ->
+	      %% Line 450
+	      case apply 'take_largest1'/1
+		       (T) of
+		<{Key,Smaller}> when 'true' ->
+		    let <_2> =
+			call %% Line 451
+			     'erlang':%% Line 451
+				      '-'
+			    (%% Line 451
+			     S, %% Line 451
+				1)
+		    in  %% Line 451
+			{Key,{_2,Smaller}}
+		( <_1> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_1})
+		  -| ['compiler_generated'] )
+	      end
+	  ( <_3> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_3})
+		  -| [{'function_name',{'take_largest',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'take_largest1'/1 =
+    %% Line 453
+    fun (_0) ->
+	case _0 of
+	  <{Key,Smaller,'nil'}> when 'true' ->
+	      %% Line 454
+	      {Key,Smaller}
+	  %% Line 455
+	  <{Key,Smaller,Larger}> when 'true' ->
+	      %% Line 456
+	      case apply 'take_largest1'/1
+		       (Larger) of
+		<{Key1,Larger1}> when 'true' ->
+		    %% Line 457
+		    {Key1,{Key,Smaller,Larger1}}
+		( <_1> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_1})
+		  -| ['compiler_generated'] )
+	      end
+	  ( <_2> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_2})
+		  -| [{'function_name',{'take_largest1',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'largest'/1 =
+    %% Line 462
+    fun (_0) ->
+	case _0 of
+	  <{_2,T}> when 'true' ->
+	      %% Line 463
+	      apply 'largest_1'/1
+		  (T)
+	  ( <_1> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_1})
+		  -| [{'function_name',{'largest',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'largest_1'/1 =
+    %% Line 465
+    fun (_0) ->
+	case _0 of
+	  <{Key,_X_Smaller,'nil'}> when 'true' ->
+	      %% Line 466
+	      Key
+	  %% Line 467
+	  <{_X_Key,_X_Smaller,Larger}> when 'true' ->
+	      %% Line 468
+	      apply 'largest_1'/1
+		  (Larger)
+	  ( <_1> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_1})
+		  -| [{'function_name',{'largest_1',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'to_list'/1 =
+    %% Line 474
+    fun (_0) ->
+	case _0 of
+	  <{_2,T}> when 'true' ->
+	      %% Line 475
+	      apply 'to_list'/2
+		  (T, [])
+	  ( <_1> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_1})
+		  -| [{'function_name',{'to_list',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'to_list_1'/1 =
+    %% Line 477
+    fun (_0) ->
+	apply 'to_list'/2
+	    (_0, [])
+'to_list'/2 =
+    %% Line 479
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <{Key,Small,Big},L> when 'true' ->
+	      let <_2> =
+		  apply %% Line 480
+			'to_list'/2
+		      (%% Line 480
+		       Big, %% Line 480
+			    L)
+	      in  %% Line 480
+		  apply 'to_list'/2
+		      (Small, [Key|_2])
+	  %% Line 481
+	  <'nil',L> when 'true' ->
+	      L
+	  ( <_4,_3> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_4,_3})
+		  -| [{'function_name',{'to_list',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'iterator'/1 =
+    %% Line 487
+    fun (_0) ->
+	case _0 of
+	  <{_2,T}> when 'true' ->
+	      %% Line 488
+	      apply 'iterator'/2
+		  (T, [])
+	  ( <_1> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_1})
+		  -| [{'function_name',{'iterator',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'iterator'/2 =
+    %% Line 493
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <T = {_4,'nil',_5},As> when 'true' ->
+	      %% Line 494
+	      [T|As]
+	  %% Line 495
+	  <T = {_6,L,_7},As> when 'true' ->
+	      %% Line 496
+	      apply 'iterator'/2
+		  (L, [T|As])
+	  %% Line 497
+	  <'nil',As> when 'true' ->
+	      %% Line 498
+	      As
+	  ( <_3,_2> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_3,_2})
+		  -| [{'function_name',{'iterator',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'iterator_from'/2 =
+    %% Line 504
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <S,{_4,T}> when 'true' ->
+	      %% Line 505
+	      apply 'iterator_from'/3
+		  (S, T, [])
+	  ( <_3,_2> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_3,_2})
+		  -| [{'function_name',{'iterator_from',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'iterator_from'/3 =
+    %% Line 507
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <S,{K,_6,T},As>
+	      when call 'erlang':'<'
+		    (K,
+		     S) ->
+	      %% Line 508
+	      apply 'iterator_from'/3
+		  (S, T, As)
+	  %% Line 509
+	  <_7,T = {_8,'nil',_9},As> when 'true' ->
+	      %% Line 510
+	      [T|As]
+	  %% Line 511
+	  <S,T = {_10,L,_11},As> when 'true' ->
+	      %% Line 512
+	      apply 'iterator_from'/3
+		  (S, L, [T|As])
+	  %% Line 513
+	  <_12,'nil',As> when 'true' ->
+	      %% Line 514
+	      As
+	  ( <_5,_4,_3> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_5,_4,_3})
+		  -| [{'function_name',{'iterator_from',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'next'/1 =
+    %% Line 520
+    fun (_0) ->
+	case _0 of
+	  <[{X,_3,T}|As]> when 'true' ->
+	      let <_1> =
+		  apply %% Line 521
+			'iterator'/2
+		      (%% Line 521
+		       T, %% Line 521
+			  As)
+	      in  %% Line 521
+		  {X,_1}
+	  %% Line 522
+	  <[]> when 'true' ->
+	      %% Line 523
+	      'none'
+	  ( <_2> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_2})
+		  -| [{'function_name',{'next',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'union'/2 =
+    %% Line 553
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <{N1,T1},{N2,T2}>
+	      when call 'erlang':'<'
+		    (N2,
+		     N1) ->
+	      let <_2> =
+		  apply %% Line 554
+			'to_list_1'/1
+		      (%% Line 554
+		       T2)
+	      in  %% Line 554
+		  apply 'union'/4
+		      (_2, N2, T1, N1)
+	  %% Line 555
+	  <{N1,T1},{N2,T2}> when 'true' ->
+	      let <_3> =
+		  apply %% Line 556
+			'to_list_1'/1
+		      (%% Line 556
+		       T1)
+	      in  %% Line 556
+		  apply 'union'/4
+		      (_3, N1, T2, N2)
+	  ( <_5,_4> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_5,_4})
+		  -| [{'function_name',{'union',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'union'/4 =
+    %% Line 562
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <L,N1,T2,N2>
+	      when call 'erlang':'<'
+		    (N2,
+		     10) ->
+	      let <_5> =
+		  apply %% Line 564
+			'to_list_1'/1
+		      (%% Line 564
+		       T2)
+	      in  let <_4> =
+		      call %% Line 564
+			   'erlang':%% Line 564
+				    '+'
+			  (%% Line 564
+			   N1, %% Line 564
+			       N2)
+		  in  %% Line 564
+		      apply 'union_2'/3
+			  (L, _5, _4)
+	  %% Line 565
+	  <L,N1,T2,N2> when 'true' ->
+	      let <_6> =
+		  call %% Line 566
+		       'math':%% Line 566
+			      'log'
+		      (%% Line 566
+		       N2)
+	      in  let <_7> =
+		      call %% Line 566
+			   'erlang':%% Line 566
+				    '*'
+			  (%% Line 566
+			   1.45999999999999996447e+00, _6)
+		  in  let <_8> =
+			  call %% Line 566
+			       'erlang':%% Line 566
+					'round'
+			      (_7)
+		      in  let <X> =
+			      call %% Line 566
+				   'erlang':%% Line 566
+					    '*'
+				  (%% Line 566
+				   N1, _8)
+			  in  %% Line 567
+			      case <> of
+				<>
+				    when call 'erlang':'<'
+					  (N2,
+					   X) ->
+				    let <_11> =
+					apply %% Line 568
+					      'to_list_1'/1
+					    (%% Line 568
+					     T2)
+				    in  let <_10> =
+					    call %% Line 568
+						 'erlang':%% Line 568
+							  '+'
+						(%% Line 568
+						 N1, %% Line 568
+						     N2)
+					in  %% Line 568
+					    apply 'union_2'/3
+						(L, _11, _10)
+				%% Line 569
+				<> when 'true' ->
+				    let <_12> =
+					apply %% Line 570
+					      'mk_set'/2
+					    (%% Line 570
+					     N2, %% Line 570
+						 T2)
+				    in  %% Line 570
+					apply 'union_1'/2
+					    (L, _12)
+			      end
+	end
+'mk_set'/2 =
+    %% Line 575
+    fun (_0,_1) ->
+	%% Line 576
+	{_0,_1}
+'union_1'/2 =
+    %% Line 582
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <[X|Xs],S> when 'true' ->
+	      let <_2> =
+		  apply %% Line 583
+			'add'/2
+		      (%% Line 583
+		       X, %% Line 583
+			  S)
+	      in  %% Line 583
+		  apply 'union_1'/2
+		      (Xs, _2)
+	  %% Line 584
+	  <[],S> when 'true' ->
+	      %% Line 585
+	      S
+	  ( <_4,_3> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_4,_3})
+		  -| [{'function_name',{'union_1',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'union_2'/3 =
+    %% Line 617
+    fun (_0,_1,_2) ->
+	%% Line 618
+	apply 'union_2'/4
+	    (_0, _1, [], _2)
+'union_2'/4 =
+    %% Line 620
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <[X|Xs1],Ys = [Y|_13],As,S>
+	      when call 'erlang':'<'
+		    (X,
+		     Y) ->
+	      %% Line 621
+	      apply 'union_2'/4
+		  (Xs1, Ys, [X|As], S)
+	  %% Line 622
+	  <Xs = [X|_14],[Y|Ys1],As,S>
+	      when call 'erlang':'>'
+		    (X,
+		     Y) ->
+	      %% Line 623
+	      apply 'union_2'/4
+		  (Ys1, Xs, [Y|As], S)
+	  %% Line 624
+	  <[X|Xs1],[_15|Ys1],As,S> when 'true' ->
+	      let <_4> =
+		  call %% Line 625
+		       'erlang':%% Line 625
+				'-'
+		      (%% Line 625
+		       S, %% Line 625
+			  1)
+	      in  %% Line 625
+		  apply 'union_2'/4
+		      (Xs1, Ys1, [X|As], _4)
+	  %% Line 626
+	  <[],Ys,As,S> when 'true' ->
+	      let <_5> =
+		  apply %% Line 627
+			'push'/2
+		      (%% Line 627
+		       Ys, %% Line 627
+			   As)
+	      in  let <_6> =
+		      apply %% Line 627
+			    'balance_revlist'/2
+			  (_5, %% Line 627
+			       S)
+		  in  %% Line 627
+		      {S,_6}
+	  %% Line 628
+	  <Xs,[],As,S> when 'true' ->
+	      let <_7> =
+		  apply %% Line 629
+			'push'/2
+		      (%% Line 629
+		       Xs, %% Line 629
+			   As)
+	      in  let <_8> =
+		      apply %% Line 629
+			    'balance_revlist'/2
+			  (_7, %% Line 629
+			       S)
+		  in  %% Line 629
+		      {S,_8}
+	  ( <_12,_11,_10,_9> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_12,_11,_10,_9})
+		  -| [{'function_name',{'union_2',4}}] )
+	    -| ['compiler_generated'] )
+	end
+'push'/2 =
+    %% Line 631
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <[X|Xs],As> when 'true' ->
+	      %% Line 632
+	      apply 'push'/2
+		  (Xs, [X|As])
+	  %% Line 633
+	  <[],As> when 'true' ->
+	      %% Line 634
+	      As
+	  ( <_3,_2> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_3,_2})
+		  -| [{'function_name',{'push',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'balance_revlist'/2 =
+    %% Line 636
+    fun (_0,_1) ->
+	%% Line 637
+	case apply 'balance_revlist_1'/2
+		 (_0, _1) of
+	  <{T,_5}> when 'true' ->
+	      %% Line 638
+	      T
+	  ( <_2> when 'true' ->
+		primop 'match_fail'
+		    ({'badmatch',_2})
+	    -| ['compiler_generated'] )
+	end
+'balance_revlist_1'/2 =
+    %% Line 640
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <L,S>
+	      when call 'erlang':'>'
+		    (S,
+		     1) ->
+	      let <Sm> =
+		  call %% Line 641
+		       'erlang':%% Line 641
+				'-'
+		      (%% Line 641
+		       S, %% Line 641
+			  1)
+	      in  let <S2> =
+		      call %% Line 642
+			   'erlang':%% Line 642
+				    'div'
+			  (%% Line 642
+			   Sm, %% Line 642
+			       2)
+		  in  let <S1> =
+			  call %% Line 643
+			       'erlang':%% Line 643
+					'-'
+			      (%% Line 643
+			       Sm, %% Line 643
+				   S2)
+		      in  %% Line 644
+			  case apply 'balance_revlist_1'/2
+				   (L, S1) of
+			    <{T2,[K|L1]}> when 'true' ->
+				%% Line 645
+				case apply 'balance_revlist_1'/2
+					 (L1, S2) of
+				  <{T1,L2}> when 'true' ->
+				      let <T> = {%% Line 646
+					   K,%% Line 646
+					     T1,%% Line 646
+						T2}
+				      in  %% Line 647
+					  {T,L2}
+				  ( <_6> when 'true' ->
+					primop 'match_fail'
+					    ({'badmatch',_6})
+				    -| ['compiler_generated'] )
+				end
+			    ( <_5> when 'true' ->
+				  primop 'match_fail'
+				      ({'badmatch',_5})
+			      -| ['compiler_generated'] )
+			  end
+	  %% Line 648
+	  <[Key|L],1> when 'true' ->
+	      %% Line 649
+	      {{Key,'nil','nil'},L}
+	  %% Line 650
+	  <L,0> when 'true' ->
+	      %% Line 651
+	      {'nil',L}
+	  ( <_9,_8> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_9,_8})
+		  -| [{'function_name',{'balance_revlist_1',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'union'/1 =
+    %% Line 657
+    fun (_0) ->
+	case _0 of
+	  <[S|Ss]> when 'true' ->
+	      %% Line 658
+	      apply 'union_list'/2
+		  (S, Ss)
+	  %% Line 659
+	  <[]> when 'true' ->
+	      apply 'empty'/0
+		  ()
+	  ( <_1> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_1})
+		  -| [{'function_name',{'union',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'union_list'/2 =
+    %% Line 661
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <S,[S1|Ss]> when 'true' ->
+	      let <_2> =
+		  apply %% Line 662
+			'union'/2
+		      (%% Line 662
+		       S, %% Line 662
+			  S1)
+	      in  %% Line 662
+		  apply 'union_list'/2
+		      (_2, Ss)
+	  %% Line 663
+	  <S,[]> when 'true' ->
+	      S
+	  ( <_4,_3> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_4,_3})
+		  -| [{'function_name',{'union_list',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'intersection'/2 =
+    %% Line 673
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <{N1,T1},{N2,T2}>
+	      when call 'erlang':'<'
+		    (N2,
+		     N1) ->
+	      let <_2> =
+		  apply %% Line 674
+			'to_list_1'/1
+		      (%% Line 674
+		       T2)
+	      in  %% Line 674
+		  apply 'intersection'/4
+		      (_2, N2, T1, N1)
+	  %% Line 675
+	  <{N1,T1},{N2,T2}> when 'true' ->
+	      let <_3> =
+		  apply %% Line 676
+			'to_list_1'/1
+		      (%% Line 676
+		       T1)
+	      in  %% Line 676
+		  apply 'intersection'/4
+		      (_3, N1, T2, N2)
+	  ( <_5,_4> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_5,_4})
+		  -| [{'function_name',{'intersection',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'intersection'/4 =
+    %% Line 678
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <L,_X_N1,T2,N2>
+	      when call 'erlang':'<'
+		    (N2,
+		     10) ->
+	      let <_4> =
+		  apply %% Line 679
+			'to_list_1'/1
+		      (%% Line 679
+		       T2)
+	      in  %% Line 679
+		  apply 'intersection_2'/2
+		      (L, _4)
+	  %% Line 680
+	  <L,N1,T2,N2> when 'true' ->
+	      let <_5> =
+		  call %% Line 681
+		       'math':%% Line 681
+			      'log'
+		      (%% Line 681
+		       N2)
+	      in  let <_6> =
+		      call %% Line 681
+			   'erlang':%% Line 681
+				    '*'
+			  (%% Line 681
+			   1.45999999999999996447e+00, _5)
+		  in  let <_7> =
+			  call %% Line 681
+			       'erlang':%% Line 681
+					'round'
+			      (_6)
+		      in  let <X> =
+			      call %% Line 681
+				   'erlang':%% Line 681
+					    '*'
+				  (%% Line 681
+				   N1, _7)
+			  in  %% Line 682
+			      case <> of
+				<>
+				    when call 'erlang':'<'
+					  (N2,
+					   X) ->
+				    let <_9> =
+					apply %% Line 683
+					      'to_list_1'/1
+					    (%% Line 683
+					     T2)
+				    in  %% Line 683
+					apply 'intersection_2'/2
+					    (L, _9)
+				%% Line 684
+				<> when 'true' ->
+				    %% Line 685
+				    apply 'intersection_1'/2
+					(L, T2)
+			      end
+	end
+'intersection_1'/2 =
+    %% Line 691
+    fun (_0,_1) ->
+	%% Line 692
+	apply 'intersection_1'/4
+	    (_0, _1, [], 0)
+'intersection_1'/4 =
+    %% Line 694
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <[X|Xs],T,As,N> when 'true' ->
+	      %% Line 695
+	      case apply 'is_member_1'/2
+		       (X, T) of
+		%% Line 696
+		<'true'> when 'true' ->
+		    let <_4> =
+			call %% Line 697
+			     'erlang':%% Line 697
+				      '+'
+			    (%% Line 697
+			     N, %% Line 697
+				1)
+		    in  %% Line 697
+			apply 'intersection_1'/4
+			    (Xs, T, [X|As], _4)
+		%% Line 698
+		<'false'> when 'true' ->
+		    %% Line 699
+		    apply 'intersection_1'/4
+			(Xs, T, As, N)
+		( <_5> when 'true' ->
+		      primop 'match_fail'
+			  ({'case_clause',_5})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 701
+	  <[],_11,As,N> when 'true' ->
+	      let <_6> =
+		  apply %% Line 702
+			'balance_revlist'/2
+		      (%% Line 702
+		       As, %% Line 702
+			   N)
+	      in  %% Line 702
+		  {N,_6}
+	  ( <_10,_9,_8,_7> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_10,_9,_8,_7})
+		  -| [{'function_name',{'intersection_1',4}}] )
+	    -| ['compiler_generated'] )
+	end
+'intersection_2'/2 =
+    %% Line 705
+    fun (_0,_1) ->
+	%% Line 706
+	apply 'intersection_2'/4
+	    (_0, _1, [], 0)
+'intersection_2'/4 =
+    %% Line 708
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <[X|Xs1],Ys = [Y|_11],As,S>
+	      when call 'erlang':'<'
+		    (X,
+		     Y) ->
+	      %% Line 709
+	      apply 'intersection_2'/4
+		  (Xs1, Ys, As, S)
+	  %% Line 710
+	  <Xs = [X|_12],[Y|Ys1],As,S>
+	      when call 'erlang':'>'
+		    (X,
+		     Y) ->
+	      %% Line 711
+	      apply 'intersection_2'/4
+		  (Ys1, Xs, As, S)
+	  %% Line 712
+	  <[X|Xs1],[_13|Ys1],As,S> when 'true' ->
+	      let <_4> =
+		  call %% Line 713
+		       'erlang':%% Line 713
+				'+'
+		      (%% Line 713
+		       S, %% Line 713
+			  1)
+	      in  %% Line 713
+		  apply 'intersection_2'/4
+		      (Xs1, Ys1, [X|As], _4)
+	  %% Line 714
+	  <[],_14,As,S> when 'true' ->
+	      let <_5> =
+		  apply %% Line 715
+			'balance_revlist'/2
+		      (%% Line 715
+		       As, %% Line 715
+			   S)
+	      in  %% Line 715
+		  {S,_5}
+	  %% Line 716
+	  <_15,[],As,S> when 'true' ->
+	      let <_6> =
+		  apply %% Line 717
+			'balance_revlist'/2
+		      (%% Line 717
+		       As, %% Line 717
+			   S)
+	      in  %% Line 717
+		  {S,_6}
+	  ( <_10,_9,_8,_7> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_10,_9,_8,_7})
+		  -| [{'function_name',{'intersection_2',4}}] )
+	    -| ['compiler_generated'] )
+	end
+'intersection'/1 =
+    %% Line 723
+    fun (_0) ->
+	case _0 of
+	  <[S|Ss]> when 'true' ->
+	      %% Line 724
+	      apply 'intersection_list'/2
+		  (S, Ss)
+	  ( <_1> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_1})
+		  -| [{'function_name',{'intersection',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'intersection_list'/2 =
+    %% Line 726
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <S,[S1|Ss]> when 'true' ->
+	      let <_2> =
+		  apply %% Line 727
+			'intersection'/2
+		      (%% Line 727
+		       S, %% Line 727
+			  S1)
+	      in  %% Line 727
+		  apply 'intersection_list'/2
+		      (_2, Ss)
+	  %% Line 728
+	  <S,[]> when 'true' ->
+	      S
+	  ( <_4,_3> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_4,_3})
+		  -| [{'function_name',{'intersection_list',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'is_disjoint'/2 =
+    %% Line 734
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <{N1,T1},{N2,T2}>
+	      when call 'erlang':'<'
+		    (N1,
+		     N2) ->
+	      %% Line 735
+	      apply 'is_disjoint_1'/2
+		  (T1, T2)
+	  %% Line 736
+	  <{_4,T1},{_5,T2}> when 'true' ->
+	      %% Line 737
+	      apply 'is_disjoint_1'/2
+		  (T2, T1)
+	  ( <_3,_2> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_3,_2})
+		  -| [{'function_name',{'is_disjoint',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'is_disjoint_1'/2 =
+    %% Line 739
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <{K1,Smaller1,Bigger},Tree = {K2,Smaller2,_14}>
+	      when call 'erlang':'<'
+		    (K1,
+		     K2) ->
+	      %% Line 740
+	      ( case apply 'is_member_1'/2
+			 (K1, Smaller2) of
+		  ( <'false'> when 'true' ->
+			%% Line 741
+			( case apply 'is_disjoint_1'/2
+				   (Smaller1, Smaller2) of
+			    ( <( 'true'
+				 -| ['compiler_generated'] )> when 'true' ->
+				  %% Line 742
+				  apply 'is_disjoint_1'/2
+				      (Bigger, Tree)
+			      -| ['compiler_generated'] )
+			    ( <( 'false'
+				 -| ['compiler_generated'] )> when 'true' ->
+				  'false'
+			      -| ['compiler_generated'] )
+			    ( <_4> when 'true' ->
+				  ( call ( 'erlang'
+					   -| ['compiler_generated'] ):( 'error'
+									 -| ['compiler_generated'] )
+					(( {( 'badarg'
+					      -| ['compiler_generated'] ),_4}
+					   -| ['compiler_generated'] ))
+				    -| ['compiler_generated'] )
+			      -| ['compiler_generated'] )
+			  end
+			  -| ['compiler_generated'] )
+		    -| ['compiler_generated'] )
+		  ( <'true'> when 'true' ->
+			'false'
+		    -| ['compiler_generated'] )
+		  ( <_cor_variable> when 'true' ->
+			call 'erlang':'error'
+			    ('badarg')
+		    -| ['compiler_generated'] )
+		end
+		-| ['compiler_generated'] )
+	  %% Line 743
+	  <{K1,Smaller,Bigger1},Tree = {K2,_15,Bigger2}>
+	      when call 'erlang':'>'
+		    (K1,
+		     K2) ->
+	      %% Line 744
+	      ( case apply 'is_member_1'/2
+			 (K1, Bigger2) of
+		  ( <'false'> when 'true' ->
+			%% Line 745
+			( case apply 'is_disjoint_1'/2
+				   (Bigger1, Bigger2) of
+			    ( <( 'true'
+				 -| ['compiler_generated'] )> when 'true' ->
+				  %% Line 746
+				  apply 'is_disjoint_1'/2
+				      (Smaller, Tree)
+			      -| ['compiler_generated'] )
+			    ( <( 'false'
+				 -| ['compiler_generated'] )> when 'true' ->
+				  'false'
+			      -| ['compiler_generated'] )
+			    ( <_9> when 'true' ->
+				  ( call ( 'erlang'
+					   -| ['compiler_generated'] ):( 'error'
+									 -| ['compiler_generated'] )
+					(( {( 'badarg'
+					      -| ['compiler_generated'] ),_9}
+					   -| ['compiler_generated'] ))
+				    -| ['compiler_generated'] )
+			      -| ['compiler_generated'] )
+			  end
+			  -| ['compiler_generated'] )
+		    -| ['compiler_generated'] )
+		  ( <'true'> when 'true' ->
+			'false'
+		    -| ['compiler_generated'] )
+		  ( <_cor_variable> when 'true' ->
+			call 'erlang':'error'
+			    ('badarg')
+		    -| ['compiler_generated'] )
+		end
+		-| ['compiler_generated'] )
+	  %% Line 747
+	  <{_X_K1,_16,_17},{_X_K2,_18,_19}> when 'true' ->
+	      %% Line 748
+	      'false'
+	  %% Line 749
+	  <'nil',_20> when 'true' ->
+	      %% Line 750
+	      'true'
+	  %% Line 751
+	  <_21,'nil'> when 'true' ->
+	      %% Line 752
+	      'true'
+	  ( <_13,_12> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_13,_12})
+		  -| [{'function_name',{'is_disjoint_1',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'subtract'/2 =
+    %% Line 765
+    fun (_0,_1) ->
+	%% Line 766
+	apply 'difference'/2
+	    (_0, _1)
+'difference'/2 =
+    %% Line 773
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <{N1,T1},{N2,T2}> when 'true' ->
+	      let <_2> =
+		  apply %% Line 774
+			'to_list_1'/1
+		      (%% Line 774
+		       T1)
+	      in  %% Line 774
+		  apply 'difference'/4
+		      (_2, N1, T2, N2)
+	  ( <_4,_3> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_4,_3})
+		  -| [{'function_name',{'difference',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'difference'/4 =
+    %% Line 776
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <L,N1,T2,N2>
+	      when call 'erlang':'<'
+		    (N2,
+		     10) ->
+	      let <_4> =
+		  apply %% Line 777
+			'to_list_1'/1
+		      (%% Line 777
+		       T2)
+	      in  %% Line 777
+		  apply 'difference_2'/3
+		      (L, _4, N1)
+	  %% Line 778
+	  <L,N1,T2,N2> when 'true' ->
+	      let <_5> =
+		  call %% Line 779
+		       'math':%% Line 779
+			      'log'
+		      (%% Line 779
+		       N2)
+	      in  let <_6> =
+		      call %% Line 779
+			   'erlang':%% Line 779
+				    '*'
+			  (%% Line 779
+			   1.45999999999999996447e+00, _5)
+		  in  let <_7> =
+			  call %% Line 779
+			       'erlang':%% Line 779
+					'round'
+			      (_6)
+		      in  let <X> =
+			      call %% Line 779
+				   'erlang':%% Line 779
+					    '*'
+				  (%% Line 779
+				   N1, _7)
+			  in  %% Line 780
+			      case <> of
+				<>
+				    when call 'erlang':'<'
+					  (N2,
+					   X) ->
+				    let <_9> =
+					apply %% Line 781
+					      'to_list_1'/1
+					    (%% Line 781
+					     T2)
+				    in  %% Line 781
+					apply 'difference_2'/3
+					    (L, _9, N1)
+				%% Line 782
+				<> when 'true' ->
+				    %% Line 783
+				    apply 'difference_1'/2
+					(L, T2)
+			      end
+	end
+'difference_1'/2 =
+    %% Line 787
+    fun (_0,_1) ->
+	%% Line 788
+	apply 'difference_1'/4
+	    (_0, _1, [], 0)
+'difference_1'/4 =
+    %% Line 790
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <[X|Xs],T,As,N> when 'true' ->
+	      %% Line 791
+	      case apply 'is_member_1'/2
+		       (X, T) of
+		%% Line 792
+		<'true'> when 'true' ->
+		    %% Line 793
+		    apply 'difference_1'/4
+			(Xs, T, As, N)
+		%% Line 794
+		<'false'> when 'true' ->
+		    let <_4> =
+			call %% Line 795
+			     'erlang':%% Line 795
+				      '+'
+			    (%% Line 795
+			     N, %% Line 795
+				1)
+		    in  %% Line 795
+			apply 'difference_1'/4
+			    (Xs, T, [X|As], _4)
+		( <_5> when 'true' ->
+		      primop 'match_fail'
+			  ({'case_clause',_5})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 797
+	  <[],_11,As,N> when 'true' ->
+	      let <_6> =
+		  apply %% Line 798
+			'balance_revlist'/2
+		      (%% Line 798
+		       As, %% Line 798
+			   N)
+	      in  %% Line 798
+		  {N,_6}
+	  ( <_10,_9,_8,_7> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_10,_9,_8,_7})
+		  -| [{'function_name',{'difference_1',4}}] )
+	    -| ['compiler_generated'] )
+	end
+'difference_2'/3 =
+    %% Line 801
+    fun (_0,_1,_2) ->
+	%% Line 802
+	apply 'difference_2'/4
+	    (_0, _1, [], _2)
+'difference_2'/4 =
+    %% Line 804
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <[X|Xs1],Ys = [Y|_12],As,S>
+	      when call 'erlang':'<'
+		    (X,
+		     Y) ->
+	      %% Line 805
+	      apply 'difference_2'/4
+		  (Xs1, Ys, [X|As], S)
+	  %% Line 806
+	  <Xs = [X|_13],[Y|Ys1],As,S>
+	      when call 'erlang':'>'
+		    (X,
+		     Y) ->
+	      %% Line 807
+	      apply 'difference_2'/4
+		  (Xs, Ys1, As, S)
+	  %% Line 808
+	  <[_X_X|Xs1],[_X_Y|Ys1],As,S> when 'true' ->
+	      let <_4> =
+		  call %% Line 809
+		       'erlang':%% Line 809
+				'-'
+		      (%% Line 809
+		       S, %% Line 809
+			  1)
+	      in  %% Line 809
+		  apply 'difference_2'/4
+		      (Xs1, Ys1, As, _4)
+	  %% Line 810
+	  <[],_X_Ys,As,S> when 'true' ->
+	      let <_5> =
+		  apply %% Line 811
+			'balance_revlist'/2
+		      (%% Line 811
+		       As, %% Line 811
+			   S)
+	      in  %% Line 811
+		  {S,_5}
+	  %% Line 812
+	  <Xs,[],As,S> when 'true' ->
+	      let <_6> =
+		  apply %% Line 813
+			'push'/2
+		      (%% Line 813
+		       Xs, %% Line 813
+			   As)
+	      in  let <_7> =
+		      apply %% Line 813
+			    'balance_revlist'/2
+			  (_6, %% Line 813
+			       S)
+		  in  %% Line 813
+		      {S,_7}
+	  ( <_11,_10,_9,_8> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_11,_10,_9,_8})
+		  -| [{'function_name',{'difference_2',4}}] )
+	    -| ['compiler_generated'] )
+	end
+'is_subset'/2 =
+    %% Line 823
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <{N1,T1},{N2,T2}> when 'true' ->
+	      let <_2> =
+		  apply %% Line 824
+			'to_list_1'/1
+		      (%% Line 824
+		       T1)
+	      in  %% Line 824
+		  apply 'is_subset'/4
+		      (_2, N1, T2, N2)
+	  ( <_4,_3> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_4,_3})
+		  -| [{'function_name',{'is_subset',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'is_subset'/4 =
+    %% Line 826
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <L,_X_N1,T2,N2>
+	      when call 'erlang':'<'
+		    (N2,
+		     10) ->
+	      let <_4> =
+		  apply %% Line 827
+			'to_list_1'/1
+		      (%% Line 827
+		       T2)
+	      in  %% Line 827
+		  apply 'is_subset_2'/2
+		      (L, _4)
+	  %% Line 828
+	  <L,N1,T2,N2> when 'true' ->
+	      let <_5> =
+		  call %% Line 829
+		       'math':%% Line 829
+			      'log'
+		      (%% Line 829
+		       N2)
+	      in  let <_6> =
+		      call %% Line 829
+			   'erlang':%% Line 829
+				    '*'
+			  (%% Line 829
+			   1.45999999999999996447e+00, _5)
+		  in  let <_7> =
+			  call %% Line 829
+			       'erlang':%% Line 829
+					'round'
+			      (_6)
+		      in  let <X> =
+			      call %% Line 829
+				   'erlang':%% Line 829
+					    '*'
+				  (%% Line 829
+				   N1, _7)
+			  in  %% Line 830
+			      case <> of
+				<>
+				    when call 'erlang':'<'
+					  (N2,
+					   X) ->
+				    let <_9> =
+					apply %% Line 831
+					      'to_list_1'/1
+					    (%% Line 831
+					     T2)
+				    in  %% Line 831
+					apply 'is_subset_2'/2
+					    (L, _9)
+				%% Line 832
+				<> when 'true' ->
+				    %% Line 833
+				    apply 'is_subset_1'/2
+					(L, T2)
+			      end
+	end
+'is_subset_1'/2 =
+    %% Line 837
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <[X|Xs],T> when 'true' ->
+	      %% Line 838
+	      case apply 'is_member_1'/2
+		       (X, T) of
+		%% Line 839
+		<'true'> when 'true' ->
+		    %% Line 840
+		    apply 'is_subset_1'/2
+			(Xs, T)
+		%% Line 841
+		<'false'> when 'true' ->
+		    %% Line 842
+		    'false'
+		( <_2> when 'true' ->
+		      primop 'match_fail'
+			  ({'case_clause',_2})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 844
+	  <[],_5> when 'true' ->
+	      %% Line 845
+	      'true'
+	  ( <_4,_3> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_4,_3})
+		  -| [{'function_name',{'is_subset_1',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'is_subset_2'/2 =
+    %% Line 848
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <[X|_4],[Y|_5]>
+	      when call 'erlang':'<'
+		    (X,
+		     Y) ->
+	      %% Line 849
+	      'false'
+	  %% Line 850
+	  <Xs = [X|_6],[Y|Ys1]>
+	      when call 'erlang':'>'
+		    (X,
+		     Y) ->
+	      %% Line 851
+	      apply 'is_subset_2'/2
+		  (Xs, Ys1)
+	  %% Line 852
+	  <[_7|Xs1],[_8|Ys1]> when 'true' ->
+	      %% Line 853
+	      apply 'is_subset_2'/2
+		  (Xs1, Ys1)
+	  %% Line 854
+	  <[],_9> when 'true' ->
+	      %% Line 855
+	      'true'
+	  %% Line 856
+	  <_10,[]> when 'true' ->
+	      %% Line 857
+	      'false'
+	  ( <_3,_2> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_3,_2})
+		  -| [{'function_name',{'is_subset_2',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'is_set'/1 =
+    %% Line 865
+    fun (_0) ->
+	case _0 of
+	  <{0,'nil'}> when 'true' ->
+	      'true'
+	  %% Line 866
+	  <{N,{_4,_5,_6}}>
+	      when let <_1> =
+		    call 'erlang':'is_integer'
+			(N)
+		in  let <_2> =
+			call 'erlang':'>='
+			    (N, 0)
+		    in  call 'erlang':'and'
+			    (_1, _2) ->
+	      'true'
+	  %% Line 867
+	  <_7> when 'true' ->
+	      'false'
+	end
+'filter'/2 =
+    %% Line 874
+    fun (_0,_1) ->
+	let <_8> =
+	    letrec
+		'lc$^0'/1 =
+		    %% Line 875
+		    fun (_5) ->
+			case _5 of
+			  <[X|_3]> when 'true' ->
+			      ( case apply _0
+					 (X) of
+				  <'true'> when 'true' ->
+				      let <_6> =
+					  apply 'lc$^0'/1
+					      (_3)
+				      in  ( [X|_6]
+					    -| ['compiler_generated'] )
+				  ( <'false'> when 'true' ->
+					apply 'lc$^0'/1
+					    (_3)
+				    -| ['compiler_generated'] )
+				  ( <_7> when 'true' ->
+					primop 'match_fail'
+					    ({'case_clause',_7})
+				    -| ['compiler_generated'] )
+				end
+				-| ['list_comprehension'] )
+			  <[]> when 'true' ->
+			      []
+			  ( <_11> when 'true' ->
+				( primop 'match_fail'
+				      ({'function_clause',_11})
+				  -| [{'function_name',{'lc$^0',1}}] )
+			    -| ['compiler_generated'] )
+			end
+	    in  let <_4> =
+		    apply %% Line 875
+			  'to_list'/1
+			(_1)
+		in  %% Line 875
+		    apply 'lc$^0'/1
+			(_4)
+	in  %% Line 875
+	    apply 'from_ordset'/1
+		(_8)
+'fold'/3 =
+    %% Line 885
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <F,A,{_6,T}>
+	      when call 'erlang':'is_function'
+		    (F,
+		     2) ->
+	      %% Line 886
+	      apply 'fold_1'/3
+		  (F, A, T)
+	  ( <_5,_4,_3> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_5,_4,_3})
+		  -| [{'function_name',{'fold',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'fold_1'/3 =
+    %% Line 888
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <F,Acc0,{Key,Small,Big}> when 'true' ->
+	      let <Acc1> =
+		  apply %% Line 889
+			'fold_1'/3
+		      (%% Line 889
+		       F, %% Line 889
+			  Acc0, %% Line 889
+				Small)
+	      in  let <Acc> =
+		      apply %% Line 890
+			    F
+			  (%% Line 890
+			   Key, %% Line 890
+				Acc1)
+		  in  %% Line 891
+		      apply 'fold_1'/3
+			  (F, Acc, Big)
+	  %% Line 892
+	  <_8,Acc,_9> when 'true' ->
+	      %% Line 893
+	      Acc
+	end
+'module_info'/0 =
+    fun () ->
+	call 'erlang':'get_module_info'
+	    ('gb_sets')
+'module_info'/1 =
+    fun (_0) ->
+	call 'erlang':'get_module_info'
+	    ('gb_sets', _0)
+end

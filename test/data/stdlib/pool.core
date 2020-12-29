@@ -1,0 +1,601 @@
+module 'pool' ['attach'/1,
+	       'do_spawn'/4,
+	       'get_node'/0,
+	       'get_nodes'/0,
+	       'get_nodes_and_load'/0,
+	       'handle_call'/3,
+	       'handle_cast'/2,
+	       'handle_info'/2,
+	       'init'/1,
+	       'module_info'/0,
+	       'module_info'/1,
+	       'pspawn'/3,
+	       'pspawn_link'/3,
+	       'start'/1,
+	       'start'/2,
+	       'statistic_collector'/0,
+	       'stop'/0,
+	       'terminate'/2]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[112|[111|[111|[108|[46|[101|[114|[108]]]]]]]]]]]],1}],
+		%% Line 56
+		'spec' =
+		    %% Line 56
+		    [{{'start',1},[{'type',56,'bounded_fun',[{'type',56,'fun',[{'type',56,'product',[{'var',56,'Name'}]}|[{'var',56,'Nodes'}]]}|[[{'type',57,'constraint',[{'atom',57,'is_subtype'}|[[{'var',57,'Name'}|[{'type',57,'atom',[]}]]]]}|[{'type',58,'constraint',[{'atom',58,'is_subtype'}|[[{'var',58,'Nodes'}|[{'type',58,'list',[{'type',58,'node',[]}]}]]]]}]]]]}]}],
+		%% Line 62
+		'spec' =
+		    %% Line 62
+		    [{{'start',2},[{'type',62,'bounded_fun',[{'type',62,'fun',[{'type',62,'product',[{'var',62,'Name'}|[{'var',62,'Args'}]]}|[{'var',62,'Nodes'}]]}|[[{'type',63,'constraint',[{'atom',63,'is_subtype'}|[[{'var',63,'Name'}|[{'type',63,'atom',[]}]]]]}|[{'type',64,'constraint',[{'atom',64,'is_subtype'}|[[{'var',64,'Args'}|[{'type',64,'string',[]}]]]]}|[{'type',65,'constraint',[{'atom',65,'is_subtype'}|[[{'var',65,'Nodes'}|[{'type',65,'list',[{'type',65,'node',[]}]}]]]]}]]]]]}]}],
+		%% Line 76
+		'spec' =
+		    %% Line 76
+		    [{{'get_nodes',0},[{'type',76,'fun',[{'type',76,'product',[]}|[{'type',76,'list',[{'type',76,'node',[]}]}]]}]}],
+		%% Line 80
+		'spec' =
+		    %% Line 80
+		    [{{'attach',1},[{'type',80,'bounded_fun',[{'type',80,'fun',[{'type',80,'product',[{'var',80,'Node'}]}|[{'type',80,'union',[{'atom',80,'already_attached'}|[{'atom',80,'attached'}]]}]]}|[[{'type',81,'constraint',[{'atom',81,'is_subtype'}|[[{'var',81,'Node'}|[{'type',81,'node',[]}]]]]}]]]}]}],
+		%% Line 88
+		'spec' =
+		    %% Line 88
+		    [{{'get_node',0},[{'type',88,'fun',[{'type',88,'product',[]}|[{'type',88,'node',[]}]]}]}],
+		%% Line 92
+		'spec' =
+		    %% Line 92
+		    [{{'pspawn',3},[{'type',92,'bounded_fun',[{'type',92,'fun',[{'type',92,'product',[{'var',92,'Mod'}|[{'var',92,'Fun'}|[{'var',92,'Args'}]]]}|[{'type',92,'pid',[]}]]}|[[{'type',93,'constraint',[{'atom',93,'is_subtype'}|[[{'var',93,'Mod'}|[{'type',93,'module',[]}]]]]}|[{'type',94,'constraint',[{'atom',94,'is_subtype'}|[[{'var',94,'Fun'}|[{'type',94,'atom',[]}]]]]}|[{'type',95,'constraint',[{'atom',95,'is_subtype'}|[[{'var',95,'Args'}|[{'type',95,'list',[{'type',95,'term',[]}]}]]]]}]]]]]}]}],
+		%% Line 99
+		'spec' =
+		    %% Line 99
+		    [{{'pspawn_link',3},[{'type',99,'bounded_fun',[{'type',99,'fun',[{'type',99,'product',[{'var',99,'Mod'}|[{'var',99,'Fun'}|[{'var',99,'Args'}]]]}|[{'type',99,'pid',[]}]]}|[[{'type',100,'constraint',[{'atom',100,'is_subtype'}|[[{'var',100,'Mod'}|[{'type',100,'module',[]}]]]]}|[{'type',101,'constraint',[{'atom',101,'is_subtype'}|[[{'var',101,'Fun'}|[{'type',101,'atom',[]}]]]]}|[{'type',102,'constraint',[{'atom',102,'is_subtype'}|[[{'var',102,'Args'}|[{'type',102,'list',[{'type',102,'term',[]}]}]]]]}]]]]]}]}],
+		%% Line 119
+		'spec' =
+		    %% Line 119
+		    [{{'stop',0},[{'type',119,'fun',[{'type',119,'product',[]}|[{'atom',119,'stopped'}]]}]}],
+		%% Line 173
+		'spec' =
+		    %% Line 173
+		    [{{'do_spawn',4},[{'type',173,'fun',[{'type',173,'product',[{'type',173,'pid',[]}|[{'type',173,'module',[]}|[{'type',173,'atom',[]}|[{'type',173,'list',[{'type',173,'term',[]}]}]]]]}|[{'type',173,'term',[]}]]}]}]]
+'start'/1 =
+    %% Line 59
+    fun (_0) ->
+	%% Line 60
+	apply 'start'/2
+	    (_0, [])
+'start'/2 =
+    %% Line 66
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Name,Args>
+	      when call 'erlang':'is_atom'
+		    (Name) ->
+	      do  %% Line 67
+		  ( call ( 'gen_server'
+			   -| ['result_not_wanted'] ):( 'start'
+							-| ['result_not_wanted'] )
+			(( {'global','pool_master'}
+			   -| ['result_not_wanted'] ), ( 'pool'
+							 -| ['result_not_wanted'] ), ( []
+										       -| ['result_not_wanted'] ), ( []
+														     -| ['result_not_wanted'] ))
+		    -| ['result_not_wanted'] )
+		  let <Hosts> =
+		      call %% Line 68
+			   'net_adm':%% Line 68
+				     'host_file'
+			  ()
+		  in  let <Nodes> =
+			  apply %% Line 69
+				'start_nodes'/3
+			      (%% Line 69
+			       Hosts, %% Line 69
+				      Name, %% Line 69
+					    Args)
+		      in  let <_5> = 'attach'/1
+			  in  do  %% Line 70
+				  call 'lists':'foreach'
+				      (_5, Nodes)
+				  %% Line 71
+				  Nodes
+	  ( <_7,_6> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_7,_6})
+		  -| [{'function_name',{'start',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'get_nodes'/0 =
+    %% Line 77
+    fun () ->
+	let <_0> =
+	    apply %% Line 78
+		  'get_nodes_and_load'/0
+		()
+	in  %% Line 78
+	    apply 'get_elements'/2
+		(2, _0)
+'attach'/1 =
+    %% Line 82
+    fun (_0) ->
+	%% Line 83
+	call 'gen_server':'call'
+	    ({'global','pool_master'}, {'attach',_0})
+'get_nodes_and_load'/0 =
+    %% Line 85
+    fun () ->
+	%% Line 86
+	call 'gen_server':'call'
+	    ({'global','pool_master'}, 'get_nodes')
+'get_node'/0 =
+    %% Line 89
+    fun () ->
+	%% Line 90
+	call 'gen_server':'call'
+	    ({'global','pool_master'}, 'get_node')
+'pspawn'/3 =
+    %% Line 96
+    fun (_0,_1,_2) ->
+	let <_3> =
+	    call %% Line 97
+		 'erlang':%% Line 97
+			  'group_leader'
+		()
+	in  %% Line 97
+	    call 'gen_server':'call'
+		({'global','pool_master'}, {'spawn',_3,_0,_1,_2})
+'pspawn_link'/3 =
+    %% Line 103
+    fun (_0,_1,_2) ->
+	let <_3> =
+	    apply %% Line 104
+		  'get_node'/0
+		()
+	in  %% Line 104
+	    call 'erlang':'spawn_link'
+		(_3, _0, _1, _2)
+'start_nodes'/3 =
+    %% Line 106
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <[],_9,_10> when 'true' ->
+	      []
+	  %% Line 107
+	  <[Host|Tail],Name,Args> when 'true' ->
+	      %% Line 108
+	      case call 'slave':'start'
+		       (Host, Name, Args) of
+		%% Line 109
+		<{'error',_@r0 = {'already_running',Node}}> when 'true' ->
+		    do  %% Line 110
+			call 'io':'format'
+			    ([67|[97|[110|[39|[116|[32|[115|[116|[97|[114|[116|[32|[110|[111|[100|[101|[32|[111|[110|[32|[104|[111|[115|[116|[32|[126|[119|[32|[100|[117|[101|[32|[116|[111|[32|[126|[119|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], [Host|[_@r0|[]]])
+			let <_3> =
+			    apply %% Line 111
+				  'start_nodes'/3
+				(%% Line 111
+				 Tail, %% Line 111
+				       Name, %% Line 111
+					     Args)
+			in  %% Line 111
+			    [Node|_3]
+		%% Line 112
+		<{'error',R}> when 'true' ->
+		    do  %% Line 113
+			call 'io':'format'
+			    ([67|[97|[110|[39|[116|[32|[115|[116|[97|[114|[116|[32|[110|[111|[100|[101|[32|[111|[110|[32|[104|[111|[115|[116|[32|[126|[119|[32|[100|[117|[101|[32|[116|[111|[32|[126|[119|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], [Host|[R|[]]])
+			%% Line 114
+			apply 'start_nodes'/3
+			    (Tail, Name, Args)
+		%% Line 115
+		<{'ok',Node}> when 'true' ->
+		    let <_4> =
+			apply %% Line 116
+			      'start_nodes'/3
+			    (%% Line 116
+			     Tail, %% Line 116
+				   Name, %% Line 116
+					 Args)
+		    in  %% Line 116
+			[Node|_4]
+		( <_5> when 'true' ->
+		      primop 'match_fail'
+			  ({'case_clause',_5})
+		  -| ['compiler_generated'] )
+	      end
+	  ( <_8,_7,_6> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_8,_7,_6})
+		  -| [{'function_name',{'start_nodes',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'stop'/0 =
+    %% Line 120
+    fun () ->
+	%% Line 121
+	call 'gen_server':'call'
+	    ({'global','pool_master'}, 'stop')
+'get_elements'/2 =
+    %% Line 123
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <_X_Pos,[]> when 'true' ->
+	      []
+	  %% Line 124
+	  <Pos,[E|T]> when 'true' ->
+	      let <_2> =
+		  call 'erlang':'element'
+		      (Pos, E)
+	      in  let <_3> =
+		      apply 'get_elements'/2
+			  (Pos, T)
+		  in  [_2|_3]
+	  ( <_5,_4> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_5,_4})
+		  -| [{'function_name',{'get_elements',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'stop_em'/1 =
+    %% Line 126
+    fun (_0) ->
+	case _0 of
+	  <[]> when 'true' ->
+	      'stopped'
+	  %% Line 127
+	  <[N|Tail]> when 'true' ->
+	      do  %% Line 128
+		  call 'rpc':'cast'
+		      (N, 'erlang', 'halt', [])
+		  %% Line 129
+		  apply 'stop_em'/1
+		      (Tail)
+	  ( <_1> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_1})
+		  -| [{'function_name',{'stop_em',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'init'/1 =
+    %% Line 131
+    fun (_0) ->
+	case _0 of
+	  <[]> when 'true' ->
+	      do  %% Line 132
+		  call 'erlang':'process_flag'
+		      ('trap_exit', 'true')
+		  do  %% Line 133
+		      call 'erlang':'spawn_link'
+			  ('pool', 'statistic_collector', [])
+		      let <_1> =
+			  call %% Line 134
+			       'erlang':%% Line 134
+					'node'
+			      ()
+		      in  %% Line 134
+			  {'ok',[{0,_1}|[]]}
+	  ( <_2> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_2})
+		  -| [{'function_name',{'init',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'handle_call'/3 =
+    %% Line 136
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <'get_nodes',_X_From,Nodes> when 'true' ->
+	      %% Line 137
+	      {'reply',Nodes,Nodes}
+	  %% Line 138
+	  <'get_node',_X_From,[{Load,N}|Tail]> when 'true' ->
+	      let <_3> =
+		  call %% Line 139
+		       'erlang':%% Line 139
+				'+'
+		      (%% Line 139
+		       Load, %% Line 139
+			     1)
+	      in  let <_4> =
+		      call %% Line 139
+			   'erlang':%% Line 139
+				    '++'
+			  (%% Line 139
+			   Tail, %% Line 139
+				 [{_3,N}|[]])
+		  in  %% Line 139
+		      {'reply',N,_4}
+	  %% Line 140
+	  <{'attach',Node},_X_From,Nodes> when 'true' ->
+	      %% Line 141
+	      case call 'lists':'keymember'
+		       (Node, 2, Nodes) of
+		%% Line 142
+		<'true'> when 'true' ->
+		    %% Line 143
+		    {'reply','already_attached',Nodes}
+		%% Line 144
+		<'false'> when 'true' ->
+		    do  %% Line 145
+			call 'erlang':'monitor_node'
+			    (Node, 'true')
+			do  %% Line 146
+			    call 'erlang':'spawn_link'
+				(Node, 'pool', 'statistic_collector', [])
+			    let <_5> =
+				call %% Line 147
+				     'erlang':%% Line 147
+					      '++'
+				    (%% Line 147
+				     Nodes, %% Line 147
+					    [{999999,Node}|[]])
+			    in  %% Line 147
+				{'reply','attached',_5}
+		( <_6> when 'true' ->
+		      primop 'match_fail'
+			  ({'case_clause',_6})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 149
+	  <{'spawn',Gl,M,F,A},_X_From,Nodes> when 'true' ->
+	      %% Line 150
+	      case apply 'handle_call'/3
+		       ('get_node', _X_From, Nodes) of
+		<{'reply',N,NewNodes}> when 'true' ->
+		    let <Pid> =
+			call %% Line 151
+			     'erlang':%% Line 151
+				      'spawn'
+			    (%% Line 151
+			     N, %% Line 151
+				'pool', %% Line 151
+					'do_spawn', %% Line 151
+						    [Gl|[M|[F|[A|[]]]]])
+		    in  %% Line 152
+			{'reply',Pid,NewNodes}
+		( <_7> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_7})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 153
+	  <'stop',_X_From,Nodes> when 'true' ->
+	      %% Line 155
+	      {'stop','normal','stopped',Nodes}
+	  ( <_11,_10,_9> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_11,_10,_9})
+		  -| [{'function_name',{'handle_call',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'handle_cast'/2 =
+    %% Line 157
+    fun (_0,_1) ->
+	%% Line 158
+	{'noreply',_1}
+'handle_info'/2 =
+    %% Line 160
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <{Node,'load',Load},Nodes> when 'true' ->
+	      let <Nodes2> =
+		  apply %% Line 161
+			'insert_node'/2
+		      (%% Line 161
+		       {Load,Node}, %% Line 161
+				    Nodes)
+	      in  %% Line 162
+		  {'noreply',Nodes2}
+	  %% Line 163
+	  <{'nodedown',Node},Nodes> when 'true' ->
+	      let <_3> =
+		  call %% Line 164
+		       'lists':%% Line 164
+			       'keydelete'
+		      (%% Line 164
+		       Node, %% Line 164
+			     2, %% Line 164
+				Nodes)
+	      in  %% Line 164
+		  {'noreply',_3}
+	  %% Line 165
+	  <_6,Nodes> when 'true' ->
+	      %% Line 166
+	      {'noreply',Nodes}
+	end
+'terminate'/2 =
+    %% Line 168
+    fun (_0,_1) ->
+	let <_3> =
+	    call %% Line 169
+		 'erlang':%% Line 169
+			  'node'
+		()
+	in  let <_2> =
+		apply %% Line 169
+		      'get_elements'/2
+		    (%% Line 169
+		     2, _1)
+	    in  let <N> =
+		    call %% Line 169
+			 'lists':%% Line 169
+				 'delete'
+			(_3, _2)
+		in  do  %% Line 170
+			apply 'stop_em'/1
+			    (N)
+			%% Line 171
+			'ok'
+'do_spawn'/4 =
+    %% Line 174
+    fun (_0,_1,_2,_3) ->
+	let <_4> =
+	    call %% Line 175
+		 'erlang':%% Line 175
+			  'self'
+		()
+	in  do  %% Line 175
+		call 'erlang':'group_leader'
+		    (_0, _4)
+		%% Line 176
+		call 'erlang':'apply'
+		    (_1, _2, _3)
+'insert_node'/2 =
+    %% Line 178
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <_@r0 = {Load,Node},[{L,_6}|Tail]>
+	      when let <_7> =
+		    call 'erlang':'=:='
+			(_6, Node)
+		in  let <_8> =
+			call 'erlang':'>'
+			    (Load, L)
+		    in  call 'erlang':'and'
+			    (_7, _8) ->
+	      %% Line 180
+	      apply 'pure_insert'/2
+		  (_@r0, Tail)
+	  %% Line 181
+	  <_@r2 = {Load,Node},_@r1 = [{L,N}|Tail]>
+	      when call 'erlang':'=<'
+		    (Load,
+		     L) ->
+	      let <T> =
+		  call %% Line 183
+		       'lists':%% Line 183
+			       'keydelete'
+		      (%% Line 183
+		       Node, %% Line 183
+			     2, %% Line 183
+				_@r1)
+	      in  %% Line 184
+		  [_@r2|T]
+	  %% Line 185
+	  <Ln,[H|T]> when 'true' ->
+	      let <_3> =
+		  apply %% Line 186
+			'insert_node'/2
+		      (%% Line 186
+		       Ln, %% Line 186
+			   T)
+	      in  %% Line 186
+		  [H|_3]
+	  %% Line 187
+	  <X,[]> when 'true' ->
+	      do  %% Line 188
+		  call 'error_logger':'error_msg'
+		      ([80|[111|[111|[108|[95|[109|[97|[115|[116|[101|[114|[58|[32|[66|[97|[100|[32|[110|[111|[100|[101|[32|[108|[105|[115|[116|[32|[88|[61|[126|[119|[10]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], [X|[]])
+		  %% Line 189
+		  call 'erlang':'exit'
+		      ('crash')
+	  ( <_5,_4> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_5,_4})
+		  -| [{'function_name',{'insert_node',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'pure_insert'/2 =
+    %% Line 191
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <_@r0 = {Load,Node},[]> when 'true' ->
+	      %% Line 192
+	      [_@r0|[]]
+	  %% Line 193
+	  <_@r1 = {Load,Node},_@r2 = [{L,N}|Tail]>
+	      when call 'erlang':'<'
+		    (Load,
+		     L) ->
+	      %% Line 194
+	      [_@r1|_@r2]
+	  %% Line 195
+	  <L,[H|T]> when 'true' ->
+	      let <_2> =
+		  apply 'pure_insert'/2
+		      (L, T)
+	      in  [H|_2]
+	  ( <_4,_3> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_4,_3})
+		  -| [{'function_name',{'pure_insert',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'statistic_collector'/0 =
+    %% Line 201
+    fun () ->
+	%% Line 202
+	apply 'statistic_collector'/1
+	    (5)
+'statistic_collector'/1 =
+    %% Line 204
+    fun (_0) ->
+	case _0 of
+	  <0> when 'true' ->
+	      call 'erlang':'exit'
+		  ('normal')
+	  %% Line 205
+	  <I> when 'true' ->
+	      do  %% Line 206
+		  call 'timer':'sleep'
+		      (300)
+		  %% Line 207
+		  case call 'global':'whereis_name'
+			   ('pool_master') of
+		    %% Line 208
+		    <'undefined'> when 'true' ->
+			let <_1> =
+			    call %% Line 209
+				 'erlang':%% Line 209
+					  '-'
+				(%% Line 209
+				 I, %% Line 209
+				    1)
+			in  %% Line 209
+			    apply 'statistic_collector'/1
+				(_1)
+		    %% Line 210
+		    <M> when 'true' ->
+			%% Line 211
+			apply 'stat_loop'/2
+			    (M, 999999)
+		  end
+	end
+'stat_loop'/2 =
+    %% Line 216
+    fun (_0,_1) ->
+	do  %% Line 217
+	    call 'timer':'sleep'
+		(2000)
+	    %% Line 218
+	    case call 'erlang':'statistics'
+		     ('run_queue') of
+	      %% Line 219
+	      <_6>
+		  when call 'erlang':'=:='
+			(_6,
+			 _1) ->
+		  %% Line 220
+		  apply 'stat_loop'/2
+		      (_0, _1)
+	      %% Line 221
+	      <NewLoad> when 'true' ->
+		  let <_2> =
+		      call %% Line 222
+			   'erlang':%% Line 222
+				    'node'
+			  ()
+		  in  do  %% Line 222
+			  call 'erlang':'!'
+			      (_0, {_2,'load',NewLoad})
+			  %% Line 223
+			  apply 'stat_loop'/2
+			      (_0, NewLoad)
+	    end
+'module_info'/0 =
+    fun () ->
+	call 'erlang':'get_module_info'
+	    ('pool')
+'module_info'/1 =
+    fun (_0) ->
+	call 'erlang':'get_module_info'
+	    ('pool', _0)
+end

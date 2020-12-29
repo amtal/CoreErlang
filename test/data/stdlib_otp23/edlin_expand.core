@@ -1,0 +1,1062 @@
+module 'edlin_expand' ['expand'/1,
+		       'format_matches'/1,
+		       'module_info'/0,
+		       'module_info'/1]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[101|[100|[108|[105|[110|[95|[101|[120|[112|[97|[110|[100|[46|[101|[114|[108]]]]]]]]]]]]]]]]]]]],1}]]
+'expand'/1 =
+    %% Line 37
+    ( fun (_0) ->
+	  %% Line 38
+	  case call 'edlin':'over_word'
+		   (( _0
+		      -| [{'function',{'expand',1}}] ), [], 0) of
+	    <{Bef1,Word,_12}> when 'true' ->
+		%% Line 39
+		case apply 'over_white'/3
+			 (Bef1, [], 0) of
+		  %% Line 40
+		  <{[44|Bef2],_X_White,_X_Nwh}> when 'true' ->
+		      %% Line 41
+		      case apply 'over_white'/3
+			       (Bef2, [], 0) of
+			<{Bef3,_X_White1,_X_Nwh1}> when 'true' ->
+			    %% Line 42
+			    case call 'edlin':'over_word'
+				     (Bef3, [], 0) of
+			      <{Bef4,Mod,_X_Nm}> when 'true' ->
+				  %% Line 43
+				  case apply 'expand_function'/1
+					   (Bef4) of
+				    %% Line 44
+				    <'help'> when 'true' ->
+					%% Line 45
+					apply 'expand_function_name'/3
+					    (Mod, Word, [44])
+				    %% Line 46
+				    <_13> when 'true' ->
+					%% Line 47
+					apply 'expand_module_name'/2
+					    (Word, [44])
+				  end
+			      ( <_3> when 'true' ->
+				    primop 'match_fail'
+					({'badmatch',_3})
+				-| ['compiler_generated'] )
+			    end
+			( <_2> when 'true' ->
+			      primop 'match_fail'
+				  ({'badmatch',_2})
+			  -| ['compiler_generated'] )
+		      end
+		  %% Line 49
+		  <{[58|Bef2],_X_White,_X_Nwh}> when 'true' ->
+		      %% Line 50
+		      case apply 'over_white'/3
+			       (Bef2, [], 0) of
+			<{Bef3,_X_White1,_X_Nwh1}> when 'true' ->
+			    %% Line 51
+			    case call 'edlin':'over_word'
+				     (Bef3, [], 0) of
+			      <{_14,Mod,_X_Nm}> when 'true' ->
+				  %% Line 52
+				  apply 'expand_function_name'/3
+				      (Mod, Word, [40])
+			      ( <_6> when 'true' ->
+				    primop 'match_fail'
+					({'badmatch',_6})
+				-| ['compiler_generated'] )
+			    end
+			( <_5> when 'true' ->
+			      primop 'match_fail'
+				  ({'badmatch',_5})
+			  -| ['compiler_generated'] )
+		      end
+		  %% Line 53
+		  <{_15,_16,_17}> when 'true' ->
+		      let <_8> =
+			  case %% Line 55
+			       apply 'expand_function'/1
+				   (Bef1) of
+			    %% Line 56
+			    <'help'> when 'true' ->
+				[44]
+			    %% Line 57
+			    <_18> when 'true' ->
+				[58]
+			  end
+		      in  %% Line 59
+			  apply 'expand_module_name'/2
+			      (Word, _8)
+		  ( <_10> when 'true' ->
+			primop 'match_fail'
+			    ({'case_clause',_10})
+		    -| ['compiler_generated'] )
+		end
+	    ( <_1> when 'true' ->
+		  primop 'match_fail'
+		      ({'badmatch',_1})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'expand',1}}] )
+'expand_function'/1 =
+    %% Line 62
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'expand_function',1}}] ) of
+	      <[40|Str]> when 'true' ->
+		  %% Line 63
+		  case call 'edlin':'over_word'
+			   (Str, [], 0) of
+		    %% Line 64
+		    <{_3,[104],_4}> when 'true' ->
+			%% Line 65
+			'help'
+		    %% Line 66
+		    <{_5,[104|[116]],_6}> when 'true' ->
+			%% Line 67
+			'help_type'
+		    %% Line 68
+		    <_7> when 'true' ->
+			%% Line 69
+			'module'
+		  end
+	      %% Line 71
+	      <_8> when 'true' ->
+		  %% Line 72
+		  'module'
+	    end
+	    -| [{'function',{'expand_function',1}}] )
+      -| [{'function',{'expand_function',1}}] )
+'expand_module_name'/2 =
+    %% Line 74
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <[],_12> when 'true' ->
+		  %% Line 75
+		  {'no',[],[]}
+	      %% Line 76
+	      <Prefix,CompleteChar> when 'true' ->
+		  let <_9> =
+		      letrec
+			  'lc$^0'/1 =
+			      %% Line 77
+			      fun (_5) ->
+				  case _5 of
+				    <[{M,P,_13}|_3]> when 'true' ->
+					let <_7> =
+					    call 'erlang':'list_to_atom'
+						(M)
+					in  let <_8> =
+						apply 'lc$^0'/1
+						    (_3)
+					    in  ( [{_7,P}|_8]
+						  -| ['compiler_generated'] )
+				    ( <[_2|_3]> when 'true' ->
+					  apply 'lc$^0'/1
+					      (_3)
+				      -| ['compiler_generated'] )
+				    <[]> when 'true' ->
+					[]
+				    ( <_6> when 'true' ->
+					  primop 'match_fail'
+					      ({'function_clause',_6})
+				      -| ['compiler_generated'] )
+				  end
+		      in  let <_4> =
+			      call %% Line 77
+				   'code':%% Line 77
+					  'all_available'
+				  ()
+			  in  %% Line 77
+			      apply 'lc$^0'/1
+				  (_4)
+		  in  %% Line 77
+		      apply 'match'/3
+			  (Prefix, _9, CompleteChar)
+	    end
+	    -| [{'function',{'expand_module_name',2}}] )
+      -| [{'function',{'expand_module_name',2}}] )
+'expand_function_name'/3 =
+    %% Line 79
+    ( fun (_0,_1,_2) ->
+	  %% Line 80
+	  case apply 'to_atom'/1
+		   (_0) of
+	    %% Line 81
+	    <{'ok',Mod}> when 'true' ->
+		let <_6> =
+		    case %% Line 83
+			 call 'erlang':'module_loaded'
+			     (Mod) of
+		      %% Line 84
+		      <'true'> when 'true' ->
+			  %% Line 85
+			  call Mod:'module_info'
+			      ('exports')
+		      %% Line 86
+		      <'false'> when 'true' ->
+			  let <_3> =
+			      call %% Line 87
+				   'code':%% Line 87
+					  'which'
+				  (%% Line 87
+				   Mod)
+			  in  %% Line 87
+			      case call 'beam_lib':'chunks'
+				       (_3, ['exports']) of
+				%% Line 88
+				<{'ok',{_13,[{'exports',E}|[]]}}>
+				    when call 'erlang':'=:='
+					  (_13,
+					   Mod) ->
+				    %% Line 89
+				    E
+				%% Line 90
+				<_14> when 'true' ->
+				    %% Line 91
+				    {'no',[],[]}
+			      end
+		      ( <_5> when 'true' ->
+			    %% Line 83
+			    primop 'match_fail'
+				({'case_clause',_5})
+			-| ['compiler_generated'] )
+		    end
+		in  %% Line 94
+		    case _6 of
+		      %% Line 95
+		      <{'no',[],[]}> when 'true' ->
+			  %% Line 96
+			  {'no',[],[]}
+		      %% Line 97
+		      <_15>
+			  when call 'erlang':'=:='
+				(_6,
+				 _6) ->
+			  %% Line 98
+			  apply 'match'/3
+			      (_1, _6, _2)
+		      ( <_8> when 'true' ->
+			    primop 'match_fail'
+				({'case_clause',_8})
+			-| ['compiler_generated'] )
+		    end
+	    %% Line 100
+	    <'error'> when 'true' ->
+		%% Line 101
+		{'no',[],[]}
+	    ( <_9> when 'true' ->
+		  primop 'match_fail'
+		      ({'case_clause',_9})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'expand_function_name',3}}] )
+'to_atom'/1 =
+    %% Line 105
+    ( fun (_0) ->
+	  %% Line 106
+	  case call 'erl_scan':'string'
+		   (( _0
+		      -| [{'function',{'to_atom',1}}] )) of
+	    %% Line 107
+	    <{'ok',[{'atom',_3,A}|[]],_4}> when 'true' ->
+		%% Line 108
+		{'ok',A}
+	    %% Line 109
+	    <_5> when 'true' ->
+		%% Line 110
+		'error'
+	  end
+      -| [{'function',{'to_atom',1}}] )
+'match'/3 =
+    %% Line 113
+    ( fun (_0,_1,_2) ->
+	  let <Len> =
+	      call %% Line 114
+		   'string':%% Line 114
+			    'length'
+		  (_0)
+	  in  let <_12> =
+		  letrec
+		      'lc$^0'/1 =
+			  %% Line 116
+			  fun (_8) ->
+			      case _8 of
+				<[{H,A}|_5]> when 'true' ->
+				    let <_7> =
+					apply %% Line 117
+					      'flat_write'/1
+					    (%% Line 117
+					     H)
+				    in  %% Line 117
+					( case call 'lists':'prefix'
+						   (_0, _7) of
+					    <'true'> when 'true' ->
+						let <_10> =
+						    apply 'lc$^0'/1
+							(_5)
+						in  ( [{_7,A}|_10]
+						      -| ['compiler_generated'] )
+					    ( <'false'> when 'true' ->
+						  apply 'lc$^0'/1
+						      (_5)
+					      -| ['compiler_generated'] )
+					    ( <_11> when 'true' ->
+						  primop 'match_fail'
+						      ({'case_clause',_11})
+					      -| ['compiler_generated'] )
+					  end
+					  -| ['list_comprehension'] )
+				( <[_4|_5]> when 'true' ->
+				      apply 'lc$^0'/1
+					  (_5)
+				  -| ['compiler_generated'] )
+				<[]> when 'true' ->
+				    []
+				( <_9> when 'true' ->
+				      primop 'match_fail'
+					  ({'function_clause',_9})
+				  -| ['compiler_generated'] )
+			      end
+		  in  %% Line 116
+		      apply 'lc$^0'/1
+			  (_1)
+	      in  let <Matches> =
+		      call %% Line 115
+			   'lists':%% Line 115
+				   'sort'
+			  (_12)
+		  in  let <_19> =
+			  letrec
+			      'lc$^1'/1 =
+				  %% Line 118
+				  fun (_16) ->
+				      case _16 of
+					<[{N,_30}|_15]> when 'true' ->
+					    let <_18> =
+						apply 'lc$^1'/1
+						    (_15)
+					    in  ( [N|_18]
+						  -| ['compiler_generated'] )
+					( <[_14|_15]> when 'true' ->
+					      apply 'lc$^1'/1
+						  (_15)
+					  -| ['compiler_generated'] )
+					<[]> when 'true' ->
+					    []
+					( <_17> when 'true' ->
+					      primop 'match_fail'
+						  ({'function_clause',_17})
+					  -| ['compiler_generated'] )
+				      end
+			  in  %% Line 118
+			      apply 'lc$^1'/1
+				  (Matches)
+		      in  %% Line 118
+			  case apply 'longest_common_head'/1
+				   (_19) of
+			    %% Line 119
+			    <{'partial',[]}> when 'true' ->
+				%% Line 120
+				{'no',[],Matches}
+			    %% Line 121
+			    <{'partial',Str}> when 'true' ->
+				%% Line 122
+				case call 'string':'slice'
+					 (Str, Len) of
+				  %% Line 123
+				  <[]> when 'true' ->
+				      %% Line 124
+				      {'yes',[],Matches}
+				  %% Line 125
+				  <Remain> when 'true' ->
+				      %% Line 126
+				      {'yes',Remain,[]}
+				end
+			    %% Line 128
+			    <{'complete',Str}> when 'true' ->
+				let <_22> =
+				    case <_2,%% Line 129
+					     Matches> of
+				      %% Line 130
+				      <( [40]
+					 -| ['compiler_generated'] ),( [( {_31,( 0
+										 -| ['compiler_generated'] )}
+									  -| ['compiler_generated'] )|( []
+													-| ['compiler_generated'] )]
+								       -| ['compiler_generated'] )>
+					  when call 'erlang':'=:='
+						(_31,
+						 Str) ->
+					  [40|[41]]
+				      %% Line 131
+				      <_32,_33> when 'true' ->
+					  _2
+				    end
+				in  let <_24> =
+					call %% Line 133
+					     'string':%% Line 133
+						      'slice'
+					    (%% Line 133
+					     Str, %% Line 133
+						  Len)
+				    in  let <_25> =
+					    call %% Line 133
+						 'erlang':%% Line 133
+							  '++'
+						(_24, _22)
+					in  %% Line 133
+					    {'yes',_25,[]}
+			    %% Line 134
+			    <'no'> when 'true' ->
+				%% Line 135
+				{'no',[],[]}
+			    ( <_26> when 'true' ->
+				  primop 'match_fail'
+				      ({'case_clause',_26})
+			      -| ['compiler_generated'] )
+			  end
+      -| [{'function',{'match',3}}] )
+'flat_write'/1 =
+    %% Line 138
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'flat_write',1}}] ) of
+	      <T>
+		  when call 'erlang':'is_atom'
+			(( _0
+			   -| [{'function',{'flat_write',1}}] )) ->
+		  let <_1> =
+		      call %% Line 139
+			   'io_lib':%% Line 139
+				    'fwrite'
+			  (%% Line 139
+			   [126|[116|[119]]], %% Line 139
+					      [T|[]])
+		  in  %% Line 139
+		      call 'lists':'flatten'
+			  (_1)
+	      %% Line 140
+	      <S> when 'true' ->
+		  %% Line 141
+		  S
+	    end
+	    -| [{'function',{'flat_write',1}}] )
+      -| [{'function',{'flat_write',1}}] )
+'format_matches'/1 =
+    %% Line 144
+    ( fun (_0) ->
+	  let <_1> =
+	      call %% Line 145
+		   'lists':%% Line 145
+			   'sort'
+		  (( _0
+		     -| [{'function',{'format_matches',1}}] ))
+	  in  %% Line 145
+	      case apply 'format_col'/2
+		       (_1, []) of
+		<{S1,Dots}> when 'true' ->
+		    let <_11> =
+			case %% Line 146
+			     Dots of
+			  %% Line 147
+			  <'true'> when 'true' ->
+			      let <_3> =
+				  apply %% Line 148
+					'vals'/1
+				      (( _0
+					 -| [{'function',{'format_matches',1}}] ))
+			      in  %% Line 148
+				  case apply 'longest_common_head'/1
+					   (_3) of
+				    <{_14,Prefix}> when 'true' ->
+					let <PrefixLen> =
+					    call %% Line 149
+						 'string':%% Line 149
+							  'length'
+						(%% Line 149
+						 Prefix)
+					in  %% Line 150
+					    case call 'erlang':'=<'
+						     (PrefixLen, 3) of
+					      %% Line 151
+					      <'true'> when 'true' ->
+						  S1
+					      %% Line 152
+					      <'false'> when 'true' ->
+						  let <LeadingDotsL> =
+						      apply %% Line 153
+							    'leading_dots'/2
+							  (( _0
+							     -| [{'function',{'format_matches',1}}] ), %% Line 153
+												       PrefixLen)
+						  in  let <_7> =
+							  call %% Line 154
+							       'lists':%% Line 154
+								       'sort'
+							      (%% Line 154
+							       LeadingDotsL)
+						      in  %% Line 154
+							  case apply 'format_col'/2
+								   (_7, []) of
+							    <{S2,_15}> when 'true' ->
+								%% Line 155
+								S2
+							    ( <_8> when 'true' ->
+								  primop 'match_fail'
+								      ({'badmatch',_8})
+							      -| ['compiler_generated'] )
+							  end
+					    end
+				    ( <_4> when 'true' ->
+					  primop 'match_fail'
+					      ({'badmatch',_4})
+				      -| ['compiler_generated'] )
+				  end
+			  %% Line 157
+			  <'false'> when 'true' ->
+			      S1
+			  ( <_10> when 'true' ->
+				%% Line 146
+				primop 'match_fail'
+				    ({'case_clause',_10})
+			    -| ['compiler_generated'] )
+			end
+		    in  %% Line 159
+			[[10]|_11]
+		( <_2> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_2})
+		  -| ['compiler_generated'] )
+	      end
+      -| [{'function',{'format_matches',1}}] )
+'format_col'/2 =
+    %% Line 161
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <[],_6> when 'true' ->
+		  []
+	      %% Line 162
+	      <L,Acc> when 'true' ->
+		  let <_3> =
+		      apply %% Line 164
+			    'field_width'/2
+			  (%% Line 164
+			   L, %% Line 163
+			      79)
+		  in  %% Line 164
+		      apply 'format_col'/6
+			  (L, _3, 0, Acc, 79, 'false')
+	    end
+	    -| [{'function',{'format_col',2}}] )
+      -| [{'function',{'format_col',2}}] )
+'format_col'/6 =
+    %% Line 166
+    ( fun (_0,_1,_2,_3,_4,_5) ->
+	  ( case <_0,_1,_2,_3,_4,_5> of
+	      <X,Width,Len,Acc,LL,Dots>
+		  when try
+			let <_6> =
+			    call 'erlang':'+'
+				(Width, Len)
+			in  call 'erlang':'>'
+				(_6, LL)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 167
+		  apply 'format_col'/6
+		      (X, Width, 0, [[10]|Acc], LL, Dots)
+	      %% Line 168
+	      <[A|T],Width,Len,Acc0,LL,Dots> when 'true' ->
+		  %% Line 169
+		  case apply 'format_val'/1
+			   (A) of
+		    <{H0,R}> when 'true' ->
+			let <_8> =
+			    call %% Line 170
+				 'erlang':%% Line 170
+					  'length'
+				(%% Line 170
+				 R)
+			in  let <Hmax> =
+				call %% Line 170
+				     'erlang':%% Line 170
+					      '-'
+				    (%% Line 170
+				     LL, _8)
+			    in  let <_10> =
+				    call %% Line 172
+					 'string':%% Line 172
+						  'length'
+					(%% Line 172
+					 H0)
+				in  let <_30,_31> =
+					case %% Line 172
+					     call 'erlang':'>'
+						 (_10, Hmax) of
+					  %% Line 173
+					  <'true'> when 'true' ->
+					      let <_11> =
+						  call 'erlang':'-'
+						      (Hmax, 3)
+					      in  let <_12> =
+						      call 'io_lib':'format'
+							  ([126|[45|[42|[116|[115]]]]], [_11|[H0|[]]])
+						  in  let <_13> =
+							  call 'erlang':'++'
+							      (_12, [46|[46|[46]]])
+						      in  <_13,'true'>
+					  %% Line 174
+					  <'false'> when 'true' ->
+					      <H0,Dots>
+					end
+				    in  let <_17> =
+					    call %% Line 176
+						 'erlang':%% Line 176
+							  '++'
+						(( _30
+						   -| ['compiler_generated'] ), %% Line 176
+										R)
+					in  let <_18> =
+						call %% Line 176
+						     'io_lib':%% Line 176
+							      'format'
+						    (%% Line 176
+						     [126|[45|[42|[116|[115]]]]], %% Line 176
+										  [Width|[_17|[]]])
+					    in  let <Acc> =
+						    [_18|%% Line 176
+							 Acc0]
+						in  let <_20> =
+							call %% Line 177
+							     'erlang':%% Line 177
+								      '+'
+							    (%% Line 177
+							     Len, %% Line 177
+								  Width)
+						    in  %% Line 177
+							apply 'format_col'/6
+							    (T, Width, _20, Acc, LL, ( _31
+										       -| ['compiler_generated'] ))
+		    ( <_7> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_7})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 178
+	      <[],_28,_29,Acc,_X_LL,Dots> when 'true' ->
+		  let <_21> =
+		      call %% Line 179
+			   'lists':%% Line 179
+				   'reverse'
+			  (%% Line 179
+			   Acc, %% Line 179
+				[10])
+		  in  %% Line 179
+		      {_21,Dots}
+	      ( <_27,_26,_25,_24,_23,_22> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_27,_26,_25,_24,_23,_22})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'format_col',6}}] )
+      -| [{'function',{'format_col',6}}] )
+'format_val'/1 =
+    %% Line 181
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'format_val',1}}] ) of
+	      <{H,I}>
+		  when call 'erlang':'is_integer'
+			(I) ->
+		  let <_1> =
+		      call %% Line 184
+			   'erlang':%% Line 184
+				    'integer_to_list'
+			  (%% Line 184
+			   I)
+		  in  let <_2> =
+			  [47|_1]
+		      in  %% Line 184
+			  {H,_2}
+	      %% Line 185
+	      <{H,_4}> when 'true' ->
+		  %% Line 186
+		  {H,[]}
+	      %% Line 187
+	      <H> when 'true' ->
+		  %% Line 188
+		  {H,[]}
+	    end
+	    -| [{'function',{'format_val',1}}] )
+      -| [{'function',{'format_val',1}}] )
+'field_width'/2 =
+    %% Line 190
+    ( fun (_0,_1) ->
+	  apply 'field_width'/3
+	      (_0, 0, _1)
+      -| [{'function',{'field_width',2}}] )
+'field_width'/3 =
+    %% Line 192
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <[{H,_9}|T],W,LL> when 'true' ->
+		  %% Line 193
+		  case call 'string':'length'
+			   (H) of
+		    %% Line 194
+		    <L>
+			when call 'erlang':'>'
+			      (L,
+			       W) ->
+			apply 'field_width'/3
+			    (T, L, LL)
+		    %% Line 195
+		    <_10> when 'true' ->
+			apply 'field_width'/3
+			    (T, W, LL)
+		  end
+	      %% Line 197
+	      <[H|T],W,LL> when 'true' ->
+		  %% Line 198
+		  case call 'string':'length'
+			   (H) of
+		    %% Line 199
+		    <L>
+			when call 'erlang':'>'
+			      (L,
+			       W) ->
+			apply 'field_width'/3
+			    (T, L, LL)
+		    %% Line 200
+		    <_11> when 'true' ->
+			apply 'field_width'/3
+			    (T, W, LL)
+		  end
+	      %% Line 202
+	      <[],W,LL>
+		  when try
+			let <_5> =
+			    call 'erlang':'-'
+				(LL, 3)
+			in  call 'erlang':'<'
+				(W, _5)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 203
+		  call 'erlang':'+'
+		      (W, 4)
+	      %% Line 204
+	      <[],_12,LL> when 'true' ->
+		  %% Line 205
+		  LL
+	      ( <_8,_7,_6> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_8,_7,_6})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'field_width',3}}] )
+      -| [{'function',{'field_width',3}}] )
+'vals'/1 =
+    %% Line 207
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'vals',1}}] ) of
+	      <[]> when 'true' ->
+		  []
+	      %% Line 208
+	      <[{S,_4}|L]> when 'true' ->
+		  let <_1> =
+		      apply 'vals'/1
+			  (L)
+		  in  [S|_1]
+	      %% Line 209
+	      <[S|L]> when 'true' ->
+		  let <_2> =
+		      apply 'vals'/1
+			  (L)
+		  in  [S|_2]
+	      ( <_3> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_3})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'vals',1}}] )
+      -| [{'function',{'vals',1}}] )
+'leading_dots'/2 =
+    %% Line 211
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <[],_X_Len> when 'true' ->
+		  []
+	      %% Line 212
+	      <[{H,I}|L],Len> when 'true' ->
+		  let <_2> =
+		      call %% Line 213
+			   'string':%% Line 213
+				    'slice'
+			  (%% Line 213
+			   H, %% Line 213
+			      Len)
+		  in  let <_3> =
+			  [46|%% Line 213
+			      [46|[46|_2]]]
+		      in  let <_4> =
+			      apply %% Line 213
+				    'leading_dots'/2
+				  (%% Line 213
+				   L, %% Line 213
+				      Len)
+			  in  %% Line 213
+			      [{_3,I}|_4]
+	      %% Line 214
+	      <[H|L],Len> when 'true' ->
+		  let <_5> =
+		      call %% Line 215
+			   'string':%% Line 215
+				    'slice'
+			  (%% Line 215
+			   H, %% Line 215
+			      Len)
+		  in  let <_6> =
+			  [46|%% Line 215
+			      [46|[46|_5]]]
+		      in  let <_7> =
+			      apply %% Line 215
+				    'leading_dots'/2
+				  (%% Line 215
+				   L, %% Line 215
+				      Len)
+			  in  %% Line 215
+			      [_6|_7]
+	      ( <_9,_8> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_9,_8})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'leading_dots',2}}] )
+      -| [{'function',{'leading_dots',2}}] )
+'longest_common_head'/1 =
+    %% Line 218
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'longest_common_head',1}}] ) of
+	      <[]> when 'true' ->
+		  %% Line 219
+		  'no'
+	      %% Line 220
+	      <LL> when 'true' ->
+		  %% Line 221
+		  apply 'longest_common_head'/2
+		      (LL, [])
+	    end
+	    -| [{'function',{'longest_common_head',1}}] )
+      -| [{'function',{'longest_common_head',1}}] )
+'longest_common_head'/2 =
+    %% Line 223
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <[[]|_11],L> when 'true' ->
+		  let <_2> =
+		      call %% Line 224
+			   'lists':%% Line 224
+				   'reverse'
+			  (%% Line 224
+			   L)
+		  in  %% Line 224
+		      {'partial',_2}
+	      %% Line 225
+	      <LL,L> when 'true' ->
+		  %% Line 226
+		  case apply 'same_head'/1
+			   (LL) of
+		    %% Line 227
+		    <'true'> when 'true' ->
+			%% Line 228
+			case LL of
+			  <[[H|_12]|_13]> when 'true' ->
+			      let <LL1> =
+				  apply %% Line 229
+					'all_tails'/1
+				      (%% Line 229
+				       LL)
+			      in  %% Line 230
+				  case apply 'all_nil'/1
+					   (LL1) of
+				    %% Line 231
+				    <'false'> when 'true' ->
+					%% Line 232
+					apply 'longest_common_head'/2
+					    (LL1, [H|L])
+				    %% Line 233
+				    <'true'> when 'true' ->
+					let <_5> =
+					    call %% Line 234
+						 'lists':%% Line 234
+							 'reverse'
+						(%% Line 234
+						 [H|L])
+					in  %% Line 234
+					    {'complete',_5}
+				    ( <_6> when 'true' ->
+					  primop 'match_fail'
+					      ({'case_clause',_6})
+				      -| ['compiler_generated'] )
+				  end
+			  ( <_3> when 'true' ->
+				primop 'match_fail'
+				    ({'badmatch',_3})
+			    -| ['compiler_generated'] )
+			end
+		    %% Line 236
+		    <'false'> when 'true' ->
+			let <_7> =
+			    call %% Line 237
+				 'lists':%% Line 237
+					 'reverse'
+				(%% Line 237
+				 L)
+			in  %% Line 237
+			    {'partial',_7}
+		    ( <_8> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_8})
+		      -| ['compiler_generated'] )
+		  end
+	    end
+	    -| [{'function',{'longest_common_head',2}}] )
+      -| [{'function',{'longest_common_head',2}}] )
+'same_head'/1 =
+    %% Line 240
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'same_head',1}}] ) of
+	      <[[H|_2]|T1]> when 'true' ->
+		  apply 'same_head'/2
+		      (H, T1)
+	      ( <_1> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_1})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'same_head',1}}] )
+      -| [{'function',{'same_head',1}}] )
+'same_head'/2 =
+    %% Line 242
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <H,[[_4|_5]|T]>
+		  when call 'erlang':'=:='
+			(_4,
+			 H) ->
+		  apply 'same_head'/2
+		      (H, T)
+	      %% Line 243
+	      <_6,[]> when 'true' ->
+		  'true'
+	      %% Line 244
+	      <_7,_8> when 'true' ->
+		  'false'
+	    end
+	    -| [{'function',{'same_head',2}}] )
+      -| [{'function',{'same_head',2}}] )
+'all_tails'/1 =
+    %% Line 246
+    ( fun (_0) ->
+	  apply 'all_tails'/2
+	      (( _0
+		 -| [{'function',{'all_tails',1}}] ), [])
+      -| [{'function',{'all_tails',1}}] )
+'all_tails'/2 =
+    %% Line 248
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <[[_4|T]|T1],L> when 'true' ->
+		  apply 'all_tails'/2
+		      (T1, [T|L])
+	      %% Line 249
+	      <[],L> when 'true' ->
+		  L
+	      ( <_3,_2> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_3,_2})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'all_tails',2}}] )
+      -| [{'function',{'all_tails',2}}] )
+'all_nil'/1 =
+    %% Line 251
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'all_nil',1}}] ) of
+	      <[]> when 'true' ->
+		  'true'
+	      %% Line 252
+	      <[[]|Rest]> when 'true' ->
+		  apply 'all_nil'/1
+		      (Rest)
+	      %% Line 253
+	      <_2> when 'true' ->
+		  'false'
+	    end
+	    -| [{'function',{'all_nil',1}}] )
+      -| [{'function',{'all_nil',1}}] )
+'over_white'/3 =
+    %% Line 258
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <[32|Cs],Stack,N> when 'true' ->
+		  let <_3> =
+		      call %% Line 259
+			   'erlang':%% Line 259
+				    '+'
+			  (%% Line 259
+			   N, %% Line 259
+			      1)
+		  in  %% Line 259
+		      apply 'over_white'/3
+			  (Cs, [32|Stack], _3)
+	      %% Line 260
+	      <[9|Cs],Stack,N> when 'true' ->
+		  let <_4> =
+		      call %% Line 261
+			   'erlang':%% Line 261
+				    '+'
+			  (%% Line 261
+			   N, %% Line 261
+			      1)
+		  in  %% Line 261
+		      apply 'over_white'/3
+			  (Cs, [9|Stack], _4)
+	      %% Line 262
+	      <Cs,Stack,N>
+		  when call 'erlang':'is_list'
+			(Cs) ->
+		  %% Line 263
+		  {Cs,Stack,N}
+	      ( <_7,_6,_5> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_7,_6,_5})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'over_white',3}}] )
+      -| [{'function',{'over_white',3}}] )
+'module_info'/0 =
+    ( fun () ->
+	  call 'erlang':'get_module_info'
+	      ('edlin_expand')
+      -| [{'function',{'module_info',0}}] )
+'module_info'/1 =
+    ( fun (_0) ->
+	  call 'erlang':'get_module_info'
+	      ('edlin_expand', ( _0
+				 -| [{'function',{'module_info',1}}] ))
+      -| [{'function',{'module_info',1}}] )
+end

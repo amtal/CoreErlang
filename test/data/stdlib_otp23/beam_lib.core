@@ -1,0 +1,4334 @@
+module 'beam_lib' ['all_chunks'/1,
+		   'build_module'/1,
+		   'chunks'/2,
+		   'chunks'/3,
+		   'clear_crypto_key_fun'/0,
+		   'cmp'/2,
+		   'cmp_dirs'/2,
+		   'code_change'/3,
+		   'crypto_key_fun'/1,
+		   'diff_dirs'/2,
+		   'format_error'/1,
+		   'get_crypto_key'/1,
+		   'handle_call'/3,
+		   'handle_cast'/2,
+		   'handle_info'/2,
+		   'info'/1,
+		   'init'/1,
+		   'make_crypto_key'/2,
+		   'md5'/1,
+		   'module_info'/0,
+		   'module_info'/1,
+		   'significant_chunks'/0,
+		   'strip'/1,
+		   'strip'/2,
+		   'strip_files'/1,
+		   'strip_files'/2,
+		   'strip_release'/1,
+		   'strip_release'/2,
+		   'terminate'/2,
+		   'version'/1]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[98|[101|[97|[109|[95|[108|[105|[98|[46|[101|[114|[108]]]]]]]]]]]]]]]],1}],
+		%% Line 21
+		'behaviour' =
+		    %% Line 21
+		    ['gen_server'],
+		%% Line 24
+		'compile' =
+		    %% Line 24
+		    [{'no_auto_import',[{'error',1}]}],
+		%% Line 26
+		'compile' =
+		    %% Line 26
+		    [{'no_auto_import',[{'error',2}]}],
+		%% Line 53
+		'export_type' =
+		    %% Line 53
+		    [{'attrib_entry',0}|[{'compinfo_entry',0}|[{'labeled_entry',0}|[{'label',0}]]]],
+		%% Line 60
+		'type' =
+		    %% Line 60
+		    [{'beam',{'type',60,'union',[{'remote_type',60,[{'atom',60,'file'}|[{'atom',60,'filename'}|[[]]]]}|[{'type',60,'binary',[]}]]},[]}],
+		%% Line 61
+		'type' =
+		    %% Line 61
+		    [{'debug_info',{'type',61,'union',[{'type',61,'tuple',[{'ann_type',61,[{'var',61,'DbgiVersion'}|[{'type',61,'atom',[]}]]}|[{'ann_type',61,[{'var',61,'Backend'}|[{'type',61,'module',[]}]]}|[{'ann_type',61,[{'var',61,'Data'}|[{'type',61,'term',[]}]]}]]]}|[{'atom',61,'no_debug_info'}]]},[]}],
+		%% Line 63
+		'type' =
+		    %% Line 63
+		    [{'forms',{'type',63,'list',[{'type',63,'union',[{'remote_type',63,[{'atom',63,'erl_parse'}|[{'atom',63,'abstract_form'}|[[]]]]}|[{'remote_type',63,[{'atom',63,'erl_parse'}|[{'atom',63,'form_info'}|[[]]]]}]]}]},[]}],
+		%% Line 65
+		'type' =
+		    %% Line 65
+		    [{'abst_code',{'type',65,'union',[{'type',65,'tuple',[{'ann_type',65,[{'var',65,'AbstVersion'}|[{'type',65,'atom',[]}]]}|[{'user_type',65,'forms',[]}]]}|[{'atom',65,'no_abstract_code'}]]},[]}],
+		%% Line 66
+		'type' =
+		    %% Line 66
+		    [{'dataB',{'type',66,'binary',[]},[]}],
+		%% Line 67
+		'type' =
+		    %% Line 67
+		    [{'index',{'type',67,'non_neg_integer',[]},[]}],
+		%% Line 68
+		'type' =
+		    %% Line 68
+		    [{'label',{'type',68,'integer',[]},[]}],
+		%% Line 70
+		'type' =
+		    %% Line 70
+		    [{'chunkid',{'type',70,'nonempty_string',[]},[]}],
+		%% Line 72
+		'type' =
+		    %% Line 72
+		    [{'chunkname',{'type',72,'union',[{'atom',72,'abstract_code'}|[{'atom',72,'debug_info'}|[{'atom',73,'attributes'}|[{'atom',73,'compile_info'}|[{'atom',74,'exports'}|[{'atom',74,'labeled_exports'}|[{'atom',75,'imports'}|[{'atom',75,'indexed_imports'}|[{'atom',76,'locals'}|[{'atom',76,'labeled_locals'}|[{'atom',77,'atoms'}]]]]]]]]]]]},[]}],
+		%% Line 78
+		'type' =
+		    %% Line 78
+		    [{'chunkref',{'type',78,'union',[{'user_type',78,'chunkname',[]}|[{'user_type',78,'chunkid',[]}]]},[]}],
+		%% Line 80
+		'type' =
+		    %% Line 80
+		    [{'attrib_entry',{'type',80,'tuple',[{'ann_type',80,[{'var',80,'Attribute'}|[{'type',80,'atom',[]}]]}|[{'type',80,'list',[{'ann_type',80,[{'var',80,'AttributeValue'}|[{'type',80,'term',[]}]]}]}]]},[]}],
+		%% Line 81
+		'type' =
+		    %% Line 81
+		    [{'compinfo_entry',{'type',81,'tuple',[{'ann_type',81,[{'var',81,'InfoKey'}|[{'type',81,'atom',[]}]]}|[{'type',81,'term',[]}]]},[]}],
+		%% Line 82
+		'type' =
+		    %% Line 82
+		    [{'labeled_entry',{'type',82,'tuple',[{'ann_type',82,[{'var',82,'Function'}|[{'type',82,'atom',[]}]]}|[{'type',82,'arity',[]}|[{'user_type',82,'label',[]}]]]},[]}],
+		%% Line 84
+		'type' =
+		    %% Line 84
+		    [{'chunkdata',{'type',84,'union',[{'type',84,'tuple',[{'user_type',84,'chunkid',[]}|[{'user_type',84,'dataB',[]}]]}|[{'type',85,'tuple',[{'atom',85,'abstract_code'}|[{'user_type',85,'abst_code',[]}]]}|[{'type',86,'tuple',[{'atom',86,'debug_info'}|[{'user_type',86,'debug_info',[]}]]}|[{'type',87,'tuple',[{'atom',87,'attributes'}|[{'type',87,'list',[{'user_type',87,'attrib_entry',[]}]}]]}|[{'type',88,'tuple',[{'atom',88,'compile_info'}|[{'type',88,'list',[{'user_type',88,'compinfo_entry',[]}]}]]}|[{'type',89,'tuple',[{'atom',89,'exports'}|[{'type',89,'list',[{'type',89,'tuple',[{'type',89,'atom',[]}|[{'type',89,'arity',[]}]]}]}]]}|[{'type',90,'tuple',[{'atom',90,'labeled_exports'}|[{'type',90,'list',[{'user_type',90,'labeled_entry',[]}]}]]}|[{'type',91,'tuple',[{'atom',91,'imports'}|[{'type',91,'list',[{'type',91,'mfa',[]}]}]]}|[{'type',92,'tuple',[{'atom',92,'indexed_imports'}|[{'type',92,'list',[{'type',92,'tuple',[{'user_type',92,'index',[]}|[{'type',92,'module',[]}|[{'ann_type',92,[{'var',92,'Function'}|[{'type',92,'atom',[]}]]}|[{'type',92,'arity',[]}]]]]}]}]]}|[{'type',93,'tuple',[{'atom',93,'locals'}|[{'type',93,'list',[{'type',93,'tuple',[{'type',93,'atom',[]}|[{'type',93,'arity',[]}]]}]}]]}|[{'type',94,'tuple',[{'atom',94,'labeled_locals'}|[{'type',94,'list',[{'user_type',94,'labeled_entry',[]}]}]]}|[{'type',95,'tuple',[{'atom',95,'atoms'}|[{'type',95,'list',[{'type',95,'tuple',[{'type',95,'integer',[]}|[{'type',95,'atom',[]}]]}]}]]}]]]]]]]]]]]]},[]}],
+		%% Line 98
+		'type' =
+		    %% Line 98
+		    [{'info_rsn',{'type',98,'union',[{'type',98,'tuple',[{'atom',98,'chunk_too_big'}|[{'remote_type',98,[{'atom',98,'file'}|[{'atom',98,'filename'}|[[]]]]}|[{'user_type',99,'chunkid',[]}|[{'ann_type',99,[{'var',99,'ChunkSize'}|[{'type',99,'non_neg_integer',[]}]]}|[{'ann_type',100,[{'var',100,'FileSize'}|[{'type',100,'non_neg_integer',[]}]]}]]]]]}|[{'type',101,'tuple',[{'atom',101,'invalid_beam_file'}|[{'remote_type',101,[{'atom',101,'file'}|[{'atom',101,'filename'}|[[]]]]}|[{'ann_type',102,[{'var',102,'Position'}|[{'type',102,'non_neg_integer',[]}]]}]]]}|[{'type',103,'tuple',[{'atom',103,'invalid_chunk'}|[{'remote_type',103,[{'atom',103,'file'}|[{'atom',103,'filename'}|[[]]]]}|[{'user_type',103,'chunkid',[]}]]]}|[{'type',104,'tuple',[{'atom',104,'missing_chunk'}|[{'remote_type',104,[{'atom',104,'file'}|[{'atom',104,'filename'}|[[]]]]}|[{'user_type',104,'chunkid',[]}]]]}|[{'type',105,'tuple',[{'atom',105,'not_a_beam_file'}|[{'remote_type',105,[{'atom',105,'file'}|[{'atom',105,'filename'}|[[]]]]}]]}|[{'type',106,'tuple',[{'atom',106,'file_error'}|[{'remote_type',106,[{'atom',106,'file'}|[{'atom',106,'filename'}|[[]]]]}|[{'remote_type',106,[{'atom',106,'file'}|[{'atom',106,'posix'}|[[]]]]}]]]}]]]]]]},[]}],
+		%% Line 107
+		'type' =
+		    %% Line 107
+		    [{'chnk_rsn',{'type',107,'union',[{'type',107,'tuple',[{'atom',107,'unknown_chunk'}|[{'remote_type',107,[{'atom',107,'file'}|[{'atom',107,'filename'}|[[]]]]}|[{'type',107,'atom',[]}]]]}|[{'type',108,'tuple',[{'atom',108,'key_missing_or_invalid'}|[{'remote_type',108,[{'atom',108,'file'}|[{'atom',108,'filename'}|[[]]]]}|[{'type',109,'union',[{'atom',109,'abstract_code'}|[{'atom',109,'debug_info'}]]}]]]}|[{'user_type',110,'info_rsn',[]}]]]},[]}],
+		%% Line 111
+		'type' =
+		    %% Line 111
+		    [{'cmp_rsn',{'type',111,'union',[{'type',111,'tuple',[{'atom',111,'modules_different'}|[{'type',111,'module',[]}|[{'type',111,'module',[]}]]]}|[{'type',112,'tuple',[{'atom',112,'chunks_different'}|[{'user_type',112,'chunkid',[]}]]}|[{'atom',113,'different_chunks'}|[{'user_type',114,'info_rsn',[]}]]]]},[]}],
+		%% Line 122
+		'spec' =
+		    %% Line 122
+		    [{{'info',1},[{'type',122,'bounded_fun',[{'type',122,'fun',[{'type',122,'product',[{'var',122,'Beam'}]}|[{'type',122,'union',[{'type',122,'list',[{'var',122,'InfoPair'}]}|[{'type',122,'tuple',[{'atom',122,'error'}|[{'atom',122,'beam_lib'}|[{'user_type',122,'info_rsn',[]}]]]}]]}]]}|[[{'type',123,'constraint',[{'atom',123,'is_subtype'}|[[{'var',123,'Beam'}|[{'user_type',123,'beam',[]}]]]]}|[{'type',124,'constraint',[{'atom',124,'is_subtype'}|[[{'var',124,'InfoPair'}|[{'type',124,'union',[{'type',124,'tuple',[{'atom',124,'file'}|[{'ann_type',124,[{'var',124,'Filename'}|[{'remote_type',124,[{'atom',124,'file'}|[{'atom',124,'filename'}|[[]]]]}]]}]]}|[{'type',125,'tuple',[{'atom',125,'binary'}|[{'ann_type',125,[{'var',125,'Binary'}|[{'type',125,'binary',[]}]]}]]}|[{'type',126,'tuple',[{'atom',126,'module'}|[{'ann_type',126,[{'var',126,'Module'}|[{'type',126,'module',[]}]]}]]}|[{'type',127,'tuple',[{'atom',127,'chunks'}|[{'type',127,'list',[{'type',127,'tuple',[{'ann_type',127,[{'var',127,'ChunkId'}|[{'user_type',127,'chunkid',[]}]]}|[{'ann_type',128,[{'var',128,'Pos'}|[{'type',128,'non_neg_integer',[]}]]}|[{'ann_type',129,[{'var',129,'Size'}|[{'type',129,'non_neg_integer',[]}]]}]]]}]}]]}]]]]}]]]]}]]]]}]}],
+		%% Line 134
+		'spec' =
+		    %% Line 134
+		    [{{'chunks',2},[{'type',134,'bounded_fun',[{'type',134,'fun',[{'type',134,'product',[{'var',134,'Beam'}|[{'var',134,'ChunkRefs'}]]}|[{'type',135,'union',[{'type',135,'tuple',[{'atom',135,'ok'}|[{'type',135,'tuple',[{'type',135,'module',[]}|[{'type',135,'list',[{'user_type',135,'chunkdata',[]}]}]]}]]}|[{'type',136,'tuple',[{'atom',136,'error'}|[{'atom',136,'beam_lib'}|[{'user_type',136,'chnk_rsn',[]}]]]}]]}]]}|[[{'type',137,'constraint',[{'atom',137,'is_subtype'}|[[{'var',137,'Beam'}|[{'user_type',137,'beam',[]}]]]]}|[{'type',138,'constraint',[{'atom',138,'is_subtype'}|[[{'var',138,'ChunkRefs'}|[{'type',138,'list',[{'user_type',138,'chunkref',[]}]}]]]]}]]]]}]}],
+		%% Line 143
+		'spec' =
+		    %% Line 143
+		    [{{'chunks',3},[{'type',143,'bounded_fun',[{'type',143,'fun',[{'type',143,'product',[{'var',143,'Beam'}|[{'var',143,'ChunkRefs'}|[{'var',143,'Options'}]]]}|[{'type',144,'union',[{'type',144,'tuple',[{'atom',144,'ok'}|[{'type',144,'tuple',[{'type',144,'module',[]}|[{'type',144,'list',[{'var',144,'ChunkResult'}]}]]}]]}|[{'type',145,'tuple',[{'atom',145,'error'}|[{'atom',145,'beam_lib'}|[{'user_type',145,'chnk_rsn',[]}]]]}]]}]]}|[[{'type',146,'constraint',[{'atom',146,'is_subtype'}|[[{'var',146,'Beam'}|[{'user_type',146,'beam',[]}]]]]}|[{'type',147,'constraint',[{'atom',147,'is_subtype'}|[[{'var',147,'ChunkRefs'}|[{'type',147,'list',[{'user_type',147,'chunkref',[]}]}]]]]}|[{'type',148,'constraint',[{'atom',148,'is_subtype'}|[[{'var',148,'Options'}|[{'type',148,'list',[{'atom',148,'allow_missing_chunks'}]}]]]]}|[{'type',149,'constraint',[{'atom',149,'is_subtype'}|[[{'var',149,'ChunkResult'}|[{'type',149,'union',[{'user_type',149,'chunkdata',[]}|[{'type',149,'tuple',[{'ann_type',149,[{'var',149,'ChunkRef'}|[{'user_type',149,'chunkref',[]}]]}|[{'atom',149,'missing_chunk'}]]}]]}]]]]}]]]]]]}]}],
+		%% Line 155
+		'spec' =
+		    %% Line 155
+		    [{{'all_chunks',1},[{'type',155,'fun',[{'type',155,'product',[{'user_type',155,'beam',[]}]}|[{'type',156,'union',[{'type',156,'tuple',[{'atom',156,'ok'}|[{'atom',156,'beam_lib'}|[{'type',156,'list',[{'type',156,'tuple',[{'user_type',156,'chunkid',[]}|[{'user_type',156,'dataB',[]}]]}]}]]]}|[{'type',156,'tuple',[{'atom',156,'error'}|[{'atom',156,'beam_lib'}|[{'user_type',156,'info_rsn',[]}]]]}]]}]]}]}],
+		%% Line 161
+		'spec' =
+		    %% Line 161
+		    [{{'cmp',2},[{'type',161,'bounded_fun',[{'type',161,'fun',[{'type',161,'product',[{'var',161,'Beam1'}|[{'var',161,'Beam2'}]]}|[{'type',161,'union',[{'atom',161,'ok'}|[{'type',161,'tuple',[{'atom',161,'error'}|[{'atom',161,'beam_lib'}|[{'user_type',161,'cmp_rsn',[]}]]]}]]}]]}|[[{'type',162,'constraint',[{'atom',162,'is_subtype'}|[[{'var',162,'Beam1'}|[{'user_type',162,'beam',[]}]]]]}|[{'type',163,'constraint',[{'atom',163,'is_subtype'}|[[{'var',163,'Beam2'}|[{'user_type',163,'beam',[]}]]]]}]]]]}]}],
+		%% Line 169
+		'spec' =
+		    %% Line 169
+		    [{{'cmp_dirs',2},[{'type',169,'bounded_fun',[{'type',169,'fun',[{'type',169,'product',[{'var',169,'Dir1'}|[{'var',169,'Dir2'}]]}|[{'type',170,'union',[{'type',170,'tuple',[{'var',170,'Only1'}|[{'var',170,'Only2'}|[{'var',170,'Different'}]]]}|[{'type',170,'tuple',[{'atom',170,'error'}|[{'atom',170,'beam_lib'}|[{'var',170,'Reason'}]]]}]]}]]}|[[{'type',171,'constraint',[{'atom',171,'is_subtype'}|[[{'var',171,'Dir1'}|[{'type',171,'union',[{'type',171,'atom',[]}|[{'remote_type',171,[{'atom',171,'file'}|[{'atom',171,'filename'}|[[]]]]}]]}]]]]}|[{'type',172,'constraint',[{'atom',172,'is_subtype'}|[[{'var',172,'Dir2'}|[{'type',172,'union',[{'type',172,'atom',[]}|[{'remote_type',172,[{'atom',172,'file'}|[{'atom',172,'filename'}|[[]]]]}]]}]]]]}|[{'type',173,'constraint',[{'atom',173,'is_subtype'}|[[{'var',173,'Only1'}|[{'type',173,'list',[{'remote_type',173,[{'atom',173,'file'}|[{'atom',173,'filename'}|[[]]]]}]}]]]]}|[{'type',174,'constraint',[{'atom',174,'is_subtype'}|[[{'var',174,'Only2'}|[{'type',174,'list',[{'remote_type',174,[{'atom',174,'file'}|[{'atom',174,'filename'}|[[]]]]}]}]]]]}|[{'type',175,'constraint',[{'atom',175,'is_subtype'}|[[{'var',175,'Different'}|[{'type',175,'list',[{'type',175,'tuple',[{'ann_type',175,[{'var',175,'Filename1'}|[{'remote_type',175,[{'atom',175,'file'}|[{'atom',175,'filename'}|[[]]]]}]]}|[{'ann_type',175,[{'var',175,'Filename2'}|[{'remote_type',175,[{'atom',175,'file'}|[{'atom',175,'filename'}|[[]]]]}]]}]]}]}]]]]}|[{'type',176,'constraint',[{'atom',176,'is_subtype'}|[[{'var',176,'Reason'}|[{'type',176,'union',[{'type',176,'tuple',[{'atom',176,'not_a_directory'}|[{'type',176,'term',[]}]]}|[{'user_type',176,'info_rsn',[]}]]}]]]]}]]]]]]]]}]}],
+		%% Line 181
+		'spec' =
+		    %% Line 181
+		    [{{'diff_dirs',2},[{'type',181,'bounded_fun',[{'type',181,'fun',[{'type',181,'product',[{'var',181,'Dir1'}|[{'var',181,'Dir2'}]]}|[{'type',181,'union',[{'atom',181,'ok'}|[{'type',181,'tuple',[{'atom',181,'error'}|[{'atom',181,'beam_lib'}|[{'var',181,'Reason'}]]]}]]}]]}|[[{'type',182,'constraint',[{'atom',182,'is_subtype'}|[[{'var',182,'Dir1'}|[{'type',182,'union',[{'type',182,'atom',[]}|[{'remote_type',182,[{'atom',182,'file'}|[{'atom',182,'filename'}|[[]]]]}]]}]]]]}|[{'type',183,'constraint',[{'atom',183,'is_subtype'}|[[{'var',183,'Dir2'}|[{'type',183,'union',[{'type',183,'atom',[]}|[{'remote_type',183,[{'atom',183,'file'}|[{'atom',183,'filename'}|[[]]]]}]]}]]]]}|[{'type',184,'constraint',[{'atom',184,'is_subtype'}|[[{'var',184,'Reason'}|[{'type',184,'union',[{'type',184,'tuple',[{'atom',184,'not_a_directory'}|[{'type',184,'term',[]}]]}|[{'user_type',184,'info_rsn',[]}]]}]]]]}]]]]]}]}],
+		%% Line 189
+		'spec' =
+		    %% Line 189
+		    [{{'strip',1},[{'type',189,'bounded_fun',[{'type',189,'fun',[{'type',189,'product',[{'var',189,'Beam1'}]}|[{'type',190,'union',[{'type',190,'tuple',[{'atom',190,'ok'}|[{'type',190,'tuple',[{'type',190,'module',[]}|[{'var',190,'Beam2'}]]}]]}|[{'type',190,'tuple',[{'atom',190,'error'}|[{'atom',190,'beam_lib'}|[{'user_type',190,'info_rsn',[]}]]]}]]}]]}|[[{'type',191,'constraint',[{'atom',191,'is_subtype'}|[[{'var',191,'Beam1'}|[{'user_type',191,'beam',[]}]]]]}|[{'type',192,'constraint',[{'atom',192,'is_subtype'}|[[{'var',192,'Beam2'}|[{'user_type',192,'beam',[]}]]]]}]]]]}]}],
+		%% Line 197
+		'spec' =
+		    %% Line 197
+		    [{{'strip',2},[{'type',197,'bounded_fun',[{'type',197,'fun',[{'type',197,'product',[{'var',197,'Beam1'}|[{'var',197,'AdditionalChunks'}]]}|[{'type',198,'union',[{'type',198,'tuple',[{'atom',198,'ok'}|[{'type',198,'tuple',[{'type',198,'module',[]}|[{'var',198,'Beam2'}]]}]]}|[{'type',198,'tuple',[{'atom',198,'error'}|[{'atom',198,'beam_lib'}|[{'user_type',198,'info_rsn',[]}]]]}]]}]]}|[[{'type',199,'constraint',[{'atom',199,'is_subtype'}|[[{'var',199,'Beam1'}|[{'user_type',199,'beam',[]}]]]]}|[{'type',200,'constraint',[{'atom',200,'is_subtype'}|[[{'var',200,'AdditionalChunks'}|[{'type',200,'list',[{'user_type',200,'chunkid',[]}]}]]]]}|[{'type',201,'constraint',[{'atom',201,'is_subtype'}|[[{'var',201,'Beam2'}|[{'user_type',201,'beam',[]}]]]]}]]]]]}]}],
+		%% Line 207
+		'spec' =
+		    %% Line 207
+		    [{{'strip_files',1},[{'type',207,'bounded_fun',[{'type',207,'fun',[{'type',207,'product',[{'var',207,'Files'}]}|[{'type',208,'union',[{'type',208,'tuple',[{'atom',208,'ok'}|[{'type',208,'list',[{'type',208,'tuple',[{'type',208,'module',[]}|[{'var',208,'Beam'}]]}]}]]}|[{'type',208,'tuple',[{'atom',208,'error'}|[{'atom',208,'beam_lib'}|[{'user_type',208,'info_rsn',[]}]]]}]]}]]}|[[{'type',209,'constraint',[{'atom',209,'is_subtype'}|[[{'var',209,'Files'}|[{'type',209,'list',[{'user_type',209,'beam',[]}]}]]]]}|[{'type',210,'constraint',[{'atom',210,'is_subtype'}|[[{'var',210,'Beam'}|[{'user_type',210,'beam',[]}]]]]}]]]]}]}],
+		%% Line 215
+		'spec' =
+		    %% Line 215
+		    [{{'strip_files',2},[{'type',215,'bounded_fun',[{'type',215,'fun',[{'type',215,'product',[{'var',215,'Files'}|[{'var',215,'AdditionalChunks'}]]}|[{'type',216,'union',[{'type',216,'tuple',[{'atom',216,'ok'}|[{'type',216,'list',[{'type',216,'tuple',[{'type',216,'module',[]}|[{'var',216,'Beam'}]]}]}]]}|[{'type',216,'tuple',[{'atom',216,'error'}|[{'atom',216,'beam_lib'}|[{'user_type',216,'info_rsn',[]}]]]}]]}]]}|[[{'type',217,'constraint',[{'atom',217,'is_subtype'}|[[{'var',217,'Files'}|[{'type',217,'list',[{'user_type',217,'beam',[]}]}]]]]}|[{'type',218,'constraint',[{'atom',218,'is_subtype'}|[[{'var',218,'AdditionalChunks'}|[{'type',218,'list',[{'user_type',218,'chunkid',[]}]}]]]]}|[{'type',219,'constraint',[{'atom',219,'is_subtype'}|[[{'var',219,'Beam'}|[{'user_type',219,'beam',[]}]]]]}]]]]]}]}],
+		%% Line 225
+		'spec' =
+		    %% Line 225
+		    [{{'strip_release',1},[{'type',225,'bounded_fun',[{'type',225,'fun',[{'type',225,'product',[{'var',225,'Dir'}]}|[{'type',226,'union',[{'type',226,'tuple',[{'atom',226,'ok'}|[{'type',226,'list',[{'type',226,'tuple',[{'type',226,'module',[]}|[{'remote_type',226,[{'atom',226,'file'}|[{'atom',226,'filename'}|[[]]]]}]]}]}]]}|[{'type',227,'tuple',[{'atom',227,'error'}|[{'atom',227,'beam_lib'}|[{'var',227,'Reason'}]]]}]]}]]}|[[{'type',228,'constraint',[{'atom',228,'is_subtype'}|[[{'var',228,'Dir'}|[{'type',228,'union',[{'type',228,'atom',[]}|[{'remote_type',228,[{'atom',228,'file'}|[{'atom',228,'filename'}|[[]]]]}]]}]]]]}|[{'type',229,'constraint',[{'atom',229,'is_subtype'}|[[{'var',229,'Reason'}|[{'type',229,'union',[{'type',229,'tuple',[{'atom',229,'not_a_directory'}|[{'type',229,'term',[]}]]}|[{'user_type',229,'info_rsn',[]}]]}]]]]}]]]]}]}],
+		%% Line 234
+		'spec' =
+		    %% Line 234
+		    [{{'strip_release',2},[{'type',234,'bounded_fun',[{'type',234,'fun',[{'type',234,'product',[{'var',234,'Dir'}|[{'var',234,'AdditionalChunks'}]]}|[{'type',235,'union',[{'type',235,'tuple',[{'atom',235,'ok'}|[{'type',235,'list',[{'type',235,'tuple',[{'type',235,'module',[]}|[{'remote_type',235,[{'atom',235,'file'}|[{'atom',235,'filename'}|[[]]]]}]]}]}]]}|[{'type',236,'tuple',[{'atom',236,'error'}|[{'atom',236,'beam_lib'}|[{'var',236,'Reason'}]]]}]]}]]}|[[{'type',237,'constraint',[{'atom',237,'is_subtype'}|[[{'var',237,'Dir'}|[{'type',237,'union',[{'type',237,'atom',[]}|[{'remote_type',237,[{'atom',237,'file'}|[{'atom',237,'filename'}|[[]]]]}]]}]]]]}|[{'type',238,'constraint',[{'atom',238,'is_subtype'}|[[{'var',238,'AdditionalChunks'}|[{'type',238,'list',[{'user_type',238,'chunkid',[]}]}]]]]}|[{'type',239,'constraint',[{'atom',239,'is_subtype'}|[[{'var',239,'Reason'}|[{'type',239,'union',[{'type',239,'tuple',[{'atom',239,'not_a_directory'}|[{'type',239,'term',[]}]]}|[{'user_type',239,'info_rsn',[]}]]}]]]]}]]]]]}]}],
+		%% Line 244
+		'spec' =
+		    %% Line 244
+		    [{{'version',1},[{'type',244,'bounded_fun',[{'type',244,'fun',[{'type',244,'product',[{'var',244,'Beam'}]}|[{'type',245,'union',[{'type',245,'tuple',[{'atom',245,'ok'}|[{'type',245,'tuple',[{'type',245,'module',[]}|[{'type',245,'list',[{'ann_type',245,[{'var',245,'Version'}|[{'type',245,'term',[]}]]}]}]]}]]}|[{'type',246,'tuple',[{'atom',246,'error'}|[{'atom',246,'beam_lib'}|[{'user_type',246,'chnk_rsn',[]}]]]}]]}]]}|[[{'type',247,'constraint',[{'atom',247,'is_subtype'}|[[{'var',247,'Beam'}|[{'user_type',247,'beam',[]}]]]]}]]]}]}],
+		%% Line 258
+		'spec' =
+		    %% Line 258
+		    [{{'md5',1},[{'type',258,'bounded_fun',[{'type',258,'fun',[{'type',258,'product',[{'var',258,'Beam'}]}|[{'type',259,'union',[{'type',259,'tuple',[{'atom',259,'ok'}|[{'type',259,'tuple',[{'type',259,'module',[]}|[{'var',259,'MD5'}]]}]]}|[{'type',259,'tuple',[{'atom',259,'error'}|[{'atom',259,'beam_lib'}|[{'user_type',259,'chnk_rsn',[]}]]]}]]}]]}|[[{'type',260,'constraint',[{'atom',260,'is_subtype'}|[[{'var',260,'Beam'}|[{'user_type',260,'beam',[]}]]]]}|[{'type',261,'constraint',[{'atom',261,'is_subtype'}|[[{'var',261,'MD5'}|[{'type',261,'binary',[]}]]]]}]]]]}]}],
+		%% Line 272
+		'spec' =
+		    %% Line 272
+		    [{{'format_error',1},[{'type',272,'bounded_fun',[{'type',272,'fun',[{'type',272,'product',[{'var',272,'Reason'}]}|[{'remote_type',272,[{'atom',272,'io_lib'}|[{'atom',272,'chars'}|[[]]]]}]]}|[[{'type',273,'constraint',[{'atom',273,'is_subtype'}|[[{'var',273,'Reason'}|[{'type',273,'term',[]}]]]]}]]]}]}],
+		%% Line 320
+		'type' =
+		    %% Line 320
+		    [{'mode',{'atom',320,'des3_cbc'},[]}],
+		%% Line 321
+		'type' =
+		    %% Line 321
+		    [{'crypto_fun_arg',{'type',321,'union',[{'atom',321,'init'}|[{'atom',322,'clear'}|[{'type',323,'tuple',[{'atom',323,'debug_info'}|[{'user_type',323,'mode',[]}|[{'type',323,'module',[]}|[{'remote_type',323,[{'atom',323,'file'}|[{'atom',323,'filename'}|[[]]]]}]]]]}]]]},[]}],
+		%% Line 324
+		'type' =
+		    %% Line 324
+		    [{'crypto_fun',{'type',324,'fun',[{'type',324,'product',[{'user_type',324,'crypto_fun_arg',[]}]}|[{'type',324,'term',[]}]]},[]}],
+		%% Line 326
+		'spec' =
+		    %% Line 326
+		    [{{'crypto_key_fun',1},[{'type',326,'bounded_fun',[{'type',326,'fun',[{'type',326,'product',[{'var',326,'CryptoKeyFun'}]}|[{'type',326,'union',[{'atom',326,'ok'}|[{'type',326,'tuple',[{'atom',326,'error'}|[{'var',326,'Reason'}]]}]]}]]}|[[{'type',327,'constraint',[{'atom',327,'is_subtype'}|[[{'var',327,'CryptoKeyFun'}|[{'user_type',327,'crypto_fun',[]}]]]]}|[{'type',328,'constraint',[{'atom',328,'is_subtype'}|[[{'var',328,'Reason'}|[{'type',328,'union',[{'atom',328,'badfun'}|[{'atom',328,'exists'}|[{'type',328,'term',[]}]]]}]]]]}]]]]}]}],
+		%% Line 333
+		'spec' =
+		    %% Line 333
+		    [{{'clear_crypto_key_fun',0},[{'type',333,'bounded_fun',[{'type',333,'fun',[{'type',333,'product',[]}|[{'type',333,'union',[{'atom',333,'undefined'}|[{'type',333,'tuple',[{'atom',333,'ok'}|[{'var',333,'Result'}]]}]]}]]}|[[{'type',334,'constraint',[{'atom',334,'is_subtype'}|[[{'var',334,'Result'}|[{'type',334,'union',[{'atom',334,'undefined'}|[{'type',334,'term',[]}]]}]]]]}]]]}]}],
+		%% Line 339
+		'spec' =
+		    %% Line 339
+		    [{{'make_crypto_key',2},[{'type',339,'fun',[{'type',339,'product',[{'user_type',339,'mode',[]}|[{'type',339,'string',[]}]]}|[{'type',340,'tuple',[{'user_type',340,'mode',[]}|[{'type',340,'list',[{'type',340,'binary',[]}]}|[{'type',340,'binary',[]}|[{'type',340,'integer',[]}]]]]}]]}]}],
+		%% Line 347
+		'spec' =
+		    %% Line 347
+		    [{{'build_module',1},[{'type',347,'bounded_fun',[{'type',347,'fun',[{'type',347,'product',[{'var',347,'Chunks'}]}|[{'type',347,'tuple',[{'atom',347,'ok'}|[{'var',347,'Binary'}]]}]]}|[[{'type',348,'constraint',[{'atom',348,'is_subtype'}|[[{'var',348,'Chunks'}|[{'type',348,'list',[{'type',348,'tuple',[{'user_type',348,'chunkid',[]}|[{'user_type',348,'dataB',[]}]]}]}]]]]}|[{'type',349,'constraint',[{'atom',349,'is_subtype'}|[[{'var',349,'Binary'}|[{'type',349,'binary',[]}]]]]}]]]]}]}],
+		%% Line 855
+		'record' =
+		    %% Line 855
+		    [{'bb',[{'typed_record_field',{'record_field',855,{'atom',855,'pos'},{'integer',855,0}},{'type',855,'integer',[]}}|[{'typed_record_field',{'record_field',856,{'atom',856,'bin'}},{'type',856,'binary',[]}}|[{'typed_record_field',{'record_field',857,{'atom',857,'source'}},{'type',857,'union',[{'type',857,'binary',[]}|[{'type',857,'string',[]}]]}}]]]}],
+		%% Line 932
+		'spec' =
+		    %% Line 932
+		    [{{'file_error',2},[{'type',932,'fun',[{'type',932,'product',[{'remote_type',932,[{'atom',932,'file'}|[{'atom',932,'filename'}|[[]]]]}|[{'type',932,'tuple',[{'atom',932,'error'}|[{'type',932,'atom',[]}]]}]]}|[{'type',932,'no_return',[]}]]}]}],
+		%% Line 937
+		'spec' =
+		    %% Line 937
+		    [{{'error',1},[{'type',937,'fun',[{'type',937,'product',[{'type',937,'term',[]}]}|[{'type',937,'no_return',[]}]]}]}],
+		%% Line 967
+		'record' =
+		    %% Line 967
+		    [{'state',[{'typed_record_field',{'record_field',967,{'atom',967,'crypto_key_f'}},{'type',967,'union',[{'user_type',967,'crypto_fun',[]}|[{'atom',967,'undefined'}]]}}]}],
+		%% Line 1042
+		'spec' =
+		    %% Line 1042
+		    [{{'init',1},[{'type',1042,'fun',[{'type',1042,'product',[{'type',1042,'nil',[]}]}|[{'type',1042,'tuple',[{'atom',1042,'ok'}|[{'type',1042,'record',[{'atom',1042,'state'}]}]]}]]}]}],
+		%% Line 1047
+		'type' =
+		    %% Line 1047
+		    [{'calls',{'type',1047,'union',[{'atom',1047,'clear_crypto_key_fun'}|[{'type',1048,'tuple',[{'atom',1048,'crypto_key_fun'}|[{'var',1048,'_'}]]}|[{'type',1049,'tuple',[{'atom',1049,'get_crypto_key'}|[{'var',1049,'_'}]]}]]]},[]}],
+		%% Line 1051
+		'spec' =
+		    %% Line 1051
+		    [{{'handle_call',3},[{'type',1051,'fun',[{'type',1051,'product',[{'user_type',1051,'calls',[]}|[{'type',1051,'tuple',[{'type',1051,'pid',[]}|[{'type',1051,'term',[]}]]}|[{'type',1051,'record',[{'atom',1051,'state'}]}]]]}|[{'type',1052,'union',[{'type',1052,'tuple',[{'atom',1052,'noreply'}|[{'type',1052,'record',[{'atom',1052,'state'}]}]]}|[{'type',1053,'tuple',[{'atom',1053,'reply'}|[{'type',1053,'union',[{'atom',1053,'error'}|[{'type',1053,'tuple',[{'atom',1053,'error'}|[{'type',1053,'union',[{'atom',1053,'badfun'}|[{'atom',1053,'exists'}]]}]]}]]}|[{'type',1053,'record',[{'atom',1053,'state'}]}]]]}|[{'type',1054,'tuple',[{'atom',1054,'stop'}|[{'atom',1054,'normal'}|[{'type',1054,'union',[{'atom',1054,'undefined'}|[{'type',1054,'tuple',[{'atom',1054,'ok'}|[{'type',1054,'term',[]}]]}]]}|[{'type',1054,'record',[{'atom',1054,'state'}]}]]]]}]]]}]]}]}],
+		%% Line 1121
+		'spec' =
+		    %% Line 1121
+		    [{{'handle_cast',2},[{'type',1121,'fun',[{'type',1121,'product',[{'type',1121,'term',[]}|[{'type',1121,'record',[{'atom',1121,'state'}]}]]}|[{'type',1121,'tuple',[{'atom',1121,'noreply'}|[{'type',1121,'record',[{'atom',1121,'state'}]}]]}]]}]}],
+		%% Line 1126
+		'spec' =
+		    %% Line 1126
+		    [{{'handle_info',2},[{'type',1126,'fun',[{'type',1126,'product',[{'type',1126,'term',[]}|[{'type',1126,'record',[{'atom',1126,'state'}]}]]}|[{'type',1126,'tuple',[{'atom',1126,'noreply'}|[{'type',1126,'record',[{'atom',1126,'state'}]}]]}]]}]}],
+		%% Line 1131
+		'spec' =
+		    %% Line 1131
+		    [{{'code_change',3},[{'type',1131,'fun',[{'type',1131,'product',[{'type',1131,'term',[]}|[{'type',1131,'record',[{'atom',1131,'state'}]}|[{'type',1131,'term',[]}]]]}|[{'type',1131,'tuple',[{'atom',1131,'ok'}|[{'type',1131,'record',[{'atom',1131,'state'}]}]]}]]}]}],
+		%% Line 1136
+		'spec' =
+		    %% Line 1136
+		    [{{'terminate',2},[{'type',1136,'fun',[{'type',1136,'product',[{'type',1136,'term',[]}|[{'type',1136,'record',[{'atom',1136,'state'}]}]]}|[{'atom',1136,'ok'}]]}]}]]
+'info'/1 =
+    %% Line 131
+    ( fun (_0) ->
+	  let <_1> =
+	      apply %% Line 132
+		    'beam_filename'/1
+		  (( _0
+		     -| [{'function',{'info',1}}] ))
+	  in  %% Line 132
+	      apply 'read_info'/1
+		  (_1)
+      -| [{'function',{'info',1}}] )
+'chunks'/2 =
+    %% Line 140
+    ( fun (_0,_1) ->
+	  %% Line 141
+	  apply 'read_chunk_data'/2
+	      (_0, _1)
+      -| [{'function',{'chunks',2}}] )
+'chunks'/3 =
+    %% Line 151
+    ( fun (_0,_1,_2) ->
+	  %% Line 152
+	  try
+	      apply 'read_chunk_data'/3
+		  (_0, _1, _2)
+	  of <_3> ->
+	      _3
+	  catch <_6,_5,_4> ->
+	      %% Line 153
+	      case <_6,_5,_4> of
+		<( 'throw'
+		   -| ['compiler_generated'] ),Error,_10> when 'true' ->
+		    Error
+		( <_11,_12,_13> when 'true' ->
+		      primop 'raise'
+			  (_13, _12)
+		  -| ['compiler_generated'] )
+	      end
+      -| [{'function',{'chunks',3}}] )
+'all_chunks'/1 =
+    %% Line 158
+    ( fun (_0) ->
+	  %% Line 159
+	  apply 'read_all_chunks'/1
+	      (( _0
+		 -| [{'function',{'all_chunks',1}}] ))
+      -| [{'function',{'all_chunks',1}}] )
+'cmp'/2 =
+    %% Line 165
+    ( fun (_0,_1) ->
+	  %% Line 166
+	  try
+	      apply 'cmp_files'/2
+		  (_0, _1)
+	  of <_2> ->
+	      _2
+	  catch <_5,_4,_3> ->
+	      %% Line 167
+	      case <_5,_4,_3> of
+		<( 'throw'
+		   -| ['compiler_generated'] ),Error,_8> when 'true' ->
+		    Error
+		( <_9,_10,_11> when 'true' ->
+		      primop 'raise'
+			  (_11, _10)
+		  -| ['compiler_generated'] )
+	      end
+      -| [{'function',{'cmp',2}}] )
+'cmp_dirs'/2 =
+    %% Line 178
+    ( fun (_0,_1) ->
+	  catch
+	      %% Line 179
+	      apply 'compare_dirs'/2
+		  (_0, _1)
+      -| [{'function',{'cmp_dirs',2}}] )
+'diff_dirs'/2 =
+    %% Line 186
+    ( fun (_0,_1) ->
+	  catch
+	      %% Line 187
+	      apply 'diff_directories'/2
+		  (_0, _1)
+      -| [{'function',{'diff_dirs',2}}] )
+'strip'/1 =
+    %% Line 194
+    ( fun (_0) ->
+	  %% Line 195
+	  apply 'strip'/2
+	      (( _0
+		 -| [{'function',{'strip',1}}] ), [])
+      -| [{'function',{'strip',1}}] )
+'strip'/2 =
+    %% Line 203
+    ( fun (_0,_1) ->
+	  %% Line 204
+	  try
+	      apply 'strip_file'/2
+		  (_0, _1)
+	  of <_2> ->
+	      _2
+	  catch <_5,_4,_3> ->
+	      %% Line 205
+	      case <_5,_4,_3> of
+		<( 'throw'
+		   -| ['compiler_generated'] ),Error,_8> when 'true' ->
+		    Error
+		( <_9,_10,_11> when 'true' ->
+		      primop 'raise'
+			  (_11, _10)
+		  -| ['compiler_generated'] )
+	      end
+      -| [{'function',{'strip',2}}] )
+'strip_files'/1 =
+    %% Line 212
+    ( fun (_0) ->
+	  %% Line 213
+	  apply 'strip_files'/2
+	      (( _0
+		 -| [{'function',{'strip_files',1}}] ), [])
+      -| [{'function',{'strip_files',1}}] )
+'strip_files'/2 =
+    %% Line 221
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <Files,AdditionalChunks>
+		  when call 'erlang':'is_list'
+			(Files) ->
+		  %% Line 222
+		  try
+		      apply 'strip_fils'/2
+			  (Files, AdditionalChunks)
+		  of <_2> ->
+		      _2
+		  catch <_5,_4,_3> ->
+		      %% Line 223
+		      case <_5,_4,_3> of
+			<( 'throw'
+			   -| ['compiler_generated'] ),Error,_8> when 'true' ->
+			    Error
+			( <_9,_10,_11> when 'true' ->
+			      primop 'raise'
+				  (_11, _10)
+			  -| ['compiler_generated'] )
+		      end
+	      ( <_7,_6> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_7,_6})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'strip_files',2}}] )
+      -| [{'function',{'strip_files',2}}] )
+'strip_release'/1 =
+    %% Line 231
+    ( fun (_0) ->
+	  %% Line 232
+	  apply 'strip_release'/2
+	      (( _0
+		 -| [{'function',{'strip_release',1}}] ), [])
+      -| [{'function',{'strip_release',1}}] )
+'strip_release'/2 =
+    %% Line 241
+    ( fun (_0,_1) ->
+	  catch
+	      %% Line 242
+	      apply 'strip_rel'/2
+		  (_0, _1)
+      -| [{'function',{'strip_release',2}}] )
+'version'/1 =
+    %% Line 249
+    ( fun (_0) ->
+	  let <_1> =
+	      catch
+		  %% Line 250
+		  apply 'read_chunk_data'/2
+		      (( _0
+			 -| [{'function',{'version',1}}] ), ['attributes'])
+	  in  %% Line 250
+	      case _1 of
+		%% Line 251
+		<{'ok',{Module,[{'attributes',Attrs}|[]]}}> when 'true' ->
+		    %% Line 252
+		    case call 'lists':'keyfind'
+			     ('vsn', 1, Attrs) of
+		      <{'vsn',Version}> when 'true' ->
+			  %% Line 253
+			  {'ok',{Module,Version}}
+		      ( <_2> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_2})
+			-| ['compiler_generated'] )
+		    end
+		%% Line 254
+		<Error> when 'true' ->
+		    %% Line 255
+		    Error
+	      end
+      -| [{'function',{'version',1}}] )
+'md5'/1 =
+    %% Line 263
+    ( fun (_0) ->
+	  let <_2> =
+	      catch
+		  let <_1> =
+		      apply %% Line 264
+			    'md5_chunks'/0
+			  ()
+		  in  %% Line 264
+		      apply 'read_significant_chunks'/2
+			  (( _0
+			     -| [{'function',{'md5',1}}] ), _1)
+	  in  %% Line 264
+	      case _2 of
+		%% Line 265
+		<{'ok',{Module,Chunks0}}> when 'true' ->
+		    let <Chunks> =
+			apply %% Line 266
+			      'filter_funtab'/1
+			    (%% Line 266
+			     Chunks0)
+		    in  let <_9> =
+			    letrec
+				'lc$^0'/1 =
+				    %% Line 267
+				    fun (_6) ->
+					case _6 of
+					  <[{_X_Id,C}|_5]> when 'true' ->
+					      let <_8> =
+						  apply 'lc$^0'/1
+						      (_5)
+					      in  ( [C|_8]
+						    -| ['compiler_generated'] )
+					  ( <[_4|_5]> when 'true' ->
+						apply 'lc$^0'/1
+						    (_5)
+					    -| ['compiler_generated'] )
+					  <[]> when 'true' ->
+					      []
+					  ( <_7> when 'true' ->
+						primop 'match_fail'
+						    ({'function_clause',_7})
+					    -| ['compiler_generated'] )
+					end
+			    in  %% Line 267
+				apply 'lc$^0'/1
+				    (Chunks)
+			in  let <_10> =
+				call %% Line 267
+				     'erlang':%% Line 267
+					      'md5'
+				    (_9)
+			    in  %% Line 267
+				{'ok',{Module,_10}}
+		%% Line 268
+		<Error> when 'true' ->
+		    %% Line 269
+		    Error
+	      end
+      -| [{'function',{'md5',1}}] )
+'format_error'/1 =
+    %% Line 275
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'format_error',1}}] ) of
+	      <{'error',Error}> when 'true' ->
+		  %% Line 276
+		  apply 'format_error'/1
+		      (Error)
+	      %% Line 277
+	      <{'error',Module,Error}> when 'true' ->
+		  %% Line 278
+		  call Module:'format_error'
+		      (Error)
+	      %% Line 279
+	      <{'unknown_chunk',File,ChunkName}> when 'true' ->
+		  %% Line 280
+		  call 'io_lib':'format'
+		      ([126|[116|[112|[58|[32|[67|[97|[110|[110|[111|[116|[32|[102|[105|[110|[100|[32|[99|[104|[117|[110|[107|[32|[126|[112|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]], [File|[ChunkName|[]]])
+	      %% Line 281
+	      <{'invalid_chunk',File,ChunkId}> when 'true' ->
+		  %% Line 282
+		  call 'io_lib':'format'
+		      ([126|[116|[112|[58|[32|[73|[110|[118|[97|[108|[105|[100|[32|[99|[111|[110|[116|[101|[110|[116|[115|[32|[111|[102|[32|[99|[104|[117|[110|[107|[32|[126|[112|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], [File|[ChunkId|[]]])
+	      %% Line 283
+	      <{'not_a_beam_file',File}> when 'true' ->
+		  %% Line 284
+		  call 'io_lib':'format'
+		      ([126|[116|[112|[58|[32|[78|[111|[116|[32|[97|[32|[66|[69|[65|[77|[32|[102|[105|[108|[101|[126|[110]]]]]]]]]]]]]]]]]]]]]], [File|[]])
+	      %% Line 285
+	      <{'file_error',File,Reason}> when 'true' ->
+		  let <_1> =
+		      call %% Line 286
+			   'file':%% Line 286
+				  'format_error'
+			  (%% Line 286
+			   Reason)
+		  in  %% Line 286
+		      call 'io_lib':'format'
+			  ([126|[116|[112|[58|[32|[126|[116|[112|[126|[110]]]]]]]]]], [File|[_1|[]]])
+	      %% Line 287
+	      <{'missing_chunk',File,ChunkId}> when 'true' ->
+		  %% Line 288
+		  call 'io_lib':'format'
+		      ([126|[116|[112|[58|[32|[78|[111|[116|[32|[97|[32|[66|[69|[65|[77|[32|[102|[105|[108|[101|[58|[32|[110|[111|[32|[73|[70|[70|[32|[34|[126|[115|[34|[32|[99|[104|[117|[110|[107|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], %% Line 289
+																															[File|[ChunkId|[]]])
+	      %% Line 290
+	      <{'invalid_beam_file',File,Pos}> when 'true' ->
+		  %% Line 291
+		  call 'io_lib':'format'
+		      ([126|[116|[112|[58|[32|[73|[110|[118|[97|[108|[105|[100|[32|[102|[111|[114|[109|[97|[116|[32|[111|[102|[32|[66|[69|[65|[77|[32|[102|[105|[108|[101|[32|[110|[101|[97|[114|[32|[98|[121|[116|[101|[32|[110|[117|[109|[98|[101|[114|[32|[126|[112|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], %% Line 292
+																																									[File|[Pos|[]]])
+	      %% Line 293
+	      <{'chunk_too_big',File,ChunkId,Size,Len}> when 'true' ->
+		  %% Line 294
+		  call 'io_lib':'format'
+		      ([126|[116|[112|[58|[32|[83|[105|[122|[101|[32|[111|[102|[32|[99|[104|[117|[110|[107|[32|[34|[126|[115|[34|[32|[105|[115|[32|[126|[112|[32|[98|[121|[116|[101|[115|[44|[32|[98|[117|[116|[32|[111|[110|[108|[121|[32|[126|[112|[32|[98|[121|[116|[101|[115|[32|[99|[111|[117|[108|[100|[32|[98|[101|[32|[114|[101|[97|[100|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], %% Line 296
+																																																				  [File|[ChunkId|[Size|[Len|[]]]]])
+	      %% Line 297
+	      <{'chunks_different',Id}> when 'true' ->
+		  %% Line 298
+		  call 'io_lib':'format'
+		      ([67|[104|[117|[110|[107|[32|[34|[126|[115|[34|[32|[100|[105|[102|[102|[101|[114|[115|[32|[105|[110|[32|[116|[104|[101|[32|[116|[119|[111|[32|[102|[105|[108|[101|[115|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], [Id|[]])
+	      %% Line 299
+	      <'different_chunks'> when 'true' ->
+		  %% Line 300
+		  [84|[104|[101|[32|[116|[119|[111|[32|[102|[105|[108|[101|[115|[32|[104|[97|[118|[101|[32|[100|[105|[102|[102|[101|[114|[101|[110|[116|[32|[99|[104|[117|[110|[107|[115|[10]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+	      %% Line 301
+	      <{'modules_different',Module1,Module2}> when 'true' ->
+		  %% Line 302
+		  call 'io_lib':'format'
+		      ([77|[111|[100|[117|[108|[101|[32|[110|[97|[109|[101|[115|[32|[126|[112|[32|[97|[110|[100|[32|[126|[112|[32|[100|[105|[102|[102|[101|[114|[32|[105|[110|[32|[116|[104|[101|[32|[116|[119|[111|[32|[102|[105|[108|[101|[115|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], %% Line 303
+																																					    [Module1|[Module2|[]]])
+	      %% Line 304
+	      <{'not_a_directory',Name}> when 'true' ->
+		  %% Line 305
+		  call 'io_lib':'format'
+		      ([126|[116|[112|[58|[32|[78|[111|[116|[32|[97|[32|[100|[105|[114|[101|[99|[116|[111|[114|[121|[126|[110]]]]]]]]]]]]]]]]]]]]]], [Name|[]])
+	      %% Line 306
+	      <{'key_missing_or_invalid',File,ChunkId}> when 'true' ->
+		  %% Line 307
+		  call 'io_lib':'format'
+		      ([126|[116|[112|[58|[32|[67|[97|[110|[110|[111|[116|[32|[100|[101|[99|[114|[121|[112|[116|[32|[126|[116|[115|[32|[98|[101|[99|[97|[117|[115|[101|[32|[107|[101|[121|[32|[105|[115|[32|[109|[105|[115|[115|[105|[110|[103|[32|[111|[114|[32|[105|[110|[118|[97|[108|[105|[100]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], %% Line 308
+																																											     [File|[ChunkId|[]]])
+	      %% Line 309
+	      <'badfun'> when 'true' ->
+		  %% Line 310
+		  [110|[111|[116|[32|[97|[32|[102|[117|[110|[32|[111|[114|[32|[116|[104|[101|[32|[102|[117|[110|[32|[104|[97|[115|[32|[116|[104|[101|[32|[119|[114|[111|[110|[103|[32|[97|[114|[105|[116|[121]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+	      %% Line 311
+	      <'exists'> when 'true' ->
+		  %% Line 312
+		  [97|[32|[102|[117|[110|[32|[104|[97|[115|[32|[97|[108|[114|[101|[97|[100|[121|[32|[98|[101|[101|[110|[32|[105|[110|[115|[116|[97|[108|[108|[101|[100]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+	      %% Line 313
+	      <E> when 'true' ->
+		  %% Line 314
+		  call 'io_lib':'format'
+		      ([126|[116|[112|[126|[110]]]]], [E|[]])
+	    end
+	    -| [{'function',{'format_error',1}}] )
+      -| [{'function',{'format_error',1}}] )
+'crypto_key_fun'/1 =
+    %% Line 330
+    ( fun (_0) ->
+	  %% Line 331
+	  apply 'call_crypto_server'/1
+	      ({'crypto_key_fun',( _0
+				   -| [{'function',{'crypto_key_fun',1}}] )})
+      -| [{'function',{'crypto_key_fun',1}}] )
+'clear_crypto_key_fun'/0 =
+    %% Line 336
+    ( fun () ->
+	  %% Line 337
+	  apply 'call_crypto_server'/1
+	      ('clear_crypto_key_fun')
+      -| [{'function',{'clear_crypto_key_fun',0}}] )
+'make_crypto_key'/2 =
+    %% Line 342
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <Type = 'des3_cbc',String> when 'true' ->
+		  let <First> =
+		      call %% Line 343
+			   'erlang':%% Line 343
+				    'md5'
+			  (%% Line 343
+			   String)
+		  in  %% Line 343
+		      case First of
+			<#{#<K1>(8,8,'binary',['unsigned'|['big']]),
+			   #<K2>(8,8,'binary',['unsigned'|['big']])}#> when 'true' ->
+			    let <_3> =
+				call %% Line 344
+				     'lists':%% Line 344
+					     'reverse'
+				    (%% Line 344
+				     String)
+			    in  %% Line 344
+				case call 'erlang':'md5'
+					 ([First|_3]) of
+				  <#{#<K3>(8,8,'binary',['unsigned'|['big']]),
+				     #<IVec>(8,8,'binary',['unsigned'|['big']])}#> when 'true' ->
+				      %% Line 345
+				      {Type,[K1|[K2|[K3|[]]]],IVec,8}
+				  ( <_4> when 'true' ->
+					primop 'match_fail'
+					    ({'badmatch',_4})
+				    -| ['compiler_generated'] )
+				end
+			( <_2> when 'true' ->
+			      primop 'match_fail'
+				  ({'badmatch',_2})
+			  -| ['compiler_generated'] )
+		      end
+	      ( <_6,_5> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_6,_5})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'make_crypto_key',2}}] )
+      -| [{'function',{'make_crypto_key',2}}] )
+'build_module'/1 =
+    %% Line 351
+    ( fun (_0) ->
+	  let <_1> =
+	      apply %% Line 352
+		    'build_chunks'/1
+		  (( _0
+		     -| [{'function',{'build_module',1}}] ))
+	  in  let <Chunks> =
+		  call %% Line 352
+		       'erlang':%% Line 352
+				'list_to_binary'
+		      (_1)
+	      in  let <Size> =
+		      call %% Line 353
+			   'erlang':%% Line 353
+				    'byte_size'
+			  (%% Line 353
+			   Chunks)
+		  in  %% Line 354
+		      case call 'erlang':'rem'
+			       (Size, 4) of
+			<0> when 'true' ->
+			    let <_5> =
+				call %% Line 355
+				     'erlang':%% Line 355
+					      '+'
+				    (%% Line 355
+				     Size, %% Line 355
+					   4)
+			    in  let <_6> =
+				    #{#<%% Line 355
+					1179603505>(%% Line 355
+						    32,1,'integer',['unsigned'|['big']]),
+				      #<_5>(%% Line 355
+					    32,1,'integer',['unsigned'|['big']]),
+				      #<%% Line 355
+					1111834957>(%% Line 355
+						    32,1,'integer',['unsigned'|['big']]),
+				      #<%% Line 355
+					Chunks>(%% Line 355
+						( 'all'
+						  -| ['compiler_generated'] ),8,'binary',['unsigned'|['big']])}#
+				in  %% Line 355
+				    {'ok',_6}
+			( <_4> when 'true' ->
+			      primop 'match_fail'
+				  ({'badmatch',_4})
+			  -| ['compiler_generated'] )
+		      end
+      -| [{'function',{'build_module',1}}] )
+'read_info'/1 =
+    %% Line 362
+    ( fun (_0) ->
+	  %% Line 363
+	  try
+	      %% Line 364
+	      case apply 'scan_beam'/2
+		       (( _0
+			  -| [{'function',{'read_info',1}}] ), 'info') of
+		<{'ok',Module,Data}> when 'true' ->
+		    let <_2> =
+			case <> of
+			  %% Line 366
+			  <>
+			      when call 'erlang':'is_binary'
+				    (( _0
+				       -| [{'function',{'read_info',1}}] )) ->
+			      {'binary',( _0
+					  -| [{'function',{'read_info',1}}] )}
+			  %% Line 367
+			  <> when 'true' ->
+			      {'file',( _0
+					-| [{'function',{'read_info',1}}] )}
+			end
+		    in  %% Line 365
+			[_2|%% Line 368
+			    [{'module',Module}|[{'chunks',Data}|[]]]]
+		( <_1> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_1})
+		  -| ['compiler_generated'] )
+	      end
+	  of <_3> ->
+	      _3
+	  catch <_6,_5,_4> ->
+	      %% Line 369
+	      case <_6,_5,_4> of
+		<( 'throw'
+		   -| ['compiler_generated'] ),Error,_8> when 'true' ->
+		    Error
+		( <_9,_10,_11> when 'true' ->
+		      primop 'raise'
+			  (_11, _10)
+		  -| ['compiler_generated'] )
+	      end
+      -| [{'function',{'read_info',1}}] )
+'diff_directories'/2 =
+    %% Line 371
+    ( fun (_0,_1) ->
+	  %% Line 372
+	  case apply 'compare_dirs'/2
+		   (_0, _1) of
+	    <{OnlyDir1,OnlyDir2,Diff}> when 'true' ->
+		do  %% Line 373
+		    apply 'diff_only'/2
+			(_0, OnlyDir1)
+		    do  %% Line 374
+			apply 'diff_only'/2
+			    (_1, OnlyDir2)
+			let <_5> =
+			    fun (_3) ->
+				%% Line 375
+				call 'io':'format'
+				    ([42|[42|[32|[100|[105|[102|[102|[101|[114|[101|[110|[116|[58|[32|[126|[116|[112|[126|[110]]]]]]]]]]]]]]]]]]], [_3|[]])
+			in  do  %% Line 375
+				call 'lists':'foreach'
+				    (_5, Diff)
+				%% Line 376
+				'ok'
+	    ( <_2> when 'true' ->
+		  primop 'match_fail'
+		      ({'badmatch',_2})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'diff_directories',2}}] )
+'diff_only'/2 =
+    %% Line 378
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <_X_Dir,[]> when 'true' ->
+		  %% Line 379
+		  'ok'
+	      %% Line 380
+	      <Dir,Only> when 'true' ->
+		  %% Line 381
+		  call 'io':'format'
+		      ([79|[110|[108|[121|[32|[105|[110|[32|[126|[116|[112|[58|[32|[126|[116|[112|[126|[110]]]]]]]]]]]]]]]]]], [Dir|[Only|[]]])
+	    end
+	    -| [{'function',{'diff_only',2}}] )
+      -| [{'function',{'diff_only',2}}] )
+'compare_dirs'/2 =
+    %% Line 384
+    ( fun (_0,_1) ->
+	  let <_2> =
+	      apply %% Line 385
+		    'beam_files'/1
+		  (_0)
+	  in  let <R1> =
+		  call %% Line 385
+		       'sofs':%% Line 385
+			      'relation'
+		      (_2)
+	      in  let <_4> =
+		      apply %% Line 386
+			    'beam_files'/1
+			  (_1)
+		  in  let <R2> =
+			  call %% Line 386
+			       'sofs':%% Line 386
+				      'relation'
+			      (_4)
+		      in  let <F1> =
+			      call %% Line 387
+				   'sofs':%% Line 387
+					  'domain'
+				  (%% Line 387
+				   R1)
+			  in  let <F2> =
+				  call %% Line 388
+				       'sofs':%% Line 388
+					      'domain'
+				      (%% Line 388
+				       R2)
+			      in  %% Line 389
+				  case call 'sofs':'symmetric_partition'
+					   (F1, F2) of
+				    <{O1,Both,O2}> when 'true' ->
+					let <OnlyL1> =
+					    call %% Line 390
+						 'sofs':%% Line 390
+							'image'
+						(%% Line 390
+						 R1, %% Line 390
+						     O1)
+					in  let <OnlyL2> =
+						call %% Line 391
+						     'sofs':%% Line 391
+							    'image'
+						    (%% Line 391
+						     R2, %% Line 391
+							 O2)
+					    in  let <_11> =
+						    call %% Line 392
+							 'sofs':%% Line 392
+								'restriction'
+							(%% Line 392
+							 R1, %% Line 392
+							     Both)
+						in  let <B1> =
+							call %% Line 392
+							     'sofs':%% Line 392
+								    'to_external'
+							    (_11)
+						    in  let <_13> =
+							    call %% Line 393
+								 'sofs':%% Line 393
+									'restriction'
+								(%% Line 393
+								 R2, %% Line 393
+								     Both)
+							in  let <B2> =
+								call %% Line 393
+								     'sofs':%% Line 393
+									    'to_external'
+								    (_13)
+							    in  let <Diff> =
+								    apply %% Line 394
+									  'compare_files'/3
+									(%% Line 394
+									 B1, %% Line 394
+									     B2, %% Line 394
+										 [])
+								in  let <_17> =
+									call %% Line 395
+									     'sofs':%% Line 395
+										    'to_external'
+									    (%% Line 395
+									     OnlyL1)
+								    in  let <_16> =
+									    call %% Line 395
+										 'sofs':%% Line 395
+											'to_external'
+										(%% Line 395
+										 OnlyL2)
+									in  %% Line 395
+									    {_17,_16,Diff}
+				    ( <_8> when 'true' ->
+					  primop 'match_fail'
+					      ({'badmatch',_8})
+				      -| ['compiler_generated'] )
+				  end
+      -| [{'function',{'compare_dirs',2}}] )
+'compare_files'/3 =
+    %% Line 397
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <[],[],Acc> when 'true' ->
+		  %% Line 398
+		  call 'lists':'reverse'
+		      (Acc)
+	      %% Line 399
+	      <[{_10,F1}|R1],[{_11,F2}|R2],Acc> when 'true' ->
+		  let <_3> =
+		      catch
+			  %% Line 400
+			  apply 'cmp_files'/2
+			      (F1, F2)
+		  in  let <_5> =
+			  case _3 of
+			    %% Line 401
+			    <{'error',_X_Mod,_X_Reason}> when 'true' ->
+				%% Line 402
+				[{F1,F2}|Acc]
+			    %% Line 403
+			    <'ok'> when 'true' ->
+				%% Line 404
+				Acc
+			    ( <_4> when 'true' ->
+				  %% Line 400
+				  primop 'match_fail'
+				      ({'case_clause',_4})
+			      -| ['compiler_generated'] )
+			  end
+		      in  %% Line 406
+			  apply 'compare_files'/3
+			      (R1, R2, _5)
+	      ( <_9,_8,_7> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_9,_8,_7})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'compare_files',3}}] )
+      -| [{'function',{'compare_files',3}}] )
+'beam_files'/1 =
+    %% Line 408
+    ( fun (_0) ->
+	  %% Line 409
+	  case apply 'assert_directory'/1
+		   (( _0
+		      -| [{'function',{'beam_files',1}}] )) of
+	    <'ok'> when 'true' ->
+		let <_2> =
+		    call %% Line 410
+			 'filename':%% Line 410
+				    'join'
+			(( _0
+			   -| [{'function',{'beam_files',1}}] ), %% Line 410
+								 [42|[46|[98|[101|[97|[109]]]]]])
+		in  let <L> =
+			call %% Line 410
+			     'filelib':%% Line 410
+				       'wildcard'
+			    (_2)
+		    in  %% Line 411
+			( letrec
+			      'lc$^0'/1 =
+				  fun (_6) ->
+				      case _6 of
+					<[Path|_5]> when 'true' ->
+					    let <_8> =
+						call 'filename':'basename'
+						    (Path)
+					    in  let <_9> =
+						    apply 'lc$^0'/1
+							(_5)
+						in  ( [{_8,Path}|_9]
+						      -| ['compiler_generated'] )
+					<[]> when 'true' ->
+					    []
+					( <_7> when 'true' ->
+					      primop 'match_fail'
+						  ({'function_clause',_7})
+					  -| ['compiler_generated'] )
+				      end
+			  in  apply 'lc$^0'/1
+				  (L)
+			  -| ['list_comprehension'] )
+	    ( <_1> when 'true' ->
+		  primop 'match_fail'
+		      ({'badmatch',_1})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'beam_files',1}}] )
+'cmp_files'/2 =
+    %% Line 414
+    ( fun (_0,_1) ->
+	  %% Line 415
+	  case apply 'read_all_but_useless_chunks'/1
+		   (_0) of
+	    <{'ok',{M1,L1}}> when 'true' ->
+		%% Line 416
+		case apply 'read_all_but_useless_chunks'/1
+			 (_1) of
+		  <{'ok',{M2,L2}}> when 'true' ->
+		      %% Line 417
+		      case <> of
+			%% Line 418
+			<>
+			    when call 'erlang':'=:='
+				  (M1,
+				   M2) ->
+			    %% Line 419
+			    apply 'cmp_lists'/2
+				(L1, L2)
+			%% Line 420
+			<> when 'true' ->
+			    %% Line 421
+			    apply 'error'/1
+				({'modules_different',M1,M2})
+		      end
+		  ( <_3> when 'true' ->
+			primop 'match_fail'
+			    ({'badmatch',_3})
+		    -| ['compiler_generated'] )
+		end
+	    ( <_2> when 'true' ->
+		  primop 'match_fail'
+		      ({'badmatch',_2})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'cmp_files',2}}] )
+'cmp_lists'/2 =
+    %% Line 424
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <[],[]> when 'true' ->
+		  %% Line 425
+		  'ok'
+	      %% Line 426
+	      <[{Id,C1}|R1],[{_4,C2}|R2]>
+		  when call 'erlang':'=:='
+			(_4,
+			 Id) ->
+		  %% Line 427
+		  case <> of
+		    %% Line 428
+		    <>
+			when call 'erlang':'=:='
+			      (C1,
+			       C2) ->
+			%% Line 429
+			apply 'cmp_lists'/2
+			    (R1, R2)
+		    %% Line 430
+		    <> when 'true' ->
+			%% Line 431
+			apply 'error'/1
+			    ({'chunks_different',Id})
+		  end
+	      %% Line 433
+	      <_5,_6> when 'true' ->
+		  %% Line 434
+		  apply 'error'/1
+		      ('different_chunks')
+	    end
+	    -| [{'function',{'cmp_lists',2}}] )
+      -| [{'function',{'cmp_lists',2}}] )
+'strip_rel'/2 =
+    %% Line 436
+    ( fun (_0,_1) ->
+	  %% Line 437
+	  case apply 'assert_directory'/1
+		   (_0) of
+	    <'ok'> when 'true' ->
+		let <_3> =
+		    call %% Line 438
+			 'filename':%% Line 438
+				    'join'
+			(_0, %% Line 438
+			     [108|[105|[98|[47|[42|[47|[101|[98|[105|[110|[47|[42|[46|[98|[101|[97|[109]]]]]]]]]]]]]]]]])
+		in  let <_4> =
+			call %% Line 438
+			     'filelib':%% Line 438
+				       'wildcard'
+			    (_3)
+		    in  %% Line 438
+			apply 'strip_fils'/2
+			    (_4, _1)
+	    ( <_2> when 'true' ->
+		  primop 'match_fail'
+		      ({'badmatch',_2})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'strip_rel',2}}] )
+'strip_fils'/2 =
+    %% Line 441
+    ( fun (_0,_1) ->
+	  let <_8> =
+	      letrec
+		  'lc$^0'/1 =
+		      %% Line 442
+		      fun (_4) ->
+			  case _4 of
+			    <[F|_3]> when 'true' ->
+				case apply 'strip_file'/2
+					 (F, _1) of
+				  <{'ok',Reply}> when 'true' ->
+				      let <_7> =
+					  apply 'lc$^0'/1
+					      (_3)
+				      in  ( [Reply|_7]
+					    -| ['compiler_generated'] )
+				  ( <_6> when 'true' ->
+					primop 'match_fail'
+					    ({'badmatch',_6})
+				    -| ['compiler_generated'] )
+				end
+			    <[]> when 'true' ->
+				[]
+			    ( <_5> when 'true' ->
+				  primop 'match_fail'
+				      ({'function_clause',_5})
+			      -| ['compiler_generated'] )
+			  end
+	      in  %% Line 442
+		  apply 'lc$^0'/1
+		      (_0)
+	  in  %% Line 442
+	      {'ok',_8}
+      -| [{'function',{'strip_fils',2}}] )
+'strip_file'/2 =
+    %% Line 445
+    ( fun (_0,_1) ->
+	  let <_2> =
+	      apply %% Line 446
+		    'significant_chunks'/0
+		  ()
+	  in  let <_3> =
+		  call %% Line 446
+		       'erlang':%% Line 446
+				'++'
+		      (_1, _2)
+	      in  %% Line 446
+		  case apply 'read_significant_chunks'/2
+			   (_0, _3) of
+		    <{'ok',{Mod,Chunks}}> when 'true' ->
+			%% Line 447
+			case apply 'build_module'/1
+				 (Chunks) of
+			  <{'ok',Stripped0}> when 'true' ->
+			      let <Stripped> =
+				  apply %% Line 448
+					'compress'/1
+				      (%% Line 448
+				       Stripped0)
+			      in  %% Line 449
+				  case _0 of
+				    %% Line 450
+				    <_15>
+					when call 'erlang':'is_binary'
+					      (_0) ->
+					%% Line 451
+					{'ok',{Mod,Stripped}}
+				    %% Line 452
+				    <_16> when 'true' ->
+					let <FileName> =
+					    apply %% Line 453
+						  'beam_filename'/1
+						(_0)
+					in  %% Line 454
+					    case call 'file':'open'
+						     (FileName, ['raw'|['binary'|['write']]]) of
+					      %% Line 455
+					      <{'ok',Fd}> when 'true' ->
+						  %% Line 456
+						  case call 'file':'write'
+							   (Fd, Stripped) of
+						    %% Line 457
+						    <'ok'> when 'true' ->
+							%% Line 458
+							case call 'file':'close'
+								 (Fd) of
+							  <'ok'> when 'true' ->
+							      %% Line 459
+							      {'ok',{Mod,FileName}}
+							  ( <_8> when 'true' ->
+								primop 'match_fail'
+								    ({'badmatch',_8})
+							    -| ['compiler_generated'] )
+							end
+						    %% Line 460
+						    <Error> when 'true' ->
+							%% Line 461
+							case call 'file':'close'
+								 (Fd) of
+							  <'ok'> when 'true' ->
+							      %% Line 462
+							      apply 'file_error'/2
+								  (FileName, Error)
+							  ( <_9> when 'true' ->
+								primop 'match_fail'
+								    ({'badmatch',_9})
+							    -| ['compiler_generated'] )
+							end
+						  end
+					      %% Line 464
+					      <Error> when 'true' ->
+						  %% Line 465
+						  apply 'file_error'/2
+						      (FileName, Error)
+					    end
+				  end
+			  ( <_5> when 'true' ->
+				primop 'match_fail'
+				    ({'badmatch',_5})
+			    -| ['compiler_generated'] )
+			end
+		    ( <_4> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_4})
+		      -| ['compiler_generated'] )
+		  end
+      -| [{'function',{'strip_file',2}}] )
+'build_chunks'/1 =
+    %% Line 469
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'build_chunks',1}}] ) of
+	      <[{Id,Data}|Chunks]> when 'true' ->
+		  let <BId> =
+		      call %% Line 470
+			   'erlang':%% Line 470
+				    'list_to_binary'
+			  (%% Line 470
+			   Id)
+		  in  let <Size> =
+			  call %% Line 471
+			       'erlang':%% Line 471
+					'byte_size'
+			      (%% Line 471
+			       Data)
+		      in  let <_3> =
+			      #{#<%% Line 472
+				  BId>(%% Line 472
+				       ( 'all'
+					 -| ['compiler_generated'] ),8,'binary',['unsigned'|['big']]),
+				#<%% Line 472
+				  Size>(%% Line 472
+					32,1,'integer',['unsigned'|['big']])}#
+			  in  let <_4> =
+				  apply %% Line 472
+					'pad'/1
+				      (%% Line 472
+				       Size)
+			      in  let <Chunk> =
+				      [_3|%% Line 472
+					  [Data|_4]]
+				  in  let <_6> =
+					  apply %% Line 473
+						'build_chunks'/1
+					      (%% Line 473
+					       Chunks)
+				      in  %% Line 473
+					  [Chunk|_6]
+	      %% Line 474
+	      <[]> when 'true' ->
+		  %% Line 475
+		  []
+	      ( <_7> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_7})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'build_chunks',1}}] )
+      -| [{'function',{'build_chunks',1}}] )
+'pad'/1 =
+    %% Line 477
+    ( fun (_0) ->
+	  %% Line 478
+	  case call 'erlang':'rem'
+		   (( _0
+		      -| [{'function',{'pad',1}}] ), 4) of
+	    %% Line 479
+	    <0> when 'true' ->
+		[]
+	    %% Line 480
+	    <Rem> when 'true' ->
+		let <_1> =
+		    call 'erlang':'-'
+			(4, Rem)
+		in  call 'lists':'duplicate'
+			(_1, 0)
+	  end
+      -| [{'function',{'pad',1}}] )
+'read_all_but_useless_chunks'/1 =
+    %% Line 484
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'read_all_but_useless_chunks',1}}] ) of
+	      <File0>
+		  when let <_1> =
+			call 'erlang':'is_atom'
+			    (( _0
+			       -| [{'function',{'read_all_but_useless_chunks',1}}] ))
+		    in  let <_2> =
+			    call %% Line 485
+				 'erlang':%% Line 485
+					  'is_list'
+				(( _0
+				   -| [{'function',{'read_all_but_useless_chunks',1}}] ))
+			in  let <_3> =
+				call %% Line 486
+				     'erlang':%% Line 486
+					      'is_binary'
+				    (( _0
+				       -| [{'function',{'read_all_but_useless_chunks',1}}] ))
+			    in  let <_4> =
+				    call %% Line 485
+					 'erlang':%% Line 485
+						  'or'
+					(_2, _3)
+				in  call 'erlang':'or'
+					(_1, _4) ->
+		  let <File> =
+		      apply %% Line 487
+			    'beam_filename'/1
+			  (%% Line 487
+			   File0)
+		  in  %% Line 488
+		      case apply 'scan_beam'/2
+			       (File, 'info') of
+			<{'ok',Module,ChunkIds0}> when 'true' ->
+			    let <_14> =
+				letrec
+				    'lc$^0'/1 =
+					%% Line 489
+					fun (_10) ->
+					    case _10 of
+					      <[{Name,_19,_20}|_8]> when 'true' ->
+						  %% Line 490
+						  ( case apply 'is_useless_chunk'/1
+							     (Name) of
+						      <'false'> when 'true' ->
+							  let <_12> =
+							      apply 'lc$^0'/1
+								  (_8)
+							  in  ( [Name|_12]
+								-| ['compiler_generated'] )
+						      ( <'true'> when 'true' ->
+							    apply 'lc$^0'/1
+								(_8)
+							-| ['compiler_generated'] )
+						      ( <_cor_variable> when 'true' ->
+							    call 'erlang':'error'
+								('badarg')
+							-| ['compiler_generated'] )
+						    end
+						    -| ['list_comprehension'] )
+					      ( <[_7|_8]> when 'true' ->
+						    apply 'lc$^0'/1
+							(_8)
+						-| ['compiler_generated'] )
+					      <[]> when 'true' ->
+						  []
+					      ( <_11> when 'true' ->
+						    primop 'match_fail'
+							({'function_clause',_11})
+						-| ['compiler_generated'] )
+					    end
+				in  %% Line 489
+				    apply 'lc$^0'/1
+					(ChunkIds0)
+			    in  %% Line 491
+				case apply 'scan_beam'/2
+					 (File, _14) of
+				  <{'ok',_21,Chunks}>
+				      when call 'erlang':'=:='
+					    (_21,
+					     Module) ->
+				      let <_17> =
+					  call %% Line 492
+					       'lists':%% Line 492
+						       'reverse'
+					      (%% Line 492
+					       Chunks)
+				      in  %% Line 492
+					  {'ok',{Module,_17}}
+				  ( <_16> when 'true' ->
+					primop 'match_fail'
+					    ({'badmatch',_16})
+				    -| ['compiler_generated'] )
+				end
+			( <_6> when 'true' ->
+			      primop 'match_fail'
+				  ({'badmatch',_6})
+			  -| ['compiler_generated'] )
+		      end
+	      ( <_18> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_18})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'read_all_but_useless_chunks',1}}] )
+      -| [{'function',{'read_all_but_useless_chunks',1}}] )
+'is_useless_chunk'/1 =
+    %% Line 494
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'is_useless_chunk',1}}] ) of
+	      <[67|[73|[110|[102]]]]> when 'true' ->
+		  'true'
+	      %% Line 495
+	      <_2> when 'true' ->
+		  'false'
+	    end
+	    -| [{'function',{'is_useless_chunk',1}}] )
+      -| [{'function',{'is_useless_chunk',1}}] )
+'read_significant_chunks'/2 =
+    %% Line 498
+    ( fun (_0,_1) ->
+	  %% Line 499
+	  case apply 'read_chunk_data'/3
+		   (_0, _1, ['allow_missing_chunks']) of
+	    %% Line 500
+	    <{'ok',{Module,Chunks0}}> when 'true' ->
+		let <Mandatory> =
+		    apply %% Line 501
+			  'mandatory_chunks'/0
+			()
+		in  let <Chunks> =
+			apply %% Line 502
+			      'filter_significant_chunks'/4
+			    (%% Line 502
+			     Chunks0, %% Line 502
+				      Mandatory, _0, %% Line 502
+						     Module)
+		    in  %% Line 503
+			{'ok',{Module,Chunks}}
+	    ( <_4> when 'true' ->
+		  primop 'match_fail'
+		      ({'case_clause',_4})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'read_significant_chunks',2}}] )
+'filter_significant_chunks'/4 =
+    %% Line 506
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <[Pair = {_10,Data}|Cs],Mandatory,File,Mod>
+		  when %% Line 507
+		    call 'erlang':'is_binary'
+			(Data) ->
+		  let <_4> =
+		      apply %% Line 508
+			    'filter_significant_chunks'/4
+			  (%% Line 508
+			   Cs, %% Line 508
+			       Mandatory, %% Line 508
+					  File, %% Line 508
+						Mod)
+		  in  %% Line 508
+		      [Pair|_4]
+	      %% Line 509
+	      <[{Id,'missing_chunk'}|Cs],Mandatory,File,Mod> when 'true' ->
+		  %% Line 510
+		  case call 'lists':'member'
+			   (Id, Mandatory) of
+		    %% Line 511
+		    <'false'> when 'true' ->
+			%% Line 512
+			apply 'filter_significant_chunks'/4
+			    (Cs, Mandatory, File, Mod)
+		    %% Line 513
+		    <'true'> when 'true' ->
+			%% Line 514
+			apply 'error'/1
+			    ({'missing_chunk',File,Id})
+		    ( <_5> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_5})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 516
+	      <[],_11,_12,_13> when 'true' ->
+		  []
+	      ( <_9,_8,_7,_6> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_9,_8,_7,_6})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'filter_significant_chunks',4}}] )
+      -| [{'function',{'filter_significant_chunks',4}}] )
+'filter_funtab'/1 =
+    %% Line 518
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'filter_funtab',1}}] ) of
+	      <[{Tag = [70|[117|[110|[84]]]],#{#<L>(4,8,'binary',['unsigned'|['big']]),
+					       #<Data0>(( 'all'
+							  -| ['compiler_generated'] ),8,'binary',['unsigned'|['big']])}#}|Cs]> when 'true' ->
+		  let <Data> =
+		      apply %% Line 519
+			    'filter_funtab_1'/2
+			  (%% Line 519
+			   Data0, %% Line 519
+				  #{#<0>(8,1,'integer',['unsigned'|['big']]),
+				    #<0>(8,1,'integer',['unsigned'|['big']]),
+				    #<0>(8,1,'integer',['unsigned'|['big']]),
+				    #<0>(8,1,'integer',['unsigned'|['big']])}#)
+		  in  let <_2> =
+			  call %% Line 520
+			       'erlang':%% Line 520
+					'iolist_to_binary'
+			      (%% Line 520
+			       Data)
+		      in  let <Funtab> =
+			      #{#<%% Line 520
+				  L>(%% Line 520
+				     ( 'all'
+				       -| ['compiler_generated'] ),8,'binary',['unsigned'|['big']]),
+				#<_2>(%% Line 520
+				      ( 'all'
+					-| ['compiler_generated'] ),8,'binary',['unsigned'|['big']])}#
+			  in  let <_4> =
+				  apply %% Line 521
+					'filter_funtab'/1
+				      (%% Line 521
+				       Cs)
+			      in  %% Line 521
+				  [{Tag,Funtab}|_4]
+	      %% Line 522
+	      <[H|T]> when 'true' ->
+		  let <_5> =
+		      apply %% Line 523
+			    'filter_funtab'/1
+			  (%% Line 523
+			   T)
+		  in  %% Line 523
+		      [H|_5]
+	      %% Line 524
+	      <[]> when 'true' ->
+		  []
+	      ( <_6> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_6})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'filter_funtab',1}}] )
+      -| [{'function',{'filter_funtab',1}}] )
+'filter_funtab_1'/2 =
+    %% Line 526
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <#{#<Important>(20,8,'binary',['unsigned'|['big']]),
+		 #<_X_OldUniq>(4,8,'binary',['unsigned'|['big']]),
+		 #<T>(( 'all'
+			-| ['compiler_generated'] ),8,'binary',['unsigned'|['big']])}#,Zero> when 'true' ->
+		  let <_2> =
+		      apply %% Line 527
+			    'filter_funtab_1'/2
+			  (%% Line 527
+			   T, %% Line 527
+			      Zero)
+		  in  %% Line 527
+		      [Important|[Zero|_2]]
+	      %% Line 528
+	      <Tail,_5>
+		  when call 'erlang':'is_binary'
+			(Tail) ->
+		  [Tail|[]]
+	      ( <_4,_3> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_4,_3})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'filter_funtab_1',2}}] )
+      -| [{'function',{'filter_funtab_1',2}}] )
+'read_all_chunks'/1 =
+    %% Line 530
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'read_all_chunks',1}}] ) of
+	      <File0>
+		  when let <_1> =
+			call 'erlang':'is_atom'
+			    (( _0
+			       -| [{'function',{'read_all_chunks',1}}] ))
+		    in  let <_2> =
+			    call %% Line 531
+				 'erlang':%% Line 531
+					  'is_list'
+				(( _0
+				   -| [{'function',{'read_all_chunks',1}}] ))
+			in  let <_3> =
+				call %% Line 532
+				     'erlang':%% Line 532
+					      'is_binary'
+				    (( _0
+				       -| [{'function',{'read_all_chunks',1}}] ))
+			    in  let <_4> =
+				    call %% Line 531
+					 'erlang':%% Line 531
+						  'or'
+					(_2, _3)
+				in  call 'erlang':'or'
+					(_1, _4) ->
+		  %% Line 533
+		  try
+		      let <File> =
+			  apply %% Line 534
+				'beam_filename'/1
+			      (%% Line 534
+			       File0)
+		      in  %% Line 535
+			  case apply 'scan_beam'/2
+				   (File, 'info') of
+			    <{'ok',Module,ChunkIds0}> when 'true' ->
+				let <_12> =
+				    letrec
+					'lc$^0'/1 =
+					    %% Line 536
+					    fun (_9) ->
+						case _9 of
+						  <[{Name,_21,_22}|_8]> when 'true' ->
+						      let <_11> =
+							  apply 'lc$^0'/1
+							      (_8)
+						      in  ( [Name|_11]
+							    -| ['compiler_generated'] )
+						  ( <[_7|_8]> when 'true' ->
+							apply 'lc$^0'/1
+							    (_8)
+						    -| ['compiler_generated'] )
+						  <[]> when 'true' ->
+						      []
+						  ( <_10> when 'true' ->
+							primop 'match_fail'
+							    ({'function_clause',_10})
+						    -| ['compiler_generated'] )
+						end
+				    in  %% Line 536
+					apply 'lc$^0'/1
+					    (ChunkIds0)
+				in  %% Line 537
+				    case apply 'scan_beam'/2
+					     (File, _12) of
+				      <{'ok',_23,Chunks}>
+					  when call 'erlang':'=:='
+						(_23,
+						 Module) ->
+					  let <_15> =
+					      call %% Line 538
+						   'lists':%% Line 538
+							   'reverse'
+						  (%% Line 538
+						   Chunks)
+					  in  %% Line 538
+					      {'ok',Module,_15}
+				      ( <_14> when 'true' ->
+					    primop 'match_fail'
+						({'badmatch',_14})
+					-| ['compiler_generated'] )
+				    end
+			    ( <_6> when 'true' ->
+				  primop 'match_fail'
+				      ({'badmatch',_6})
+			      -| ['compiler_generated'] )
+			  end
+		  of <_16> ->
+		      _16
+		  catch <_19,_18,_17> ->
+		      %% Line 539
+		      case <_19,_18,_17> of
+			<( 'throw'
+			   -| ['compiler_generated'] ),Error,_24> when 'true' ->
+			    Error
+			( <_25,_26,_27> when 'true' ->
+			      primop 'raise'
+				  (_27, _26)
+			  -| ['compiler_generated'] )
+		      end
+	      ( <_20> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_20})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'read_all_chunks',1}}] )
+      -| [{'function',{'read_all_chunks',1}}] )
+'read_chunk_data'/2 =
+    %% Line 541
+    ( fun (_0,_1) ->
+	  %% Line 542
+	  try
+	      apply 'read_chunk_data'/3
+		  (_0, _1, [])
+	  of <_2> ->
+	      _2
+	  catch <_5,_4,_3> ->
+	      %% Line 543
+	      case <_5,_4,_3> of
+		<( 'throw'
+		   -| ['compiler_generated'] ),Error,_8> when 'true' ->
+		    Error
+		( <_9,_10,_11> when 'true' ->
+		      primop 'raise'
+			  (_11, _10)
+		  -| ['compiler_generated'] )
+	      end
+      -| [{'function',{'read_chunk_data',2}}] )
+'read_chunk_data'/3 =
+    %% Line 546
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <File0,ChunkNames0,Options>
+		  when let <_3> =
+			call %% Line 547
+			     'erlang':%% Line 547
+				      'is_atom'
+			    (%% Line 547
+			     File0)
+		    in  let <_4> =
+			    call %% Line 547
+				 'erlang':%% Line 547
+					  'is_list'
+				(%% Line 547
+				 File0)
+			in  let <_5> =
+				call %% Line 547
+				     'erlang':%% Line 547
+					      'is_binary'
+				    (%% Line 547
+				     File0)
+			    in  let <_6> =
+				    call %% Line 547
+					 'erlang':%% Line 547
+						  'or'
+					(_4, _5)
+				in  %% Line 547
+				    call 'erlang':'or'
+					(_3, _6) ->
+		  let <File> =
+		      apply %% Line 548
+			    'beam_filename'/1
+			  (%% Line 548
+			   File0)
+		  in  %% Line 549
+		      case apply 'check_chunks'/5
+			       (ChunkNames0, File, [], [], []) of
+			<{ChunkIds,Names,Optional}> when 'true' ->
+			    let <AllowMissingChunks> =
+				call %% Line 550
+				     'lists':%% Line 550
+					     'member'
+				    (%% Line 550
+				     'allow_missing_chunks', %% Line 550
+							     Options)
+			    in  %% Line 551
+				case apply 'scan_beam'/4
+					 (File, ChunkIds, AllowMissingChunks, Optional) of
+				  <{'ok',Module,Chunks}> when 'true' ->
+				      let <AT> =
+					  call %% Line 552
+					       'ets':%% Line 552
+						     'new'
+					      (%% Line 552
+					       'beam_symbols', %% Line 552
+							       [])
+				      in  let <T> = {%% Line 553
+					       'empty',%% Line 553
+						       AT}
+					  in  %% Line 554
+					      letrec
+						  'after$^0'/0 =
+						      fun () ->
+							  %% Line 555
+							  call 'ets':'delete'
+							      (AT)
+					      in  try
+						      apply 'chunks_to_data'/7
+							  (Names, Chunks, File, Chunks, Module, T, [])
+						  of <_13> ->
+						      do  ( apply 'after$^0'/0
+								()
+							    -| ['compiler_generated'] )
+							  _13
+						  catch <_16,_15,_14> ->
+						      do  ( apply 'after$^0'/0
+								()
+							    -| ['compiler_generated'] )
+							  primop 'raise'
+							      (_14, _15)
+				  ( <_10> when 'true' ->
+					primop 'match_fail'
+					    ({'badmatch',_10})
+				    -| ['compiler_generated'] )
+				end
+			( <_8> when 'true' ->
+			      primop 'match_fail'
+				  ({'badmatch',_8})
+			  -| ['compiler_generated'] )
+		      end
+	      ( <_19,_18,_17> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_19,_18,_17})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'read_chunk_data',3}}] )
+      -| [{'function',{'read_chunk_data',3}}] )
+'check_chunks'/5 =
+    %% Line 559
+    ( fun (_0,_1,_2,_3,_4) ->
+	  ( case <_0,_1,_2,_3,_4> of
+	      <['atoms'|Ids],File,IL,L,O> when 'true' ->
+		  %% Line 560
+		  apply 'check_chunks'/5
+		      (Ids, File, [[65|[116|[111|[109]]]]|[[65|[116|[85|[56]]]]|IL]], %% Line 561
+										      [{'atom_chunk','atoms'}|L], %% Line 561
+														  [[65|[116|[111|[109]]]]|[[65|[116|[85|[56]]]]|O]])
+	      %% Line 562
+	      <['abstract_code'|Ids],File,IL,L,O> when 'true' ->
+		  %% Line 563
+		  apply 'check_chunks'/5
+		      (Ids, File, [[65|[98|[115|[116]]]]|[[68|[98|[103|[105]]]]|IL]], %% Line 564
+										      [{'abst_chunk','abstract_code'}|L], %% Line 564
+															  [[65|[98|[115|[116]]]]|[[68|[98|[103|[105]]]]|O]])
+	      %% Line 565
+	      <[ChunkName|Ids],File,IL,L,O>
+		  when call 'erlang':'is_atom'
+			(ChunkName) ->
+		  let <ChunkId> =
+		      apply %% Line 566
+			    'chunk_name_to_id'/2
+			  (%% Line 566
+			   ChunkName, %% Line 566
+				      File)
+		  in  %% Line 567
+		      apply 'check_chunks'/5
+			  (Ids, File, [ChunkId|IL], [{ChunkId,ChunkName}|L], O)
+	      %% Line 568
+	      <[ChunkId|Ids],File,IL,L,O> when 'true' ->
+		  %% Line 569
+		  apply 'check_chunks'/5
+		      (Ids, File, [ChunkId|IL], [{ChunkId,ChunkId}|L], O)
+	      %% Line 570
+	      <[],_X_File,IL,L,O> when 'true' ->
+		  let <_7> =
+		      call %% Line 571
+			   'lists':%% Line 571
+				   'usort'
+			  (%% Line 571
+			   IL)
+		  in  let <_6> =
+			  call %% Line 571
+			       'lists':%% Line 571
+				       'reverse'
+			      (%% Line 571
+			       L)
+		      in  %% Line 571
+			  {_7,_6,O}
+	      ( <_12,_11,_10,_9,_8> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_12,_11,_10,_9,_8})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'check_chunks',5}}] )
+      -| [{'function',{'check_chunks',5}}] )
+'scan_beam'/2 =
+    %% Line 574
+    ( fun (_0,_1) ->
+	  %% Line 575
+	  apply 'scan_beam'/4
+	      (_0, _1, 'false', [])
+      -| [{'function',{'scan_beam',2}}] )
+'scan_beam'/4 =
+    %% Line 578
+    ( fun (_0,_1,_2,_3) ->
+	  %% Line 579
+	  case apply 'scan_beam1'/2
+		   (_0, _1) of
+	    %% Line 580
+	    <{'missing',_X_FD,Mod,Data,What}>
+		when ( call 'erlang':'=:='
+			(_2,
+			 'true')
+		    -| ['compiler_generated'] ) ->
+		let <_9> =
+		    letrec
+			'lc$^0'/1 =
+			    %% Line 581
+			    fun (_6) ->
+				case _6 of
+				  <[Id|_5]> when 'true' ->
+				      let <_8> =
+					  apply 'lc$^0'/1
+					      (_5)
+				      in  ( [{Id,'missing_chunk'}|_8]
+					    -| ['compiler_generated'] )
+				  <[]> when 'true' ->
+				      Data
+				  ( <_7> when 'true' ->
+					primop 'match_fail'
+					    ({'function_clause',_7})
+				    -| ['compiler_generated'] )
+				end
+		    in  %% Line 581
+			apply 'lc$^0'/1
+			    (What)
+		in  %% Line 581
+		    {'ok',Mod,_9}
+	    %% Line 582
+	    <{'missing',FD,Mod,Data,What}> when 'true' ->
+		%% Line 583
+		case call 'erlang':'--'
+			 (What, _3) of
+		  %% Line 584
+		  <[]> when 'true' ->
+		      {'ok',Mod,Data}
+		  %% Line 585
+		  <[Missing|_17]> when 'true' ->
+		      let <_10> =
+			  apply 'filename'/1
+			      (FD)
+		      in  apply 'error'/1
+			      ({'missing_chunk',_10,Missing})
+		  ( <_11> when 'true' ->
+			primop 'match_fail'
+			    ({'case_clause',_11})
+		    -| ['compiler_generated'] )
+		end
+	    %% Line 587
+	    <R> when 'true' ->
+		%% Line 588
+		R
+	  end
+      -| [{'function',{'scan_beam',4}}] )
+'scan_beam1'/2 =
+    %% Line 592
+    ( fun (_0,_1) ->
+	  let <FD> =
+	      apply %% Line 593
+		    'open_file'/1
+		  (_0)
+	  in  let <_3> =
+		  catch
+		      %% Line 594
+		      apply 'scan_beam2'/2
+			  (FD, _1)
+	      in  %% Line 594
+		  case _3 of
+		    %% Line 595
+		    <Error>
+			when try
+			      let <_4> =
+				  call 'erlang':'element'
+				      (1, _3)
+			      in  call 'erlang':'=:='
+				      ('error', _4)
+			  of <Try> ->
+			      Try
+			  catch <T,R> ->
+			      'false' ->
+			%% Line 596
+			call 'erlang':'throw'
+			    (Error)
+		    %% Line 597
+		    <R> when 'true' ->
+			%% Line 598
+			R
+		  end
+      -| [{'function',{'scan_beam1',2}}] )
+'scan_beam2'/2 =
+    %% Line 601
+    ( fun (_0,_1) ->
+	  %% Line 602
+	  case apply 'pread'/3
+		   (_0, 0, 12) of
+	    %% Line 603
+	    <{NFD,{'ok',#{#<70>(8,1,'integer',['unsigned'|['big']]),
+			  #<79>(8,1,'integer',['unsigned'|['big']]),
+			  #<82>(8,1,'integer',['unsigned'|['big']]),
+			  #<49>(8,1,'integer',['unsigned'|['big']]),
+			  #<_X_Size>(32,1,'integer',['unsigned'|['big']]),
+			  #<66>(8,1,'integer',['unsigned'|['big']]),
+			  #<69>(8,1,'integer',['unsigned'|['big']]),
+			  #<65>(8,1,'integer',['unsigned'|['big']]),
+			  #<77>(8,1,'integer',['unsigned'|['big']])}#}}> when 'true' ->
+		%% Line 605
+		apply 'scan_beam'/5
+		    (NFD, 12, _1, 17, [])
+	    %% Line 606
+	    <_X_Error> when 'true' ->
+		let <_3> =
+		    apply %% Line 607
+			  'filename'/1
+			(_0)
+		in  %% Line 607
+		    apply 'error'/1
+			({'not_a_beam_file',_3})
+	  end
+      -| [{'function',{'scan_beam2',2}}] )
+'scan_beam'/5 =
+    %% Line 610
+    ( fun (_0,_1,_2,_3,_4) ->
+	  ( case <_0,_1,_2,_3,_4> of
+	      <_X_FD,_X_Pos,[],Mod,Data>
+		  when call 'erlang':'=/='
+			(Mod,
+			 17) ->
+		  %% Line 611
+		  {'ok',Mod,Data}
+	      %% Line 612
+	      <FD,Pos,What,Mod,Data> when 'true' ->
+		  %% Line 613
+		  case apply 'pread'/3
+			   (FD, Pos, 8) of
+		    %% Line 614
+		    <{_X_NFD,'eof'}>
+			when call 'erlang':'=:='
+			      (Mod,
+			       17) ->
+			let <_5> =
+			    apply %% Line 615
+				  'filename'/1
+				(%% Line 615
+				 FD)
+			in  %% Line 615
+			    apply 'error'/1
+				({'missing_chunk',_5,[65|[116|[111|[109]]]]})
+		    %% Line 616
+		    <{_X_NFD,'eof'}>
+			when call 'erlang':'=:='
+			      (What,
+			       'info') ->
+			let <_6> =
+			    call %% Line 617
+				 'lists':%% Line 617
+					 'reverse'
+				(%% Line 617
+				 Data)
+			in  %% Line 617
+			    {'ok',Mod,_6}
+		    %% Line 618
+		    <{NFD,'eof'}> when 'true' ->
+			%% Line 619
+			{'missing',NFD,Mod,Data,What}
+		    %% Line 620
+		    <{NFD,{'ok',#{#<IdL>(4,8,'binary',['unsigned'|['big']]),
+				  #<Sz>(32,1,'integer',['unsigned'|['big']])}#}}> when 'true' ->
+			let <Id> =
+			    call %% Line 621
+				 'erlang':%% Line 621
+					  'binary_to_list'
+				(%% Line 621
+				 IdL)
+			in  let <Pos1> =
+				call %% Line 622
+				     'erlang':%% Line 622
+					      '+'
+				    (%% Line 622
+				     Pos, %% Line 622
+					  8)
+			    in  let <_9> =
+				    call %% Line 623
+					 'erlang':%% Line 623
+						  '+'
+					(%% Line 623
+					 Sz, %% Line 623
+					     3)
+				in  let <_10> =
+					call %% Line 623
+					     'erlang':%% Line 623
+						      '/'
+					    (_9, %% Line 623
+						 4)
+				    in  let <_11> =
+					    call %% Line 623
+						 'erlang':%% Line 623
+							  'trunc'
+						(_10)
+					in  let <_12> =
+						call %% Line 623
+						     'erlang':%% Line 623
+							      '*'
+						    (%% Line 623
+						     4, _11)
+					    in  let <Pos2> =
+						    call %% Line 623
+							 'erlang':%% Line 623
+								  '+'
+							(_12, %% Line 623
+							      Pos1)
+						in  %% Line 624
+						    apply 'get_data'/8
+							(What, Id, NFD, Sz, Pos1, Pos2, Mod, Data)
+		    %% Line 625
+		    <{_X_NFD,{'ok',_X_ChunkHead}}> when 'true' ->
+			let <_14> =
+			    apply %% Line 626
+				  'filename'/1
+				(%% Line 626
+				 FD)
+			in  %% Line 626
+			    apply 'error'/1
+				({'invalid_beam_file',_14,Pos})
+		    ( <_15> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_15})
+		      -| ['compiler_generated'] )
+		  end
+	    end
+	    -| [{'function',{'scan_beam',5}}] )
+      -| [{'function',{'scan_beam',5}}] )
+'get_atom_data'/8 =
+    %% Line 629
+    ( fun (_0,_1,_2,_3,_4,_5,_6,_7) ->
+	  let <NewCs> =
+	      apply %% Line 630
+		    'del_chunk'/2
+		  (_1, _0)
+	  in  %% Line 631
+	      case apply 'get_chunk'/4
+		       (_1, _4, _3, _2) of
+		<{NFD,Chunk}> when 'true' ->
+		    %% Line 632
+		    case Chunk of
+		      <#{#<_X_Num>(32,1,'integer',['unsigned'|['big']]),
+			 #<Chunk2>(( 'all'
+				     -| ['compiler_generated'] ),8,'binary',['unsigned'|['big']])}#> when 'true' ->
+			  %% Line 633
+			  case apply 'extract_atom'/2
+				   (Chunk2, _7) of
+			    <{Module,_23}> when 'true' ->
+				let <_13> =
+				    case _0 of
+				      %% Line 635
+				      <'info'> when 'true' ->
+					  %% Line 636
+					  {_1,_4,_3}
+				      %% Line 637
+				      <_24> when 'true' ->
+					  %% Line 638
+					  {_1,Chunk}
+				    end
+				in  %% Line 640
+				    apply 'scan_beam'/5
+					(NFD, _5, NewCs, Module, [_13|_6])
+			    ( <_11> when 'true' ->
+				  primop 'match_fail'
+				      ({'badmatch',_11})
+			      -| ['compiler_generated'] )
+			  end
+		      ( <_10> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_10})
+			-| ['compiler_generated'] )
+		    end
+		( <_9> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_9})
+		  -| ['compiler_generated'] )
+	      end
+      -| [{'function',{'get_atom_data',8}}] )
+'get_data'/8 =
+    %% Line 642
+    ( fun (_0,_1,_2,_3,_4,_5,_6,_7) ->
+	  ( case <_0,_1,_2,_3,_4,_5,_6,_7> of
+	      <Cs,Id = [65|[116|[111|[109]]]],FD,Size,Pos,Pos2,_X_Mod,Data> when 'true' ->
+		  %% Line 643
+		  apply 'get_atom_data'/8
+		      (Cs, Id, FD, Size, Pos, Pos2, Data, 'latin1')
+	      %% Line 644
+	      <Cs,Id = [65|[116|[85|[56]]]],FD,Size,Pos,Pos2,_X_Mod,Data> when 'true' ->
+		  %% Line 645
+		  apply 'get_atom_data'/8
+		      (Cs, Id, FD, Size, Pos, Pos2, Data, 'utf8')
+	      %% Line 646
+	      <'info',Id,FD,Size,Pos,Pos2,Mod,Data> when 'true' ->
+		  %% Line 647
+		  apply 'scan_beam'/5
+		      (FD, Pos2, 'info', Mod, [{Id,Pos,Size}|Data])
+	      %% Line 648
+	      <Chunks,Id,FD,Size,Pos,Pos2,Mod,Data> when 'true' ->
+		  let <_21,_22> =
+		      case %% Line 649
+			   call 'lists':'member'
+			       (Id, Chunks) of
+			%% Line 650
+			<'true'> when 'true' ->
+			    %% Line 651
+			    case apply 'get_chunk'/4
+				     (Id, Pos, Size, FD) of
+			      <{FD1,Chunk}> when 'true' ->
+				  %% Line 652
+				  <FD1,[{Id,Chunk}|Data]>
+			      ( <_8> when 'true' ->
+				    primop 'match_fail'
+					({'badmatch',_8})
+				-| ['compiler_generated'] )
+			    end
+			%% Line 653
+			<'false'> when 'true' ->
+			    %% Line 654
+			    <FD,Data>
+			( <_9> when 'true' ->
+			      %% Line 649
+			      primop 'match_fail'
+				  ({'case_clause',_9})
+			  -| ['compiler_generated'] )
+		      end
+		  in  let <NewChunks> =
+			  apply %% Line 656
+				'del_chunk'/2
+			      (%% Line 656
+			       Id, %% Line 656
+				   Chunks)
+		      in  %% Line 657
+			  apply 'scan_beam'/5
+			      (( _21
+				 -| ['compiler_generated'] ), Pos2, NewChunks, Mod, ( _22
+										      -| ['compiler_generated'] ))
+	    end
+	    -| [{'function',{'get_data',8}}] )
+      -| [{'function',{'get_data',8}}] )
+'del_chunk'/2 =
+    %% Line 659
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <_X_Id,'info'> when 'true' ->
+		  %% Line 660
+		  'info'
+	      %% Line 661
+	      <Id,Chunks> when 'true' ->
+		  %% Line 662
+		  call 'lists':'delete'
+		      (Id, Chunks)
+	    end
+	    -| [{'function',{'del_chunk',2}}] )
+      -| [{'function',{'del_chunk',2}}] )
+'get_chunk'/4 =
+    %% Line 665
+    ( fun (_0,_1,_2,_3) ->
+	  %% Line 666
+	  case apply 'pread'/3
+		   (_3, _1, _2) of
+	    %% Line 667
+	    <{NFD,'eof'}>
+		when call 'erlang':'=:='
+		      (_2,
+		       0) ->
+		%% Line 668
+		{NFD,#{}#}
+	    %% Line 669
+	    <{_X_NFD,'eof'}>
+		when call 'erlang':'>'
+		      (_2,
+		       0) ->
+		let <_4> =
+		    apply %% Line 670
+			  'filename'/1
+			(_3)
+		in  %% Line 670
+		    apply 'error'/1
+			({'chunk_too_big',_4,_0,_2,0})
+	    %% Line 671
+	    <{_X_NFD,{'ok',Chunk}}>
+		when try
+		      let <_5> =
+			  call 'erlang':'byte_size'
+			      (Chunk)
+		      in  call 'erlang':'>'
+			      (_2, _5)
+		  of <Try> ->
+		      Try
+		  catch <T,R> ->
+		      'false' ->
+		let <_7> =
+		    apply %% Line 672
+			  'filename'/1
+			(_3)
+		in  let <_6> =
+			call %% Line 672
+			     'erlang':%% Line 672
+				      'byte_size'
+			    (%% Line 672
+			     Chunk)
+		    in  %% Line 672
+			apply 'error'/1
+			    ({'chunk_too_big',_7,_0,_2,_6})
+	    %% Line 673
+	    <{NFD,{'ok',Chunk}}> when 'true' ->
+		%% Line 674
+		{NFD,Chunk}
+	    ( <_8> when 'true' ->
+		  primop 'match_fail'
+		      ({'case_clause',_8})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'get_chunk',4}}] )
+'chunks_to_data'/7 =
+    %% Line 677
+    ( fun (_0,_1,_2,_3,_4,_5,_6) ->
+	  ( case <_0,_1,_2,_3,_4,_5,_6> of
+	      <[{'atom_chunk',Name}|CNs],Chunks,File,Cs,Module,Atoms,L> when 'true' ->
+		  %% Line 678
+		  case apply 'chunk_to_data'/6
+			   (Name, #{}#, File, Cs, Atoms, Module) of
+		    <{NewAtoms,Ret}> when 'true' ->
+			%% Line 679
+			apply 'chunks_to_data'/7
+			    (CNs, Chunks, File, Cs, Module, NewAtoms, [Ret|L])
+		    ( <_7> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_7})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 680
+	      <[{'abst_chunk',Name}|CNs],Chunks,File,Cs,Module,Atoms,L> when 'true' ->
+		  let <DbgiChunk> =
+		      call %% Line 681
+			   'proplists':%% Line 681
+				       'get_value'
+			  (%% Line 681
+			   [68|[98|[103|[105]]]], %% Line 681
+						  Chunks, %% Line 681
+							  #{}#)
+		  in  let <_9> =
+			  catch
+			      %% Line 683
+			      apply 'chunk_to_data'/6
+				  ('debug_info', DbgiChunk, File, Cs, Atoms, Module)
+		      in  let <_13> =
+			      case _9 of
+				%% Line 684
+				<{DbgiAtoms,{'debug_info',{'debug_info_v1',Backend,Metadata}}}> when 'true' ->
+				    %% Line 685
+				    case call Backend:'debug_info'
+					     ('erlang_v1', Module, Metadata, []) of
+				      %% Line 686
+				      <{'ok',Code}> when 'true' ->
+					  {DbgiAtoms,{'abstract_code',{'raw_abstract_v1',Code}}}
+				      %% Line 687
+				      <{'error',_25}> when 'true' ->
+					  {DbgiAtoms,{'abstract_code','no_abstract_code'}}
+				      ( <_10> when 'true' ->
+					    primop 'match_fail'
+						({'case_clause',_10})
+					-| ['compiler_generated'] )
+				    end
+				%% Line 689
+				<{'error','beam_lib',{'key_missing_or_invalid',Path,'debug_info'}}> when 'true' ->
+				    %% Line 690
+				    apply 'error'/1
+					({'key_missing_or_invalid',Path,'abstract_code'})
+				%% Line 691
+				<_26> when 'true' ->
+				    let <AbstChunk> =
+					call %% Line 692
+					     'proplists':%% Line 692
+							 'get_value'
+					    (%% Line 692
+					     [65|[98|[115|[116]]]], %% Line 692
+								    Chunks, %% Line 692
+									    #{}#)
+				    in  %% Line 693
+					apply 'chunk_to_data'/6
+					    (Name, AbstChunk, File, Cs, Atoms, Module)
+			      end
+			  in  %% Line 682
+			      case _13 of
+				<{NewAtoms,Ret}> when 'true' ->
+				    %% Line 695
+				    apply 'chunks_to_data'/7
+					(CNs, Chunks, File, Cs, Module, NewAtoms, [Ret|L])
+				( <_14> when 'true' ->
+				      primop 'match_fail'
+					  ({'badmatch',_14})
+				  -| ['compiler_generated'] )
+			      end
+	      %% Line 696
+	      <[{Id,Name}|CNs],Chunks,File,Cs,Module,Atoms,L> when 'true' ->
+		  %% Line 697
+		  case call 'lists':'keyfind'
+			   (Id, 1, Chunks) of
+		    <{_X_Id,Chunk}> when 'true' ->
+			%% Line 698
+			case apply 'chunk_to_data'/6
+				 (Name, Chunk, File, Cs, Atoms, Module) of
+			  <{NewAtoms,Ret}> when 'true' ->
+			      %% Line 699
+			      apply 'chunks_to_data'/7
+				  (CNs, Chunks, File, Cs, Module, NewAtoms, [Ret|L])
+			  ( <_16> when 'true' ->
+				primop 'match_fail'
+				    ({'badmatch',_16})
+			    -| ['compiler_generated'] )
+			end
+		    ( <_15> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_15})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 700
+	      <[],_X_Chunks,_X_File,_X_Cs,Module,_X_Atoms,L> when 'true' ->
+		  let <_17> =
+		      call %% Line 701
+			   'lists':%% Line 701
+				   'reverse'
+			  (%% Line 701
+			   L)
+		  in  %% Line 701
+		      {'ok',{Module,_17}}
+	      ( <_24,_23,_22,_21,_20,_19,_18> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_24,_23,_22,_21,_20,_19,_18})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'chunks_to_data',7}}] )
+      -| [{'function',{'chunks_to_data',7}}] )
+'chunk_to_data'/6 =
+    %% Line 703
+    ( fun (_0,_1,_2,_3,_4,_5) ->
+	  ( case <_0,_1,_2,_3,_4,_5> of
+	      <Id = 'attributes',Chunk,File,_X_Cs,AtomTable,_X_Mod> when 'true' ->
+		  %% Line 704
+		  try
+		      let <Term> =
+			  call %% Line 705
+			       'erlang':%% Line 705
+					'binary_to_term'
+			      (%% Line 705
+			       Chunk)
+		      in  let <_7> =
+			      apply %% Line 706
+				    'attributes'/1
+				  (%% Line 706
+				   Term)
+			  in  %% Line 706
+			      {AtomTable,{Id,_7}}
+		  of <_8> ->
+		      _8
+		  catch <_11,_10,_9> ->
+		      %% Line 708
+		      case <_11,_10,_9> of
+			<( 'error'
+			   -| ['compiler_generated'] ),( 'badarg'
+							 -| ['compiler_generated'] ),_52> when 'true' ->
+			    let <_12> =
+				apply %% Line 709
+				      'chunk_name_to_id'/2
+				    (%% Line 709
+				     Id, %% Line 709
+					 File)
+			    in  %% Line 709
+				apply 'error'/1
+				    ({'invalid_chunk',File,_12})
+			( <_68,_69,_70> when 'true' ->
+			      primop 'raise'
+				  (_70, _69)
+			  -| ['compiler_generated'] )
+		      end
+	      %% Line 711
+	      <Id = 'compile_info',Chunk,File,_X_Cs,AtomTable,_X_Mod> when 'true' ->
+		  %% Line 712
+		  try
+		      let <_13> =
+			  call %% Line 713
+			       'erlang':%% Line 713
+					'binary_to_term'
+			      (%% Line 713
+			       Chunk)
+		      in  %% Line 713
+			  {AtomTable,{Id,_13}}
+		  of <_14> ->
+		      _14
+		  catch <_17,_16,_15> ->
+		      %% Line 715
+		      case <_17,_16,_15> of
+			<( 'error'
+			   -| ['compiler_generated'] ),( 'badarg'
+							 -| ['compiler_generated'] ),_53> when 'true' ->
+			    let <_18> =
+				apply %% Line 716
+				      'chunk_name_to_id'/2
+				    (%% Line 716
+				     Id, %% Line 716
+					 File)
+			    in  %% Line 716
+				apply 'error'/1
+				    ({'invalid_chunk',File,_18})
+			( <_71,_72,_73> when 'true' ->
+			      primop 'raise'
+				  (_73, _72)
+			  -| ['compiler_generated'] )
+		      end
+	      %% Line 718
+	      <Id = 'debug_info',Chunk,File,_X_Cs,AtomTable,Mod> when 'true' ->
+		  ( letrec
+			'label^0'/0 =
+			    ( fun () ->
+				  let <_22> =
+				      catch
+					  %% Line 727
+					  call 'erlang':'binary_to_term'
+					      (Chunk)
+				  in  %% Line 727
+				      case _22 of
+					%% Line 728
+					<{'EXIT',_55}> when 'true' ->
+					    let <_23> =
+						apply %% Line 729
+						      'chunk_name_to_id'/2
+						    (%% Line 729
+						     Id, %% Line 729
+							 File)
+					    in  %% Line 729
+						apply 'error'/1
+						    ({'invalid_chunk',File,_23})
+					%% Line 730
+					<Term> when 'true' ->
+					    let <_24> =
+						apply %% Line 731
+						      'anno_from_term'/1
+						    (%% Line 731
+						     Term)
+					    in  %% Line 731
+						{AtomTable,{Id,_24}}
+				      end
+			      -| ['compiler_generated'] )
+		    in  %% Line 719
+			case Chunk of
+			  %% Line 720
+			  <#{}#> when 'true' ->
+			      %% Line 721
+			      {AtomTable,{Id,'no_debug_info'}}
+			  %% Line 722
+			  <#{#<0>(8,1,'integer',['unsigned'|['big']]),
+			     #<N>(8,1,'integer',['unsigned'|['big']]),
+			     #<_62>('all',1,'binary',['unsigned'|['big']])}#> when 'true' ->
+			      case _62 of
+				<#{#<Mode0>(N,8,'binary',['unsigned'|['big']]),
+				   #<Rest>(( 'all'
+					     -| ['compiler_generated'] ),8,'binary',['unsigned'|['big']])}#> when 'true' ->
+				    let <Mode> =
+					call %% Line 723
+					     'erlang':%% Line 723
+						      'binary_to_atom'
+					    (%% Line 723
+					     Mode0, %% Line 723
+						    'utf8')
+				    in  let <Term> =
+					    apply %% Line 724
+						  'decrypt_chunk'/5
+						(%% Line 724
+						 Mode, %% Line 724
+						       Mod, %% Line 724
+							    File, %% Line 724
+								  Id, %% Line 724
+								      Rest)
+					in  let <_21> =
+						apply %% Line 725
+						      'anno_from_term'/1
+						    (%% Line 725
+						     Term)
+					    in  %% Line 725
+						{AtomTable,{Id,_21}}
+				( <_63> when 'true' ->
+				      ( apply 'label^0'/0
+					    ()
+					-| ['compiler_generated'] )
+				  -| ['dialyzer_ignore','compiler_generated'] )
+			      end
+			  %% Line 722
+			  ( <_64> when 'true' ->
+				( apply 'label^0'/0
+				      ()
+				  -| ['compiler_generated'] )
+			    -| ['dialyzer_ignore','compiler_generated'] )
+			end
+		    -| ['letrec_goto'] )
+	      %% Line 734
+	      <Id = 'abstract_code',Chunk,File,_X_Cs,AtomTable,Mod> when 'true' ->
+		  ( letrec
+			'label^1'/0 =
+			    ( fun () ->
+				  let <_30> =
+				      catch
+					  %% Line 744
+					  call 'erlang':'binary_to_term'
+					      (Chunk)
+				  in  %% Line 744
+				      case _30 of
+					%% Line 745
+					<{'EXIT',_57}> when 'true' ->
+					    let <_31> =
+						apply %% Line 746
+						      'chunk_name_to_id'/2
+						    (%% Line 746
+						     Id, %% Line 746
+							 File)
+					    in  %% Line 746
+						apply 'error'/1
+						    ({'invalid_chunk',File,_31})
+					%% Line 747
+					<Term> when 'true' ->
+					    %% Line 748
+					    try
+						let <_32> =
+						    apply %% Line 749
+							  'old_anno_from_term'/1
+							(%% Line 749
+							 Term)
+						in  %% Line 749
+						    {AtomTable,{Id,_32}}
+					    of <_33> ->
+						_33
+					    catch <_36,_35,_34> ->
+						let <_37> =
+						    apply %% Line 753
+							  'chunk_name_to_id'/2
+							(%% Line 753
+							 Id, %% Line 753
+							     File)
+						in  %% Line 752
+						    apply 'error'/1
+							({'invalid_chunk',File,_37})
+				      end
+			      -| ['compiler_generated'] )
+		    in  %% Line 736
+			case Chunk of
+			  %% Line 737
+			  <#{}#> when 'true' ->
+			      %% Line 738
+			      {AtomTable,{Id,'no_abstract_code'}}
+			  %% Line 739
+			  <#{#<0>(8,1,'integer',['unsigned'|['big']]),
+			     #<N>(8,1,'integer',['unsigned'|['big']]),
+			     #<_65>('all',1,'binary',['unsigned'|['big']])}#> when 'true' ->
+			      case _65 of
+				<#{#<Mode0>(N,8,'binary',['unsigned'|['big']]),
+				   #<Rest>(( 'all'
+					     -| ['compiler_generated'] ),8,'binary',['unsigned'|['big']])}#> when 'true' ->
+				    let <Mode> =
+					call %% Line 740
+					     'erlang':%% Line 740
+						      'binary_to_atom'
+					    (%% Line 740
+					     Mode0, %% Line 740
+						    'utf8')
+				    in  let <Term> =
+					    apply %% Line 741
+						  'decrypt_chunk'/5
+						(%% Line 741
+						 Mode, %% Line 741
+						       Mod, %% Line 741
+							    File, %% Line 741
+								  Id, %% Line 741
+								      Rest)
+					in  let <_29> =
+						apply %% Line 742
+						      'old_anno_from_term'/1
+						    (%% Line 742
+						     Term)
+					    in  %% Line 742
+						{AtomTable,{Id,_29}}
+				( <_66> when 'true' ->
+				      ( apply 'label^1'/0
+					    ()
+					-| ['compiler_generated'] )
+				  -| ['dialyzer_ignore','compiler_generated'] )
+			      end
+			  %% Line 739
+			  ( <_67> when 'true' ->
+				( apply 'label^1'/0
+				      ()
+				  -| ['compiler_generated'] )
+			    -| ['dialyzer_ignore','compiler_generated'] )
+			end
+		    -| ['letrec_goto'] )
+	      %% Line 757
+	      <Id = 'atoms',_X_Chunk,_X_File,Cs,AtomTable0,_X_Mod> when 'true' ->
+		  let <AtomTable> =
+		      apply %% Line 758
+			    'ensure_atoms'/2
+			  (%% Line 758
+			   AtomTable0, %% Line 758
+				       Cs)
+		  in  let <Atoms> =
+			  call %% Line 759
+			       'ets':%% Line 759
+				     'tab2list'
+			      (%% Line 759
+			       AtomTable)
+		      in  let <_42> =
+			      call %% Line 760
+				   'lists':%% Line 760
+					   'sort'
+				  (%% Line 760
+				   Atoms)
+			  in  %% Line 760
+			      {AtomTable,{Id,_42}}
+	      %% Line 761
+	      <ChunkName,Chunk,File,%% Line 762
+				    Cs,%% Line 762
+				       AtomTable,%% Line 762
+						 _X_Mod>
+		  when %% Line 762
+		    call 'erlang':'is_atom'
+			(ChunkName) ->
+		  let <_43> =
+		      catch
+			  %% Line 763
+			  apply 'symbols'/4
+			      (Chunk, AtomTable, Cs, ChunkName)
+		  in  %% Line 763
+		      case _43 of
+			%% Line 764
+			<{'ok',NewAtomTable,S}> when 'true' ->
+			    %% Line 765
+			    {NewAtomTable,{ChunkName,S}}
+			%% Line 766
+			<{'EXIT',_61}> when 'true' ->
+			    let <_44> =
+				apply %% Line 767
+				      'chunk_name_to_id'/2
+				    (%% Line 767
+				     ChunkName, %% Line 767
+						File)
+			    in  %% Line 767
+				apply 'error'/1
+				    ({'invalid_chunk',File,_44})
+			( <_45> when 'true' ->
+			      primop 'match_fail'
+				  ({'case_clause',_45})
+			  -| ['compiler_generated'] )
+		      end
+	      %% Line 769
+	      <ChunkId,Chunk,_X_File,%% Line 770
+				     _X_Cs,%% Line 770
+					   AtomTable,%% Line 770
+						     _X_Module>
+		  when %% Line 770
+		    call 'erlang':'is_list'
+			(ChunkId) ->
+		  %% Line 771
+		  {AtomTable,{ChunkId,Chunk}}
+	      ( <_51,_50,_49,_48,_47,_46> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_51,_50,_49,_48,_47,_46})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'chunk_to_data',6}}] )
+      -| [{'function',{'chunk_to_data',6}}] )
+'chunk_name_to_id'/2 =
+    %% Line 773
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <'indexed_imports',_4> when 'true' ->
+		  [73|[109|[112|[84]]]]
+	      %% Line 774
+	      <'imports',_5> when 'true' ->
+		  [73|[109|[112|[84]]]]
+	      %% Line 775
+	      <'exports',_6> when 'true' ->
+		  [69|[120|[112|[84]]]]
+	      %% Line 776
+	      <'labeled_exports',_7> when 'true' ->
+		  [69|[120|[112|[84]]]]
+	      %% Line 777
+	      <'locals',_8> when 'true' ->
+		  [76|[111|[99|[84]]]]
+	      %% Line 778
+	      <'labeled_locals',_9> when 'true' ->
+		  [76|[111|[99|[84]]]]
+	      %% Line 779
+	      <'attributes',_10> when 'true' ->
+		  [65|[116|[116|[114]]]]
+	      %% Line 780
+	      <'abstract_code',_11> when 'true' ->
+		  [65|[98|[115|[116]]]]
+	      %% Line 781
+	      <'debug_info',_12> when 'true' ->
+		  [68|[98|[103|[105]]]]
+	      %% Line 782
+	      <'compile_info',_13> when 'true' ->
+		  [67|[73|[110|[102]]]]
+	      %% Line 783
+	      <Other,File> when 'true' ->
+		  %% Line 784
+		  apply 'error'/1
+		      ({'unknown_chunk',File,Other})
+	    end
+	    -| [{'function',{'chunk_name_to_id',2}}] )
+      -| [{'function',{'chunk_name_to_id',2}}] )
+'attributes'/1 =
+    %% Line 788
+    ( fun (_0) ->
+	  let <_1> =
+	      call %% Line 789
+		   'lists':%% Line 789
+			   'keysort'
+		  (%% Line 789
+		   1, ( _0
+			-| [{'function',{'attributes',1}}] ))
+	  in  %% Line 789
+	      apply 'attributes'/2
+		  (_1, [])
+      -| [{'function',{'attributes',1}}] )
+'attributes'/2 =
+    %% Line 791
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <[],R> when 'true' ->
+		  %% Line 792
+		  call 'lists':'reverse'
+		      (R)
+	      %% Line 793
+	      <L,R> when 'true' ->
+		  let <_2> =
+		      call %% Line 794
+			   'erlang':%% Line 794
+				    'hd'
+			  (%% Line 794
+			   L)
+		  in  let <K> =
+			  call %% Line 794
+			       'erlang':%% Line 794
+					'element'
+			      (%% Line 794
+			       1, _2)
+		      in  let <_7> =
+			      fun (_5) ->
+				  let <_4> =
+				      call %% Line 795
+					   'erlang':%% Line 795
+						    'element'
+					  (%% Line 795
+					   1, %% Line 795
+					      _5)
+				  in  %% Line 795
+				      call 'erlang':'=:='
+					  (_4, K)
+			  in  %% Line 795
+			      case call 'lists':'splitwith'
+				       (_7, L) of
+				<{L1,L2}> when 'true' ->
+				    let <_14> =
+					letrec
+					    'lc$^1'/1 =
+						%% Line 796
+						fun (_11) ->
+						    case _11 of
+						      <[{_18,A}|_10]> when 'true' ->
+							  let <_13> =
+							      apply 'lc$^1'/1
+								  (_10)
+							  in  ( [A|_13]
+								-| ['compiler_generated'] )
+						      ( <[_9|_10]> when 'true' ->
+							    apply 'lc$^1'/1
+								(_10)
+							-| ['compiler_generated'] )
+						      <[]> when 'true' ->
+							  []
+						      ( <_12> when 'true' ->
+							    primop 'match_fail'
+								({'function_clause',_12})
+							-| ['compiler_generated'] )
+						    end
+					in  %% Line 796
+					    apply 'lc$^1'/1
+						(L1)
+				    in  let <V> =
+					    call %% Line 796
+						 'lists':%% Line 796
+							 'append'
+						(_14)
+					in  %% Line 797
+					    apply 'attributes'/2
+						(L2, [{K,V}|R])
+				( <_8> when 'true' ->
+				      primop 'match_fail'
+					  ({'badmatch',_8})
+				  -| ['compiler_generated'] )
+			      end
+	    end
+	    -| [{'function',{'attributes',2}}] )
+      -| [{'function',{'attributes',2}}] )
+'symbols'/4 =
+    %% Line 801
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <#{#<_X_Num>(32,1,'integer',['unsigned'|['big']]),
+		 #<B>(( 'all'
+			-| ['compiler_generated'] ),8,'binary',['unsigned'|['big']])}#,AT0,Cs,Name> when 'true' ->
+		  let <AT> =
+		      apply %% Line 802
+			    'ensure_atoms'/2
+			  (%% Line 802
+			   AT0, %% Line 802
+				Cs)
+		  in  %% Line 803
+		      apply 'symbols1'/5
+			  (B, AT, Name, [], 1)
+	      ( <_8,_7,_6,_5> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_8,_7,_6,_5})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'symbols',4}}] )
+      -| [{'function',{'symbols',4}}] )
+'symbols1'/5 =
+    %% Line 805
+    ( fun (_0,_1,_2,_3,_4) ->
+	  ( case <_0,_1,_2,_3,_4> of
+	      <#{#<I1>(32,1,'integer',['unsigned'|['big']]),
+		 #<I2>(32,1,'integer',['unsigned'|['big']]),
+		 #<I3>(32,1,'integer',['unsigned'|['big']]),
+		 #<B>(( 'all'
+			-| ['compiler_generated'] ),8,'binary',['unsigned'|['big']])}#,AT,Name,S,Cnt> when 'true' ->
+		  let <Symbol> =
+		      apply %% Line 806
+			    'symbol'/6
+			  (%% Line 806
+			   Name, %% Line 806
+				 AT, %% Line 806
+				     I1, %% Line 806
+					 I2, %% Line 806
+					     I3, %% Line 806
+						 Cnt)
+		  in  let <_6> =
+			  call %% Line 807
+			       'erlang':%% Line 807
+					'+'
+			      (%% Line 807
+			       Cnt, %% Line 807
+				    1)
+		      in  %% Line 807
+			  apply 'symbols1'/5
+			      (B, AT, Name, [Symbol|S], _6)
+	      %% Line 808
+	      <#{}#,AT,_X_Name,S,_X_Cnt> when 'true' ->
+		  let <_7> =
+		      call %% Line 809
+			   'lists':%% Line 809
+				   'sort'
+			  (%% Line 809
+			   S)
+		  in  %% Line 809
+		      {'ok',AT,_7}
+	      ( <_12,_11,_10,_9,_8> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_12,_11,_10,_9,_8})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'symbols1',5}}] )
+      -| [{'function',{'symbols1',5}}] )
+'symbol'/6 =
+    %% Line 811
+    ( fun (_0,_1,_2,_3,_4,_5) ->
+	  ( case <_0,_1,_2,_3,_4,_5> of
+	      <'indexed_imports',AT,I1,I2,I3,Cnt> when 'true' ->
+		  let <_7> =
+		      apply %% Line 812
+			    'atm'/2
+			  (%% Line 812
+			   AT, %% Line 812
+			       I1)
+		  in  let <_6> =
+			  apply %% Line 812
+				'atm'/2
+			      (%% Line 812
+			       AT, %% Line 812
+				   I2)
+		      in  %% Line 812
+			  {Cnt,_7,_6,I3}
+	      %% Line 813
+	      <'imports',AT,I1,I2,I3,_X_Cnt> when 'true' ->
+		  let <_9> =
+		      apply %% Line 814
+			    'atm'/2
+			  (%% Line 814
+			   AT, %% Line 814
+			       I1)
+		  in  let <_8> =
+			  apply %% Line 814
+				'atm'/2
+			      (%% Line 814
+			       AT, %% Line 814
+				   I2)
+		      in  %% Line 814
+			  {_9,_8,I3}
+	      %% Line 815
+	      <'labeled_exports',AT,I1,I2,I3,_X_Cnt> when 'true' ->
+		  let <_10> =
+		      apply %% Line 816
+			    'atm'/2
+			  (%% Line 816
+			   AT, %% Line 816
+			       I1)
+		  in  %% Line 816
+		      {_10,I2,I3}
+	      %% Line 817
+	      <'labeled_locals',AT,I1,I2,I3,_X_Cnt> when 'true' ->
+		  let <_11> =
+		      apply %% Line 818
+			    'atm'/2
+			  (%% Line 818
+			   AT, %% Line 818
+			       I1)
+		  in  %% Line 818
+		      {_11,I2,I3}
+	      %% Line 819
+	      <_19,AT,I1,I2,_X_I3,_X_Cnt> when 'true' ->
+		  let <_12> =
+		      apply %% Line 820
+			    'atm'/2
+			  (%% Line 820
+			   AT, %% Line 820
+			       I1)
+		  in  %% Line 820
+		      {_12,I2}
+	    end
+	    -| [{'function',{'symbol',6}}] )
+      -| [{'function',{'symbol',6}}] )
+'atm'/2 =
+    %% Line 822
+    ( fun (_0,_1) ->
+	  %% Line 823
+	  case call 'ets':'lookup'
+		   (_0, _1) of
+	    <[{_X_N,S}|[]]> when 'true' ->
+		%% Line 824
+		S
+	    ( <_2> when 'true' ->
+		  primop 'match_fail'
+		      ({'badmatch',_2})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'atm',2}}] )
+'ensure_atoms'/2 =
+    %% Line 827
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <{'empty',AT},Cs> when 'true' ->
+		  do  %% Line 828
+		      case call 'lists':'keyfind'
+			       ([65|[116|[85|[56]]]], 1, Cs) of
+			%% Line 829
+			<{_X_Id,AtomChunk}>
+			    when call 'erlang':'is_binary'
+				  (AtomChunk) ->
+			    %% Line 830
+			    apply 'extract_atoms'/3
+				(AtomChunk, AT, 'utf8')
+			%% Line 831
+			<_6> when 'true' ->
+			    %% Line 832
+			    case call 'lists':'keyfind'
+				     ([65|[116|[111|[109]]]], 1, Cs) of
+			      <{_X_Id,AtomChunk}> when 'true' ->
+				  %% Line 833
+				  apply 'extract_atoms'/3
+				      (AtomChunk, AT, 'latin1')
+			      ( <_2> when 'true' ->
+				    primop 'match_fail'
+					({'badmatch',_2})
+				-| ['compiler_generated'] )
+			    end
+		      end
+		      %% Line 835
+		      AT
+	      %% Line 836
+	      <AT,_X_Cs> when 'true' ->
+		  %% Line 837
+		  AT
+	    end
+	    -| [{'function',{'ensure_atoms',2}}] )
+      -| [{'function',{'ensure_atoms',2}}] )
+'extract_atoms'/3 =
+    %% Line 839
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <#{#<_X_Num>(32,1,'integer',['unsigned'|['big']]),
+		 #<B>(( 'all'
+			-| ['compiler_generated'] ),8,'binary',['unsigned'|['big']])}#,AT,Encoding> when 'true' ->
+		  %% Line 840
+		  apply 'extract_atoms'/4
+		      (B, 1, AT, Encoding)
+	      ( <_5,_4,_3> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_5,_4,_3})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'extract_atoms',3}}] )
+      -| [{'function',{'extract_atoms',3}}] )
+'extract_atoms'/4 =
+    %% Line 842
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <#{}#,_X_I,_X_AT,_X_Encoding> when 'true' ->
+		  %% Line 843
+		  'true'
+	      %% Line 844
+	      <B,I,AT,Encoding> when 'true' ->
+		  %% Line 845
+		  case apply 'extract_atom'/2
+			   (B, Encoding) of
+		    <{Atom,B1}> when 'true' ->
+			%% Line 846
+			case call 'ets':'insert'
+				 (AT, {I,Atom}) of
+			  <'true'> when 'true' ->
+			      let <_6> =
+				  call %% Line 847
+				       'erlang':%% Line 847
+						'+'
+				      (%% Line 847
+				       I, %% Line 847
+					  1)
+			      in  %% Line 847
+				  apply 'extract_atoms'/4
+				      (B1, _6, AT, Encoding)
+			  ( <_5> when 'true' ->
+				primop 'match_fail'
+				    ({'badmatch',_5})
+			    -| ['compiler_generated'] )
+			end
+		    ( <_4> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_4})
+		      -| ['compiler_generated'] )
+		  end
+	    end
+	    -| [{'function',{'extract_atoms',4}}] )
+      -| [{'function',{'extract_atoms',4}}] )
+'extract_atom'/2 =
+    %% Line 849
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <#{#<Len>(8,1,'integer',['unsigned'|['big']]),
+		 #<B>(( 'all'
+			-| ['compiler_generated'] ),8,'binary',['unsigned'|['big']])}#,Encoding> when 'true' ->
+		  %% Line 850
+		  case B of
+		    <#{#<SB>(Len,8,'binary',['unsigned'|['big']]),
+		       #<Tail>(( 'all'
+				 -| ['compiler_generated'] ),8,'binary',['unsigned'|['big']])}#> when 'true' ->
+			let <_3> =
+			    call %% Line 851
+				 'erlang':%% Line 851
+					  'binary_to_atom'
+				(%% Line 851
+				 SB, %% Line 851
+				     Encoding)
+			in  %% Line 851
+			    {_3,Tail}
+		    ( <_2> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_2})
+		      -| ['compiler_generated'] )
+		  end
+	      ( <_5,_4> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_5,_4})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'extract_atom',2}}] )
+      -| [{'function',{'extract_atom',2}}] )
+'open_file'/1 =
+    %% Line 859
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'open_file',1}}] ) of
+	      <Binary = #{#<70>(8,1,'integer',['unsigned'|['big']]),
+			  #<79>(8,1,'integer',['unsigned'|['big']]),
+			  #<82>(8,1,'integer',['unsigned'|['big']]),
+			  #<49>(8,1,'integer',['unsigned'|['big']]),
+			  #<_4>(( 'all'
+				  -| ['compiler_generated'] ),8,'binary',['unsigned'|['big']])}#> when 'true' ->
+		  %% Line 860
+		  {'bb',0,Binary,Binary}
+	      %% Line 861
+	      <Binary0>
+		  when call 'erlang':'is_binary'
+			(( _0
+			   -| [{'function',{'open_file',1}}] )) ->
+		  let <Binary> =
+		      apply %% Line 862
+			    'uncompress'/1
+			  (%% Line 862
+			   Binary0)
+		  in  %% Line 863
+		      {'bb',0,Binary,Binary}
+	      %% Line 864
+	      <FileName> when 'true' ->
+		  %% Line 865
+		  case call 'file':'open'
+			   (FileName, ['read'|['raw'|['binary']]]) of
+		    %% Line 866
+		    <{'ok',Fd}> when 'true' ->
+			%% Line 867
+			apply 'read_all'/3
+			    (Fd, FileName, [])
+		    %% Line 868
+		    <Error> when 'true' ->
+			%% Line 869
+			apply 'file_error'/2
+			    (FileName, Error)
+		  end
+	    end
+	    -| [{'function',{'open_file',1}}] )
+      -| [{'function',{'open_file',1}}] )
+'read_all'/3 =
+    %% Line 872
+    ( fun (_0,_1,_2) ->
+	  %% Line 873
+	  case call 'file':'read'
+		   (_0, 262144) of
+	    %% Line 874
+	    <{'ok',Bin}> when 'true' ->
+		%% Line 875
+		apply 'read_all'/3
+		    (_0, _1, [Bin|_2])
+	    %% Line 876
+	    <'eof'> when 'true' ->
+		%% Line 877
+		case call 'file':'close'
+			 (_0) of
+		  <'ok'> when 'true' ->
+		      let <_5> =
+			  call %% Line 878
+			       'lists':%% Line 878
+				       'reverse'
+			      (_2)
+		      in  let <_6> =
+			      apply %% Line 878
+				    'uncompress'/1
+				  (_5)
+			  in  %% Line 878
+			      {'bb',0,_6,_1}
+		  ( <_4> when 'true' ->
+			primop 'match_fail'
+			    ({'badmatch',_4})
+		    -| ['compiler_generated'] )
+		end
+	    %% Line 879
+	    <Error> when 'true' ->
+		%% Line 880
+		case call 'file':'close'
+			 (_0) of
+		  <'ok'> when 'true' ->
+		      %% Line 881
+		      apply 'file_error'/2
+			  (_1, Error)
+		  ( <_7> when 'true' ->
+			primop 'match_fail'
+			    ({'badmatch',_7})
+		    -| ['compiler_generated'] )
+		end
+	  end
+      -| [{'function',{'read_all',3}}] )
+'pread'/3 =
+    %% Line 884
+    ( fun (_0,_1,_2) ->
+	  %% Line 885
+	  case _0 of
+	    <{'bb',Pos,Binary,_21}> when 'true' ->
+		let <Skip> =
+		    call %% Line 886
+			 'erlang':%% Line 886
+				  '-'
+			(_1, %% Line 886
+			     Pos)
+		in  %% Line 887
+		    case Binary of
+		      %% Line 888
+		      <#{#<_22>(Skip,8,'binary',['unsigned'|['big']]),
+			 #<B>(_2,8,'binary',['unsigned'|['big']]),
+			 #<Bin>(( 'all'
+				  -| ['compiler_generated'] ),8,'binary',['unsigned'|['big']])}#> when 'true' ->
+			  let <_rec0> =
+			      call %% Line 889
+				   'erlang':%% Line 889
+					    '+'
+				  (_1, _2)
+			  in  %% Line 889
+			      case _0 of
+				<{'bb',_rec2,_rec3,_rec4}> when 'true' ->
+				    let <_8> =
+					{'bb',_rec0,Bin,_rec4}
+				    in  %% Line 890
+					{_8,{'ok',B}}
+				( <_23> when 'true' ->
+				      ( call ( 'erlang'
+					       -| ['compiler_generated'] ):( 'error'
+									     -| ['compiler_generated'] )
+					    (( {'badrecord','bb'}
+					       -| ['compiler_generated'] ))
+					-| ['compiler_generated'] )
+				  -| ['compiler_generated'] )
+			      end
+		      %% Line 891
+		      <#{#<_24>(Skip,8,'binary',['unsigned'|['big']]),
+			 #<Bin>(( 'all'
+				  -| ['compiler_generated'] ),8,'binary',['unsigned'|['big']])}#>
+			  when try
+				let <_10> =
+				    call 'erlang':'byte_size'
+					(Bin)
+				in  call 'erlang':'>'
+					(_10, 0)
+			    of <Try> ->
+				Try
+			    catch <T,R> ->
+				'false' ->
+			  let <_11> =
+			      call %% Line 892
+				   'erlang':%% Line 892
+					    'byte_size'
+				  (%% Line 892
+				   Bin)
+			  in  let <_rec5> =
+				  call %% Line 892
+				       'erlang':%% Line 892
+						'+'
+				      (_1, _11)
+			      in  %% Line 892
+				  case _0 of
+				    <{'bb',_rec7,_rec8,_rec9}> when 'true' ->
+					let <_15> =
+					    {'bb',_rec5,#{}#,_rec9}
+					in  %% Line 893
+					    {_15,{'ok',Bin}}
+				    ( <_25> when 'true' ->
+					  ( call ( 'erlang'
+						   -| ['compiler_generated'] ):( 'error'
+										 -| ['compiler_generated'] )
+						(( {'badrecord','bb'}
+						   -| ['compiler_generated'] ))
+					    -| ['compiler_generated'] )
+				      -| ['compiler_generated'] )
+				  end
+		      %% Line 894
+		      <_26> when 'true' ->
+			  %% Line 895
+			  {_0,'eof'}
+		    end
+	    ( <_3> when 'true' ->
+		  primop 'match_fail'
+		      ({'badmatch',_3})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'pread',3}}] )
+'filename'/1 =
+    %% Line 898
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'filename',1}}] ) of
+	      <BB = {'bb',_11,_12,_13}>
+		  when ( try
+			  let <_5> =
+			      call 'erlang':'element'
+				  (4, BB)
+			  in  let <_6> =
+				  call 'erlang':'is_binary'
+				      (_5)
+			      in  ( call ( 'erlang'
+					   -| ['compiler_generated'] ):( 'and'
+									 -| ['compiler_generated'] )
+					(( 'true'
+					   -| ['compiler_generated'] ), _6)
+				    -| ['compiler_generated'] )
+		      of <Try> ->
+			  Try
+		      catch <T,R> ->
+			  'false'
+		      -| ['compiler_generated'] ) ->
+		  %% Line 899
+		  ( case BB of
+		      ( <( {'bb',_14,_15,_rec10}
+			   -| ['compiler_generated'] )> when 'true' ->
+			    _rec10
+			-| ['compiler_generated'] )
+		      ( <_16> when 'true' ->
+			    ( call ( 'erlang'
+				     -| ['compiler_generated'] ):( 'error'
+								   -| ['compiler_generated'] )
+				  (( {'badrecord','bb'}
+				     -| ['compiler_generated'] ))
+			      -| ['compiler_generated'] )
+			-| ['compiler_generated'] )
+		    end
+		    -| ['compiler_generated'] )
+	      %% Line 900
+	      <BB> when 'true' ->
+		  %% Line 901
+		  ( case BB of
+		      ( <( {'bb',_17,_18,_rec11}
+			   -| ['compiler_generated'] )> when 'true' ->
+			    call 'erlang':'list_to_atom'
+				(_rec11)
+			-| ['compiler_generated'] )
+		      ( <_19> when 'true' ->
+			    ( call ( 'erlang'
+				     -| ['compiler_generated'] ):( 'error'
+								   -| ['compiler_generated'] )
+				  (( {'badrecord','bb'}
+				     -| ['compiler_generated'] ))
+			      -| ['compiler_generated'] )
+			-| ['compiler_generated'] )
+		    end
+		    -| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'filename',1}}] )
+      -| [{'function',{'filename',1}}] )
+'beam_filename'/1 =
+    %% Line 903
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'beam_filename',1}}] ) of
+	      <Bin>
+		  when call 'erlang':'is_binary'
+			(( _0
+			   -| [{'function',{'beam_filename',1}}] )) ->
+		  %% Line 904
+		  Bin
+	      %% Line 905
+	      <File> when 'true' ->
+		  let <_1> =
+		      call %% Line 906
+			   'filename':%% Line 906
+				      'rootname'
+			  (%% Line 906
+			   File, %% Line 906
+				 [46|[98|[101|[97|[109]]]]])
+		  in  %% Line 906
+		      call 'erlang':'++'
+			  (_1, [46|[98|[101|[97|[109]]]]])
+	    end
+	    -| [{'function',{'beam_filename',1}}] )
+      -| [{'function',{'beam_filename',1}}] )
+'uncompress'/1 =
+    %% Line 909
+    ( fun (_0) ->
+	  %% Line 910
+	  case call 'ram_file':'open'
+		   (( _0
+		      -| [{'function',{'uncompress',1}}] ), ['write'|['binary']]) of
+	    <{'ok',Fd}> when 'true' ->
+		%% Line 911
+		case call 'ram_file':'uncompress'
+			 (Fd) of
+		  <{'ok',_6}> when 'true' ->
+		      %% Line 912
+		      case call 'ram_file':'get_file'
+			       (Fd) of
+			<{'ok',Binary}> when 'true' ->
+			    %% Line 913
+			    case call 'ram_file':'close'
+				     (Fd) of
+			      <'ok'> when 'true' ->
+				  %% Line 914
+				  Binary
+			      ( <_4> when 'true' ->
+				    primop 'match_fail'
+					({'badmatch',_4})
+				-| ['compiler_generated'] )
+			    end
+			( <_3> when 'true' ->
+			      primop 'match_fail'
+				  ({'badmatch',_3})
+			  -| ['compiler_generated'] )
+		      end
+		  ( <_2> when 'true' ->
+			primop 'match_fail'
+			    ({'badmatch',_2})
+		    -| ['compiler_generated'] )
+		end
+	    ( <_1> when 'true' ->
+		  primop 'match_fail'
+		      ({'badmatch',_1})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'uncompress',1}}] )
+'compress'/1 =
+    %% Line 916
+    ( fun (_0) ->
+	  %% Line 917
+	  case call 'ram_file':'open'
+		   (( _0
+		      -| [{'function',{'compress',1}}] ), ['write'|['binary']]) of
+	    <{'ok',Fd}> when 'true' ->
+		%% Line 918
+		case call 'ram_file':'compress'
+			 (Fd) of
+		  <{'ok',_6}> when 'true' ->
+		      %% Line 919
+		      case call 'ram_file':'get_file'
+			       (Fd) of
+			<{'ok',Binary}> when 'true' ->
+			    %% Line 920
+			    case call 'ram_file':'close'
+				     (Fd) of
+			      <'ok'> when 'true' ->
+				  %% Line 921
+				  Binary
+			      ( <_4> when 'true' ->
+				    primop 'match_fail'
+					({'badmatch',_4})
+				-| ['compiler_generated'] )
+			    end
+			( <_3> when 'true' ->
+			      primop 'match_fail'
+				  ({'badmatch',_3})
+			  -| ['compiler_generated'] )
+		      end
+		  ( <_2> when 'true' ->
+			primop 'match_fail'
+			    ({'badmatch',_2})
+		    -| ['compiler_generated'] )
+		end
+	    ( <_1> when 'true' ->
+		  primop 'match_fail'
+		      ({'badmatch',_1})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'compress',1}}] )
+'assert_directory'/1 =
+    %% Line 924
+    ( fun (_0) ->
+	  %% Line 925
+	  case call 'filelib':'is_dir'
+		   (( _0
+		      -| [{'function',{'assert_directory',1}}] )) of
+	    %% Line 926
+	    <'true'> when 'true' ->
+		%% Line 927
+		'ok'
+	    %% Line 928
+	    <'false'> when 'true' ->
+		%% Line 929
+		apply 'error'/1
+		    ({'not_a_directory',( _0
+					  -| [{'function',{'assert_directory',1}}] )})
+	    ( <_1> when 'true' ->
+		  primop 'match_fail'
+		      ({'case_clause',_1})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'assert_directory',1}}] )
+'file_error'/2 =
+    %% Line 934
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <FileName,{'error',Reason}> when 'true' ->
+		  %% Line 935
+		  apply 'error'/1
+		      ({'file_error',FileName,Reason})
+	      ( <_3,_2> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_3,_2})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'file_error',2}}] )
+      -| [{'function',{'file_error',2}}] )
+'error'/1 =
+    %% Line 939
+    ( fun (_0) ->
+	  %% Line 940
+	  call 'erlang':'throw'
+	      ({'error','beam_lib',( _0
+				     -| [{'function',{'error',1}}] )})
+      -| [{'function',{'error',1}}] )
+'significant_chunks'/0 =
+    %% Line 944
+    ( fun () ->
+	  let <_0> =
+	      apply %% Line 945
+		    'md5_chunks'/0
+		  ()
+	  in  %% Line 945
+	      [[76|[105|[110|[101]]]]|_0]
+      -| [{'function',{'significant_chunks',0}}] )
+'md5_chunks'/0 =
+    %% Line 950
+    ( fun () ->
+	  %% Line 951
+	  [[65|[116|[111|[109]]]]|[[65|[116|[85|[56]]]]|[[67|[111|[100|[101]]]]|[[83|[116|[114|[84]]]]|[[73|[109|[112|[84]]]]|[[69|[120|[112|[84]]]]|[[70|[117|[110|[84]]]]|[[76|[105|[116|[84]]]]]]]]]]]]
+      -| [{'function',{'md5_chunks',0}}] )
+'mandatory_chunks'/0 =
+    %% Line 955
+    ( fun () ->
+	  %% Line 956
+	  [[67|[111|[100|[101]]]]|[[69|[120|[112|[84]]]]|[[73|[109|[112|[84]]]]|[[83|[116|[114|[84]]]]]]]]
+      -| [{'function',{'mandatory_chunks',0}}] )
+'decrypt_chunk'/5 =
+    %% Line 971
+    ( fun (_0,_1,_2,_3,_4) ->
+	  %% Line 972
+	  try
+	      let <KeyString> =
+		  apply %% Line 973
+			'get_crypto_key'/1
+		      (%% Line 973
+		       {'debug_info',_0,_1,_2})
+	      in  %% Line 974
+		  case apply 'make_crypto_key'/2
+			   (_0, KeyString) of
+		    <{_18,Key,IVec,_X_BlockSize}>
+			when call 'erlang':'=:='
+			      (_18,
+			       _0) ->
+			%% Line 975
+			case apply 'start_crypto'/0
+				 () of
+			  <'ok'> when 'true' ->
+			      let <NewBin> =
+				  call %% Line 976
+				       'crypto':%% Line 976
+						'crypto_one_time'
+				      (%% Line 976
+				       'des_ede3_cbc', %% Line 976
+						       Key, %% Line 976
+							    IVec, _4, %% Line 976
+								      'false')
+			      in  %% Line 977
+				  call 'erlang':'binary_to_term'
+				      (NewBin)
+			  ( <_7> when 'true' ->
+				primop 'match_fail'
+				    ({'badmatch',_7})
+			    -| ['compiler_generated'] )
+			end
+		    ( <_6> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_6})
+		      -| ['compiler_generated'] )
+		  end
+	  of <_9> ->
+	      _9
+	  catch <_12,_11,_10> ->
+	      %% Line 980
+	      apply 'error'/1
+		  ({'key_missing_or_invalid',_2,_3})
+      -| [{'function',{'decrypt_chunk',5}}] )
+'old_anno_from_term'/1 =
+    %% Line 983
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'old_anno_from_term',1}}] ) of
+	      <{'raw_abstract_v1',Forms}> when 'true' ->
+		  let <_1> =
+		      apply %% Line 984
+			    'anno_from_forms'/1
+			  (%% Line 984
+			   Forms)
+		  in  %% Line 984
+		      {'raw_abstract_v1',_1}
+	      %% Line 985
+	      <_@r0 = {Tag,Forms}>
+		  when let <_2> =
+			call 'erlang':'=:='
+			    (Tag, 'abstract_v1')
+		    in  let <_3> =
+			    call %% Line 986
+				 'erlang':%% Line 986
+					  '=:='
+				(%% Line 986
+				 Tag, %% Line 986
+				      'abstract_v2')
+			in  call 'erlang':'or'
+				(_2, _3) ->
+		  %% Line 987
+		  try
+		      let <_4> =
+			  apply 'anno_from_forms'/1
+			      (Forms)
+		      in  {Tag,_4}
+		  of <_5> ->
+		      _5
+		  catch <_8,_7,_6> ->
+		      %% Line 990
+		      _@r0
+	      %% Line 992
+	      <T> when 'true' ->
+		  %% Line 993
+		  T
+	    end
+	    -| [{'function',{'old_anno_from_term',1}}] )
+      -| [{'function',{'old_anno_from_term',1}}] )
+'anno_from_term'/1 =
+    %% Line 995
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'anno_from_term',1}}] ) of
+	      <_@r0 = {Tag1 = 'debug_info_v1',Tag2 = 'erl_abstract_code',{Forms,Opts}}> when 'true' ->
+		  %% Line 996
+		  try
+		      let <_1> =
+			  apply 'anno_from_forms'/1
+			      (Forms)
+		      in  {Tag1,Tag2,{_1,Opts}}
+		  of <_2> ->
+		      _2
+		  catch <_5,_4,_3> ->
+		      %% Line 999
+		      _@r0
+	      %% Line 1001
+	      <T> when 'true' ->
+		  %% Line 1002
+		  T
+	    end
+	    -| [{'function',{'anno_from_term',1}}] )
+      -| [{'function',{'anno_from_term',1}}] )
+'anno_from_forms'/1 =
+    %% Line 1004
+    ( fun (_0) ->
+	  let <Forms> =
+	      call %% Line 1008
+		   'epp':%% Line 1008
+			 'restore_typed_record_fields'
+		  (( _0
+		     -| [{'function',{'anno_from_forms',1}}] ))
+	  in  %% Line 1009
+	      ( letrec
+		    'lc$^0'/1 =
+			fun (_4) ->
+			    case _4 of
+			      <[Form|_3]> when 'true' ->
+				  let <_6> =
+				      call 'erl_parse':'anno_from_term'
+					  (Form)
+				  in  let <_7> =
+					  apply 'lc$^0'/1
+					      (_3)
+				      in  ( [_6|_7]
+					    -| ['compiler_generated'] )
+			      <[]> when 'true' ->
+				  []
+			      ( <_5> when 'true' ->
+				    primop 'match_fail'
+					({'function_clause',_5})
+				-| ['compiler_generated'] )
+			    end
+		in  apply 'lc$^0'/1
+			(Forms)
+		-| ['list_comprehension'] )
+      -| [{'function',{'anno_from_forms',1}}] )
+'start_crypto'/0 =
+    %% Line 1011
+    ( fun () ->
+	  %% Line 1012
+	  case call 'crypto':'start'
+		   () of
+	    %% Line 1013
+	    <{'error',{'already_started',_1}}> when 'true' ->
+		%% Line 1014
+		'ok'
+	    %% Line 1015
+	    <'ok'> when 'true' ->
+		%% Line 1016
+		'ok'
+	    ( <_0> when 'true' ->
+		  primop 'match_fail'
+		      ({'case_clause',_0})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'start_crypto',0}}] )
+'get_crypto_key'/1 =
+    %% Line 1019
+    ( fun (_0) ->
+	  %% Line 1020
+	  apply 'call_crypto_server'/1
+	      ({'get_crypto_key',( _0
+				   -| [{'function',{'get_crypto_key',1}}] )})
+      -| [{'function',{'get_crypto_key',1}}] )
+'call_crypto_server'/1 =
+    %% Line 1022
+    ( fun (_0) ->
+	  %% Line 1023
+	  try
+	      %% Line 1024
+	      call 'gen_server':'call'
+		  ('beam_lib__crypto_key_server', ( _0
+						    -| [{'function',{'call_crypto_server',1}}] ), 'infinity')
+	  of <_1> ->
+	      _1
+	  catch <_4,_3,_2> ->
+	      %% Line 1026
+	      case <_4,_3,_2> of
+		<( 'exit'
+		   -| ['compiler_generated'] ),( {( 'noproc'
+						    -| ['compiler_generated'] ),_6}
+						 -| ['compiler_generated'] ),_7> when 'true' ->
+		    %% Line 1028
+		    apply 'call_crypto_server_1'/1
+			(( _0
+			   -| [{'function',{'call_crypto_server',1}}] ))
+		%% Line 1029
+		<( 'exit'
+		   -| ['compiler_generated'] ),( {( 'normal'
+						    -| ['compiler_generated'] ),_8}
+						 -| ['compiler_generated'] ),_9> when 'true' ->
+		    %% Line 1031
+		    apply 'call_crypto_server_1'/1
+			(( _0
+			   -| [{'function',{'call_crypto_server',1}}] ))
+		( <_10,_11,_12> when 'true' ->
+		      primop 'raise'
+			  (_12, _11)
+		  -| ['compiler_generated'] )
+	      end
+      -| [{'function',{'call_crypto_server',1}}] )
+'call_crypto_server_1'/1 =
+    %% Line 1034
+    ( fun (_0) ->
+	  do  %% Line 1035
+	      case call 'gen_server':'start'
+		       ({'local','beam_lib__crypto_key_server'}, 'beam_lib', [], []) of
+		%% Line 1036
+		<{'ok',_3}> when 'true' ->
+		    'ok'
+		%% Line 1037
+		<{'error',{'already_started',_4}}> when 'true' ->
+		    'ok'
+		( <_1> when 'true' ->
+		      primop 'match_fail'
+			  ({'case_clause',_1})
+		  -| ['compiler_generated'] )
+	      end
+	      do  %% Line 1039
+		  call 'erlang':'yield'
+		      ()
+		  %% Line 1040
+		  apply 'call_crypto_server'/1
+		      (( _0
+			 -| [{'function',{'call_crypto_server_1',1}}] ))
+      -| [{'function',{'call_crypto_server_1',1}}] )
+'init'/1 =
+    %% Line 1044
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'init',1}}] ) of
+	      <[]> when 'true' ->
+		  %% Line 1045
+		  {'ok',{'state','undefined'}}
+	      ( <_1> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_1})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'init',1}}] )
+      -| [{'function',{'init',1}}] )
+'handle_call'/3 =
+    %% Line 1056
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <R = {'get_crypto_key',_34},From,S = {'state','undefined'}> when 'true' ->
+		  %% Line 1057
+		  case apply 'crypto_key_fun_from_file'/0
+			   () of
+		    %% Line 1058
+		    <'error'> when 'true' ->
+			%% Line 1059
+			{'reply','error',S}
+		    %% Line 1060
+		    <F>
+			when call 'erlang':'is_function'
+			      (F) ->
+			%% Line 1062
+			case S of
+			  <{'state',_rec13}> when 'true' ->
+			      let <_5> = {'state',F}
+			      in  apply 'handle_call'/3
+				      (R, From, _5)
+			  ( <_35> when 'true' ->
+				( call ( 'erlang'
+					 -| ['compiler_generated'] ):( 'error'
+								       -| ['compiler_generated'] )
+				      (( {'badrecord','state'}
+					 -| ['compiler_generated'] ))
+				  -| ['compiler_generated'] )
+			    -| ['compiler_generated'] )
+			end
+		    ( <_6> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_6})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 1064
+	      <{'get_crypto_key',What},From,S = {'state',F}> when 'true' ->
+		  %% Line 1065
+		  try
+		      let <Result> =
+			  apply %% Line 1066
+				F
+			      (%% Line 1066
+			       What)
+		      in  do  %% Line 1069
+			      call 'gen_server':'reply'
+				  (From, Result)
+			      do  %% Line 1070
+				  call 'erlang':'garbage_collect'
+				      ()
+				  %% Line 1071
+				  {'noreply',S}
+		  of <_8> ->
+		      _8
+		  catch <_11,_10,_9> ->
+		      %% Line 1074
+		      {'reply','error',S}
+	      %% Line 1076
+	      <{'crypto_key_fun',F},From = {_39,_40},S> when 'true' ->
+		  %% Line 1077
+		  ( case S of
+		      ( <( {'state',_rec14}
+			   -| ['compiler_generated'] )> when 'true' ->
+			    case _rec14 of
+			      %% Line 1078
+			      <'undefined'> when 'true' ->
+				  %% Line 1079
+				  case <> of
+				    <>
+					when try
+					      let <_14> =
+						  call 'erlang':'is_function'
+						      (F, 1)
+					      in  ( call 'erlang':'=:='
+							(_14, 'true')
+						    -| ['compiler_generated'] )
+					  of <Try> ->
+					      Try
+					  catch <T,R> ->
+					      'false' ->
+					let <_15> =
+					    catch
+						%% Line 1081
+						apply F
+						    ('init')
+					in  let <_47,_48,_49> =
+						case _15 of
+						  %% Line 1082
+						  <'ok'> when 'true' ->
+						      %% Line 1083
+						      <'true',F,'ok'>
+						  %% Line 1084
+						  <{'ok',F1}>
+						      when call 'erlang':'is_function'
+							    (F1) ->
+						      %% Line 1085
+						      case <> of
+							%% Line 1086
+							<>
+							    when try
+								  let <_16> =
+								      call 'erlang':'is_function'
+									  (F1, 1)
+								  in  ( call 'erlang':'=:='
+									    (_16, 'true')
+									-| ['compiler_generated'] )
+							      of <Try> ->
+								  Try
+							      catch <T,R> ->
+								  'false' ->
+							    %% Line 1087
+							    <'true',F1,'ok'>
+							%% Line 1088
+							<> when 'true' ->
+							    <'false','undefined',{'error','badfun'}>
+						      end
+						  %% Line 1092
+						  <_@r0 = {'error',Reason}> when 'true' ->
+						      %% Line 1093
+						      <'false','undefined',_@r0>
+						  %% Line 1094
+						  <{'EXIT',Reason}> when 'true' ->
+						      %% Line 1095
+						      <'false','undefined',{'error',Reason}>
+						  ( <_17> when 'true' ->
+							%% Line 1081
+							primop 'match_fail'
+							    ({'case_clause',_17})
+						    -| ['compiler_generated'] )
+						end
+					    in  do  %% Line 1097
+						    call 'gen_server':'reply'
+							(From, ( _49
+								 -| ['compiler_generated'] ))
+						    do  %% Line 1098
+							call 'erlang':'garbage_collect'
+							    ()
+							let <_23> =
+							    case ( _47
+								   -| ['compiler_generated'] ) of
+							      %% Line 1100
+							      <'true'> when 'true' ->
+								  %% Line 1101
+								  case S of
+								    <{'state',_rec16}> when 'true' ->
+									{'state',( _48
+										   -| ['compiler_generated'] )}
+								    ( <_42> when 'true' ->
+									  ( call ( 'erlang'
+										   -| ['compiler_generated'] ):( 'error'
+														 -| ['compiler_generated'] )
+										(( {'badrecord','state'}
+										   -| ['compiler_generated'] ))
+									    -| ['compiler_generated'] )
+								      -| ['compiler_generated'] )
+								  end
+							      %% Line 1102
+							      <'false'> when 'true' ->
+								  %% Line 1103
+								  S
+							      ( <_22> when 'true' ->
+								    %% Line 1099
+								    primop 'match_fail'
+									({'case_clause',_22})
+								-| ['compiler_generated'] )
+							    end
+							in  %% Line 1105
+							    {'noreply',_23}
+				    %% Line 1106
+				    <> when 'true' ->
+					%% Line 1107
+					{'reply',{'error','badfun'},S}
+				  end
+			      %% Line 1109
+			      <OtherF>
+				  when call 'erlang':'is_function'
+					(_rec14) ->
+				  %% Line 1110
+				  {'reply',{'error','exists'},S}
+			      ( <_25> when 'true' ->
+				    primop 'match_fail'
+					({'case_clause',_25})
+				-| ['compiler_generated'] )
+			    end
+			-| ['compiler_generated'] )
+		      ( <_41> when 'true' ->
+			    ( call ( 'erlang'
+				     -| ['compiler_generated'] ):( 'error'
+								   -| ['compiler_generated'] )
+				  (( {'badrecord','state'}
+				     -| ['compiler_generated'] ))
+			      -| ['compiler_generated'] )
+			-| ['compiler_generated'] )
+		    end
+		    -| ['compiler_generated'] )
+	      %% Line 1112
+	      <'clear_crypto_key_fun',_X_From,S> when 'true' ->
+		  %% Line 1113
+		  ( case S of
+		      ( <( {'state',_rec17}
+			   -| ['compiler_generated'] )> when 'true' ->
+			    case _rec17 of
+			      %% Line 1114
+			      <'undefined'> when 'true' ->
+				  %% Line 1115
+				  {'stop','normal','undefined',S}
+			      %% Line 1116
+			      <F> when 'true' ->
+				  let <_28> =
+				      catch
+					  %% Line 1117
+					  apply F
+					      ('clear')
+				  in  %% Line 1118
+				      {'stop','normal',{'ok',_28},S}
+			    end
+			-| ['compiler_generated'] )
+		      ( <_43> when 'true' ->
+			    ( call ( 'erlang'
+				     -| ['compiler_generated'] ):( 'error'
+								   -| ['compiler_generated'] )
+				  (( {'badrecord','state'}
+				     -| ['compiler_generated'] ))
+			      -| ['compiler_generated'] )
+			-| ['compiler_generated'] )
+		    end
+		    -| ['compiler_generated'] )
+	      ( <_33,_32,_31> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_33,_32,_31})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'handle_call',3}}] )
+      -| [{'function',{'handle_call',3}}] )
+'handle_cast'/2 =
+    %% Line 1123
+    ( fun (_0,_1) ->
+	  %% Line 1124
+	  {'noreply',_1}
+      -| [{'function',{'handle_cast',2}}] )
+'handle_info'/2 =
+    %% Line 1128
+    ( fun (_0,_1) ->
+	  %% Line 1129
+	  {'noreply',_1}
+      -| [{'function',{'handle_info',2}}] )
+'code_change'/3 =
+    %% Line 1133
+    ( fun (_0,_1,_2) ->
+	  %% Line 1134
+	  {'ok',_1}
+      -| [{'function',{'code_change',3}}] )
+'terminate'/2 =
+    %% Line 1138
+    ( fun (_0,_1) ->
+	  %% Line 1139
+	  'ok'
+      -| [{'function',{'terminate',2}}] )
+'crypto_key_fun_from_file'/0 =
+    %% Line 1141
+    ( fun () ->
+	  %% Line 1142
+	  case call 'init':'get_argument'
+		   ('home') of
+	    %% Line 1143
+	    <{'ok',[_@r0 = [Home|[]]|[]]}> when 'true' ->
+		%% Line 1144
+		apply 'crypto_key_fun_from_file_1'/1
+		    ([[46]|_@r0])
+	    %% Line 1145
+	    <_1> when 'true' ->
+		%% Line 1146
+		apply 'crypto_key_fun_from_file_1'/1
+		    ([[46]])
+	  end
+      -| [{'function',{'crypto_key_fun_from_file',0}}] )
+'crypto_key_fun_from_file_1'/1 =
+    %% Line 1149
+    ( fun (_0) ->
+	  %% Line 1150
+	  case apply 'f_p_s'/2
+		   (( _0
+		      -| [{'function',{'crypto_key_fun_from_file_1',1}}] ), [46|[101|[114|[108|[97|[110|[103|[46|[99|[114|[121|[112|[116]]]]]]]]]]]]]) of
+	    %% Line 1151
+	    <{'ok',KeyInfo,_3}> when 'true' ->
+		%% Line 1152
+		apply 'try_load_crypto_fun'/1
+		    (KeyInfo)
+	    %% Line 1153
+	    <_4> when 'true' ->
+		%% Line 1154
+		'error'
+	  end
+      -| [{'function',{'crypto_key_fun_from_file_1',1}}] )
+'f_p_s'/2 =
+    %% Line 1157
+    ( fun (_0,_1) ->
+	  %% Line 1158
+	  case call 'file':'path_script'
+		   (_0, _1) of
+	    %% Line 1159
+	    <{'error','enoent'}> when 'true' ->
+		%% Line 1160
+		{'error','enoent'}
+	    %% Line 1161
+	    <{'error',E = {Line,_X_Mod,_X_Term}}> when 'true' ->
+		let <_2> =
+		    call %% Line 1163
+			 'file':%% Line 1163
+				'format_error'
+			(%% Line 1163
+			 E)
+		in  do  %% Line 1162
+			apply 'error'/2
+			    ([102|[105|[108|[101|[58|[112|[97|[116|[104|[95|[115|[99|[114|[105|[112|[116|[40|[126|[116|[112|[44|[126|[116|[112|[41|[58|[32|[101|[114|[114|[111|[114|[32|[111|[110|[32|[108|[105|[110|[101|[32|[126|[112|[58|[32|[126|[116|[115|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], %% Line 1163
+																																							    [_0|[_1|[Line|[_2|[]]]]])
+			%% Line 1164
+			'ok'
+	    %% Line 1165
+	    <{'error',E}>
+		when call 'erlang':'is_atom'
+		      (E) ->
+		let <_3> =
+		    call %% Line 1167
+			 'file':%% Line 1167
+				'format_error'
+			(%% Line 1167
+			 E)
+		in  do  %% Line 1166
+			apply 'error'/2
+			    ([102|[105|[108|[101|[58|[112|[97|[116|[104|[95|[115|[99|[114|[105|[112|[116|[40|[126|[116|[112|[44|[126|[116|[112|[41|[58|[32|[126|[116|[115|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], %% Line 1167
+																										     [_0|[_1|[_3|[]]]])
+			%% Line 1168
+			'ok'
+	    %% Line 1169
+	    <Other> when 'true' ->
+		%% Line 1170
+		Other
+	  end
+      -| [{'function',{'f_p_s',2}}] )
+'try_load_crypto_fun'/1 =
+    %% Line 1173
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'try_load_crypto_fun',1}}] ) of
+	      <KeyInfo>
+		  when call 'erlang':'is_list'
+			(( _0
+			   -| [{'function',{'try_load_crypto_fun',1}}] )) ->
+		  let <T> =
+		      call %% Line 1174
+			   'ets':%% Line 1174
+				 'new'
+			  (%% Line 1174
+			   'keys', %% Line 1174
+				   ['private'|['set']])
+		  in  let <_4> =
+			  fun (_2) ->
+			      %% Line 1176
+			      case _2 of
+				<{'debug_info',Mode,M,Key}>
+				    when call 'erlang':'is_atom'
+					  (M) ->
+				    %% Line 1177
+				    call 'ets':'insert'
+					(T, {{'debug_info',Mode,M,[]},Key})
+				%% Line 1178
+				<{'debug_info',Mode,[],Key}> when 'true' ->
+				    %% Line 1179
+				    call 'ets':'insert'
+					(T, {{'debug_info',Mode,[],[]},Key})
+				%% Line 1180
+				<Other> when 'true' ->
+				    %% Line 1181
+				    apply 'error'/2
+					([117|[110|[107|[110|[111|[119|[110|[32|[107|[101|[121|[58|[32|[126|[112|[126|[110]]]]]]]]]]]]]]]]], [Other|[]])
+			      end
+		      in  do  %% Line 1175
+			      call 'lists':'foreach'
+				  (_4, %% Line 1182
+				       KeyInfo)
+			      %% Line 1183
+			      ( fun (_5) ->
+				    case _5 of
+				      <_@r0 = {'debug_info',Mode,M,F}> when 'true' ->
+					  %% Line 1184
+					  apply 'alt_lookup_key'/2
+					      (%% Line 1185
+					       [_@r0|%% Line 1186
+						     [{'debug_info',Mode,M,[]}|%% Line 1187
+									       [{'debug_info',Mode,[],[]}|[]]]], %% Line 1187
+														 T)
+				      %% Line 1188
+				      <'clear'> when 'true' ->
+					  %% Line 1189
+					  call 'ets':'delete'
+					      (T)
+				      %% Line 1190
+				      <_8> when 'true' ->
+					  %% Line 1191
+					  'error'
+				    end
+				-| [{'id',{0,0,'-try_load_crypto_fun/1-fun-1-'}}] )
+	      %% Line 1193
+	      <KeyInfo> when 'true' ->
+		  %% Line 1194
+		  apply 'error'/2
+		      ([117|[110|[114|[101|[99|[111|[103|[110|[105|[122|[101|[100|[32|[99|[114|[121|[112|[116|[111|[32|[107|[101|[121|[32|[105|[110|[102|[111|[58|[32|[126|[112|[10]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], [KeyInfo|[]])
+	    end
+	    -| [{'function',{'try_load_crypto_fun',1}}] )
+      -| [{'function',{'try_load_crypto_fun',1}}] )
+'alt_lookup_key'/2 =
+    %% Line 1196
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <[H|T],Tab> when 'true' ->
+		  %% Line 1197
+		  case call 'ets':'lookup'
+			   (Tab, H) of
+		    %% Line 1198
+		    <[]> when 'true' ->
+			%% Line 1199
+			apply 'alt_lookup_key'/2
+			    (T, Tab)
+		    %% Line 1200
+		    <[{_5,Val}|[]]> when 'true' ->
+			%% Line 1201
+			Val
+		    ( <_2> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_2})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 1203
+	      <[],_6> when 'true' ->
+		  %% Line 1204
+		  'error'
+	      ( <_4,_3> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_4,_3})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'alt_lookup_key',2}}] )
+      -| [{'function',{'alt_lookup_key',2}}] )
+'error'/2 =
+    %% Line 1206
+    ( fun (_0,_1) ->
+	  do  %% Line 1207
+	      call 'error_logger':'error_msg'
+		  (_0, _1)
+	      %% Line 1208
+	      'error'
+      -| [{'function',{'error',2}}] )
+'module_info'/0 =
+    ( fun () ->
+	  call 'erlang':'get_module_info'
+	      ('beam_lib')
+      -| [{'function',{'module_info',0}}] )
+'module_info'/1 =
+    ( fun (_0) ->
+	  call 'erlang':'get_module_info'
+	      ('beam_lib', ( _0
+			     -| [{'function',{'module_info',1}}] ))
+      -| [{'function',{'module_info',1}}] )
+end

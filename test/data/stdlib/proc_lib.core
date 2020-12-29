@@ -1,0 +1,3821 @@
+module 'proc_lib' ['format'/1,
+		   'format'/2,
+		   'format'/3,
+		   'hibernate'/3,
+		   'init_ack'/1,
+		   'init_ack'/2,
+		   'init_p'/3,
+		   'init_p'/5,
+		   'initial_call'/1,
+		   'module_info'/0,
+		   'module_info'/1,
+		   'report_cb'/2,
+		   'spawn'/1,
+		   'spawn'/2,
+		   'spawn'/3,
+		   'spawn'/4,
+		   'spawn_link'/1,
+		   'spawn_link'/2,
+		   'spawn_link'/3,
+		   'spawn_link'/4,
+		   'spawn_opt'/2,
+		   'spawn_opt'/3,
+		   'spawn_opt'/4,
+		   'spawn_opt'/5,
+		   'start'/3,
+		   'start'/4,
+		   'start'/5,
+		   'start_link'/3,
+		   'start_link'/4,
+		   'start_link'/5,
+		   'start_monitor'/3,
+		   'start_monitor'/4,
+		   'start_monitor'/5,
+		   'stop'/1,
+		   'stop'/3,
+		   'translate_initial_call'/1,
+		   'wake_up'/3]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[112|[114|[111|[99|[95|[108|[105|[98|[46|[101|[114|[108]]]]]]]]]]]]]]]],1}],
+		%% Line 42
+		'export_type' =
+		    %% Line 42
+		    [{'spawn_option',0}],
+		%% Line 43
+		'export_type' =
+		    %% Line 43
+		    [{'start_spawn_option',0}],
+		%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[47|[85|[115|[101|[114|[115|[47|[102|[101|[110|[103|[108|[101|[101|[47|[72|[97|[109|[108|[101|[114|[47|[111|[116|[112|[45|[79|[84|[80|[45|[50|[51|[46|[48|[45|[114|[99|[49|[47|[108|[105|[98|[47|[115|[116|[100|[108|[105|[98|[47|[46|[46|[47|[107|[101|[114|[110|[101|[108|[47|[105|[110|[99|[108|[117|[100|[101|[47|[108|[111|[103|[103|[101|[114|[46|[104|[114|[108]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]],1}],
+		%% Line 46
+		'file' =
+		    %% Line 46
+		    [{[115|[114|[99|[47|[112|[114|[111|[99|[95|[108|[105|[98|[46|[101|[114|[108]]]]]]]]]]]]]]]],46}],
+		%% Line 49
+		'type' =
+		    %% Line 49
+		    [{'start_spawn_option',{'type',49,'union',[{'atom',49,'link'}|[{'type',50,'tuple',[{'atom',50,'priority'}|[{'remote_type',50,[{'atom',50,'erlang'}|[{'atom',50,'priority_level'}|[[]]]]}]]}|[{'type',51,'tuple',[{'atom',51,'max_heap_size'}|[{'remote_type',51,[{'atom',51,'erlang'}|[{'atom',51,'max_heap_size'}|[[]]]]}]]}|[{'type',52,'tuple',[{'atom',52,'min_heap_size'}|[{'type',52,'non_neg_integer',[]}]]}|[{'type',53,'tuple',[{'atom',53,'min_bin_vheap_size'}|[{'type',53,'non_neg_integer',[]}]]}|[{'type',54,'tuple',[{'atom',54,'fullsweep_after'}|[{'type',54,'non_neg_integer',[]}]]}|[{'type',55,'tuple',[{'atom',55,'message_queue_data'}|[{'remote_type',55,[{'atom',55,'erlang'}|[{'atom',55,'message_queue_data'}|[[]]]]}]]}]]]]]]]},[]}],
+		%% Line 57
+		'type' =
+		    %% Line 57
+		    [{'spawn_option',{'remote_type',57,[{'atom',57,'erlang'}|[{'atom',57,'spawn_opt_option'}|[[]]]]},[]}],
+		%% Line 59
+		'type' =
+		    %% Line 59
+		    [{'dict_or_pid',{'type',59,'union',[{'type',59,'pid',[]}|[{'ann_type',60,[{'var',60,'ProcInfo'}|[{'type',60,'list',[{'var',60,'_'}]}]]}|[{'type',61,'tuple',[{'ann_type',61,[{'var',61,'X'}|[{'type',61,'integer',[]}]]}|[{'ann_type',61,[{'var',61,'Y'}|[{'type',61,'integer',[]}]]}|[{'ann_type',61,[{'var',61,'Z'}|[{'type',61,'integer',[]}]]}]]]}]]]},[]}],
+		%% Line 73
+		'spec' =
+		    %% Line 73
+		    [{{'spawn',1},[{'type',73,'bounded_fun',[{'type',73,'fun',[{'type',73,'product',[{'var',73,'Fun'}]}|[{'type',73,'pid',[]}]]}|[[{'type',74,'constraint',[{'atom',74,'is_subtype'}|[[{'var',74,'Fun'}|[{'type',74,'function',[]}]]]]}]]]}]}],
+		%% Line 81
+		'spec' =
+		    %% Line 81
+		    [{{'spawn',3},[{'type',81,'bounded_fun',[{'type',81,'fun',[{'type',81,'product',[{'var',81,'Module'}|[{'var',81,'Function'}|[{'var',81,'Args'}]]]}|[{'type',81,'pid',[]}]]}|[[{'type',82,'constraint',[{'atom',82,'is_subtype'}|[[{'var',82,'Module'}|[{'type',82,'module',[]}]]]]}|[{'type',83,'constraint',[{'atom',83,'is_subtype'}|[[{'var',83,'Function'}|[{'type',83,'atom',[]}]]]]}|[{'type',84,'constraint',[{'atom',84,'is_subtype'}|[[{'var',84,'Args'}|[{'type',84,'list',[{'type',84,'term',[]}]}]]]]}]]]]]}]}],
+		%% Line 91
+		'spec' =
+		    %% Line 91
+		    [{{'spawn_link',1},[{'type',91,'bounded_fun',[{'type',91,'fun',[{'type',91,'product',[{'var',91,'Fun'}]}|[{'type',91,'pid',[]}]]}|[[{'type',92,'constraint',[{'atom',92,'is_subtype'}|[[{'var',92,'Fun'}|[{'type',92,'function',[]}]]]]}]]]}]}],
+		%% Line 99
+		'spec' =
+		    %% Line 99
+		    [{{'spawn_link',3},[{'type',99,'bounded_fun',[{'type',99,'fun',[{'type',99,'product',[{'var',99,'Module'}|[{'var',99,'Function'}|[{'var',99,'Args'}]]]}|[{'type',99,'pid',[]}]]}|[[{'type',100,'constraint',[{'atom',100,'is_subtype'}|[[{'var',100,'Module'}|[{'type',100,'module',[]}]]]]}|[{'type',101,'constraint',[{'atom',101,'is_subtype'}|[[{'var',101,'Function'}|[{'type',101,'atom',[]}]]]]}|[{'type',102,'constraint',[{'atom',102,'is_subtype'}|[[{'var',102,'Args'}|[{'type',102,'list',[{'type',102,'term',[]}]}]]]]}]]]]]}]}],
+		%% Line 109
+		'spec' =
+		    %% Line 109
+		    [{{'spawn',2},[{'type',109,'bounded_fun',[{'type',109,'fun',[{'type',109,'product',[{'var',109,'Node'}|[{'var',109,'Fun'}]]}|[{'type',109,'pid',[]}]]}|[[{'type',110,'constraint',[{'atom',110,'is_subtype'}|[[{'var',110,'Node'}|[{'type',110,'node',[]}]]]]}|[{'type',111,'constraint',[{'atom',111,'is_subtype'}|[[{'var',111,'Fun'}|[{'type',111,'function',[]}]]]]}]]]]}]}],
+		%% Line 118
+		'spec' =
+		    %% Line 118
+		    [{{'spawn',4},[{'type',118,'bounded_fun',[{'type',118,'fun',[{'type',118,'product',[{'var',118,'Node'}|[{'var',118,'Module'}|[{'var',118,'Function'}|[{'var',118,'Args'}]]]]}|[{'type',118,'pid',[]}]]}|[[{'type',119,'constraint',[{'atom',119,'is_subtype'}|[[{'var',119,'Node'}|[{'type',119,'node',[]}]]]]}|[{'type',120,'constraint',[{'atom',120,'is_subtype'}|[[{'var',120,'Module'}|[{'type',120,'module',[]}]]]]}|[{'type',121,'constraint',[{'atom',121,'is_subtype'}|[[{'var',121,'Function'}|[{'type',121,'atom',[]}]]]]}|[{'type',122,'constraint',[{'atom',122,'is_subtype'}|[[{'var',122,'Args'}|[{'type',122,'list',[{'type',122,'term',[]}]}]]]]}]]]]]]}]}],
+		%% Line 129
+		'spec' =
+		    %% Line 129
+		    [{{'spawn_link',2},[{'type',129,'bounded_fun',[{'type',129,'fun',[{'type',129,'product',[{'var',129,'Node'}|[{'var',129,'Fun'}]]}|[{'type',129,'pid',[]}]]}|[[{'type',130,'constraint',[{'atom',130,'is_subtype'}|[[{'var',130,'Node'}|[{'type',130,'node',[]}]]]]}|[{'type',131,'constraint',[{'atom',131,'is_subtype'}|[[{'var',131,'Fun'}|[{'type',131,'function',[]}]]]]}]]]]}]}],
+		%% Line 138
+		'spec' =
+		    %% Line 138
+		    [{{'spawn_link',4},[{'type',138,'bounded_fun',[{'type',138,'fun',[{'type',138,'product',[{'var',138,'Node'}|[{'var',138,'Module'}|[{'var',138,'Function'}|[{'var',138,'Args'}]]]]}|[{'type',138,'pid',[]}]]}|[[{'type',139,'constraint',[{'atom',139,'is_subtype'}|[[{'var',139,'Node'}|[{'type',139,'node',[]}]]]]}|[{'type',140,'constraint',[{'atom',140,'is_subtype'}|[[{'var',140,'Module'}|[{'type',140,'module',[]}]]]]}|[{'type',141,'constraint',[{'atom',141,'is_subtype'}|[[{'var',141,'Function'}|[{'type',141,'atom',[]}]]]]}|[{'type',142,'constraint',[{'atom',142,'is_subtype'}|[[{'var',142,'Args'}|[{'type',142,'list',[{'type',142,'term',[]}]}]]]]}]]]]]]}]}],
+		%% Line 149
+		'spec' =
+		    %% Line 149
+		    [{{'spawn_opt',2},[{'type',149,'bounded_fun',[{'type',149,'fun',[{'type',149,'product',[{'var',149,'Fun'}|[{'var',149,'SpawnOpts'}]]}|[{'type',149,'union',[{'type',149,'pid',[]}|[{'type',149,'tuple',[{'type',149,'pid',[]}|[{'type',149,'reference',[]}]]}]]}]]}|[[{'type',150,'constraint',[{'atom',150,'is_subtype'}|[[{'var',150,'Fun'}|[{'type',150,'function',[]}]]]]}|[{'type',151,'constraint',[{'atom',151,'is_subtype'}|[[{'var',151,'SpawnOpts'}|[{'type',151,'list',[{'user_type',151,'spawn_option',[]}]}]]]]}]]]]}]}],
+		%% Line 158
+		'spec' =
+		    %% Line 158
+		    [{{'spawn_opt',3},[{'type',158,'bounded_fun',[{'type',158,'fun',[{'type',158,'product',[{'var',158,'Node'}|[{'var',158,'Function'}|[{'var',158,'SpawnOpts'}]]]}|[{'type',158,'union',[{'type',158,'pid',[]}|[{'type',158,'tuple',[{'type',158,'pid',[]}|[{'type',158,'reference',[]}]]}]]}]]}|[[{'type',159,'constraint',[{'atom',159,'is_subtype'}|[[{'var',159,'Node'}|[{'type',159,'node',[]}]]]]}|[{'type',160,'constraint',[{'atom',160,'is_subtype'}|[[{'var',160,'Function'}|[{'type',160,'function',[]}]]]]}|[{'type',161,'constraint',[{'atom',161,'is_subtype'}|[[{'var',161,'SpawnOpts'}|[{'type',161,'list',[{'user_type',161,'spawn_option',[]}]}]]]]}]]]]]}]}],
+		%% Line 168
+		'spec' =
+		    %% Line 168
+		    [{{'spawn_opt',4},[{'type',168,'bounded_fun',[{'type',168,'fun',[{'type',168,'product',[{'var',168,'Module'}|[{'var',168,'Function'}|[{'var',168,'Args'}|[{'var',168,'SpawnOpts'}]]]]}|[{'type',168,'union',[{'type',168,'pid',[]}|[{'type',168,'tuple',[{'type',168,'pid',[]}|[{'type',168,'reference',[]}]]}]]}]]}|[[{'type',169,'constraint',[{'atom',169,'is_subtype'}|[[{'var',169,'Module'}|[{'type',169,'module',[]}]]]]}|[{'type',170,'constraint',[{'atom',170,'is_subtype'}|[[{'var',170,'Function'}|[{'type',170,'atom',[]}]]]]}|[{'type',171,'constraint',[{'atom',171,'is_subtype'}|[[{'var',171,'Args'}|[{'type',171,'list',[{'type',171,'term',[]}]}]]]]}|[{'type',172,'constraint',[{'atom',172,'is_subtype'}|[[{'var',172,'SpawnOpts'}|[{'type',172,'list',[{'user_type',172,'spawn_option',[]}]}]]]]}]]]]]]}]}],
+		%% Line 179
+		'spec' =
+		    %% Line 179
+		    [{{'spawn_opt',5},[{'type',179,'bounded_fun',[{'type',179,'fun',[{'type',179,'product',[{'var',179,'Node'}|[{'var',179,'Module'}|[{'var',179,'Function'}|[{'var',179,'Args'}|[{'var',179,'SpawnOpts'}]]]]]}|[{'type',179,'union',[{'type',179,'pid',[]}|[{'type',179,'tuple',[{'type',179,'pid',[]}|[{'type',179,'reference',[]}]]}]]}]]}|[[{'type',180,'constraint',[{'atom',180,'is_subtype'}|[[{'var',180,'Node'}|[{'type',180,'node',[]}]]]]}|[{'type',181,'constraint',[{'atom',181,'is_subtype'}|[[{'var',181,'Module'}|[{'type',181,'module',[]}]]]]}|[{'type',182,'constraint',[{'atom',182,'is_subtype'}|[[{'var',182,'Function'}|[{'type',182,'atom',[]}]]]]}|[{'type',183,'constraint',[{'atom',183,'is_subtype'}|[[{'var',183,'Args'}|[{'type',183,'list',[{'type',183,'term',[]}]}]]]]}|[{'type',184,'constraint',[{'atom',184,'is_subtype'}|[[{'var',184,'SpawnOpts'}|[{'type',184,'list',[{'user_type',184,'spawn_option',[]}]}]]]]}]]]]]]]}]}],
+		%% Line 196
+		'spec' =
+		    %% Line 196
+		    [{{'hibernate',3},[{'type',196,'bounded_fun',[{'type',196,'fun',[{'type',196,'product',[{'var',196,'Module'}|[{'var',196,'Function'}|[{'var',196,'Args'}]]]}|[{'type',196,'no_return',[]}]]}|[[{'type',197,'constraint',[{'atom',197,'is_subtype'}|[[{'var',197,'Module'}|[{'type',197,'module',[]}]]]]}|[{'type',198,'constraint',[{'atom',198,'is_subtype'}|[[{'var',198,'Function'}|[{'type',198,'atom',[]}]]]]}|[{'type',199,'constraint',[{'atom',199,'is_subtype'}|[[{'var',199,'Args'}|[{'type',199,'list',[{'type',199,'term',[]}]}]]]]}]]]]]}]}],
+		%% Line 204
+		'spec' =
+		    %% Line 204
+		    [{{'init_p',3},[{'type',204,'fun',[{'type',204,'product',[{'type',204,'pid',[]}|[{'type',204,'list',[{'type',204,'pid',[]}]}|[{'type',204,'function',[]}]]]}|[{'type',204,'term',[]}]]}]}],
+		%% Line 217
+		'spec' =
+		    %% Line 217
+		    [{{'init_p',5},[{'type',217,'fun',[{'type',217,'product',[{'type',217,'pid',[]}|[{'type',217,'list',[{'type',217,'pid',[]}]}|[{'type',217,'atom',[]}|[{'type',217,'atom',[]}|[{'type',217,'list',[{'type',217,'term',[]}]}]]]]]}|[{'type',217,'term',[]}]]}]}],
+		%% Line 232
+		'spec' =
+		    %% Line 232
+		    [{{'wake_up',3},[{'type',232,'fun',[{'type',232,'product',[{'type',232,'atom',[]}|[{'type',232,'atom',[]}|[{'type',232,'list',[{'type',232,'term',[]}]}]]]}|[{'type',232,'term',[]}]]}]}],
+		%% Line 262
+		'spec' =
+		    %% Line 262
+		    [{{'start',3},[{'type',262,'bounded_fun',[{'type',262,'fun',[{'type',262,'product',[{'var',262,'Module'}|[{'var',262,'Function'}|[{'var',262,'Args'}]]]}|[{'var',262,'Ret'}]]}|[[{'type',263,'constraint',[{'atom',263,'is_subtype'}|[[{'var',263,'Module'}|[{'type',263,'module',[]}]]]]}|[{'type',264,'constraint',[{'atom',264,'is_subtype'}|[[{'var',264,'Function'}|[{'type',264,'atom',[]}]]]]}|[{'type',265,'constraint',[{'atom',265,'is_subtype'}|[[{'var',265,'Args'}|[{'type',265,'list',[{'type',265,'term',[]}]}]]]]}|[{'type',266,'constraint',[{'atom',266,'is_subtype'}|[[{'var',266,'Ret'}|[{'type',266,'union',[{'type',266,'term',[]}|[{'type',266,'tuple',[{'atom',266,'error'}|[{'ann_type',266,[{'var',266,'Reason'}|[{'type',266,'term',[]}]]}]]}]]}]]]]}]]]]]]}]}],
+		%% Line 271
+		'spec' =
+		    %% Line 271
+		    [{{'start',4},[{'type',271,'bounded_fun',[{'type',271,'fun',[{'type',271,'product',[{'var',271,'Module'}|[{'var',271,'Function'}|[{'var',271,'Args'}|[{'var',271,'Time'}]]]]}|[{'var',271,'Ret'}]]}|[[{'type',272,'constraint',[{'atom',272,'is_subtype'}|[[{'var',272,'Module'}|[{'type',272,'module',[]}]]]]}|[{'type',273,'constraint',[{'atom',273,'is_subtype'}|[[{'var',273,'Function'}|[{'type',273,'atom',[]}]]]]}|[{'type',274,'constraint',[{'atom',274,'is_subtype'}|[[{'var',274,'Args'}|[{'type',274,'list',[{'type',274,'term',[]}]}]]]]}|[{'type',275,'constraint',[{'atom',275,'is_subtype'}|[[{'var',275,'Time'}|[{'type',275,'timeout',[]}]]]]}|[{'type',276,'constraint',[{'atom',276,'is_subtype'}|[[{'var',276,'Ret'}|[{'type',276,'union',[{'type',276,'term',[]}|[{'type',276,'tuple',[{'atom',276,'error'}|[{'ann_type',276,[{'var',276,'Reason'}|[{'type',276,'term',[]}]]}]]}]]}]]]]}]]]]]]]}]}],
+		%% Line 281
+		'spec' =
+		    %% Line 281
+		    [{{'start',5},[{'type',281,'bounded_fun',[{'type',281,'fun',[{'type',281,'product',[{'var',281,'Module'}|[{'var',281,'Function'}|[{'var',281,'Args'}|[{'var',281,'Time'}|[{'var',281,'SpawnOpts'}]]]]]}|[{'var',281,'Ret'}]]}|[[{'type',282,'constraint',[{'atom',282,'is_subtype'}|[[{'var',282,'Module'}|[{'type',282,'module',[]}]]]]}|[{'type',283,'constraint',[{'atom',283,'is_subtype'}|[[{'var',283,'Function'}|[{'type',283,'atom',[]}]]]]}|[{'type',284,'constraint',[{'atom',284,'is_subtype'}|[[{'var',284,'Args'}|[{'type',284,'list',[{'type',284,'term',[]}]}]]]]}|[{'type',285,'constraint',[{'atom',285,'is_subtype'}|[[{'var',285,'Time'}|[{'type',285,'timeout',[]}]]]]}|[{'type',286,'constraint',[{'atom',286,'is_subtype'}|[[{'var',286,'SpawnOpts'}|[{'type',286,'list',[{'user_type',286,'start_spawn_option',[]}]}]]]]}|[{'type',287,'constraint',[{'atom',287,'is_subtype'}|[[{'var',287,'Ret'}|[{'type',287,'union',[{'type',287,'term',[]}|[{'type',287,'tuple',[{'atom',287,'error'}|[{'ann_type',287,[{'var',287,'Reason'}|[{'type',287,'term',[]}]]}]]}]]}]]]]}]]]]]]]]}]}],
+		%% Line 306
+		'spec' =
+		    %% Line 306
+		    [{{'start_link',3},[{'type',306,'bounded_fun',[{'type',306,'fun',[{'type',306,'product',[{'var',306,'Module'}|[{'var',306,'Function'}|[{'var',306,'Args'}]]]}|[{'var',306,'Ret'}]]}|[[{'type',307,'constraint',[{'atom',307,'is_subtype'}|[[{'var',307,'Module'}|[{'type',307,'module',[]}]]]]}|[{'type',308,'constraint',[{'atom',308,'is_subtype'}|[[{'var',308,'Function'}|[{'type',308,'atom',[]}]]]]}|[{'type',309,'constraint',[{'atom',309,'is_subtype'}|[[{'var',309,'Args'}|[{'type',309,'list',[{'type',309,'term',[]}]}]]]]}|[{'type',310,'constraint',[{'atom',310,'is_subtype'}|[[{'var',310,'Ret'}|[{'type',310,'union',[{'type',310,'term',[]}|[{'type',310,'tuple',[{'atom',310,'error'}|[{'ann_type',310,[{'var',310,'Reason'}|[{'type',310,'term',[]}]]}]]}]]}]]]]}]]]]]]}]}],
+		%% Line 315
+		'spec' =
+		    %% Line 315
+		    [{{'start_link',4},[{'type',315,'bounded_fun',[{'type',315,'fun',[{'type',315,'product',[{'var',315,'Module'}|[{'var',315,'Function'}|[{'var',315,'Args'}|[{'var',315,'Time'}]]]]}|[{'var',315,'Ret'}]]}|[[{'type',316,'constraint',[{'atom',316,'is_subtype'}|[[{'var',316,'Module'}|[{'type',316,'module',[]}]]]]}|[{'type',317,'constraint',[{'atom',317,'is_subtype'}|[[{'var',317,'Function'}|[{'type',317,'atom',[]}]]]]}|[{'type',318,'constraint',[{'atom',318,'is_subtype'}|[[{'var',318,'Args'}|[{'type',318,'list',[{'type',318,'term',[]}]}]]]]}|[{'type',319,'constraint',[{'atom',319,'is_subtype'}|[[{'var',319,'Time'}|[{'type',319,'timeout',[]}]]]]}|[{'type',320,'constraint',[{'atom',320,'is_subtype'}|[[{'var',320,'Ret'}|[{'type',320,'union',[{'type',320,'term',[]}|[{'type',320,'tuple',[{'atom',320,'error'}|[{'ann_type',320,[{'var',320,'Reason'}|[{'type',320,'term',[]}]]}]]}]]}]]]]}]]]]]]]}]}],
+		%% Line 325
+		'spec' =
+		    %% Line 325
+		    [{{'start_link',5},[{'type',325,'bounded_fun',[{'type',325,'fun',[{'type',325,'product',[{'var',325,'Module'}|[{'var',325,'Function'}|[{'var',325,'Args'}|[{'var',325,'Time'}|[{'var',325,'SpawnOpts'}]]]]]}|[{'var',325,'Ret'}]]}|[[{'type',326,'constraint',[{'atom',326,'is_subtype'}|[[{'var',326,'Module'}|[{'type',326,'module',[]}]]]]}|[{'type',327,'constraint',[{'atom',327,'is_subtype'}|[[{'var',327,'Function'}|[{'type',327,'atom',[]}]]]]}|[{'type',328,'constraint',[{'atom',328,'is_subtype'}|[[{'var',328,'Args'}|[{'type',328,'list',[{'type',328,'term',[]}]}]]]]}|[{'type',329,'constraint',[{'atom',329,'is_subtype'}|[[{'var',329,'Time'}|[{'type',329,'timeout',[]}]]]]}|[{'type',330,'constraint',[{'atom',330,'is_subtype'}|[[{'var',330,'SpawnOpts'}|[{'type',330,'list',[{'user_type',330,'start_spawn_option',[]}]}]]]]}|[{'type',331,'constraint',[{'atom',331,'is_subtype'}|[[{'var',331,'Ret'}|[{'type',331,'union',[{'type',331,'term',[]}|[{'type',331,'tuple',[{'atom',331,'error'}|[{'ann_type',331,[{'var',331,'Reason'}|[{'type',331,'term',[]}]]}]]}]]}]]]]}]]]]]]]]}]}],
+		%% Line 348
+		'spec' =
+		    %% Line 348
+		    [{{'start_monitor',3},[{'type',348,'bounded_fun',[{'type',348,'fun',[{'type',348,'product',[{'var',348,'Module'}|[{'var',348,'Function'}|[{'var',348,'Args'}]]]}|[{'type',348,'tuple',[{'var',348,'Ret'}|[{'var',348,'Mon'}]]}]]}|[[{'type',349,'constraint',[{'atom',349,'is_subtype'}|[[{'var',349,'Module'}|[{'type',349,'module',[]}]]]]}|[{'type',350,'constraint',[{'atom',350,'is_subtype'}|[[{'var',350,'Function'}|[{'type',350,'atom',[]}]]]]}|[{'type',351,'constraint',[{'atom',351,'is_subtype'}|[[{'var',351,'Args'}|[{'type',351,'list',[{'type',351,'term',[]}]}]]]]}|[{'type',352,'constraint',[{'atom',352,'is_subtype'}|[[{'var',352,'Mon'}|[{'type',352,'reference',[]}]]]]}|[{'type',353,'constraint',[{'atom',353,'is_subtype'}|[[{'var',353,'Ret'}|[{'type',353,'union',[{'type',353,'term',[]}|[{'type',353,'tuple',[{'atom',353,'error'}|[{'ann_type',353,[{'var',353,'Reason'}|[{'type',353,'term',[]}]]}]]}]]}]]]]}]]]]]]]}]}],
+		%% Line 358
+		'spec' =
+		    %% Line 358
+		    [{{'start_monitor',4},[{'type',358,'bounded_fun',[{'type',358,'fun',[{'type',358,'product',[{'var',358,'Module'}|[{'var',358,'Function'}|[{'var',358,'Args'}|[{'var',358,'Time'}]]]]}|[{'type',358,'tuple',[{'var',358,'Ret'}|[{'var',358,'Mon'}]]}]]}|[[{'type',359,'constraint',[{'atom',359,'is_subtype'}|[[{'var',359,'Module'}|[{'type',359,'module',[]}]]]]}|[{'type',360,'constraint',[{'atom',360,'is_subtype'}|[[{'var',360,'Function'}|[{'type',360,'atom',[]}]]]]}|[{'type',361,'constraint',[{'atom',361,'is_subtype'}|[[{'var',361,'Args'}|[{'type',361,'list',[{'type',361,'term',[]}]}]]]]}|[{'type',362,'constraint',[{'atom',362,'is_subtype'}|[[{'var',362,'Time'}|[{'type',362,'timeout',[]}]]]]}|[{'type',363,'constraint',[{'atom',363,'is_subtype'}|[[{'var',363,'Mon'}|[{'type',363,'reference',[]}]]]]}|[{'type',364,'constraint',[{'atom',364,'is_subtype'}|[[{'var',364,'Ret'}|[{'type',364,'union',[{'type',364,'term',[]}|[{'type',364,'tuple',[{'atom',364,'error'}|[{'ann_type',364,[{'var',364,'Reason'}|[{'type',364,'term',[]}]]}]]}]]}]]]]}]]]]]]]]}]}],
+		%% Line 369
+		'spec' =
+		    %% Line 369
+		    [{{'start_monitor',5},[{'type',369,'bounded_fun',[{'type',369,'fun',[{'type',369,'product',[{'var',369,'Module'}|[{'var',369,'Function'}|[{'var',369,'Args'}|[{'var',369,'Time'}|[{'var',369,'SpawnOpts'}]]]]]}|[{'type',369,'tuple',[{'var',369,'Ret'}|[{'var',369,'Mon'}]]}]]}|[[{'type',370,'constraint',[{'atom',370,'is_subtype'}|[[{'var',370,'Module'}|[{'type',370,'module',[]}]]]]}|[{'type',371,'constraint',[{'atom',371,'is_subtype'}|[[{'var',371,'Function'}|[{'type',371,'atom',[]}]]]]}|[{'type',372,'constraint',[{'atom',372,'is_subtype'}|[[{'var',372,'Args'}|[{'type',372,'list',[{'type',372,'term',[]}]}]]]]}|[{'type',373,'constraint',[{'atom',373,'is_subtype'}|[[{'var',373,'Time'}|[{'type',373,'timeout',[]}]]]]}|[{'type',374,'constraint',[{'atom',374,'is_subtype'}|[[{'var',374,'SpawnOpts'}|[{'type',374,'list',[{'user_type',374,'start_spawn_option',[]}]}]]]]}|[{'type',375,'constraint',[{'atom',375,'is_subtype'}|[[{'var',375,'Mon'}|[{'type',375,'reference',[]}]]]]}|[{'type',376,'constraint',[{'atom',376,'is_subtype'}|[[{'var',376,'Ret'}|[{'type',376,'union',[{'type',376,'term',[]}|[{'type',376,'tuple',[{'atom',376,'error'}|[{'ann_type',376,[{'var',376,'Reason'}|[{'type',376,'term',[]}]]}]]}]]}]]]]}]]]]]]]]]}]}],
+		%% Line 397
+		'spec' =
+		    %% Line 397
+		    [{{'kill_flush',1},[{'type',397,'bounded_fun',[{'type',397,'fun',[{'type',397,'product',[{'var',397,'Pid'}]}|[{'atom',397,'ok'}]]}|[[{'type',398,'constraint',[{'atom',398,'is_subtype'}|[[{'var',398,'Pid'}|[{'type',398,'pid',[]}]]]]}]]]}]}],
+		%% Line 406
+		'spec' =
+		    %% Line 406
+		    [{{'init_ack',2},[{'type',406,'bounded_fun',[{'type',406,'fun',[{'type',406,'product',[{'var',406,'Parent'}|[{'var',406,'Ret'}]]}|[{'atom',406,'ok'}]]}|[[{'type',407,'constraint',[{'atom',407,'is_subtype'}|[[{'var',407,'Parent'}|[{'type',407,'pid',[]}]]]]}|[{'type',408,'constraint',[{'atom',408,'is_subtype'}|[[{'var',408,'Ret'}|[{'type',408,'term',[]}]]]]}]]]]}]}],
+		%% Line 414
+		'spec' =
+		    %% Line 414
+		    [{{'init_ack',1},[{'type',414,'bounded_fun',[{'type',414,'fun',[{'type',414,'product',[{'var',414,'Ret'}]}|[{'atom',414,'ok'}]]}|[[{'type',415,'constraint',[{'atom',415,'is_subtype'}|[[{'var',415,'Ret'}|[{'type',415,'term',[]}]]]]}]]]}]}],
+		%% Line 425
+		'spec' =
+		    %% Line 425
+		    [{{'initial_call',1},[{'type',425,'bounded_fun',[{'type',425,'fun',[{'type',425,'product',[{'var',425,'Process'}]}|[{'type',425,'union',[{'type',425,'tuple',[{'var',425,'Module'}|[{'var',425,'Function'}|[{'var',425,'Args'}]]]}|[{'atom',425,'false'}]]}]]}|[[{'type',426,'constraint',[{'atom',426,'is_subtype'}|[[{'var',426,'Process'}|[{'user_type',426,'dict_or_pid',[]}]]]]}|[{'type',427,'constraint',[{'atom',427,'is_subtype'}|[[{'var',427,'Module'}|[{'type',427,'module',[]}]]]]}|[{'type',428,'constraint',[{'atom',428,'is_subtype'}|[[{'var',428,'Function'}|[{'type',428,'atom',[]}]]]]}|[{'type',429,'constraint',[{'atom',429,'is_subtype'}|[[{'var',429,'Args'}|[{'type',429,'list',[{'type',429,'atom',[]}]}]]]]}]]]]]]}]}],
+		%% Line 452
+		'spec' =
+		    %% Line 452
+		    [{{'translate_initial_call',1},[{'type',452,'bounded_fun',[{'type',452,'fun',[{'type',452,'product',[{'var',452,'Process'}]}|[{'type',452,'tuple',[{'var',452,'Module'}|[{'var',452,'Function'}|[{'var',452,'Arity'}]]]}]]}|[[{'type',453,'constraint',[{'atom',453,'is_subtype'}|[[{'var',453,'Process'}|[{'user_type',453,'dict_or_pid',[]}]]]]}|[{'type',454,'constraint',[{'atom',454,'is_subtype'}|[[{'var',454,'Module'}|[{'type',454,'module',[]}]]]]}|[{'type',455,'constraint',[{'atom',455,'is_subtype'}|[[{'var',455,'Function'}|[{'type',455,'atom',[]}]]]]}|[{'type',456,'constraint',[{'atom',456,'is_subtype'}|[[{'var',456,'Arity'}|[{'type',456,'byte',[]}]]]]}]]]]]]}]}],
+		%% Line 555
+		'spec' =
+		    %% Line 555
+		    [{{'get_ancestors',1},[{'type',555,'fun',[{'type',555,'product',[{'type',555,'pid',[]}]}|[{'type',555,'tuple',[{'atom',555,'ancestors'}|[{'type',555,'list',[{'type',555,'pid',[]}]}]]}]]}]}],
+		%% Line 681
+		'spec' =
+		    %% Line 681
+		    [{{'neighbours',1},[{'type',681,'fun',[{'type',681,'product',[{'type',681,'pid',[]}]}|[{'type',681,'list',[{'type',681,'pid',[]}]}]]}]}],
+		%% Line 708
+		'spec' =
+		    %% Line 708
+		    [{{'adjacents',1},[{'type',708,'fun',[{'type',708,'product',[{'type',708,'pid',[]}]}|[{'type',708,'list',[{'type',708,'pid',[]}]}]]}]}],
+		%% Line 744
+		'spec' =
+		    %% Line 744
+		    [{{'get_ancestors',0},[{'type',744,'fun',[{'type',744,'product',[]}|[{'type',744,'list',[{'type',744,'pid',[]}]}]]}]}],
+		%% Line 770
+		'spec' =
+		    %% Line 770
+		    [{{'report_cb',2},[{'type',770,'bounded_fun',[{'type',770,'fun',[{'type',770,'product',[{'var',770,'CrashReport'}|[{'var',770,'FormatOpts'}]]}|[{'remote_type',770,[{'atom',770,'unicode'}|[{'atom',770,'chardata'}|[[]]]]}]]}|[[{'type',771,'constraint',[{'atom',771,'is_subtype'}|[[{'var',771,'CrashReport'}|[{'type',771,'map',[{'type',771,'map_field_assoc',[{'atom',771,'label'}|[{'type',771,'tuple',[{'atom',771,'proc_lib'}|[{'atom',771,'crash'}]]}]]}|[{'type',772,'map_field_assoc',[{'atom',772,'report'}|[{'type',772,'list',[{'type',772,'term',[]}]}]]}]]}]]]]}|[{'type',773,'constraint',[{'atom',773,'is_subtype'}|[[{'var',773,'FormatOpts'}|[{'remote_type',773,[{'atom',773,'logger'}|[{'atom',773,'report_cb_config'}|[[]]]]}]]]]}]]]]}]}],
+		%% Line 781
+		'spec' =
+		    %% Line 781
+		    [{{'format',1},[{'type',781,'bounded_fun',[{'type',781,'fun',[{'type',781,'product',[{'var',781,'CrashReport'}]}|[{'type',781,'string',[]}]]}|[[{'type',782,'constraint',[{'atom',782,'is_subtype'}|[[{'var',782,'CrashReport'}|[{'type',782,'list',[{'type',782,'term',[]}]}]]]]}]]]}]}],
+		%% Line 786
+		'spec' =
+		    %% Line 786
+		    [{{'format',2},[{'type',786,'bounded_fun',[{'type',786,'fun',[{'type',786,'product',[{'var',786,'CrashReport'}|[{'var',786,'Encoding'}]]}|[{'type',786,'string',[]}]]}|[[{'type',787,'constraint',[{'atom',787,'is_subtype'}|[[{'var',787,'CrashReport'}|[{'type',787,'list',[{'type',787,'term',[]}]}]]]]}|[{'type',788,'constraint',[{'atom',788,'is_subtype'}|[[{'var',788,'Encoding'}|[{'type',788,'union',[{'atom',788,'latin1'}|[{'atom',788,'unicode'}|[{'atom',788,'utf8'}]]]}]]]]}]]]]}]}],
+		%% Line 793
+		'spec' =
+		    %% Line 793
+		    [{{'format',3},[{'type',793,'bounded_fun',[{'type',793,'fun',[{'type',793,'product',[{'var',793,'CrashReport'}|[{'var',793,'Encoding'}|[{'var',793,'Depth'}]]]}|[{'type',793,'string',[]}]]}|[[{'type',794,'constraint',[{'atom',794,'is_subtype'}|[[{'var',794,'CrashReport'}|[{'type',794,'list',[{'type',794,'term',[]}]}]]]]}|[{'type',795,'constraint',[{'atom',795,'is_subtype'}|[[{'var',795,'Encoding'}|[{'type',795,'union',[{'atom',795,'latin1'}|[{'atom',795,'unicode'}|[{'atom',795,'utf8'}]]]}]]]]}|[{'type',796,'constraint',[{'atom',796,'is_subtype'}|[[{'var',796,'Depth'}|[{'type',796,'union',[{'atom',796,'unlimited'}|[{'type',796,'pos_integer',[]}]]}]]]]}]]]]]}]}],
+		%% Line 1053
+		'spec' =
+		    %% Line 1053
+		    [{{'stop',1},[{'type',1053,'bounded_fun',[{'type',1053,'fun',[{'type',1053,'product',[{'var',1053,'Process'}]}|[{'atom',1053,'ok'}]]}|[[{'type',1054,'constraint',[{'atom',1054,'is_subtype'}|[[{'var',1054,'Process'}|[{'type',1054,'union',[{'type',1054,'pid',[]}|[{'var',1054,'RegName'}|[{'type',1054,'tuple',[{'var',1054,'RegName'}|[{'type',1054,'node',[]}]]}]]]}]]]]}|[{'type',1055,'constraint',[{'atom',1055,'is_subtype'}|[[{'var',1055,'RegName'}|[{'type',1055,'atom',[]}]]]]}]]]]}]}],
+		%% Line 1059
+		'spec' =
+		    %% Line 1059
+		    [{{'stop',3},[{'type',1059,'bounded_fun',[{'type',1059,'fun',[{'type',1059,'product',[{'var',1059,'Process'}|[{'var',1059,'Reason'}|[{'var',1059,'Timeout'}]]]}|[{'atom',1059,'ok'}]]}|[[{'type',1060,'constraint',[{'atom',1060,'is_subtype'}|[[{'var',1060,'Process'}|[{'type',1060,'union',[{'type',1060,'pid',[]}|[{'var',1060,'RegName'}|[{'type',1060,'tuple',[{'var',1060,'RegName'}|[{'type',1060,'node',[]}]]}]]]}]]]]}|[{'type',1061,'constraint',[{'atom',1061,'is_subtype'}|[[{'var',1061,'RegName'}|[{'type',1061,'atom',[]}]]]]}|[{'type',1062,'constraint',[{'atom',1062,'is_subtype'}|[[{'var',1062,'Reason'}|[{'type',1062,'term',[]}]]]]}|[{'type',1063,'constraint',[{'atom',1063,'is_subtype'}|[[{'var',1063,'Timeout'}|[{'type',1063,'timeout',[]}]]]]}]]]]]]}]}],
+		%% Line 1081
+		'spec' =
+		    %% Line 1081
+		    [{{'do_stop',2},[{'type',1081,'bounded_fun',[{'type',1081,'fun',[{'type',1081,'product',[{'var',1081,'Process'}|[{'var',1081,'Reason'}]]}|[{'var',1081,'Fun'}]]}|[[{'type',1082,'constraint',[{'atom',1082,'is_subtype'}|[[{'var',1082,'Process'}|[{'type',1082,'union',[{'type',1082,'pid',[]}|[{'var',1082,'RegName'}|[{'type',1082,'tuple',[{'var',1082,'RegName'}|[{'type',1082,'node',[]}]]}]]]}]]]]}|[{'type',1083,'constraint',[{'atom',1083,'is_subtype'}|[[{'var',1083,'RegName'}|[{'type',1083,'atom',[]}]]]]}|[{'type',1084,'constraint',[{'atom',1084,'is_subtype'}|[[{'var',1084,'Reason'}|[{'type',1084,'term',[]}]]]]}|[{'type',1085,'constraint',[{'atom',1085,'is_subtype'}|[[{'var',1085,'Fun'}|[{'type',1085,'fun',[{'type',1085,'product',[]}|[{'type',1085,'no_return',[]}]]}]]]]}]]]]]]}]}]]
+'spawn'/1 =
+    %% Line 76
+    fun (_0) ->
+	case _0 of
+	  <F>
+	      when call 'erlang':'is_function'
+		    (_0) ->
+	      let <Parent> =
+		  apply %% Line 77
+			'get_my_name'/0
+		      ()
+	      in  let <Ancestors> =
+		      apply %% Line 78
+			    'get_ancestors'/0
+			  ()
+		  in  %% Line 79
+		      call 'erlang':'spawn'
+			  ('proc_lib', 'init_p', [Parent|[Ancestors|[F|[]]]])
+	  ( <_3> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_3})
+		  -| [{'function_name',{'spawn',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'spawn'/3 =
+    %% Line 86
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <M,F,A>
+	      when try
+		    let <_3> =
+			call 'erlang':'is_atom'
+			    (M)
+		    in  let <_4> =
+			    call 'erlang':'is_atom'
+				(F)
+			in  let <_5> =
+				call 'erlang':'is_list'
+				    (A)
+			    in  let <_6> =
+				    call 'erlang':'and'
+					(_4, _5)
+				in  call 'erlang':'and'
+					(_3, _6)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      let <Parent> =
+		  apply %% Line 87
+			'get_my_name'/0
+		      ()
+	      in  let <Ancestors> =
+		      apply %% Line 88
+			    'get_ancestors'/0
+			  ()
+		  in  %% Line 89
+		      call 'erlang':'spawn'
+			  ('proc_lib', 'init_p', [Parent|[Ancestors|[M|[F|[A|[]]]]]])
+	  ( <_11,_10,_9> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_11,_10,_9})
+		  -| [{'function_name',{'spawn',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'spawn_link'/1 =
+    %% Line 94
+    fun (_0) ->
+	case _0 of
+	  <F>
+	      when call 'erlang':'is_function'
+		    (_0) ->
+	      let <Parent> =
+		  apply %% Line 95
+			'get_my_name'/0
+		      ()
+	      in  let <Ancestors> =
+		      apply %% Line 96
+			    'get_ancestors'/0
+			  ()
+		  in  %% Line 97
+		      call 'erlang':'spawn_link'
+			  ('proc_lib', 'init_p', [Parent|[Ancestors|[F|[]]]])
+	  ( <_3> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_3})
+		  -| [{'function_name',{'spawn_link',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'spawn_link'/3 =
+    %% Line 104
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <M,F,A>
+	      when try
+		    let <_3> =
+			call 'erlang':'is_atom'
+			    (M)
+		    in  let <_4> =
+			    call 'erlang':'is_atom'
+				(F)
+			in  let <_5> =
+				call 'erlang':'is_list'
+				    (A)
+			    in  let <_6> =
+				    call 'erlang':'and'
+					(_4, _5)
+				in  call 'erlang':'and'
+					(_3, _6)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      let <Parent> =
+		  apply %% Line 105
+			'get_my_name'/0
+		      ()
+	      in  let <Ancestors> =
+		      apply %% Line 106
+			    'get_ancestors'/0
+			  ()
+		  in  %% Line 107
+		      call 'erlang':'spawn_link'
+			  ('proc_lib', 'init_p', [Parent|[Ancestors|[M|[F|[A|[]]]]]])
+	  ( <_11,_10,_9> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_11,_10,_9})
+		  -| [{'function_name',{'spawn_link',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'spawn'/2 =
+    %% Line 113
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Node,F>
+	      when call 'erlang':'is_function'
+		    (F) ->
+	      let <Parent> =
+		  apply %% Line 114
+			'get_my_name'/0
+		      ()
+	      in  let <Ancestors> =
+		      apply %% Line 115
+			    'get_ancestors'/0
+			  ()
+		  in  %% Line 116
+		      call 'erlang':'spawn'
+			  (Node, 'proc_lib', 'init_p', [Parent|[Ancestors|[F|[]]]])
+	  ( <_5,_4> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_5,_4})
+		  -| [{'function_name',{'spawn',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'spawn'/4 =
+    %% Line 124
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <Node,M,F,A>
+	      when try
+		    let <_4> =
+			call 'erlang':'is_atom'
+			    (M)
+		    in  let <_5> =
+			    call 'erlang':'is_atom'
+				(F)
+			in  let <_6> =
+				call 'erlang':'is_list'
+				    (A)
+			    in  let <_7> =
+				    call 'erlang':'and'
+					(_5, _6)
+				in  call 'erlang':'and'
+					(_4, _7)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      let <Parent> =
+		  apply %% Line 125
+			'get_my_name'/0
+		      ()
+	      in  let <Ancestors> =
+		      apply %% Line 126
+			    'get_ancestors'/0
+			  ()
+		  in  %% Line 127
+		      call 'erlang':'spawn'
+			  (Node, 'proc_lib', 'init_p', [Parent|[Ancestors|[M|[F|[A|[]]]]]])
+	  ( <_13,_12,_11,_10> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_13,_12,_11,_10})
+		  -| [{'function_name',{'spawn',4}}] )
+	    -| ['compiler_generated'] )
+	end
+'spawn_link'/2 =
+    %% Line 133
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Node,F>
+	      when call 'erlang':'is_function'
+		    (F) ->
+	      let <Parent> =
+		  apply %% Line 134
+			'get_my_name'/0
+		      ()
+	      in  let <Ancestors> =
+		      apply %% Line 135
+			    'get_ancestors'/0
+			  ()
+		  in  %% Line 136
+		      call 'erlang':'spawn_link'
+			  (Node, 'proc_lib', 'init_p', [Parent|[Ancestors|[F|[]]]])
+	  ( <_5,_4> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_5,_4})
+		  -| [{'function_name',{'spawn_link',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'spawn_link'/4 =
+    %% Line 144
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <Node,M,F,A>
+	      when try
+		    let <_4> =
+			call 'erlang':'is_atom'
+			    (M)
+		    in  let <_5> =
+			    call 'erlang':'is_atom'
+				(F)
+			in  let <_6> =
+				call 'erlang':'is_list'
+				    (A)
+			    in  let <_7> =
+				    call 'erlang':'and'
+					(_5, _6)
+				in  call 'erlang':'and'
+					(_4, _7)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      let <Parent> =
+		  apply %% Line 145
+			'get_my_name'/0
+		      ()
+	      in  let <Ancestors> =
+		      apply %% Line 146
+			    'get_ancestors'/0
+			  ()
+		  in  %% Line 147
+		      call 'erlang':'spawn_link'
+			  (Node, 'proc_lib', 'init_p', [Parent|[Ancestors|[M|[F|[A|[]]]]]])
+	  ( <_13,_12,_11,_10> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_13,_12,_11,_10})
+		  -| [{'function_name',{'spawn_link',4}}] )
+	    -| ['compiler_generated'] )
+	end
+'spawn_opt'/2 =
+    %% Line 153
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <F,Opts>
+	      when call 'erlang':'is_function'
+		    (F) ->
+	      let <Parent> =
+		  apply %% Line 154
+			'get_my_name'/0
+		      ()
+	      in  let <Ancestors> =
+		      apply %% Line 155
+			    'get_ancestors'/0
+			  ()
+		  in  %% Line 156
+		      call 'erlang':'spawn_opt'
+			  ('proc_lib', 'init_p', [Parent|[Ancestors|[F|[]]]], Opts)
+	  ( <_5,_4> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_5,_4})
+		  -| [{'function_name',{'spawn_opt',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'spawn_opt'/3 =
+    %% Line 163
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <Node,F,Opts>
+	      when call 'erlang':'is_function'
+		    (F) ->
+	      let <Parent> =
+		  apply %% Line 164
+			'get_my_name'/0
+		      ()
+	      in  let <Ancestors> =
+		      apply %% Line 165
+			    'get_ancestors'/0
+			  ()
+		  in  %% Line 166
+		      call 'erlang':'spawn_opt'
+			  (Node, 'proc_lib', 'init_p', [Parent|[Ancestors|[F|[]]]], Opts)
+	  ( <_7,_6,_5> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_7,_6,_5})
+		  -| [{'function_name',{'spawn_opt',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'spawn_opt'/4 =
+    %% Line 174
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <M,F,A,Opts>
+	      when try
+		    let <_4> =
+			call 'erlang':'is_atom'
+			    (M)
+		    in  let <_5> =
+			    call 'erlang':'is_atom'
+				(F)
+			in  let <_6> =
+				call 'erlang':'is_list'
+				    (A)
+			    in  let <_7> =
+				    call 'erlang':'and'
+					(_5, _6)
+				in  call 'erlang':'and'
+					(_4, _7)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      let <Parent> =
+		  apply %% Line 175
+			'get_my_name'/0
+		      ()
+	      in  let <Ancestors> =
+		      apply %% Line 176
+			    'get_ancestors'/0
+			  ()
+		  in  %% Line 177
+		      call 'erlang':'spawn_opt'
+			  ('proc_lib', 'init_p', [Parent|[Ancestors|[M|[F|[A|[]]]]]], Opts)
+	  ( <_13,_12,_11,_10> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_13,_12,_11,_10})
+		  -| [{'function_name',{'spawn_opt',4}}] )
+	    -| ['compiler_generated'] )
+	end
+'spawn_opt'/5 =
+    %% Line 186
+    fun (_0,_1,_2,_3,_4) ->
+	case <_0,_1,_2,_3,_4> of
+	  <Node,M,F,A,Opts>
+	      when try
+		    let <_5> =
+			call 'erlang':'is_atom'
+			    (M)
+		    in  let <_6> =
+			    call 'erlang':'is_atom'
+				(F)
+			in  let <_7> =
+				call 'erlang':'is_list'
+				    (A)
+			    in  let <_8> =
+				    call 'erlang':'and'
+					(_6, _7)
+				in  call 'erlang':'and'
+					(_5, _8)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      let <Parent> =
+		  apply %% Line 187
+			'get_my_name'/0
+		      ()
+	      in  let <Ancestors> =
+		      apply %% Line 188
+			    'get_ancestors'/0
+			  ()
+		  in  %% Line 189
+		      call 'erlang':'spawn_opt'
+			  (Node, 'proc_lib', 'init_p', [Parent|[Ancestors|[M|[F|[A|[]]]]]], Opts)
+	  ( <_15,_14,_13,_12,_11> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_15,_14,_13,_12,_11})
+		  -| [{'function_name',{'spawn_opt',5}}] )
+	    -| ['compiler_generated'] )
+	end
+'spawn_mon'/3 =
+    %% Line 191
+    fun (_0,_1,_2) ->
+	let <Parent> =
+	    apply %% Line 192
+		  'get_my_name'/0
+		()
+	in  let <Ancestors> =
+		apply %% Line 193
+		      'get_ancestors'/0
+		    ()
+	    in  %% Line 194
+		call 'erlang':'spawn_monitor'
+		    ('proc_lib', 'init_p', [Parent|[Ancestors|[_0|[_1|[_2|[]]]]]])
+'hibernate'/3 =
+    %% Line 201
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <M,F,A>
+	      when try
+		    let <_3> =
+			call 'erlang':'is_atom'
+			    (M)
+		    in  let <_4> =
+			    call 'erlang':'is_atom'
+				(F)
+			in  let <_5> =
+				call 'erlang':'is_list'
+				    (A)
+			    in  let <_6> =
+				    call 'erlang':'and'
+					(_4, _5)
+				in  call 'erlang':'and'
+					(_3, _6)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      %% Line 202
+	      call 'erlang':'hibernate'
+		  ('proc_lib', 'wake_up', [M|[F|[A|[]]]])
+	  ( <_9,_8,_7> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_9,_8,_7})
+		  -| [{'function_name',{'hibernate',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'init_p'/3 =
+    %% Line 206
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <Parent,Ancestors,Fun>
+	      when call 'erlang':'is_function'
+		    (Fun) ->
+	      do  %% Line 207
+		  call 'erlang':'put'
+		      ('$ancestors', [Parent|Ancestors])
+		  let <Mfa> =
+		      call %% Line 208
+			   'erlang':%% Line 208
+				    'fun_info_mfa'
+			  (%% Line 208
+			   Fun)
+		  in  do  %% Line 209
+			  call 'erlang':'put'
+			      ('$initial_call', Mfa)
+			  %% Line 210
+			  try
+			      %% Line 211
+			      apply Fun
+				  ()
+			  of <_4> ->
+			      _4
+			  catch <_7,_6,_5> ->
+			      let <Stacktrace> =
+				  primop 'build_stacktrace'
+				      (_5)
+			      in  %% Line 214
+				  apply 'exit_p'/3
+				      (_7, _6, Stacktrace)
+	  ( <_10,_9,_8> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_10,_9,_8})
+		  -| [{'function_name',{'init_p',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'init_p'/5 =
+    %% Line 219
+    fun (_0,_1,_2,_3,_4) ->
+	case <_0,_1,_2,_3,_4> of
+	  <Parent,Ancestors,M,F,A>
+	      when try
+		    let <_5> =
+			call 'erlang':'is_atom'
+			    (M)
+		    in  let <_6> =
+			    call 'erlang':'is_atom'
+				(F)
+			in  let <_7> =
+				call 'erlang':'is_list'
+				    (A)
+			    in  let <_8> =
+				    call 'erlang':'and'
+					(_6, _7)
+				in  call 'erlang':'and'
+					(_5, _8)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      do  %% Line 220
+		  call 'erlang':'put'
+		      ('$ancestors', [Parent|Ancestors])
+		  let <_9> =
+		      apply %% Line 221
+			    'trans_init'/3
+			  (%% Line 221
+			   M, %% Line 221
+			      F, %% Line 221
+				 A)
+		  in  do  %% Line 221
+			  call 'erlang':'put'
+			      ('$initial_call', _9)
+			  %% Line 222
+			  apply 'init_p_do_apply'/3
+			      (M, F, A)
+	  ( <_14,_13,_12,_11,_10> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_14,_13,_12,_11,_10})
+		  -| [{'function_name',{'init_p',5}}] )
+	    -| ['compiler_generated'] )
+	end
+'init_p_do_apply'/3 =
+    %% Line 224
+    fun (_0,_1,_2) ->
+	%% Line 225
+	try
+	    %% Line 226
+	    call 'erlang':'apply'
+		(_0, _1, _2)
+	of <_3> ->
+	    _3
+	catch <_6,_5,_4> ->
+	    let <Stacktrace> =
+		primop 'build_stacktrace'
+		    (_4)
+	    in  %% Line 229
+		apply 'exit_p'/3
+		    (_6, _5, Stacktrace)
+'wake_up'/3 =
+    %% Line 234
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <M,F,A>
+	      when try
+		    let <_3> =
+			call 'erlang':'is_atom'
+			    (M)
+		    in  let <_4> =
+			    call 'erlang':'is_atom'
+				(F)
+			in  let <_5> =
+				call 'erlang':'is_list'
+				    (A)
+			    in  let <_6> =
+				    call 'erlang':'and'
+					(_4, _5)
+				in  call 'erlang':'and'
+					(_3, _6)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      %% Line 235
+	      try
+		  %% Line 236
+		  call 'erlang':'apply'
+		      (M, F, A)
+	      of <_7> ->
+		  _7
+	      catch <_10,_9,_8> ->
+		  let <Stacktrace> =
+		      primop 'build_stacktrace'
+			  (_8)
+		  in  %% Line 239
+		      apply 'exit_p'/3
+			  (_10, _9, Stacktrace)
+	  ( <_13,_12,_11> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_13,_12,_11})
+		  -| [{'function_name',{'wake_up',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'exit_p'/3 =
+    %% Line 242
+    fun (_0,_1,_2) ->
+	%% Line 243
+	case call 'erlang':'get'
+		 ('$initial_call') of
+	  %% Line 244
+	  <{M,F,A}>
+	      when try
+		    let <_3> =
+			call 'erlang':'is_atom'
+			    (M)
+		    in  let <_4> =
+			    call 'erlang':'is_atom'
+				(F)
+			in  let <_5> =
+				call 'erlang':'is_integer'
+				    (A)
+			    in  let <_6> =
+				    call 'erlang':'and'
+					(_4, _5)
+				in  call 'erlang':'and'
+					(_3, _6)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      let <_7> =
+		  apply %% Line 245
+			'make_dummy_args'/2
+		      (%% Line 245
+		       A, %% Line 245
+			  [])
+	      in  let <MFA> = {%% Line 245
+		       M,%% Line 245
+			 F,_7}
+		  in  do  %% Line 246
+			  apply 'crash_report'/4
+			      (_0, _1, MFA, _2)
+			  let <_9> =
+			      apply %% Line 247
+				    'exit_reason'/3
+				  (_0, _1, _2)
+			  in  %% Line 247
+			      call 'erlang':'raise'
+				  ('exit', _9, _2)
+	  %% Line 248
+	  <_15> when 'true' ->
+	      do  %% Line 251
+		  apply 'crash_report'/4
+		      (_0, _1, [], _2)
+		  let <_10> =
+		      apply %% Line 252
+			    'exit_reason'/3
+			  (_0, _1, _2)
+		  in  %% Line 252
+		      call 'erlang':'raise'
+			  ('exit', _10, _2)
+	end
+'exit_reason'/3 =
+    %% Line 255
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <'error',Reason,Stacktrace> when 'true' ->
+	      %% Line 256
+	      {Reason,Stacktrace}
+	  %% Line 257
+	  <'exit',Reason,_X_Stacktrace> when 'true' ->
+	      %% Line 258
+	      Reason
+	  %% Line 259
+	  <'throw',Reason,Stacktrace> when 'true' ->
+	      %% Line 260
+	      {{'nocatch',Reason},Stacktrace}
+	  ( <_5,_4,_3> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_5,_4,_3})
+		  -| [{'function_name',{'exit_reason',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'start'/3 =
+    %% Line 268
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <M,F,A>
+	      when try
+		    let <_3> =
+			call 'erlang':'is_atom'
+			    (M)
+		    in  let <_4> =
+			    call 'erlang':'is_atom'
+				(F)
+			in  let <_5> =
+				call 'erlang':'is_list'
+				    (A)
+			    in  let <_6> =
+				    call 'erlang':'and'
+					(_4, _5)
+				in  call 'erlang':'and'
+					(_3, _6)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      %% Line 269
+	      apply 'start'/4
+		  (M, F, A, 'infinity')
+	  ( <_9,_8,_7> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_9,_8,_7})
+		  -| [{'function_name',{'start',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'start'/4 =
+    %% Line 278
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <M,F,A,Timeout>
+	      when try
+		    let <_4> =
+			call 'erlang':'is_atom'
+			    (M)
+		    in  let <_5> =
+			    call 'erlang':'is_atom'
+				(F)
+			in  let <_6> =
+				call 'erlang':'is_list'
+				    (A)
+			    in  let <_7> =
+				    call 'erlang':'and'
+					(_5, _6)
+				in  call 'erlang':'and'
+					(_4, _7)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      let <_8> =
+		  apply %% Line 279
+			'spawn_mon'/3
+		      (%% Line 279
+		       M, %% Line 279
+			  F, %% Line 279
+			     A)
+	      in  %% Line 279
+		  apply 'sync_start'/2
+		      (_8, Timeout)
+	  ( <_12,_11,_10,_9> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_12,_11,_10,_9})
+		  -| [{'function_name',{'start',4}}] )
+	    -| ['compiler_generated'] )
+	end
+'start'/5 =
+    %% Line 289
+    fun (_0,_1,_2,_3,_4) ->
+	case <_0,_1,_2,_3,_4> of
+	  <M,F,A,Timeout,SpawnOpts>
+	      when try
+		    let <_5> =
+			call 'erlang':'is_atom'
+			    (M)
+		    in  let <_6> =
+			    call 'erlang':'is_atom'
+				(F)
+			in  let <_7> =
+				call 'erlang':'is_list'
+				    (A)
+			    in  let <_8> =
+				    call 'erlang':'and'
+					(_6, _7)
+				in  call 'erlang':'and'
+					(_5, _8)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      do  %% Line 290
+		  case call 'lists':'member'
+			   ('monitor', SpawnOpts) of
+		    <'true'> when 'true' ->
+			call 'erlang':'error'
+			    ('badarg', [M|[F|[A|[Timeout|[SpawnOpts|[]]]]]])
+		    <'false'> when 'true' ->
+			'ok'
+		    ( <_9> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_9})
+		      -| ['compiler_generated'] )
+		  end
+		  let <_10> =
+		      call %% Line 291
+			   'proc_lib':%% Line 291
+				      'spawn_opt'
+			  (%% Line 291
+			   M, %% Line 291
+			      F, %% Line 291
+				 A, %% Line 291
+				    ['monitor'|SpawnOpts])
+		  in  %% Line 291
+		      apply 'sync_start'/2
+			  (_10, Timeout)
+	  ( <_15,_14,_13,_12,_11> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_15,_14,_13,_12,_11})
+		  -| [{'function_name',{'start',5}}] )
+	    -| ['compiler_generated'] )
+	end
+'sync_start'/2 =
+    %% Line 293
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <{Pid,Ref},Timeout> when 'true' ->
+	      %% Line 294
+	      receive
+		%% Line 295
+		<{'ack',_4,Return}>
+		    when call 'erlang':'=:='
+			  (_4,
+			   Pid) ->
+		    do  %% Line 296
+			call 'erlang':'demonitor'
+			    (Ref, ['flush'])
+			%% Line 297
+			Return
+		%% Line 298
+		<{'DOWN',_5,'process',_6,Reason}>
+		    when let <_7> =
+			  call 'erlang':'=:='
+			      (_5, Ref)
+		      in  let <_8> =
+			      call 'erlang':'=:='
+				  (_6, Pid)
+			  in  call 'erlang':'and'
+				  (_7, _8) ->
+		    %% Line 299
+		    {'error',Reason}
+	      after %% Line 300
+		    Timeout ->
+		do  %% Line 301
+		    call 'erlang':'demonitor'
+			(Ref, ['flush'])
+		    do  %% Line 302
+			apply 'kill_flush'/1
+			    (Pid)
+			%% Line 303
+			{'error','timeout'}
+	  ( <_3,_2> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_3,_2})
+		  -| [{'function_name',{'sync_start',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'start_link'/3 =
+    %% Line 312
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <M,F,A>
+	      when try
+		    let <_3> =
+			call 'erlang':'is_atom'
+			    (M)
+		    in  let <_4> =
+			    call 'erlang':'is_atom'
+				(F)
+			in  let <_5> =
+				call 'erlang':'is_list'
+				    (A)
+			    in  let <_6> =
+				    call 'erlang':'and'
+					(_4, _5)
+				in  call 'erlang':'and'
+					(_3, _6)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      %% Line 313
+	      apply 'start_link'/4
+		  (M, F, A, 'infinity')
+	  ( <_9,_8,_7> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_9,_8,_7})
+		  -| [{'function_name',{'start_link',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'start_link'/4 =
+    %% Line 322
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <M,F,A,Timeout>
+	      when try
+		    let <_4> =
+			call 'erlang':'is_atom'
+			    (M)
+		    in  let <_5> =
+			    call 'erlang':'is_atom'
+				(F)
+			in  let <_6> =
+				call 'erlang':'is_list'
+				    (A)
+			    in  let <_7> =
+				    call 'erlang':'and'
+					(_5, _6)
+				in  call 'erlang':'and'
+					(_4, _7)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      let <_8> =
+		  call %% Line 323
+		       'proc_lib':%% Line 323
+				  'spawn_link'
+		      (%% Line 323
+		       M, %% Line 323
+			  F, %% Line 323
+			     A)
+	      in  %% Line 323
+		  apply 'sync_start_link'/2
+		      (_8, Timeout)
+	  ( <_12,_11,_10,_9> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_12,_11,_10,_9})
+		  -| [{'function_name',{'start_link',4}}] )
+	    -| ['compiler_generated'] )
+	end
+'start_link'/5 =
+    %% Line 333
+    fun (_0,_1,_2,_3,_4) ->
+	case <_0,_1,_2,_3,_4> of
+	  <M,F,A,Timeout,SpawnOpts>
+	      when try
+		    let <_5> =
+			call 'erlang':'is_atom'
+			    (M)
+		    in  let <_6> =
+			    call 'erlang':'is_atom'
+				(F)
+			in  let <_7> =
+				call 'erlang':'is_list'
+				    (A)
+			    in  let <_8> =
+				    call 'erlang':'and'
+					(_6, _7)
+				in  call 'erlang':'and'
+					(_5, _8)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      do  %% Line 334
+		  case call 'lists':'member'
+			   ('monitor', SpawnOpts) of
+		    <'true'> when 'true' ->
+			call 'erlang':'error'
+			    ('badarg', [M|[F|[A|[Timeout|[SpawnOpts|[]]]]]])
+		    <'false'> when 'true' ->
+			'ok'
+		    ( <_9> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_9})
+		      -| ['compiler_generated'] )
+		  end
+		  let <_10> =
+		      call %% Line 335
+			   'proc_lib':%% Line 335
+				      'spawn_opt'
+			  (%% Line 335
+			   M, %% Line 335
+			      F, %% Line 335
+				 A, %% Line 335
+				    ['link'|SpawnOpts])
+		  in  %% Line 335
+		      apply 'sync_start_link'/2
+			  (_10, Timeout)
+	  ( <_15,_14,_13,_12,_11> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_15,_14,_13,_12,_11})
+		  -| [{'function_name',{'start_link',5}}] )
+	    -| ['compiler_generated'] )
+	end
+'sync_start_link'/2 =
+    %% Line 337
+    fun (_0,_1) ->
+	%% Line 338
+	receive
+	  %% Line 339
+	  <{'ack',_4,Return}>
+	      when call 'erlang':'=:='
+		    (_4,
+		     _0) ->
+	      %% Line 340
+	      Return
+	  %% Line 341
+	  <{'EXIT',_5,Reason}>
+	      when call 'erlang':'=:='
+		    (_5,
+		     _0) ->
+	      %% Line 342
+	      {'error',Reason}
+	after _1 ->
+	  do  %% Line 344
+	      apply 'kill_flush'/1
+		  (_0)
+	      %% Line 345
+	      {'error','timeout'}
+'start_monitor'/3 =
+    %% Line 355
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <M,F,A>
+	      when try
+		    let <_3> =
+			call 'erlang':'is_atom'
+			    (M)
+		    in  let <_4> =
+			    call 'erlang':'is_atom'
+				(F)
+			in  let <_5> =
+				call 'erlang':'is_list'
+				    (A)
+			    in  let <_6> =
+				    call 'erlang':'and'
+					(_4, _5)
+				in  call 'erlang':'and'
+					(_3, _6)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      %% Line 356
+	      apply 'start_monitor'/4
+		  (M, F, A, 'infinity')
+	  ( <_9,_8,_7> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_9,_8,_7})
+		  -| [{'function_name',{'start_monitor',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'start_monitor'/4 =
+    %% Line 366
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <M,F,A,Timeout>
+	      when try
+		    let <_4> =
+			call 'erlang':'is_atom'
+			    (M)
+		    in  let <_5> =
+			    call 'erlang':'is_atom'
+				(F)
+			in  let <_6> =
+				call 'erlang':'is_list'
+				    (A)
+			    in  let <_7> =
+				    call 'erlang':'and'
+					(_5, _6)
+				in  call 'erlang':'and'
+					(_4, _7)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      let <_8> =
+		  apply %% Line 367
+			'spawn_mon'/3
+		      (%% Line 367
+		       M, %% Line 367
+			  F, %% Line 367
+			     A)
+	      in  %% Line 367
+		  apply 'sync_start_monitor'/2
+		      (_8, Timeout)
+	  ( <_12,_11,_10,_9> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_12,_11,_10,_9})
+		  -| [{'function_name',{'start_monitor',4}}] )
+	    -| ['compiler_generated'] )
+	end
+'start_monitor'/5 =
+    %% Line 378
+    fun (_0,_1,_2,_3,_4) ->
+	case <_0,_1,_2,_3,_4> of
+	  <M,F,A,Timeout,SpawnOpts>
+	      when try
+		    let <_5> =
+			call 'erlang':'is_atom'
+			    (M)
+		    in  let <_6> =
+			    call %% Line 379
+				 'erlang':%% Line 379
+					  'is_atom'
+				(%% Line 379
+				 F)
+			in  let <_7> =
+				call %% Line 380
+				     'erlang':%% Line 380
+					      'is_list'
+				    (%% Line 380
+				     A)
+			    in  let <_8> =
+				    call 'erlang':'and'
+					(_6, _7)
+				in  call 'erlang':'and'
+					(_5, _8)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      do  %% Line 381
+		  case call 'lists':'member'
+			   ('monitor', SpawnOpts) of
+		    <'true'> when 'true' ->
+			call 'erlang':'error'
+			    ('badarg', [M|[F|[A|[Timeout|[SpawnOpts|[]]]]]])
+		    <'false'> when 'true' ->
+			'ok'
+		    ( <_9> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_9})
+		      -| ['compiler_generated'] )
+		  end
+		  let <_10> =
+		      call %% Line 382
+			   'proc_lib':%% Line 382
+				      'spawn_opt'
+			  (%% Line 382
+			   M, %% Line 382
+			      F, %% Line 382
+				 A, %% Line 382
+				    ['monitor'|SpawnOpts])
+		  in  %% Line 382
+		      apply 'sync_start_monitor'/2
+			  (_10, %% Line 383
+				Timeout)
+	  ( <_15,_14,_13,_12,_11> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_15,_14,_13,_12,_11})
+		  -| [{'function_name',{'start_monitor',5}}] )
+	    -| ['compiler_generated'] )
+	end
+'sync_start_monitor'/2 =
+    %% Line 385
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <{Pid,Ref},Timeout> when 'true' ->
+	      %% Line 386
+	      receive
+		%% Line 387
+		<{'ack',_5,Return}>
+		    when call 'erlang':'=:='
+			  (_5,
+			   Pid) ->
+		    %% Line 388
+		    {Return,Ref}
+		%% Line 389
+		<Down = {'DOWN',_6,'process',_7,Reason}>
+		    when let <_8> =
+			  call 'erlang':'=:='
+			      (_6, Ref)
+		      in  let <_9> =
+			      call 'erlang':'=:='
+				  (_7, Pid)
+			  in  call 'erlang':'and'
+				  (_8, _9) ->
+		    let <_2> =
+			call %% Line 390
+			     'erlang':%% Line 390
+				      'self'
+			    ()
+		    in  do  %% Line 390
+			    call 'erlang':'!'
+				(_2, Down)
+			    %% Line 391
+			    {{'error',Reason},Ref}
+	      after %% Line 392
+		    Timeout ->
+		do  %% Line 393
+		    apply 'kill_flush'/1
+			(Pid)
+		    %% Line 394
+		    {{'error','timeout'},Ref}
+	  ( <_4,_3> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_4,_3})
+		  -| [{'function_name',{'sync_start_monitor',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'kill_flush'/1 =
+    %% Line 400
+    fun (_0) ->
+	do  %% Line 401
+	    call 'erlang':'unlink'
+		(_0)
+	    do  %% Line 402
+		call 'erlang':'exit'
+		    (_0, 'kill')
+		do  %% Line 403
+		    receive
+		      <{'EXIT',_2,_3}>
+			  when call 'erlang':'=:='
+				(_2,
+				 _0) ->
+			  'ok'
+		    after 0 ->
+		      'ok'
+		    %% Line 404
+		    'ok'
+'init_ack'/2 =
+    %% Line 410
+    fun (_0,_1) ->
+	let <_2> =
+	    call %% Line 411
+		 'erlang':%% Line 411
+			  'self'
+		()
+	in  do  %% Line 411
+		call 'erlang':'!'
+		    (_0, {'ack',_2,_1})
+		%% Line 412
+		'ok'
+'init_ack'/1 =
+    %% Line 417
+    fun (_0) ->
+	%% Line 418
+	case call 'erlang':'get'
+		 ('$ancestors') of
+	  <[Parent|_3]> when 'true' ->
+	      %% Line 419
+	      apply 'init_ack'/2
+		  (Parent, _0)
+	  ( <_1> when 'true' ->
+		primop 'match_fail'
+		    ({'badmatch',_1})
+	    -| ['compiler_generated'] )
+	end
+'initial_call'/1 =
+    %% Line 431
+    fun (_0) ->
+	%% Line 432
+	case apply 'raw_initial_call'/1
+		 (_0) of
+	  %% Line 433
+	  <{M,F,A}> when 'true' ->
+	      let <_1> =
+		  apply %% Line 434
+			'make_dummy_args'/2
+		      (%% Line 434
+		       A, %% Line 434
+			  [])
+	      in  %% Line 434
+		  {M,F,_1}
+	  %% Line 435
+	  <'false'> when 'true' ->
+	      %% Line 436
+	      'false'
+	  ( <_2> when 'true' ->
+		primop 'match_fail'
+		    ({'case_clause',_2})
+	    -| ['compiler_generated'] )
+	end
+'make_dummy_args'/2 =
+    %% Line 439
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <0,Acc> when 'true' ->
+	      %% Line 440
+	      Acc
+	  %% Line 441
+	  <N,Acc> when 'true' ->
+	      let <_2> =
+		  call %% Line 442
+		       'erlang':%% Line 442
+				'integer_to_list'
+		      (%% Line 442
+		       N)
+	      in  let <_3> =
+		      call %% Line 442
+			   'erlang':%% Line 442
+				    '++'
+			  (%% Line 442
+			   [65|[114|[103|[117|[109|[101|[110|[116|[95|[95]]]]]]]]]], _2)
+		  in  let <Arg> =
+			  call %% Line 442
+			       'erlang':%% Line 442
+					'list_to_atom'
+			      (_3)
+		      in  let <_5> =
+			      call %% Line 443
+				   'erlang':%% Line 443
+					    '-'
+				  (%% Line 443
+				   N, %% Line 443
+				      1)
+			  in  %% Line 443
+			      apply 'make_dummy_args'/2
+				  (_5, [Arg|Acc])
+	end
+'translate_initial_call'/1 =
+    %% Line 458
+    fun (_0) ->
+	%% Line 459
+	case apply 'raw_initial_call'/1
+		 (_0) of
+	  %% Line 460
+	  <MFA = {_3,_4,_5}> when 'true' ->
+	      %% Line 461
+	      MFA
+	  %% Line 462
+	  <'false'> when 'true' ->
+	      %% Line 463
+	      {'proc_lib','init_p',5}
+	  ( <_1> when 'true' ->
+		primop 'match_fail'
+		    ({'case_clause',_1})
+	    -| ['compiler_generated'] )
+	end
+'raw_initial_call'/1 =
+    %% Line 471
+    fun (_0) ->
+	case _0 of
+	  <{X,Y,Z}>
+	      when try
+		    let <_1> =
+			call 'erlang':'is_integer'
+			    (X)
+		    in  let <_2> =
+			    call 'erlang':'is_integer'
+				(Y)
+			in  let <_3> =
+				call 'erlang':'is_integer'
+				    (Z)
+			    in  let <_4> =
+				    call 'erlang':'and'
+					(_2, _3)
+				in  call 'erlang':'and'
+					(_1, _4)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      let <_5> =
+		  call %% Line 472
+		       'c':%% Line 472
+			   'pid'
+		      (%% Line 472
+		       X, %% Line 472
+			  Y, %% Line 472
+			     Z)
+	      in  %% Line 472
+		  apply 'raw_initial_call'/1
+		      (_5)
+	  %% Line 473
+	  <Pid>
+	      when call 'erlang':'is_pid'
+		    (_0) ->
+	      %% Line 474
+	      case apply 'get_process_info'/2
+		       (Pid, 'dictionary') of
+		%% Line 475
+		<{'dictionary',Dict}> when 'true' ->
+		    %% Line 476
+		    apply 'raw_init_call'/1
+			(Dict)
+		%% Line 477
+		<_9> when 'true' ->
+		    %% Line 478
+		    'false'
+	      end
+	  %% Line 480
+	  <ProcInfo>
+	      when call 'erlang':'is_list'
+		    (_0) ->
+	      %% Line 481
+	      case call 'lists':'keyfind'
+		       ('dictionary', 1, ProcInfo) of
+		%% Line 482
+		<{'dictionary',Dict}> when 'true' ->
+		    %% Line 483
+		    apply 'raw_init_call'/1
+			(Dict)
+		%% Line 484
+		<_10> when 'true' ->
+		    %% Line 485
+		    'false'
+	      end
+	  ( <_8> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_8})
+		  -| [{'function_name',{'raw_initial_call',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'raw_init_call'/1 =
+    %% Line 488
+    fun (_0) ->
+	%% Line 489
+	case call 'lists':'keyfind'
+		 ('$initial_call', 1, _0) of
+	  %% Line 490
+	  <{_3,MFA = {_4,_5,_6}}> when 'true' ->
+	      %% Line 491
+	      MFA
+	  %% Line 492
+	  <_7> when 'true' ->
+	      %% Line 493
+	      'false'
+	end
+'trans_init'/3 =
+    %% Line 500
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <'gen','init_it',['gen_server'|[_9|[_10|['supervisor'|[{_11,Module,_12}|[_13|[]]]]]]]> when 'true' ->
+	      %% Line 501
+	      {'supervisor',Module,1}
+	  %% Line 502
+	  <'gen','init_it',['gen_server'|[_14|[_15|[_16|['supervisor'|[{_17,Module,_18}|[_19|[]]]]]]]]> when 'true' ->
+	      %% Line 503
+	      {'supervisor',Module,1}
+	  %% Line 504
+	  <'gen','init_it',['gen_server'|[_20|[_21|['supervisor_bridge'|[[Module|_22]|[_23|[]]]]]]]> when 'true' ->
+	      %% Line 505
+	      {'supervisor_bridge',Module,1}
+	  %% Line 506
+	  <'gen','init_it',['gen_server'|[_24|[_25|[_26|['supervisor_bridge'|[[Module|_27]|[_28|[]]]]]]]]> when 'true' ->
+	      %% Line 507
+	      {'supervisor_bridge',Module,1}
+	  %% Line 508
+	  <'gen','init_it',['gen_event'|_29]> when 'true' ->
+	      %% Line 509
+	      {'gen_event','init_it',6}
+	  %% Line 510
+	  <'gen','init_it',[_X_GenMod|[_30|[_31|[Module|[_32|[_33|[]]]]]]]>
+	      when call 'erlang':'is_atom'
+		    (Module) ->
+	      %% Line 511
+	      {Module,'init',1}
+	  %% Line 512
+	  <'gen','init_it',[_X_GenMod|[_34|[_35|[_36|[Module|_37]]]]]>
+	      when call 'erlang':'is_atom'
+		    (Module) ->
+	      %% Line 513
+	      {Module,'init',1}
+	  %% Line 514
+	  <M,F,A>
+	      when let <_3> =
+		    call 'erlang':'is_atom'
+			(M)
+		in  let <_4> =
+			call 'erlang':'is_atom'
+			    (F)
+		    in  call 'erlang':'and'
+			    (_3, _4) ->
+	      let <_5> =
+		  call %% Line 515
+		       'erlang':%% Line 515
+				'length'
+		      (%% Line 515
+		       A)
+	      in  %% Line 515
+		  {M,F,_5}
+	  ( <_8,_7,_6> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_8,_7,_6})
+		  -| [{'function_name',{'trans_init',3}}] )
+	    -| ['compiler_generated'] )
+	end
+'crash_report'/4 =
+    %% Line 521
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <'exit','normal',_15,_16> when 'true' ->
+	      'ok'
+	  %% Line 522
+	  <'exit','shutdown',_17,_18> when 'true' ->
+	      'ok'
+	  %% Line 523
+	  <'exit',{'shutdown',_19},_20,_21> when 'true' ->
+	      'ok'
+	  %% Line 524
+	  <Class,Reason,StartF,Stacktrace> when 'true' ->
+	      %% Line 525
+	      case call 'logger':'allow'
+		       ('error', 'proc_lib') of
+		<'true'> when 'true' ->
+		    let <_4> =
+			apply %% Line 526
+			      'my_info'/4
+			    (%% Line 526
+			     Class, %% Line 526
+				    Reason, %% Line 526
+					    StartF, %% Line 526
+						    Stacktrace)
+		    in  let <_5> =
+			    call %% Line 527
+				 'erlang':%% Line 527
+					  'self'
+				()
+			in  let <_6> =
+				apply %% Line 527
+				      'linked_info'/1
+				    (_5)
+			    in  let <_7> =
+				    ~{%% Line 526
+				     'report'=>[_4|%% Line 527
+						 [_6|[]]]|~{'label'=>{'proc_lib','crash'}}~}~
+				in  call 'logger':'macro_log'
+					(~{'file'=>[115|[114|[99|[47|[112|[114|[111|[99|[95|[108|[105|[98|[46|[101|[114|[108]]]]]]]]]]]]]]]],'line'=>525,'mfa'=>{'proc_lib','crash_report',4}}~, 'error', _7, ~{'domain'=>['otp'|['sasl']],'error_logger'=>~{'tag'=>'error_report','type'=>'crash_report'}~,'logger_formatter'=>~{'title'=>[67|[82|[65|[83|[72|[32|[82|[69|[80|[79|[82|[84]]]]]]]]]]]]}~,'report_cb'=>fun 'proc_lib':'report_cb'/2}~)
+		%% Line 531
+		<'false'> when 'true' ->
+		    'ok'
+		( <_10> when 'true' ->
+		      primop 'match_fail'
+			  ({'case_clause',_10})
+		  -| ['compiler_generated'] )
+	      end
+	end
+'my_info'/4 =
+    %% Line 533
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <Class,Reason,[],Stacktrace> when 'true' ->
+	      %% Line 534
+	      apply 'my_info_1'/3
+		  (Class, Reason, Stacktrace)
+	  %% Line 535
+	  <Class,Reason,StartF,Stacktrace> when 'true' ->
+	      let <_4> =
+		  apply %% Line 537
+			'my_info_1'/3
+		      (%% Line 537
+		       Class, %% Line 537
+			      Reason, %% Line 537
+				      Stacktrace)
+	      in  %% Line 536
+		  [{'initial_call',StartF}|_4]
+	end
+'my_info_1'/3 =
+    %% Line 539
+    fun (_0,_1,_2) ->
+	let <_3> =
+	    call %% Line 540
+		 'erlang':%% Line 540
+			  'self'
+		()
+	in  let <_4> =
+		call %% Line 541
+		     'erlang':%% Line 541
+			      'self'
+		    ()
+	    in  let <_5> =
+		    apply %% Line 541
+			  'get_process_info'/2
+			(_4, %% Line 541
+			     'registered_name')
+		in  let <_6> =
+			call %% Line 543
+			     'erlang':%% Line 543
+				      'self'
+			    ()
+		    in  let <_7> =
+			    apply %% Line 543
+				  'get_ancestors'/1
+				(_6)
+			in  let <_8> =
+				call %% Line 544
+				     'erlang':%% Line 544
+					      'self'
+				    ()
+			    in  let <_9> =
+				    apply %% Line 544
+					  'get_process_info'/2
+					(_8, %% Line 544
+					     'message_queue_len')
+				in  let <_10> =
+					call %% Line 545
+					     'erlang':%% Line 545
+						      'self'
+					    ()
+				    in  let <_11> =
+					    apply %% Line 545
+						  'get_messages'/1
+						(_10)
+					in  let <_12> =
+						call %% Line 546
+						     'erlang':%% Line 546
+							      'self'
+						    ()
+					    in  let <_13> =
+						    apply %% Line 546
+							  'get_process_info'/2
+							(_12, %% Line 546
+							      'links')
+						in  let <_14> =
+							call %% Line 547
+							     'erlang':%% Line 547
+								      'self'
+							    ()
+						    in  let <_15> =
+							    apply %% Line 547
+								  'get_cleaned_dictionary'/1
+								(_14)
+							in  let <_16> =
+								call %% Line 548
+								     'erlang':%% Line 548
+									      'self'
+								    ()
+							    in  let <_17> =
+								    apply %% Line 548
+									  'get_process_info'/2
+									(_16, %% Line 548
+									      'trap_exit')
+								in  let <_18> =
+									call %% Line 549
+									     'erlang':%% Line 549
+										      'self'
+									    ()
+								    in  let <_19> =
+									    apply %% Line 549
+										  'get_process_info'/2
+										(_18, %% Line 549
+										      'status')
+									in  let <_20> =
+										call %% Line 550
+										     'erlang':%% Line 550
+											      'self'
+										    ()
+									    in  let <_21> =
+										    apply %% Line 550
+											  'get_process_info'/2
+											(_20, %% Line 550
+											      'heap_size')
+										in  let <_22> =
+											call %% Line 551
+											     'erlang':%% Line 551
+												      'self'
+											    ()
+										    in  let <_23> =
+											    apply %% Line 551
+												  'get_process_info'/2
+												(_22, %% Line 551
+												      'stack_size')
+											in  let <_24> =
+												call %% Line 552
+												     'erlang':%% Line 552
+													      'self'
+												    ()
+											    in  let <_25> =
+												    apply %% Line 552
+													  'get_process_info'/2
+													(_24, %% Line 552
+													      'reductions')
+												in  %% Line 540
+												    [{'pid',_3}|%% Line 541
+														[_5|%% Line 542
+														    [{'error_info',{_0,_1,_2}}|%% Line 543
+																	       [_7|%% Line 544
+																		   [_9|%% Line 545
+																		       [_11|%% Line 546
+																			    [_13|%% Line 547
+																				 [_15|%% Line 548
+																				      [_17|%% Line 549
+																					   [_19|%% Line 550
+																						[_21|%% Line 551
+																						     [_23|%% Line 552
+																							  [_25|%% Line 553
+																							       []]]]]]]]]]]]]]
+'get_ancestors'/1 =
+    %% Line 557
+    fun (_0) ->
+	%% Line 558
+	case apply 'get_dictionary'/2
+		 (_0, '$ancestors') of
+	  %% Line 559
+	  <{'$ancestors',Ancestors}> when 'true' ->
+	      %% Line 560
+	      {'ancestors',Ancestors}
+	  %% Line 561
+	  <_3> when 'true' ->
+	      %% Line 562
+	      {'ancestors',[]}
+	end
+'get_messages'/1 =
+    %% Line 571
+    fun (_0) ->
+	let <Messages> =
+	    apply %% Line 572
+		  'get_process_messages'/1
+		(_0)
+	in  let <_2> =
+		call %% Line 573
+		     'error_logger':%% Line 573
+				    'limit_term'
+		    (%% Line 573
+		     Messages)
+	    in  %% Line 573
+		{'messages',_2}
+'get_process_messages'/1 =
+    %% Line 575
+    fun (_0) ->
+	let <Depth> =
+	    call %% Line 576
+		 'error_logger':%% Line 576
+				'get_format_depth'
+		()
+	in  let <_3> =
+		call %% Line 577
+		     'erlang':%% Line 577
+			      'self'
+		    ()
+	    in  let <_5> =
+		    case <> of
+		      %% Line 577
+		      ( <>
+			    when call 'erlang':'=/='
+				  (_0,
+				   _3) ->
+			    'true'
+			-| ['compiler_generated'] )
+		      %% Line 577
+		      ( <> when 'true' ->
+			    call 'erlang':'=:='
+				(Depth, 'unlimited')
+			-| ['compiler_generated'] )
+		    end
+		in  %% Line 577
+		    case _5 of
+		      %% Line 578
+		      <'true'> when 'true' ->
+			  %% Line 579
+			  case apply 'get_process_info'/2
+				   (_0, 'messages') of
+			    <{'messages',Messages}> when 'true' ->
+				%% Line 580
+				Messages
+			    ( <_6> when 'true' ->
+				  primop 'match_fail'
+				      ({'badmatch',_6})
+			      -| ['compiler_generated'] )
+			  end
+		      %% Line 581
+		      <'false'> when 'true' ->
+			  %% Line 586
+			  apply 'receive_messages'/1
+			      (Depth)
+		      ( <_7> when 'true' ->
+			    primop 'match_fail'
+				({'case_clause',_7})
+			-| ['compiler_generated'] )
+		    end
+'receive_messages'/1 =
+    %% Line 589
+    fun (_0) ->
+	case _0 of
+	  <0> when 'true' ->
+	      []
+	  %% Line 590
+	  <N> when 'true' ->
+	      %% Line 591
+	      receive
+		%% Line 592
+		<M> when 'true' ->
+		    let <_1> =
+			call %% Line 593
+			     'erlang':%% Line 593
+				      '-'
+			    (%% Line 593
+			     N, %% Line 593
+				1)
+		    in  let <_2> =
+			    apply %% Line 593
+				  'receive_messages'/1
+				(_1)
+			in  %% Line 593
+			    [M|_2]
+	      after %% Line 594
+		    0 ->
+		%% Line 595
+		[]
+	end
+'get_cleaned_dictionary'/1 =
+    %% Line 598
+    fun (_0) ->
+	%% Line 599
+	case apply 'get_process_info'/2
+		 (_0, 'dictionary') of
+	  %% Line 600
+	  <{'dictionary',Dict}> when 'true' ->
+	      let <_1> =
+		  apply 'cleaned_dict'/1
+		      (Dict)
+	      in  {'dictionary',_1}
+	  %% Line 601
+	  <_4> when 'true' ->
+	      {'dictionary',[]}
+	end
+'cleaned_dict'/1 =
+    %% Line 604
+    fun (_0) ->
+	let <CleanDict> =
+	    apply %% Line 605
+		  'clean_dict'/1
+		(_0)
+	in  %% Line 606
+	    call 'error_logger':'limit_term'
+		(CleanDict)
+'clean_dict'/1 =
+    %% Line 608
+    fun (_0) ->
+	case _0 of
+	  <[{'$ancestors',_3}|Dict]> when 'true' ->
+	      %% Line 609
+	      apply 'clean_dict'/1
+		  (Dict)
+	  %% Line 610
+	  <[{'$initial_call',_4}|Dict]> when 'true' ->
+	      %% Line 611
+	      apply 'clean_dict'/1
+		  (Dict)
+	  %% Line 612
+	  <[E|Dict]> when 'true' ->
+	      let <_1> =
+		  apply %% Line 613
+			'clean_dict'/1
+		      (%% Line 613
+		       Dict)
+	      in  %% Line 613
+		  [E|_1]
+	  %% Line 614
+	  <[]> when 'true' ->
+	      %% Line 615
+	      []
+	  ( <_2> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_2})
+		  -| [{'function_name',{'clean_dict',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'get_dictionary'/2 =
+    %% Line 617
+    fun (_0,_1) ->
+	%% Line 618
+	case apply 'get_process_info'/2
+		 (_0, 'dictionary') of
+	  %% Line 619
+	  <{'dictionary',Dict}> when 'true' ->
+	      %% Line 620
+	      case call 'lists':'keysearch'
+		       (_1, 1, Dict) of
+		%% Line 621
+		<{'value',Value}> when 'true' ->
+		    Value
+		%% Line 622
+		<_6> when 'true' ->
+		    'undefined'
+	      end
+	  %% Line 624
+	  <_7> when 'true' ->
+	      %% Line 625
+	      'undefined'
+	end
+'linked_info'/1 =
+    %% Line 628
+    fun (_0) ->
+	let <_1> =
+	    apply %% Line 629
+		  'neighbours'/1
+		(_0)
+	in  %% Line 629
+	    apply 'make_neighbour_reports1'/1
+		(_1)
+'make_neighbour_reports1'/1 =
+    %% Line 631
+    fun (_0) ->
+	case _0 of
+	  <[P|Ps]> when 'true' ->
+	      let <ReportBody> =
+		  apply %% Line 632
+			'make_neighbour_report'/1
+		      (%% Line 632
+		       P)
+	      in  %% Line 636
+		  case call 'lists':'member'
+			   ('undefined', ReportBody) of
+		    %% Line 637
+		    <'true'> when 'true' ->
+			%% Line 638
+			apply 'make_neighbour_reports1'/1
+			    (Ps)
+		    %% Line 639
+		    <'false'> when 'true' ->
+			let <_2> =
+			    apply %% Line 640
+				  'make_neighbour_reports1'/1
+				(%% Line 640
+				 Ps)
+			in  %% Line 640
+			    [{'neighbour',ReportBody}|_2]
+		    ( <_3> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_3})
+		      -| ['compiler_generated'] )
+		  end
+	  %% Line 642
+	  <[]> when 'true' ->
+	      %% Line 643
+	      []
+	  ( <_4> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_4})
+		  -| [{'function_name',{'make_neighbour_reports1',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'make_neighbour_report'/1 =
+    %% Line 647
+    fun (_0) ->
+	let <_1> =
+	    apply %% Line 649
+		  'get_process_info'/2
+		(_0, %% Line 649
+		     'registered_name')
+	in  let <_2> =
+		apply %% Line 650
+		      'get_initial_call'/1
+		    (_0)
+	    in  let <_3> =
+		    apply %% Line 651
+			  'get_process_info'/2
+			(_0, %% Line 651
+			     'current_function')
+		in  let <_4> =
+			apply %% Line 652
+			      'get_ancestors'/1
+			    (_0)
+		    in  let <_5> =
+			    apply %% Line 653
+				  'get_process_info'/2
+				(_0, %% Line 653
+				     'message_queue_len')
+			in  let <_6> =
+				apply %% Line 655
+				      'get_process_info'/2
+				    (_0, %% Line 655
+					 'links')
+			    in  let <_7> =
+				    apply %% Line 657
+					  'get_process_info'/2
+					(_0, %% Line 657
+					     'trap_exit')
+				in  let <_8> =
+					apply %% Line 658
+					      'get_process_info'/2
+					    (_0, %% Line 658
+						 'status')
+				    in  let <_9> =
+					    apply %% Line 659
+						  'get_process_info'/2
+						(_0, %% Line 659
+						     'heap_size')
+					in  let <_10> =
+						apply %% Line 660
+						      'get_process_info'/2
+						    (_0, %% Line 660
+							 'stack_size')
+					    in  let <_11> =
+						    apply %% Line 661
+							  'get_process_info'/2
+							(_0, %% Line 661
+							     'reductions')
+						in  let <_12> =
+							apply %% Line 662
+							      'get_process_info'/2
+							    (_0, %% Line 662
+								 'current_stacktrace')
+						    in  %% Line 648
+							[{'pid',_0}|%% Line 649
+								    [_1|%% Line 650
+									[_2|%% Line 651
+									    [_3|%% Line 652
+										[_4|%% Line 653
+										    [_5|%% Line 655
+											[_6|%% Line 657
+											    [_7|%% Line 658
+												[_8|%% Line 659
+												    [_9|%% Line 660
+													[_10|%% Line 661
+													     [_11|%% Line 662
+														  [_12|%% Line 663
+														       []]]]]]]]]]]]]]
+'get_initial_call'/1 =
+    %% Line 665
+    fun (_0) ->
+	%% Line 666
+	case apply 'get_dictionary'/2
+		 (_0, '$initial_call') of
+	  %% Line 667
+	  <{'$initial_call',{M,F,A}}> when 'true' ->
+	      let <_1> =
+		  apply %% Line 668
+			'make_dummy_args'/2
+		      (%% Line 668
+		       A, %% Line 668
+			  [])
+	      in  %% Line 668
+		  {'initial_call',{M,F,_1}}
+	  %% Line 669
+	  <_4> when 'true' ->
+	      %% Line 670
+	      apply 'get_process_info'/2
+		  (_0, 'initial_call')
+	end
+'neighbours'/1 =
+    %% Line 683
+    fun (_0) ->
+	let <_2> =
+	    apply %% Line 684
+		  'adjacents'/1
+		(_0)
+	in  let <_1> =
+		apply %% Line 684
+		      'max_neighbours'/0
+		    ()
+	    in  %% Line 684
+		case apply 'visit'/2
+			 (_2, {_1,[_0|[]]}) of
+		  <{_5,Visited}> when 'true' ->
+		      %% Line 685
+		      call 'lists':'delete'
+			  (_0, Visited)
+		  ( <_3> when 'true' ->
+			primop 'match_fail'
+			    ({'badmatch',_3})
+		    -| ['compiler_generated'] )
+		end
+'max_neighbours'/0 =
+    %% Line 687
+    fun () ->
+	15
+'visit'/2 =
+    %% Line 697
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <[P|Ps],NVs = {N,Vs}>
+	      when call 'erlang':'>'
+		    (N,
+		     0) ->
+	      %% Line 698
+	      case call 'lists':'member'
+		       (P, Vs) of
+		%% Line 699
+		<'false'> when 'true' ->
+		    let <_4> =
+			apply 'adjacents'/1
+			    (P)
+		    in  let <_2> =
+			    call 'erlang':'-'
+				(N, 1)
+			in  let <_3> =
+				apply 'visit'/2
+				    (Ps, {_2,[P|Vs]})
+			    in  apply 'visit'/2
+				    (_4, _3)
+		%% Line 700
+		<'true'> when 'true' ->
+		    apply 'visit'/2
+			(Ps, NVs)
+		( <_5> when 'true' ->
+		      primop 'match_fail'
+			  ({'case_clause',_5})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 702
+	  <_8,NVs = {_X_N,_X_Vs}> when 'true' ->
+	      %% Line 703
+	      NVs
+	  ( <_7,_6> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_7,_6})
+		  -| [{'function_name',{'visit',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'adjacents'/1 =
+    %% Line 710
+    fun (_0) ->
+	let <_1> =
+	    catch
+		%% Line 711
+		apply 'proc_info'/2
+		    (_0, 'links')
+	in  %% Line 711
+	    case _1 of
+	      %% Line 712
+	      <{'links',Links}> when 'true' ->
+		  apply 'no_trap'/1
+		      (Links)
+	      %% Line 713
+	      <_4> when 'true' ->
+		  []
+	    end
+'no_trap'/1 =
+    %% Line 716
+    fun (_0) ->
+	case _0 of
+	  <[P|Ps]> when 'true' ->
+	      let <_1> =
+		  catch
+		      %% Line 717
+		      apply 'proc_info'/2
+			  (P, 'trap_exit')
+	      in  %% Line 717
+		  case _1 of
+		    %% Line 718
+		    <{'trap_exit','false'}> when 'true' ->
+			let <_2> =
+			    apply 'no_trap'/1
+				(Ps)
+			in  [P|_2]
+		    %% Line 719
+		    <_5> when 'true' ->
+			apply 'no_trap'/1
+			    (Ps)
+		  end
+	  %% Line 721
+	  <[]> when 'true' ->
+	      %% Line 722
+	      []
+	  ( <_4> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_4})
+		  -| [{'function_name',{'no_trap',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'get_process_info'/2 =
+    %% Line 724
+    fun (_0,_1) ->
+	let <_2> =
+	    catch
+		%% Line 725
+		apply 'proc_info'/2
+		    (_0, _1)
+	in  %% Line 725
+	    apply 'translate_process_info'/2
+		(_1, _2)
+'translate_process_info'/2 =
+    %% Line 727
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <'registered_name',[]> when 'true' ->
+	      %% Line 728
+	      {'registered_name',[]}
+	  %% Line 729
+	  <_4,{'EXIT',_5}> when 'true' ->
+	      %% Line 730
+	      'undefined'
+	  %% Line 731
+	  <_6,Result> when 'true' ->
+	      %% Line 732
+	      Result
+	end
+'get_my_name'/0 =
+    %% Line 738
+    fun () ->
+	let <_0> =
+	    call %% Line 739
+		 'erlang':%% Line 739
+			  'self'
+		()
+	in  %% Line 739
+	    case apply 'proc_info'/2
+		     (_0, 'registered_name') of
+	      %% Line 740
+	      <{'registered_name',Name}> when 'true' ->
+		  Name
+	      %% Line 741
+	      <_2> when 'true' ->
+		  call 'erlang':'self'
+		      ()
+	    end
+'get_ancestors'/0 =
+    %% Line 746
+    fun () ->
+	%% Line 747
+	case call 'erlang':'get'
+		 ('$ancestors') of
+	  %% Line 748
+	  <A>
+	      when call 'erlang':'is_list'
+		    (A) ->
+	      A
+	  %% Line 749
+	  <_1> when 'true' ->
+	      []
+	end
+'proc_info'/2 =
+    %% Line 752
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Pid,Item>
+	      when try
+		    let <_3> =
+			call 'erlang':'node'
+			    (Pid)
+		    in  let <_2> =
+			    call 'erlang':'node'
+				()
+			in  call 'erlang':'=:='
+				(_3, _2)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      %% Line 753
+	      call 'erlang':'process_info'
+		  (Pid, Item)
+	  %% Line 754
+	  <Pid,Item> when 'true' ->
+	      let <_5> =
+		  call %% Line 755
+		       'erlang':%% Line 755
+				'node'
+		      (%% Line 755
+		       Pid)
+	      in  let <_4> =
+		      call %% Line 755
+			   'erlang':%% Line 755
+				    'nodes'
+			  ()
+		  in  %% Line 755
+		      case call 'lists':'member'
+			       (_5, _4) of
+			%% Line 756
+			<'true'> when 'true' ->
+			    let <_6> =
+				call %% Line 757
+				     'erlang':%% Line 757
+					      'node'
+				    (%% Line 757
+				     Pid)
+			    in  let <_7> =
+				    call %% Line 757
+					 'rpc':%% Line 757
+					       'call'
+					(_6, %% Line 757
+					     'erlang', %% Line 757
+						       'process_info', %% Line 757
+								       [Pid|[Item|[]]])
+				in  %% Line 757
+				    apply 'check'/1
+					(_7)
+			%% Line 758
+			<_11> when 'true' ->
+			    %% Line 759
+			    'hidden'
+		      end
+	end
+'check'/1 =
+    %% Line 762
+    fun (_0) ->
+	case _0 of
+	  <{'badrpc','nodedown'}> when 'true' ->
+	      'undefined'
+	  %% Line 763
+	  <{'badrpc',Error}> when 'true' ->
+	      Error
+	  %% Line 764
+	  <Res> when 'true' ->
+	      Res
+	end
+'report_cb'/2 =
+    %% Line 774
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <~{'report':=CrashReport,'label':={'proc_lib','crash'}}~,Extra> when 'true' ->
+	      let <_3> =
+		  call %% Line 779
+		       'maps':%% Line 779
+			      'merge'
+		      (%% Line 775
+		       ~{'chars_limit'=>'unlimited','depth'=>'unlimited','encoding'=>'utf8','single_line'=>'false'}~, %% Line 779
+														      Extra)
+	      in  %% Line 779
+		  apply 'do_format'/2
+		      (CrashReport, _3)
+	  ( <_5,_4> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_5,_4})
+		  -| [{'function_name',{'report_cb',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'format'/1 =
+    %% Line 783
+    fun (_0) ->
+	%% Line 784
+	apply 'format'/2
+	    (_0, 'latin1')
+'format'/2 =
+    %% Line 790
+    fun (_0,_1) ->
+	%% Line 791
+	apply 'format'/3
+	    (_0, _1, 'unlimited')
+'format'/3 =
+    %% Line 798
+    fun (_0,_1,_2) ->
+	let <_3> =
+	    ~{%% Line 800
+	     'depth'=>_2,%% Line 801
+			 'encoding'=>_1,%% Line 802
+					'single_line'=>'false'|%% Line 799
+	     ~{'chars_limit'=>'unlimited'}~}~
+	in  %% Line 799
+	    apply 'do_format'/2
+		(_0, _3)
+'do_format'/2 =
+    %% Line 804
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <[OwnReport|[LinkReport|[]]],Extra> when 'true' ->
+	      %% Line 805
+	      case Extra of
+		<~{'chars_limit':=Limit0,'encoding':=Enc,'single_line':=Single}~> when 'true' ->
+		    let <_3> =
+			case <> of
+			  %% Line 806
+			  <>
+			      when ( call 'erlang':'=:='
+				      (Single,
+				       'true')
+				  -| ['compiler_generated'] ) ->
+			      []
+			  %% Line 807
+			  <> when 'true' ->
+			      [32|[32]]
+			end
+		    in  let <Nl> =
+			    apply %% Line 809
+				  'nl'/2
+				(%% Line 809
+				 Single, %% Line 809
+					 [32])
+			in  let <_6> =
+				apply %% Line 810
+				      'report_separator'/0
+				    ()
+			    in  let <Sep> =
+				    apply %% Line 810
+					  'nl'/2
+					(%% Line 810
+					 Single, _6)
+				in  let <_37,_38> =
+					case %% Line 812
+					     Limit0 of
+					  %% Line 813
+					  <'unlimited'> when 'true' ->
+					      %% Line 814
+					      <Limit0,Limit0>
+					  %% Line 815
+					  <_36>
+					      when call 'erlang':'is_integer'
+						    (Limit0) ->
+					      let <Num> =
+						  call %% Line 820
+						       'erlang':%% Line 820
+								'length'
+						      (%% Line 820
+						       OwnReport)
+					      in  let <_14> =
+						      call %% Line 821
+							   'erlang':%% Line 821
+								    'length'
+							  (_3)
+						  in  let <_15> =
+							  call %% Line 821
+							       'erlang':%% Line 821
+									'+'
+							      (_14, %% Line 821
+								    7)
+						      in  let <_12> =
+							      call %% Line 822
+								   'erlang':%% Line 822
+									    'length'
+								  (%% Line 822
+								   Nl)
+							  in  let <_16> =
+								  call %% Line 822
+								       'erlang':%% Line 822
+										'+'
+								      (_15, _12)
+							      in  let <_11> =
+								      call %% Line 822
+									   'erlang':%% Line 822
+										    'length'
+									  (%% Line 822
+									   Sep)
+								  in  let <_17> =
+									  call %% Line 822
+									       'erlang':%% Line 822
+											'+'
+									      (_16, _11)
+								      in  let <_9> =
+									      call %% Line 823
+										   'erlang':%% Line 823
+											    'length'
+										  (%% Line 823
+										   Sep)
+									  in  let <_10> =
+										  call %% Line 823
+										       'erlang':%% Line 823
+												'*'
+										      (_9, %% Line 823
+											   Num)
+									      in  let <HardcodedSize> =
+										      call %% Line 823
+											   'erlang':%% Line 823
+												    '+'
+											  (_17, _10)
+										  in  let <_19> =
+											  call %% Line 824
+											       'erlang':%% Line 824
+													'-'
+											      (%% Line 824
+											       Limit0, %% Line 824
+												       HardcodedSize)
+										      in  let <Limit1> =
+											      call %% Line 824
+												   'erlang':%% Line 824
+													    'max'
+												  (_19, %% Line 824
+													1)
+											  in  let <EL> =
+												  call %% Line 834
+												       'erlang':%% Line 834
+														'div'
+												      (%% Line 834
+												       Limit1, %% Line 834
+													       3)
+											      in  let <_22> =
+												      call %% Line 835
+													   'erlang':%% Line 835
+														    '-'
+													  (%% Line 835
+													   Limit1, %% Line 835
+														   EL)
+												  in  let <PL> =
+													  call %% Line 835
+													       'erlang':%% Line 835
+															'div'
+													      (_22, %% Line 835
+														    Num)
+												      in  %% Line 836
+													  <PL,Limit1>
+					  ( <_24> when 'true' ->
+						%% Line 812
+						primop 'match_fail'
+						    ({'case_clause',_24})
+					    -| ['compiler_generated'] )
+					end
+				    in  let <LinkFormat> =
+					    apply %% Line 838
+						  'format_link_reports'/4
+						(%% Line 838
+						 LinkReport, _3, %% Line 838
+								 Extra, ( _37
+									  -| ['compiler_generated'] ))
+					in  let <LinkFormatSize> =
+						apply %% Line 839
+						      'size'/2
+						    (%% Line 839
+						     Enc, %% Line 839
+							  LinkFormat)
+					    in  let <OwnFormat> =
+						    apply %% Line 841
+							  'format_own_report'/6
+							(%% Line 841
+							 OwnReport, _3, %% Line 841
+									Extra, %% Line 842
+									       LinkFormatSize, ( _37
+												 -| ['compiler_generated'] ), ( _38
+																-| ['compiler_generated'] ))
+						in  let <_30> =
+							call %% Line 843
+							     'erlang':%% Line 843
+								      '++'
+							    (%% Line 843
+							     Sep, %% Line 843
+								  [126|[116|[115]]])
+						    in  let <_31> =
+							    [126|%% Line 843
+								 [116|[115|_30]]]
+							in  let <_32> =
+								call %% Line 843
+								     'erlang':%% Line 843
+									      '++'
+								    (%% Line 843
+								     Nl, _31)
+							    in  let <_33> =
+								    call %% Line 843
+									 'erlang':%% Line 843
+										  '++'
+									(%% Line 843
+									 [126|[115|[99|[114|[97|[115|[104|[101|[114|[58]]]]]]]]]], _32)
+								in  %% Line 843
+								    call 'io_lib':'format'
+									(_33, %% Line 844
+									      [_3|[OwnFormat|[LinkFormat|[]]]])
+		( <_2> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_2})
+		  -| ['compiler_generated'] )
+	      end
+	  ( <_35,_34> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_35,_34})
+		  -| [{'function_name',{'do_format',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'format_own_report'/6 =
+    %% Line 846
+    fun (_0,_1,_2,_3,_4,_5) ->
+	let <MyIndent> =
+	    call %% Line 847
+		 'erlang':%% Line 847
+			  '++'
+		(_1, _1)
+	in  %% Line 848
+	    case apply 'separate_error_info'/1
+		     (_0) of
+	      %% Line 849
+	      <{First,{Class,Reason,StackTrace},Rest}> when 'true' ->
+		  let <F> =
+		      apply %% Line 850
+			    'format_report'/4
+			  (%% Line 850
+			   First, %% Line 850
+				  MyIndent, _2, _4)
+		  in  let <R> =
+			  apply %% Line 851
+				'format_report'/4
+			      (%% Line 851
+			       Rest, %% Line 851
+				     MyIndent, _2, _4)
+		      in  %% Line 852
+			  case _2 of
+			    <~{'encoding':=Enc,'single_line':=Single}~> when 'true' ->
+				let <_10> =
+				    apply %% Line 853
+					  'part_separator'/0
+					()
+				in  let <Sep> =
+					apply %% Line 853
+					      'nl'/2
+					    (%% Line 853
+					     Single, _10)
+				    in  let <_24> =
+					    case _5 of
+					      %% Line 855
+					      <'unlimited'> when 'true' ->
+						  _5
+					      %% Line 857
+					      <_38>
+						  when call 'erlang':'is_integer'
+							(_5) ->
+						  let <_18> =
+						      apply %% Line 861
+							    'size'/2
+							  (%% Line 861
+							   Enc, %% Line 861
+								F)
+						  in  let <_17> =
+							  apply %% Line 862
+								'size'/2
+							      (%% Line 862
+							       Enc, %% Line 862
+								    R)
+						      in  let <_19> =
+							      call %% Line 862
+								   'erlang':%% Line 862
+									    '+'
+								  (_18, _17)
+							  in  let <_15> =
+								  call %% Line 863
+								       'erlang':%% Line 863
+										'length'
+								      (%% Line 863
+								       Sep)
+							      in  let <_13> =
+								      call %% Line 863
+									   'erlang':%% Line 863
+										    'length'
+									  (%% Line 863
+									   F)
+								  in  let <_12> =
+									  call %% Line 863
+									       'erlang':%% Line 863
+											'length'
+									      (%% Line 863
+									       R)
+								      in  let <_14> =
+									      call %% Line 863
+										   'erlang':%% Line 863
+											    '+'
+										  (_13, _12)
+									  in  let <_16> =
+										  call %% Line 863
+										       'erlang':%% Line 863
+												'*'
+										      (_15, _14)
+									      in  let <_20> =
+										      call %% Line 863
+											   'erlang':%% Line 863
+												    '-'
+											  (_19, _16)
+										  in  let <SizeOfOther> =
+											  call %% Line 864
+											       'erlang':%% Line 864
+													'+'
+											      (_20, _3)
+										      in  let <_22> =
+											      call %% Line 865
+												   'erlang':%% Line 865
+													    '-'
+												  (_5, %% Line 865
+												       SizeOfOther)
+											  in  %% Line 865
+											      call 'erlang':'max'
+												  (_22, 1)
+					      ( <_23> when 'true' ->
+						    %% Line 854
+						    primop 'match_fail'
+							({'case_clause',_23})
+						-| ['compiler_generated'] )
+					    end
+					in  let <EI> =
+						apply %% Line 867
+						      'format_exception'/5
+						    (%% Line 867
+						     Class, %% Line 867
+							    Reason, %% Line 867
+								    StackTrace, _2, _24)
+					    in  %% Line 868
+						call 'lists':'join'
+						    (Sep, [F|[EI|[R|[]]]])
+			    ( <_9> when 'true' ->
+				  primop 'match_fail'
+				      ({'badmatch',_9})
+			      -| ['compiler_generated'] )
+			  end
+	      %% Line 869
+	      <'no'> when 'true' ->
+		  let <_29> =
+		      case _5 of
+			%% Line 871
+			<'unlimited'> when 'true' ->
+			    _5
+			%% Line 873
+			<_39>
+			    when call 'erlang':'is_integer'
+				  (_5) ->
+			    let <_27> =
+				call %% Line 874
+				     'erlang':%% Line 874
+					      '-'
+				    (_5, _3)
+			    in  %% Line 874
+				call 'erlang':'max'
+				    (_27, 1)
+			( <_28> when 'true' ->
+			      %% Line 870
+			      primop 'match_fail'
+				  ({'case_clause',_28})
+			  -| ['compiler_generated'] )
+		      end
+		  in  %% Line 876
+		      apply 'format_report'/4
+			  (_0, MyIndent, _2, _29)
+	      ( <_31> when 'true' ->
+		    primop 'match_fail'
+			({'case_clause',_31})
+		-| ['compiler_generated'] )
+	    end
+'separate_error_info'/1 =
+    %% Line 879
+    fun (_0) ->
+	%% Line 880
+	try
+	    let <_4> =
+		fun (_2) ->
+		    let <_1> =
+			call %% Line 881
+			     'erlang':%% Line 881
+				      'element'
+			    (%% Line 881
+			     1, %% Line 881
+				_2)
+		    in  %% Line 881
+			call 'erlang':'=/='
+			    (_1, 'error_info')
+	    in  %% Line 881
+		call 'lists':'splitwith'
+		    (_4, _0)
+	of <_5> ->
+	    case _5 of
+	      %% Line 883
+	      <{First,[{'error_info',ErrorInfo}|Rest]}> when 'true' ->
+		  %% Line 884
+		  {First,ErrorInfo,Rest}
+	      %% Line 885
+	      <_11> when 'true' ->
+		  'no'
+	    end
+	catch <_9,_8,_7> ->
+	    %% Line 886
+	    'no'
+'format_link_reports'/4 =
+    %% Line 891
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <LinkReports,Indent,Extra,PartLimit>
+	      when %% Line 892
+		call 'erlang':'is_integer'
+		    (PartLimit) ->
+	      %% Line 893
+	      case Extra of
+		<~{'depth':=Depth,'encoding':=Enc,'single_line':=Single}~> when 'true' ->
+		    let <_9> =
+			letrec
+			    'lc$^0'/1 =
+				%% Line 894
+				fun (_7) ->
+				    case _7 of
+				      <[{'neighbour',[{'pid',P}|_28]}|_6]> when 'true' ->
+					  let <_8> =
+					      apply 'lc$^0'/1
+						  (_6)
+					  in  ( [P|_8]
+						-| ['compiler_generated'] )
+				      ( <[_5|_6]> when 'true' ->
+					    apply 'lc$^0'/1
+						(_6)
+					-| ['compiler_generated'] )
+				      <[]> when 'true' ->
+					  []
+				      ( <_29> when 'true' ->
+					    ( primop 'match_fail'
+						  ({'function_clause',_29})
+					      -| [{'function_name',{'lc$^0',1}}] )
+					-| ['compiler_generated'] )
+				    end
+			in  %% Line 894
+			    apply 'lc$^0'/1
+				(LinkReports)
+		    in  %% Line 895
+			case apply 'p'/2
+				 (Enc, Depth) of
+			  <{P,Tl}> when 'true' ->
+			      let <_12> =
+				  case <> of
+				    %% Line 896
+				    <>
+					when ( call 'erlang':'=:='
+						(Single,
+						 'true')
+					    -| ['compiler_generated'] ) ->
+					[48]
+				    %% Line 897
+				    <> when 'true' ->
+					[]
+				  end
+			      in  let <_14> =
+				      call %% Line 899
+					   'erlang':%% Line 899
+						    '++'
+					  (_12, %% Line 899
+						P)
+				  in  let <_15> =
+					  call %% Line 899
+					       'erlang':%% Line 899
+							'++'
+					      (%% Line 899
+					       [110|[101|[105|[103|[104|[98|[111|[117|[114|[115|[58|[32|[126]]]]]]]]]]]]], _14)
+				      in  let <_16> =
+					      call %% Line 899
+						   'erlang':%% Line 899
+							    '++'
+						  (%% Line 899
+						   Indent, _15)
+					  in  %% Line 899
+					      call 'io_lib':'format'
+						  (_16, %% Line 900
+							[_9|Tl], %% Line 901
+								 [{'chars_limit',PartLimit}|[]])
+			  ( <_11> when 'true' ->
+				primop 'match_fail'
+				    ({'badmatch',_11})
+			    -| ['compiler_generated'] )
+			end
+		( <_4> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_4})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 902
+	  <LinkReports,Indent,Extra,PartLimit> when 'true' ->
+	      %% Line 903
+	      case Extra of
+		<~{'single_line':=Single}~> when 'true' ->
+		    let <MyIndent> =
+			call %% Line 904
+			     'erlang':%% Line 904
+				      '++'
+			    (%% Line 904
+			     Indent, %% Line 904
+				     Indent)
+		    in  let <_20> =
+			    apply %% Line 906
+				  'report_separator'/0
+				()
+			in  let <_21> =
+				apply %% Line 906
+				      'nl'/2
+				    (%% Line 906
+				     Single, _20)
+			    in  let <_19> =
+				    apply %% Line 907
+					  'format_link_report'/4
+					(%% Line 907
+					 LinkReports, %% Line 907
+						      MyIndent, %% Line 907
+								Extra, %% Line 907
+								       PartLimit)
+				in  let <LinkFormat> =
+					call %% Line 906
+					     'lists':%% Line 906
+						     'join'
+					    (_21, _19)
+				    in  let <_23> =
+					    apply %% Line 908
+						  'nl'/2
+						(%% Line 908
+						 Single, %% Line 908
+							 [32])
+					in  %% Line 908
+					    [Indent|[[110|[101|[105|[103|[104|[98|[111|[117|[114|[115|[58]]]]]]]]]]]|[_23|[LinkFormat|[]]]]]
+		( <_17> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_17})
+		  -| ['compiler_generated'] )
+	      end
+	end
+'format_link_report'/4 =
+    %% Line 910
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <[Link|Reps],Indent0,Extra,PartLimit> when 'true' ->
+	      %% Line 911
+	      case Extra of
+		<~{'single_line':=Single}~> when 'true' ->
+		    let <_6> =
+			case %% Line 912
+			     Link of
+			  %% Line 913
+			  <{'neighbour',Rep0}> when 'true' ->
+			      Rep0
+			  %% Line 914
+			  <_18> when 'true' ->
+			      Link
+			end
+		    in  let <_8> =
+			    case <> of
+			      %% Line 916
+			      <>
+				  when ( call 'erlang':'=:='
+					  (Single,
+					   'true')
+				      -| ['compiler_generated'] ) ->
+				  []
+			      %% Line 917
+			      <> when 'true' ->
+				  Indent0
+			    end
+			in  let <LinkIndent> =
+				[%% Line 919
+				 [32|[32]]|%% Line 919
+					   [_8|[]]]
+			    in  let <_11> =
+				    apply %% Line 920
+					  'nl'/2
+					(%% Line 920
+					 Single, %% Line 920
+						 [32])
+				in  let <_12> =
+					apply %% Line 921
+					      'format_report'/4
+					    (_6, %% Line 921
+						 LinkIndent, %% Line 921
+							     Extra, %% Line 921
+								    PartLimit)
+				    in  let <_13> =
+					    apply %% Line 922
+						  'format_link_report'/4
+						(%% Line 922
+						 Reps, _8, %% Line 922
+							   Extra, %% Line 922
+								  PartLimit)
+					in  %% Line 920
+					    [[_8|[[110|[101|[105|[103|[104|[98|[111|[117|[114|[58]]]]]]]]]]|[_11|%% Line 921
+														 [_12|[]]]]]|_13]
+		( <_4> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_4})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 923
+	  <Rep,Indent,Extra,PartLimit> when 'true' ->
+	      %% Line 924
+	      apply 'format_report'/4
+		  (Rep, Indent, Extra, PartLimit)
+	end
+'format_report'/4 =
+    %% Line 926
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <Rep,Indent,Extra,Limit>
+	      when call 'erlang':'is_list'
+		    (Rep) ->
+	      %% Line 927
+	      case Extra of
+		<~{'single_line':=Single}~> when 'true' ->
+		    let <_6> =
+			apply %% Line 928
+			      'part_separator'/0
+			    ()
+		    in  let <_7> =
+			    apply %% Line 928
+				  'nl'/2
+				(%% Line 928
+				 Single, _6)
+			in  let <_5> =
+				apply %% Line 929
+				      'format_rep'/4
+				    (%% Line 929
+				     Rep, %% Line 929
+					  Indent, %% Line 929
+						  Extra, %% Line 929
+							 Limit)
+			    in  %% Line 928
+				call 'lists':'join'
+				    (_7, _5)
+		( <_4> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_4})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 930
+	  <Rep,Indent0,Extra,Limit> when 'true' ->
+	      %% Line 931
+	      case Extra of
+		<~{'depth':=Depth,'encoding':=Enc,'single_line':=Single}~> when 'true' ->
+		    %% Line 932
+		    case apply 'p'/2
+			     (Enc, Depth) of
+		      <{P,Tl}> when 'true' ->
+			  let <_19,_20> =
+			      case <> of
+				%% Line 933
+				<>
+				    when ( call 'erlang':'=:='
+					    (Single,
+					     'true')
+					-| ['compiler_generated'] ) ->
+				    <[],[48]>
+				%% Line 934
+				<> when 'true' ->
+				    <Indent0,[]>
+			      end
+			  in  let <Opts> =
+				  apply %% Line 936
+					'chars_limit_opt'/1
+				      (%% Line 936
+				       Limit)
+			      in  let <_13> =
+				      call %% Line 937
+					   'erlang':%% Line 937
+						    '++'
+					  (( _20
+					     -| ['compiler_generated'] ), %% Line 937
+									  P)
+				  in  let <_14> =
+					  [126|%% Line 937
+					       [115|[126|_13]]]
+				      in  %% Line 937
+					  call 'io_lib':'format'
+					      (_14, [( _19
+						       -| ['compiler_generated'] )|[Rep|Tl]], Opts)
+		      ( <_9> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_9})
+			-| ['compiler_generated'] )
+		    end
+		( <_8> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_8})
+		  -| ['compiler_generated'] )
+	      end
+	end
+'format_rep'/4 =
+    %% Line 939
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <[{'initial_call',InitialCall}|Rep],Indent,Extra,Limit> when 'true' ->
+	      let <_4> =
+		  apply %% Line 940
+			'format_mfa'/4
+		      (%% Line 940
+		       Indent, %% Line 940
+			       InitialCall, %% Line 940
+					    Extra, %% Line 940
+						   Limit)
+	      in  let <_5> =
+		      apply %% Line 941
+			    'format_rep'/4
+			  (%% Line 941
+			   Rep, %% Line 941
+				Indent, %% Line 941
+					Extra, %% Line 941
+					       Limit)
+		  in  %% Line 940
+		      [_4|_5]
+	  %% Line 942
+	  <[{Tag,Data}|Rep],Indent,Extra,Limit> when 'true' ->
+	      let <_6> =
+		  apply %% Line 943
+			'format_tag'/5
+		      (%% Line 943
+		       Indent, %% Line 943
+			       Tag, %% Line 943
+				    Data, %% Line 943
+					  Extra, %% Line 943
+						 Limit)
+	      in  let <_7> =
+		      apply %% Line 944
+			    'format_rep'/4
+			  (%% Line 944
+			   Rep, %% Line 944
+				Indent, %% Line 944
+					Extra, %% Line 944
+					       Limit)
+		  in  %% Line 943
+		      [_6|_7]
+	  %% Line 945
+	  <_12,_13,_X_Extra,_X_Limit> when 'true' ->
+	      %% Line 946
+	      []
+	end
+'format_exception'/5 =
+    %% Line 948
+    fun (_0,_1,_2,_3,_4) ->
+	%% Line 949
+	case _3 of
+	  <~{'depth':=Depth,'encoding':=Enc,'single_line':=Single}~> when 'true' ->
+	      let <StackFun> =
+		  fun (_10,_9,_8) ->
+		      let <_7> =
+			  call %% Line 950
+			       'erlang':%% Line 950
+					'=:='
+			      (_10, %% Line 950
+				    'erl_eval')
+		      in  let <_6> =
+			      call %% Line 950
+				   'erlang':%% Line 950
+					    '=:='
+				  (_10, %% Line 950
+					'proc_lib')
+			  in  %% Line 950
+			      call 'erlang':'or'
+				  (_7, _6)
+	      in  %% Line 951
+		  case <> of
+		    <>
+			when ( call 'erlang':'=:='
+				(Single,
+				 'true')
+			    -| ['compiler_generated'] ) ->
+			%% Line 952
+			case apply 'p'/2
+				 (Enc, Depth) of
+			  <{P,Tl}> when 'true' ->
+			      let <Opts> =
+				  apply %% Line 953
+					'chars_limit_opt'/1
+				      (_4)
+			      in  let <_17> =
+				      call %% Line 954
+					   'erlang':%% Line 954
+						    'atom_to_list'
+					  (_0)
+				  in  let <_18> =
+					  [126|%% Line 955
+					       [48|P]]
+				      in  let <_19> =
+					      call %% Line 955
+						   'io_lib':%% Line 955
+							    'format'
+						  (_18, %% Line 955
+							[{_1,_2}|Tl], %% Line 955
+								      Opts)
+					  in  %% Line 954
+					      [_17|[[58|[32]]|%% Line 955
+							      [_19|[]]]]
+			  ( <_15> when 'true' ->
+				primop 'match_fail'
+				    ({'badmatch',_15})
+			    -| ['compiler_generated'] )
+			end
+		    %% Line 956
+		    <> when 'true' ->
+			let <PF> =
+			    apply %% Line 960
+				  'pp_fun'/2
+				(_3, %% Line 960
+				     Enc)
+			in  let <_23> =
+				case _4 of
+				  %% Line 963
+				  <'unlimited'> when 'true' ->
+				      -1
+				  %% Line 964
+				  <_33> when 'true' ->
+				      _4
+				end
+			    in  let <FE> =
+				    call %% Line 966
+					 'erl_error':%% Line 966
+						     'format_exception'
+					(%% Line 966
+					 5, _0, _1, _2, %% Line 967
+							StackFun, %% Line 967
+								  PF, %% Line 967
+								      Enc, _23)
+				in  %% Line 969
+				    [[32|[32|[32|[32]]]]|[FE|[]]]
+		  end
+	  ( <_5> when 'true' ->
+		primop 'match_fail'
+		    ({'badmatch',_5})
+	    -| ['compiler_generated'] )
+	end
+'format_mfa'/4 =
+    %% Line 972
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <Indent0,StartF = {M,F,Args},Extra,Limit> when 'true' ->
+	      %% Line 973
+	      case Extra of
+		<~{'encoding':=Enc,'single_line':=Single}~> when 'true' ->
+		    let <_5> =
+			case <> of
+			  %% Line 974
+			  <>
+			      when ( call 'erlang':'=:='
+				      (Single,
+				       'true')
+				  -| ['compiler_generated'] ) ->
+			      []
+			  %% Line 975
+			  <> when 'true' ->
+			      Indent0
+			end
+		    in  %% Line 977
+			try
+			    let <A> =
+				call %% Line 978
+				     'erlang':%% Line 978
+					      'length'
+				    (%% Line 978
+				     Args)
+			    in  let <_8> =
+				    apply %% Line 979
+					  'to_string'/2
+					(%% Line 979
+					 M, %% Line 979
+					    Enc)
+				in  let <_9> =
+					apply %% Line 979
+					      'to_string'/2
+					    (%% Line 979
+					     F, %% Line 979
+						Enc)
+				    in  let <_10> =
+					    call %% Line 980
+						 'erlang':%% Line 980
+							  'integer_to_list'
+						(%% Line 980
+						 A)
+					in  %% Line 979
+					    [_5|[[105|[110|[105|[116|[105|[97|[108|[32|[99|[97|[108|[108|[58|[32]]]]]]]]]]]]]]|[_8|[58|[_9|[47|%% Line 980
+																	       [_10|[]]]]]]]]
+			of <_11> ->
+			    _11
+			catch <_14,_13,_12> ->
+			    %% Line 982
+			    case <_14,_13,_12> of
+			      <( 'error'
+				 -| ['compiler_generated'] ),_19,_20> when 'true' ->
+				  %% Line 983
+				  apply 'format_tag'/5
+				      (_5, 'initial_call', StartF, Extra, Limit)
+			      ( <_21,_22,_23> when 'true' ->
+				    primop 'raise'
+					(_23, _22)
+				-| ['compiler_generated'] )
+			    end
+		( <_4> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_4})
+		  -| ['compiler_generated'] )
+	      end
+	  ( <_18,_17,_16,_15> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_18,_17,_16,_15})
+		  -| [{'function_name',{'format_mfa',4}}] )
+	    -| ['compiler_generated'] )
+	end
+'to_string'/2 =
+    %% Line 986
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <A,'latin1'> when 'true' ->
+	      %% Line 987
+	      call 'io_lib':'write_atom_as_latin1'
+		  (A)
+	  %% Line 988
+	  <A,_4> when 'true' ->
+	      %% Line 989
+	      call 'io_lib':'write_atom'
+		  (A)
+	end
+'pp_fun'/2 =
+    %% Line 991
+    fun (_0,_1) ->
+	%% Line 992
+	case _0 of
+	  <~{'depth':=Depth,'encoding':=_21,'single_line':=Single}~>
+	      when call 'erlang':'=:='
+		    (_21,
+		     _1) ->
+	      %% Line 993
+	      case apply 'p'/2
+		       (_1, Depth) of
+		<{P,Tl}> when 'true' ->
+		    let <_4> =
+			case <> of
+			  %% Line 994
+			  <>
+			      when ( call 'erlang':'=:='
+				      (Single,
+				       'true')
+				  -| ['compiler_generated'] ) ->
+			      [48]
+			  %% Line 995
+			  <> when 'true' ->
+			      []
+			end
+		    in  %% Line 997
+			( fun (_15,_14,_13) ->
+			      let <_6> =
+				  call %% Line 998
+				       'erlang':%% Line 998
+						'integer_to_list'
+				      (_14)
+			      in  let <_7> =
+				      call %% Line 998
+					   'erlang':%% Line 998
+						    '++'
+					  (_6, %% Line 998
+					       P)
+				  in  let <_8> =
+					  [46|_7]
+				      in  let <_9> =
+					      call %% Line 998
+						   'erlang':%% Line 998
+							    '++'
+						  (_4, _8)
+					  in  let <_10> =
+						  [126|_9]
+					      in  let <S> =
+						      call %% Line 998
+							   'io_lib':%% Line 998
+								    'format'
+							  (_10, %% Line 999
+								[_15|Tl], %% Line 999
+									  [{'chars_limit',_13}|[]])
+						  in  let <_12> =
+							  apply %% Line 1000
+								'sub'/3
+							      (_13, %% Line 1000
+								    S, _1)
+						      in  %% Line 1000
+							  {S,_12}
+			  -| [{'id',{0,0,'-pp_fun/2-fun-0-'}}] )
+		( <_3> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_3})
+		  -| ['compiler_generated'] )
+	      end
+	  ( <_2> when 'true' ->
+		primop 'match_fail'
+		    ({'badmatch',_2})
+	    -| ['compiler_generated'] )
+	end
+'format_tag'/5 =
+    %% Line 1003
+    fun (_0,_1,_2,_3,_4) ->
+	%% Line 1004
+	case _3 of
+	  <~{'depth':=Depth,'encoding':=Enc,'single_line':=Single}~> when 'true' ->
+	      %% Line 1005
+	      case apply 'p'/2
+		       (Enc, Depth) of
+		<{P,Tl}> when 'true' ->
+		    let <_20,_21> =
+			case <> of
+			  %% Line 1006
+			  <>
+			      when ( call 'erlang':'=:='
+				      (Single,
+				       'true')
+				  -| ['compiler_generated'] ) ->
+			      <[],[48]>
+			  %% Line 1007
+			  <> when 'true' ->
+			      <_0,[]>
+			end
+		    in  let <Opts> =
+			    apply %% Line 1009
+				  'chars_limit_opt'/1
+				(_4)
+			in  let <_10> =
+				[46|%% Line 1010
+				    [49|[56|P]]]
+			    in  let <_11> =
+				    call %% Line 1010
+					 'erlang':%% Line 1010
+						  '++'
+					(( _21
+					   -| ['compiler_generated'] ), _10)
+				in  let <_12> =
+					[112|%% Line 1010
+					     [58|[32|[126|_11]]]]
+				    in  let <_13> =
+					    call %% Line 1010
+						 'erlang':%% Line 1010
+							  '++'
+						(( _21
+						   -| ['compiler_generated'] ), _12)
+					in  let <_14> =
+						[126|%% Line 1010
+						     [115|[126|_13]]]
+					    in  %% Line 1010
+						call 'io_lib':'format'
+						    (_14, %% Line 1011
+							  [( _20
+							     -| ['compiler_generated'] )|[_1|[_2|Tl]]], %% Line 1011
+													Opts)
+		( <_6> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_6})
+		  -| ['compiler_generated'] )
+	      end
+	  ( <_5> when 'true' ->
+		primop 'match_fail'
+		    ({'badmatch',_5})
+	    -| ['compiler_generated'] )
+	end
+'p'/2 =
+    %% Line 1013
+    fun (_0,_1) ->
+	let <_10,_11> =
+	    case _1 of
+	      %% Line 1015
+	      <'unlimited'> when 'true' ->
+		  <[112],[]>
+	      %% Line 1016
+	      <_9> when 'true' ->
+		  <[80],[_1|[]]>
+	    end
+	in  let <_5> =
+		apply %% Line 1018
+		      'modifier'/1
+		    (_0)
+	    in  let <P> =
+		    call %% Line 1018
+			 'erlang':%% Line 1018
+				  '++'
+			(_5, ( _10
+			       -| ['compiler_generated'] ))
+		in  %% Line 1019
+		    {P,( _11
+			 -| ['compiler_generated'] )}
+'report_separator'/0 =
+    %% Line 1021
+    fun () ->
+	[59|[32]]
+'part_separator'/0 =
+    %% Line 1023
+    fun () ->
+	[44|[32]]
+'chars_limit_opt'/1 =
+    %% Line 1025
+    fun (_0) ->
+	%% Line 1026
+	( case <> of
+	    <>
+		when call 'erlang':'is_integer'
+		      (_0) ->
+		( [{'chars_limit',_0}|[]]
+		  -| ['compiler_generated'] )
+	    ( <> when 'true' ->
+		  []
+	      -| ['compiler_generated'] )
+	  end
+	  -| ['list_comprehension'] )
+'modifier'/1 =
+    %% Line 1028
+    fun (_0) ->
+	case _0 of
+	  <'latin1'> when 'true' ->
+	      []
+	  %% Line 1029
+	  <_2> when 'true' ->
+	      [116]
+	end
+'nl'/2 =
+    %% Line 1031
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <'true',Else> when 'true' ->
+	      Else
+	  %% Line 1032
+	  <'false',_4> when 'true' ->
+	      [10]
+	  ( <_3,_2> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_3,_2})
+		  -| [{'function_name',{'nl',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'sub'/3 =
+    %% Line 1035
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <T,_7,_X_Enc>
+	      when call 'erlang':'<'
+		    (T,
+		     0) ->
+	      T
+	  %% Line 1036
+	  <T,E,Enc> when 'true' ->
+	      let <Sz> =
+		  apply %% Line 1037
+			'size'/2
+		      (%% Line 1037
+		       Enc, %% Line 1037
+			    E)
+	      in  %% Line 1038
+		  case <> of
+		    %% Line 1039
+		    <>
+			when call 'erlang':'>='
+			      (T,
+			       Sz) ->
+			%% Line 1040
+			call 'erlang':'-'
+			    (T, Sz)
+		    %% Line 1041
+		    <> when 'true' ->
+			%% Line 1042
+			0
+		  end
+	end
+'size'/2 =
+    %% Line 1045
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <'latin1',S> when 'true' ->
+	      %% Line 1046
+	      call 'erlang':'iolist_size'
+		  (S)
+	  %% Line 1047
+	  <_4,S> when 'true' ->
+	      %% Line 1048
+	      call 'string':'length'
+		  (S)
+	end
+'stop'/1 =
+    %% Line 1056
+    fun (_0) ->
+	%% Line 1057
+	apply 'stop'/3
+	    (_0, 'normal', 'infinity')
+'stop'/3 =
+    %% Line 1064
+    fun (_0,_1,_2) ->
+	let <_3> =
+	    apply %% Line 1065
+		  'do_stop'/2
+		(_0, _1)
+	in  %% Line 1065
+	    case call 'erlang':'spawn_monitor'
+		     (_3) of
+	      <{Pid,Mref}> when 'true' ->
+		  %% Line 1066
+		  receive
+		    %% Line 1067
+		    <{'DOWN',_8,_9,_10,_11}>
+			when let <_12> =
+			      call 'erlang':'=:='
+				  (_8, Mref)
+			  in  let <_13> =
+				  call 'erlang':'=:='
+				      (_11, _1)
+			      in  call 'erlang':'and'
+				      (_12, _13) ->
+			%% Line 1068
+			'ok'
+		    %% Line 1069
+		    <{'DOWN',_14,_15,_16,{'noproc',{'sys','terminate',_17}}}>
+			when call 'erlang':'=:='
+			      (_14,
+			       Mref) ->
+			%% Line 1070
+			call 'erlang':'exit'
+			    ('noproc')
+		    %% Line 1071
+		    <{'DOWN',_18,_19,_20,CrashReason}>
+			when call 'erlang':'=:='
+			      (_18,
+			       Mref) ->
+			%% Line 1072
+			call 'erlang':'exit'
+			    (CrashReason)
+		  after _2 ->
+		    do  %% Line 1074
+			call 'erlang':'exit'
+			    (Pid, 'kill')
+			%% Line 1075
+			receive
+			  %% Line 1076
+			  <{'DOWN',_21,_22,_23,_24}>
+			      when call 'erlang':'=:='
+				    (_21,
+				     Mref) ->
+			      %% Line 1077
+			      call 'erlang':'exit'
+				  ('timeout')
+			after 'infinity' ->
+			  'true'
+	      ( <_4> when 'true' ->
+		    primop 'match_fail'
+			({'badmatch',_4})
+		-| ['compiler_generated'] )
+	    end
+'do_stop'/2 =
+    %% Line 1086
+    fun (_0,_1) ->
+	%% Line 1087
+	( fun () ->
+	      let <Mref> =
+		  call %% Line 1088
+		       'erlang':%% Line 1088
+				'monitor'
+		      (%% Line 1088
+		       'process', _0)
+	      in  %% Line 1089
+		  case call 'sys':'terminate'
+			   (_0, _1, 'infinity') of
+		    <'ok'> when 'true' ->
+			%% Line 1090
+			receive
+			  %% Line 1091
+			  <{'DOWN',_6,_7,_8,ExitReason}>
+			      when call 'erlang':'=:='
+				    (_6,
+				     Mref) ->
+			      %% Line 1092
+			      call 'erlang':'exit'
+				  (ExitReason)
+			after 'infinity' ->
+			  'true'
+		    ( <_3> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_3})
+		      -| ['compiler_generated'] )
+		  end
+	  -| [{'id',{0,0,'-do_stop/2-fun-0-'}}] )
+'module_info'/0 =
+    fun () ->
+	call 'erlang':'get_module_info'
+	    ('proc_lib')
+'module_info'/1 =
+    fun (_0) ->
+	call 'erlang':'get_module_info'
+	    ('proc_lib', _0)
+end

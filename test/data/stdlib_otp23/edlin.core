@@ -1,0 +1,2266 @@
+module 'edlin' ['current_chars'/1,
+		'current_line'/1,
+		'edit_line'/2,
+		'edit_line1'/2,
+		'erase_inp'/1,
+		'erase_line'/1,
+		'init'/0,
+		'init'/1,
+		'length_after'/1,
+		'length_before'/1,
+		'module_info'/0,
+		'module_info'/1,
+		'over_word'/3,
+		'prefix_arg'/1,
+		'prompt'/1,
+		'redraw_line'/1,
+		'start'/1,
+		'start'/2]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[101|[100|[108|[105|[110|[46|[101|[114|[108]]]]]]]]]]]]],1}]]
+'init'/0 =
+    %% Line 45
+    ( fun () ->
+	  %% Line 46
+	  call 'erlang':'put'
+	      ('kill_buffer', [])
+      -| [{'function',{'init',0}}] )
+'init'/1 =
+    %% Line 48
+    ( fun (_0) ->
+	  let <_3> =
+	      case %% Line 51
+		   call 'erlang':'process_info'
+		       (( _0
+			  -| [{'function',{'init',1}}] ), 'dictionary') of
+		%% Line 52
+		<{'dictionary',Dict}> when 'true' ->
+		    %% Line 53
+		    case call 'proplists':'get_value'
+			     ('kill_buffer', Dict) of
+		      %% Line 54
+		      <'undefined'> when 'true' ->
+			  []
+		      %% Line 55
+		      <Buf> when 'true' ->
+			  Buf
+		    end
+		%% Line 57
+		<'undefined'> when 'true' ->
+		    %% Line 58
+		    []
+		( <_2> when 'true' ->
+		      %% Line 51
+		      primop 'match_fail'
+			  ({'case_clause',_2})
+		  -| ['compiler_generated'] )
+	      end
+	  in  %% Line 60
+	      call 'erlang':'put'
+		  ('kill_buffer', _3)
+      -| [{'function',{'init',1}}] )
+'start'/1 =
+    %% Line 70
+    ( fun (_0) ->
+	  %% Line 71
+	  apply 'start'/2
+	      (( _0
+		 -| [{'function',{'start',1}}] ), 'none')
+      -| [{'function',{'start',1}}] )
+'start'/2 =
+    %% Line 75
+    ( fun (_0,_1) ->
+	  %% Line 76
+	  {'more_chars',{'line',_0,{[],[]},_1},[{'put_chars','unicode',_0}|[]]}
+      -| [{'function',{'start',2}}] )
+'edit_line'/2 =
+    %% Line 78
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <Cs,{'line',P,L,{'blink',N}}> when 'true' ->
+		  %% Line 79
+		  apply 'edit'/5
+		      (Cs, P, L, 'none', [{'move_rel',N}|[]])
+	      %% Line 80
+	      <Cs,{'line',P,L,M}> when 'true' ->
+		  %% Line 81
+		  apply 'edit'/5
+		      (Cs, P, L, M, [])
+	      ( <_3,_2> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_3,_2})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'edit_line',2}}] )
+      -| [{'function',{'edit_line',2}}] )
+'edit_line1'/2 =
+    %% Line 83
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <Cs,{'line',P,L,{'blink',N}}> when 'true' ->
+		  %% Line 84
+		  apply 'edit'/5
+		      (Cs, P, L, 'none', [{'move_rel',N}|[]])
+	      %% Line 85
+	      <Cs,{'line',P,{[],[]},'none'}> when 'true' ->
+		  let <_2> =
+		      call %% Line 86
+			   'string':%% Line 86
+				    'reverse'
+			  (%% Line 86
+			   Cs)
+		  in  %% Line 86
+		      {'more_chars',{'line',P,{_2,[]},'none'},[{'put_chars','unicode',Cs}|[]]}
+	      %% Line 87
+	      <Cs,{'line',P,L,M}> when 'true' ->
+		  %% Line 88
+		  apply 'edit'/5
+		      (Cs, P, L, M, [])
+	      ( <_4,_3> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_4,_3})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'edit_line1',2}}] )
+      -| [{'function',{'edit_line1',2}}] )
+'edit'/5 =
+    %% Line 90
+    ( fun (_0,_1,_2,_3,_4) ->
+	  ( case <_0,_1,_2,_3,_4> of
+	      <_@r0 = [C|Cs],P,Line,{'blink',_25},[_26|Rs]> when 'true' ->
+		  %% Line 91
+		  apply 'edit'/5
+		      (_@r0, P, Line, 'none', Rs)
+	      %% Line 92
+	      <[C|Cs],P,_@r1 = {Bef,Aft},Prefix,Rs0> when 'true' ->
+		  %% Line 93
+		  case apply 'key_map'/2
+			   (C, Prefix) of
+		    %% Line 94
+		    <'meta'> when 'true' ->
+			%% Line 95
+			apply 'edit'/5
+			    (Cs, P, _@r1, 'meta', Rs0)
+		    %% Line 96
+		    <'meta_o'> when 'true' ->
+			%% Line 97
+			apply 'edit'/5
+			    (Cs, P, _@r1, 'meta_o', Rs0)
+		    %% Line 98
+		    <'meta_csi'> when 'true' ->
+			%% Line 99
+			apply 'edit'/5
+			    (Cs, P, _@r1, 'meta_csi', Rs0)
+		    %% Line 100
+		    <'meta_meta'> when 'true' ->
+			%% Line 101
+			apply 'edit'/5
+			    (Cs, P, _@r1, 'meta_meta', Rs0)
+		    %% Line 102
+		    <Csi = {'csi',_27}> when 'true' ->
+			%% Line 103
+			apply 'edit'/5
+			    (Cs, P, _@r1, Csi, Rs0)
+		    %% Line 104
+		    <'meta_left_sq_bracket'> when 'true' ->
+			%% Line 105
+			apply 'edit'/5
+			    (Cs, P, _@r1, 'meta_left_sq_bracket', Rs0)
+		    %% Line 106
+		    <'search_meta'> when 'true' ->
+			%% Line 107
+			apply 'edit'/5
+			    (Cs, P, _@r1, 'search_meta', Rs0)
+		    %% Line 108
+		    <'search_meta_left_sq_bracket'> when 'true' ->
+			%% Line 109
+			apply 'edit'/5
+			    (Cs, P, _@r1, 'search_meta_left_sq_bracket', Rs0)
+		    %% Line 110
+		    <'ctlx'> when 'true' ->
+			%% Line 111
+			apply 'edit'/5
+			    (Cs, P, _@r1, 'ctlx', Rs0)
+		    %% Line 112
+		    <'new_line'> when 'true' ->
+			let <_7> =
+			    call %% Line 113
+				 'erlang':%% Line 113
+					  '++'
+				(%% Line 113
+				 Aft, %% Line 113
+				      [10])
+			in  let <_8> =
+				apply %% Line 113
+				      'get_line'/2
+				    (%% Line 113
+				     Bef, _7)
+			    in  let <_5> =
+				    apply %% Line 114
+					  'cp_len'/1
+					(%% Line 114
+					 Aft)
+				in  let <_6> =
+					call %% Line 114
+					     'lists':%% Line 114
+						     'reverse'
+					    (%% Line 114
+					     Rs0, %% Line 114
+						  [{'move_rel',_5}|[{'put_chars','unicode',[10]}]])
+				    in  %% Line 113
+					{'done',_8,Cs,_6}
+		    %% Line 115
+		    <'redraw_line'> when 'true' ->
+			let <Rs1> =
+			    apply %% Line 116
+				  'erase'/4
+				(%% Line 116
+				 P, %% Line 116
+				    Bef, %% Line 116
+					 Aft, %% Line 116
+					      Rs0)
+			in  let <Rs> =
+				apply %% Line 117
+				      'redraw'/4
+				    (%% Line 117
+				     P, %% Line 117
+					Bef, %% Line 117
+					     Aft, %% Line 117
+						  Rs1)
+			    in  %% Line 118
+				apply 'edit'/5
+				    (Cs, P, _@r1, 'none', Rs)
+		    %% Line 119
+		    <'tab_expand'> when 'true' ->
+			let <_11> =
+			    call %% Line 122
+				 'lists':%% Line 122
+					 'reverse'
+				(%% Line 122
+				 Rs0)
+			in  %% Line 120
+			    {'expand',Bef,Cs,%% Line 121
+					     {'line',P,_@r1,'none'},_11}
+		    %% Line 142
+		    <{'undefined',_28}>
+			when call 'erlang':'=:='
+			      (_28,
+			       C) ->
+			let <_12> =
+			    call %% Line 144
+				 'lists':%% Line 144
+					 'reverse'
+				(%% Line 144
+				 Rs0)
+			in  %% Line 143
+			    {'undefined',{'none',Prefix,C},Cs,{'line',P,_@r1,'none'},_12}
+		    %% Line 145
+		    <Op> when 'true' ->
+			%% Line 146
+			case apply 'do_op'/4
+				 (Op, Bef, Aft, Rs0) of
+			  %% Line 147
+			  <{'blink',N,Line,Rs}> when 'true' ->
+			      %% Line 148
+			      apply 'edit'/5
+				  (Cs, P, Line, {'blink',N}, Rs)
+			  %% Line 149
+			  <{Line,Rs,Mode}> when 'true' ->
+			      %% Line 150
+			      apply 'edit'/5
+				  (Cs, P, Line, Mode, Rs)
+			  %% Line 151
+			  <{Line,Rs}> when 'true' ->
+			      %% Line 152
+			      apply 'edit'/5
+				  (Cs, P, Line, 'none', Rs)
+			  ( <_13> when 'true' ->
+				primop 'match_fail'
+				    ({'case_clause',_13})
+			    -| ['compiler_generated'] )
+			end
+		  end
+	      %% Line 155
+	      <[],P,L,_@r2 = {'blink',N},Rs> when 'true' ->
+		  let <_15> =
+		      call %% Line 156
+			   'lists':%% Line 156
+				   'reverse'
+			  (%% Line 156
+			   Rs)
+		  in  %% Line 156
+		      {'blink',{'line',P,L,_@r2},_15}
+	      %% Line 157
+	      <[],P,L,Prefix,Rs> when 'true' ->
+		  let <_16> =
+		      call %% Line 158
+			   'lists':%% Line 158
+				   'reverse'
+			  (%% Line 158
+			   Rs)
+		  in  %% Line 158
+		      {'more_chars',{'line',P,L,Prefix},_16}
+	      %% Line 159
+	      <'eof',_29,{Bef,Aft},_30,Rs> when 'true' ->
+		  let <_19> =
+		      apply %% Line 160
+			    'get_line'/2
+			  (%% Line 160
+			   Bef, %% Line 160
+				Aft)
+		  in  let <_17> =
+			  apply %% Line 160
+				'cp_len'/1
+			      (%% Line 160
+			       Aft)
+		      in  let <_18> =
+			      call %% Line 160
+				   'lists':%% Line 160
+					   'reverse'
+				  (%% Line 160
+				   Rs, %% Line 160
+				       [{'move_rel',_17}|[]])
+			  in  %% Line 160
+			      {'done',_19,[],_18}
+	      ( <_24,_23,_22,_21,_20> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_24,_23,_22,_21,_20})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'edit',5}}] )
+      -| [{'function',{'edit',5}}] )
+'prefix_arg'/1 =
+    %% Line 179
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'prefix_arg',1}}] ) of
+	      <'none'> when 'true' ->
+		  1
+	      %% Line 180
+	      <{'ctlu',N}> when 'true' ->
+		  N
+	      %% Line 181
+	      <N> when 'true' ->
+		  N
+	    end
+	    -| [{'function',{'prefix_arg',1}}] )
+      -| [{'function',{'prefix_arg',1}}] )
+'key_map'/2 =
+    %% Line 186
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <A,_16>
+		  when call 'erlang':'is_atom'
+			(A) ->
+		  A
+	      %% Line 187
+	      <1,'none'> when 'true' ->
+		  'beginning_of_line'
+	      %% Line 188
+	      <2,'none'> when 'true' ->
+		  'backward_char'
+	      %% Line 189
+	      <4,'none'> when 'true' ->
+		  'forward_delete_char'
+	      %% Line 190
+	      <5,'none'> when 'true' ->
+		  'end_of_line'
+	      %% Line 191
+	      <6,'none'> when 'true' ->
+		  'forward_char'
+	      %% Line 192
+	      <8,'none'> when 'true' ->
+		  'backward_delete_char'
+	      %% Line 193
+	      <9,'none'> when 'true' ->
+		  'tab_expand'
+	      %% Line 194
+	      <12,'none'> when 'true' ->
+		  'redraw_line'
+	      %% Line 195
+	      <10,'none'> when 'true' ->
+		  'new_line'
+	      %% Line 196
+	      <11,'none'> when 'true' ->
+		  'kill_line'
+	      %% Line 197
+	      <13,'none'> when 'true' ->
+		  'new_line'
+	      %% Line 198
+	      <20,'none'> when 'true' ->
+		  'transpose_char'
+	      %% Line 199
+	      <21,'none'> when 'true' ->
+		  'ctlu'
+	      %% Line 200
+	      <29,'none'> when 'true' ->
+		  'auto_blink'
+	      %% Line 201
+	      <24,'none'> when 'true' ->
+		  'ctlx'
+	      %% Line 202
+	      <25,'none'> when 'true' ->
+		  'yank'
+	      %% Line 203
+	      <23,'none'> when 'true' ->
+		  'backward_kill_word'
+	      %% Line 204
+	      <27,'none'> when 'true' ->
+		  'meta'
+	      %% Line 205
+	      <41,Prefix>
+		  when try
+			let <_2> =
+			    call 'erlang':'=/='
+				(Prefix, 'meta')
+			in  let <_3> =
+				call %% Line 206
+				     'erlang':%% Line 206
+					      '=/='
+				    (%% Line 206
+				     Prefix, %% Line 206
+					     'search')
+			    in  let <_4> =
+				    call %% Line 207
+					 'erlang':%% Line 207
+						  '=/='
+					(%% Line 207
+					 Prefix, %% Line 207
+						 'search_meta')
+				in  let <_5> =
+					call 'erlang':'and'
+					    (_3, _4)
+				    in  call 'erlang':'and'
+					    (_2, _5)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 207
+		  {'blink',41,40}
+	      %% Line 208
+	      <125,Prefix>
+		  when try
+			let <_6> =
+			    call 'erlang':'=/='
+				(Prefix, 'meta')
+			in  let <_7> =
+				call %% Line 209
+				     'erlang':%% Line 209
+					      '=/='
+				    (%% Line 209
+				     Prefix, %% Line 209
+					     'search')
+			    in  let <_8> =
+				    call %% Line 210
+					 'erlang':%% Line 210
+						  '=/='
+					(%% Line 210
+					 Prefix, %% Line 210
+						 'search_meta')
+				in  let <_9> =
+					call 'erlang':'and'
+					    (_7, _8)
+				    in  call 'erlang':'and'
+					    (_6, _9)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 210
+		  {'blink',125,123}
+	      %% Line 211
+	      <93,Prefix>
+		  when try
+			let <_10> =
+			    call 'erlang':'=/='
+				(Prefix, 'meta')
+			in  let <_11> =
+				call %% Line 212
+				     'erlang':%% Line 212
+					      '=/='
+				    (%% Line 212
+				     Prefix, %% Line 212
+					     'search')
+			    in  let <_12> =
+				    call %% Line 213
+					 'erlang':%% Line 213
+						  '=/='
+					(%% Line 213
+					 Prefix, %% Line 213
+						 'search_meta')
+				in  let <_13> =
+					call 'erlang':'and'
+					    (_11, _12)
+				    in  call 'erlang':'and'
+					    (_10, _13)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 213
+		  {'blink',93,91}
+	      %% Line 214
+	      <66,'meta'> when 'true' ->
+		  'backward_word'
+	      %% Line 215
+	      <68,'meta'> when 'true' ->
+		  'kill_word'
+	      %% Line 216
+	      <70,'meta'> when 'true' ->
+		  'forward_word'
+	      %% Line 217
+	      <84,'meta'> when 'true' ->
+		  'transpose_word'
+	      %% Line 218
+	      <89,'meta'> when 'true' ->
+		  'yank_pop'
+	      %% Line 219
+	      <98,'meta'> when 'true' ->
+		  'backward_word'
+	      %% Line 220
+	      <100,'meta'> when 'true' ->
+		  'kill_word'
+	      %% Line 221
+	      <102,'meta'> when 'true' ->
+		  'forward_word'
+	      %% Line 222
+	      <116,'meta'> when 'true' ->
+		  'transpose_word'
+	      %% Line 223
+	      <121,'meta'> when 'true' ->
+		  'yank_pop'
+	      %% Line 224
+	      <79,'meta'> when 'true' ->
+		  'meta_o'
+	      %% Line 225
+	      <72,'meta_o'> when 'true' ->
+		  'beginning_of_line'
+	      %% Line 226
+	      <70,'meta_o'> when 'true' ->
+		  'end_of_line'
+	      %% Line 227
+	      <127,'none'> when 'true' ->
+		  'backward_delete_char'
+	      %% Line 228
+	      <127,'meta'> when 'true' ->
+		  'backward_kill_word'
+	      %% Line 229
+	      <91,'meta'> when 'true' ->
+		  'meta_left_sq_bracket'
+	      %% Line 230
+	      <72,'meta_left_sq_bracket'> when 'true' ->
+		  'beginning_of_line'
+	      %% Line 231
+	      <70,'meta_left_sq_bracket'> when 'true' ->
+		  'end_of_line'
+	      %% Line 232
+	      <68,'meta_left_sq_bracket'> when 'true' ->
+		  'backward_char'
+	      %% Line 233
+	      <67,'meta_left_sq_bracket'> when 'true' ->
+		  'forward_char'
+	      %% Line 237
+	      <27,'meta'> when 'true' ->
+		  'meta_meta'
+	      %% Line 238
+	      <91,'meta_meta'> when 'true' ->
+		  'meta_csi'
+	      %% Line 239
+	      <67,'meta_csi'> when 'true' ->
+		  'forward_word'
+	      %% Line 240
+	      <68,'meta_csi'> when 'true' ->
+		  'backward_word'
+	      %% Line 241
+	      <49,'meta_left_sq_bracket'> when 'true' ->
+		  {'csi',[49]}
+	      %% Line 242
+	      <51,'meta_left_sq_bracket'> when 'true' ->
+		  {'csi',[51]}
+	      %% Line 243
+	      <53,'meta_left_sq_bracket'> when 'true' ->
+		  {'csi',[53]}
+	      %% Line 244
+	      <53,{'csi',[49|[59]]}> when 'true' ->
+		  {'csi',[49|[59|[53]]]}
+	      %% Line 245
+	      <126,{'csi',[51]}> when 'true' ->
+		  'forward_delete_char'
+	      %% Line 246
+	      <67,{'csi',[53]}> when 'true' ->
+		  'forward_word'
+	      %% Line 247
+	      <67,{'csi',[49|[59|[53]]]}> when 'true' ->
+		  'forward_word'
+	      %% Line 248
+	      <68,{'csi',[53]}> when 'true' ->
+		  'backward_word'
+	      %% Line 249
+	      <68,{'csi',[49|[59|[53]]]}> when 'true' ->
+		  'backward_word'
+	      %% Line 250
+	      <59,{'csi',[49]}> when 'true' ->
+		  {'csi',[49|[59]]}
+	      %% Line 251
+	      <C,'none'>
+		  when call 'erlang':'>='
+			(C,
+			 32) ->
+		  %% Line 252
+		  {'insert',C}
+	      %% Line 256
+	      <8,'search'> when 'true' ->
+		  {'search','backward_delete_char'}
+	      %% Line 257
+	      <127,'search'> when 'true' ->
+		  {'search','backward_delete_char'}
+	      %% Line 258
+	      <18,'search'> when 'true' ->
+		  {'search','skip_up'}
+	      %% Line 259
+	      <19,'search'> when 'true' ->
+		  {'search','skip_down'}
+	      %% Line 260
+	      <10,'search'> when 'true' ->
+		  {'search','search_found'}
+	      %% Line 261
+	      <13,'search'> when 'true' ->
+		  {'search','search_found'}
+	      %% Line 262
+	      <1,'search'> when 'true' ->
+		  {'search','search_quit'}
+	      %% Line 263
+	      <2,'search'> when 'true' ->
+		  {'search','search_quit'}
+	      %% Line 264
+	      <4,'search'> when 'true' ->
+		  {'search','search_quit'}
+	      %% Line 265
+	      <5,'search'> when 'true' ->
+		  {'search','search_quit'}
+	      %% Line 266
+	      <6,'search'> when 'true' ->
+		  {'search','search_quit'}
+	      %% Line 267
+	      <9,'search'> when 'true' ->
+		  {'search','search_quit'}
+	      %% Line 268
+	      <12,'search'> when 'true' ->
+		  {'search','search_quit'}
+	      %% Line 269
+	      <20,'search'> when 'true' ->
+		  {'search','search_quit'}
+	      %% Line 270
+	      <21,'search'> when 'true' ->
+		  {'search','search_quit'}
+	      %% Line 271
+	      <29,'search'> when 'true' ->
+		  {'search','search_quit'}
+	      %% Line 272
+	      <24,'search'> when 'true' ->
+		  {'search','search_quit'}
+	      %% Line 273
+	      <25,'search'> when 'true' ->
+		  {'search','search_quit'}
+	      %% Line 274
+	      <27,'search'> when 'true' ->
+		  'search_meta'
+	      %% Line 275
+	      <91,'search_meta'> when 'true' ->
+		  'search_meta_left_sq_bracket'
+	      %% Line 276
+	      <_17,'search_meta'> when 'true' ->
+		  {'search','search_quit'}
+	      %% Line 277
+	      <_X_C,'search_meta_left_sq_bracket'> when 'true' ->
+		  {'search','search_quit'}
+	      %% Line 278
+	      <C,'search'> when 'true' ->
+		  {'insert_search',C}
+	      %% Line 279
+	      <C,_18> when 'true' ->
+		  {'undefined',C}
+	    end
+	    -| [{'function',{'key_map',2}}] )
+      -| [{'function',{'key_map',2}}] )
+'do_op'/4 =
+    %% Line 283
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <{'insert',C},[],[],Rs> when 'true' ->
+		  %% Line 284
+		  {{[C|[]],[]},[{'put_chars','unicode',[C|[]]}|Rs]}
+	      %% Line 285
+	      <{'insert',C},_@r0 = [Bef|Bef0],[],Rs> when 'true' ->
+		  %% Line 286
+		  case call 'string':'to_graphemes'
+			   ([Bef|[C|[]]]) of
+		    %% Line 287
+		    <[GC|[]]> when 'true' ->
+			{{[GC|Bef0],[]},[{'put_chars','unicode',[C|[]]}|Rs]}
+		    %% Line 288
+		    <_85> when 'true' ->
+			{{[C|_@r0],[]},[{'put_chars','unicode',[C|[]]}|Rs]}
+		  end
+	      %% Line 290
+	      <{'insert',C},[],Aft,Rs> when 'true' ->
+		  %% Line 291
+		  {{[C|[]],Aft},[{'insert_chars','unicode',[C|[]]}|Rs]}
+	      %% Line 292
+	      <{'insert',C},_@r1 = [Bef|Bef0],Aft,Rs> when 'true' ->
+		  %% Line 293
+		  case call 'string':'to_graphemes'
+			   ([Bef|[C|[]]]) of
+		    %% Line 294
+		    <[GC|[]]> when 'true' ->
+			{{[GC|Bef0],Aft},[{'insert_chars','unicode',[C|[]]}|Rs]}
+		    %% Line 295
+		    <_86> when 'true' ->
+			{{[C|_@r1],Aft},[{'insert_chars','unicode',[C|[]]}|Rs]}
+		  end
+	      %% Line 306
+	      <{'insert_search',C},Bef,[],Rs> when 'true' ->
+		  let <_7> =
+		      [%% Line 309
+		       C|%% Line 309
+			 [39|[58|[32]]]]
+		  in  %% Line 308
+		      {{[C|Bef],[39|[58|[32]]]},%% Line 309
+						[{'insert_chars','unicode',_7}|[{'delete_chars',-3}|Rs]],%% Line 310
+													 'search'}
+	      %% Line 311
+	      <{'insert_search',C},Bef,Aft,Rs> when 'true' ->
+		  let <Offset> =
+		      apply %% Line 312
+			    'cp_len'/1
+			  (%% Line 312
+			   Aft)
+		  in  let <_11> =
+			  [%% Line 315
+			   C|%% Line 315
+			     [39|[58|[32]]]]
+		      in  let <_12> =
+			      call %% Line 315
+				   'erlang':%% Line 315
+					    '-'
+				  (%% Line 315
+				   Offset)
+			  in  %% Line 314
+			      {{[C|Bef],[39|[58|[32]]]},%% Line 315
+							[{'insert_chars','unicode',_11}|[{'delete_chars',_12}|Rs]],%% Line 316
+														   'search'}
+	      %% Line 317
+	      <{'search','backward_delete_char'},[_87|Bef],Aft,Rs> when 'true' ->
+		  let <_13> =
+		      apply %% Line 318
+			    'cp_len'/1
+			  (%% Line 318
+			   Aft)
+		  in  let <Offset> =
+			  call %% Line 318
+			       'erlang':%% Line 318
+					'+'
+			      (_13, %% Line 318
+				    1)
+		      in  let <_16> =
+			      call %% Line 321
+				   'erlang':%% Line 321
+					    '-'
+				  (%% Line 321
+				   Offset)
+			  in  %% Line 320
+			      {{Bef,[39|[58|[32]]]},%% Line 321
+						    [{'insert_chars','unicode',[39|[58|[32]]]}|[{'delete_chars',_16}|Rs]],%% Line 322
+															  'search'}
+	      %% Line 323
+	      <{'search','backward_delete_char'},[],_X_Aft,Rs> when 'true' ->
+		  %% Line 325
+		  {{[],[39|[58|[32]]]},Rs,'search'}
+	      %% Line 326
+	      <{'search','skip_up'},Bef,Aft,Rs> when 'true' ->
+		  let <Offset> =
+		      apply %% Line 327
+			    'cp_len'/1
+			  (%% Line 327
+			   Aft)
+		  in  let <_20> =
+			  call %% Line 330
+			       'erlang':%% Line 330
+					'-'
+			      (%% Line 330
+			       Offset)
+		      in  %% Line 329
+			  {{[18|Bef],[39|[58|[32]]]},%% Line 330
+						     [{'insert_chars','unicode',[39|[58|[32]]]}|[{'delete_chars',_20}|Rs]],%% Line 331
+															   'search'}
+	      %% Line 332
+	      <{'search','skip_down'},Bef,Aft,Rs> when 'true' ->
+		  let <Offset> =
+		      apply %% Line 333
+			    'cp_len'/1
+			  (%% Line 333
+			   Aft)
+		  in  let <_23> =
+			  call %% Line 336
+			       'erlang':%% Line 336
+					'-'
+			      (%% Line 336
+			       Offset)
+		      in  %% Line 335
+			  {{[19|Bef],[39|[58|[32]]]},%% Line 336
+						     [{'insert_chars','unicode',[39|[58|[32]]]}|[{'delete_chars',_23}|Rs]],%% Line 337
+															   'search'}
+	      %% Line 338
+	      <{'search','search_found'},_X_Bef,Aft,Rs> when 'true' ->
+		  %% Line 339
+		  case Aft of
+		    <[39|[58|[32|NAft]]]> when 'true' ->
+			let <_25> =
+			    apply %% Line 341
+				  'cp_len'/1
+				(%% Line 341
+				 Aft)
+			in  let <_26> =
+				call %% Line 341
+				     'erlang':%% Line 341
+					      '-'
+				    (_25)
+			    in  %% Line 340
+				{{[],NAft},%% Line 341
+					   [{'put_chars','unicode',[10]}|[{'move_rel',_26}|Rs]],%% Line 342
+												'search_found'}
+		    ( <_24> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_24})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 343
+	      <{'search','search_quit'},_X_Bef,Aft,Rs> when 'true' ->
+		  %% Line 344
+		  case Aft of
+		    <[39|[58|[32|NAft]]]> when 'true' ->
+			let <_28> =
+			    apply %% Line 346
+				  'cp_len'/1
+				(%% Line 346
+				 Aft)
+			in  let <_29> =
+				call %% Line 346
+				     'erlang':%% Line 346
+					      '-'
+				    (_28)
+			    in  %% Line 345
+				{{[],NAft},%% Line 346
+					   [{'put_chars','unicode',[10]}|[{'move_rel',_29}|Rs]],%% Line 347
+												'search_quit'}
+		    ( <_27> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_27})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 349
+	      <{'blink',C,M},Bef = [36|[36|_88]],Aft,Rs> when 'true' ->
+		  let <N> =
+		      apply %% Line 350
+			    'over_paren'/3
+			  (%% Line 350
+			   Bef, %% Line 350
+				C, %% Line 350
+				   M)
+		  in  let <_33> =
+			  call %% Line 351
+			       'erlang':%% Line 351
+					'+'
+			      (%% Line 351
+			       N, %% Line 351
+				  1)
+		      in  let <_31> =
+			      call %% Line 351
+				   'erlang':%% Line 351
+					    '+'
+				  (%% Line 351
+				   N, %% Line 351
+				      1)
+			  in  let <_32> =
+				  call %% Line 351
+				       'erlang':%% Line 351
+						'-'
+				      (_31)
+			      in  %% Line 351
+				  {'blink',_33,{[C|Bef],Aft},[{'move_rel',_32}|[{'insert_chars','unicode',[C|[]]}|Rs]]}
+	      %% Line 353
+	      <{'blink',C,_89},Bef = [36|_90],Aft,Rs> when 'true' ->
+		  %% Line 354
+		  apply 'do_op'/4
+		      ({'insert',C}, Bef, Aft, Rs)
+	      %% Line 355
+	      <{'blink',C,M},Bef,Aft,Rs> when 'true' ->
+		  %% Line 356
+		  case apply 'over_paren'/3
+			   (Bef, C, M) of
+		    %% Line 357
+		    <'beep'> when 'true' ->
+			%% Line 358
+			{{[C|Bef],Aft},['beep'|[{'insert_chars','unicode',[C|[]]}|Rs]]}
+		    %% Line 359
+		    <N> when 'true' ->
+			let <_36> =
+			    call 'erlang':'+'
+				(N, 1)
+			in  let <_34> =
+				call %% Line 360
+				     'erlang':%% Line 360
+					      '+'
+				    (%% Line 360
+				     N, %% Line 360
+					1)
+			    in  let <_35> =
+				    call %% Line 360
+					 'erlang':%% Line 360
+						  '-'
+					(_34)
+				in  {'blink',_36,{[C|Bef],Aft},%% Line 360
+							       [{'move_rel',_35}|[{'insert_chars','unicode',[C|[]]}|Rs]]}
+		  end
+	      %% Line 362
+	      <'auto_blink',Bef,Aft,Rs> when 'true' ->
+		  %% Line 363
+		  case apply 'over_paren_auto'/1
+			   (Bef) of
+		    %% Line 364
+		    <{N,Paren}> when 'true' ->
+			let <_40> =
+			    call %% Line 365
+				 'erlang':%% Line 365
+					  '+'
+				(%% Line 365
+				 N, %% Line 365
+				    1)
+			in  let <_38> =
+				call %% Line 366
+				     'erlang':%% Line 366
+					      '+'
+				    (%% Line 366
+				     N, %% Line 366
+					1)
+			    in  let <_39> =
+				    call %% Line 366
+					 'erlang':%% Line 366
+						  '-'
+					(_38)
+				in  %% Line 365
+				    {'blink',_40,%% Line 366
+						 {[Paren|Bef],Aft},%% Line 366
+								   [{'move_rel',_39}|[{'insert_chars','unicode',[Paren|[]]}|Rs]]}
+		    %% Line 368
+		    <N> when 'true' ->
+			let <_43> =
+			    call 'erlang':'+'
+				(N, 1)
+			in  let <_41> =
+				call %% Line 369
+				     'erlang':%% Line 369
+					      '+'
+				    (%% Line 369
+				     N, %% Line 369
+					1)
+			    in  let <_42> =
+				    call %% Line 369
+					 'erlang':%% Line 369
+						  '-'
+					(_41)
+				in  {'blink',_43,{Bef,Aft},%% Line 369
+							   [{'move_rel',_42}|Rs]}
+		  end
+	      %% Line 371
+	      <'forward_delete_char',Bef,[GC|Aft],Rs> when 'true' ->
+		  let <_45> =
+		      apply %% Line 372
+			    'gc_len'/1
+			  (%% Line 372
+			   GC)
+		  in  %% Line 372
+		      {{Bef,Aft},[{'delete_chars',_45}|Rs]}
+	      %% Line 373
+	      <'backward_delete_char',[GC|Bef],Aft,Rs> when 'true' ->
+		  let <_46> =
+		      apply %% Line 374
+			    'gc_len'/1
+			  (%% Line 374
+			   GC)
+		  in  let <_47> =
+			  call %% Line 374
+			       'erlang':%% Line 374
+					'-'
+			      (_46)
+		      in  %% Line 374
+			  {{Bef,Aft},[{'delete_chars',_47}|Rs]}
+	      %% Line 375
+	      <'transpose_char',[C1|[C2|Bef]],[],Rs> when 'true' ->
+		  let <_49> =
+		      apply %% Line 376
+			    'gc_len'/1
+			  (%% Line 376
+			   C1)
+		  in  let <_48> =
+			  apply %% Line 376
+				'gc_len'/1
+			      (%% Line 376
+			       C2)
+		      in  let <Len> =
+			      call %% Line 376
+				   'erlang':%% Line 376
+					    '+'
+				  (_49, _48)
+			  in  let <_51> =
+				  call %% Line 377
+				       'erlang':%% Line 377
+						'-'
+				      (%% Line 377
+				       Len)
+			      in  %% Line 377
+				  {{[C2|[C1|Bef]],[]},[{'put_chars','unicode',[C1|[C2|[]]]}|[{'move_rel',_51}|Rs]]}
+	      %% Line 378
+	      <'transpose_char',[C2|Bef],[C1|Aft],Rs> when 'true' ->
+		  let <Len> =
+		      apply %% Line 379
+			    'gc_len'/1
+			  (%% Line 379
+			   C2)
+		  in  let <_53> =
+			  call %% Line 380
+			       'erlang':%% Line 380
+					'-'
+			      (%% Line 380
+			       Len)
+		      in  %% Line 380
+			  {{[C2|[C1|Bef]],Aft},[{'put_chars','unicode',[C1|[C2|[]]]}|[{'move_rel',_53}|Rs]]}
+	      %% Line 381
+	      <'kill_word',Bef,Aft0,Rs> when 'true' ->
+		  %% Line 382
+		  case apply 'over_non_word'/3
+			   (Aft0, [], 0) of
+		    <{Aft1,Kill0,N0}> when 'true' ->
+			%% Line 383
+			case apply 'over_word'/3
+				 (Aft1, Kill0, N0) of
+			  <{Aft,Kill,N}> when 'true' ->
+			      let <_56> =
+				  call %% Line 384
+				       'lists':%% Line 384
+					       'reverse'
+				      (%% Line 384
+				       Kill)
+			      in  do  %% Line 384
+				      call 'erlang':'put'
+					  ('kill_buffer', _56)
+				      %% Line 385
+				      {{Bef,Aft},[{'delete_chars',N}|Rs]}
+			  ( <_55> when 'true' ->
+				primop 'match_fail'
+				    ({'badmatch',_55})
+			    -| ['compiler_generated'] )
+			end
+		    ( <_54> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_54})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 386
+	      <'backward_kill_word',Bef0,Aft,Rs> when 'true' ->
+		  %% Line 387
+		  case apply 'over_non_word'/3
+			   (Bef0, [], 0) of
+		    <{Bef1,Kill0,N0}> when 'true' ->
+			%% Line 388
+			case apply 'over_word'/3
+				 (Bef1, Kill0, N0) of
+			  <{Bef,Kill,N}> when 'true' ->
+			      do  %% Line 389
+				  call 'erlang':'put'
+				      ('kill_buffer', Kill)
+				  let <_59> =
+				      call %% Line 390
+					   'erlang':%% Line 390
+						    '-'
+					  (%% Line 390
+					   N)
+				  in  %% Line 390
+				      {{Bef,Aft},[{'delete_chars',_59}|Rs]}
+			  ( <_58> when 'true' ->
+				primop 'match_fail'
+				    ({'badmatch',_58})
+			    -| ['compiler_generated'] )
+			end
+		    ( <_57> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_57})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 391
+	      <'kill_line',Bef,Aft,Rs> when 'true' ->
+		  do  %% Line 392
+		      call 'erlang':'put'
+			  ('kill_buffer', Aft)
+		      let <_60> =
+			  apply %% Line 393
+				'cp_len'/1
+			      (%% Line 393
+			       Aft)
+		      in  %% Line 393
+			  {{Bef,[]},[{'delete_chars',_60}|Rs]}
+	      %% Line 394
+	      <'yank',Bef,[],Rs> when 'true' ->
+		  let <Kill> =
+		      call %% Line 395
+			   'erlang':%% Line 395
+				    'get'
+			  (%% Line 395
+			   'kill_buffer')
+		  in  let <_62> =
+			  call %% Line 396
+			       'lists':%% Line 396
+				       'reverse'
+			      (%% Line 396
+			       Kill, %% Line 396
+				     Bef)
+		      in  %% Line 396
+			  {{_62,[]},[{'put_chars','unicode',Kill}|Rs]}
+	      %% Line 397
+	      <'yank',Bef,Aft,Rs> when 'true' ->
+		  let <Kill> =
+		      call %% Line 398
+			   'erlang':%% Line 398
+				    'get'
+			  (%% Line 398
+			   'kill_buffer')
+		  in  let <_64> =
+			  call %% Line 399
+			       'lists':%% Line 399
+				       'reverse'
+			      (%% Line 399
+			       Kill, %% Line 399
+				     Bef)
+		      in  %% Line 399
+			  {{_64,Aft},[{'insert_chars','unicode',Kill}|Rs]}
+	      %% Line 400
+	      <'forward_char',Bef,[C|Aft],Rs> when 'true' ->
+		  let <_65> =
+		      apply %% Line 401
+			    'gc_len'/1
+			  (%% Line 401
+			   C)
+		  in  %% Line 401
+		      {{[C|Bef],Aft},[{'move_rel',_65}|Rs]}
+	      %% Line 402
+	      <'backward_char',[C|Bef],Aft,Rs> when 'true' ->
+		  let <_66> =
+		      apply %% Line 403
+			    'gc_len'/1
+			  (%% Line 403
+			   C)
+		  in  let <_67> =
+			  call %% Line 403
+			       'erlang':%% Line 403
+					'-'
+			      (_66)
+		      in  %% Line 403
+			  {{Bef,[C|Aft]},[{'move_rel',_67}|Rs]}
+	      %% Line 404
+	      <'forward_word',Bef0,Aft0,Rs> when 'true' ->
+		  %% Line 405
+		  case apply 'over_non_word'/3
+			   (Aft0, Bef0, 0) of
+		    <{Aft1,Bef1,N0}> when 'true' ->
+			%% Line 406
+			case apply 'over_word'/3
+				 (Aft1, Bef1, N0) of
+			  <{Aft,Bef,N}> when 'true' ->
+			      %% Line 407
+			      {{Bef,Aft},[{'move_rel',N}|Rs]}
+			  ( <_69> when 'true' ->
+				primop 'match_fail'
+				    ({'badmatch',_69})
+			    -| ['compiler_generated'] )
+			end
+		    ( <_68> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_68})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 408
+	      <'backward_word',Bef0,Aft0,Rs> when 'true' ->
+		  %% Line 409
+		  case apply 'over_non_word'/3
+			   (Bef0, Aft0, 0) of
+		    <{Bef1,Aft1,N0}> when 'true' ->
+			%% Line 410
+			case apply 'over_word'/3
+				 (Bef1, Aft1, N0) of
+			  <{Bef,Aft,N}> when 'true' ->
+			      let <_72> =
+				  call %% Line 411
+				       'erlang':%% Line 411
+						'-'
+				      (%% Line 411
+				       N)
+			      in  %% Line 411
+				  {{Bef,Aft},[{'move_rel',_72}|Rs]}
+			  ( <_71> when 'true' ->
+				primop 'match_fail'
+				    ({'badmatch',_71})
+			    -| ['compiler_generated'] )
+			end
+		    ( <_70> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_70})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 412
+	      <'beginning_of_line',Bef = [_91|_92],Aft,Rs> when 'true' ->
+		  let <_75> =
+		      call %% Line 413
+			   'lists':%% Line 413
+				   'reverse'
+			  (%% Line 413
+			   Bef, %% Line 413
+				Aft)
+		  in  let <_73> =
+			  apply %% Line 413
+				'cp_len'/1
+			      (%% Line 413
+			       Bef)
+		      in  let <_74> =
+			      call %% Line 413
+				   'erlang':%% Line 413
+					    '-'
+				  (_73)
+			  in  %% Line 413
+			      {{[],_75},[{'move_rel',_74}|Rs]}
+	      %% Line 414
+	      <'beginning_of_line',[],Aft,Rs> when 'true' ->
+		  %% Line 415
+		  {{[],Aft},Rs}
+	      %% Line 416
+	      <'end_of_line',Bef,Aft = [_93|_94],Rs> when 'true' ->
+		  let <_77> =
+		      call %% Line 417
+			   'lists':%% Line 417
+				   'reverse'
+			  (%% Line 417
+			   Aft, %% Line 417
+				Bef)
+		  in  let <_76> =
+			  apply %% Line 417
+				'cp_len'/1
+			      (%% Line 417
+			       Aft)
+		      in  %% Line 417
+			  {{_77,[]},[{'move_rel',_76}|Rs]}
+	      %% Line 418
+	      <'end_of_line',Bef,[],Rs> when 'true' ->
+		  %% Line 419
+		  {{Bef,[]},Rs}
+	      %% Line 420
+	      <'ctlu',Bef,Aft,Rs> when 'true' ->
+		  let <_78> =
+		      call %% Line 421
+			   'lists':%% Line 421
+				   'reverse'
+			  (%% Line 421
+			   Bef)
+		  in  do  %% Line 421
+			  call 'erlang':'put'
+			      ('kill_buffer', _78)
+			  let <_79> =
+			      apply %% Line 422
+				    'cp_len'/1
+				  (%% Line 422
+				   Bef)
+			  in  let <_80> =
+				  call %% Line 422
+				       'erlang':%% Line 422
+						'-'
+				      (_79)
+			      in  %% Line 422
+				  {{[],Aft},[{'delete_chars',_80}|Rs]}
+	      %% Line 423
+	      <'beep',Bef,Aft,Rs> when 'true' ->
+		  %% Line 424
+		  {{Bef,Aft},['beep'|Rs]}
+	      %% Line 425
+	      <_95,Bef,Aft,Rs> when 'true' ->
+		  %% Line 426
+		  {{Bef,Aft},['beep'|Rs]}
+	    end
+	    -| [{'function',{'do_op',4}}] )
+      -| [{'function',{'do_op',4}}] )
+'over_word'/3 =
+    %% Line 436
+    ( fun (_0,_1,_2) ->
+	  let <_8> =
+	      letrec
+		  'lc$^0'/1 =
+		      %% Line 437
+		      fun (_5) ->
+			  case _5 of
+			    <[39|_4]> when 'true' ->
+				let <_7> =
+				    apply 'lc$^0'/1
+					(_4)
+				in  ( [1|_7]
+				      -| ['compiler_generated'] )
+			    ( <[_3|_4]> when 'true' ->
+				  apply 'lc$^0'/1
+				      (_4)
+			      -| ['compiler_generated'] )
+			    <[]> when 'true' ->
+				[]
+			    ( <_6> when 'true' ->
+				  primop 'match_fail'
+				      ({'function_clause',_6})
+			      -| ['compiler_generated'] )
+			  end
+	      in  %% Line 437
+		  apply 'lc$^0'/1
+		      (_0)
+	  in  let <L> =
+		  call %% Line 437
+		       'erlang':%% Line 437
+				'length'
+		      (_8)
+	      in  %% Line 438
+		  case call 'erlang':'rem'
+			   (L, 2) of
+		    %% Line 439
+		    <0> when 'true' ->
+			%% Line 440
+			apply 'over_word1'/3
+			    (_0, _1, _2)
+		    %% Line 441
+		    <1> when 'true' ->
+			%% Line 442
+			apply 'until_quote'/3
+			    (_0, _1, _2)
+		    ( <_10> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_10})
+		      -| ['compiler_generated'] )
+		  end
+      -| [{'function',{'over_word',3}}] )
+'until_quote'/3 =
+    %% Line 445
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <[39|Cs],Stack,N> when 'true' ->
+		  let <_3> =
+		      call %% Line 446
+			   'erlang':%% Line 446
+				    '+'
+			  (%% Line 446
+			   N, %% Line 446
+			      1)
+		  in  %% Line 446
+		      {Cs,[39|Stack],_3}
+	      %% Line 447
+	      <[C|Cs],Stack,N> when 'true' ->
+		  let <_4> =
+		      apply %% Line 448
+			    'gc_len'/1
+			  (%% Line 448
+			   C)
+		  in  let <_5> =
+			  call %% Line 448
+			       'erlang':%% Line 448
+					'+'
+			      (%% Line 448
+			       N, _4)
+		      in  %% Line 448
+			  apply 'until_quote'/3
+			      (Cs, [C|Stack], _5)
+	      ( <_8,_7,_6> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_8,_7,_6})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'until_quote',3}}] )
+      -| [{'function',{'until_quote',3}}] )
+'over_word1'/3 =
+    %% Line 450
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <[C = 39|Cs],Stack,N> when 'true' ->
+		  let <_3> =
+		      call %% Line 451
+			   'erlang':%% Line 451
+				    '+'
+			  (%% Line 451
+			   N, %% Line 451
+			      1)
+		  in  %% Line 451
+		      apply 'until_quote'/3
+			  (Cs, [C|Stack], _3)
+	      %% Line 452
+	      <Cs,Stack,N> when 'true' ->
+		  %% Line 453
+		  apply 'over_word2'/3
+		      (Cs, Stack, N)
+	    end
+	    -| [{'function',{'over_word1',3}}] )
+      -| [{'function',{'over_word1',3}}] )
+'over_word2'/3 =
+    %% Line 455
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <_@r0 = [C|Cs],Stack,N> when 'true' ->
+		  %% Line 456
+		  case apply 'word_char'/1
+			   (C) of
+		    %% Line 457
+		    <'true'> when 'true' ->
+			let <_3> =
+			    apply 'gc_len'/1
+				(C)
+			in  let <_4> =
+				call 'erlang':'+'
+				    (N, _3)
+			    in  apply 'over_word2'/3
+				    (Cs, [C|Stack], _4)
+		    %% Line 458
+		    <'false'> when 'true' ->
+			{_@r0,Stack,N}
+		    ( <_5> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_5})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 460
+	      <[],Stack,N>
+		  when call 'erlang':'is_integer'
+			(N) ->
+		  %% Line 461
+		  {[],Stack,N}
+	      ( <_8,_7,_6> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_8,_7,_6})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'over_word2',3}}] )
+      -| [{'function',{'over_word2',3}}] )
+'over_non_word'/3 =
+    %% Line 463
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <_@r0 = [C|Cs],Stack,N> when 'true' ->
+		  %% Line 464
+		  case apply 'word_char'/1
+			   (C) of
+		    %% Line 465
+		    <'true'> when 'true' ->
+			{_@r0,Stack,N}
+		    %% Line 466
+		    <'false'> when 'true' ->
+			let <_3> =
+			    apply 'gc_len'/1
+				(C)
+			in  let <_4> =
+				call 'erlang':'+'
+				    (N, _3)
+			    in  apply 'over_non_word'/3
+				    (Cs, [C|Stack], _4)
+		    ( <_5> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_5})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 468
+	      <[],Stack,N> when 'true' ->
+		  %% Line 469
+		  {[],Stack,N}
+	      ( <_8,_7,_6> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_8,_7,_6})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'over_non_word',3}}] )
+      -| [{'function',{'over_non_word',3}}] )
+'word_char'/1 =
+    %% Line 471
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'word_char',1}}] ) of
+	      <C>
+		  when let <_1> =
+			call 'erlang':'>='
+			    (( _0
+			       -| [{'function',{'word_char',1}}] ), 65)
+		    in  let <_2> =
+			    call 'erlang':'=<'
+				(( _0
+				   -| [{'function',{'word_char',1}}] ), 90)
+			in  call 'erlang':'and'
+				(_1, _2) ->
+		  'true'
+	      %% Line 472
+	      <C>
+		  when try
+			let <_3> =
+			    call 'erlang':'>='
+				(( _0
+				   -| [{'function',{'word_char',1}}] ), 192)
+			in  let <_4> =
+				call 'erlang':'=<'
+				    (( _0
+				       -| [{'function',{'word_char',1}}] ), 222)
+			    in  let <_5> =
+				    call 'erlang':'=/='
+					(( _0
+					   -| [{'function',{'word_char',1}}] ), 215)
+				in  let <_6> =
+					call 'erlang':'and'
+					    (_4, _5)
+				    in  call 'erlang':'and'
+					    (_3, _6)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  'true'
+	      %% Line 473
+	      <C>
+		  when let <_7> =
+			call 'erlang':'>='
+			    (( _0
+			       -| [{'function',{'word_char',1}}] ), 97)
+		    in  let <_8> =
+			    call 'erlang':'=<'
+				(( _0
+				   -| [{'function',{'word_char',1}}] ), 122)
+			in  call 'erlang':'and'
+				(_7, _8) ->
+		  'true'
+	      %% Line 474
+	      <C>
+		  when try
+			let <_9> =
+			    call 'erlang':'>='
+				(( _0
+				   -| [{'function',{'word_char',1}}] ), 223)
+			in  let <_10> =
+				call 'erlang':'=<'
+				    (( _0
+				       -| [{'function',{'word_char',1}}] ), 255)
+			    in  let <_11> =
+				    call 'erlang':'=/='
+					(( _0
+					   -| [{'function',{'word_char',1}}] ), 247)
+				in  let <_12> =
+					call 'erlang':'and'
+					    (_10, _11)
+				    in  call 'erlang':'and'
+					    (_9, _12)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  'true'
+	      %% Line 475
+	      <C>
+		  when let <_13> =
+			call 'erlang':'>='
+			    (( _0
+			       -| [{'function',{'word_char',1}}] ), 48)
+		    in  let <_14> =
+			    call 'erlang':'=<'
+				(( _0
+				   -| [{'function',{'word_char',1}}] ), 57)
+			in  call 'erlang':'and'
+				(_13, _14) ->
+		  'true'
+	      %% Line 476
+	      <C>
+		  when call 'erlang':'=:='
+			(( _0
+			   -| [{'function',{'word_char',1}}] ),
+			 95) ->
+		  'true'
+	      %% Line 477
+	      <[_16|_17]> when 'true' ->
+		  'true'
+	      %% Line 478
+	      <_18> when 'true' ->
+		  'false'
+	    end
+	    -| [{'function',{'word_char',1}}] )
+      -| [{'function',{'word_char',1}}] )
+'over_paren'/3 =
+    %% Line 495
+    ( fun (_0,_1,_2) ->
+	  %% Line 496
+	  apply 'over_paren'/6
+	      (_0, _1, _2, 1, 1, [])
+      -| [{'function',{'over_paren',3}}] )
+'over_paren'/6 =
+    %% Line 499
+    ( fun (_0,_1,_2,_3,_4,_5) ->
+	  ( case <_0,_1,_2,_3,_4,_5> of
+	      <[C|[36|[36|Cs]]],Paren,Match,D,N,L> when 'true' ->
+		  let <_6> =
+		      call %% Line 500
+			   'erlang':%% Line 500
+				    '+'
+			  (%% Line 500
+			   N, %% Line 500
+			      2)
+		  in  %% Line 500
+		      apply 'over_paren'/6
+			  ([C|Cs], Paren, Match, D, _6, L)
+	      %% Line 501
+	      <[GC|[36|Cs]],Paren,Match,D,N,L> when 'true' ->
+		  let <_8> =
+		      call %% Line 502
+			   'erlang':%% Line 502
+				    '+'
+			  (%% Line 502
+			   N, %% Line 502
+			      1)
+		  in  let <_7> =
+			  apply %% Line 502
+				'gc_len'/1
+			      (%% Line 502
+			       GC)
+		      in  let <_9> =
+			      call %% Line 502
+				   'erlang':%% Line 502
+					    '+'
+				  (_8, _7)
+			  in  %% Line 502
+			      apply 'over_paren'/6
+				  (Cs, Paren, Match, D, _9, L)
+	      %% Line 503
+	      <[Match|_28],_X_Paren,_29,1,N,_30>
+		  when call 'erlang':'=:='
+			(_29,
+			 Match) ->
+		  %% Line 504
+		  N
+	      %% Line 505
+	      <[Match|Cs],Paren,_31,D,N,[_32|L]>
+		  when let <_33> =
+			call 'erlang':'=:='
+			    (_31, Match)
+		    in  let <_34> =
+			    call 'erlang':'=:='
+				(_32, Match)
+			in  call 'erlang':'and'
+				(_33, _34) ->
+		  let <_11> =
+		      call %% Line 506
+			   'erlang':%% Line 506
+				    '-'
+			  (%% Line 506
+			   D, %% Line 506
+			      1)
+		  in  let <_10> =
+			  call %% Line 506
+			       'erlang':%% Line 506
+					'+'
+			      (%% Line 506
+			       N, %% Line 506
+				  1)
+		      in  %% Line 506
+			  apply 'over_paren'/6
+			      (Cs, Paren, Match, _11, _10, L)
+	      %% Line 507
+	      <[Paren|Cs],_35,Match,D,N,L>
+		  when call 'erlang':'=:='
+			(_35,
+			 Paren) ->
+		  let <_13> =
+		      call %% Line 508
+			   'erlang':%% Line 508
+				    '+'
+			  (%% Line 508
+			   D, %% Line 508
+			      1)
+		  in  let <_12> =
+			  call %% Line 508
+			       'erlang':%% Line 508
+					'+'
+			      (%% Line 508
+			       N, %% Line 508
+				  1)
+		      in  %% Line 508
+			  apply 'over_paren'/6
+			      (Cs, Paren, Match, _13, _12, [Match|L])
+	      %% Line 510
+	      <[41|Cs],Paren,Match,D,N,L> when 'true' ->
+		  let <_14> =
+		      call %% Line 511
+			   'erlang':%% Line 511
+				    '+'
+			  (%% Line 511
+			   N, %% Line 511
+			      1)
+		  in  %% Line 511
+		      apply 'over_paren'/6
+			  (Cs, Paren, Match, D, _14, [40|L])
+	      %% Line 512
+	      <[93|Cs],Paren,Match,D,N,L> when 'true' ->
+		  let <_15> =
+		      call %% Line 513
+			   'erlang':%% Line 513
+				    '+'
+			  (%% Line 513
+			   N, %% Line 513
+			      1)
+		  in  %% Line 513
+		      apply 'over_paren'/6
+			  (Cs, Paren, Match, D, _15, [91|L])
+	      %% Line 514
+	      <[125|Cs],Paren,Match,D,N,L> when 'true' ->
+		  let <_16> =
+		      call %% Line 515
+			   'erlang':%% Line 515
+				    '+'
+			  (%% Line 515
+			   N, %% Line 515
+			      1)
+		  in  %% Line 515
+		      apply 'over_paren'/6
+			  (Cs, Paren, Match, D, _16, [123|L])
+	      %% Line 517
+	      <[40|Cs],Paren,Match,D,N,[40|L]> when 'true' ->
+		  let <_17> =
+		      call %% Line 518
+			   'erlang':%% Line 518
+				    '+'
+			  (%% Line 518
+			   N, %% Line 518
+			      1)
+		  in  %% Line 518
+		      apply 'over_paren'/6
+			  (Cs, Paren, Match, D, _17, L)
+	      %% Line 519
+	      <[91|Cs],Paren,Match,D,N,[91|L]> when 'true' ->
+		  let <_18> =
+		      call %% Line 520
+			   'erlang':%% Line 520
+				    '+'
+			  (%% Line 520
+			   N, %% Line 520
+			      1)
+		  in  %% Line 520
+		      apply 'over_paren'/6
+			  (Cs, Paren, Match, D, _18, L)
+	      %% Line 521
+	      <[123|Cs],Paren,Match,D,N,[123|L]> when 'true' ->
+		  let <_19> =
+		      call %% Line 522
+			   'erlang':%% Line 522
+				    '+'
+			  (%% Line 522
+			   N, %% Line 522
+			      1)
+		  in  %% Line 522
+		      apply 'over_paren'/6
+			  (Cs, Paren, Match, D, _19, L)
+	      %% Line 524
+	      <[40|_36],_37,_38,_39,_40,_41> when 'true' ->
+		  %% Line 525
+		  'beep'
+	      %% Line 526
+	      <[91|_42],_43,_44,_45,_46,_47> when 'true' ->
+		  %% Line 527
+		  'beep'
+	      %% Line 528
+	      <[123|_48],_49,_50,_51,_52,_53> when 'true' ->
+		  %% Line 529
+		  'beep'
+	      %% Line 531
+	      <[GC|Cs],Paren,Match,D,N,L> when 'true' ->
+		  let <_20> =
+		      apply %% Line 532
+			    'gc_len'/1
+			  (%% Line 532
+			   GC)
+		  in  let <_21> =
+			  call %% Line 532
+			       'erlang':%% Line 532
+					'+'
+			      (%% Line 532
+			       N, _20)
+		      in  %% Line 532
+			  apply 'over_paren'/6
+			      (Cs, Paren, Match, D, _21, L)
+	      %% Line 533
+	      <[],_54,_55,_56,_57,_58> when 'true' ->
+		  %% Line 534
+		  0
+	      ( <_27,_26,_25,_24,_23,_22> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_27,_26,_25,_24,_23,_22})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'over_paren',6}}] )
+      -| [{'function',{'over_paren',6}}] )
+'over_paren_auto'/1 =
+    %% Line 536
+    ( fun (_0) ->
+	  %% Line 537
+	  apply 'over_paren_auto'/4
+	      (( _0
+		 -| [{'function',{'over_paren_auto',1}}] ), 1, 1, [])
+      -| [{'function',{'over_paren_auto',1}}] )
+'over_paren_auto'/4 =
+    %% Line 540
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <[C|[36|[36|Cs]]],D,N,L> when 'true' ->
+		  let <_4> =
+		      call %% Line 541
+			   'erlang':%% Line 541
+				    '+'
+			  (%% Line 541
+			   N, %% Line 541
+			      2)
+		  in  %% Line 541
+		      apply 'over_paren_auto'/4
+			  ([C|Cs], D, _4, L)
+	      %% Line 542
+	      <[GC|[36|Cs]],D,N,L> when 'true' ->
+		  let <_6> =
+		      call %% Line 543
+			   'erlang':%% Line 543
+				    '+'
+			  (%% Line 543
+			   N, %% Line 543
+			      1)
+		  in  let <_5> =
+			  apply %% Line 543
+				'gc_len'/1
+			      (%% Line 543
+			       GC)
+		      in  let <_7> =
+			      call %% Line 543
+				   'erlang':%% Line 543
+					    '+'
+				  (_6, _5)
+			  in  %% Line 543
+			      apply 'over_paren_auto'/4
+				  (Cs, D, _7, L)
+	      %% Line 545
+	      <[40|_20],_21,N,[]> when 'true' ->
+		  %% Line 546
+		  {N,41}
+	      %% Line 547
+	      <[91|_22],_23,N,[]> when 'true' ->
+		  %% Line 548
+		  {N,93}
+	      %% Line 549
+	      <[123|_24],_25,N,[]> when 'true' ->
+		  %% Line 550
+		  {N,125}
+	      %% Line 552
+	      <[41|Cs],D,N,L> when 'true' ->
+		  let <_8> =
+		      call %% Line 553
+			   'erlang':%% Line 553
+				    '+'
+			  (%% Line 553
+			   N, %% Line 553
+			      1)
+		  in  %% Line 553
+		      apply 'over_paren_auto'/4
+			  (Cs, D, _8, [40|L])
+	      %% Line 554
+	      <[93|Cs],D,N,L> when 'true' ->
+		  let <_9> =
+		      call %% Line 555
+			   'erlang':%% Line 555
+				    '+'
+			  (%% Line 555
+			   N, %% Line 555
+			      1)
+		  in  %% Line 555
+		      apply 'over_paren_auto'/4
+			  (Cs, D, _9, [91|L])
+	      %% Line 556
+	      <[125|Cs],D,N,L> when 'true' ->
+		  let <_10> =
+		      call %% Line 557
+			   'erlang':%% Line 557
+				    '+'
+			  (%% Line 557
+			   N, %% Line 557
+			      1)
+		  in  %% Line 557
+		      apply 'over_paren_auto'/4
+			  (Cs, D, _10, [123|L])
+	      %% Line 559
+	      <[40|Cs],D,N,[40|L]> when 'true' ->
+		  let <_11> =
+		      call %% Line 560
+			   'erlang':%% Line 560
+				    '+'
+			  (%% Line 560
+			   N, %% Line 560
+			      1)
+		  in  %% Line 560
+		      apply 'over_paren_auto'/4
+			  (Cs, D, _11, L)
+	      %% Line 561
+	      <[91|Cs],D,N,[91|L]> when 'true' ->
+		  let <_12> =
+		      call %% Line 562
+			   'erlang':%% Line 562
+				    '+'
+			  (%% Line 562
+			   N, %% Line 562
+			      1)
+		  in  %% Line 562
+		      apply 'over_paren_auto'/4
+			  (Cs, D, _12, L)
+	      %% Line 563
+	      <[123|Cs],D,N,[123|L]> when 'true' ->
+		  let <_13> =
+		      call %% Line 564
+			   'erlang':%% Line 564
+				    '+'
+			  (%% Line 564
+			   N, %% Line 564
+			      1)
+		  in  %% Line 564
+		      apply 'over_paren_auto'/4
+			  (Cs, D, _13, L)
+	      %% Line 566
+	      <[GC|Cs],D,N,L> when 'true' ->
+		  let <_14> =
+		      apply %% Line 567
+			    'gc_len'/1
+			  (%% Line 567
+			   GC)
+		  in  let <_15> =
+			  call %% Line 567
+			       'erlang':%% Line 567
+					'+'
+			      (%% Line 567
+			       N, _14)
+		      in  %% Line 567
+			  apply 'over_paren_auto'/4
+			      (Cs, D, _15, L)
+	      %% Line 568
+	      <[],_26,_27,_28> when 'true' ->
+		  %% Line 569
+		  0
+	      ( <_19,_18,_17,_16> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_19,_18,_17,_16})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'over_paren_auto',4}}] )
+      -| [{'function',{'over_paren_auto',4}}] )
+'erase_line'/1 =
+    %% Line 580
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'erase_line',1}}] ) of
+	      <{'line',Pbs,{Bef,Aft},_3}> when 'true' ->
+		  let <_1> =
+		      apply %% Line 581
+			    'erase'/4
+			  (%% Line 581
+			   Pbs, %% Line 581
+				Bef, %% Line 581
+				     Aft, %% Line 581
+					  [])
+		  in  %% Line 581
+		      call 'lists':'reverse'
+			  (_1)
+	      ( <_2> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_2})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'erase_line',1}}] )
+      -| [{'function',{'erase_line',1}}] )
+'erase_inp'/1 =
+    %% Line 583
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'erase_inp',1}}] ) of
+	      <{'line',_3,{Bef,Aft},_4}> when 'true' ->
+		  let <_1> =
+		      apply %% Line 584
+			    'erase'/4
+			  (%% Line 584
+			   [], %% Line 584
+			       Bef, %% Line 584
+				    Aft, %% Line 584
+					 [])
+		  in  %% Line 584
+		      call 'lists':'reverse'
+			  (_1)
+	      ( <_2> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_2})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'erase_inp',1}}] )
+      -| [{'function',{'erase_inp',1}}] )
+'erase'/4 =
+    %% Line 586
+    ( fun (_0,_1,_2,_3) ->
+	  let <_5> =
+	      apply %% Line 587
+		    'cp_len'/1
+		  (_0)
+	  in  let <_6> =
+		  call %% Line 587
+		       'erlang':%% Line 587
+				'-'
+		      (_5)
+	      in  let <_4> =
+		      apply %% Line 587
+			    'cp_len'/1
+			  (_1)
+		  in  let <_7> =
+			  call %% Line 587
+			       'erlang':%% Line 587
+					'-'
+			      (_6, _4)
+		      in  let <_8> =
+			      apply %% Line 587
+				    'cp_len'/1
+				  (_2)
+			  in  %% Line 587
+			      [{'delete_chars',_7}|[{'delete_chars',_8}|_3]]
+      -| [{'function',{'erase',4}}] )
+'redraw_line'/1 =
+    %% Line 589
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'redraw_line',1}}] ) of
+	      <{'line',Pbs,{Bef,Aft},_3}> when 'true' ->
+		  let <_1> =
+		      apply %% Line 590
+			    'redraw'/4
+			  (%% Line 590
+			   Pbs, %% Line 590
+				Bef, %% Line 590
+				     Aft, %% Line 590
+					  [])
+		  in  %% Line 590
+		      call 'lists':'reverse'
+			  (_1)
+	      ( <_2> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_2})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'redraw_line',1}}] )
+      -| [{'function',{'redraw_line',1}}] )
+'redraw'/4 =
+    %% Line 592
+    ( fun (_0,_1,_2,_3) ->
+	  let <_4> =
+	      apply %% Line 593
+		    'cp_len'/1
+		  (_2)
+	  in  let <_5> =
+		  call %% Line 593
+		       'erlang':%% Line 593
+				'-'
+		      (_4)
+	      in  let <_6> =
+		      call %% Line 593
+			   'lists':%% Line 593
+				   'reverse'
+			  (_1, _2)
+		  in  %% Line 593
+		      [{'move_rel',_5}|[{'put_chars','unicode',_6}|[{'put_chars','unicode',_0}|_3]]]
+      -| [{'function',{'redraw',4}}] )
+'length_before'/1 =
+    %% Line 595
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'length_before',1}}] ) of
+	      <{'line',Pbs,{Bef,_X_Aft},_4}> when 'true' ->
+		  let <_2> =
+		      apply %% Line 596
+			    'cp_len'/1
+			  (%% Line 596
+			   Pbs)
+		  in  let <_1> =
+			  apply %% Line 596
+				'cp_len'/1
+			      (%% Line 596
+			       Bef)
+		      in  %% Line 596
+			  call 'erlang':'+'
+			      (_2, _1)
+	      ( <_3> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_3})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'length_before',1}}] )
+      -| [{'function',{'length_before',1}}] )
+'length_after'/1 =
+    %% Line 598
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'length_after',1}}] ) of
+	      <{'line',_2,{_X_Bef,Aft},_3}> when 'true' ->
+		  %% Line 599
+		  apply 'cp_len'/1
+		      (Aft)
+	      ( <_1> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_1})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'length_after',1}}] )
+      -| [{'function',{'length_after',1}}] )
+'prompt'/1 =
+    %% Line 601
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'prompt',1}}] ) of
+	      <{'line',Pbs,_2,_3}> when 'true' ->
+		  %% Line 602
+		  Pbs
+	      ( <_1> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_1})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'prompt',1}}] )
+      -| [{'function',{'prompt',1}}] )
+'current_line'/1 =
+    %% Line 604
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'current_line',1}}] ) of
+	      <{'line',_3,{Bef,Aft},_4}> when 'true' ->
+		  let <_1> =
+		      call %% Line 605
+			   'erlang':%% Line 605
+				    '++'
+			  (%% Line 605
+			   Aft, %% Line 605
+				[10])
+		  in  %% Line 605
+		      apply 'get_line'/2
+			  (Bef, _1)
+	      ( <_2> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_2})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'current_line',1}}] )
+      -| [{'function',{'current_line',1}}] )
+'current_chars'/1 =
+    %% Line 607
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'current_chars',1}}] ) of
+	      <{'line',_2,{Bef,Aft},_3}> when 'true' ->
+		  %% Line 608
+		  apply 'get_line'/2
+		      (Bef, Aft)
+	      ( <_1> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_1})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'current_chars',1}}] )
+      -| [{'function',{'current_chars',1}}] )
+'get_line'/2 =
+    %% Line 610
+    ( fun (_0,_1) ->
+	  let <_2> =
+	      call %% Line 611
+		   'lists':%% Line 611
+			   'reverse'
+		  (_0, _1)
+	  in  %% Line 611
+	      call 'unicode':'characters_to_list'
+		  (_2)
+      -| [{'function',{'get_line',2}}] )
+'gc_len'/1 =
+    %% Line 614
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'gc_len',1}}] ) of
+	      <CP>
+		  when call 'erlang':'is_integer'
+			(( _0
+			   -| [{'function',{'gc_len',1}}] )) ->
+		  1
+	      %% Line 615
+	      <CPs>
+		  when call 'erlang':'is_list'
+			(( _0
+			   -| [{'function',{'gc_len',1}}] )) ->
+		  call 'erlang':'length'
+		      (CPs)
+	      ( <_1> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_1})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'gc_len',1}}] )
+      -| [{'function',{'gc_len',1}}] )
+'cp_len'/1 =
+    %% Line 618
+    ( fun (_0) ->
+	  %% Line 619
+	  apply 'cp_len'/2
+	      (( _0
+		 -| [{'function',{'cp_len',1}}] ), 0)
+      -| [{'function',{'cp_len',1}}] )
+'cp_len'/2 =
+    %% Line 621
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <[GC|R],Len> when 'true' ->
+		  let <_2> =
+		      apply %% Line 622
+			    'gc_len'/1
+			  (%% Line 622
+			   GC)
+		  in  let <_3> =
+			  call %% Line 622
+			       'erlang':%% Line 622
+					'+'
+			      (%% Line 622
+			       Len, _2)
+		      in  %% Line 622
+			  apply 'cp_len'/2
+			      (R, _3)
+	      %% Line 623
+	      <[],Len> when 'true' ->
+		  Len
+	      ( <_5,_4> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_5,_4})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'cp_len',2}}] )
+      -| [{'function',{'cp_len',2}}] )
+'module_info'/0 =
+    ( fun () ->
+	  call 'erlang':'get_module_info'
+	      ('edlin')
+      -| [{'function',{'module_info',0}}] )
+'module_info'/1 =
+    ( fun (_0) ->
+	  call 'erlang':'get_module_info'
+	      ('edlin', ( _0
+			  -| [{'function',{'module_info',1}}] ))
+      -| [{'function',{'module_info',1}}] )
+end

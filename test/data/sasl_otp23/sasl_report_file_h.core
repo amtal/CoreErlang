@@ -1,0 +1,210 @@
+module 'sasl_report_file_h' ['handle_call'/2,
+			     'handle_event'/2,
+			     'handle_info'/2,
+			     'init'/1,
+			     'module_info'/0,
+			     'module_info'/1,
+			     'terminate'/2]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[115|[97|[115|[108|[95|[114|[101|[112|[111|[114|[116|[95|[102|[105|[108|[101|[95|[104|[46|[101|[114|[108]]]]]]]]]]]]]]]]]]]]]]]]]],1}]]
+'init'/1 =
+    %% Line 32
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'init',1}}] ) of
+	      <{File,Modes0,Type}>
+		  when call 'erlang':'is_list'
+			(Modes0) ->
+		  do  %% Line 33
+		      call 'erlang':'process_flag'
+			  ('trap_exit', 'true')
+		      let <_2> =
+			  case %% Line 35
+			       call 'lists':'keymember'
+				   ('encoding', 1, Modes0) of
+			    %% Line 36
+			    <'true'> when 'true' ->
+				Modes0
+			    %% Line 37
+			    <'false'> when 'true' ->
+				[{'encoding','utf8'}|Modes0]
+			    ( <_1> when 'true' ->
+				  %% Line 35
+				  primop 'match_fail'
+				      ({'case_clause',_1})
+			      -| ['compiler_generated'] )
+			  end
+		      in  let <_10> =
+			      letrec
+				  'lc$^0'/1 =
+				      %% Line 40
+				      fun (_6) ->
+					  case _6 of
+					    <[M|_5]> when 'true' ->
+						( case call 'lists':'member'
+							   (M, ['write'|['append'|['exclusive']]]) of
+						    <'true'> when 'true' ->
+							let <_8> =
+							    apply 'lc$^0'/1
+								(_5)
+							in  ( [M|_8]
+							      -| ['compiler_generated'] )
+						    ( <'false'> when 'true' ->
+							  apply 'lc$^0'/1
+							      (_5)
+						      -| ['compiler_generated'] )
+						    ( <_9> when 'true' ->
+							  primop 'match_fail'
+							      ({'case_clause',_9})
+						      -| ['compiler_generated'] )
+						  end
+						  -| ['list_comprehension'] )
+					    <[]> when 'true' ->
+						[]
+					    ( <_7> when 'true' ->
+						  primop 'match_fail'
+						      ({'function_clause',_7})
+					      -| ['compiler_generated'] )
+					  end
+			      in  %% Line 40
+				  apply 'lc$^0'/1
+				      (_2)
+			  in  let <_12> =
+				  case _10 of
+				    %% Line 41
+				    <[]> when 'true' ->
+					%% Line 42
+					['write'|_2]
+				    %% Line 43
+				    <_16> when 'true' ->
+					_2
+				  end
+			      in  %% Line 46
+				  case call 'file':'open'
+					   (File, _12) of
+				    %% Line 47
+				    <{'ok',Fd}> when 'true' ->
+					%% Line 48
+					{'ok',{Fd,File,Type}}
+				    %% Line 49
+				    <What> when 'true' ->
+					%% Line 50
+					What
+				  end
+	      ( <_15> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_15})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'init',1}}] )
+      -| [{'function',{'init',1}}] )
+'handle_event'/2 =
+    %% Line 53
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <{_X_Type,GL,_X_Msg},State>
+		  when try
+			let <_3> =
+			    call 'erlang':'node'
+				(GL)
+			in  let <_2> =
+				call 'erlang':'node'
+				    ()
+			    in  call 'erlang':'/='
+				    (_3, _2)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 54
+		  {'ok',State}
+	      %% Line 55
+	      <Event,_@r0 = {Fd,File,Type}> when 'true' ->
+		  let <_4> =
+		      apply %% Line 56
+			    'tag_event'/1
+			  (%% Line 56
+			   Event)
+		  in  do  %% Line 56
+			  ( call ( 'sasl_report'
+				   -| ['result_not_wanted'] ):( 'write_report'
+								-| ['result_not_wanted'] )
+				(Fd, Type, _4)
+			    -| ['result_not_wanted'] )
+			  %% Line 57
+			  {'ok',_@r0}
+	      %% Line 58
+	      <_8,State> when 'true' ->
+		  %% Line 59
+		  {'ok',State}
+	    end
+	    -| [{'function',{'handle_event',2}}] )
+      -| [{'function',{'handle_event',2}}] )
+'handle_info'/2 =
+    %% Line 61
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <{'EXIT',Fd,_X_Reason},{_4,_X_File,_X_Type}>
+		  when call 'erlang':'=:='
+			(_4,
+			 Fd) ->
+		  %% Line 62
+		  'remove_handler'
+	      %% Line 63
+	      <_5,State> when 'true' ->
+		  %% Line 64
+		  {'ok',State}
+	    end
+	    -| [{'function',{'handle_info',2}}] )
+      -| [{'function',{'handle_info',2}}] )
+'handle_call'/2 =
+    %% Line 66
+    ( fun (_0,_1) ->
+	  {'error','bad_query'}
+      -| [{'function',{'handle_call',2}}] )
+'terminate'/2 =
+    %% Line 68
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <_5,{Fd,_X_File,_X_Type}> when 'true' ->
+		  do  %% Line 69
+		      ( call ( 'file'
+			       -| ['result_not_wanted'] ):( 'close'
+							    -| ['result_not_wanted'] )
+			    (Fd)
+			-| ['result_not_wanted'] )
+		      %% Line 70
+		      []
+	      ( <_4,_3> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_4,_3})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'terminate',2}}] )
+      -| [{'function',{'terminate',2}}] )
+'tag_event'/1 =
+    %% Line 72
+    ( fun (_0) ->
+	  let <_1> =
+	      call %% Line 73
+		   'calendar':%% Line 73
+			      'local_time'
+		  ()
+	  in  %% Line 73
+	      {_1,( _0
+		    -| [{'function',{'tag_event',1}}] )}
+      -| [{'function',{'tag_event',1}}] )
+'module_info'/0 =
+    ( fun () ->
+	  call 'erlang':'get_module_info'
+	      ('sasl_report_file_h')
+      -| [{'function',{'module_info',0}}] )
+'module_info'/1 =
+    ( fun (_0) ->
+	  call 'erlang':'get_module_info'
+	      ('sasl_report_file_h', ( _0
+				       -| [{'function',{'module_info',1}}] ))
+      -| [{'function',{'module_info',1}}] )
+end

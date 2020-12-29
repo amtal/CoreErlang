@@ -1,0 +1,215 @@
+module 'jsx_verify' ['handle_event'/2,
+		     'init'/1,
+		     'is_json'/2,
+		     'is_term'/2,
+		     'module_info'/0,
+		     'module_info'/1]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[106|[115|[120|[95|[118|[101|[114|[105|[102|[121|[46|[101|[114|[108]]]]]]]]]]]]]],1}],
+		%% Line 30
+		'spec' =
+		    %% Line 30
+		    [{{'is_json',2},[{'type',30,'fun',[{'type',30,'product',[{'ann_type',30,[{'var',30,'Source'}|[{'type',30,'binary',[]}]]}|[{'ann_type',30,[{'var',30,'Config'}|[{'remote_type',30,[{'atom',30,'proplists'}|[{'atom',30,'proplist'}|[[]]]]}]]}]]}|[{'type',30,'union',[{'atom',30,'true'}|[{'atom',30,'false'}|[{'type',30,'tuple',[{'atom',30,'incomplete'}|[{'remote_type',30,[{'atom',30,'jsx'}|[{'atom',30,'decoder'}|[[]]]]}]]}]]]}]]}]}],
+		%% Line 38
+		'spec' =
+		    %% Line 38
+		    [{{'is_term',2},[{'type',38,'fun',[{'type',38,'product',[{'ann_type',38,[{'var',38,'Source'}|[{'type',38,'any',[]}]]}|[{'ann_type',38,[{'var',38,'Config'}|[{'remote_type',38,[{'atom',38,'proplists'}|[{'atom',38,'proplist'}|[[]]]]}]]}]]}|[{'type',38,'union',[{'atom',38,'true'}|[{'atom',38,'false'}|[{'type',38,'tuple',[{'atom',38,'incomplete'}|[{'remote_type',38,[{'atom',38,'jsx'}|[{'atom',38,'encoder'}|[[]]]]}]]}]]]}]]}]}],
+		%% Line 70
+		'type' =
+		    %% Line 70
+		    [{'state',{'type',70,'nil',[]},[]}],
+		%% Line 71
+		'spec' =
+		    %% Line 71
+		    [{{'init',1},[{'type',71,'fun',[{'type',71,'product',[{'ann_type',71,[{'var',71,'Config'}|[{'remote_type',71,[{'atom',71,'proplists'}|[{'atom',71,'proplist'}|[[]]]]}]]}]}|[{'user_type',71,'state',[]}]]}]}],
+		%% Line 76
+		'spec' =
+		    %% Line 76
+		    [{{'handle_event',2},[{'type',76,'fun',[{'type',76,'product',[{'ann_type',76,[{'var',76,'Event'}|[{'type',76,'any',[]}]]}|[{'ann_type',76,[{'var',76,'State'}|[{'user_type',76,'state',[]}]]}]]}|[{'user_type',76,'state',[]}]]}]}]]
+'is_json'/2 =
+    %% Line 32
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Source,Config>
+	      when call 'erlang':'is_list'
+		    (Config) ->
+	      %% Line 33
+	      try
+		  let <_2> =
+		      call 'jsx_config':'extract_config'
+			  (Config)
+		  in  let <_3> =
+			  call 'jsx':'decoder'
+			      ('jsx_verify', Config, _2)
+		      in  apply _3
+			      (Source)
+	      of <_4> ->
+		  _4
+	      catch <_7,_6,_5> ->
+		  %% Line 34
+		  case <_7,_6,_5> of
+		    <( 'error'
+		       -| ['compiler_generated'] ),( 'badarg'
+						     -| ['compiler_generated'] ),_10> when 'true' ->
+			'false'
+		    ( <_11,_12,_13> when 'true' ->
+			  primop 'raise'
+			      (_13, _12)
+		      -| ['compiler_generated'] )
+		  end
+	  ( <_9,_8> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_9,_8})
+		  -| [{'function_name',{'is_json',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'is_term'/2 =
+    %% Line 40
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Source,Config>
+	      when call 'erlang':'is_list'
+		    (Config) ->
+	      %% Line 41
+	      try
+		  let <_2> =
+		      call 'jsx_config':'extract_config'
+			  (Config)
+		  in  let <_3> =
+			  call 'jsx':'encoder'
+			      ('jsx_verify', Config, _2)
+		      in  apply _3
+			      (Source)
+	      of <_4> ->
+		  _4
+	      catch <_7,_6,_5> ->
+		  %% Line 42
+		  case <_7,_6,_5> of
+		    <( 'error'
+		       -| ['compiler_generated'] ),( 'badarg'
+						     -| ['compiler_generated'] ),_10> when 'true' ->
+			'false'
+		    ( <_11,_12,_13> when 'true' ->
+			  primop 'raise'
+			      (_13, _12)
+		      -| ['compiler_generated'] )
+		  end
+	  ( <_9,_8> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_9,_8})
+		  -| [{'function_name',{'is_term',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'parse_config'/1 =
+    %% Line 46
+    fun (_0) ->
+	apply 'parse_config'/2
+	    (_0, [])
+'parse_config'/2 =
+    %% Line 49
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <['no_repeated_keys'|Rest],Config> when 'true' ->
+	      %% Line 50
+	      apply 'parse_config'/2
+		  (Rest, Config)
+	  %% Line 51
+	  <[{'repeated_keys',Val}|Rest],Config>
+	      when let <_2> =
+		    call 'erlang':'=:='
+			(Val, 'true')
+		in  let <_3> =
+			call 'erlang':'=:='
+			    (Val, 'false')
+		    in  call 'erlang':'or'
+			    (_2, _3) ->
+	      %% Line 52
+	      apply 'parse_config'/2
+		  (Rest, Config)
+	  %% Line 53
+	  <['repeated_keys'|Rest],Config> when 'true' ->
+	      %% Line 54
+	      apply 'parse_config'/2
+		  (Rest, Config)
+	  %% Line 55
+	  <Options = [{K,_10}|Rest],Config> when 'true' ->
+	      let <_4> =
+		  call %% Line 56
+		       'jsx_config':%% Line 56
+				    'valid_flags'
+		      ()
+	      in  %% Line 56
+		  case call 'lists':'member'
+			   (K, _4) of
+		    %% Line 57
+		    <'true'> when 'true' ->
+			apply 'parse_config'/2
+			    (Rest, Config)
+		    %% Line 58
+		    <'false'> when 'true' ->
+			call 'erlang':'error'
+			    ('badarg', [Options|[Config|[]]])
+		    ( <_5> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_5})
+		      -| ['compiler_generated'] )
+		  end
+	  %% Line 60
+	  <Options = [K|Rest],Config> when 'true' ->
+	      let <_6> =
+		  call %% Line 61
+		       'jsx_config':%% Line 61
+				    'valid_flags'
+		      ()
+	      in  %% Line 61
+		  case call 'lists':'member'
+			   (K, _6) of
+		    %% Line 62
+		    <'true'> when 'true' ->
+			apply 'parse_config'/2
+			    (Rest, Config)
+		    %% Line 63
+		    <'false'> when 'true' ->
+			call 'erlang':'error'
+			    ('badarg', [Options|[Config|[]]])
+		    ( <_7> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_7})
+		      -| ['compiler_generated'] )
+		  end
+	  %% Line 65
+	  <[],Config> when 'true' ->
+	      %% Line 66
+	      Config
+	  ( <_9,_8> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_9,_8})
+		  -| [{'function_name',{'parse_config',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'init'/1 =
+    %% Line 73
+    fun (_0) ->
+	apply 'parse_config'/1
+	    (_0)
+'handle_event'/2 =
+    %% Line 78
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <'end_json',_4> when 'true' ->
+	      'true'
+	  %% Line 80
+	  <_5,State> when 'true' ->
+	      State
+	end
+'module_info'/0 =
+    fun () ->
+	call 'erlang':'get_module_info'
+	    ('jsx_verify')
+'module_info'/1 =
+    fun (_0) ->
+	call 'erlang':'get_module_info'
+	    ('jsx_verify', _0)
+end

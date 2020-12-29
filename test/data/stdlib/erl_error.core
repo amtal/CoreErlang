@@ -1,0 +1,2843 @@
+module 'erl_error' ['format_call'/4,
+		    'format_call'/5,
+		    'format_exception'/6,
+		    'format_exception'/7,
+		    'format_exception'/8,
+		    'format_fun'/1,
+		    'format_fun'/2,
+		    'format_stacktrace'/4,
+		    'format_stacktrace'/5,
+		    'module_info'/0,
+		    'module_info'/1]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[101|[114|[108|[95|[101|[114|[114|[111|[114|[46|[101|[114|[108]]]]]]]]]]]]]]]]],1}]]
+'format_exception'/6 =
+    %% Line 35
+    fun (_0,_1,_2,_3,_4,_5) ->
+	%% Line 36
+	apply 'format_exception'/7
+	    (_0, _1, _2, _3, _4, _5, %% Line 37
+				     'latin1')
+'format_exception'/7 =
+    %% Line 41
+    fun (_0,_1,_2,_3,_4,_5,_6) ->
+	let <FF> =
+	    apply %% Line 42
+		  'wrap_format_fun_2'/1
+		(_5)
+	in  %% Line 43
+	    apply 'format_exception'/8
+		(_0, _1, _2, _3, _4, FF, _6, -1)
+'format_exception'/8 =
+    %% Line 45
+    fun (_0,_1,_2,_3,_4,_5,_6,_7) ->
+	case <_0,_1,_2,_3,_4,_5,_6,_7> of
+	  <I,Class,Reason,StackTrace,StackFun,FormatFun,Encoding,%% Line 46
+								 CharsLimit>
+	      when %% Line 47
+		try
+		    let <_8> =
+			call 'erlang':'is_integer'
+			    (I)
+		    in  let <_9> =
+			    call 'erlang':'>='
+				(I, 1)
+			in  let <_10> =
+				call 'erlang':'is_function'
+				    (StackFun, 3)
+			    in  let <_11> =
+				    call %% Line 48
+					 'erlang':%% Line 48
+						  'is_function'
+					(%% Line 48
+					 FormatFun, %% Line 48
+						    3)
+				in  let <_12> =
+					call %% Line 48
+					     'erlang':%% Line 48
+						      'is_integer'
+					    (%% Line 48
+					     CharsLimit)
+				    in  let <_13> =
+					    call 'erlang':'and'
+						(_11, _12)
+					in  let <_14> =
+						call 'erlang':'and'
+						    (_10, _13)
+					    in  let <_15> =
+						    call 'erlang':'and'
+							(_9, _14)
+						in  call 'erlang':'and'
+							(_8, _15)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      let <_16> =
+		  call %% Line 49
+		       'erlang':%% Line 49
+				'-'
+		      (%% Line 49
+		       I, %% Line 49
+			  1)
+	      in  let <S> =
+		      apply %% Line 49
+			    'n_spaces'/1
+			  (_16)
+		  in  %% Line 50
+		      case apply 'analyze_exception'/3
+			       (Class, Reason, StackTrace) of
+			<{Term,Trace1,Trace}> when 'true' ->
+			    let <_19> =
+				case <> of
+				  %% Line 52
+				  <>
+				      when call 'erlang':'<'
+					    (CharsLimit,
+					     0) ->
+				      %% Line 53
+				      CharsLimit
+				  %% Line 54
+				  <> when 'true' ->
+				      %% Line 56
+				      call 'erlang':'div'
+					  (CharsLimit, 3)
+				end
+			    in  let <St> =
+				    apply %% Line 58
+					  'format_stacktrace1'/6
+					(%% Line 58
+					 S, %% Line 58
+					    Trace, %% Line 58
+						   FormatFun, %% Line 58
+							      StackFun, %% Line 58
+									Encoding, _19)
+				in  let <_22> =
+					apply %% Line 59
+					      'exited'/1
+					    (%% Line 59
+					     Class)
+				    in  let <_23> =
+					    apply %% Line 59
+						  'sub'/3
+						(%% Line 59
+						 CharsLimit, _22, %% Line 59
+								  'latin1')
+					in  let <Lim> =
+						apply %% Line 59
+						      'sub'/3
+						    (_23, %% Line 59
+							  St, %% Line 59
+							      Encoding)
+					    in  let <Expl0> =
+						    apply %% Line 60
+							  'explain_reason'/7
+							(%% Line 60
+							 Term, %% Line 60
+							       Class, %% Line 60
+								      Trace1, %% Line 60
+									      FormatFun, %% Line 60
+											 S, %% Line 60
+											    Encoding, %% Line 60
+												      Lim)
+						in  let <_27> =
+							case %% Line 61
+							     Encoding of
+							  %% Line 62
+							  <'latin1'> when 'true' ->
+							      [126|[115|[126|[115]]]]
+							  %% Line 63
+							  <_40> when 'true' ->
+							      [126|[115|[126|[116|[115]]]]]
+							end
+						    in  let <_29> =
+							    apply %% Line 65
+								  'exited'/1
+								(%% Line 65
+								 Class)
+							in  let <Expl> =
+								call %% Line 65
+								     'io_lib':%% Line 65
+									      'fwrite'
+								    (_27, %% Line 65
+									  [_29|[Expl0|[]]])
+							    in  %% Line 66
+								case St of
+								  %% Line 67
+								  <[]> when 'true' ->
+								      Expl
+								  %% Line 68
+								  <_41> when 'true' ->
+								      [Expl|[10|[St|[]]]]
+								end
+			( <_18> when 'true' ->
+			      primop 'match_fail'
+				  ({'badmatch',_18})
+			  -| ['compiler_generated'] )
+		      end
+	  ( <_39,_38,_37,_36,_35,_34,_33,_32> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_39,_38,_37,_36,_35,_34,_33,_32})
+		  -| [{'function_name',{'format_exception',8}}] )
+	    -| ['compiler_generated'] )
+	end
+'format_stacktrace'/4 =
+    %% Line 72
+    fun (_0,_1,_2,_3) ->
+	%% Line 73
+	apply 'format_stacktrace'/5
+	    (_0, _1, _2, _3, 'latin1')
+'format_stacktrace'/5 =
+    %% Line 76
+    fun (_0,_1,_2,_3,_4) ->
+	case <_0,_1,_2,_3,_4> of
+	  <I,StackTrace,StackFun,FormatFun,Encoding>
+	      when %% Line 77
+		try
+		    let <_5> =
+			call 'erlang':'is_integer'
+			    (I)
+		    in  let <_6> =
+			    call 'erlang':'>='
+				(I, 1)
+			in  let <_7> =
+				call 'erlang':'is_function'
+				    (StackFun, 3)
+			    in  let <_8> =
+				    call %% Line 78
+					 'erlang':%% Line 78
+						  'is_function'
+					(%% Line 78
+					 FormatFun, %% Line 78
+						    2)
+				in  let <_9> =
+					call 'erlang':'and'
+					    (_7, _8)
+				    in  let <_10> =
+					    call 'erlang':'and'
+						(_6, _9)
+					in  call 'erlang':'and'
+						(_5, _10)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      let <_11> =
+		  call %% Line 79
+		       'erlang':%% Line 79
+				'-'
+		      (%% Line 79
+		       I, %% Line 79
+			  1)
+	      in  let <S> =
+		      apply %% Line 79
+			    'n_spaces'/1
+			  (_11)
+		  in  let <FF> =
+			  apply %% Line 80
+				'wrap_format_fun_2'/1
+			      (%% Line 80
+			       FormatFun)
+		      in  %% Line 81
+			  apply 'format_stacktrace1'/6
+			      (S, StackTrace, FF, StackFun, Encoding, -1)
+	  ( <_19,_18,_17,_16,_15> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_19,_18,_17,_16,_15})
+		  -| [{'function_name',{'format_stacktrace',5}}] )
+	    -| ['compiler_generated'] )
+	end
+'format_call'/4 =
+    %% Line 84
+    fun (_0,_1,_2,_3) ->
+	%% Line 85
+	apply 'format_call'/5
+	    (_0, _1, _2, _3, 'latin1')
+'format_call'/5 =
+    %% Line 88
+    fun (_0,_1,_2,_3,_4) ->
+	case <_0,_1,_2,_3,_4> of
+	  <I,ForMForFun,As,FormatFun,Enc>
+	      when %% Line 89
+		try
+		    let <_5> =
+			call 'erlang':'is_integer'
+			    (I)
+		    in  let <_6> =
+			    call 'erlang':'>='
+				(I, 1)
+			in  let <_7> =
+				call 'erlang':'is_list'
+				    (As)
+			    in  let <_8> =
+				    call 'erlang':'is_function'
+					(FormatFun, 2)
+				in  let <_9> =
+					call 'erlang':'and'
+					    (_7, _8)
+				    in  let <_10> =
+					    call 'erlang':'and'
+						(_6, _9)
+					in  call 'erlang':'and'
+						(_5, _10)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      let <FF> =
+		  apply %% Line 90
+			'wrap_format_fun_2'/1
+		      (%% Line 90
+		       FormatFun)
+	      in  let <_12> =
+		      call %% Line 91
+			   'erlang':%% Line 91
+				    '-'
+			  (%% Line 91
+			   I, %% Line 91
+			      1)
+		  in  let <_13> =
+			  apply %% Line 91
+				'n_spaces'/1
+			      (_12)
+		      in  %% Line 91
+			  apply 'format_call'/6
+			      ([], _13, ForMForFun, As, FF, Enc)
+	  ( <_18,_17,_16,_15,_14> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_18,_17,_16,_15,_14})
+		  -| [{'function_name',{'format_call',5}}] )
+	    -| ['compiler_generated'] )
+	end
+'format_fun'/1 =
+    %% Line 94
+    fun (_0) ->
+	%% Line 95
+	apply 'format_fun'/2
+	    (_0, 'latin1')
+'format_fun'/2 =
+    %% Line 98
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <Fun,Enc>
+	      when call 'erlang':'is_function'
+		    (Fun) ->
+	      %% Line 99
+	      case call 'erlang':'fun_info'
+		       (Fun, 'module') of
+		<{'module',M}> when 'true' ->
+		    %% Line 100
+		    case call 'erlang':'fun_info'
+			     (Fun, 'name') of
+		      <{'name',F}> when 'true' ->
+			  %% Line 101
+			  case call 'erlang':'fun_info'
+				   (Fun, 'arity') of
+			    <{'arity',A}> when 'true' ->
+				%% Line 102
+				case call 'erlang':'fun_info'
+					 (Fun, 'type') of
+				  %% Line 103
+				  <{'type','local'}>
+				      when call 'erlang':'=:='
+					    (F,
+					     []) ->
+				      %% Line 104
+				      call 'io_lib':'fwrite'
+					  (#{#<126>(8,1,'integer',['unsigned'|['big']]),
+					     #<119>(8,1,'integer',['unsigned'|['big']])}#, [Fun|[]])
+				  %% Line 105
+				  <{'type','local'}>
+				      when call 'erlang':'=:='
+					    (M,
+					     'erl_eval') ->
+				      %% Line 106
+				      call 'io_lib':'fwrite'
+					  (#{#<105>(8,1,'integer',['unsigned'|['big']]),
+					     #<110>(8,1,'integer',['unsigned'|['big']]),
+					     #<116>(8,1,'integer',['unsigned'|['big']]),
+					     #<101>(8,1,'integer',['unsigned'|['big']]),
+					     #<114>(8,1,'integer',['unsigned'|['big']]),
+					     #<112>(8,1,'integer',['unsigned'|['big']]),
+					     #<114>(8,1,'integer',['unsigned'|['big']]),
+					     #<101>(8,1,'integer',['unsigned'|['big']]),
+					     #<116>(8,1,'integer',['unsigned'|['big']]),
+					     #<101>(8,1,'integer',['unsigned'|['big']]),
+					     #<100>(8,1,'integer',['unsigned'|['big']]),
+					     #<32>(8,1,'integer',['unsigned'|['big']]),
+					     #<102>(8,1,'integer',['unsigned'|['big']]),
+					     #<117>(8,1,'integer',['unsigned'|['big']]),
+					     #<110>(8,1,'integer',['unsigned'|['big']]),
+					     #<99>(8,1,'integer',['unsigned'|['big']]),
+					     #<116>(8,1,'integer',['unsigned'|['big']]),
+					     #<105>(8,1,'integer',['unsigned'|['big']]),
+					     #<111>(8,1,'integer',['unsigned'|['big']]),
+					     #<110>(8,1,'integer',['unsigned'|['big']]),
+					     #<32>(8,1,'integer',['unsigned'|['big']]),
+					     #<119>(8,1,'integer',['unsigned'|['big']]),
+					     #<105>(8,1,'integer',['unsigned'|['big']]),
+					     #<116>(8,1,'integer',['unsigned'|['big']]),
+					     #<104>(8,1,'integer',['unsigned'|['big']]),
+					     #<32>(8,1,'integer',['unsigned'|['big']]),
+					     #<97>(8,1,'integer',['unsigned'|['big']]),
+					     #<114>(8,1,'integer',['unsigned'|['big']]),
+					     #<105>(8,1,'integer',['unsigned'|['big']]),
+					     #<116>(8,1,'integer',['unsigned'|['big']]),
+					     #<121>(8,1,'integer',['unsigned'|['big']]),
+					     #<32>(8,1,'integer',['unsigned'|['big']]),
+					     #<126>(8,1,'integer',['unsigned'|['big']]),
+					     #<119>(8,1,'integer',['unsigned'|['big']])}#, [A|[]])
+				  %% Line 107
+				  <{'type','local'}> when 'true' ->
+				      %% Line 108
+				      apply 'mfa_to_string'/4
+					  (M, F, A, Enc)
+				  %% Line 109
+				  <{'type','external'}> when 'true' ->
+				      %% Line 110
+				      apply 'mfa_to_string'/4
+					  (M, F, A, Enc)
+				  ( <_5> when 'true' ->
+					primop 'match_fail'
+					    ({'case_clause',_5})
+				    -| ['compiler_generated'] )
+				end
+			    ( <_4> when 'true' ->
+				  primop 'match_fail'
+				      ({'badmatch',_4})
+			      -| ['compiler_generated'] )
+			  end
+		      ( <_3> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_3})
+			-| ['compiler_generated'] )
+		    end
+		( <_2> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_2})
+		  -| ['compiler_generated'] )
+	      end
+	  ( <_7,_6> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_7,_6})
+		  -| [{'function_name',{'format_fun',2}}] )
+	    -| ['compiler_generated'] )
+	end
+'wrap_format_fun_2'/1 =
+    %% Line 113
+    fun (_0) ->
+	%% Line 114
+	( fun (_4,_3,_2) ->
+	      let <_1> =
+		  apply _0
+		      (_4, _3)
+	      in  {_1,_2}
+	  -| [{'id',{0,0,'-wrap_format_fun_2/1-fun-0-'}}] )
+'analyze_exception'/3 =
+    %% Line 116
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <'error',Term,Stack> when 'true' ->
+	      let <_3> =
+		  apply %% Line 117
+			'is_stacktrace'/1
+		      (%% Line 117
+		       Stack)
+	      in  %% Line 117
+		  case <_3,Stack,Term> of
+		    %% Line 118
+		    <( 'true'
+		       -| ['compiler_generated'] ),( [MFAL = ( {_9,_10,As,_11}
+							       -| ['compiler_generated'] )|MFAs]
+						     -| ['compiler_generated'] ),( 'function_clause'
+										   -| ['compiler_generated'] )>
+			when call 'erlang':'is_list'
+			      (As) ->
+			%% Line 119
+			{Term,[MFAL|[]],MFAs}
+		    %% Line 120
+		    <( 'true'
+		       -| ['compiler_generated'] ),( [( {( 'shell'
+							   -| ['compiler_generated'] ),F,A,_12}
+							-| ['compiler_generated'] )|( []
+										      -| ['compiler_generated'] )]
+						     -| ['compiler_generated'] ),( 'function_clause'
+										   -| ['compiler_generated'] )>
+			when call 'erlang':'is_integer'
+			      (A) ->
+			%% Line 121
+			{Term,[{F,A}|[]],[]}
+		    %% Line 122
+		    <( 'true'
+		       -| ['compiler_generated'] ),( [MFAL = ( {_13,_14,_15,_16}
+							       -| ['compiler_generated'] )|MFAs]
+						     -| ['compiler_generated'] ),( 'undef'
+										   -| ['compiler_generated'] )> when 'true' ->
+			%% Line 123
+			{Term,[MFAL|[]],MFAs}
+		    %% Line 124
+		    <( 'true'
+		       -| ['compiler_generated'] ),_17,_18> when 'true' ->
+			%% Line 125
+			{Term,[],Stack}
+		    %% Line 126
+		    <( 'false'
+		       -| ['compiler_generated'] ),_19,_20> when 'true' ->
+			%% Line 127
+			{{Term,Stack},[],[]}
+		    ( <( _21
+			 -| ['compiler_generated'] ),( _22
+						       -| ['compiler_generated'] ),( _23
+										     -| ['compiler_generated'] )> when 'true' ->
+			  let <_4> = {( _21
+				 -| ['compiler_generated'] ),( _22
+							       -| ['compiler_generated'] ),( _23
+											     -| ['compiler_generated'] )}
+			  in  primop 'match_fail'
+				  ({'case_clause',_4})
+		      -| ['compiler_generated'] )
+		  end
+	  %% Line 129
+	  <_X_Class,Term,Stack> when 'true' ->
+	      %% Line 130
+	      case apply 'is_stacktrace'/1
+		       (Stack) of
+		%% Line 131
+		<'true'> when 'true' ->
+		    %% Line 132
+		    {Term,[],Stack}
+		%% Line 133
+		<'false'> when 'true' ->
+		    %% Line 134
+		    {{Term,Stack},[],[]}
+		( <_5> when 'true' ->
+		      primop 'match_fail'
+			  ({'case_clause',_5})
+		  -| ['compiler_generated'] )
+	      end
+	end
+'is_stacktrace'/1 =
+    %% Line 137
+    fun (_0) ->
+	case _0 of
+	  <[]> when 'true' ->
+	      %% Line 138
+	      'true'
+	  %% Line 139
+	  <[{M,F,A,I}|Fs]>
+	      when %% Line 140
+		try
+		    let <_1> =
+			call 'erlang':'is_atom'
+			    (M)
+		    in  let <_2> =
+			    call 'erlang':'is_atom'
+				(F)
+			in  let <_3> =
+				call 'erlang':'is_integer'
+				    (A)
+			    in  let <_4> =
+				    call 'erlang':'is_list'
+					(I)
+				in  let <_5> =
+					call 'erlang':'and'
+					    (_3, _4)
+				    in  let <_6> =
+					    call 'erlang':'and'
+						(_2, _5)
+					in  call 'erlang':'and'
+						(_1, _6)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      %% Line 141
+	      apply 'is_stacktrace'/1
+		  (Fs)
+	  %% Line 142
+	  <[{M,F,As,I}|Fs]>
+	      when %% Line 143
+		try
+		    let <_7> =
+			call 'erlang':'is_atom'
+			    (M)
+		    in  let <_8> =
+			    call 'erlang':'is_atom'
+				(F)
+			in  let <_9> =
+				call 'erlang':'length'
+				    (As)
+			    in  let <_10> =
+				    call 'erlang':'>='
+					(_9, 0)
+				in  let <_11> =
+					call 'erlang':'is_list'
+					    (I)
+				    in  let <_12> =
+					    call 'erlang':'and'
+						(_10, _11)
+					in  let <_13> =
+						call 'erlang':'and'
+						    (_8, _12)
+					    in  call 'erlang':'and'
+						    (_7, _13)
+		of <Try> ->
+		    Try
+		catch <T,R> ->
+		    'false' ->
+	      %% Line 144
+	      apply 'is_stacktrace'/1
+		  (Fs)
+	  %% Line 145
+	  <_15> when 'true' ->
+	      %% Line 146
+	      'false'
+	end
+'explain_reason'/7 =
+    %% Line 149
+    fun (_0,_1,_2,_3,_4,_5,_6) ->
+	case <_0,_1,_2,_3,_4,_5,_6> of
+	  <'badarg','error',[],_X_PF,_X_S,_X_Enc,_X_CL> when 'true' ->
+	      %% Line 150
+	      #{#<98>(8,1,'integer',['unsigned'|['big']]),
+		#<97>(8,1,'integer',['unsigned'|['big']]),
+		#<100>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<97>(8,1,'integer',['unsigned'|['big']]),
+		#<114>(8,1,'integer',['unsigned'|['big']]),
+		#<103>(8,1,'integer',['unsigned'|['big']]),
+		#<117>(8,1,'integer',['unsigned'|['big']]),
+		#<109>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<110>(8,1,'integer',['unsigned'|['big']]),
+		#<116>(8,1,'integer',['unsigned'|['big']])}#
+	  %% Line 151
+	  <{'badarg',V},Cl = 'error',[],PF,S,_X_Enc,CL> when 'true' ->
+	      %% Line 152
+	      apply 'format_value'/6
+		  (V, #{#<98>(8,1,'integer',['unsigned'|['big']]),
+			#<97>(8,1,'integer',['unsigned'|['big']]),
+			#<100>(8,1,'integer',['unsigned'|['big']]),
+			#<32>(8,1,'integer',['unsigned'|['big']]),
+			#<97>(8,1,'integer',['unsigned'|['big']]),
+			#<114>(8,1,'integer',['unsigned'|['big']]),
+			#<103>(8,1,'integer',['unsigned'|['big']]),
+			#<117>(8,1,'integer',['unsigned'|['big']]),
+			#<109>(8,1,'integer',['unsigned'|['big']]),
+			#<101>(8,1,'integer',['unsigned'|['big']]),
+			#<110>(8,1,'integer',['unsigned'|['big']]),
+			#<116>(8,1,'integer',['unsigned'|['big']]),
+			#<58>(8,1,'integer',['unsigned'|['big']]),
+			#<32>(8,1,'integer',['unsigned'|['big']])}#, Cl, PF, S, CL)
+	  %% Line 153
+	  <'badarith','error',[],_X_PF,_X_S,_X_Enc,_X_CL> when 'true' ->
+	      %% Line 154
+	      #{#<97>(8,1,'integer',['unsigned'|['big']]),
+		#<110>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<114>(8,1,'integer',['unsigned'|['big']]),
+		#<114>(8,1,'integer',['unsigned'|['big']]),
+		#<111>(8,1,'integer',['unsigned'|['big']]),
+		#<114>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<111>(8,1,'integer',['unsigned'|['big']]),
+		#<99>(8,1,'integer',['unsigned'|['big']]),
+		#<99>(8,1,'integer',['unsigned'|['big']]),
+		#<117>(8,1,'integer',['unsigned'|['big']]),
+		#<114>(8,1,'integer',['unsigned'|['big']]),
+		#<114>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<100>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<119>(8,1,'integer',['unsigned'|['big']]),
+		#<104>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<110>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<118>(8,1,'integer',['unsigned'|['big']]),
+		#<97>(8,1,'integer',['unsigned'|['big']]),
+		#<108>(8,1,'integer',['unsigned'|['big']]),
+		#<117>(8,1,'integer',['unsigned'|['big']]),
+		#<97>(8,1,'integer',['unsigned'|['big']]),
+		#<116>(8,1,'integer',['unsigned'|['big']]),
+		#<105>(8,1,'integer',['unsigned'|['big']]),
+		#<110>(8,1,'integer',['unsigned'|['big']]),
+		#<103>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<97>(8,1,'integer',['unsigned'|['big']]),
+		#<110>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<97>(8,1,'integer',['unsigned'|['big']]),
+		#<114>(8,1,'integer',['unsigned'|['big']]),
+		#<105>(8,1,'integer',['unsigned'|['big']]),
+		#<116>(8,1,'integer',['unsigned'|['big']]),
+		#<104>(8,1,'integer',['unsigned'|['big']]),
+		#<109>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<116>(8,1,'integer',['unsigned'|['big']]),
+		#<105>(8,1,'integer',['unsigned'|['big']]),
+		#<99>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<120>(8,1,'integer',['unsigned'|['big']]),
+		#<112>(8,1,'integer',['unsigned'|['big']]),
+		#<114>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<115>(8,1,'integer',['unsigned'|['big']]),
+		#<115>(8,1,'integer',['unsigned'|['big']]),
+		#<105>(8,1,'integer',['unsigned'|['big']]),
+		#<111>(8,1,'integer',['unsigned'|['big']]),
+		#<110>(8,1,'integer',['unsigned'|['big']])}#
+	  %% Line 155
+	  <{'badarity',{Fun,As}},'error',[],_X_PF,_X_S,Enc,_X_CL>
+	      when %% Line 156
+		call 'erlang':'is_function'
+		    (Fun) ->
+	      let <_7> =
+		  apply %% Line 159
+			'format_fun'/2
+		      (%% Line 159
+		       Fun, %% Line 159
+			    Enc)
+	      in  let <_8> =
+		      call %% Line 159
+			   'erlang':%% Line 159
+				    'length'
+			  (%% Line 159
+			   As)
+		  in  let <_9> =
+			  apply %% Line 159
+				'argss'/1
+			      (_8)
+		      in  %% Line 158
+			  call 'io_lib':'fwrite'
+			      (#{#<126>(8,1,'integer',['unsigned'|['big']]),
+				 #<116>(8,1,'integer',['unsigned'|['big']]),
+				 #<115>(8,1,'integer',['unsigned'|['big']]),
+				 #<32>(8,1,'integer',['unsigned'|['big']]),
+				 #<99>(8,1,'integer',['unsigned'|['big']]),
+				 #<97>(8,1,'integer',['unsigned'|['big']]),
+				 #<108>(8,1,'integer',['unsigned'|['big']]),
+				 #<108>(8,1,'integer',['unsigned'|['big']]),
+				 #<101>(8,1,'integer',['unsigned'|['big']]),
+				 #<100>(8,1,'integer',['unsigned'|['big']]),
+				 #<32>(8,1,'integer',['unsigned'|['big']]),
+				 #<119>(8,1,'integer',['unsigned'|['big']]),
+				 #<105>(8,1,'integer',['unsigned'|['big']]),
+				 #<116>(8,1,'integer',['unsigned'|['big']]),
+				 #<104>(8,1,'integer',['unsigned'|['big']]),
+				 #<32>(8,1,'integer',['unsigned'|['big']]),
+				 #<126>(8,1,'integer',['unsigned'|['big']]),
+				 #<115>(8,1,'integer',['unsigned'|['big']])}#, %% Line 159
+									       [_7|[_9|[]]])
+	  %% Line 160
+	  <{'badfun',Term},Cl = 'error',[],PF,S,_X_Enc,CL> when 'true' ->
+	      %% Line 161
+	      apply 'format_value'/6
+		  (Term, #{#<98>(8,1,'integer',['unsigned'|['big']]),
+			   #<97>(8,1,'integer',['unsigned'|['big']]),
+			   #<100>(8,1,'integer',['unsigned'|['big']]),
+			   #<32>(8,1,'integer',['unsigned'|['big']]),
+			   #<102>(8,1,'integer',['unsigned'|['big']]),
+			   #<117>(8,1,'integer',['unsigned'|['big']]),
+			   #<110>(8,1,'integer',['unsigned'|['big']]),
+			   #<99>(8,1,'integer',['unsigned'|['big']]),
+			   #<116>(8,1,'integer',['unsigned'|['big']]),
+			   #<105>(8,1,'integer',['unsigned'|['big']]),
+			   #<111>(8,1,'integer',['unsigned'|['big']]),
+			   #<110>(8,1,'integer',['unsigned'|['big']]),
+			   #<32>(8,1,'integer',['unsigned'|['big']])}#, Cl, PF, S, CL)
+	  %% Line 162
+	  <{'badmatch',Term},Cl = 'error',[],PF,S,_X_Enc,CL> when 'true' ->
+	      %% Line 164
+	      apply 'format_value'/6
+		  (Term, #{#<110>(8,1,'integer',['unsigned'|['big']]),
+			   #<111>(8,1,'integer',['unsigned'|['big']]),
+			   #<32>(8,1,'integer',['unsigned'|['big']]),
+			   #<109>(8,1,'integer',['unsigned'|['big']]),
+			   #<97>(8,1,'integer',['unsigned'|['big']]),
+			   #<116>(8,1,'integer',['unsigned'|['big']]),
+			   #<99>(8,1,'integer',['unsigned'|['big']]),
+			   #<104>(8,1,'integer',['unsigned'|['big']]),
+			   #<32>(8,1,'integer',['unsigned'|['big']]),
+			   #<111>(8,1,'integer',['unsigned'|['big']]),
+			   #<102>(8,1,'integer',['unsigned'|['big']]),
+			   #<32>(8,1,'integer',['unsigned'|['big']]),
+			   #<114>(8,1,'integer',['unsigned'|['big']]),
+			   #<105>(8,1,'integer',['unsigned'|['big']]),
+			   #<103>(8,1,'integer',['unsigned'|['big']]),
+			   #<104>(8,1,'integer',['unsigned'|['big']]),
+			   #<116>(8,1,'integer',['unsigned'|['big']]),
+			   #<32>(8,1,'integer',['unsigned'|['big']]),
+			   #<104>(8,1,'integer',['unsigned'|['big']]),
+			   #<97>(8,1,'integer',['unsigned'|['big']]),
+			   #<110>(8,1,'integer',['unsigned'|['big']]),
+			   #<100>(8,1,'integer',['unsigned'|['big']]),
+			   #<32>(8,1,'integer',['unsigned'|['big']]),
+			   #<115>(8,1,'integer',['unsigned'|['big']]),
+			   #<105>(8,1,'integer',['unsigned'|['big']]),
+			   #<100>(8,1,'integer',['unsigned'|['big']]),
+			   #<101>(8,1,'integer',['unsigned'|['big']]),
+			   #<32>(8,1,'integer',['unsigned'|['big']]),
+			   #<118>(8,1,'integer',['unsigned'|['big']]),
+			   #<97>(8,1,'integer',['unsigned'|['big']]),
+			   #<108>(8,1,'integer',['unsigned'|['big']]),
+			   #<117>(8,1,'integer',['unsigned'|['big']]),
+			   #<101>(8,1,'integer',['unsigned'|['big']]),
+			   #<32>(8,1,'integer',['unsigned'|['big']])}#, Cl, PF, S, CL)
+	  %% Line 165
+	  <{'case_clause',V},Cl = 'error',[],PF,S,_X_Enc,CL> when 'true' ->
+	      %% Line 168
+	      apply 'format_value'/6
+		  (V, #{#<110>(8,1,'integer',['unsigned'|['big']]),
+			#<111>(8,1,'integer',['unsigned'|['big']]),
+			#<32>(8,1,'integer',['unsigned'|['big']]),
+			#<99>(8,1,'integer',['unsigned'|['big']]),
+			#<97>(8,1,'integer',['unsigned'|['big']]),
+			#<115>(8,1,'integer',['unsigned'|['big']]),
+			#<101>(8,1,'integer',['unsigned'|['big']]),
+			#<32>(8,1,'integer',['unsigned'|['big']]),
+			#<99>(8,1,'integer',['unsigned'|['big']]),
+			#<108>(8,1,'integer',['unsigned'|['big']]),
+			#<97>(8,1,'integer',['unsigned'|['big']]),
+			#<117>(8,1,'integer',['unsigned'|['big']]),
+			#<115>(8,1,'integer',['unsigned'|['big']]),
+			#<101>(8,1,'integer',['unsigned'|['big']]),
+			#<32>(8,1,'integer',['unsigned'|['big']]),
+			#<109>(8,1,'integer',['unsigned'|['big']]),
+			#<97>(8,1,'integer',['unsigned'|['big']]),
+			#<116>(8,1,'integer',['unsigned'|['big']]),
+			#<99>(8,1,'integer',['unsigned'|['big']]),
+			#<104>(8,1,'integer',['unsigned'|['big']]),
+			#<105>(8,1,'integer',['unsigned'|['big']]),
+			#<110>(8,1,'integer',['unsigned'|['big']]),
+			#<103>(8,1,'integer',['unsigned'|['big']]),
+			#<32>(8,1,'integer',['unsigned'|['big']])}#, Cl, PF, S, CL)
+	  %% Line 169
+	  <'function_clause','error',[{F,A}|[]],_X_PF,_X_S,_X_Enc,_X_CL> when 'true' ->
+	      let <FAs> =
+		  call %% Line 171
+		       'io_lib':%% Line 171
+				'fwrite'
+		      (%% Line 171
+		       #{#<126>(8,1,'integer',['unsigned'|['big']]),
+			 #<119>(8,1,'integer',['unsigned'|['big']]),
+			 #<47>(8,1,'integer',['unsigned'|['big']]),
+			 #<126>(8,1,'integer',['unsigned'|['big']]),
+			 #<119>(8,1,'integer',['unsigned'|['big']])}#, %% Line 171
+								       [F|[A|[]]])
+	      in  %% Line 172
+		  [#{#<110>(8,1,'integer',['unsigned'|['big']]),
+		     #<111>(8,1,'integer',['unsigned'|['big']]),
+		     #<32>(8,1,'integer',['unsigned'|['big']]),
+		     #<102>(8,1,'integer',['unsigned'|['big']]),
+		     #<117>(8,1,'integer',['unsigned'|['big']]),
+		     #<110>(8,1,'integer',['unsigned'|['big']]),
+		     #<99>(8,1,'integer',['unsigned'|['big']]),
+		     #<116>(8,1,'integer',['unsigned'|['big']]),
+		     #<105>(8,1,'integer',['unsigned'|['big']]),
+		     #<111>(8,1,'integer',['unsigned'|['big']]),
+		     #<110>(8,1,'integer',['unsigned'|['big']]),
+		     #<32>(8,1,'integer',['unsigned'|['big']]),
+		     #<99>(8,1,'integer',['unsigned'|['big']]),
+		     #<108>(8,1,'integer',['unsigned'|['big']]),
+		     #<97>(8,1,'integer',['unsigned'|['big']]),
+		     #<117>(8,1,'integer',['unsigned'|['big']]),
+		     #<115>(8,1,'integer',['unsigned'|['big']]),
+		     #<101>(8,1,'integer',['unsigned'|['big']]),
+		     #<32>(8,1,'integer',['unsigned'|['big']]),
+		     #<109>(8,1,'integer',['unsigned'|['big']]),
+		     #<97>(8,1,'integer',['unsigned'|['big']]),
+		     #<116>(8,1,'integer',['unsigned'|['big']]),
+		     #<99>(8,1,'integer',['unsigned'|['big']]),
+		     #<104>(8,1,'integer',['unsigned'|['big']]),
+		     #<105>(8,1,'integer',['unsigned'|['big']]),
+		     #<110>(8,1,'integer',['unsigned'|['big']]),
+		     #<103>(8,1,'integer',['unsigned'|['big']]),
+		     #<32>(8,1,'integer',['unsigned'|['big']]),
+		     #<99>(8,1,'integer',['unsigned'|['big']]),
+		     #<97>(8,1,'integer',['unsigned'|['big']]),
+		     #<108>(8,1,'integer',['unsigned'|['big']]),
+		     #<108>(8,1,'integer',['unsigned'|['big']]),
+		     #<32>(8,1,'integer',['unsigned'|['big']]),
+		     #<116>(8,1,'integer',['unsigned'|['big']]),
+		     #<111>(8,1,'integer',['unsigned'|['big']]),
+		     #<32>(8,1,'integer',['unsigned'|['big']])}#|FAs]
+	  %% Line 173
+	  <'function_clause',Cl = 'error',[{M,F,As,Loc}|[]],PF,S,Enc,CL> when 'true' ->
+	      let <_13> =
+		  apply %% Line 175
+			'format_errstr_call'/8
+		      (%% Line 174
+		       #{#<110>(8,1,'integer',['unsigned'|['big']]),
+			 #<111>(8,1,'integer',['unsigned'|['big']]),
+			 #<32>(8,1,'integer',['unsigned'|['big']]),
+			 #<102>(8,1,'integer',['unsigned'|['big']]),
+			 #<117>(8,1,'integer',['unsigned'|['big']]),
+			 #<110>(8,1,'integer',['unsigned'|['big']]),
+			 #<99>(8,1,'integer',['unsigned'|['big']]),
+			 #<116>(8,1,'integer',['unsigned'|['big']]),
+			 #<105>(8,1,'integer',['unsigned'|['big']]),
+			 #<111>(8,1,'integer',['unsigned'|['big']]),
+			 #<110>(8,1,'integer',['unsigned'|['big']]),
+			 #<32>(8,1,'integer',['unsigned'|['big']]),
+			 #<99>(8,1,'integer',['unsigned'|['big']]),
+			 #<108>(8,1,'integer',['unsigned'|['big']]),
+			 #<97>(8,1,'integer',['unsigned'|['big']]),
+			 #<117>(8,1,'integer',['unsigned'|['big']]),
+			 #<115>(8,1,'integer',['unsigned'|['big']]),
+			 #<101>(8,1,'integer',['unsigned'|['big']]),
+			 #<32>(8,1,'integer',['unsigned'|['big']]),
+			 #<109>(8,1,'integer',['unsigned'|['big']]),
+			 #<97>(8,1,'integer',['unsigned'|['big']]),
+			 #<116>(8,1,'integer',['unsigned'|['big']]),
+			 #<99>(8,1,'integer',['unsigned'|['big']]),
+			 #<104>(8,1,'integer',['unsigned'|['big']]),
+			 #<105>(8,1,'integer',['unsigned'|['big']]),
+			 #<110>(8,1,'integer',['unsigned'|['big']]),
+			 #<103>(8,1,'integer',['unsigned'|['big']]),
+			 #<32>(8,1,'integer',['unsigned'|['big']])}#, %% Line 175
+								      Cl, %% Line 175
+									  {M,F}, %% Line 175
+										 As, %% Line 175
+										     PF, %% Line 175
+											 S, %% Line 175
+											    Enc, %% Line 175
+												 CL)
+	      in  let <_14> =
+		      apply %% Line 175
+			    'location'/1
+			  (%% Line 175
+			   Loc)
+		  in  %% Line 175
+		      [_13|[32|_14]]
+	  %% Line 176
+	  <'if_clause','error',[],_X_PF,_X_S,_X_Enc,_X_CL> when 'true' ->
+	      %% Line 177
+	      #{#<110>(8,1,'integer',['unsigned'|['big']]),
+		#<111>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<116>(8,1,'integer',['unsigned'|['big']]),
+		#<114>(8,1,'integer',['unsigned'|['big']]),
+		#<117>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<98>(8,1,'integer',['unsigned'|['big']]),
+		#<114>(8,1,'integer',['unsigned'|['big']]),
+		#<97>(8,1,'integer',['unsigned'|['big']]),
+		#<110>(8,1,'integer',['unsigned'|['big']]),
+		#<99>(8,1,'integer',['unsigned'|['big']]),
+		#<104>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<102>(8,1,'integer',['unsigned'|['big']]),
+		#<111>(8,1,'integer',['unsigned'|['big']]),
+		#<117>(8,1,'integer',['unsigned'|['big']]),
+		#<110>(8,1,'integer',['unsigned'|['big']]),
+		#<100>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<119>(8,1,'integer',['unsigned'|['big']]),
+		#<104>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<110>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<118>(8,1,'integer',['unsigned'|['big']]),
+		#<97>(8,1,'integer',['unsigned'|['big']]),
+		#<108>(8,1,'integer',['unsigned'|['big']]),
+		#<117>(8,1,'integer',['unsigned'|['big']]),
+		#<97>(8,1,'integer',['unsigned'|['big']]),
+		#<116>(8,1,'integer',['unsigned'|['big']]),
+		#<105>(8,1,'integer',['unsigned'|['big']]),
+		#<110>(8,1,'integer',['unsigned'|['big']]),
+		#<103>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<97>(8,1,'integer',['unsigned'|['big']]),
+		#<110>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<105>(8,1,'integer',['unsigned'|['big']]),
+		#<102>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<120>(8,1,'integer',['unsigned'|['big']]),
+		#<112>(8,1,'integer',['unsigned'|['big']]),
+		#<114>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<115>(8,1,'integer',['unsigned'|['big']]),
+		#<115>(8,1,'integer',['unsigned'|['big']]),
+		#<105>(8,1,'integer',['unsigned'|['big']]),
+		#<111>(8,1,'integer',['unsigned'|['big']]),
+		#<110>(8,1,'integer',['unsigned'|['big']])}#
+	  %% Line 178
+	  <'noproc','error',[],_X_PF,_X_S,_X_Enc,_X_CL> when 'true' ->
+	      %% Line 179
+	      #{#<110>(8,1,'integer',['unsigned'|['big']]),
+		#<111>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<115>(8,1,'integer',['unsigned'|['big']]),
+		#<117>(8,1,'integer',['unsigned'|['big']]),
+		#<99>(8,1,'integer',['unsigned'|['big']]),
+		#<104>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<112>(8,1,'integer',['unsigned'|['big']]),
+		#<114>(8,1,'integer',['unsigned'|['big']]),
+		#<111>(8,1,'integer',['unsigned'|['big']]),
+		#<99>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<115>(8,1,'integer',['unsigned'|['big']]),
+		#<115>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<111>(8,1,'integer',['unsigned'|['big']]),
+		#<114>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<112>(8,1,'integer',['unsigned'|['big']]),
+		#<111>(8,1,'integer',['unsigned'|['big']]),
+		#<114>(8,1,'integer',['unsigned'|['big']]),
+		#<116>(8,1,'integer',['unsigned'|['big']])}#
+	  %% Line 180
+	  <'notalive','error',[],_X_PF,_X_S,_X_Enc,_X_CL> when 'true' ->
+	      %% Line 181
+	      #{#<116>(8,1,'integer',['unsigned'|['big']]),
+		#<104>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<110>(8,1,'integer',['unsigned'|['big']]),
+		#<111>(8,1,'integer',['unsigned'|['big']]),
+		#<100>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<99>(8,1,'integer',['unsigned'|['big']]),
+		#<97>(8,1,'integer',['unsigned'|['big']]),
+		#<110>(8,1,'integer',['unsigned'|['big']]),
+		#<110>(8,1,'integer',['unsigned'|['big']]),
+		#<111>(8,1,'integer',['unsigned'|['big']]),
+		#<116>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<98>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<112>(8,1,'integer',['unsigned'|['big']]),
+		#<97>(8,1,'integer',['unsigned'|['big']]),
+		#<114>(8,1,'integer',['unsigned'|['big']]),
+		#<116>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<111>(8,1,'integer',['unsigned'|['big']]),
+		#<102>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<97>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<100>(8,1,'integer',['unsigned'|['big']]),
+		#<105>(8,1,'integer',['unsigned'|['big']]),
+		#<115>(8,1,'integer',['unsigned'|['big']]),
+		#<116>(8,1,'integer',['unsigned'|['big']]),
+		#<114>(8,1,'integer',['unsigned'|['big']]),
+		#<105>(8,1,'integer',['unsigned'|['big']]),
+		#<98>(8,1,'integer',['unsigned'|['big']]),
+		#<117>(8,1,'integer',['unsigned'|['big']]),
+		#<116>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<100>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<115>(8,1,'integer',['unsigned'|['big']]),
+		#<121>(8,1,'integer',['unsigned'|['big']]),
+		#<115>(8,1,'integer',['unsigned'|['big']]),
+		#<116>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<109>(8,1,'integer',['unsigned'|['big']])}#
+	  %% Line 182
+	  <'system_limit','error',[],_X_PF,_X_S,_X_Enc,_X_CL> when 'true' ->
+	      %% Line 183
+	      #{#<97>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<115>(8,1,'integer',['unsigned'|['big']]),
+		#<121>(8,1,'integer',['unsigned'|['big']]),
+		#<115>(8,1,'integer',['unsigned'|['big']]),
+		#<116>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<109>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<108>(8,1,'integer',['unsigned'|['big']]),
+		#<105>(8,1,'integer',['unsigned'|['big']]),
+		#<109>(8,1,'integer',['unsigned'|['big']]),
+		#<105>(8,1,'integer',['unsigned'|['big']]),
+		#<116>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<104>(8,1,'integer',['unsigned'|['big']]),
+		#<97>(8,1,'integer',['unsigned'|['big']]),
+		#<115>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<98>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<110>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<114>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<97>(8,1,'integer',['unsigned'|['big']]),
+		#<99>(8,1,'integer',['unsigned'|['big']]),
+		#<104>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<100>(8,1,'integer',['unsigned'|['big']])}#
+	  %% Line 184
+	  <'timeout_value','error',[],_X_PF,_X_S,_X_Enc,_X_CL> when 'true' ->
+	      %% Line 185
+	      #{#<98>(8,1,'integer',['unsigned'|['big']]),
+		#<97>(8,1,'integer',['unsigned'|['big']]),
+		#<100>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<114>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<99>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<105>(8,1,'integer',['unsigned'|['big']]),
+		#<118>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<116>(8,1,'integer',['unsigned'|['big']]),
+		#<105>(8,1,'integer',['unsigned'|['big']]),
+		#<109>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<111>(8,1,'integer',['unsigned'|['big']]),
+		#<117>(8,1,'integer',['unsigned'|['big']]),
+		#<116>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<118>(8,1,'integer',['unsigned'|['big']]),
+		#<97>(8,1,'integer',['unsigned'|['big']]),
+		#<108>(8,1,'integer',['unsigned'|['big']]),
+		#<117>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']])}#
+	  %% Line 186
+	  <{'try_clause',V},Cl = 'error',[],PF,S,_X_Enc,CL> when 'true' ->
+	      %% Line 189
+	      apply 'format_value'/6
+		  (V, #{#<110>(8,1,'integer',['unsigned'|['big']]),
+			#<111>(8,1,'integer',['unsigned'|['big']]),
+			#<32>(8,1,'integer',['unsigned'|['big']]),
+			#<116>(8,1,'integer',['unsigned'|['big']]),
+			#<114>(8,1,'integer',['unsigned'|['big']]),
+			#<121>(8,1,'integer',['unsigned'|['big']]),
+			#<32>(8,1,'integer',['unsigned'|['big']]),
+			#<99>(8,1,'integer',['unsigned'|['big']]),
+			#<108>(8,1,'integer',['unsigned'|['big']]),
+			#<97>(8,1,'integer',['unsigned'|['big']]),
+			#<117>(8,1,'integer',['unsigned'|['big']]),
+			#<115>(8,1,'integer',['unsigned'|['big']]),
+			#<101>(8,1,'integer',['unsigned'|['big']]),
+			#<32>(8,1,'integer',['unsigned'|['big']]),
+			#<109>(8,1,'integer',['unsigned'|['big']]),
+			#<97>(8,1,'integer',['unsigned'|['big']]),
+			#<116>(8,1,'integer',['unsigned'|['big']]),
+			#<99>(8,1,'integer',['unsigned'|['big']]),
+			#<104>(8,1,'integer',['unsigned'|['big']]),
+			#<105>(8,1,'integer',['unsigned'|['big']]),
+			#<110>(8,1,'integer',['unsigned'|['big']]),
+			#<103>(8,1,'integer',['unsigned'|['big']]),
+			#<32>(8,1,'integer',['unsigned'|['big']])}#, Cl, PF, S, CL)
+	  %% Line 190
+	  <'undef','error',[{M,F,A,_33}|[]],_X_PF,_X_S,Enc,_X_CL> when 'true' ->
+	      let <_15> =
+		  apply %% Line 193
+			'n_args'/1
+		      (%% Line 193
+		       A)
+	      in  let <_16> =
+		      apply %% Line 193
+			    'mfa_to_string'/4
+			  (%% Line 193
+			   M, %% Line 193
+			      F, _15, %% Line 193
+				      Enc)
+		  in  %% Line 192
+		      call 'io_lib':'fwrite'
+			  (#{#<117>(8,1,'integer',['unsigned'|['big']]),
+			     #<110>(8,1,'integer',['unsigned'|['big']]),
+			     #<100>(8,1,'integer',['unsigned'|['big']]),
+			     #<101>(8,1,'integer',['unsigned'|['big']]),
+			     #<102>(8,1,'integer',['unsigned'|['big']]),
+			     #<105>(8,1,'integer',['unsigned'|['big']]),
+			     #<110>(8,1,'integer',['unsigned'|['big']]),
+			     #<101>(8,1,'integer',['unsigned'|['big']]),
+			     #<100>(8,1,'integer',['unsigned'|['big']]),
+			     #<32>(8,1,'integer',['unsigned'|['big']]),
+			     #<102>(8,1,'integer',['unsigned'|['big']]),
+			     #<117>(8,1,'integer',['unsigned'|['big']]),
+			     #<110>(8,1,'integer',['unsigned'|['big']]),
+			     #<99>(8,1,'integer',['unsigned'|['big']]),
+			     #<116>(8,1,'integer',['unsigned'|['big']]),
+			     #<105>(8,1,'integer',['unsigned'|['big']]),
+			     #<111>(8,1,'integer',['unsigned'|['big']]),
+			     #<110>(8,1,'integer',['unsigned'|['big']]),
+			     #<32>(8,1,'integer',['unsigned'|['big']]),
+			     #<126>(8,1,'integer',['unsigned'|['big']]),
+			     #<116>(8,1,'integer',['unsigned'|['big']]),
+			     #<115>(8,1,'integer',['unsigned'|['big']])}#, %% Line 193
+									   [_16|[]])
+	  %% Line 194
+	  <{'shell_undef',F,A,_34},'error',[],_X_PF,_X_S,Enc,_X_CL> when 'true' ->
+	      let <FS> =
+		  apply %% Line 197
+			'to_string'/2
+		      (%% Line 197
+		       F, %% Line 197
+			  Enc)
+	      in  let <_18> =
+		      apply %% Line 198
+			    'n_args'/1
+			  (%% Line 198
+			   A)
+		  in  %% Line 198
+		      call 'io_lib':'fwrite'
+			  (#{#<117>(8,1,'integer',['unsigned'|['big']]),
+			     #<110>(8,1,'integer',['unsigned'|['big']]),
+			     #<100>(8,1,'integer',['unsigned'|['big']]),
+			     #<101>(8,1,'integer',['unsigned'|['big']]),
+			     #<102>(8,1,'integer',['unsigned'|['big']]),
+			     #<105>(8,1,'integer',['unsigned'|['big']]),
+			     #<110>(8,1,'integer',['unsigned'|['big']]),
+			     #<101>(8,1,'integer',['unsigned'|['big']]),
+			     #<100>(8,1,'integer',['unsigned'|['big']]),
+			     #<32>(8,1,'integer',['unsigned'|['big']]),
+			     #<115>(8,1,'integer',['unsigned'|['big']]),
+			     #<104>(8,1,'integer',['unsigned'|['big']]),
+			     #<101>(8,1,'integer',['unsigned'|['big']]),
+			     #<108>(8,1,'integer',['unsigned'|['big']]),
+			     #<108>(8,1,'integer',['unsigned'|['big']]),
+			     #<32>(8,1,'integer',['unsigned'|['big']]),
+			     #<99>(8,1,'integer',['unsigned'|['big']]),
+			     #<111>(8,1,'integer',['unsigned'|['big']]),
+			     #<109>(8,1,'integer',['unsigned'|['big']]),
+			     #<109>(8,1,'integer',['unsigned'|['big']]),
+			     #<97>(8,1,'integer',['unsigned'|['big']]),
+			     #<110>(8,1,'integer',['unsigned'|['big']]),
+			     #<100>(8,1,'integer',['unsigned'|['big']]),
+			     #<32>(8,1,'integer',['unsigned'|['big']]),
+			     #<126>(8,1,'integer',['unsigned'|['big']]),
+			     #<116>(8,1,'integer',['unsigned'|['big']]),
+			     #<115>(8,1,'integer',['unsigned'|['big']]),
+			     #<47>(8,1,'integer',['unsigned'|['big']]),
+			     #<126>(8,1,'integer',['unsigned'|['big']]),
+			     #<119>(8,1,'integer',['unsigned'|['big']])}#, [FS|[_18|[]]])
+	  %% Line 200
+	  <{'argument_limit',_X_Fun},'error',[],_X_PF,_X_S,_X_Enc,_X_CL> when 'true' ->
+	      %% Line 201
+	      call 'io_lib':'fwrite'
+		  (#{#<108>(8,1,'integer',['unsigned'|['big']]),
+		     #<105>(8,1,'integer',['unsigned'|['big']]),
+		     #<109>(8,1,'integer',['unsigned'|['big']]),
+		     #<105>(8,1,'integer',['unsigned'|['big']]),
+		     #<116>(8,1,'integer',['unsigned'|['big']]),
+		     #<32>(8,1,'integer',['unsigned'|['big']]),
+		     #<111>(8,1,'integer',['unsigned'|['big']]),
+		     #<102>(8,1,'integer',['unsigned'|['big']]),
+		     #<32>(8,1,'integer',['unsigned'|['big']]),
+		     #<110>(8,1,'integer',['unsigned'|['big']]),
+		     #<117>(8,1,'integer',['unsigned'|['big']]),
+		     #<109>(8,1,'integer',['unsigned'|['big']]),
+		     #<98>(8,1,'integer',['unsigned'|['big']]),
+		     #<101>(8,1,'integer',['unsigned'|['big']]),
+		     #<114>(8,1,'integer',['unsigned'|['big']]),
+		     #<32>(8,1,'integer',['unsigned'|['big']]),
+		     #<111>(8,1,'integer',['unsigned'|['big']]),
+		     #<102>(8,1,'integer',['unsigned'|['big']]),
+		     #<32>(8,1,'integer',['unsigned'|['big']]),
+		     #<97>(8,1,'integer',['unsigned'|['big']]),
+		     #<114>(8,1,'integer',['unsigned'|['big']]),
+		     #<103>(8,1,'integer',['unsigned'|['big']]),
+		     #<117>(8,1,'integer',['unsigned'|['big']]),
+		     #<109>(8,1,'integer',['unsigned'|['big']]),
+		     #<101>(8,1,'integer',['unsigned'|['big']]),
+		     #<110>(8,1,'integer',['unsigned'|['big']]),
+		     #<116>(8,1,'integer',['unsigned'|['big']]),
+		     #<115>(8,1,'integer',['unsigned'|['big']]),
+		     #<32>(8,1,'integer',['unsigned'|['big']]),
+		     #<116>(8,1,'integer',['unsigned'|['big']]),
+		     #<111>(8,1,'integer',['unsigned'|['big']]),
+		     #<32>(8,1,'integer',['unsigned'|['big']]),
+		     #<105>(8,1,'integer',['unsigned'|['big']]),
+		     #<110>(8,1,'integer',['unsigned'|['big']]),
+		     #<116>(8,1,'integer',['unsigned'|['big']]),
+		     #<101>(8,1,'integer',['unsigned'|['big']]),
+		     #<114>(8,1,'integer',['unsigned'|['big']]),
+		     #<112>(8,1,'integer',['unsigned'|['big']]),
+		     #<114>(8,1,'integer',['unsigned'|['big']]),
+		     #<101>(8,1,'integer',['unsigned'|['big']]),
+		     #<116>(8,1,'integer',['unsigned'|['big']]),
+		     #<101>(8,1,'integer',['unsigned'|['big']]),
+		     #<100>(8,1,'integer',['unsigned'|['big']]),
+		     #<32>(8,1,'integer',['unsigned'|['big']]),
+		     #<102>(8,1,'integer',['unsigned'|['big']]),
+		     #<117>(8,1,'integer',['unsigned'|['big']]),
+		     #<110>(8,1,'integer',['unsigned'|['big']]),
+		     #<99>(8,1,'integer',['unsigned'|['big']]),
+		     #<116>(8,1,'integer',['unsigned'|['big']]),
+		     #<105>(8,1,'integer',['unsigned'|['big']]),
+		     #<111>(8,1,'integer',['unsigned'|['big']]),
+		     #<110>(8,1,'integer',['unsigned'|['big']]),
+		     #<32>(8,1,'integer',['unsigned'|['big']]),
+		     #<101>(8,1,'integer',['unsigned'|['big']]),
+		     #<120>(8,1,'integer',['unsigned'|['big']]),
+		     #<99>(8,1,'integer',['unsigned'|['big']]),
+		     #<101>(8,1,'integer',['unsigned'|['big']]),
+		     #<101>(8,1,'integer',['unsigned'|['big']]),
+		     #<100>(8,1,'integer',['unsigned'|['big']]),
+		     #<101>(8,1,'integer',['unsigned'|['big']]),
+		     #<100>(8,1,'integer',['unsigned'|['big']])}#, %% Line 202
+								   [])
+	  %% Line 203
+	  <{'bad_filter',V},Cl = 'error',[],PF,S,_X_Enc,CL> when 'true' ->
+	      %% Line 204
+	      apply 'format_value'/6
+		  (V, #{#<98>(8,1,'integer',['unsigned'|['big']]),
+			#<97>(8,1,'integer',['unsigned'|['big']]),
+			#<100>(8,1,'integer',['unsigned'|['big']]),
+			#<32>(8,1,'integer',['unsigned'|['big']]),
+			#<102>(8,1,'integer',['unsigned'|['big']]),
+			#<105>(8,1,'integer',['unsigned'|['big']]),
+			#<108>(8,1,'integer',['unsigned'|['big']]),
+			#<116>(8,1,'integer',['unsigned'|['big']]),
+			#<101>(8,1,'integer',['unsigned'|['big']]),
+			#<114>(8,1,'integer',['unsigned'|['big']]),
+			#<32>(8,1,'integer',['unsigned'|['big']])}#, Cl, PF, S, CL)
+	  %% Line 205
+	  <{'bad_generator',V},Cl = 'error',[],PF,S,_X_Enc,CL> when 'true' ->
+	      %% Line 206
+	      apply 'format_value'/6
+		  (V, #{#<98>(8,1,'integer',['unsigned'|['big']]),
+			#<97>(8,1,'integer',['unsigned'|['big']]),
+			#<100>(8,1,'integer',['unsigned'|['big']]),
+			#<32>(8,1,'integer',['unsigned'|['big']]),
+			#<103>(8,1,'integer',['unsigned'|['big']]),
+			#<101>(8,1,'integer',['unsigned'|['big']]),
+			#<110>(8,1,'integer',['unsigned'|['big']]),
+			#<101>(8,1,'integer',['unsigned'|['big']]),
+			#<114>(8,1,'integer',['unsigned'|['big']]),
+			#<97>(8,1,'integer',['unsigned'|['big']]),
+			#<116>(8,1,'integer',['unsigned'|['big']]),
+			#<111>(8,1,'integer',['unsigned'|['big']]),
+			#<114>(8,1,'integer',['unsigned'|['big']]),
+			#<32>(8,1,'integer',['unsigned'|['big']])}#, Cl, PF, S, CL)
+	  %% Line 207
+	  <{'unbound',V},'error',[],_X_PF,_X_S,_X_Enc,_X_CL> when 'true' ->
+	      %% Line 208
+	      call 'io_lib':'fwrite'
+		  (#{#<118>(8,1,'integer',['unsigned'|['big']]),
+		     #<97>(8,1,'integer',['unsigned'|['big']]),
+		     #<114>(8,1,'integer',['unsigned'|['big']]),
+		     #<105>(8,1,'integer',['unsigned'|['big']]),
+		     #<97>(8,1,'integer',['unsigned'|['big']]),
+		     #<98>(8,1,'integer',['unsigned'|['big']]),
+		     #<108>(8,1,'integer',['unsigned'|['big']]),
+		     #<101>(8,1,'integer',['unsigned'|['big']]),
+		     #<32>(8,1,'integer',['unsigned'|['big']]),
+		     #<126>(8,1,'integer',['unsigned'|['big']]),
+		     #<119>(8,1,'integer',['unsigned'|['big']]),
+		     #<32>(8,1,'integer',['unsigned'|['big']]),
+		     #<105>(8,1,'integer',['unsigned'|['big']]),
+		     #<115>(8,1,'integer',['unsigned'|['big']]),
+		     #<32>(8,1,'integer',['unsigned'|['big']]),
+		     #<117>(8,1,'integer',['unsigned'|['big']]),
+		     #<110>(8,1,'integer',['unsigned'|['big']]),
+		     #<98>(8,1,'integer',['unsigned'|['big']]),
+		     #<111>(8,1,'integer',['unsigned'|['big']]),
+		     #<117>(8,1,'integer',['unsigned'|['big']]),
+		     #<110>(8,1,'integer',['unsigned'|['big']]),
+		     #<100>(8,1,'integer',['unsigned'|['big']])}#, [V|[]])
+	  %% Line 210
+	  <{'restricted_shell_bad_return',V},Cl = 'exit',[],PF,S,_X_Enc,CL> when 'true' ->
+	      %% Line 212
+	      apply 'format_value'/6
+		  (V, #{#<114>(8,1,'integer',['unsigned'|['big']]),
+			#<101>(8,1,'integer',['unsigned'|['big']]),
+			#<115>(8,1,'integer',['unsigned'|['big']]),
+			#<116>(8,1,'integer',['unsigned'|['big']]),
+			#<114>(8,1,'integer',['unsigned'|['big']]),
+			#<105>(8,1,'integer',['unsigned'|['big']]),
+			#<99>(8,1,'integer',['unsigned'|['big']]),
+			#<116>(8,1,'integer',['unsigned'|['big']]),
+			#<101>(8,1,'integer',['unsigned'|['big']]),
+			#<100>(8,1,'integer',['unsigned'|['big']]),
+			#<32>(8,1,'integer',['unsigned'|['big']]),
+			#<115>(8,1,'integer',['unsigned'|['big']]),
+			#<104>(8,1,'integer',['unsigned'|['big']]),
+			#<101>(8,1,'integer',['unsigned'|['big']]),
+			#<108>(8,1,'integer',['unsigned'|['big']]),
+			#<108>(8,1,'integer',['unsigned'|['big']]),
+			#<32>(8,1,'integer',['unsigned'|['big']]),
+			#<109>(8,1,'integer',['unsigned'|['big']]),
+			#<111>(8,1,'integer',['unsigned'|['big']]),
+			#<100>(8,1,'integer',['unsigned'|['big']]),
+			#<117>(8,1,'integer',['unsigned'|['big']]),
+			#<108>(8,1,'integer',['unsigned'|['big']]),
+			#<101>(8,1,'integer',['unsigned'|['big']]),
+			#<32>(8,1,'integer',['unsigned'|['big']]),
+			#<114>(8,1,'integer',['unsigned'|['big']]),
+			#<101>(8,1,'integer',['unsigned'|['big']]),
+			#<116>(8,1,'integer',['unsigned'|['big']]),
+			#<117>(8,1,'integer',['unsigned'|['big']]),
+			#<114>(8,1,'integer',['unsigned'|['big']]),
+			#<110>(8,1,'integer',['unsigned'|['big']]),
+			#<101>(8,1,'integer',['unsigned'|['big']]),
+			#<100>(8,1,'integer',['unsigned'|['big']]),
+			#<32>(8,1,'integer',['unsigned'|['big']]),
+			#<98>(8,1,'integer',['unsigned'|['big']]),
+			#<97>(8,1,'integer',['unsigned'|['big']]),
+			#<100>(8,1,'integer',['unsigned'|['big']]),
+			#<32>(8,1,'integer',['unsigned'|['big']]),
+			#<118>(8,1,'integer',['unsigned'|['big']]),
+			#<97>(8,1,'integer',['unsigned'|['big']]),
+			#<108>(8,1,'integer',['unsigned'|['big']]),
+			#<117>(8,1,'integer',['unsigned'|['big']]),
+			#<101>(8,1,'integer',['unsigned'|['big']]),
+			#<32>(8,1,'integer',['unsigned'|['big']])}#, Cl, PF, S, CL)
+	  %% Line 213
+	  <{'restricted_shell_disallowed',{ForMF,As}},%% Line 214
+						      Cl = %% Line 214
+							   'exit',%% Line 214
+								  [],%% Line 214
+								     PF,%% Line 214
+									S,%% Line 214
+									  Enc,%% Line 214
+									      CL> when 'true' ->
+	      %% Line 217
+	      apply 'format_errstr_call'/8
+		  (#{#<114>(8,1,'integer',['unsigned'|['big']]),
+		     #<101>(8,1,'integer',['unsigned'|['big']]),
+		     #<115>(8,1,'integer',['unsigned'|['big']]),
+		     #<116>(8,1,'integer',['unsigned'|['big']]),
+		     #<114>(8,1,'integer',['unsigned'|['big']]),
+		     #<105>(8,1,'integer',['unsigned'|['big']]),
+		     #<99>(8,1,'integer',['unsigned'|['big']]),
+		     #<116>(8,1,'integer',['unsigned'|['big']]),
+		     #<101>(8,1,'integer',['unsigned'|['big']]),
+		     #<100>(8,1,'integer',['unsigned'|['big']]),
+		     #<32>(8,1,'integer',['unsigned'|['big']]),
+		     #<115>(8,1,'integer',['unsigned'|['big']]),
+		     #<104>(8,1,'integer',['unsigned'|['big']]),
+		     #<101>(8,1,'integer',['unsigned'|['big']]),
+		     #<108>(8,1,'integer',['unsigned'|['big']]),
+		     #<108>(8,1,'integer',['unsigned'|['big']]),
+		     #<32>(8,1,'integer',['unsigned'|['big']]),
+		     #<100>(8,1,'integer',['unsigned'|['big']]),
+		     #<111>(8,1,'integer',['unsigned'|['big']]),
+		     #<101>(8,1,'integer',['unsigned'|['big']]),
+		     #<115>(8,1,'integer',['unsigned'|['big']]),
+		     #<32>(8,1,'integer',['unsigned'|['big']]),
+		     #<110>(8,1,'integer',['unsigned'|['big']]),
+		     #<111>(8,1,'integer',['unsigned'|['big']]),
+		     #<116>(8,1,'integer',['unsigned'|['big']]),
+		     #<32>(8,1,'integer',['unsigned'|['big']]),
+		     #<97>(8,1,'integer',['unsigned'|['big']]),
+		     #<108>(8,1,'integer',['unsigned'|['big']]),
+		     #<108>(8,1,'integer',['unsigned'|['big']]),
+		     #<111>(8,1,'integer',['unsigned'|['big']]),
+		     #<119>(8,1,'integer',['unsigned'|['big']]),
+		     #<32>(8,1,'integer',['unsigned'|['big']])}#, Cl, ForMF, As, PF, S, Enc, CL)
+	  %% Line 218
+	  <'restricted_shell_started','exit',[],_X_PF,_X_S,_X_Enc,_X_CL> when 'true' ->
+	      %% Line 219
+	      #{#<114>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<115>(8,1,'integer',['unsigned'|['big']]),
+		#<116>(8,1,'integer',['unsigned'|['big']]),
+		#<114>(8,1,'integer',['unsigned'|['big']]),
+		#<105>(8,1,'integer',['unsigned'|['big']]),
+		#<99>(8,1,'integer',['unsigned'|['big']]),
+		#<116>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<100>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<115>(8,1,'integer',['unsigned'|['big']]),
+		#<104>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<108>(8,1,'integer',['unsigned'|['big']]),
+		#<108>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<115>(8,1,'integer',['unsigned'|['big']]),
+		#<116>(8,1,'integer',['unsigned'|['big']]),
+		#<97>(8,1,'integer',['unsigned'|['big']]),
+		#<114>(8,1,'integer',['unsigned'|['big']]),
+		#<116>(8,1,'integer',['unsigned'|['big']]),
+		#<115>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<110>(8,1,'integer',['unsigned'|['big']]),
+		#<111>(8,1,'integer',['unsigned'|['big']]),
+		#<119>(8,1,'integer',['unsigned'|['big']])}#
+	  %% Line 220
+	  <'restricted_shell_stopped','exit',[],_X_PF,_X_S,_X_Enc,_X_CL> when 'true' ->
+	      %% Line 221
+	      #{#<114>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<115>(8,1,'integer',['unsigned'|['big']]),
+		#<116>(8,1,'integer',['unsigned'|['big']]),
+		#<114>(8,1,'integer',['unsigned'|['big']]),
+		#<105>(8,1,'integer',['unsigned'|['big']]),
+		#<99>(8,1,'integer',['unsigned'|['big']]),
+		#<116>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<100>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<115>(8,1,'integer',['unsigned'|['big']]),
+		#<104>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<108>(8,1,'integer',['unsigned'|['big']]),
+		#<108>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<115>(8,1,'integer',['unsigned'|['big']]),
+		#<116>(8,1,'integer',['unsigned'|['big']]),
+		#<111>(8,1,'integer',['unsigned'|['big']]),
+		#<112>(8,1,'integer',['unsigned'|['big']]),
+		#<112>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<100>(8,1,'integer',['unsigned'|['big']])}#
+	  %% Line 223
+	  <Reason,Class,[],PF,S,_X_Enc,CL> when 'true' ->
+	      let <_22> =
+		  call %% Line 224
+		       'erlang':%% Line 224
+				'iolist_size'
+		      (%% Line 224
+		       S)
+	      in  let <_23> =
+		      call %% Line 224
+			   'erlang':%% Line 224
+				    '+'
+			  (_22, %% Line 224
+				1)
+		  in  let <_21> =
+			  apply %% Line 224
+				'exited_size'/1
+			      (%% Line 224
+			       Class)
+		      in  let <_24> =
+			      call %% Line 224
+				   'erlang':%% Line 224
+					    '+'
+				  (_23, _21)
+			  in  %% Line 224
+			      case apply PF
+				       (Reason, _24, CL) of
+				<{L,_35}> when 'true' ->
+				    %% Line 225
+				    L
+				( <_25> when 'true' ->
+				      primop 'match_fail'
+					  ({'badmatch',_25})
+				  -| ['compiler_generated'] )
+			      end
+	  ( <_32,_31,_30,_29,_28,_27,_26> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_32,_31,_30,_29,_28,_27,_26})
+		  -| [{'function_name',{'explain_reason',7}}] )
+	    -| ['compiler_generated'] )
+	end
+'n_args'/1 =
+    %% Line 227
+    fun (_0) ->
+	case _0 of
+	  <A>
+	      when call 'erlang':'is_integer'
+		    (_0) ->
+	      %% Line 228
+	      A
+	  %% Line 229
+	  <As>
+	      when call 'erlang':'is_list'
+		    (_0) ->
+	      %% Line 230
+	      call 'erlang':'length'
+		  (As)
+	  ( <_1> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_1})
+		  -| [{'function_name',{'n_args',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'argss'/1 =
+    %% Line 232
+    fun (_0) ->
+	case _0 of
+	  <0> when 'true' ->
+	      %% Line 233
+	      #{#<110>(8,1,'integer',['unsigned'|['big']]),
+		#<111>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<97>(8,1,'integer',['unsigned'|['big']]),
+		#<114>(8,1,'integer',['unsigned'|['big']]),
+		#<103>(8,1,'integer',['unsigned'|['big']]),
+		#<117>(8,1,'integer',['unsigned'|['big']]),
+		#<109>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<110>(8,1,'integer',['unsigned'|['big']]),
+		#<116>(8,1,'integer',['unsigned'|['big']]),
+		#<115>(8,1,'integer',['unsigned'|['big']])}#
+	  %% Line 234
+	  <1> when 'true' ->
+	      %% Line 235
+	      #{#<111>(8,1,'integer',['unsigned'|['big']]),
+		#<110>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<97>(8,1,'integer',['unsigned'|['big']]),
+		#<114>(8,1,'integer',['unsigned'|['big']]),
+		#<103>(8,1,'integer',['unsigned'|['big']]),
+		#<117>(8,1,'integer',['unsigned'|['big']]),
+		#<109>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<110>(8,1,'integer',['unsigned'|['big']]),
+		#<116>(8,1,'integer',['unsigned'|['big']])}#
+	  %% Line 236
+	  <2> when 'true' ->
+	      %% Line 237
+	      #{#<116>(8,1,'integer',['unsigned'|['big']]),
+		#<119>(8,1,'integer',['unsigned'|['big']]),
+		#<111>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<97>(8,1,'integer',['unsigned'|['big']]),
+		#<114>(8,1,'integer',['unsigned'|['big']]),
+		#<103>(8,1,'integer',['unsigned'|['big']]),
+		#<117>(8,1,'integer',['unsigned'|['big']]),
+		#<109>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<110>(8,1,'integer',['unsigned'|['big']]),
+		#<116>(8,1,'integer',['unsigned'|['big']]),
+		#<115>(8,1,'integer',['unsigned'|['big']])}#
+	  %% Line 238
+	  <I> when 'true' ->
+	      %% Line 239
+	      call 'io_lib':'fwrite'
+		  (#{#<126>(8,1,'integer',['unsigned'|['big']]),
+		     #<119>(8,1,'integer',['unsigned'|['big']]),
+		     #<32>(8,1,'integer',['unsigned'|['big']]),
+		     #<97>(8,1,'integer',['unsigned'|['big']]),
+		     #<114>(8,1,'integer',['unsigned'|['big']]),
+		     #<103>(8,1,'integer',['unsigned'|['big']]),
+		     #<117>(8,1,'integer',['unsigned'|['big']]),
+		     #<109>(8,1,'integer',['unsigned'|['big']]),
+		     #<101>(8,1,'integer',['unsigned'|['big']]),
+		     #<110>(8,1,'integer',['unsigned'|['big']]),
+		     #<116>(8,1,'integer',['unsigned'|['big']]),
+		     #<115>(8,1,'integer',['unsigned'|['big']])}#, [I|[]])
+	end
+'format_stacktrace1'/6 =
+    %% Line 241
+    fun (_0,_1,_2,_3,_4,_5) ->
+	let <_9> =
+	    fun (_7) ->
+		%% Line 242
+		case _7 of
+		  <{M,F,A,_19}> when 'true' ->
+		      apply _3
+			  (M, F, A)
+		  ( <_8> when 'true' ->
+			( primop 'match_fail'
+			      ({'function_clause',_8})
+			  -| [{'function_name',{'-format_stacktrace1/6-fun-0-',1}}] )
+		    -| ['compiler_generated'] )
+		end
+	in  let <_6> =
+		call %% Line 243
+		     'lists':%% Line 243
+			     'reverse'
+		    (_1)
+	    in  let <Stack1> =
+		    call %% Line 242
+			 'lists':%% Line 242
+				 'dropwhile'
+			(_9, _6)
+		in  let <S> =
+			[%% Line 244
+			 [32|[32]]|_0]
+		    in  let <Stack> =
+			    call %% Line 245
+				 'lists':%% Line 245
+					 'reverse'
+				(%% Line 245
+				 Stack1)
+			in  %% Line 246
+			    apply 'format_stacktrace2'/6
+				(S, Stack, 1, _2, _4, _5)
+'format_stacktrace2'/6 =
+    %% Line 248
+    fun (_0,_1,_2,_3,_4,_5) ->
+	case <_0,_1,_2,_3,_4,_5> of
+	  <_X_S,_X_Stack,_X_N,_X_PF,_X_Enc,_X_CL = 0> when 'true' ->
+	      %% Line 249
+	      []
+	  %% Line 250
+	  <S,[{M,F,A,L}|Fs],N,PF,Enc,CL>
+	      when call 'erlang':'is_integer'
+		    (A) ->
+	      let <_6> =
+		  apply %% Line 252
+			'sep'/2
+		      (%% Line 252
+		       N, %% Line 252
+			  S)
+	      in  let <_7> =
+		      apply %% Line 252
+			    'origin'/4
+			  (%% Line 252
+			   N, %% Line 252
+			      M, %% Line 252
+				 F, %% Line 252
+				    A)
+		  in  let <_8> =
+			  apply %% Line 253
+				'mfa_to_string'/4
+			      (%% Line 253
+			       M, %% Line 253
+				  F, %% Line 253
+				     A, %% Line 253
+					Enc)
+		      in  let <_9> =
+			      apply %% Line 254
+				    'location'/1
+				  (%% Line 254
+				   L)
+			  in  let <Cs> =
+				  call %% Line 251
+				       'io_lib':%% Line 251
+						'fwrite'
+				      (%% Line 251
+				       #{#<126>(8,1,'integer',['unsigned'|['big']]),
+					 #<115>(8,1,'integer',['unsigned'|['big']]),
+					 #<126>(8,1,'integer',['unsigned'|['big']]),
+					 #<115>(8,1,'integer',['unsigned'|['big']]),
+					 #<32>(8,1,'integer',['unsigned'|['big']]),
+					 #<126>(8,1,'integer',['unsigned'|['big']]),
+					 #<116>(8,1,'integer',['unsigned'|['big']]),
+					 #<115>(8,1,'integer',['unsigned'|['big']]),
+					 #<32>(8,1,'integer',['unsigned'|['big']]),
+					 #<126>(8,1,'integer',['unsigned'|['big']]),
+					 #<116>(8,1,'integer',['unsigned'|['big']]),
+					 #<115>(8,1,'integer',['unsigned'|['big']])}#, %% Line 252
+										       [_6|[_7|%% Line 253
+											       [_8|%% Line 254
+												   [_9|[]]]]])
+			      in  let <CL1> =
+				      apply %% Line 255
+					    'sub'/3
+					  (%% Line 255
+					   CL, %% Line 255
+					       Cs, %% Line 255
+						   Enc)
+				  in  let <_12> =
+					  call %% Line 256
+					       'erlang':%% Line 256
+							'+'
+					      (%% Line 256
+					       N, %% Line 256
+						  1)
+				      in  let <_13> =
+					      apply %% Line 256
+						    'format_stacktrace2'/6
+						  (%% Line 256
+						   S, %% Line 256
+						      Fs, _12, %% Line 256
+							       PF, %% Line 256
+								   Enc, %% Line 256
+									CL1)
+					  in  %% Line 256
+					      [Cs|_13]
+	  %% Line 257
+	  <S,[{M,F,As,_30}|Fs],N,PF,Enc,CL>
+	      when call 'erlang':'is_list'
+		    (As) ->
+	      let <A> =
+		  call %% Line 258
+		       'erlang':%% Line 258
+				'length'
+		      (%% Line 258
+		       As)
+	      in  let <CalledAs> =
+		      [%% Line 259
+		       S|%% Line 259
+			 [#{#<32>(8,1,'integer',['unsigned'|['big']]),
+			    #<32>(8,1,'integer',['unsigned'|['big']]),
+			    #<32>(8,1,'integer',['unsigned'|['big']]),
+			    #<99>(8,1,'integer',['unsigned'|['big']]),
+			    #<97>(8,1,'integer',['unsigned'|['big']]),
+			    #<108>(8,1,'integer',['unsigned'|['big']]),
+			    #<108>(8,1,'integer',['unsigned'|['big']]),
+			    #<101>(8,1,'integer',['unsigned'|['big']]),
+			    #<100>(8,1,'integer',['unsigned'|['big']]),
+			    #<32>(8,1,'integer',['unsigned'|['big']]),
+			    #<97>(8,1,'integer',['unsigned'|['big']]),
+			    #<115>(8,1,'integer',['unsigned'|['big']]),
+			    #<32>(8,1,'integer',['unsigned'|['big']])}#]]
+		  in  let <C> =
+			  apply %% Line 260
+				'format_call'/7
+			      (%% Line 260
+			       [], %% Line 260
+				   CalledAs, %% Line 260
+					     {M,F}, %% Line 260
+						    As, %% Line 260
+							PF, %% Line 260
+							    Enc, %% Line 260
+								 CL)
+		      in  let <_17> =
+			      apply %% Line 262
+				    'sep'/2
+				  (%% Line 262
+				   N, %% Line 262
+				      S)
+			  in  let <_18> =
+				  apply %% Line 262
+					'origin'/4
+				      (%% Line 262
+				       N, %% Line 262
+					  M, %% Line 262
+					     F, %% Line 262
+						A)
+			      in  let <_19> =
+				      apply %% Line 263
+					    'mfa_to_string'/4
+					  (%% Line 263
+					   M, %% Line 263
+					      F, %% Line 263
+						 A, %% Line 263
+						    Enc)
+				  in  let <Cs> =
+					  call %% Line 261
+					       'io_lib':%% Line 261
+							'fwrite'
+					      (%% Line 261
+					       #{#<126>(8,1,'integer',['unsigned'|['big']]),
+						 #<115>(8,1,'integer',['unsigned'|['big']]),
+						 #<126>(8,1,'integer',['unsigned'|['big']]),
+						 #<115>(8,1,'integer',['unsigned'|['big']]),
+						 #<32>(8,1,'integer',['unsigned'|['big']]),
+						 #<126>(8,1,'integer',['unsigned'|['big']]),
+						 #<116>(8,1,'integer',['unsigned'|['big']]),
+						 #<115>(8,1,'integer',['unsigned'|['big']]),
+						 #<10>(8,1,'integer',['unsigned'|['big']]),
+						 #<126>(8,1,'integer',['unsigned'|['big']]),
+						 #<115>(8,1,'integer',['unsigned'|['big']]),
+						 #<126>(8,1,'integer',['unsigned'|['big']]),
+						 #<116>(8,1,'integer',['unsigned'|['big']]),
+						 #<115>(8,1,'integer',['unsigned'|['big']])}#, %% Line 262
+											       [_17|[_18|%% Line 263
+													 [_19|%% Line 264
+													      [CalledAs|[C|[]]]]]])
+				      in  let <CL1> =
+					      apply %% Line 265
+						    'sub'/3
+						  (%% Line 265
+						   CL, %% Line 265
+						       Enc, %% Line 265
+							    Cs)
+					  in  let <_22> =
+						  call %% Line 266
+						       'erlang':%% Line 266
+								'+'
+						      (%% Line 266
+						       N, %% Line 266
+							  1)
+					      in  let <_23> =
+						      apply %% Line 266
+							    'format_stacktrace2'/6
+							  (%% Line 266
+							   S, %% Line 266
+							      Fs, _22, %% Line 266
+								       PF, %% Line 266
+									   Enc, %% Line 266
+										CL1)
+						  in  %% Line 266
+						      [Cs|_23]
+	  %% Line 267
+	  <_X_S,[],_X_N,_X_PF,_X_Enc,_X_CL> when 'true' ->
+	      %% Line 268
+	      []
+	  ( <_29,_28,_27,_26,_25,_24> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_29,_28,_27,_26,_25,_24})
+		  -| [{'function_name',{'format_stacktrace2',6}}] )
+	    -| ['compiler_generated'] )
+	end
+'location'/1 =
+    %% Line 270
+    fun (_0) ->
+	let <File> =
+	    call %% Line 271
+		 'proplists':%% Line 271
+			     'get_value'
+		(%% Line 271
+		 'file', _0)
+	in  let <Line> =
+		call %% Line 272
+		     'proplists':%% Line 272
+				 'get_value'
+		    (%% Line 272
+		     'line', _0)
+	    in  %% Line 273
+		case <> of
+		  %% Line 274
+		  <>
+		      when let <_3> =
+			    call 'erlang':'=/='
+				(File, 'undefined')
+			in  let <_4> =
+				call 'erlang':'=/='
+				    (Line, 'undefined')
+			    in  call 'erlang':'and'
+				    (_3, _4) ->
+		      %% Line 275
+		      call 'io_lib':'format'
+			  ([40|[126|[116|[115|[44|[32|[108|[105|[110|[101|[32|[126|[119|[41]]]]]]]]]]]]]], [File|[Line|[]]])
+		  %% Line 276
+		  <> when 'true' ->
+		      %% Line 277
+		      []
+		end
+'sep'/2 =
+    %% Line 280
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <1,S> when 'true' ->
+	      S
+	  %% Line 281
+	  <_4,S> when 'true' ->
+	      [10|S]
+	end
+'origin'/4 =
+    %% Line 283
+    fun (_0,_1,_2,_3) ->
+	case <_0,_1,_2,_3> of
+	  <1,M,F,A> when 'true' ->
+	      let <_4> =
+		  apply %% Line 284
+			'n_args'/1
+		      (%% Line 284
+		       A)
+	      in  %% Line 284
+		  case apply 'is_op'/2
+			   ({M,F}, _4) of
+		    %% Line 285
+		    <{'yes',_10}>
+			when call 'erlang':'=:='
+			      (_10,
+			       F) ->
+			#{#<105>(8,1,'integer',['unsigned'|['big']]),
+			  #<110>(8,1,'integer',['unsigned'|['big']]),
+			  #<32>(8,1,'integer',['unsigned'|['big']]),
+			  #<111>(8,1,'integer',['unsigned'|['big']]),
+			  #<112>(8,1,'integer',['unsigned'|['big']]),
+			  #<101>(8,1,'integer',['unsigned'|['big']]),
+			  #<114>(8,1,'integer',['unsigned'|['big']]),
+			  #<97>(8,1,'integer',['unsigned'|['big']]),
+			  #<116>(8,1,'integer',['unsigned'|['big']]),
+			  #<111>(8,1,'integer',['unsigned'|['big']]),
+			  #<114>(8,1,'integer',['unsigned'|['big']]),
+			  #<32>(8,1,'integer',['unsigned'|['big']])}#
+		    %% Line 286
+		    <'no'> when 'true' ->
+			#{#<105>(8,1,'integer',['unsigned'|['big']]),
+			  #<110>(8,1,'integer',['unsigned'|['big']]),
+			  #<32>(8,1,'integer',['unsigned'|['big']]),
+			  #<102>(8,1,'integer',['unsigned'|['big']]),
+			  #<117>(8,1,'integer',['unsigned'|['big']]),
+			  #<110>(8,1,'integer',['unsigned'|['big']]),
+			  #<99>(8,1,'integer',['unsigned'|['big']]),
+			  #<116>(8,1,'integer',['unsigned'|['big']]),
+			  #<105>(8,1,'integer',['unsigned'|['big']]),
+			  #<111>(8,1,'integer',['unsigned'|['big']]),
+			  #<110>(8,1,'integer',['unsigned'|['big']]),
+			  #<32>(8,1,'integer',['unsigned'|['big']])}#
+		    ( <_5> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_5})
+		      -| ['compiler_generated'] )
+		  end
+	  %% Line 288
+	  <_X_N,_X_M,_X_F,_X_A> when 'true' ->
+	      %% Line 289
+	      #{#<105>(8,1,'integer',['unsigned'|['big']]),
+		#<110>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<99>(8,1,'integer',['unsigned'|['big']]),
+		#<97>(8,1,'integer',['unsigned'|['big']]),
+		#<108>(8,1,'integer',['unsigned'|['big']]),
+		#<108>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<102>(8,1,'integer',['unsigned'|['big']]),
+		#<114>(8,1,'integer',['unsigned'|['big']]),
+		#<111>(8,1,'integer',['unsigned'|['big']]),
+		#<109>(8,1,'integer',['unsigned'|['big']])}#
+	end
+'format_errstr_call'/8 =
+    %% Line 291
+    fun (_0,_1,_2,_3,_4,_5,_6,_7) ->
+	let <_8> =
+	    apply %% Line 292
+		  'exited_size'/1
+		(_1)
+	in  let <_9> =
+		apply %% Line 292
+		      'n_spaces'/1
+		    (_8)
+	    in  let <Pre1> =
+		    [_5|_9]
+		in  %% Line 293
+		    apply 'format_call'/7
+			(_0, Pre1, _2, _3, _4, _6, _7)
+'format_call'/6 =
+    %% Line 295
+    fun (_0,_1,_2,_3,_4,_5) ->
+	%% Line 296
+	apply 'format_call'/7
+	    (_0, _1, _2, _3, _4, _5, -1)
+'format_call'/7 =
+    %% Line 298
+    fun (_0,_1,_2,_3,_4,_5,_6) ->
+	let <Arity> =
+	    call %% Line 299
+		 'erlang':%% Line 299
+			  'length'
+		(_3)
+	in  let <_21> =
+		case %% Line 301
+		     apply 'is_op'/2
+			 (_2, Arity) of
+		  %% Line 302
+		  <{'yes',Op}> when 'true' ->
+		      %% Line 303
+		      apply 'format_op'/7
+			  (_0, _1, Op, _3, _4, _5, _6)
+		  %% Line 304
+		  <'no'> when 'true' ->
+		      let <MFs> =
+			  apply %% Line 305
+				'mf_to_string'/3
+			      (_2, %% Line 305
+				   Arity, _5)
+		      in  let <I1> =
+			      call %% Line 306
+				   'string':%% Line 306
+					    'length'
+				  (%% Line 306
+				   [_1|[_0|MFs]])
+			  in  let <S1> =
+				  apply %% Line 307
+					'pp_arguments'/5
+				      (_4, _3, %% Line 307
+					       I1, _5, _6)
+			      in  let <_11> =
+				      call %% Line 308
+					   'string':%% Line 308
+						    'length'
+					  (%% Line 308
+					   [_1|MFs])
+				  in  let <S2> =
+					  apply %% Line 308
+						'pp_arguments'/5
+					      (_4, _3, _11, _5, _6)
+				      in  let <S3> =
+					      apply %% Line 309
+						    'pp_arguments'/5
+						  (_4, %% Line 309
+						       ['a2345'|['b2345']], %% Line 309
+									    I1, _5, _6)
+					  in  let <_14> =
+						  apply %% Line 310
+							'count_nl'/1
+						      (%% Line 310
+						       S3)
+					      in  let <Long> =
+						      call %% Line 310
+							   'erlang':%% Line 310
+								    '>'
+							  (_14, %% Line 310
+								0)
+						  in  let <_17> =
+							  apply %% Line 311
+								'count_nl'/1
+							      (%% Line 311
+							       S2)
+						      in  let <_16> =
+							      apply %% Line 311
+								    'count_nl'/1
+								  (%% Line 311
+								   S1)
+							  in  let <_18> =
+								  call %% Line 311
+								       'erlang':%% Line 311
+										'<'
+								      (_17, _16)
+							      in  %% Line 311
+								  case call 'erlang':'or'
+									   (Long, _18) of
+								    %% Line 312
+								    <'true'> when 'true' ->
+									%% Line 313
+									[10|[_1|[MFs|[S2|[]]]]]
+								    %% Line 314
+								    <'false'> when 'true' ->
+									%% Line 315
+									[MFs|[S1|[]]]
+								  end
+		  ( <_20> when 'true' ->
+			%% Line 301
+			primop 'match_fail'
+			    ({'case_clause',_20})
+		    -| ['compiler_generated'] )
+		end
+	    in  %% Line 300
+		[_0|_21]
+'format_op'/7 =
+    %% Line 319
+    fun (_0,_1,_2,_3,_4,_5,_6) ->
+	case <_0,_1,_2,_3,_4,_5,_6> of
+	  <ErrStr,Pre,Op,[A1|[]],PF,_X_Enc,CL> when 'true' ->
+	      let <OpS> =
+		  call %% Line 320
+		       'io_lib':%% Line 320
+				'fwrite'
+		      (%% Line 320
+		       #{#<126>(8,1,'integer',['unsigned'|['big']]),
+			 #<115>(8,1,'integer',['unsigned'|['big']]),
+			 #<32>(8,1,'integer',['unsigned'|['big']])}#, %% Line 320
+								      [Op|[]])
+	      in  let <I1> =
+		      call %% Line 321
+			   'erlang':%% Line 321
+				    'iolist_size'
+			  (%% Line 321
+			   [ErrStr|[Pre|[OpS|[]]]])
+		  in  let <_9> =
+			  call %% Line 322
+			       'erlang':%% Line 322
+					'+'
+			      (%% Line 322
+			       I1, %% Line 322
+				   1)
+		      in  %% Line 322
+			  case apply PF
+				   (A1, _9, CL) of
+			    <{S,_37}> when 'true' ->
+				%% Line 323
+				[OpS|S]
+			    ( <_10> when 'true' ->
+				  primop 'match_fail'
+				      ({'badmatch',_10})
+			      -| ['compiler_generated'] )
+			  end
+	  %% Line 324
+	  <ErrStr,Pre,Op,[A1|[A2|[]]],PF,Enc,CL> when 'true' ->
+	      let <I1> =
+		  call %% Line 325
+		       'erlang':%% Line 325
+				'iolist_size'
+		      (%% Line 325
+		       [ErrStr|[Pre|[]]])
+	      in  let <_12> =
+		      call %% Line 326
+			   'erlang':%% Line 326
+				    '+'
+			  (%% Line 326
+			   I1, %% Line 326
+			       1)
+		  in  %% Line 326
+		      case apply PF
+			       (A1, _12, CL) of
+			<{S1,CL1}> when 'true' ->
+			    let <_14> =
+				call %% Line 327
+				     'erlang':%% Line 327
+					      '+'
+				    (%% Line 327
+				     I1, %% Line 327
+					 1)
+			    in  %% Line 327
+				case apply PF
+					 (A2, _14, CL1) of
+				  <{S2,_38}> when 'true' ->
+				      let <OpS> =
+					  call %% Line 328
+					       'erlang':%% Line 328
+							'atom_to_list'
+					      (%% Line 328
+					       Op)
+				      in  let <_17> =
+					      apply %% Line 329
+						    'n_spaces'/1
+						  (%% Line 329
+						   I1)
+					  in  let <Pre1> =
+						  [%% Line 329
+						   10|_17]
+					      in  let <_19> =
+						      apply %% Line 330
+							    'count_nl'/1
+							  (%% Line 330
+							   S1)
+						  in  %% Line 330
+						      case <> of
+							%% Line 331
+							<>
+							    when call 'erlang':'>'
+								  (_19,
+								   0) ->
+							    %% Line 332
+							    [S1|[Pre1|[OpS|[Pre1|S2]]]]
+							%% Line 333
+							<> when 'true' ->
+							    let <OpS2> =
+								call %% Line 334
+								     'io_lib':%% Line 334
+									      'fwrite'
+								    (%% Line 334
+								     #{#<32>(8,1,'integer',['unsigned'|['big']]),
+								       #<126>(8,1,'integer',['unsigned'|['big']]),
+								       #<115>(8,1,'integer',['unsigned'|['big']]),
+								       #<32>(8,1,'integer',['unsigned'|['big']])}#, %% Line 334
+														    [Op|[]])
+							    in  let <Size1> =
+								    call %% Line 335
+									 'erlang':%% Line 335
+										  'iolist_size'
+									(%% Line 335
+									 [ErrStr|[Pre|OpS2]])
+								in  let <Size2> =
+									apply %% Line 336
+									      'size'/2
+									    (%% Line 336
+									     Enc, %% Line 336
+										  S1)
+								    in  let <_23> =
+									    call %% Line 337
+										 'erlang':%% Line 337
+											  '+'
+										(%% Line 337
+										 Size1, %% Line 337
+											Size2)
+									in  let <_24> =
+										call %% Line 337
+										     'erlang':%% Line 337
+											      '+'
+										    (_23, %% Line 337
+											  1)
+									    in  %% Line 337
+										case apply PF
+											 (A2, _24, CL1) of
+										  <{S2_2,_39}> when 'true' ->
+										      let <_27> =
+											  apply %% Line 338
+												'count_nl'/1
+											      (%% Line 338
+											       S2)
+										      in  let <_26> =
+											      apply %% Line 338
+												    'count_nl'/1
+												  (%% Line 338
+												   S2_2)
+											  in  %% Line 338
+											      case <> of
+												%% Line 339
+												<>
+												    when call 'erlang':'<'
+													  (_27,
+													   _26) ->
+												    %% Line 340
+												    [S1|[Pre1|[OpS|[Pre1|S2]]]]
+												%% Line 341
+												<> when 'true' ->
+												    %% Line 342
+												    [S1|[OpS2|S2_2]]
+											      end
+										  ( <_25> when 'true' ->
+											primop 'match_fail'
+											    ({'badmatch',_25})
+										    -| ['compiler_generated'] )
+										end
+						      end
+				  ( <_15> when 'true' ->
+					primop 'match_fail'
+					    ({'badmatch',_15})
+				    -| ['compiler_generated'] )
+				end
+			( <_13> when 'true' ->
+			      primop 'match_fail'
+				  ({'badmatch',_13})
+			  -| ['compiler_generated'] )
+		      end
+	  ( <_36,_35,_34,_33,_32,_31,_30> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_36,_35,_34,_33,_32,_31,_30})
+		  -| [{'function_name',{'format_op',7}}] )
+	    -| ['compiler_generated'] )
+	end
+'pp_arguments'/5 =
+    %% Line 346
+    fun (_0,_1,_2,_3,_4) ->
+	let <_5> =
+	    apply %% Line 347
+		  'printable_list'/2
+		(_3, _1)
+	in  %% Line 347
+	    case <_1,_5> of
+	      %% Line 348
+	      <( [Int|T]
+		 -| ['compiler_generated'] ),( 'true'
+					       -| ['compiler_generated'] )> when 'true' ->
+		  let <L> =
+		      call %% Line 349
+			   'erlang':%% Line 349
+				    'integer_to_list'
+			  (%% Line 349
+			   Int)
+		  in  let <Ll> =
+			  call %% Line 350
+			       'erlang':%% Line 350
+					'length'
+			      (%% Line 350
+			       L)
+		      in  let <_8> =
+			      call %% Line 351
+				   'lists':%% Line 351
+					   'duplicate'
+				  (%% Line 351
+				   Ll, %% Line 351
+				       97)
+			  in  let <A> =
+				  call %% Line 351
+				       'erlang':%% Line 351
+						'list_to_atom'
+				      (_8)
+			      in  let <_10> =
+				      call %% Line 352
+					   'erlang':%% Line 352
+						    '+'
+					  (_2, %% Line 352
+					       1)
+				  in  %% Line 352
+				      case apply _0
+					       ([A|T], _10, _4) of
+					<{S0,_23}> when 'true' ->
+					    let <S> =
+						call %% Line 353
+						     'unicode':%% Line 353
+							       'characters_to_list'
+						    (%% Line 353
+						     S0, _3)
+					    in  let <_13> =
+						    call %% Line 354
+							 'erlang':%% Line 354
+								  '+'
+							(%% Line 354
+							 1, %% Line 354
+							    Ll)
+						in  let <_14> =
+							call %% Line 354
+							     'string':%% Line 354
+								      'slice'
+							    (%% Line 354
+							     S, _13)
+						    in  %% Line 354
+							apply 'brackets_to_parens'/2
+							    ([91|[L|[_14|[]]]], _3)
+					( <_11> when 'true' ->
+					      primop 'match_fail'
+						  ({'badmatch',_11})
+					  -| ['compiler_generated'] )
+				      end
+	      %% Line 355
+	      <( _25
+		 -| ['compiler_generated'] ),( _26
+					       -| ['compiler_generated'] )> when 'true' ->
+		  let <_15> =
+		      call %% Line 356
+			   'erlang':%% Line 356
+				    '+'
+			  (_2, %% Line 356
+			       1)
+		  in  %% Line 356
+		      case apply _0
+			       (_1, _15, _4) of
+			<{S,_X_CL1}> when 'true' ->
+			    %% Line 357
+			    apply 'brackets_to_parens'/2
+				(S, _3)
+			( <_16> when 'true' ->
+			      primop 'match_fail'
+				  ({'badmatch',_16})
+			  -| ['compiler_generated'] )
+		      end
+	    end
+'brackets_to_parens'/2 =
+    %% Line 360
+    fun (_0,_1) ->
+	let <B> =
+	    call %% Line 361
+		 'unicode':%% Line 361
+			   'characters_to_binary'
+		(_0, _1)
+	in  let <_3> =
+		call %% Line 362
+		     'erlang':%% Line 362
+			      'byte_size'
+		    (%% Line 362
+		     B)
+	    in  let <Sz> =
+		    call %% Line 362
+			 'erlang':%% Line 362
+				  '-'
+			(_3, %% Line 362
+			     2)
+		in  %% Line 363
+		    case B of
+		      <#{#<91>(8,1,'integer',['unsigned'|['big']]),
+			 #<R>(Sz,8,'binary',['unsigned'|['big']]),
+			 #<93>(8,1,'integer',['unsigned'|['big']])}#> when 'true' ->
+			  %% Line 364
+			  [40|[R|[41]]]
+		      ( <_5> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_5})
+			-| ['compiler_generated'] )
+		    end
+'printable_list'/2 =
+    %% Line 366
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <'latin1',As> when 'true' ->
+	      %% Line 367
+	      call 'io_lib':'printable_latin1_list'
+		  (As)
+	  %% Line 368
+	  <_4,As> when 'true' ->
+	      %% Line 369
+	      call 'io_lib':'printable_list'
+		  (As)
+	end
+'mfa_to_string'/4 =
+    %% Line 371
+    fun (_0,_1,_2,_3) ->
+	let <_4> =
+	    apply %% Line 372
+		  'mf_to_string'/3
+		(%% Line 372
+		 {_0,_1}, _2, _3)
+	in  %% Line 372
+	    call 'io_lib':'fwrite'
+		(#{#<126>(8,1,'integer',['unsigned'|['big']]),
+		   #<116>(8,1,'integer',['unsigned'|['big']]),
+		   #<115>(8,1,'integer',['unsigned'|['big']]),
+		   #<47>(8,1,'integer',['unsigned'|['big']]),
+		   #<126>(8,1,'integer',['unsigned'|['big']]),
+		   #<119>(8,1,'integer',['unsigned'|['big']])}#, [_4|[_2|[]]])
+'mf_to_string'/3 =
+    %% Line 374
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <_@r0 = {M,F},A,Enc> when 'true' ->
+	      %% Line 375
+	      case call 'erl_internal':'bif'
+		       (M, F, A) of
+		%% Line 376
+		<'true'> when 'true' ->
+		    %% Line 377
+		    call 'io_lib':'fwrite'
+			(#{#<126>(8,1,'integer',['unsigned'|['big']]),
+			   #<119>(8,1,'integer',['unsigned'|['big']])}#, [F|[]])
+		%% Line 378
+		<'false'> when 'true' ->
+		    %% Line 379
+		    case apply 'is_op'/2
+			     (_@r0, A) of
+		      %% Line 380
+		      <{'yes','/'}> when 'true' ->
+			  %% Line 381
+			  call 'io_lib':'fwrite'
+			      (#{#<126>(8,1,'integer',['unsigned'|['big']]),
+				 #<119>(8,1,'integer',['unsigned'|['big']])}#, [F|[]])
+		      %% Line 382
+		      <{'yes',_10}>
+			  when call 'erlang':'=:='
+				(_10,
+				 F) ->
+			  %% Line 383
+			  call 'erlang':'atom_to_list'
+			      (F)
+		      %% Line 384
+		      <'no'> when 'true' ->
+			  let <FS> =
+			      apply %% Line 385
+				    'to_string'/2
+				  (%% Line 385
+				   F, %% Line 385
+				      Enc)
+			  in  %% Line 386
+			      call 'io_lib':'fwrite'
+				  (#{#<126>(8,1,'integer',['unsigned'|['big']]),
+				     #<119>(8,1,'integer',['unsigned'|['big']]),
+				     #<58>(8,1,'integer',['unsigned'|['big']]),
+				     #<126>(8,1,'integer',['unsigned'|['big']]),
+				     #<116>(8,1,'integer',['unsigned'|['big']]),
+				     #<115>(8,1,'integer',['unsigned'|['big']])}#, [M|[FS|[]]])
+		      ( <_4> when 'true' ->
+			    primop 'match_fail'
+				({'case_clause',_4})
+			-| ['compiler_generated'] )
+		    end
+		( <_5> when 'true' ->
+		      primop 'match_fail'
+			  ({'case_clause',_5})
+		  -| ['compiler_generated'] )
+	      end
+	  %% Line 389
+	  <Fun,_X_A,Enc>
+	      when call 'erlang':'is_function'
+		    (Fun) ->
+	      %% Line 390
+	      apply 'format_fun'/2
+		  (Fun, Enc)
+	  %% Line 391
+	  <F,_X_A,Enc> when 'true' ->
+	      let <FS> =
+		  apply %% Line 392
+			'to_string'/2
+		      (%% Line 392
+		       F, %% Line 392
+			  Enc)
+	      in  %% Line 393
+		  call 'io_lib':'fwrite'
+		      (#{#<126>(8,1,'integer',['unsigned'|['big']]),
+			 #<116>(8,1,'integer',['unsigned'|['big']]),
+			 #<115>(8,1,'integer',['unsigned'|['big']])}#, [FS|[]])
+	end
+'format_value'/6 =
+    %% Line 395
+    fun (_0,_1,_2,_3,_4,_5) ->
+	let <Pre1Sz> =
+	    apply %% Line 396
+		  'exited_size'/1
+		(_2)
+	in  let <_7> =
+		call %% Line 397
+		     'erlang':%% Line 397
+			      'iolist_size'
+		    (%% Line 397
+		     [_4|[_1|[]]])
+	    in  let <_8> =
+		    call %% Line 397
+			 'erlang':%% Line 397
+				  '+'
+			(%% Line 397
+			 Pre1Sz, _7)
+		in  let <_9> =
+			call %% Line 397
+			     'erlang':%% Line 397
+				      '+'
+			    (_8, %% Line 397
+				 1)
+		    in  %% Line 397
+			case apply _3
+				 (_0, _9, _5) of
+			  <{S1,_26}> when 'true' ->
+			      let <_19> =
+				  case %% Line 398
+				       apply 'count_nl'/1
+					   (S1) of
+				    %% Line 399
+				    <N1>
+					when call 'erlang':'>'
+					      (N1,
+					       1) ->
+					let <_11> =
+					    call %% Line 400
+						 'erlang':%% Line 400
+							  'iolist_size'
+						(_4)
+					in  let <_12> =
+						call %% Line 400
+						     'erlang':%% Line 400
+							      '+'
+						    (_11, %% Line 400
+							  1)
+					    in  let <_13> =
+						    call %% Line 400
+							 'erlang':%% Line 400
+								  '+'
+							(_12, %% Line 400
+							      Pre1Sz)
+						in  %% Line 400
+						    case apply _3
+							     (_0, _13, _5) of
+						      <{S2,_27}> when 'true' ->
+							  let <_15> =
+							      apply %% Line 401
+								    'count_nl'/1
+								  (%% Line 401
+								   S2)
+							  in  %% Line 401
+							      case <> of
+								%% Line 402
+								<>
+								    when call 'erlang':'<'
+									  (_15,
+									   N1) ->
+								    let <_16> =
+									apply %% Line 403
+									      'n_spaces'/1
+									    (%% Line 403
+									     Pre1Sz)
+								    in  %% Line 403
+									[10|[_4|[_16|S2]]]
+								%% Line 404
+								<> when 'true' ->
+								    %% Line 405
+								    S1
+							      end
+						      ( <_14> when 'true' ->
+							    primop 'match_fail'
+								({'badmatch',_14})
+							-| ['compiler_generated'] )
+						    end
+				    %% Line 407
+				    <_28> when 'true' ->
+					%% Line 408
+					S1
+				  end
+			      in  %% Line 398
+				  [_1|_19]
+			  ( <_10> when 'true' ->
+				primop 'match_fail'
+				    ({'badmatch',_10})
+			    -| ['compiler_generated'] )
+			end
+'count_nl'/1 =
+    %% Line 412
+    fun (_0) ->
+	case _0 of
+	  <[E|Es]> when 'true' ->
+	      let <_2> =
+		  apply %% Line 413
+			'count_nl'/1
+		      (%% Line 413
+		       E)
+	      in  let <_1> =
+		      apply %% Line 413
+			    'count_nl'/1
+			  (%% Line 413
+			   Es)
+		  in  %% Line 413
+		      call 'erlang':'+'
+			  (_2, _1)
+	  %% Line 414
+	  <10> when 'true' ->
+	      %% Line 415
+	      1
+	  %% Line 416
+	  <Bin>
+	      when call 'erlang':'is_binary'
+		    (_0) ->
+	      let <_3> =
+		  call %% Line 417
+		       'erlang':%% Line 417
+				'binary_to_list'
+		      (%% Line 417
+		       Bin)
+	      in  %% Line 417
+		  apply 'count_nl'/1
+		      (_3)
+	  %% Line 418
+	  <_5> when 'true' ->
+	      %% Line 419
+	      0
+	end
+'n_spaces'/1 =
+    %% Line 421
+    fun (_0) ->
+	%% Line 422
+	call 'lists':'duplicate'
+	    (_0, 32)
+'is_op'/2 =
+    %% Line 424
+    fun (_0,_1) ->
+	%% Line 425
+	try
+	    %% Line 426
+	    case _0 of
+	      <{'erlang',F}> when 'true' ->
+		  do  %% Line 427
+		      ( call ( 'erl_internal'
+			       -| ['result_not_wanted'] ):( 'op_type'
+							    -| ['result_not_wanted'] )
+			    (F, _1)
+			-| ['result_not_wanted'] )
+		      %% Line 428
+		      {'yes',F}
+	      ( <_2> when 'true' ->
+		    primop 'match_fail'
+			({'badmatch',_2})
+		-| ['compiler_generated'] )
+	    end
+	of <_4> ->
+	    _4
+	catch <_7,_6,_5> ->
+	    %% Line 429
+	    case <_7,_6,_5> of
+	      <( 'error'
+		 -| ['compiler_generated'] ),_10,_11> when 'true' ->
+		  'no'
+	      ( <_12,_13,_14> when 'true' ->
+		    primop 'raise'
+			(_14, _13)
+		-| ['compiler_generated'] )
+	    end
+'exited_size'/1 =
+    %% Line 432
+    fun (_0) ->
+	let <_1> =
+	    apply %% Line 433
+		  'exited'/1
+		(_0)
+	in  %% Line 433
+	    call 'erlang':'iolist_size'
+		(_1)
+'exited'/1 =
+    %% Line 435
+    fun (_0) ->
+	case _0 of
+	  <'error'> when 'true' ->
+	      %% Line 436
+	      #{#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<120>(8,1,'integer',['unsigned'|['big']]),
+		#<99>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<112>(8,1,'integer',['unsigned'|['big']]),
+		#<116>(8,1,'integer',['unsigned'|['big']]),
+		#<105>(8,1,'integer',['unsigned'|['big']]),
+		#<111>(8,1,'integer',['unsigned'|['big']]),
+		#<110>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<114>(8,1,'integer',['unsigned'|['big']]),
+		#<114>(8,1,'integer',['unsigned'|['big']]),
+		#<111>(8,1,'integer',['unsigned'|['big']]),
+		#<114>(8,1,'integer',['unsigned'|['big']]),
+		#<58>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']])}#
+	  %% Line 437
+	  <'exit'> when 'true' ->
+	      %% Line 438
+	      #{#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<120>(8,1,'integer',['unsigned'|['big']]),
+		#<99>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<112>(8,1,'integer',['unsigned'|['big']]),
+		#<116>(8,1,'integer',['unsigned'|['big']]),
+		#<105>(8,1,'integer',['unsigned'|['big']]),
+		#<111>(8,1,'integer',['unsigned'|['big']]),
+		#<110>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<120>(8,1,'integer',['unsigned'|['big']]),
+		#<105>(8,1,'integer',['unsigned'|['big']]),
+		#<116>(8,1,'integer',['unsigned'|['big']]),
+		#<58>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']])}#
+	  %% Line 439
+	  <'throw'> when 'true' ->
+	      %% Line 440
+	      #{#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<120>(8,1,'integer',['unsigned'|['big']]),
+		#<99>(8,1,'integer',['unsigned'|['big']]),
+		#<101>(8,1,'integer',['unsigned'|['big']]),
+		#<112>(8,1,'integer',['unsigned'|['big']]),
+		#<116>(8,1,'integer',['unsigned'|['big']]),
+		#<105>(8,1,'integer',['unsigned'|['big']]),
+		#<111>(8,1,'integer',['unsigned'|['big']]),
+		#<110>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']]),
+		#<116>(8,1,'integer',['unsigned'|['big']]),
+		#<104>(8,1,'integer',['unsigned'|['big']]),
+		#<114>(8,1,'integer',['unsigned'|['big']]),
+		#<111>(8,1,'integer',['unsigned'|['big']]),
+		#<119>(8,1,'integer',['unsigned'|['big']]),
+		#<58>(8,1,'integer',['unsigned'|['big']]),
+		#<32>(8,1,'integer',['unsigned'|['big']])}#
+	  ( <_1> when 'true' ->
+		( primop 'match_fail'
+		      ({'function_clause',_1})
+		  -| [{'function_name',{'exited',1}}] )
+	    -| ['compiler_generated'] )
+	end
+'to_string'/2 =
+    %% Line 442
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <A,'latin1'> when 'true' ->
+	      %% Line 443
+	      call 'io_lib':'write_atom_as_latin1'
+		  (A)
+	  %% Line 444
+	  <A,_4> when 'true' ->
+	      %% Line 445
+	      call 'io_lib':'write_atom'
+		  (A)
+	end
+'sub'/3 =
+    %% Line 448
+    fun (_0,_1,_2) ->
+	case <_0,_1,_2> of
+	  <T,_7,_X_Enc>
+	      when call 'erlang':'<'
+		    (T,
+		     0) ->
+	      T
+	  %% Line 449
+	  <T,S,Enc> when 'true' ->
+	      let <_3> =
+		  apply %% Line 450
+			'size'/2
+		      (%% Line 450
+		       Enc, %% Line 450
+			    S)
+	      in  %% Line 450
+		  apply 'sub'/2
+		      (T, _3)
+	end
+'sub'/2 =
+    %% Line 452
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <T,Sz>
+	      when call 'erlang':'>='
+		    (T,
+		     Sz) ->
+	      %% Line 453
+	      call 'erlang':'-'
+		  (T, Sz)
+	  %% Line 454
+	  <_X_T,_X_Sz> when 'true' ->
+	      %% Line 455
+	      0
+	end
+'size'/2 =
+    %% Line 457
+    fun (_0,_1) ->
+	case <_0,_1> of
+	  <'latin1',S> when 'true' ->
+	      %% Line 458
+	      call 'erlang':'iolist_size'
+		  (S)
+	  %% Line 459
+	  <_4,S> when 'true' ->
+	      %% Line 460
+	      call 'string':'length'
+		  (S)
+	end
+'module_info'/0 =
+    fun () ->
+	call 'erlang':'get_module_info'
+	    ('erl_error')
+'module_info'/1 =
+    fun (_0) ->
+	call 'erlang':'get_module_info'
+	    ('erl_error', _0)
+end

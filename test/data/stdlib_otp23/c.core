@@ -1,0 +1,5405 @@
+module 'c' ['appcall'/4,
+	    'bi'/1,
+	    'bt'/1,
+	    'c'/1,
+	    'c'/2,
+	    'c'/3,
+	    'cd'/1,
+	    'display_info'/1,
+	    'erlangrc'/0,
+	    'erlangrc'/1,
+	    'flush'/0,
+	    'h'/1,
+	    'h'/2,
+	    'h'/3,
+	    'hcb'/1,
+	    'hcb'/2,
+	    'hcb'/3,
+	    'help'/0,
+	    'ht'/1,
+	    'ht'/2,
+	    'ht'/3,
+	    'i'/0,
+	    'i'/1,
+	    'i'/3,
+	    'l'/1,
+	    'lc'/1,
+	    'lc_batch'/0,
+	    'lc_batch'/1,
+	    'lm'/0,
+	    'ls'/0,
+	    'ls'/1,
+	    'm'/0,
+	    'm'/1,
+	    'memory'/0,
+	    'memory'/1,
+	    'mm'/0,
+	    'module_info'/0,
+	    'module_info'/1,
+	    'nc'/1,
+	    'nc'/2,
+	    'ni'/0,
+	    'nl'/1,
+	    'nregs'/0,
+	    'pid'/3,
+	    'pwd'/0,
+	    'q'/0,
+	    'regs'/0,
+	    'uptime'/0,
+	    'xm'/1,
+	    'y'/1,
+	    'y'/2]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[99|[46|[101|[114|[108]]]]]]]]],1}],
+		%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[47|[117|[115|[114|[47|[108|[111|[99|[97|[108|[47|[67|[101|[108|[108|[97|[114|[47|[101|[114|[108|[97|[110|[103|[47|[50|[51|[46|[48|[46|[50|[47|[108|[105|[98|[47|[101|[114|[108|[97|[110|[103|[47|[108|[105|[98|[47|[107|[101|[114|[110|[101|[108|[45|[55|[46|[48|[47|[105|[110|[99|[108|[117|[100|[101|[47|[101|[101|[112|[52|[56|[46|[104|[114|[108]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]],1}],
+		%% Line 3
+		'record' =
+		    %% Line 3
+		    [{'docs_v1',[{'record_field',3,{'atom',3,'anno'}}|[{'record_field',4,{'atom',4,'beam_language'},{'atom',4,'erlang'}}|[{'record_field',5,{'atom',5,'format'},{'bin',5,[{'bin_element',5,{'string',5,[97|[112|[112|[108|[105|[99|[97|[116|[105|[111|[110|[47|[101|[114|[108|[97|[110|[103|[43|[104|[116|[109|[108]]]]]]]]]]]]]]]]]]]]]]]},'default','default'}]}}|[{'record_field',6,{'atom',6,'module_doc'}}|[{'record_field',7,{'atom',7,'metadata'},{'map',7,[{'map_field_assoc',7,{'atom',7,'otp_doc_vsn'},{'tuple',7,[{'integer',7,1}|[{'integer',7,0}|[{'integer',7,0}]]]}}]}}|[{'record_field',8,{'atom',8,'docs'}}]]]]]]}],
+		%% Line 10
+		'record' =
+		    %% Line 10
+		    [{'docs_v1_entry',[{'record_field',10,{'atom',10,'kind_name_arity'}}|[{'record_field',11,{'atom',11,'anno'}}|[{'record_field',12,{'atom',12,'signature'}}|[{'record_field',13,{'atom',13,'doc'}}|[{'record_field',14,{'atom',14,'metadata'}}]]]]]}],
+		%% Line 23
+		'file' =
+		    %% Line 23
+		    [{[115|[114|[99|[47|[99|[46|[101|[114|[108]]]]]]]]],23}],
+		%% Line 27
+		'compile' =
+		    %% Line 27
+		    [{'no_auto_import',[{'error',2}]}],
+		%% Line 46
+		'spec' =
+		    %% Line 46
+		    [{{'help',0},[{'type',46,'fun',[{'type',46,'product',[]}|[{'atom',46,'ok'}]]}]}],
+		%% Line 84
+		'spec' =
+		    %% Line 84
+		    [{{'c',1},[{'type',84,'bounded_fun',[{'type',84,'fun',[{'type',84,'product',[{'var',84,'Module'}]}|[{'type',84,'union',[{'type',84,'tuple',[{'atom',84,'ok'}|[{'var',84,'ModuleName'}]]}|[{'atom',84,'error'}]]}]]}|[[{'type',85,'constraint',[{'atom',85,'is_subtype'}|[[{'var',85,'Module'}|[{'remote_type',85,[{'atom',85,'file'}|[{'atom',85,'name'}|[[]]]]}]]]]}|[{'type',86,'constraint',[{'atom',86,'is_subtype'}|[[{'var',86,'ModuleName'}|[{'type',86,'module',[]}]]]]}]]]]}]}],
+		%% Line 90
+		'spec' =
+		    %% Line 90
+		    [{{'c',2},[{'type',90,'bounded_fun',[{'type',90,'fun',[{'type',90,'product',[{'var',90,'Module'}|[{'var',90,'Options'}]]}|[{'type',90,'union',[{'type',90,'tuple',[{'atom',90,'ok'}|[{'var',90,'ModuleName'}]]}|[{'atom',90,'error'}]]}]]}|[[{'type',91,'constraint',[{'atom',91,'is_subtype'}|[[{'var',91,'Module'}|[{'remote_type',91,[{'atom',91,'file'}|[{'atom',91,'name'}|[[]]]]}]]]]}|[{'type',92,'constraint',[{'atom',92,'is_subtype'}|[[{'var',92,'Options'}|[{'type',92,'union',[{'type',92,'list',[{'remote_type',92,[{'atom',92,'compile'}|[{'atom',92,'option'}|[[]]]]}]}|[{'remote_type',92,[{'atom',92,'compile'}|[{'atom',92,'option'}|[[]]]]}]]}]]]]}|[{'type',93,'constraint',[{'atom',93,'is_subtype'}|[[{'var',93,'ModuleName'}|[{'type',93,'module',[]}]]]]}]]]]]}]}],
+		%% Line 120
+		'spec' =
+		    %% Line 120
+		    [{{'c',3},[{'type',120,'bounded_fun',[{'type',120,'fun',[{'type',120,'product',[{'var',120,'Module'}|[{'var',120,'Options'}|[{'var',120,'Filter'}]]]}|[{'type',120,'union',[{'type',120,'tuple',[{'atom',120,'ok'}|[{'var',120,'ModuleName'}]]}|[{'atom',120,'error'}]]}]]}|[[{'type',121,'constraint',[{'atom',121,'is_subtype'}|[[{'var',121,'Module'}|[{'type',121,'atom',[]}]]]]}|[{'type',122,'constraint',[{'atom',122,'is_subtype'}|[[{'var',122,'Options'}|[{'type',122,'list',[{'remote_type',122,[{'atom',122,'compile'}|[{'atom',122,'option'}|[[]]]]}]}]]]]}|[{'type',123,'constraint',[{'atom',123,'is_subtype'}|[[{'var',123,'Filter'}|[{'type',123,'fun',[{'type',123,'product',[{'remote_type',123,[{'atom',123,'compile'}|[{'atom',123,'option'}|[[]]]]}]}|[{'type',123,'boolean',[]}]]}]]]]}|[{'type',124,'constraint',[{'atom',124,'is_subtype'}|[[{'var',124,'ModuleName'}|[{'type',124,'module',[]}]]]]}]]]]]]}]}],
+		%% Line 156
+		'type' =
+		    %% Line 156
+		    [{'h_return',{'type',156,'union',[{'atom',156,'ok'}|[{'type',156,'tuple',[{'atom',156,'error'}|[{'type',156,'union',[{'atom',156,'missing'}|[{'type',156,'tuple',[{'atom',156,'unknown_format'}|[{'remote_type',156,[{'atom',156,'unicode'}|[{'atom',156,'chardata'}|[[]]]]}]]}]]}]]}]]},[]}],
+		%% Line 157
+		'type' =
+		    %% Line 157
+		    [{'hf_return',{'type',157,'union',[{'user_type',157,'h_return',[]}|[{'type',157,'tuple',[{'atom',157,'error'}|[{'atom',157,'function_missing'}]]}]]},[]}],
+		%% Line 158
+		'type' =
+		    %% Line 158
+		    [{'ht_return',{'type',158,'union',[{'user_type',158,'h_return',[]}|[{'type',158,'tuple',[{'atom',158,'error'}|[{'atom',158,'type_missing'}]]}]]},[]}],
+		%% Line 159
+		'type' =
+		    %% Line 159
+		    [{'hcb_return',{'type',159,'union',[{'user_type',159,'h_return',[]}|[{'type',159,'tuple',[{'atom',159,'error'}|[{'atom',159,'callback_missing'}]]}]]},[]}],
+		%% Line 161
+		'spec' =
+		    %% Line 161
+		    [{{'h',1},[{'type',161,'fun',[{'type',161,'product',[{'type',161,'module',[]}]}|[{'user_type',161,'h_return',[]}]]}]}],
+		%% Line 172
+		'spec' =
+		    %% Line 172
+		    [{{'h',2},[{'type',172,'fun',[{'type',172,'product',[{'type',172,'module',[]}|[{'type',172,'function',[]}]]}|[{'user_type',172,'hf_return',[]}]]}]}],
+		%% Line 183
+		'spec' =
+		    %% Line 183
+		    [{{'h',3},[{'type',183,'fun',[{'type',183,'product',[{'type',183,'module',[]}|[{'type',183,'function',[]}|[{'type',183,'arity',[]}]]]}|[{'user_type',183,'hf_return',[]}]]}]}],
+		%% Line 194
+		'spec' =
+		    %% Line 194
+		    [{{'ht',1},[{'type',194,'fun',[{'type',194,'product',[{'type',194,'module',[]}]}|[{'user_type',194,'h_return',[]}]]}]}],
+		%% Line 205
+		'spec' =
+		    %% Line 205
+		    [{{'ht',2},[{'type',205,'fun',[{'type',205,'product',[{'type',205,'module',[]}|[{'ann_type',205,[{'var',205,'Type'}|[{'type',205,'atom',[]}]]}]]}|[{'user_type',205,'ht_return',[]}]]}]}],
+		%% Line 216
+		'spec' =
+		    %% Line 216
+		    [{{'ht',3},[{'type',216,'fun',[{'type',216,'product',[{'type',216,'module',[]}|[{'ann_type',216,[{'var',216,'Type'}|[{'type',216,'atom',[]}]]}|[{'type',216,'arity',[]}]]]}|[{'user_type',217,'ht_return',[]}]]}]}],
+		%% Line 228
+		'spec' =
+		    %% Line 228
+		    [{{'hcb',1},[{'type',228,'fun',[{'type',228,'product',[{'type',228,'module',[]}]}|[{'user_type',228,'h_return',[]}]]}]}],
+		%% Line 239
+		'spec' =
+		    %% Line 239
+		    [{{'hcb',2},[{'type',239,'fun',[{'type',239,'product',[{'type',239,'module',[]}|[{'ann_type',239,[{'var',239,'Callback'}|[{'type',239,'atom',[]}]]}]]}|[{'user_type',239,'hcb_return',[]}]]}]}],
+		%% Line 250
+		'spec' =
+		    %% Line 250
+		    [{{'hcb',3},[{'type',250,'fun',[{'type',250,'product',[{'type',250,'module',[]}|[{'ann_type',250,[{'var',250,'Callback'}|[{'type',250,'atom',[]}]]}|[{'type',250,'arity',[]}]]]}|[{'user_type',251,'hcb_return',[]}]]}]}],
+		%% Line 418
+		'spec' =
+		    %% Line 418
+		    [{{'outdir',1},[{'type',418,'fun',[{'type',418,'product',[{'type',418,'list',[{'remote_type',418,[{'atom',418,'compile'}|[{'atom',418,'option'}|[[]]]]}]}]}|[{'remote_type',418,[{'atom',418,'file'}|[{'atom',418,'filename'}|[[]]]]}]]}]}],
+		%% Line 470
+		'spec' =
+		    %% Line 470
+		    [{{'lc',1},[{'type',470,'bounded_fun',[{'type',470,'fun',[{'type',470,'product',[{'var',470,'Files'}]}|[{'type',470,'union',[{'atom',470,'ok'}|[{'atom',470,'error'}]]}]]}|[[{'type',471,'constraint',[{'atom',471,'is_subtype'}|[[{'var',471,'Files'}|[{'type',471,'list',[{'ann_type',471,[{'var',471,'File'}|[{'remote_type',471,[{'atom',471,'erl_compile'}|[{'atom',471,'cmd_line_arg'}|[[]]]]}]]}]}]]]]}]]]}]}],
+		%% Line 484
+		'spec' =
+		    %% Line 484
+		    [{{'lc_batch',0},[{'type',484,'fun',[{'type',484,'product',[]}|[{'type',484,'no_return',[]}]]}]}],
+		%% Line 490
+		'spec' =
+		    %% Line 490
+		    [{{'lc_batch',1},[{'type',490,'fun',[{'type',490,'product',[{'type',490,'list',[{'remote_type',490,[{'atom',490,'erl_compile'}|[{'atom',490,'cmd_line_arg'}|[[]]]]}]}]}|[{'type',490,'no_return',[]}]]}]}],
+		%% Line 536
+		'spec' =
+		    %% Line 536
+		    [{{'nc',1},[{'type',536,'bounded_fun',[{'type',536,'fun',[{'type',536,'product',[{'var',536,'File'}]}|[{'type',536,'union',[{'type',536,'tuple',[{'atom',536,'ok'}|[{'var',536,'Module'}]]}|[{'atom',536,'error'}]]}]]}|[[{'type',537,'constraint',[{'atom',537,'is_subtype'}|[[{'var',537,'File'}|[{'remote_type',537,[{'atom',537,'file'}|[{'atom',537,'name'}|[[]]]]}]]]]}|[{'type',538,'constraint',[{'atom',538,'is_subtype'}|[[{'var',538,'Module'}|[{'type',538,'module',[]}]]]]}]]]]}]}],
+		%% Line 542
+		'spec' =
+		    %% Line 542
+		    [{{'nc',2},[{'type',542,'bounded_fun',[{'type',542,'fun',[{'type',542,'product',[{'var',542,'File'}|[{'var',542,'Options'}]]}|[{'type',542,'union',[{'type',542,'tuple',[{'atom',542,'ok'}|[{'var',542,'Module'}]]}|[{'atom',542,'error'}]]}]]}|[[{'type',543,'constraint',[{'atom',543,'is_subtype'}|[[{'var',543,'File'}|[{'remote_type',543,[{'atom',543,'file'}|[{'atom',543,'name'}|[[]]]]}]]]]}|[{'type',544,'constraint',[{'atom',544,'is_subtype'}|[[{'var',544,'Options'}|[{'type',544,'union',[{'type',544,'list',[{'var',544,'Option'}]}|[{'var',544,'Option'}]]}]]]]}|[{'type',545,'constraint',[{'atom',545,'is_subtype'}|[[{'var',545,'Option'}|[{'remote_type',545,[{'atom',545,'compile'}|[{'atom',545,'option'}|[[]]]]}]]]]}|[{'type',546,'constraint',[{'atom',546,'is_subtype'}|[[{'var',546,'Module'}|[{'type',546,'module',[]}]]]]}]]]]]]}]}],
+		%% Line 570
+		'spec' =
+		    %% Line 570
+		    [{{'l',1},[{'type',570,'bounded_fun',[{'type',570,'fun',[{'type',570,'product',[{'var',570,'Module'}]}|[{'remote_type',570,[{'atom',570,'code'}|[{'atom',570,'load_ret'}|[[]]]]}]]}|[[{'type',571,'constraint',[{'atom',571,'is_subtype'}|[[{'var',571,'Module'}|[{'type',571,'module',[]}]]]]}]]]}]}],
+		%% Line 578
+		'spec' =
+		    %% Line 578
+		    [{{'nl',1},[{'type',578,'bounded_fun',[{'type',578,'fun',[{'type',578,'product',[{'var',578,'Module'}]}|[{'type',578,'union',[{'atom',578,'abcast'}|[{'atom',578,'error'}]]}]]}|[[{'type',579,'constraint',[{'atom',579,'is_subtype'}|[[{'var',579,'Module'}|[{'type',579,'module',[]}]]]]}]]]}]}],
+		%% Line 589
+		'spec' =
+		    %% Line 589
+		    [{{'i',0},[{'type',589,'fun',[{'type',589,'product',[]}|[{'atom',589,'ok'}]]}]}],
+		%% Line 593
+		'spec' =
+		    %% Line 593
+		    [{{'ni',0},[{'type',593,'fun',[{'type',593,'product',[]}|[{'atom',593,'ok'}]]}]}],
+		%% Line 597
+		'spec' =
+		    %% Line 597
+		    [{{'i',1},[{'type',597,'fun',[{'type',597,'product',[{'type',597,'list',[{'type',597,'pid',[]}]}]}|[{'atom',597,'ok'}]]}]}],
+		%% Line 736
+		'spec' =
+		    %% Line 736
+		    [{{'pid',3},[{'type',736,'bounded_fun',[{'type',736,'fun',[{'type',736,'product',[{'var',736,'X'}|[{'var',736,'Y'}|[{'var',736,'Z'}]]]}|[{'type',736,'pid',[]}]]}|[[{'type',737,'constraint',[{'atom',737,'is_subtype'}|[[{'var',737,'X'}|[{'type',737,'non_neg_integer',[]}]]]]}|[{'type',738,'constraint',[{'atom',738,'is_subtype'}|[[{'var',738,'Y'}|[{'type',738,'non_neg_integer',[]}]]]]}|[{'type',739,'constraint',[{'atom',739,'is_subtype'}|[[{'var',739,'Z'}|[{'type',739,'non_neg_integer',[]}]]]]}]]]]]}]}],
+		%% Line 746
+		'spec' =
+		    %% Line 746
+		    [{{'i',3},[{'type',746,'bounded_fun',[{'type',746,'fun',[{'type',746,'product',[{'var',746,'X'}|[{'var',746,'Y'}|[{'var',746,'Z'}]]]}|[{'type',746,'list',[{'type',746,'tuple',[{'type',746,'atom',[]}|[{'type',746,'term',[]}]]}]}]]}|[[{'type',747,'constraint',[{'atom',747,'is_subtype'}|[[{'var',747,'X'}|[{'type',747,'non_neg_integer',[]}]]]]}|[{'type',748,'constraint',[{'atom',748,'is_subtype'}|[[{'var',748,'Y'}|[{'type',748,'non_neg_integer',[]}]]]]}|[{'type',749,'constraint',[{'atom',749,'is_subtype'}|[[{'var',749,'Z'}|[{'type',749,'non_neg_integer',[]}]]]]}]]]]]}]}],
+		%% Line 753
+		'spec' =
+		    %% Line 753
+		    [{{'q',0},[{'type',753,'fun',[{'type',753,'product',[]}|[{'type',753,'no_return',[]}]]}]}],
+		%% Line 758
+		'spec' =
+		    %% Line 758
+		    [{{'bt',1},[{'type',758,'bounded_fun',[{'type',758,'fun',[{'type',758,'product',[{'var',758,'Pid'}]}|[{'type',758,'union',[{'atom',758,'ok'}|[{'atom',758,'undefined'}]]}]]}|[[{'type',759,'constraint',[{'atom',759,'is_subtype'}|[[{'var',759,'Pid'}|[{'type',759,'pid',[]}]]]]}]]]}]}],
+		%% Line 769
+		'spec' =
+		    %% Line 769
+		    [{{'m',0},[{'type',769,'fun',[{'type',769,'product',[]}|[{'atom',769,'ok'}]]}]}],
+		%% Line 778
+		'spec' =
+		    %% Line 778
+		    [{{'mm',0},[{'type',778,'fun',[{'type',778,'product',[]}|[{'type',778,'list',[{'type',778,'module',[]}]}]]}]}],
+		%% Line 783
+		'spec' =
+		    %% Line 783
+		    [{{'lm',0},[{'type',783,'fun',[{'type',783,'product',[]}|[{'type',783,'list',[{'remote_type',783,[{'atom',783,'code'}|[{'atom',783,'load_ret'}|[[]]]]}]}]]}]}],
+		%% Line 791
+		'spec' =
+		    %% Line 791
+		    [{{'erlangrc',0},[{'type',791,'fun',[{'type',791,'product',[]}|[{'type',791,'union',[{'type',791,'tuple',[{'atom',791,'ok'}|[{'remote_type',791,[{'atom',791,'file'}|[{'atom',791,'filename'}|[[]]]]}]]}|[{'type',791,'tuple',[{'atom',791,'error'}|[{'type',791,'term',[]}]]}]]}]]}]}],
+		%% Line 801
+		'spec' =
+		    %% Line 801
+		    [{{'erlangrc',1},[{'type',801,'bounded_fun',[{'type',801,'fun',[{'type',801,'product',[{'var',801,'PathList'}]}|[{'type',801,'union',[{'type',801,'tuple',[{'atom',801,'ok'}|[{'remote_type',801,[{'atom',801,'file'}|[{'atom',801,'filename'}|[[]]]]}]]}|[{'type',801,'tuple',[{'atom',801,'error'}|[{'type',801,'term',[]}]]}]]}]]}|[[{'type',802,'constraint',[{'atom',802,'is_subtype'}|[[{'var',802,'PathList'}|[{'type',802,'list',[{'ann_type',802,[{'var',802,'Dir'}|[{'remote_type',802,[{'atom',802,'file'}|[{'atom',802,'name'}|[[]]]]}]]}]}]]]]}]]]}]}],
+		%% Line 836
+		'spec' =
+		    %% Line 836
+		    [{{'m',1},[{'type',836,'bounded_fun',[{'type',836,'fun',[{'type',836,'product',[{'var',836,'Module'}]}|[{'atom',836,'ok'}]]}|[[{'type',837,'constraint',[{'atom',837,'is_subtype'}|[[{'var',837,'Module'}|[{'type',837,'module',[]}]]]]}]]]}]}],
+		%% Line 932
+		'spec' =
+		    %% Line 932
+		    [{{'flush',0},[{'type',932,'fun',[{'type',932,'product',[]}|[{'atom',932,'ok'}]]}]}],
+		%% Line 949
+		'spec' =
+		    %% Line 949
+		    [{{'nregs',0},[{'type',949,'fun',[{'type',949,'product',[]}|[{'atom',949,'ok'}]]}]}],
+		%% Line 954
+		'spec' =
+		    %% Line 954
+		    [{{'regs',0},[{'type',954,'fun',[{'type',954,'product',[]}|[{'atom',954,'ok'}]]}]}],
+		%% Line 1029
+		'spec' =
+		    %% Line 1029
+		    [{{'pwd',0},[{'type',1029,'fun',[{'type',1029,'product',[]}|[{'atom',1029,'ok'}]]}]}],
+		%% Line 1039
+		'spec' =
+		    %% Line 1039
+		    [{{'cd',1},[{'type',1039,'bounded_fun',[{'type',1039,'fun',[{'type',1039,'product',[{'var',1039,'Dir'}]}|[{'atom',1039,'ok'}]]}|[[{'type',1040,'constraint',[{'atom',1040,'is_subtype'}|[[{'var',1040,'Dir'}|[{'remote_type',1040,[{'atom',1040,'file'}|[{'atom',1040,'name'}|[[]]]]}]]]]}]]]}]}],
+		%% Line 1050
+		'spec' =
+		    %% Line 1050
+		    [{{'ls',0},[{'type',1050,'fun',[{'type',1050,'product',[]}|[{'atom',1050,'ok'}]]}]}],
+		%% Line 1055
+		'spec' =
+		    %% Line 1055
+		    [{{'ls',1},[{'type',1055,'bounded_fun',[{'type',1055,'fun',[{'type',1055,'product',[{'var',1055,'Dir'}]}|[{'atom',1055,'ok'}]]}|[[{'type',1056,'constraint',[{'atom',1056,'is_subtype'}|[[{'var',1056,'Dir'}|[{'remote_type',1056,[{'atom',1056,'file'}|[{'atom',1056,'name'}|[[]]]]}]]]]}]]]}]}],
+		%% Line 1092
+		'spec' =
+		    %% Line 1092
+		    [{{'memory',0},[{'type',1092,'bounded_fun',[{'type',1092,'fun',[{'type',1092,'product',[]}|[{'type',1092,'list',[{'type',1092,'tuple',[{'var',1092,'Type'}|[{'var',1092,'Size'}]]}]}]]}|[[{'type',1093,'constraint',[{'atom',1093,'is_subtype'}|[[{'var',1093,'Type'}|[{'type',1093,'atom',[]}]]]]}|[{'type',1094,'constraint',[{'atom',1094,'is_subtype'}|[[{'var',1094,'Size'}|[{'type',1094,'non_neg_integer',[]}]]]]}]]]]}]}],
+		%% Line 1098
+		'spec' =
+		    %% Line 1098
+		    [{{'memory',1},[{'type',1098,'bounded_fun',[{'type',1098,'fun',[{'type',1098,'product',[{'var',1098,'Type'}]}|[{'var',1098,'Size'}]]}|[[{'type',1099,'constraint',[{'atom',1099,'is_subtype'}|[[{'var',1099,'Type'}|[{'type',1099,'atom',[]}]]]]}|[{'type',1100,'constraint',[{'atom',1100,'is_subtype'}|[[{'var',1100,'Size'}|[{'type',1100,'non_neg_integer',[]}]]]]}]]]]}|[{'type',1101,'bounded_fun',[{'type',1101,'fun',[{'type',1101,'product',[{'var',1101,'Types'}]}|[{'type',1101,'list',[{'type',1101,'tuple',[{'var',1101,'Type'}|[{'var',1101,'Size'}]]}]}]]}|[[{'type',1102,'constraint',[{'atom',1102,'is_subtype'}|[[{'var',1102,'Types'}|[{'type',1102,'list',[{'var',1102,'Type'}]}]]]]}|[{'type',1103,'constraint',[{'atom',1103,'is_subtype'}|[[{'var',1103,'Type'}|[{'type',1103,'atom',[]}]]]]}|[{'type',1104,'constraint',[{'atom',1104,'is_subtype'}|[[{'var',1104,'Size'}|[{'type',1104,'non_neg_integer',[]}]]]]}]]]]]}]]}],
+		%% Line 1112
+		'spec' =
+		    %% Line 1112
+		    [{{'uptime',0},[{'type',1112,'fun',[{'type',1112,'product',[]}|[{'atom',1112,'ok'}]]}]}]]
+'help'/0 =
+    %% Line 48
+    ( fun () ->
+	  %% Line 49
+	  call 'io':'put_chars'
+	      (#{#<98>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<40>(8,1,'integer',['unsigned'|['big']]),
+		 #<80>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<41>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<107>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<98>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<107>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<102>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<112>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<10>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<40>(8,1,'integer',['unsigned'|['big']]),
+		 #<77>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<41>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<112>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<117>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<102>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<60>(8,1,'integer',['unsigned'|['big']]),
+		 #<77>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<62>(8,1,'integer',['unsigned'|['big']]),
+		 #<10>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<40>(8,1,'integer',['unsigned'|['big']]),
+		 #<68>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<41>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<104>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<103>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<119>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<107>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<103>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<121>(8,1,'integer',['unsigned'|['big']]),
+		 #<10>(8,1,'integer',['unsigned'|['big']]),
+		 #<102>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<117>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<104>(8,1,'integer',['unsigned'|['big']]),
+		 #<40>(8,1,'integer',['unsigned'|['big']]),
+		 #<41>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<102>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<117>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<104>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<121>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<103>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<104>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<104>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<10>(8,1,'integer',['unsigned'|['big']]),
+		 #<104>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<112>(8,1,'integer',['unsigned'|['big']]),
+		 #<40>(8,1,'integer',['unsigned'|['big']]),
+		 #<41>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<104>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<112>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<102>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<10>(8,1,'integer',['unsigned'|['big']]),
+		 #<104>(8,1,'integer',['unsigned'|['big']]),
+		 #<40>(8,1,'integer',['unsigned'|['big']]),
+		 #<77>(8,1,'integer',['unsigned'|['big']]),
+		 #<41>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<117>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<117>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<10>(8,1,'integer',['unsigned'|['big']]),
+		 #<104>(8,1,'integer',['unsigned'|['big']]),
+		 #<40>(8,1,'integer',['unsigned'|['big']]),
+		 #<77>(8,1,'integer',['unsigned'|['big']]),
+		 #<44>(8,1,'integer',['unsigned'|['big']]),
+		 #<70>(8,1,'integer',['unsigned'|['big']]),
+		 #<41>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<117>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<102>(8,1,'integer',['unsigned'|['big']]),
+		 #<117>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<117>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<10>(8,1,'integer',['unsigned'|['big']]),
+		 #<104>(8,1,'integer',['unsigned'|['big']]),
+		 #<40>(8,1,'integer',['unsigned'|['big']]),
+		 #<77>(8,1,'integer',['unsigned'|['big']]),
+		 #<44>(8,1,'integer',['unsigned'|['big']]),
+		 #<70>(8,1,'integer',['unsigned'|['big']]),
+		 #<44>(8,1,'integer',['unsigned'|['big']]),
+		 #<65>(8,1,'integer',['unsigned'|['big']]),
+		 #<41>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<117>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<102>(8,1,'integer',['unsigned'|['big']]),
+		 #<117>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<121>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<117>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<10>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<40>(8,1,'integer',['unsigned'|['big']]),
+		 #<41>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<102>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<98>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<117>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<104>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<121>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<10>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<40>(8,1,'integer',['unsigned'|['big']]),
+		 #<41>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<102>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<98>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<117>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<104>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<119>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<107>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<121>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<10>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<40>(8,1,'integer',['unsigned'|['big']]),
+		 #<88>(8,1,'integer',['unsigned'|['big']]),
+		 #<44>(8,1,'integer',['unsigned'|['big']]),
+		 #<89>(8,1,'integer',['unsigned'|['big']]),
+		 #<44>(8,1,'integer',['unsigned'|['big']]),
+		 #<90>(8,1,'integer',['unsigned'|['big']]),
+		 #<41>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<102>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<98>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<117>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<112>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<60>(8,1,'integer',['unsigned'|['big']]),
+		 #<88>(8,1,'integer',['unsigned'|['big']]),
+		 #<44>(8,1,'integer',['unsigned'|['big']]),
+		 #<89>(8,1,'integer',['unsigned'|['big']]),
+		 #<44>(8,1,'integer',['unsigned'|['big']]),
+		 #<90>(8,1,'integer',['unsigned'|['big']]),
+		 #<62>(8,1,'integer',['unsigned'|['big']]),
+		 #<10>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<40>(8,1,'integer',['unsigned'|['big']]),
+		 #<77>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<117>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<41>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<117>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<10>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<40>(8,1,'integer',['unsigned'|['big']]),
+		 #<41>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<102>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<117>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<10>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<40>(8,1,'integer',['unsigned'|['big']]),
+		 #<91>(8,1,'integer',['unsigned'|['big']]),
+		 #<70>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<93>(8,1,'integer',['unsigned'|['big']]),
+		 #<41>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<112>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<102>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<69>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<103>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<117>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<10>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<40>(8,1,'integer',['unsigned'|['big']]),
+		 #<41>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<102>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<104>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<117>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<121>(8,1,'integer',['unsigned'|['big']]),
+		 #<10>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<40>(8,1,'integer',['unsigned'|['big']]),
+		 #<68>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<41>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<102>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<121>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<60>(8,1,'integer',['unsigned'|['big']]),
+		 #<68>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<62>(8,1,'integer',['unsigned'|['big']]),
+		 #<10>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<40>(8,1,'integer',['unsigned'|['big']]),
+		 #<41>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<119>(8,1,'integer',['unsigned'|['big']]),
+		 #<104>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<104>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<117>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<10>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<40>(8,1,'integer',['unsigned'|['big']]),
+		 #<77>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<41>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<102>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<98>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<117>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<117>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<60>(8,1,'integer',['unsigned'|['big']]),
+		 #<77>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<62>(8,1,'integer',['unsigned'|['big']]),
+		 #<10>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<40>(8,1,'integer',['unsigned'|['big']]),
+		 #<41>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<102>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<117>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<10>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<121>(8,1,'integer',['unsigned'|['big']]),
+		 #<40>(8,1,'integer',['unsigned'|['big']]),
+		 #<41>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<121>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<102>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<10>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<121>(8,1,'integer',['unsigned'|['big']]),
+		 #<40>(8,1,'integer',['unsigned'|['big']]),
+		 #<84>(8,1,'integer',['unsigned'|['big']]),
+		 #<41>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<121>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<102>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<102>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<121>(8,1,'integer',['unsigned'|['big']]),
+		 #<112>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<60>(8,1,'integer',['unsigned'|['big']]),
+		 #<84>(8,1,'integer',['unsigned'|['big']]),
+		 #<62>(8,1,'integer',['unsigned'|['big']]),
+		 #<10>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<40>(8,1,'integer',['unsigned'|['big']]),
+		 #<70>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<41>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<112>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<60>(8,1,'integer',['unsigned'|['big']]),
+		 #<70>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<62>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<10>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<40>(8,1,'integer',['unsigned'|['big']]),
+		 #<77>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<117>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<41>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<117>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<10>(8,1,'integer',['unsigned'|['big']]),
+		 #<112>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<40>(8,1,'integer',['unsigned'|['big']]),
+		 #<88>(8,1,'integer',['unsigned'|['big']]),
+		 #<44>(8,1,'integer',['unsigned'|['big']]),
+		 #<89>(8,1,'integer',['unsigned'|['big']]),
+		 #<44>(8,1,'integer',['unsigned'|['big']]),
+		 #<90>(8,1,'integer',['unsigned'|['big']]),
+		 #<41>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<118>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<88>(8,1,'integer',['unsigned'|['big']]),
+		 #<44>(8,1,'integer',['unsigned'|['big']]),
+		 #<89>(8,1,'integer',['unsigned'|['big']]),
+		 #<44>(8,1,'integer',['unsigned'|['big']]),
+		 #<90>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<80>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<10>(8,1,'integer',['unsigned'|['big']]),
+		 #<112>(8,1,'integer',['unsigned'|['big']]),
+		 #<119>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<40>(8,1,'integer',['unsigned'|['big']]),
+		 #<41>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<112>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<119>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<107>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<103>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<121>(8,1,'integer',['unsigned'|['big']]),
+		 #<10>(8,1,'integer',['unsigned'|['big']]),
+		 #<113>(8,1,'integer',['unsigned'|['big']]),
+		 #<40>(8,1,'integer',['unsigned'|['big']]),
+		 #<41>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<113>(8,1,'integer',['unsigned'|['big']]),
+		 #<117>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<104>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<104>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<102>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<58>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<112>(8,1,'integer',['unsigned'|['big']]),
+		 #<40>(8,1,'integer',['unsigned'|['big']]),
+		 #<41>(8,1,'integer',['unsigned'|['big']]),
+		 #<10>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<103>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<40>(8,1,'integer',['unsigned'|['big']]),
+		 #<41>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<102>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<98>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<117>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<103>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<112>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<10>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<103>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<40>(8,1,'integer',['unsigned'|['big']]),
+		 #<41>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<102>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<98>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<117>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<103>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<112>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<10>(8,1,'integer',['unsigned'|['big']]),
+		 #<117>(8,1,'integer',['unsigned'|['big']]),
+		 #<112>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<40>(8,1,'integer',['unsigned'|['big']]),
+		 #<41>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<112>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<117>(8,1,'integer',['unsigned'|['big']]),
+		 #<112>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<10>(8,1,'integer',['unsigned'|['big']]),
+		 #<120>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<40>(8,1,'integer',['unsigned'|['big']]),
+		 #<77>(8,1,'integer',['unsigned'|['big']]),
+		 #<41>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<102>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<104>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<107>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<109>(8,1,'integer',['unsigned'|['big']]),
+		 #<111>(8,1,'integer',['unsigned'|['big']]),
+		 #<100>(8,1,'integer',['unsigned'|['big']]),
+		 #<117>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<10>(8,1,'integer',['unsigned'|['big']]),
+		 #<121>(8,1,'integer',['unsigned'|['big']]),
+		 #<40>(8,1,'integer',['unsigned'|['big']]),
+		 #<70>(8,1,'integer',['unsigned'|['big']]),
+		 #<105>(8,1,'integer',['unsigned'|['big']]),
+		 #<108>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<41>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<45>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<103>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<110>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<116>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<89>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<99>(8,1,'integer',['unsigned'|['big']]),
+		 #<32>(8,1,'integer',['unsigned'|['big']]),
+		 #<112>(8,1,'integer',['unsigned'|['big']]),
+		 #<97>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<115>(8,1,'integer',['unsigned'|['big']]),
+		 #<101>(8,1,'integer',['unsigned'|['big']]),
+		 #<114>(8,1,'integer',['unsigned'|['big']]),
+		 #<10>(8,1,'integer',['unsigned'|['big']])}#)
+      -| [{'function',{'help',0}}] )
+'c'/1 =
+    %% Line 88
+    ( fun (_0) ->
+	  apply 'c'/2
+	      (( _0
+		 -| [{'function',{'c',1}}] ), [])
+      -| [{'function',{'c',1}}] )
+'c'/2 =
+    %% Line 95
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <Module,SingleOption>
+		  when let <_2> =
+			call 'erlang':'is_list'
+			    (SingleOption)
+		    in  call 'erlang':'not'
+			    (_2) ->
+		  %% Line 96
+		  apply 'c'/2
+		      (Module, [SingleOption|[]])
+	      %% Line 97
+	      <Module,Opts>
+		  when call 'erlang':'is_atom'
+			(Module) ->
+		  let <_4> =
+		      case %% Line 101
+			   call 'filename':'extension'
+			       (Module) of
+			%% Line 102
+			<[]> when 'true' ->
+			    apply 'src_suffix'/1
+				(Opts)
+			%% Line 103
+			<S> when 'true' ->
+			    S
+		      end
+		  in  let <_6> =
+			  call %% Line 105
+			       'filename':%% Line 105
+					  'rootname'
+			      (%% Line 105
+			       Module, _4)
+		      in  let <SrcFile> =
+			      call %% Line 105
+				   'erlang':%% Line 105
+					    '++'
+				  (_6, _4)
+			  in  %% Line 106
+			      case call 'filelib':'is_file'
+				       (SrcFile) of
+				%% Line 107
+				<'true'> when 'true' ->
+				    %% Line 108
+				    apply 'compile_and_load'/2
+					(SrcFile, Opts)
+				%% Line 109
+				<'false'> when 'true' ->
+				    let <_10> =
+					fun (_8) ->
+					    %% Line 110
+					    'true'
+				    in  %% Line 110
+					apply 'c'/3
+					    (Module, Opts, _10)
+				( <_11> when 'true' ->
+				      primop 'match_fail'
+					  ({'case_clause',_11})
+				  -| ['compiler_generated'] )
+			      end
+	      %% Line 112
+	      <Module,Opts> when 'true' ->
+		  %% Line 114
+		  apply 'compile_and_load'/2
+		      (Module, Opts)
+	    end
+	    -| [{'function',{'c',2}}] )
+      -| [{'function',{'c',2}}] )
+'c'/3 =
+    %% Line 126
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <Module,Options,Filter>
+		  when call 'erlang':'is_atom'
+			(Module) ->
+		  %% Line 127
+		  case apply 'find_beam'/1
+			   (Module) of
+		    %% Line 128
+		    <BeamFile>
+			when call 'erlang':'is_list'
+			      (BeamFile) ->
+			%% Line 129
+			apply 'c'/4
+			    (Module, Options, Filter, BeamFile)
+		    %% Line 130
+		    <Error> when 'true' ->
+			%% Line 131
+			{'error',Error}
+		  end
+	      ( <_6,_5,_4> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_6,_5,_4})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'c',3}}] )
+      -| [{'function',{'c',3}}] )
+'c'/4 =
+    %% Line 134
+    ( fun (_0,_1,_2,_3) ->
+	  %% Line 135
+	  case apply 'compile_info'/2
+		   (_0, _3) of
+	    %% Line 136
+	    <Info>
+		when call 'erlang':'is_list'
+		      (Info) ->
+		%% Line 137
+		case apply 'find_source'/2
+			 (_3, Info) of
+		  %% Line 138
+		  <SrcFile>
+		      when call 'erlang':'is_list'
+			    (SrcFile) ->
+		      %% Line 139
+		      apply 'c'/5
+			  (SrcFile, _1, _2, _3, Info)
+		  %% Line 140
+		  <Error> when 'true' ->
+		      %% Line 141
+		      Error
+		end
+	    %% Line 143
+	    <Error> when 'true' ->
+		%% Line 144
+		Error
+	  end
+      -| [{'function',{'c',4}}] )
+'c'/5 =
+    %% Line 147
+    ( fun (_0,_1,_2,_3,_4) ->
+	  let <F> =
+	      fun (_8) ->
+		  %% Line 150
+		  ( case apply 'is_outdir_opt'/1
+			     (_8) of
+		      ( <'false'> when 'true' ->
+			    apply _2
+				(_8)
+			-| ['compiler_generated'] )
+		      ( <'true'> when 'true' ->
+			    'false'
+			-| ['compiler_generated'] )
+		      ( <_cor_variable> when 'true' ->
+			    call 'erlang':'error'
+				('badarg')
+			-| ['compiler_generated'] )
+		    end
+		    -| ['compiler_generated'] )
+	  in  let <_13> =
+		  call %% Line 151
+		       'filename':%% Line 151
+				  'dirname'
+		      (_3)
+	      in  let <_11> =
+		      apply %% Line 152
+			    'old_options'/1
+			  (_4)
+		  in  let <_12> =
+			  call %% Line 152
+			       'lists':%% Line 152
+				       'filter'
+			      (%% Line 152
+			       F, _11)
+		      in  let <_14> =
+			      [%% Line 151
+			       {'outdir',_13}|_12]
+			  in  let <Options> =
+				  call %% Line 151
+				       'erlang':%% Line 151
+						'++'
+				      (_1, _14)
+			      in  do  %% Line 153
+				      call 'io':'format'
+					  ([82|[101|[99|[111|[109|[112|[105|[108|[105|[110|[103|[32|[126|[116|[115|[10]]]]]]]]]]]]]]]], [_0|[]])
+				      %% Line 154
+				      apply 'safe_recompile'/3
+					  (_0, Options, _3)
+      -| [{'function',{'c',5}}] )
+'h'/1 =
+    %% Line 162
+    ( fun (_0) ->
+	  %% Line 163
+	  case call 'code':'get_doc'
+		   (( _0
+		      -| [{'function',{'h',1}}] )) of
+	    %% Line 164
+	    <{'ok',Docs = {'docs_v1',_4,_5,#{#<97>(8,1,'integer',['unsigned'|['big']]),
+					     #<112>(8,1,'integer',['unsigned'|['big']]),
+					     #<112>(8,1,'integer',['unsigned'|['big']]),
+					     #<108>(8,1,'integer',['unsigned'|['big']]),
+					     #<105>(8,1,'integer',['unsigned'|['big']]),
+					     #<99>(8,1,'integer',['unsigned'|['big']]),
+					     #<97>(8,1,'integer',['unsigned'|['big']]),
+					     #<116>(8,1,'integer',['unsigned'|['big']]),
+					     #<105>(8,1,'integer',['unsigned'|['big']]),
+					     #<111>(8,1,'integer',['unsigned'|['big']]),
+					     #<110>(8,1,'integer',['unsigned'|['big']]),
+					     #<47>(8,1,'integer',['unsigned'|['big']]),
+					     #<101>(8,1,'integer',['unsigned'|['big']]),
+					     #<114>(8,1,'integer',['unsigned'|['big']]),
+					     #<108>(8,1,'integer',['unsigned'|['big']]),
+					     #<97>(8,1,'integer',['unsigned'|['big']]),
+					     #<110>(8,1,'integer',['unsigned'|['big']]),
+					     #<103>(8,1,'integer',['unsigned'|['big']]),
+					     #<43>(8,1,'integer',['unsigned'|['big']]),
+					     #<104>(8,1,'integer',['unsigned'|['big']]),
+					     #<116>(8,1,'integer',['unsigned'|['big']]),
+					     #<109>(8,1,'integer',['unsigned'|['big']]),
+					     #<108>(8,1,'integer',['unsigned'|['big']])}#,_6,_7,_8}}> when 'true' ->
+		let <_1> =
+		    call %% Line 165
+			 'shell_docs':%% Line 165
+				      'render'
+			(( _0
+			   -| [{'function',{'h',1}}] ), %% Line 165
+							Docs)
+		in  %% Line 165
+		    apply 'format_docs'/1
+			(_1)
+	    %% Line 166
+	    <{'ok',{'docs_v1',_9,_10,Enc,_11,_12,_13}}> when 'true' ->
+		%% Line 167
+		{'error',{'unknown_format',Enc}}
+	    %% Line 168
+	    <Error> when 'true' ->
+		%% Line 169
+		Error
+	  end
+      -| [{'function',{'h',1}}] )
+'h'/2 =
+    %% Line 173
+    ( fun (_0,_1) ->
+	  %% Line 174
+	  case call 'code':'get_doc'
+		   (_0) of
+	    %% Line 175
+	    <{'ok',Docs = {'docs_v1',_6,_7,#{#<97>(8,1,'integer',['unsigned'|['big']]),
+					     #<112>(8,1,'integer',['unsigned'|['big']]),
+					     #<112>(8,1,'integer',['unsigned'|['big']]),
+					     #<108>(8,1,'integer',['unsigned'|['big']]),
+					     #<105>(8,1,'integer',['unsigned'|['big']]),
+					     #<99>(8,1,'integer',['unsigned'|['big']]),
+					     #<97>(8,1,'integer',['unsigned'|['big']]),
+					     #<116>(8,1,'integer',['unsigned'|['big']]),
+					     #<105>(8,1,'integer',['unsigned'|['big']]),
+					     #<111>(8,1,'integer',['unsigned'|['big']]),
+					     #<110>(8,1,'integer',['unsigned'|['big']]),
+					     #<47>(8,1,'integer',['unsigned'|['big']]),
+					     #<101>(8,1,'integer',['unsigned'|['big']]),
+					     #<114>(8,1,'integer',['unsigned'|['big']]),
+					     #<108>(8,1,'integer',['unsigned'|['big']]),
+					     #<97>(8,1,'integer',['unsigned'|['big']]),
+					     #<110>(8,1,'integer',['unsigned'|['big']]),
+					     #<103>(8,1,'integer',['unsigned'|['big']]),
+					     #<43>(8,1,'integer',['unsigned'|['big']]),
+					     #<104>(8,1,'integer',['unsigned'|['big']]),
+					     #<116>(8,1,'integer',['unsigned'|['big']]),
+					     #<109>(8,1,'integer',['unsigned'|['big']]),
+					     #<108>(8,1,'integer',['unsigned'|['big']])}#,_8,_9,_10}}> when 'true' ->
+		let <_2> =
+		    call %% Line 176
+			 'shell_docs':%% Line 176
+				      'render'
+			(_0, _1, %% Line 176
+				 Docs)
+		in  %% Line 176
+		    apply 'format_docs'/1
+			(_2)
+	    %% Line 177
+	    <{'ok',{'docs_v1',_11,_12,Enc,_13,_14,_15}}> when 'true' ->
+		%% Line 178
+		{'error',{'unknown_format',Enc}}
+	    %% Line 179
+	    <Error> when 'true' ->
+		%% Line 180
+		Error
+	  end
+      -| [{'function',{'h',2}}] )
+'h'/3 =
+    %% Line 184
+    ( fun (_0,_1,_2) ->
+	  %% Line 185
+	  case call 'code':'get_doc'
+		   (_0) of
+	    %% Line 186
+	    <{'ok',Docs = {'docs_v1',_8,_9,#{#<97>(8,1,'integer',['unsigned'|['big']]),
+					     #<112>(8,1,'integer',['unsigned'|['big']]),
+					     #<112>(8,1,'integer',['unsigned'|['big']]),
+					     #<108>(8,1,'integer',['unsigned'|['big']]),
+					     #<105>(8,1,'integer',['unsigned'|['big']]),
+					     #<99>(8,1,'integer',['unsigned'|['big']]),
+					     #<97>(8,1,'integer',['unsigned'|['big']]),
+					     #<116>(8,1,'integer',['unsigned'|['big']]),
+					     #<105>(8,1,'integer',['unsigned'|['big']]),
+					     #<111>(8,1,'integer',['unsigned'|['big']]),
+					     #<110>(8,1,'integer',['unsigned'|['big']]),
+					     #<47>(8,1,'integer',['unsigned'|['big']]),
+					     #<101>(8,1,'integer',['unsigned'|['big']]),
+					     #<114>(8,1,'integer',['unsigned'|['big']]),
+					     #<108>(8,1,'integer',['unsigned'|['big']]),
+					     #<97>(8,1,'integer',['unsigned'|['big']]),
+					     #<110>(8,1,'integer',['unsigned'|['big']]),
+					     #<103>(8,1,'integer',['unsigned'|['big']]),
+					     #<43>(8,1,'integer',['unsigned'|['big']]),
+					     #<104>(8,1,'integer',['unsigned'|['big']]),
+					     #<116>(8,1,'integer',['unsigned'|['big']]),
+					     #<109>(8,1,'integer',['unsigned'|['big']]),
+					     #<108>(8,1,'integer',['unsigned'|['big']])}#,_10,_11,_12}}> when 'true' ->
+		let <_3> =
+		    call %% Line 187
+			 'shell_docs':%% Line 187
+				      'render'
+			(_0, _1, _2, %% Line 187
+				     Docs)
+		in  %% Line 187
+		    apply 'format_docs'/1
+			(_3)
+	    %% Line 188
+	    <{'ok',{'docs_v1',_13,_14,Enc,_15,_16,_17}}> when 'true' ->
+		%% Line 189
+		{'error',{'unknown_format',Enc}}
+	    %% Line 190
+	    <Error> when 'true' ->
+		%% Line 191
+		Error
+	  end
+      -| [{'function',{'h',3}}] )
+'ht'/1 =
+    %% Line 195
+    ( fun (_0) ->
+	  %% Line 196
+	  case call 'code':'get_doc'
+		   (( _0
+		      -| [{'function',{'ht',1}}] )) of
+	    %% Line 197
+	    <{'ok',Docs = {'docs_v1',_4,_5,#{#<97>(8,1,'integer',['unsigned'|['big']]),
+					     #<112>(8,1,'integer',['unsigned'|['big']]),
+					     #<112>(8,1,'integer',['unsigned'|['big']]),
+					     #<108>(8,1,'integer',['unsigned'|['big']]),
+					     #<105>(8,1,'integer',['unsigned'|['big']]),
+					     #<99>(8,1,'integer',['unsigned'|['big']]),
+					     #<97>(8,1,'integer',['unsigned'|['big']]),
+					     #<116>(8,1,'integer',['unsigned'|['big']]),
+					     #<105>(8,1,'integer',['unsigned'|['big']]),
+					     #<111>(8,1,'integer',['unsigned'|['big']]),
+					     #<110>(8,1,'integer',['unsigned'|['big']]),
+					     #<47>(8,1,'integer',['unsigned'|['big']]),
+					     #<101>(8,1,'integer',['unsigned'|['big']]),
+					     #<114>(8,1,'integer',['unsigned'|['big']]),
+					     #<108>(8,1,'integer',['unsigned'|['big']]),
+					     #<97>(8,1,'integer',['unsigned'|['big']]),
+					     #<110>(8,1,'integer',['unsigned'|['big']]),
+					     #<103>(8,1,'integer',['unsigned'|['big']]),
+					     #<43>(8,1,'integer',['unsigned'|['big']]),
+					     #<104>(8,1,'integer',['unsigned'|['big']]),
+					     #<116>(8,1,'integer',['unsigned'|['big']]),
+					     #<109>(8,1,'integer',['unsigned'|['big']]),
+					     #<108>(8,1,'integer',['unsigned'|['big']])}#,_6,_7,_8}}> when 'true' ->
+		let <_1> =
+		    call %% Line 198
+			 'shell_docs':%% Line 198
+				      'render_type'
+			(( _0
+			   -| [{'function',{'ht',1}}] ), %% Line 198
+							 Docs)
+		in  %% Line 198
+		    apply 'format_docs'/1
+			(_1)
+	    %% Line 199
+	    <{'ok',{'docs_v1',_9,_10,Enc,_11,_12,_13}}> when 'true' ->
+		%% Line 200
+		{'error',{'unknown_format',Enc}}
+	    %% Line 201
+	    <Error> when 'true' ->
+		%% Line 202
+		Error
+	  end
+      -| [{'function',{'ht',1}}] )
+'ht'/2 =
+    %% Line 206
+    ( fun (_0,_1) ->
+	  %% Line 207
+	  case call 'code':'get_doc'
+		   (_0) of
+	    %% Line 208
+	    <{'ok',Docs = {'docs_v1',_6,_7,#{#<97>(8,1,'integer',['unsigned'|['big']]),
+					     #<112>(8,1,'integer',['unsigned'|['big']]),
+					     #<112>(8,1,'integer',['unsigned'|['big']]),
+					     #<108>(8,1,'integer',['unsigned'|['big']]),
+					     #<105>(8,1,'integer',['unsigned'|['big']]),
+					     #<99>(8,1,'integer',['unsigned'|['big']]),
+					     #<97>(8,1,'integer',['unsigned'|['big']]),
+					     #<116>(8,1,'integer',['unsigned'|['big']]),
+					     #<105>(8,1,'integer',['unsigned'|['big']]),
+					     #<111>(8,1,'integer',['unsigned'|['big']]),
+					     #<110>(8,1,'integer',['unsigned'|['big']]),
+					     #<47>(8,1,'integer',['unsigned'|['big']]),
+					     #<101>(8,1,'integer',['unsigned'|['big']]),
+					     #<114>(8,1,'integer',['unsigned'|['big']]),
+					     #<108>(8,1,'integer',['unsigned'|['big']]),
+					     #<97>(8,1,'integer',['unsigned'|['big']]),
+					     #<110>(8,1,'integer',['unsigned'|['big']]),
+					     #<103>(8,1,'integer',['unsigned'|['big']]),
+					     #<43>(8,1,'integer',['unsigned'|['big']]),
+					     #<104>(8,1,'integer',['unsigned'|['big']]),
+					     #<116>(8,1,'integer',['unsigned'|['big']]),
+					     #<109>(8,1,'integer',['unsigned'|['big']]),
+					     #<108>(8,1,'integer',['unsigned'|['big']])}#,_8,_9,_10}}> when 'true' ->
+		let <_2> =
+		    call %% Line 209
+			 'shell_docs':%% Line 209
+				      'render_type'
+			(_0, _1, %% Line 209
+				 Docs)
+		in  %% Line 209
+		    apply 'format_docs'/1
+			(_2)
+	    %% Line 210
+	    <{'ok',{'docs_v1',_11,_12,Enc,_13,_14,_15}}> when 'true' ->
+		%% Line 211
+		{'error',{'unknown_format',Enc}}
+	    %% Line 212
+	    <Error> when 'true' ->
+		%% Line 213
+		Error
+	  end
+      -| [{'function',{'ht',2}}] )
+'ht'/3 =
+    %% Line 218
+    ( fun (_0,_1,_2) ->
+	  %% Line 219
+	  case call 'code':'get_doc'
+		   (_0) of
+	    %% Line 220
+	    <{'ok',Docs = {'docs_v1',_8,_9,#{#<97>(8,1,'integer',['unsigned'|['big']]),
+					     #<112>(8,1,'integer',['unsigned'|['big']]),
+					     #<112>(8,1,'integer',['unsigned'|['big']]),
+					     #<108>(8,1,'integer',['unsigned'|['big']]),
+					     #<105>(8,1,'integer',['unsigned'|['big']]),
+					     #<99>(8,1,'integer',['unsigned'|['big']]),
+					     #<97>(8,1,'integer',['unsigned'|['big']]),
+					     #<116>(8,1,'integer',['unsigned'|['big']]),
+					     #<105>(8,1,'integer',['unsigned'|['big']]),
+					     #<111>(8,1,'integer',['unsigned'|['big']]),
+					     #<110>(8,1,'integer',['unsigned'|['big']]),
+					     #<47>(8,1,'integer',['unsigned'|['big']]),
+					     #<101>(8,1,'integer',['unsigned'|['big']]),
+					     #<114>(8,1,'integer',['unsigned'|['big']]),
+					     #<108>(8,1,'integer',['unsigned'|['big']]),
+					     #<97>(8,1,'integer',['unsigned'|['big']]),
+					     #<110>(8,1,'integer',['unsigned'|['big']]),
+					     #<103>(8,1,'integer',['unsigned'|['big']]),
+					     #<43>(8,1,'integer',['unsigned'|['big']]),
+					     #<104>(8,1,'integer',['unsigned'|['big']]),
+					     #<116>(8,1,'integer',['unsigned'|['big']]),
+					     #<109>(8,1,'integer',['unsigned'|['big']]),
+					     #<108>(8,1,'integer',['unsigned'|['big']])}#,_10,_11,_12}}> when 'true' ->
+		let <_3> =
+		    call %% Line 221
+			 'shell_docs':%% Line 221
+				      'render_type'
+			(_0, _1, _2, %% Line 221
+				     Docs)
+		in  %% Line 221
+		    apply 'format_docs'/1
+			(_3)
+	    %% Line 222
+	    <{'ok',{'docs_v1',_13,_14,Enc,_15,_16,_17}}> when 'true' ->
+		%% Line 223
+		{'error',{'unknown_format',Enc}}
+	    %% Line 224
+	    <Error> when 'true' ->
+		%% Line 225
+		Error
+	  end
+      -| [{'function',{'ht',3}}] )
+'hcb'/1 =
+    %% Line 229
+    ( fun (_0) ->
+	  %% Line 230
+	  case call 'code':'get_doc'
+		   (( _0
+		      -| [{'function',{'hcb',1}}] )) of
+	    %% Line 231
+	    <{'ok',Docs = {'docs_v1',_4,_5,#{#<97>(8,1,'integer',['unsigned'|['big']]),
+					     #<112>(8,1,'integer',['unsigned'|['big']]),
+					     #<112>(8,1,'integer',['unsigned'|['big']]),
+					     #<108>(8,1,'integer',['unsigned'|['big']]),
+					     #<105>(8,1,'integer',['unsigned'|['big']]),
+					     #<99>(8,1,'integer',['unsigned'|['big']]),
+					     #<97>(8,1,'integer',['unsigned'|['big']]),
+					     #<116>(8,1,'integer',['unsigned'|['big']]),
+					     #<105>(8,1,'integer',['unsigned'|['big']]),
+					     #<111>(8,1,'integer',['unsigned'|['big']]),
+					     #<110>(8,1,'integer',['unsigned'|['big']]),
+					     #<47>(8,1,'integer',['unsigned'|['big']]),
+					     #<101>(8,1,'integer',['unsigned'|['big']]),
+					     #<114>(8,1,'integer',['unsigned'|['big']]),
+					     #<108>(8,1,'integer',['unsigned'|['big']]),
+					     #<97>(8,1,'integer',['unsigned'|['big']]),
+					     #<110>(8,1,'integer',['unsigned'|['big']]),
+					     #<103>(8,1,'integer',['unsigned'|['big']]),
+					     #<43>(8,1,'integer',['unsigned'|['big']]),
+					     #<104>(8,1,'integer',['unsigned'|['big']]),
+					     #<116>(8,1,'integer',['unsigned'|['big']]),
+					     #<109>(8,1,'integer',['unsigned'|['big']]),
+					     #<108>(8,1,'integer',['unsigned'|['big']])}#,_6,_7,_8}}> when 'true' ->
+		let <_1> =
+		    call %% Line 232
+			 'shell_docs':%% Line 232
+				      'render_callback'
+			(( _0
+			   -| [{'function',{'hcb',1}}] ), %% Line 232
+							  Docs)
+		in  %% Line 232
+		    apply 'format_docs'/1
+			(_1)
+	    %% Line 233
+	    <{'ok',{'docs_v1',_9,_10,Enc,_11,_12,_13}}> when 'true' ->
+		%% Line 234
+		{'error',{'unknown_format',Enc}}
+	    %% Line 235
+	    <Error> when 'true' ->
+		%% Line 236
+		Error
+	  end
+      -| [{'function',{'hcb',1}}] )
+'hcb'/2 =
+    %% Line 240
+    ( fun (_0,_1) ->
+	  %% Line 241
+	  case call 'code':'get_doc'
+		   (_0) of
+	    %% Line 242
+	    <{'ok',Docs = {'docs_v1',_6,_7,#{#<97>(8,1,'integer',['unsigned'|['big']]),
+					     #<112>(8,1,'integer',['unsigned'|['big']]),
+					     #<112>(8,1,'integer',['unsigned'|['big']]),
+					     #<108>(8,1,'integer',['unsigned'|['big']]),
+					     #<105>(8,1,'integer',['unsigned'|['big']]),
+					     #<99>(8,1,'integer',['unsigned'|['big']]),
+					     #<97>(8,1,'integer',['unsigned'|['big']]),
+					     #<116>(8,1,'integer',['unsigned'|['big']]),
+					     #<105>(8,1,'integer',['unsigned'|['big']]),
+					     #<111>(8,1,'integer',['unsigned'|['big']]),
+					     #<110>(8,1,'integer',['unsigned'|['big']]),
+					     #<47>(8,1,'integer',['unsigned'|['big']]),
+					     #<101>(8,1,'integer',['unsigned'|['big']]),
+					     #<114>(8,1,'integer',['unsigned'|['big']]),
+					     #<108>(8,1,'integer',['unsigned'|['big']]),
+					     #<97>(8,1,'integer',['unsigned'|['big']]),
+					     #<110>(8,1,'integer',['unsigned'|['big']]),
+					     #<103>(8,1,'integer',['unsigned'|['big']]),
+					     #<43>(8,1,'integer',['unsigned'|['big']]),
+					     #<104>(8,1,'integer',['unsigned'|['big']]),
+					     #<116>(8,1,'integer',['unsigned'|['big']]),
+					     #<109>(8,1,'integer',['unsigned'|['big']]),
+					     #<108>(8,1,'integer',['unsigned'|['big']])}#,_8,_9,_10}}> when 'true' ->
+		let <_2> =
+		    call %% Line 243
+			 'shell_docs':%% Line 243
+				      'render_callback'
+			(_0, _1, %% Line 243
+				 Docs)
+		in  %% Line 243
+		    apply 'format_docs'/1
+			(_2)
+	    %% Line 244
+	    <{'ok',{'docs_v1',_11,_12,Enc,_13,_14,_15}}> when 'true' ->
+		%% Line 245
+		{'error',{'unknown_format',Enc}}
+	    %% Line 246
+	    <Error> when 'true' ->
+		%% Line 247
+		Error
+	  end
+      -| [{'function',{'hcb',2}}] )
+'hcb'/3 =
+    %% Line 252
+    ( fun (_0,_1,_2) ->
+	  %% Line 253
+	  case call 'code':'get_doc'
+		   (_0) of
+	    %% Line 254
+	    <{'ok',Docs = {'docs_v1',_8,_9,#{#<97>(8,1,'integer',['unsigned'|['big']]),
+					     #<112>(8,1,'integer',['unsigned'|['big']]),
+					     #<112>(8,1,'integer',['unsigned'|['big']]),
+					     #<108>(8,1,'integer',['unsigned'|['big']]),
+					     #<105>(8,1,'integer',['unsigned'|['big']]),
+					     #<99>(8,1,'integer',['unsigned'|['big']]),
+					     #<97>(8,1,'integer',['unsigned'|['big']]),
+					     #<116>(8,1,'integer',['unsigned'|['big']]),
+					     #<105>(8,1,'integer',['unsigned'|['big']]),
+					     #<111>(8,1,'integer',['unsigned'|['big']]),
+					     #<110>(8,1,'integer',['unsigned'|['big']]),
+					     #<47>(8,1,'integer',['unsigned'|['big']]),
+					     #<101>(8,1,'integer',['unsigned'|['big']]),
+					     #<114>(8,1,'integer',['unsigned'|['big']]),
+					     #<108>(8,1,'integer',['unsigned'|['big']]),
+					     #<97>(8,1,'integer',['unsigned'|['big']]),
+					     #<110>(8,1,'integer',['unsigned'|['big']]),
+					     #<103>(8,1,'integer',['unsigned'|['big']]),
+					     #<43>(8,1,'integer',['unsigned'|['big']]),
+					     #<104>(8,1,'integer',['unsigned'|['big']]),
+					     #<116>(8,1,'integer',['unsigned'|['big']]),
+					     #<109>(8,1,'integer',['unsigned'|['big']]),
+					     #<108>(8,1,'integer',['unsigned'|['big']])}#,_10,_11,_12}}> when 'true' ->
+		let <_3> =
+		    call %% Line 255
+			 'shell_docs':%% Line 255
+				      'render_callback'
+			(_0, _1, _2, %% Line 255
+				     Docs)
+		in  %% Line 255
+		    apply 'format_docs'/1
+			(_3)
+	    %% Line 256
+	    <{'ok',{'docs_v1',_13,_14,Enc,_15,_16,_17}}> when 'true' ->
+		%% Line 257
+		{'error',{'unknown_format',Enc}}
+	    %% Line 258
+	    <Error> when 'true' ->
+		%% Line 259
+		Error
+	  end
+      -| [{'function',{'hcb',3}}] )
+'format_docs'/1 =
+    %% Line 262
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'format_docs',1}}] ) of
+	      <E = {'error',_9}> when 'true' ->
+		  %% Line 263
+		  E
+	      %% Line 264
+	      <Docs> when 'true' ->
+		  %% Line 265
+		  case call 're':'run'
+			   (Docs, [40|[46|[43|[10|[124|[10|[41]]]]]]], ['unicode'|['global'|[{'capture','all_but_first','binary'}]]]) of
+		    <{'match',Lines}> when 'true' ->
+			let <_6> =
+			    fun (_3,_2) ->
+				do  %% Line 267
+				    ( call ( 'io'
+					     -| ['result_not_wanted'] ):( 'format'
+									  -| ['result_not_wanted'] )
+					  (( [126|[116|[115]]]
+					     -| ['result_not_wanted'] ), _3)
+				      -| ['result_not_wanted'] )
+				    %% Line 268
+				    ( {1,'undefined'}
+				      -| ['result_not_wanted'] )
+			in  do  %% Line 266
+				apply 'paged_output'/3
+				    (_6, %% Line 269
+					 ( 'undefined'
+					   -| ['result_not_wanted'] ), %% Line 269
+								       Lines)
+				%% Line 270
+				'ok'
+		    ( <_1> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_1})
+		      -| ['compiler_generated'] )
+		  end
+	    end
+	    -| [{'function',{'format_docs',1}}] )
+      -| [{'function',{'format_docs',1}}] )
+'old_options'/1 =
+    %% Line 272
+    ( fun (_0) ->
+	  %% Line 273
+	  case call 'lists':'keyfind'
+		   ('options', 1, ( _0
+				    -| [{'function',{'old_options',1}}] )) of
+	    %% Line 274
+	    <{'options',Opts}> when 'true' ->
+		Opts
+	    %% Line 275
+	    <'false'> when 'true' ->
+		[]
+	    ( <_1> when 'true' ->
+		  primop 'match_fail'
+		      ({'case_clause',_1})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'old_options',1}}] )
+'find_source'/2 =
+    %% Line 280
+    ( fun (_0,_1) ->
+	  %% Line 281
+	  case call 'lists':'keyfind'
+		   ('source', 1, _1) of
+	    %% Line 282
+	    <{'source',SrcFile}> when 'true' ->
+		%% Line 283
+		case call 'filelib':'is_file'
+			 (SrcFile) of
+		  %% Line 284
+		  <'true'> when 'true' ->
+		      SrcFile
+		  %% Line 285
+		  <'false'> when 'true' ->
+		      apply 'find_source'/1
+			  (_0)
+		  ( <_2> when 'true' ->
+			primop 'match_fail'
+			    ({'case_clause',_2})
+		    -| ['compiler_generated'] )
+		end
+	    %% Line 287
+	    <_6> when 'true' ->
+		%% Line 288
+		apply 'find_source'/1
+		    (_0)
+	  end
+      -| [{'function',{'find_source',2}}] )
+'find_source'/1 =
+    %% Line 291
+    ( fun (_0) ->
+	  %% Line 292
+	  case call 'filelib':'find_source'
+		   (( _0
+		      -| [{'function',{'find_source',1}}] )) of
+	    %% Line 293
+	    <{'ok',SrcFile}> when 'true' ->
+		SrcFile
+	    %% Line 294
+	    <_3> when 'true' ->
+		{'error','no_source'}
+	  end
+      -| [{'function',{'find_source',1}}] )
+'find_beam'/1 =
+    %% Line 299
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'find_beam',1}}] ) of
+	      <Module>
+		  when call 'erlang':'is_atom'
+			(( _0
+			   -| [{'function',{'find_beam',1}}] )) ->
+		  %% Line 300
+		  case call 'code':'which'
+			   (Module) of
+		    %% Line 301
+		    <Beam>
+			when let <_1> =
+			      call 'erlang':'is_list'
+				  (Beam)
+			  in  let <_2> =
+				  call 'erlang':'=/='
+				      (Beam, [])
+			      in  call 'erlang':'and'
+				      (_1, _2) ->
+			%% Line 302
+			case call 'erlang':'module_loaded'
+				 (Module) of
+			  %% Line 303
+			  <'false'> when 'true' ->
+			      %% Line 304
+			      Beam
+			  %% Line 305
+			  <'true'> when 'true' ->
+			      %% Line 306
+			      case call 'filelib':'is_file'
+				       (Beam) of
+				%% Line 307
+				<'true'> when 'true' ->
+				    Beam
+				%% Line 308
+				<'false'> when 'true' ->
+				    apply 'find_beam_1'/1
+					(Module)
+				( <_3> when 'true' ->
+				      primop 'match_fail'
+					  ({'case_clause',_3})
+				  -| ['compiler_generated'] )
+			      end
+			  ( <_4> when 'true' ->
+				primop 'match_fail'
+				    ({'case_clause',_4})
+			    -| ['compiler_generated'] )
+			end
+		    %% Line 311
+		    <Other>
+			when let <_5> =
+			      call 'erlang':'=:='
+				  (Other, [])
+			  in  let <_6> =
+				  call 'erlang':'=:='
+				      (Other, 'cover_compiled')
+			      in  call 'erlang':'or'
+				      (_5, _6) ->
+			%% Line 313
+			apply 'find_beam_1'/1
+			    (Module)
+		    %% Line 314
+		    <Error> when 'true' ->
+			%% Line 315
+			Error
+		  end
+	      ( <_8> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_8})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'find_beam',1}}] )
+      -| [{'function',{'find_beam',1}}] )
+'find_beam_1'/1 =
+    %% Line 318
+    ( fun (_0) ->
+	  let <_2> =
+	      call %% Line 319
+		   'erlang':%% Line 319
+			    'atom_to_list'
+		  (( _0
+		     -| [{'function',{'find_beam_1',1}}] ))
+	  in  let <_1> =
+		  call %% Line 319
+		       'code':%% Line 319
+			      'objfile_extension'
+		      ()
+	      in  let <File> =
+		      call %% Line 319
+			   'erlang':%% Line 319
+				    '++'
+			  (_2, _1)
+		  in  %% Line 320
+		      case call 'code':'where_is_file'
+			       (File) of
+			%% Line 321
+			<Beam>
+			    when call 'erlang':'is_list'
+				  (Beam) ->
+			    %% Line 322
+			    Beam
+			%% Line 323
+			<Error> when 'true' ->
+			    %% Line 324
+			    Error
+		      end
+      -| [{'function',{'find_beam_1',1}}] )
+'compile_info'/2 =
+    %% Line 331
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <Module,Beam>
+		  when call 'erlang':'is_atom'
+			(Module) ->
+		  %% Line 332
+		  case call 'erlang':'module_loaded'
+			   (Module) of
+		    %% Line 333
+		    <'true'> when 'true' ->
+			%% Line 336
+			try
+			    call 'erlang':'get_module_info'
+				(Module, 'compile')
+			of <_2> ->
+			    _2
+			catch <_5,_4,_3> ->
+			    %% Line 337
+			    []
+		    %% Line 339
+		    <'false'> when 'true' ->
+			%% Line 340
+			case call 'beam_lib':'chunks'
+				 (Beam, ['compile_info']) of
+			  %% Line 341
+			  <{'ok',{_X_Module,[{'compile_info',Info}|[]]}}> when 'true' ->
+			      %% Line 342
+			      Info
+			  %% Line 343
+			  <Error> when 'true' ->
+			      %% Line 344
+			      Error
+			end
+		    ( <_7> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_7})
+		      -| ['compiler_generated'] )
+		  end
+	      ( <_9,_8> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_9,_8})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'compile_info',2}}] )
+      -| [{'function',{'compile_info',2}}] )
+'safe_recompile'/3 =
+    %% Line 351
+    ( fun (_0,_1,_2) ->
+	  let <Backup> =
+	      call %% Line 354
+		   'erlang':%% Line 354
+			    '++'
+		  (_2, %% Line 354
+		       [46|[98|[97|[107]]]])
+	  in  %% Line 355
+	      case call 'file':'rename'
+		       (_2, Backup) of
+		%% Line 356
+		<Status>
+		    when let <_4> =
+			  call 'erlang':'=:='
+			      (Status, 'ok')
+		      in  let <_5> =
+			      call 'erlang':'=:='
+				  (Status, {'error','enoent'})
+			  in  call 'erlang':'or'
+				  (_4, _5) ->
+		    %% Line 357
+		    case apply 'compile_and_load'/2
+			     (_0, _1) of
+		      %% Line 358
+		      <Result = {'ok',_15}> when 'true' ->
+			  do  %% Line 359
+			      case <> of
+				<>
+				    when ( call ( 'erlang'
+					       -| ['result_not_wanted'] ):( '=:='
+									    -| ['result_not_wanted'] )
+					    (Status,
+					     ( 'ok'
+					       -| ['result_not_wanted'] ))
+					-| ['result_not_wanted'] ) ->
+				    ( call ( 'file'
+					     -| ['result_not_wanted'] ):( 'delete'
+									  -| ['result_not_wanted'] )
+					  (Backup)
+				      -| ['result_not_wanted'] )
+				%% Line 360
+				<> when 'true' ->
+				    'ok'
+			      end
+			      %% Line 362
+			      Result
+		      %% Line 363
+		      <Error> when 'true' ->
+			  do  %% Line 364
+			      case <> of
+				<>
+				    when ( call ( 'erlang'
+					       -| ['result_not_wanted'] ):( '=:='
+									    -| ['result_not_wanted'] )
+					    (Status,
+					     ( 'ok'
+					       -| ['result_not_wanted'] ))
+					-| ['result_not_wanted'] ) ->
+				    ( call ( 'file'
+					     -| ['result_not_wanted'] ):( 'rename'
+									  -| ['result_not_wanted'] )
+					  (Backup, _2)
+				      -| ['result_not_wanted'] )
+				%% Line 365
+				<> when 'true' ->
+				    'ok'
+			      end
+			      %% Line 367
+			      Error
+		    end
+		%% Line 369
+		<Error> when 'true' ->
+		    %% Line 370
+		    Error
+	      end
+      -| [{'function',{'safe_recompile',3}}] )
+'compile_and_load'/2 =
+    %% Line 377
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <File,Opts0>
+		  when call 'erlang':'is_list'
+			(Opts0) ->
+		  let <_3> =
+		      call %% Line 379
+			   'filename':%% Line 379
+				      'extension'
+			  (%% Line 379
+			   File)
+		  in  let <_2> =
+			  apply %% Line 380
+				'ensure_outdir'/2
+			      (%% Line 380
+			       [46], %% Line 380
+				     Opts0)
+		      in  let <_4> =
+			      apply %% Line 379
+				    'ensure_from'/2
+				  (_3, _2)
+			  in  let <Opts> =
+				  [%% Line 378
+				   'report_errors'|%% Line 378
+						   ['report_warnings'|_4]]
+			      in  %% Line 381
+				  case call 'compile':'file'
+					   (File, Opts) of
+				    %% Line 382
+				    <{'ok',Mod}> when 'true' ->
+					%% Line 383
+					apply 'purge_and_load'/3
+					    (Mod, File, Opts)
+				    %% Line 384
+				    <{'ok',Mod,_X_Ws}> when 'true' ->
+					%% Line 385
+					apply 'purge_and_load'/3
+					    (Mod, File, Opts)
+				    %% Line 386
+				    <Other> when 'true' ->
+					%% Line 387
+					Other
+				  end
+	      %% Line 389
+	      <File,Opt> when 'true' ->
+		  %% Line 390
+		  apply 'compile_and_load'/2
+		      (File, [Opt|[]])
+	    end
+	    -| [{'function',{'compile_and_load',2}}] )
+      -| [{'function',{'compile_and_load',2}}] )
+'ensure_from'/2 =
+    %% Line 392
+    ( fun (_0,_1) ->
+	  let <_4> = 'is_from_opt'/1
+	  in  let <_2> =
+		  apply %% Line 393
+			'from_opt'/1
+		      (_0)
+	      in  let <_3> =
+		      call %% Line 393
+			   'erlang':%% Line 393
+				    '++'
+			  (_1, _2)
+		  in  %% Line 393
+		      case call 'lists':'partition'
+			       (_4, _3) of
+			%% Line 394
+			<{[Opt|_8],Opts}> when 'true' ->
+			    [Opt|Opts]
+			%% Line 395
+			<{[],Opts}> when 'true' ->
+			    Opts
+			( <_5> when 'true' ->
+			      primop 'match_fail'
+				  ({'case_clause',_5})
+			  -| ['compiler_generated'] )
+		      end
+      -| [{'function',{'ensure_from',2}}] )
+'ensure_outdir'/2 =
+    %% Line 398
+    ( fun (_0,_1) ->
+	  let <_3> = 'is_outdir_opt'/1
+	  in  let <_2> =
+		  call %% Line 400
+		       'erlang':%% Line 400
+				'++'
+		      (_1, %% Line 400
+			   [{'outdir',_0}|[]])
+	      in  %% Line 399
+		  case call 'lists':'partition'
+			   (_3, _2) of
+		    <{[Opt|_7],Opts}> when 'true' ->
+			%% Line 401
+			[Opt|Opts]
+		    ( <_4> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_4})
+		      -| ['compiler_generated'] )
+		  end
+      -| [{'function',{'ensure_outdir',2}}] )
+'is_outdir_opt'/1 =
+    %% Line 403
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'is_outdir_opt',1}}] ) of
+	      <{'outdir',_2}> when 'true' ->
+		  'true'
+	      %% Line 404
+	      <_3> when 'true' ->
+		  'false'
+	    end
+	    -| [{'function',{'is_outdir_opt',1}}] )
+      -| [{'function',{'is_outdir_opt',1}}] )
+'is_from_opt'/1 =
+    %% Line 406
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'is_from_opt',1}}] ) of
+	      <'from_core'> when 'true' ->
+		  'true'
+	      %% Line 407
+	      <'from_asm'> when 'true' ->
+		  'true'
+	      %% Line 408
+	      <'from_beam'> when 'true' ->
+		  'true'
+	      %% Line 409
+	      <_2> when 'true' ->
+		  'false'
+	    end
+	    -| [{'function',{'is_from_opt',1}}] )
+      -| [{'function',{'is_from_opt',1}}] )
+'from_opt'/1 =
+    %% Line 411
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'from_opt',1}}] ) of
+	      <[46|[99|[111|[114|[101]]]]]> when 'true' ->
+		  ['from_core']
+	      %% Line 412
+	      <[46|[83]]> when 'true' ->
+		  ['from_asm']
+	      %% Line 413
+	      <[46|[98|[101|[97|[109]]]]]> when 'true' ->
+		  ['from_beam']
+	      %% Line 414
+	      <_2> when 'true' ->
+		  []
+	    end
+	    -| [{'function',{'from_opt',1}}] )
+      -| [{'function',{'from_opt',1}}] )
+'outdir'/1 =
+    %% Line 420
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'outdir',1}}] ) of
+	      <[]> when 'true' ->
+		  %% Line 421
+		  [46]
+	      %% Line 422
+	      <[Opt|Rest]> when 'true' ->
+		  %% Line 423
+		  case Opt of
+		    %% Line 424
+		    <{'outdir',D}> when 'true' ->
+			%% Line 425
+			D
+		    %% Line 426
+		    <_3> when 'true' ->
+			%% Line 427
+			apply 'outdir'/1
+			    (Rest)
+		  end
+	      ( <_2> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_2})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'outdir',1}}] )
+      -| [{'function',{'outdir',1}}] )
+'src_suffix'/1 =
+    %% Line 431
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'src_suffix',1}}] ) of
+	      <['from_core'|_2]> when 'true' ->
+		  [46|[99|[111|[114|[101]]]]]
+	      %% Line 432
+	      <['from_asm'|_3]> when 'true' ->
+		  [46|[83]]
+	      %% Line 433
+	      <['from_beam'|_4]> when 'true' ->
+		  [46|[98|[101|[97|[109]]]]]
+	      %% Line 434
+	      <[_5|Opts]> when 'true' ->
+		  apply 'src_suffix'/1
+		      (Opts)
+	      %% Line 435
+	      <[]> when 'true' ->
+		  [46|[101|[114|[108]]]]
+	      ( <_1> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_1})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'src_suffix',1}}] )
+      -| [{'function',{'src_suffix',1}}] )
+'purge_and_load'/3 =
+    %% Line 439
+    ( fun (_0,_1,_2) ->
+	  let <Dir> =
+	      apply %% Line 440
+		    'outdir'/1
+		  (_2)
+	  in  let <_4> =
+		  apply %% Line 441
+			'src_suffix'/1
+		      (_2)
+	      in  let <Base> =
+		      call %% Line 441
+			   'filename':%% Line 441
+				      'basename'
+			  (_1, _4)
+		  in  let <OutFile> =
+			  call %% Line 442
+			       'filename':%% Line 442
+					  'join'
+			      (%% Line 442
+			       Dir, %% Line 442
+				    Base)
+		      in  %% Line 443
+			  case call 'compile':'output_generated'
+				   (_2) of
+			    %% Line 444
+			    <'true'> when 'true' ->
+				%% Line 445
+				case call 'erlang':'atom_to_list'
+					 (_0) of
+				  %% Line 446
+				  <_13>
+				      when call 'erlang':'=:='
+					    (_13,
+					     Base) ->
+				      do  %% Line 447
+					  call 'code':'purge'
+					      (_0)
+					  %% Line 449
+					  case call 'code':'load_abs'
+						   (OutFile, _0) of
+					    %% Line 450
+					    <Error = {'error',_X_R}> when 'true' ->
+						Error
+					    %% Line 451
+					    <_14> when 'true' ->
+						{'ok',_0}
+					  end
+				  %% Line 453
+				  <_X_OtherMod> when 'true' ->
+				      do  %% Line 454
+					  call 'io':'format'
+					      ([42|[42|[32|[77|[111|[100|[117|[108|[101|[32|[110|[97|[109|[101|[32|[39|[126|[112|[39|[32|[100|[111|[101|[115|[32|[110|[111|[116|[32|[109|[97|[116|[99|[104|[32|[102|[105|[108|[101|[32|[110|[97|[109|[101|[32|[39|[126|[116|[112|[39|[32|[42|[42|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], %% Line 455
+																																												   [_0|[_1|[]]])
+					  %% Line 456
+					  {'error','badfile'}
+				end
+			    %% Line 458
+			    <'false'> when 'true' ->
+				do  %% Line 459
+				    call 'io':'format'
+					([42|[42|[32|[87|[97|[114|[110|[105|[110|[103|[58|[32|[78|[111|[32|[111|[98|[106|[101|[99|[116|[32|[102|[105|[108|[101|[32|[99|[114|[101|[97|[116|[101|[100|[32|[45|[32|[110|[111|[116|[104|[105|[110|[103|[32|[108|[111|[97|[100|[101|[100|[32|[42|[42|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], [])
+				    %% Line 460
+				    'ok'
+			    ( <_9> when 'true' ->
+				  primop 'match_fail'
+				      ({'case_clause',_9})
+			      -| ['compiler_generated'] )
+			  end
+      -| [{'function',{'purge_and_load',3}}] )
+'lc'/1 =
+    %% Line 473
+    ( fun (_0) ->
+	  let <_1> =
+	      catch
+		  %% Line 474
+		  apply 'split'/3
+		      (( _0
+			 -| [{'function',{'lc',1}}] ), [], [])
+	  in  %% Line 474
+	      case _1 of
+		%% Line 475
+		<'error'> when 'true' ->
+		    'error'
+		%% Line 476
+		<{Opts,Files}> when 'true' ->
+		    let <_2> =
+			call %% Line 477
+			     'lists':%% Line 477
+				     'reverse'
+			    (%% Line 477
+			     Opts)
+		    in  let <COpts> =
+			    [%% Line 477
+			     'report_errors'|%% Line 477
+					     ['report_warnings'|_2]]
+			in  let <_7> =
+				fun (_5) ->
+				    %% Line 478
+				    call 'compile':'file'
+					(_5, COpts)
+			    in  let <_4> =
+				    call %% Line 478
+					 'lists':%% Line 478
+						 'reverse'
+					(%% Line 478
+					 Files)
+				in  %% Line 478
+				    call 'lists':'foreach'
+					(_7, _4)
+		( <_8> when 'true' ->
+		      primop 'match_fail'
+			  ({'case_clause',_8})
+		  -| ['compiler_generated'] )
+	      end
+      -| [{'function',{'lc',1}}] )
+'lc_batch'/0 =
+    %% Line 486
+    ( fun () ->
+	  do  %% Line 487
+	      call 'io':'format'
+		  ([69|[114|[114|[111|[114|[58|[32|[110|[111|[32|[102|[105|[108|[101|[115|[32|[116|[111|[32|[99|[111|[109|[112|[105|[108|[101|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]])
+	      %% Line 488
+	      call 'erlang':'halt'
+		  (1)
+      -| [{'function',{'lc_batch',0}}] )
+'lc_batch'/1 =
+    %% Line 492
+    ( fun (_0) ->
+	  %% Line 493
+	  try
+	      apply 'split'/3
+		  (( _0
+		     -| [{'function',{'lc_batch',1}}] ), [], [])
+	  of <_1> ->
+	      case _1 of
+		%% Line 494
+		<{Opts,Files}> when 'true' ->
+		    let <_2> =
+			call %% Line 495
+			     'lists':%% Line 495
+				     'reverse'
+			    (%% Line 495
+			     Opts)
+		    in  let <COpts> =
+			    [%% Line 495
+			     'report_errors'|%% Line 495
+					     ['report_warnings'|_2]]
+			in  let <_11> =
+				letrec
+				    'lc$^0'/1 =
+					%% Line 496
+					fun (_7) ->
+					    case _7 of
+					      <[File|_5]> when 'true' ->
+						  let <_9> =
+						      call 'compile':'file'
+							  (File, COpts)
+						  in  let <_10> =
+							  apply 'lc$^0'/1
+							      (_5)
+						      in  ( [_9|_10]
+							    -| ['compiler_generated'] )
+					      <[]> when 'true' ->
+						  []
+					      ( <_8> when 'true' ->
+						    primop 'match_fail'
+							({'function_clause',_8})
+						-| ['compiler_generated'] )
+					    end
+				in  let <_6> =
+					call %% Line 496
+					     'lists':%% Line 496
+						     'reverse'
+					    (%% Line 496
+					     Files)
+				    in  %% Line 496
+					apply 'lc$^0'/1
+					    (_6)
+			    in  %% Line 497
+				case call 'lists':'member'
+					 ('error', _11) of
+				  %% Line 498
+				  <'true'> when 'true' ->
+				      %% Line 499
+				      call 'erlang':'halt'
+					  (1)
+				  %% Line 500
+				  <'false'> when 'true' ->
+				      %% Line 501
+				      call 'erlang':'halt'
+					  (0)
+				  ( <_13> when 'true' ->
+					primop 'match_fail'
+					    ({'case_clause',_13})
+				    -| ['compiler_generated'] )
+				end
+		( <_14> when 'true' ->
+		      primop 'match_fail'
+			  ({'try_clause',_14})
+		  -| ['compiler_generated'] )
+	      end
+	  catch <_17,_16,_15> ->
+	      %% Line 504
+	      case <_17,_16,_15> of
+		<( 'throw'
+		   -| ['compiler_generated'] ),( 'error'
+						 -| ['compiler_generated'] ),_19> when 'true' ->
+		    call 'erlang':'halt'
+			(1)
+		( <_20,_21,_22> when 'true' ->
+		      primop 'raise'
+			  (_22, _21)
+		  -| ['compiler_generated'] )
+	      end
+      -| [{'function',{'lc_batch',1}}] )
+'split'/3 =
+    %% Line 507
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <['@i'|[Dir|T]],Opts,Files> when 'true' ->
+		  let <_3> =
+		      call %% Line 508
+			   'erlang':%% Line 508
+				    'atom_to_list'
+			  (%% Line 508
+			   Dir)
+		  in  %% Line 508
+		      apply 'split'/3
+			  (T, [{'i',_3}|Opts], Files)
+	      %% Line 509
+	      <['@o'|[Dir|T]],Opts,Files> when 'true' ->
+		  let <_4> =
+		      call %% Line 510
+			   'erlang':%% Line 510
+				    'atom_to_list'
+			  (%% Line 510
+			   Dir)
+		  in  %% Line 510
+		      apply 'split'/3
+			  (T, [{'outdir',_4}|Opts], Files)
+	      %% Line 511
+	      <['@d'|[Def|T]],Opts,Files> when 'true' ->
+		  let <_5> =
+		      call %% Line 512
+			   'erlang':%% Line 512
+				    'atom_to_list'
+			  (%% Line 512
+			   Def)
+		  in  let <_6> =
+			  apply %% Line 512
+				'split_def'/2
+			      (_5, %% Line 512
+				   [])
+		      in  %% Line 512
+			  apply 'split'/3
+			      (T, [_6|Opts], Files)
+	      %% Line 513
+	      <[File|T],Opts,Files> when 'true' ->
+		  %% Line 514
+		  apply 'split'/3
+		      (T, Opts, [File|Files])
+	      %% Line 515
+	      <[],Opts,Files> when 'true' ->
+		  %% Line 516
+		  {Opts,Files}
+	      ( <_9,_8,_7> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_9,_8,_7})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'split',3}}] )
+      -| [{'function',{'split',3}}] )
+'split_def'/2 =
+    %% Line 518
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <[61|T],Res> when 'true' ->
+		  let <_3> =
+		      call 'lists':'reverse'
+			  (Res)
+		  in  let <_4> =
+			  call 'erlang':'list_to_atom'
+			      (_3)
+		      in  let <_2> =
+			      apply 'make_term'/1
+				  (T)
+			  in  {'d',_4,_2}
+	      %% Line 519
+	      <[H|T],Res> when 'true' ->
+		  apply 'split_def'/2
+		      (T, [H|Res])
+	      %% Line 520
+	      <[],Res> when 'true' ->
+		  let <_5> =
+		      call 'lists':'reverse'
+			  (Res)
+		  in  let <_6> =
+			  call 'erlang':'list_to_atom'
+			      (_5)
+		      in  {'d',_6}
+	      ( <_8,_7> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_8,_7})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'split_def',2}}] )
+      -| [{'function',{'split_def',2}}] )
+'make_term'/1 =
+    %% Line 522
+    ( fun (_0) ->
+	  %% Line 523
+	  case call 'erl_scan':'string'
+		   (( _0
+		      -| [{'function',{'make_term',1}}] )) of
+	    %% Line 524
+	    <{'ok',Tokens,_6}> when 'true' ->
+		let <_1> =
+		    call %% Line 525
+			 'erl_anno':%% Line 525
+				    'new'
+			(%% Line 525
+			 1)
+		in  let <_2> =
+			call %% Line 525
+			     'erlang':%% Line 525
+				      '++'
+			    (%% Line 525
+			     Tokens, %% Line 525
+				     [{'dot',_1}|[]])
+		    in  %% Line 525
+			case call 'erl_parse':'parse_term'
+				 (_2) of
+			  %% Line 526
+			  <{'ok',Term}> when 'true' ->
+			      Term
+			  %% Line 527
+			  <{'error',{_7,_8,Reason}}> when 'true' ->
+			      do  %% Line 528
+				  call 'io':'format'
+				      ([126|[116|[115|[58|[32|[126|[116|[115|[126|[110]]]]]]]]]], [Reason|[( _0
+													     -| [{'function',{'make_term',1}}] )|[]]])
+				  %% Line 529
+				  call 'erlang':'throw'
+				      ('error')
+			  ( <_3> when 'true' ->
+				primop 'match_fail'
+				    ({'case_clause',_3})
+			    -| ['compiler_generated'] )
+			end
+	    %% Line 531
+	    <{'error',{_9,_10,Reason},_11}> when 'true' ->
+		do  %% Line 532
+		    call 'io':'format'
+			([126|[116|[115|[58|[32|[126|[116|[115|[126|[110]]]]]]]]]], [Reason|[( _0
+											       -| [{'function',{'make_term',1}}] )|[]]])
+		    %% Line 533
+		    call 'erlang':'throw'
+			('error')
+	    ( <_4> when 'true' ->
+		  primop 'match_fail'
+		      ({'case_clause',_4})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'make_term',1}}] )
+'nc'/1 =
+    %% Line 540
+    ( fun (_0) ->
+	  apply 'nc'/2
+	      (( _0
+		 -| [{'function',{'nc',1}}] ), [])
+      -| [{'function',{'nc',1}}] )
+'nc'/2 =
+    %% Line 548
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <File,Opts0>
+		  when call 'erlang':'is_list'
+			(Opts0) ->
+		  let <Opts> =
+		      call %% Line 549
+			   'erlang':%% Line 549
+				    '++'
+			  (%% Line 549
+			   Opts0, %% Line 549
+				  ['report_errors'|['report_warnings']])
+		  in  %% Line 550
+		      case call 'compile':'file'
+			       (File, Opts) of
+			%% Line 551
+			<_@r0 = {'ok',Mod}> when 'true' ->
+			    let <Dir> =
+				apply %% Line 552
+				      'outdir'/1
+				    (%% Line 552
+				     Opts)
+			    in  let <_5> =
+				    call %% Line 553
+					 'filename':%% Line 553
+						    'basename'
+					(%% Line 553
+					 File, %% Line 553
+					       [46|[101|[114|[108]]]])
+				in  let <_4> =
+					call %% Line 553
+					     'code':%% Line 553
+						    'objfile_extension'
+					    ()
+				    in  let <Obj> =
+					    call %% Line 553
+						 'erlang':%% Line 553
+							  '++'
+						(_5, _4)
+					in  let <Fname> =
+						call %% Line 554
+						     'filename':%% Line 554
+								'join'
+						    (%% Line 554
+						     Dir, %% Line 554
+							  Obj)
+					    in  %% Line 555
+						case call 'file':'read_file'
+							 (Fname) of
+						  %% Line 556
+						  <{'ok',Bin}> when 'true' ->
+						      do  %% Line 557
+							  call 'rpc':'eval_everywhere'
+							      ('code', 'load_binary', [Mod|[Fname|[Bin|[]]]])
+							  %% Line 558
+							  _@r0
+						  %% Line 559
+						  <Other> when 'true' ->
+						      %% Line 560
+						      Other
+						end
+			%% Line 562
+			<Other> when 'true' ->
+			    %% Line 563
+			    Other
+		      end
+	      %% Line 565
+	      <File,Opt>
+		  when call 'erlang':'is_atom'
+			(Opt) ->
+		  %% Line 566
+		  apply 'nc'/2
+		      (File, [Opt|[]])
+	      ( <_11,_10> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_11,_10})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'nc',2}}] )
+      -| [{'function',{'nc',2}}] )
+'l'/1 =
+    %% Line 573
+    ( fun (_0) ->
+	  do  %% Line 574
+	      call 'code':'purge'
+		  (( _0
+		     -| [{'function',{'l',1}}] ))
+	      %% Line 575
+	      call 'code':'load_file'
+		  (( _0
+		     -| [{'function',{'l',1}}] ))
+      -| [{'function',{'l',1}}] )
+'nl'/1 =
+    %% Line 581
+    ( fun (_0) ->
+	  %% Line 582
+	  case call 'code':'get_object_code'
+		   (( _0
+		      -| [{'function',{'nl',1}}] )) of
+	    %% Line 583
+	    <{_X_Module,Bin,Fname}> when 'true' ->
+		%% Line 584
+		call 'rpc':'eval_everywhere'
+		    ('code', 'load_binary', [( _0
+					       -| [{'function',{'nl',1}}] )|[Fname|[Bin|[]]]])
+	    %% Line 585
+	    <Other> when 'true' ->
+		%% Line 586
+		Other
+	  end
+      -| [{'function',{'nl',1}}] )
+'i'/0 =
+    %% Line 591
+    ( fun () ->
+	  let <_0> =
+	      call 'erlang':'processes'
+		  ()
+	  in  apply 'i'/1
+		  (_0)
+      -| [{'function',{'i',0}}] )
+'ni'/0 =
+    %% Line 595
+    ( fun () ->
+	  let <_0> =
+	      apply 'all_procs'/0
+		  ()
+	  in  apply 'i'/1
+		  (_0)
+      -| [{'function',{'ni',0}}] )
+'i'/1 =
+    %% Line 599
+    ( fun (_0) ->
+	  do  %% Line 600
+	      apply 'iformat'/5
+		  ([80|[105|[100]]], [73|[110|[105|[116|[105|[97|[108|[32|[67|[97|[108|[108]]]]]]]]]]]], [72|[101|[97|[112]]]], [82|[101|[100|[115]]]], [77|[115|[103|[115]]]])
+	      do  %% Line 601
+		  apply 'iformat'/5
+		      ([82|[101|[103|[105|[115|[116|[101|[114|[101|[100]]]]]]]]]], [67|[117|[114|[114|[101|[110|[116|[32|[70|[117|[110|[99|[116|[105|[111|[110]]]]]]]]]]]]]]]], [83|[116|[97|[99|[107]]]]], [], [])
+		  let <_10> =
+		      fun (_7,_6) ->
+			  %% Line 602
+			  case <_7,_6> of
+			    <Pid,{R,M,H,S}> when 'true' ->
+				%% Line 603
+				case apply 'display_info'/1
+					 (Pid) of
+				  <{A,B,C,D}> when 'true' ->
+				      let <_5> =
+					  call %% Line 604
+					       'erlang':%% Line 604
+							'+'
+					      (%% Line 604
+					       R, %% Line 604
+						  A)
+				      in  let <_4> =
+					      call %% Line 604
+						   'erlang':%% Line 604
+							    '+'
+						  (%% Line 604
+						   M, %% Line 604
+						      B)
+					  in  let <_3> =
+						  call %% Line 604
+						       'erlang':%% Line 604
+								'+'
+						      (%% Line 604
+						       H, %% Line 604
+							  C)
+					      in  let <_2> =
+						      call %% Line 604
+							   'erlang':%% Line 604
+								    '+'
+							  (%% Line 604
+							   S, %% Line 604
+							      D)
+						  in  %% Line 604
+						      {2,{_5,_4,_3,_2}}
+				  ( <_1> when 'true' ->
+					primop 'match_fail'
+					    ({'badmatch',_1})
+				    -| ['compiler_generated'] )
+				end
+			    ( <_9,_8> when 'true' ->
+				  primop 'match_fail'
+				      ({'function_clause',_9,_8})
+			      -| ['compiler_generated'] )
+			  end
+		  in  %% Line 602
+		      case apply 'paged_output'/4
+			       (_10, %% Line 605
+				     2, %% Line 605
+					{0,0,0,0}, ( _0
+						     -| [{'function',{'i',1}}] )) of
+			%% Line 606
+			<{R,M,H,S}> when 'true' ->
+			    let <_13> =
+				apply %% Line 607
+				      'w'/1
+				    (%% Line 607
+				     H)
+			    in  let <_12> =
+				    apply %% Line 607
+					  'w'/1
+					(%% Line 607
+					 R)
+				in  let <_11> =
+					apply %% Line 607
+					      'w'/1
+					    (%% Line 607
+					     M)
+				    in  do  %% Line 607
+					    apply 'iformat'/5
+						([84|[111|[116|[97|[108]]]]], [], _13, _12, _11)
+					    let <_14> =
+						apply %% Line 608
+						      'w'/1
+						    (%% Line 608
+						     S)
+					    in  %% Line 608
+						apply 'iformat'/5
+						    ([], [], _14, [], [])
+			%% Line 609
+			<'less'> when 'true' ->
+			    %% Line 610
+			    'ok'
+			( <_15> when 'true' ->
+			      primop 'match_fail'
+				  ({'case_clause',_15})
+			  -| ['compiler_generated'] )
+		      end
+      -| [{'function',{'i',1}}] )
+'paged_output'/3 =
+    %% Line 613
+    ( fun (_0,_1,_2) ->
+	  %% Line 614
+	  apply 'paged_output'/4
+	      (_0, 0, _1, _2)
+      -| [{'function',{'paged_output',3}}] )
+'paged_output'/4 =
+    %% Line 615
+    ( fun (_0,_1,_2,_3) ->
+	  let <_5> =
+	      case %% Line 617
+		   call 'io':'rows'
+		       () of
+		%% Line 618
+		<{'ok',Rows}> when 'true' ->
+		    call 'erlang':'-'
+			(Rows, 2)
+		%% Line 619
+		<_11> when 'true' ->
+		    100
+	      end
+	  in  %% Line 621
+	      apply 'paged_output'/5
+		  (_0, _1, _5, _2, _3)
+      -| [{'function',{'paged_output',4}}] )
+'paged_output'/5 =
+    %% Line 623
+    ( fun (_0,_1,_2,_3,_4) ->
+	  ( case <_0,_1,_2,_3,_4> of
+	      <PrintFun,CurrLine,Limit,Acc,Items>
+		  when call 'erlang':'>='
+			(CurrLine,
+			 Limit) ->
+		  %% Line 624
+		  case apply 'more'/0
+			   () of
+		    %% Line 625
+		    <'more'> when 'true' ->
+			%% Line 626
+			apply 'paged_output'/5
+			    (PrintFun, 0, Limit, Acc, Items)
+		    %% Line 627
+		    <'less'> when 'true' ->
+			%% Line 628
+			'less'
+		    ( <_5> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_5})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 630
+	      <PrintFun,CurrLine,Limit,Acc,[H|T]> when 'true' ->
+		  %% Line 631
+		  case apply PrintFun
+			   (H, Acc) of
+		    <{Lines,NewAcc}> when 'true' ->
+			let <_7> =
+			    call %% Line 632
+				 'erlang':%% Line 632
+					  '+'
+				(%% Line 632
+				 CurrLine, %% Line 632
+					   Lines)
+			in  %% Line 632
+			    apply 'paged_output'/5
+				(PrintFun, _7, Limit, NewAcc, T)
+		    ( <_6> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_6})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 633
+	      <_13,_14,_15,Acc,[]> when 'true' ->
+		  %% Line 634
+		  Acc
+	      ( <_12,_11,_10,_9,_8> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_12,_11,_10,_9,_8})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'paged_output',5}}] )
+      -| [{'function',{'paged_output',5}}] )
+'more'/0 =
+    %% Line 636
+    ( fun () ->
+	  %% Line 637
+	  case apply 'get_line'/2
+		   ('more (y/n)? (y) ', [121|[10]]) of
+	    %% Line 638
+	    <[99|[10]]> when 'true' ->
+		%% Line 639
+		'more'
+	    %% Line 640
+	    <[121|[10]]> when 'true' ->
+		%% Line 641
+		'more'
+	    %% Line 642
+	    <[113|[10]]> when 'true' ->
+		%% Line 643
+		'less'
+	    %% Line 644
+	    <[110|[10]]> when 'true' ->
+		%% Line 645
+		'less'
+	    %% Line 646
+	    <_1> when 'true' ->
+		%% Line 647
+		apply 'more'/0
+		    ()
+	  end
+      -| [{'function',{'more',0}}] )
+'get_line'/2 =
+    %% Line 650
+    ( fun (_0,_1) ->
+	  let <_2> =
+	      call %% Line 651
+		   'io':%% Line 651
+			'get_line'
+		  (_0)
+	  in  %% Line 651
+	      case apply 'line_string'/1
+		       (_2) of
+		%% Line 652
+		<[10]> when 'true' ->
+		    _1
+		%% Line 654
+		<L> when 'true' ->
+		    %% Line 655
+		    L
+	      end
+      -| [{'function',{'get_line',2}}] )
+'line_string'/1 =
+    %% Line 660
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'line_string',1}}] ) of
+	      <Binary>
+		  when call 'erlang':'is_binary'
+			(( _0
+			   -| [{'function',{'line_string',1}}] )) ->
+		  call 'unicode':'characters_to_list'
+		      (Binary)
+	      %% Line 661
+	      <Other> when 'true' ->
+		  Other
+	    end
+	    -| [{'function',{'line_string',1}}] )
+      -| [{'function',{'line_string',1}}] )
+'mfa_string'/1 =
+    %% Line 663
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'mfa_string',1}}] ) of
+	      <Fun>
+		  when call 'erlang':'is_function'
+			(( _0
+			   -| [{'function',{'mfa_string',1}}] )) ->
+		  %% Line 664
+		  case call 'erlang':'fun_info'
+			   (Fun, 'module') of
+		    <{'module',M}> when 'true' ->
+			%% Line 665
+			case call 'erlang':'fun_info'
+				 (Fun, 'name') of
+			  <{'name',F}> when 'true' ->
+			      %% Line 666
+			      case call 'erlang':'fun_info'
+				       (Fun, 'arity') of
+				<{'arity',A}> when 'true' ->
+				    %% Line 667
+				    apply 'mfa_string'/1
+					({M,F,A})
+				( <_3> when 'true' ->
+				      primop 'match_fail'
+					  ({'badmatch',_3})
+				  -| ['compiler_generated'] )
+			      end
+			  ( <_2> when 'true' ->
+				primop 'match_fail'
+				    ({'badmatch',_2})
+			    -| ['compiler_generated'] )
+			end
+		    ( <_1> when 'true' ->
+			  primop 'match_fail'
+			      ({'badmatch',_1})
+		      -| ['compiler_generated'] )
+		  end
+	      %% Line 668
+	      <{M,F,A}> when 'true' ->
+		  %% Line 669
+		  call 'io_lib':'format'
+		      ([126|[119|[58|[126|[116|[119|[47|[126|[119]]]]]]]]], [M|[F|[A|[]]]])
+	      %% Line 670
+	      <X> when 'true' ->
+		  %% Line 671
+		  apply 'w'/1
+		      (X)
+	    end
+	    -| [{'function',{'mfa_string',1}}] )
+      -| [{'function',{'mfa_string',1}}] )
+'display_info'/1 =
+    %% Line 673
+    ( fun (_0) ->
+	  %% Line 674
+	  case apply 'pinfo'/1
+		   (( _0
+		      -| [{'function',{'display_info',1}}] )) of
+	    %% Line 675
+	    <'undefined'> when 'true' ->
+		{0,0,0,0}
+	    %% Line 676
+	    <Info> when 'true' ->
+		let <Call> =
+		    apply %% Line 677
+			  'initial_call'/1
+			(%% Line 677
+			 Info)
+		in  let <_4> =
+			case %% Line 678
+			     apply 'fetch'/2
+				 ('current_function', Info) of
+			  %% Line 679
+			  <{Mod,F,Args}>
+			      when call 'erlang':'is_list'
+				    (Args) ->
+			      let <_2> =
+				  call %% Line 680
+				       'erlang':%% Line 680
+						'length'
+				      (%% Line 680
+				       Args)
+			      in  %% Line 680
+				  {Mod,F,_2}
+			  %% Line 681
+			  <Other> when 'true' ->
+			      %% Line 682
+			      Other
+			end
+		    in  let <Reds> =
+			    apply %% Line 684
+				  'fetch'/2
+				(%% Line 684
+				 'reductions', %% Line 684
+					       Info)
+			in  let <LM> =
+				apply %% Line 685
+				      'fetch'/2
+				    (%% Line 685
+				     'message_queue_len', %% Line 685
+							  Info)
+			    in  let <HS> =
+				    apply %% Line 686
+					  'fetch'/2
+					(%% Line 686
+					 'heap_size', %% Line 686
+						      Info)
+				in  let <SS> =
+					apply %% Line 687
+					      'fetch'/2
+					    (%% Line 687
+					     'stack_size', %% Line 687
+							   Info)
+				    in  let <_14> =
+					    apply %% Line 688
+						  'w'/1
+						(( _0
+						   -| [{'function',{'display_info',1}}] ))
+					in  let <_13> =
+						apply %% Line 688
+						      'mfa_string'/1
+						    (%% Line 688
+						     Call)
+					    in  let <_12> =
+						    apply %% Line 689
+							  'w'/1
+							(%% Line 689
+							 HS)
+						in  let <_11> =
+							apply %% Line 690
+							      'w'/1
+							    (%% Line 690
+							     Reds)
+						    in  let <_10> =
+							    apply %% Line 690
+								  'w'/1
+								(%% Line 690
+								 LM)
+							in  do  %% Line 688
+								apply 'iformat'/5
+								    (_14, _13, _12, _11, _10)
+								let <_18> =
+								    case %% Line 691
+									 apply 'fetch'/2
+									     ('registered_name', Info) of
+								      %% Line 692
+								      <0> when 'true' ->
+									  []
+								      %% Line 693
+								      <X> when 'true' ->
+									  call 'io_lib':'format'
+									      ([126|[116|[119]]], [X|[]])
+								    end
+								in  let <_16> =
+									apply %% Line 695
+									      'mfa_string'/1
+									    (_4)
+								    in  let <_15> =
+									    apply %% Line 696
+										  'w'/1
+										(%% Line 696
+										 SS)
+									in  do  %% Line 691
+										apply 'iformat'/5
+										    (_18, _16, _15, %% Line 697
+												    [], %% Line 698
+													[])
+										%% Line 699
+										{Reds,LM,HS,SS}
+	  end
+      -| [{'function',{'display_info',1}}] )
+'initial_call'/1 =
+    %% Line 706
+    ( fun (_0) ->
+	  %% Line 707
+	  case apply 'fetch'/2
+		   ('initial_call', ( _0
+				      -| [{'function',{'initial_call',1}}] )) of
+	    %% Line 708
+	    <{'proc_lib','init_p',_3}> when 'true' ->
+		%% Line 709
+		call 'proc_lib':'translate_initial_call'
+		    (( _0
+		       -| [{'function',{'initial_call',1}}] ))
+	    %% Line 710
+	    <ICall> when 'true' ->
+		%% Line 711
+		ICall
+	  end
+      -| [{'function',{'initial_call',1}}] )
+'iformat'/5 =
+    %% Line 714
+    ( fun (_0,_1,_2,_3,_4) ->
+	  %% Line 715
+	  call 'io':'format'
+	      ([126|[45|[50|[49|[116|[115|[32|[126|[45|[51|[51|[116|[115|[32|[126|[56|[115|[32|[126|[56|[115|[32|[126|[52|[115|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]], [_0|[_1|[_2|[_3|[_4|[]]]]]])
+      -| [{'function',{'iformat',5}}] )
+'all_procs'/0 =
+    %% Line 717
+    ( fun () ->
+	  %% Line 718
+	  case call 'erlang':'is_alive'
+		   () of
+	    %% Line 719
+	    <'true'> when 'true' ->
+		let <_4> =
+		    fun (_2) ->
+			call 'rpc':'call'
+			    (_2, 'erlang', 'processes', [])
+		in  let <_0> =
+			call %% Line 720
+			     'erlang':%% Line 720
+				      'node'
+			    ()
+		    in  let <_1> =
+			    call %% Line 720
+				 'erlang':%% Line 720
+					  'nodes'
+				()
+			in  call 'lists':'flatmap'
+				(_4, %% Line 720
+				     [_0|_1])
+	    %% Line 721
+	    <'false'> when 'true' ->
+		call 'erlang':'processes'
+		    ()
+	    ( <_5> when 'true' ->
+		  primop 'match_fail'
+		      ({'case_clause',_5})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'all_procs',0}}] )
+'pinfo'/1 =
+    %% Line 724
+    ( fun (_0) ->
+	  %% Line 725
+	  case call 'erlang':'is_alive'
+		   () of
+	    %% Line 726
+	    <'true'> when 'true' ->
+		let <_1> =
+		    call 'erlang':'node'
+			(( _0
+			   -| [{'function',{'pinfo',1}}] ))
+		in  call 'rpc':'call'
+			(_1, 'erlang', 'process_info', [( _0
+							  -| [{'function',{'pinfo',1}}] )|[]])
+	    %% Line 727
+	    <'false'> when 'true' ->
+		call 'erlang':'process_info'
+		    (( _0
+		       -| [{'function',{'pinfo',1}}] ))
+	    ( <_2> when 'true' ->
+		  primop 'match_fail'
+		      ({'case_clause',_2})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'pinfo',1}}] )
+'fetch'/2 =
+    %% Line 730
+    ( fun (_0,_1) ->
+	  %% Line 731
+	  case call 'lists':'keyfind'
+		   (_0, 1, _1) of
+	    %% Line 732
+	    <{_5,Val}> when 'true' ->
+		Val
+	    %% Line 733
+	    <'false'> when 'true' ->
+		0
+	    ( <_2> when 'true' ->
+		  primop 'match_fail'
+		      ({'case_clause',_2})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'fetch',2}}] )
+'pid'/3 =
+    %% Line 741
+    ( fun (_0,_1,_2) ->
+	  let <_9> =
+	      call %% Line 742
+		   'erlang':%% Line 742
+			    'integer_to_list'
+		  (_0)
+	  in  let <_6> =
+		  call %% Line 743
+		       'erlang':%% Line 743
+				'integer_to_list'
+		      (_1)
+	      in  let <_3> =
+		      call %% Line 744
+			   'erlang':%% Line 744
+				    'integer_to_list'
+			  (_2)
+		  in  let <_4> =
+			  call %% Line 744
+			       'erlang':%% Line 744
+					'++'
+			      (_3, %% Line 744
+				   [62])
+		      in  let <_5> =
+			      [46|_4]
+			  in  let <_7> =
+				  call %% Line 743
+				       'erlang':%% Line 743
+						'++'
+				      (_6, _5)
+			      in  let <_8> =
+				      [46|_7]
+				  in  let <_10> =
+					  call %% Line 742
+					       'erlang':%% Line 742
+							'++'
+					      (_9, _8)
+				      in  let <_11> =
+					      [60|_10]
+					  in  %% Line 742
+					      call 'erlang':'list_to_pid'
+						  (_11)
+      -| [{'function',{'pid',3}}] )
+'i'/3 =
+    %% Line 751
+    ( fun (_0,_1,_2) ->
+	  let <_3> =
+	      apply 'pid'/3
+		  (_0, _1, _2)
+	  in  apply 'pinfo'/1
+		  (_3)
+      -| [{'function',{'i',3}}] )
+'q'/0 =
+    %% Line 755
+    ( fun () ->
+	  %% Line 756
+	  call 'init':'stop'
+	      ()
+      -| [{'function',{'q',0}}] )
+'bt'/1 =
+    %% Line 761
+    ( fun (_0) ->
+	  let <_1> =
+	      catch
+		  %% Line 762
+		  call 'erlang':'process_display'
+		      (( _0
+			 -| [{'function',{'bt',1}}] ), 'backtrace')
+	  in  %% Line 762
+	      case _1 of
+		%% Line 763
+		<{'EXIT',_4}> when 'true' ->
+		    %% Line 764
+		    'undefined'
+		%% Line 765
+		<_5> when 'true' ->
+		    %% Line 766
+		    'ok'
+	      end
+      -| [{'function',{'bt',1}}] )
+'m'/0 =
+    %% Line 771
+    ( fun () ->
+	  do  %% Line 772
+	      apply 'mformat'/2
+		  ([77|[111|[100|[117|[108|[101]]]]]], [70|[105|[108|[101]]]])
+	      let <_4> =
+		  fun (_2) ->
+		      %% Line 773
+		      case _2 of
+			<{Mod,File}> when 'true' ->
+			    apply 'mformat'/2
+				(Mod, File)
+			( <_3> when 'true' ->
+			      primop 'match_fail'
+				  ({'function_clause',_3})
+			  -| ['compiler_generated'] )
+		      end
+	      in  let <_0> =
+		      call %% Line 773
+			   'code':%% Line 773
+				  'all_loaded'
+			  ()
+		  in  let <_1> =
+			  call %% Line 773
+			       'lists':%% Line 773
+				       'sort'
+			      (_0)
+		      in  %% Line 773
+			  call 'lists':'foreach'
+			      (_4, _1)
+      -| [{'function',{'m',0}}] )
+'mformat'/2 =
+    %% Line 775
+    ( fun (_0,_1) ->
+	  %% Line 776
+	  call 'io':'format'
+	      ([126|[45|[50|[48|[115|[32|[32|[126|[116|[115|[10]]]]]]]]]]], [_0|[_1|[]]])
+      -| [{'function',{'mformat',2}}] )
+'mm'/0 =
+    %% Line 780
+    ( fun () ->
+	  %% Line 781
+	  call 'code':'modified_modules'
+	      ()
+      -| [{'function',{'mm',0}}] )
+'lm'/0 =
+    %% Line 785
+    ( fun () ->
+	  %% Line 786
+	  ( letrec
+		'lc$^0'/1 =
+		    fun (_3) ->
+			case _3 of
+			  <[M|_1]> when 'true' ->
+			      let <_5> =
+				  apply 'l'/1
+				      (M)
+			      in  let <_6> =
+				      apply 'lc$^0'/1
+					  (_1)
+				  in  ( [_5|_6]
+					-| ['compiler_generated'] )
+			  <[]> when 'true' ->
+			      []
+			  ( <_4> when 'true' ->
+				primop 'match_fail'
+				    ({'function_clause',_4})
+			    -| ['compiler_generated'] )
+			end
+	    in  let <_2> =
+		    apply 'mm'/0
+			()
+		in  apply 'lc$^0'/1
+			(_2)
+	    -| ['list_comprehension'] )
+      -| [{'function',{'lm',0}}] )
+'erlangrc'/0 =
+    %% Line 793
+    ( fun () ->
+	  %% Line 794
+	  case call 'init':'get_argument'
+		   ('home') of
+	    %% Line 795
+	    <{'ok',[_@r0 = [Home|[]]|[]]}> when 'true' ->
+		%% Line 796
+		apply 'erlangrc'/1
+		    (_@r0)
+	    %% Line 797
+	    <_1> when 'true' ->
+		%% Line 798
+		{'error','enoent'}
+	  end
+      -| [{'function',{'erlangrc',0}}] )
+'erlangrc'/1 =
+    %% Line 804
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'erlangrc',1}}] ) of
+	      <Paths = [Home|_2]>
+		  when call 'erlang':'is_list'
+			(Home) ->
+		  %% Line 805
+		  apply 'f_p_e'/2
+		      (Paths, [46|[101|[114|[108|[97|[110|[103]]]]]]])
+	      ( <_1> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_1})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'erlangrc',1}}] )
+      -| [{'function',{'erlangrc',1}}] )
+'error'/2 =
+    %% Line 807
+    ( fun (_0,_1) ->
+	  %% Line 808
+	  call 'error_logger':'error_msg'
+	      (_0, _1)
+      -| [{'function',{'error',2}}] )
+'f_p_e'/2 =
+    %% Line 810
+    ( fun (_0,_1) ->
+	  %% Line 811
+	  case call 'file':'path_eval'
+		   (_0, _1) of
+	    %% Line 812
+	    <Enoent = {'error','enoent'}> when 'true' ->
+		%% Line 813
+		Enoent
+	    %% Line 814
+	    <_@r0 = {'error',E = {Line,_X_Mod,_X_Term}}> when 'true' ->
+		let <_2> =
+		    call %% Line 816
+			 'file':%% Line 816
+				'format_error'
+			(%% Line 816
+			 E)
+		in  do  %% Line 815
+			apply 'error'/2
+			    ([102|[105|[108|[101|[58|[112|[97|[116|[104|[95|[101|[118|[97|[108|[40|[126|[116|[112|[44|[126|[116|[112|[41|[58|[32|[101|[114|[114|[111|[114|[32|[111|[110|[32|[108|[105|[110|[101|[32|[126|[112|[58|[32|[126|[116|[115|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], %% Line 816
+																																						[_0|[_1|[Line|[_2|[]]]]])
+			%% Line 817
+			_@r0
+	    %% Line 818
+	    <_@r1 = {'error',E}> when 'true' ->
+		let <_3> =
+		    call %% Line 820
+			 'file':%% Line 820
+				'format_error'
+			(%% Line 820
+			 E)
+		in  do  %% Line 819
+			apply 'error'/2
+			    ([102|[105|[108|[101|[58|[112|[97|[116|[104|[95|[101|[118|[97|[108|[40|[126|[116|[112|[44|[126|[116|[112|[41|[58|[32|[126|[116|[115|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], %% Line 820
+																									 [_0|[_1|[_3|[]]]])
+			%% Line 821
+			_@r1
+	    %% Line 822
+	    <Other> when 'true' ->
+		%% Line 823
+		Other
+	  end
+      -| [{'function',{'f_p_e',2}}] )
+'bi'/1 =
+    %% Line 826
+    ( fun (_0) ->
+	  %% Line 827
+	  case call 'erlang':'system_info'
+		   (( _0
+		      -| [{'function',{'bi',1}}] )) of
+	    %% Line 828
+	    <X>
+		when call 'erlang':'is_binary'
+		      (X) ->
+		let <_1> =
+		    call 'erlang':'binary_to_list'
+			(X)
+		in  call 'io':'put_chars'
+			(_1)
+	    %% Line 829
+	    <X>
+		when call 'erlang':'is_list'
+		      (X) ->
+		call 'io':'put_chars'
+		    (X)
+	    %% Line 830
+	    <X> when 'true' ->
+		call 'io':'format'
+		    ([126|[119]], [X|[]])
+	  end
+      -| [{'function',{'bi',1}}] )
+'m'/1 =
+    %% Line 839
+    ( fun (_0) ->
+	  let <L> =
+	      call ( _0
+		     -| [{'function',{'m',1}}] ):%% Line 840
+						 'module_info'
+		  ()
+	  in  %% Line 841
+	      case call 'lists':'keyfind'
+		       ('exports', 1, L) of
+		<{'exports',E}> when 'true' ->
+		    let <Time> =
+			apply %% Line 842
+			      'get_compile_time'/1
+			    (%% Line 842
+			     L)
+		    in  let <COpts> =
+			    apply %% Line 843
+				  'get_compile_options'/1
+				(%% Line 843
+				 L)
+			in  do  %% Line 844
+				call 'io':'format'
+				    ([77|[111|[100|[117|[108|[101|[58|[32|[126|[119|[126|[110]]]]]]]]]]]], [( _0
+													      -| [{'function',{'m',1}}] )|[]])
+				do  %% Line 845
+				    apply 'print_md5'/1
+					(L)
+				    do  %% Line 846
+					call 'io':'format'
+					    ([67|[111|[109|[112|[105|[108|[101|[100|[58|[32]]]]]]]]]])
+					do  %% Line 847
+					    apply 'print_time'/1
+						(Time)
+					    do  %% Line 848
+						apply 'print_object_file'/1
+						    (( _0
+						       -| [{'function',{'m',1}}] ))
+						do  %% Line 849
+						    call 'io':'format'
+							([67|[111|[109|[112|[105|[108|[101|[114|[32|[111|[112|[116|[105|[111|[110|[115|[58|[32|[32|[126|[112|[126|[110]]]]]]]]]]]]]]]]]]]]]]], [COpts|[]])
+						    do  %% Line 850
+							call 'io':'format'
+							    ([69|[120|[112|[111|[114|[116|[115|[58|[32|[126|[110]]]]]]]]]]], [])
+							let <_5> =
+							    call %% Line 850
+								 'lists':%% Line 850
+									 'keysort'
+								(%% Line 850
+								 1, %% Line 850
+								    E)
+							in  %% Line 850
+							    apply 'print_exports'/1
+								(_5)
+		( <_2> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_2})
+		  -| ['compiler_generated'] )
+	      end
+      -| [{'function',{'m',1}}] )
+'print_object_file'/1 =
+    %% Line 852
+    ( fun (_0) ->
+	  %% Line 853
+	  case call 'code':'is_loaded'
+		   (( _0
+		      -| [{'function',{'print_object_file',1}}] )) of
+	    %% Line 854
+	    <{'file',File}> when 'true' ->
+		%% Line 855
+		call 'io':'format'
+		    ([79|[98|[106|[101|[99|[116|[32|[102|[105|[108|[101|[58|[32|[126|[116|[115|[10]]]]]]]]]]]]]]]]], [File|[]])
+	    %% Line 856
+	    <_3> when 'true' ->
+		%% Line 857
+		'ignore'
+	  end
+      -| [{'function',{'print_object_file',1}}] )
+'print_md5'/1 =
+    %% Line 860
+    ( fun (_0) ->
+	  %% Line 861
+	  case call 'lists':'keyfind'
+		   ('md5', 1, ( _0
+				-| [{'function',{'print_md5',1}}] )) of
+	    %% Line 862
+	    <{'md5',#{#<MD5>(128,1,'integer',['unsigned'|['big']])}#}> when 'true' ->
+		call 'io':'format'
+		    ([77|[68|[53|[58|[32|[126|[46|[49|[54|[98|[126|[110]]]]]]]]]]]], [MD5|[]])
+	    %% Line 863
+	    <_3> when 'true' ->
+		'ok'
+	  end
+      -| [{'function',{'print_md5',1}}] )
+'get_compile_time'/1 =
+    %% Line 866
+    ( fun (_0) ->
+	  %% Line 867
+	  case apply 'get_compile_info'/2
+		   (( _0
+		      -| [{'function',{'get_compile_time',1}}] ), 'time') of
+	    %% Line 868
+	    <{'ok',Val}> when 'true' ->
+		Val
+	    %% Line 869
+	    <'error'> when 'true' ->
+		'notime'
+	    ( <_1> when 'true' ->
+		  primop 'match_fail'
+		      ({'case_clause',_1})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'get_compile_time',1}}] )
+'get_compile_options'/1 =
+    %% Line 872
+    ( fun (_0) ->
+	  %% Line 873
+	  case apply 'get_compile_info'/2
+		   (( _0
+		      -| [{'function',{'get_compile_options',1}}] ), 'options') of
+	    %% Line 874
+	    <{'ok',Val}> when 'true' ->
+		Val
+	    %% Line 875
+	    <'error'> when 'true' ->
+		[]
+	    ( <_1> when 'true' ->
+		  primop 'match_fail'
+		      ({'case_clause',_1})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'get_compile_options',1}}] )
+'get_compile_info'/2 =
+    %% Line 878
+    ( fun (_0,_1) ->
+	  %% Line 879
+	  case call 'lists':'keyfind'
+		   ('compile', 1, _0) of
+	    %% Line 880
+	    <{'compile',I}> when 'true' ->
+		%% Line 881
+		case call 'lists':'keyfind'
+			 (_1, 1, I) of
+		  %% Line 882
+		  <{_6,Val}>
+		      when call 'erlang':'=:='
+			    (_6,
+			     _1) ->
+		      {'ok',Val}
+		  %% Line 883
+		  <'false'> when 'true' ->
+		      'error'
+		  ( <_2> when 'true' ->
+			primop 'match_fail'
+			    ({'case_clause',_2})
+		    -| ['compiler_generated'] )
+		end
+	    %% Line 885
+	    <'false'> when 'true' ->
+		'error'
+	    ( <_3> when 'true' ->
+		  primop 'match_fail'
+		      ({'case_clause',_3})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'get_compile_info',2}}] )
+'print_exports'/1 =
+    %% Line 888
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'print_exports',1}}] ) of
+	      <X>
+		  when try
+			let <_1> =
+			    call 'erlang':'length'
+				(( _0
+				   -| [{'function',{'print_exports',1}}] ))
+			in  call 'erlang':'>'
+				(_1, 16)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 889
+		  apply 'split_print_exports'/1
+		      (X)
+	      %% Line 890
+	      <[]> when 'true' ->
+		  'ok'
+	      %% Line 891
+	      <[{F,A}|Tail]> when 'true' ->
+		  do  %% Line 892
+		      call 'io':'format'
+			  ([32|[32|[32|[32|[32|[32|[32|[32|[32|[126|[116|[119|[47|[126|[119|[126|[110]]]]]]]]]]]]]]]]], [F|[A|[]]])
+		      %% Line 893
+		      apply 'print_exports'/1
+			  (Tail)
+	      ( <_2> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_2})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'print_exports',1}}] )
+      -| [{'function',{'print_exports',1}}] )
+'split_print_exports'/1 =
+    %% Line 895
+    ( fun (_0) ->
+	  let <Len> =
+	      call %% Line 896
+		   'erlang':%% Line 896
+			    'length'
+		  (( _0
+		     -| [{'function',{'split_print_exports',1}}] ))
+	  in  let <Mid> =
+		  call %% Line 897
+		       'erlang':%% Line 897
+				'div'
+		      (%% Line 897
+		       Len, %% Line 897
+			    2)
+	      in  let <L1> =
+		      call %% Line 898
+			   'lists':%% Line 898
+				   'sublist'
+			  (( _0
+			     -| [{'function',{'split_print_exports',1}}] ), %% Line 898
+									    1, %% Line 898
+									       Mid)
+		  in  let <_6> =
+			  call %% Line 899
+			       'erlang':%% Line 899
+					'+'
+			      (%% Line 899
+			       Mid, %% Line 899
+				    1)
+		      in  let <_4> =
+			      call %% Line 899
+				   'erlang':%% Line 899
+					    '-'
+				  (%% Line 899
+				   Len, %% Line 899
+					Mid)
+			  in  let <_5> =
+				  call %% Line 899
+				       'erlang':%% Line 899
+						'+'
+				      (_4, %% Line 899
+					   1)
+			      in  let <L2> =
+				      call %% Line 899
+					   'lists':%% Line 899
+						   'sublist'
+					  (( _0
+					     -| [{'function',{'split_print_exports',1}}] ), _6, _5)
+				  in  %% Line 900
+				      apply 'split_print_exports'/2
+					  (L1, L2)
+      -| [{'function',{'split_print_exports',1}}] )
+'split_print_exports'/2 =
+    %% Line 902
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <[],[{F,A}|T]> when 'true' ->
+		  do  %% Line 904
+		      call 'io':'format'
+			  ([126|[45|[51|[48|[116|[115|[126|[116|[119|[47|[126|[119|[126|[110]]]]]]]]]]]]]], [[32]|[F|[A|[]]]])
+		      %% Line 905
+		      apply 'split_print_exports'/2
+			  ([], T)
+	      %% Line 906
+	      <[{F1,A1}|T1],[{F2,A2}|T2]> when 'true' ->
+		  let <_3> =
+		      call %% Line 907
+			   'io_lib':%% Line 907
+				    'format'
+			  (%% Line 907
+			   [126|[116|[119|[47|[126|[119]]]]]], %% Line 907
+							       [F1|[A1|[]]])
+		  in  let <Str> =
+			  call %% Line 907
+			       'lists':%% Line 907
+				       'flatten'
+			      (_3)
+		      in  do  %% Line 908
+			      call 'io':'format'
+				  ([126|[45|[51|[48|[116|[115|[126|[116|[119|[47|[126|[119|[126|[110]]]]]]]]]]]]]], [Str|[F2|[A2|[]]]])
+			      %% Line 909
+			      apply 'split_print_exports'/2
+				  (T1, T2)
+	      %% Line 910
+	      <[],[]> when 'true' ->
+		  'ok'
+	      ( <_6,_5> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_6,_5})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'split_print_exports',2}}] )
+      -| [{'function',{'split_print_exports',2}}] )
+'print_time'/1 =
+    %% Line 912
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'print_time',1}}] ) of
+	      <{Year,Month,Day,Hour,Min,_X_Secs}> when 'true' ->
+		  let <_1> =
+		      apply %% Line 913
+			    'month'/1
+			  (%% Line 913
+			   Month)
+		  in  do  %% Line 913
+			  call 'io':'format'
+			      ([126|[115|[32|[126|[119|[32|[126|[119|[44|[32]]]]]]]]]], [_1|[Day|[Year|[]]]])
+			  %% Line 914
+			  call 'io':'format'
+			      ([126|[46|[50|[46|[48|[119|[58|[126|[46|[50|[46|[48|[119|[126|[110]]]]]]]]]]]]]]], [Hour|[Min|[]]])
+	      %% Line 915
+	      <'notime'> when 'true' ->
+		  %% Line 916
+		  call 'io':'format'
+		      ([78|[111|[32|[99|[111|[109|[112|[105|[108|[101|[32|[116|[105|[109|[101|[32|[105|[110|[102|[111|[32|[97|[118|[97|[105|[108|[97|[98|[108|[101|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], [])
+	      ( <_2> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_2})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'print_time',1}}] )
+      -| [{'function',{'print_time',1}}] )
+'month'/1 =
+    %% Line 918
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'month',1}}] ) of
+	      <1> when 'true' ->
+		  [74|[97|[110|[117|[97|[114|[121]]]]]]]
+	      %% Line 919
+	      <2> when 'true' ->
+		  [70|[101|[98|[114|[117|[97|[114|[121]]]]]]]]
+	      %% Line 920
+	      <3> when 'true' ->
+		  [77|[97|[114|[99|[104]]]]]
+	      %% Line 921
+	      <4> when 'true' ->
+		  [65|[112|[114|[105|[108]]]]]
+	      %% Line 922
+	      <5> when 'true' ->
+		  [77|[97|[121]]]
+	      %% Line 923
+	      <6> when 'true' ->
+		  [74|[117|[110|[101]]]]
+	      %% Line 924
+	      <7> when 'true' ->
+		  [74|[117|[108|[121]]]]
+	      %% Line 925
+	      <8> when 'true' ->
+		  [65|[117|[103|[117|[115|[116]]]]]]
+	      %% Line 926
+	      <9> when 'true' ->
+		  [83|[101|[112|[116|[101|[109|[98|[101|[114]]]]]]]]]
+	      %% Line 927
+	      <10> when 'true' ->
+		  [79|[99|[116|[111|[98|[101|[114]]]]]]]
+	      %% Line 928
+	      <11> when 'true' ->
+		  [78|[111|[118|[101|[109|[98|[101|[114]]]]]]]]
+	      %% Line 929
+	      <12> when 'true' ->
+		  [68|[101|[99|[101|[109|[98|[101|[114]]]]]]]]
+	      ( <_1> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_1})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'month',1}}] )
+      -| [{'function',{'month',1}}] )
+'flush'/0 =
+    %% Line 934
+    ( fun () ->
+	  ( letrec
+		'recv$^0'/0 =
+		    fun () ->
+			let <_5,_3> =
+			    primop 'recv_peek_message'
+				()
+			in  case _5 of
+			      <'true'> when 'true' ->
+				  do  primop 'remove_message'
+					  ()
+				      let <_0> =
+					  call %% Line 937
+					       'io':%% Line 937
+						    'getopts'
+					      ()
+				      in  do  %% Line 937
+					      case call 'lists':'keyfind'
+						       ('encoding', 1, _0) of
+						%% Line 938
+						<{'encoding','unicode'}> when 'true' ->
+						    %% Line 939
+						    call 'io':'format'
+							([83|[104|[101|[108|[108|[32|[103|[111|[116|[32|[126|[116|[112|[126|[110]]]]]]]]]]]]]]], [_3|[]])
+						%% Line 940
+						<_2> when 'true' ->
+						    %% Line 941
+						    call 'io':'format'
+							([83|[104|[101|[108|[108|[32|[103|[111|[116|[32|[126|[112|[126|[110]]]]]]]]]]]]]], [_3|[]])
+					      end
+					      %% Line 943
+					      apply 'flush'/0
+						  ()
+			      <'false'> when 'true' ->
+				  let <_4> =
+				      primop 'recv_wait_timeout'
+					  (%% Line 944
+					   0)
+				  in  case _4 of
+					<'true'> when 'true' ->
+					    do  primop 'timeout'
+						    ()
+						%% Line 945
+						'ok'
+					( <'false'> when 'true' ->
+					      ( apply 'recv$^0'/0
+						    ()
+						-| ['dialyzer_ignore'] )
+					  -| ['dialyzer_ignore'] )
+				      end
+			    end
+	    in  ( apply 'recv$^0'/0
+		      ()
+		  -| ['dialyzer_ignore'] )
+	    -| ['letrec_goto'] )
+      -| [{'function',{'flush',0}}] )
+'nregs'/0 =
+    %% Line 951
+    ( fun () ->
+	  let <_3> =
+	      fun (_1) ->
+		  %% Line 952
+		  apply 'print_node_regs'/1
+		      (_1)
+	  in  let <_0> =
+		  apply %% Line 952
+			'all_regs'/0
+		      ()
+	      in  %% Line 952
+		  call 'lists':'foreach'
+		      (_3, _0)
+      -| [{'function',{'nregs',0}}] )
+'regs'/0 =
+    %% Line 956
+    ( fun () ->
+	  let <_1> =
+	      call %% Line 957
+		   'erlang':%% Line 957
+			    'node'
+		  ()
+	  in  let <_0> =
+		  call %% Line 957
+		       'erlang':%% Line 957
+				'registered'
+		      ()
+	      in  %% Line 957
+		  apply 'print_node_regs'/1
+		      ({_1,_0})
+      -| [{'function',{'regs',0}}] )
+'all_regs'/0 =
+    %% Line 959
+    ( fun () ->
+	  %% Line 960
+	  case call 'erlang':'is_alive'
+		   () of
+	    %% Line 961
+	    <'true'> when 'true' ->
+		%% Line 962
+		( letrec
+		      'lc$^0'/1 =
+			  fun (_4) ->
+			      case _4 of
+				<[N|_1]> when 'true' ->
+				    let <_6> =
+					call 'rpc':'call'
+					    (N, 'erlang', 'registered', [])
+				    in  let <_7> =
+					    apply 'lc$^0'/1
+						(_1)
+					in  ( [{N,_6}|_7]
+					      -| ['compiler_generated'] )
+				<[]> when 'true' ->
+				    []
+				( <_5> when 'true' ->
+				      primop 'match_fail'
+					  ({'function_clause',_5})
+				  -| ['compiler_generated'] )
+			      end
+		  in  let <_2> =
+			  call 'erlang':'node'
+			      ()
+		      in  let <_3> =
+			      call 'erlang':'nodes'
+				  ()
+			  in  apply 'lc$^0'/1
+				  ([_2|_3])
+		  -| ['list_comprehension'] )
+	    %% Line 963
+	    <'false'> when 'true' ->
+		let <_9> =
+		    call 'erlang':'node'
+			()
+		in  let <_8> =
+			call 'erlang':'registered'
+			    ()
+		    in  [{_9,_8}|[]]
+	    ( <_10> when 'true' ->
+		  primop 'match_fail'
+		      ({'case_clause',_10})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'all_regs',0}}] )
+'print_node_regs'/1 =
+    %% Line 966
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'print_node_regs',1}}] ) of
+	      <{N,List}>
+		  when call 'erlang':'is_list'
+			(List) ->
+		  let <_1> =
+		      call %% Line 967
+			   'lists':%% Line 967
+				   'sort'
+			  (%% Line 967
+			   List)
+		  in  %% Line 967
+		      case apply 'pids_and_ports'/5
+			       (N, _1, [], [], []) of
+			<{Pids,Ports,_X_Dead}> when 'true' ->
+			    do  %% Line 969
+				call 'io':'format'
+				    ([126|[110|[42|[42|[32|[82|[101|[103|[105|[115|[116|[101|[114|[101|[100|[32|[112|[114|[111|[99|[115|[32|[111|[110|[32|[110|[111|[100|[101|[32|[126|[119|[32|[42|[42|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], [N|[]])
+				do  %% Line 970
+				    apply 'procformat'/5
+					([78|[97|[109|[101]]]], [80|[105|[100]]], [73|[110|[105|[116|[105|[97|[108|[32|[67|[97|[108|[108]]]]]]]]]]]], [82|[101|[100|[115]]]], [77|[115|[103|[115]]]])
+				    let <_5> =
+					fun (_3) ->
+					    %% Line 971
+					    case _3 of
+					      <{Name,PI,Pid}> when 'true' ->
+						  apply 'procline'/3
+						      (Name, PI, Pid)
+					      ( <_4> when 'true' ->
+						    primop 'match_fail'
+							({'function_clause',_4})
+						-| ['compiler_generated'] )
+					    end
+				    in  do  %% Line 971
+					    call 'lists':'foreach'
+						(_5, Pids)
+					    do  %% Line 973
+						call 'io':'format'
+						    ([126|[110|[42|[42|[32|[82|[101|[103|[105|[115|[116|[101|[114|[101|[100|[32|[112|[111|[114|[116|[115|[32|[111|[110|[32|[110|[111|[100|[101|[32|[126|[119|[32|[42|[42|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], [N|[]])
+						do  %% Line 974
+						    apply 'portformat'/3
+							([78|[97|[109|[101]]]], [73|[100]], [67|[111|[109|[109|[97|[110|[100]]]]]]])
+						    let <_8> =
+							fun (_6) ->
+							    %% Line 975
+							    case _6 of
+							      <{Name,PI,Id}> when 'true' ->
+								  apply 'portline'/3
+								      (Name, PI, Id)
+							      ( <_7> when 'true' ->
+								    primop 'match_fail'
+									({'function_clause',_7})
+								-| ['compiler_generated'] )
+							    end
+						    in  %% Line 975
+							call 'lists':'foreach'
+							    (_8, Ports)
+			( <_2> when 'true' ->
+			      primop 'match_fail'
+				  ({'badmatch',_2})
+			  -| ['compiler_generated'] )
+		      end
+	      ( <_9> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_9})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'print_node_regs',1}}] )
+      -| [{'function',{'print_node_regs',1}}] )
+'pids_and_ports'/5 =
+    %% Line 977
+    ( fun (_0,_1,_2,_3,_4) ->
+	  ( case <_0,_1,_2,_3,_4> of
+	      <_16,[],Pids,Ports,Dead> when 'true' ->
+		  let <_7> =
+		      call %% Line 978
+			   'lists':%% Line 978
+				   'reverse'
+			  (%% Line 978
+			   Pids)
+		  in  let <_6> =
+			  call %% Line 978
+			       'lists':%% Line 978
+				       'reverse'
+			      (%% Line 978
+			       Ports)
+		      in  let <_5> =
+			      call %% Line 978
+				   'lists':%% Line 978
+					   'reverse'
+				  (%% Line 978
+				   Dead)
+			  in  %% Line 978
+			      {_7,_6,_5}
+	      %% Line 980
+	      <Node,[Name|Names],Pids,Ports,Dead> when 'true' ->
+		  %% Line 981
+		  case apply 'pwhereis'/2
+			   (Node, Name) of
+		    %% Line 982
+		    <Pid>
+			when call 'erlang':'is_pid'
+			      (Pid) ->
+			let <_8> =
+			    apply %% Line 983
+				  'pinfo'/1
+				(%% Line 983
+				 Pid)
+			in  %% Line 983
+			    apply 'pids_and_ports'/5
+				(Node, Names, [{Name,_8,Pid}|Pids], %% Line 984
+								    Ports, %% Line 984
+									   Dead)
+		    %% Line 985
+		    <Id>
+			when call 'erlang':'is_port'
+			      (Id) ->
+			let <_9> =
+			    apply %% Line 987
+				  'portinfo'/1
+				(%% Line 987
+				 Id)
+			in  %% Line 986
+			    apply 'pids_and_ports'/5
+				(Node, Names, Pids, %% Line 987
+						    [{Name,_9,Id}|Ports], %% Line 987
+									  Dead)
+		    %% Line 988
+		    <'undefined'> when 'true' ->
+			%% Line 989
+			apply 'pids_and_ports'/5
+			    (Node, Names, Pids, Ports, [Name|Dead])
+		    ( <_10> when 'true' ->
+			  primop 'match_fail'
+			      ({'case_clause',_10})
+		      -| ['compiler_generated'] )
+		  end
+	      ( <_15,_14,_13,_12,_11> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_15,_14,_13,_12,_11})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'pids_and_ports',5}}] )
+      -| [{'function',{'pids_and_ports',5}}] )
+'pwhereis'/2 =
+    %% Line 992
+    ( fun (_0,_1) ->
+	  %% Line 993
+	  case call 'erlang':'is_alive'
+		   () of
+	    %% Line 994
+	    <'true'> when 'true' ->
+		call 'rpc':'call'
+		    (_0, 'erlang', 'whereis', [_1|[]])
+	    %% Line 995
+	    <'false'> when 'true' ->
+		call 'erlang':'whereis'
+		    (_1)
+	    ( <_2> when 'true' ->
+		  primop 'match_fail'
+		      ({'case_clause',_2})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'pwhereis',2}}] )
+'portinfo'/1 =
+    %% Line 998
+    ( fun (_0) ->
+	  %% Line 999
+	  case call 'erlang':'is_alive'
+		   () of
+	    %% Line 1000
+	    <'true'> when 'true' ->
+		let <_1> =
+		    call 'erlang':'node'
+			(( _0
+			   -| [{'function',{'portinfo',1}}] ))
+		in  let <_2> =
+			call 'rpc':'call'
+			    (_1, 'erlang', 'port_info', [( _0
+							   -| [{'function',{'portinfo',1}}] )|['name']])
+		    in  [_2|[]]
+	    %% Line 1001
+	    <'false'> when 'true' ->
+		let <_3> =
+		    call 'erlang':'port_info'
+			(( _0
+			   -| [{'function',{'portinfo',1}}] ), 'name')
+		in  [_3|[]]
+	    ( <_4> when 'true' ->
+		  primop 'match_fail'
+		      ({'case_clause',_4})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'portinfo',1}}] )
+'procline'/3 =
+    %% Line 1004
+    ( fun (_0,_1,_2) ->
+	  let <Call> =
+	      apply %% Line 1005
+		    'initial_call'/1
+		  (_1)
+	  in  let <Reds> =
+		  apply %% Line 1006
+			'fetch'/2
+		      (%% Line 1006
+		       'reductions', _1)
+	      in  let <LM> =
+		      apply %% Line 1007
+			    'fetch'/2
+			  (%% Line 1007
+			   'message_queue_len', _1)
+		  in  let <_11> =
+			  call %% Line 1008
+			       'io_lib':%% Line 1008
+					'format'
+			      (%% Line 1008
+			       [126|[116|[119]]], %% Line 1008
+						  [_0|[]])
+		      in  let <_10> =
+			      call %% Line 1009
+				   'io_lib':%% Line 1009
+					    'format'
+				  (%% Line 1009
+				   [126|[119]], %% Line 1009
+						[_2|[]])
+			  in  let <_8> =
+				  apply %% Line 1010
+					'mfa_string'/1
+				      (%% Line 1010
+				       Call)
+			      in  let <_9> =
+				      call %% Line 1010
+					   'io_lib':%% Line 1010
+						    'format'
+					  (%% Line 1010
+					   [126|[116|[115]]], %% Line 1010
+							      [_8|[]])
+				  in  let <_7> =
+					  call %% Line 1011
+					       'erlang':%% Line 1011
+							'integer_to_list'
+					      (%% Line 1011
+					       Reds)
+				      in  let <_6> =
+					      call %% Line 1011
+						   'erlang':%% Line 1011
+							    'integer_to_list'
+						  (%% Line 1011
+						   LM)
+					  in  %% Line 1008
+					      apply 'procformat'/5
+						  (_11, _10, _9, _7, _6)
+      -| [{'function',{'procline',3}}] )
+'procformat'/5 =
+    %% Line 1013
+    ( fun (_0,_1,_2,_3,_4) ->
+	  %% Line 1014
+	  call 'io':'format'
+	      ([126|[45|[50|[49|[116|[115|[32|[126|[45|[49|[50|[115|[32|[126|[45|[50|[53|[116|[115|[32|[126|[49|[50|[115|[32|[126|[52|[115|[126|[110]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], [_0|[_1|[_2|[_3|[_4|[]]]]]])
+      -| [{'function',{'procformat',5}}] )
+'portline'/3 =
+    %% Line 1016
+    ( fun (_0,_1,_2) ->
+	  let <Cmd> =
+	      apply %% Line 1017
+		    'fetch'/2
+		  (%% Line 1017
+		   'name', _1)
+	  in  let <_5> =
+		  call %% Line 1018
+		       'io_lib':%% Line 1018
+				'format'
+		      (%% Line 1018
+		       [126|[116|[119]]], %% Line 1018
+					  [_0|[]])
+	      in  let <_4> =
+		      call %% Line 1019
+			   'erlang':%% Line 1019
+				    'port_to_list'
+			  (_2)
+		  in  %% Line 1018
+		      apply 'portformat'/3
+			  (_5, _4, %% Line 1020
+				   Cmd)
+      -| [{'function',{'portline',3}}] )
+'portformat'/3 =
+    %% Line 1022
+    ( fun (_0,_1,_2) ->
+	  %% Line 1023
+	  call 'io':'format'
+	      ([126|[45|[50|[49|[116|[115|[32|[126|[45|[49|[53|[115|[32|[126|[45|[52|[48|[116|[115|[126|[110]]]]]]]]]]]]]]]]]]]]], [_0|[_1|[_2|[]]]])
+      -| [{'function',{'portformat',3}}] )
+'pwd'/0 =
+    %% Line 1031
+    ( fun () ->
+	  %% Line 1032
+	  case call 'file':'get_cwd'
+		   () of
+	    %% Line 1033
+	    <{'ok',Str}> when 'true' ->
+		let <_3> =
+		    call %% Line 1034
+			 'io':%% Line 1034
+			      'format'
+			(%% Line 1034
+			 [126|[116|[115|[10]]]], %% Line 1034
+						 [Str|[]])
+		in  %% Line 1034
+		    case _3 of
+		      <'ok'> when 'true' ->
+			  ( _3
+			    -| ['compiler_generated'] )
+		      ( <_0> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_0})
+			-| ['compiler_generated'] )
+		    end
+	    %% Line 1035
+	    <{'error',_4}> when 'true' ->
+		let <_5> =
+		    call %% Line 1036
+			 'io':%% Line 1036
+			      'format'
+			(%% Line 1036
+			 [67|[97|[110|[110|[111|[116|[32|[100|[101|[116|[101|[114|[109|[105|[110|[101|[32|[99|[117|[114|[114|[101|[110|[116|[32|[100|[105|[114|[101|[99|[116|[111|[114|[121|[10]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]])
+		in  %% Line 1036
+		    case _5 of
+		      <'ok'> when 'true' ->
+			  ( _5
+			    -| ['compiler_generated'] )
+		      ( <_1> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_1})
+			-| ['compiler_generated'] )
+		    end
+	    ( <_2> when 'true' ->
+		  primop 'match_fail'
+		      ({'case_clause',_2})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'pwd',0}}] )
+'cd'/1 =
+    %% Line 1042
+    ( fun (_0) ->
+	  do  %% Line 1043
+	      ( call ( 'file'
+		       -| ['result_not_wanted'] ):( 'set_cwd'
+						    -| ['result_not_wanted'] )
+		    (( _0
+		       -| [{'function',{'cd',1}}] ))
+		-| ['result_not_wanted'] )
+	      %% Line 1044
+	      apply 'pwd'/0
+		  ()
+      -| [{'function',{'cd',1}}] )
+'ls'/0 =
+    %% Line 1052
+    ( fun () ->
+	  %% Line 1053
+	  apply 'ls'/1
+	      ([46])
+      -| [{'function',{'ls',0}}] )
+'ls'/1 =
+    %% Line 1058
+    ( fun (_0) ->
+	  %% Line 1059
+	  case call 'file':'list_dir'
+		   (( _0
+		      -| [{'function',{'ls',1}}] )) of
+	    %% Line 1060
+	    <{'ok',Entries}> when 'true' ->
+		let <_1> =
+		    call %% Line 1061
+			 'lists':%% Line 1061
+				 'sort'
+			(%% Line 1061
+			 Entries)
+		in  %% Line 1061
+		    apply 'ls_print'/1
+			(_1)
+	    %% Line 1062
+	    <{'error','enotdir'}> when 'true' ->
+		%% Line 1063
+		apply 'ls_print'/1
+		    ([( _0
+			-| [{'function',{'ls',1}}] )|[]])
+	    %% Line 1064
+	    <{'error',Error}> when 'true' ->
+		let <_2> =
+		    call %% Line 1065
+			 'file':%% Line 1065
+				'format_error'
+			(%% Line 1065
+			 Error)
+		in  %% Line 1065
+		    call 'io':'format'
+			([126|[116|[115|[10]]]], [_2|[]])
+	    ( <_3> when 'true' ->
+		  primop 'match_fail'
+		      ({'case_clause',_3})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'ls',1}}] )
+'ls_print'/1 =
+    %% Line 1068
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'ls_print',1}}] ) of
+	      <[]> when 'true' ->
+		  'ok'
+	      %% Line 1069
+	      <L> when 'true' ->
+		  let <_1> =
+		      apply %% Line 1070
+			    'lengths'/2
+			  (%% Line 1070
+			   L, %% Line 1070
+			      [])
+		  in  let <_2> =
+			  call %% Line 1070
+			       'lists':%% Line 1070
+				       'max'
+			      (_1)
+		      in  let <_3> =
+			      call %% Line 1070
+				   'lists':%% Line 1070
+					   'min'
+				  (%% Line 1070
+				   [_2|[40]])
+			  in  let <Width> =
+				  call %% Line 1070
+				       'erlang':%% Line 1070
+						'+'
+				      (_3, %% Line 1070
+					   5)
+			      in  %% Line 1071
+				  apply 'ls_print'/3
+				      (L, Width, 0)
+	    end
+	    -| [{'function',{'ls_print',1}}] )
+      -| [{'function',{'ls_print',1}}] )
+'ls_print'/3 =
+    %% Line 1073
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <X,Width,Len>
+		  when try
+			let <_3> =
+			    call 'erlang':'+'
+				(Width, Len)
+			in  call 'erlang':'>='
+				(_3, 80)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  do  %% Line 1074
+		      call 'io':'nl'
+			  ()
+		      %% Line 1075
+		      apply 'ls_print'/3
+			  (X, Width, 0)
+	      %% Line 1076
+	      <[H|T],Width,Len> when 'true' ->
+		  do  %% Line 1077
+		      call 'io':'format'
+			  ([126|[45|[42|[116|[115]]]]], [Width|[H|[]]])
+		      let <_4> =
+			  call %% Line 1078
+			       'erlang':%% Line 1078
+					'+'
+			      (%% Line 1078
+			       Len, %% Line 1078
+				    Width)
+		      in  %% Line 1078
+			  apply 'ls_print'/3
+			      (T, Width, _4)
+	      %% Line 1079
+	      <[],_8,_9> when 'true' ->
+		  %% Line 1080
+		  call 'io':'nl'
+		      ()
+	      ( <_7,_6,_5> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_7,_6,_5})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'ls_print',3}}] )
+      -| [{'function',{'ls_print',3}}] )
+'lengths'/2 =
+    %% Line 1082
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <[H|T],L> when 'true' ->
+		  let <_2> =
+		      call 'erlang':'length'
+			  (H)
+		  in  apply 'lengths'/2
+			  (T, [_2|L])
+	      %% Line 1083
+	      <[],L> when 'true' ->
+		  L
+	      ( <_4,_3> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_4,_3})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'lengths',2}}] )
+      -| [{'function',{'lengths',2}}] )
+'w'/1 =
+    %% Line 1085
+    ( fun (_0) ->
+	  %% Line 1086
+	  call 'io_lib':'write'
+	      (( _0
+		 -| [{'function',{'w',1}}] ))
+      -| [{'function',{'w',1}}] )
+'memory'/0 =
+    %% Line 1096
+    ( fun () ->
+	  call 'erlang':'memory'
+	      ()
+      -| [{'function',{'memory',0}}] )
+'memory'/1 =
+    %% Line 1106
+    ( fun (_0) ->
+	  call 'erlang':'memory'
+	      (( _0
+		 -| [{'function',{'memory',1}}] ))
+      -| [{'function',{'memory',1}}] )
+'uptime'/0 =
+    %% Line 1114
+    ( fun () ->
+	  let <_0> =
+	      apply %% Line 1115
+		    'get_uptime'/0
+		  ()
+	  in  let <_1> =
+		  apply %% Line 1115
+			'uptime'/1
+		      (_0)
+	      in  %% Line 1115
+		  call 'io':'format'
+		      ([126|[115|[126|[110]]]], [_1|[]])
+      -| [{'function',{'uptime',0}}] )
+'uptime'/1 =
+    %% Line 1117
+    ( fun (_0) ->
+	  ( case ( _0
+		   -| [{'function',{'uptime',1}}] ) of
+	      <{D,{H,M,S}}> when 'true' ->
+		  let <_2> =
+		      case <> of
+			%% Line 1119
+			<>
+			    when call 'erlang':'>'
+				  (D,
+				   0) ->
+			    let <_1> =
+				call 'io_lib':'format'
+				    ([126|[112|[32|[100|[97|[121|[115|[44|[32]]]]]]]]], [D|[]])
+			    in  ( [_1|[]]
+				  -| ['compiler_generated'] )
+			%% Line 1119
+			( <> when 'true' ->
+			      []
+			  -| ['compiler_generated'] )
+		      end
+		  in  let <_5> =
+			  case <> of
+			    %% Line 1120
+			    <>
+				when try
+				      let <_3> =
+					  call 'erlang':'+'
+					      (D, H)
+				      in  call 'erlang':'>'
+					      (_3, 0)
+				  of <Try> ->
+				      Try
+				  catch <T,R> ->
+				      'false' ->
+				let <_4> =
+				    call 'io_lib':'format'
+					([126|[112|[32|[104|[111|[117|[114|[115|[44|[32]]]]]]]]]], [H|[]])
+				in  ( [_4|[]]
+				      -| ['compiler_generated'] )
+			    %% Line 1120
+			    ( <> when 'true' ->
+				  []
+			      -| ['compiler_generated'] )
+			  end
+		      in  let <_9> =
+			      case <> of
+				%% Line 1121
+				<>
+				    when try
+					  let <_6> =
+					      call 'erlang':'+'
+						  (D, H)
+					  in  let <_7> =
+						  call 'erlang':'+'
+						      (_6, M)
+					      in  call 'erlang':'>'
+						      (_7, 0)
+				      of <Try> ->
+					  Try
+				      catch <T,R> ->
+					  'false' ->
+				    let <_8> =
+					call 'io_lib':'format'
+					    ([126|[112|[32|[109|[105|[110|[117|[116|[101|[115|[32|[97|[110|[100|[32]]]]]]]]]]]]]]], [M|[]])
+				    in  ( [_8|[]]
+					  -| ['compiler_generated'] )
+				%% Line 1121
+				( <> when 'true' ->
+				      []
+				  -| ['compiler_generated'] )
+			      end
+			  in  let <_10> =
+				  call %% Line 1122
+				       'io_lib':%% Line 1122
+						'format'
+				      (%% Line 1122
+				       [126|[112|[32|[115|[101|[99|[111|[110|[100|[115]]]]]]]]]], %% Line 1122
+												  [S|[]])
+			      in  %% Line 1118
+				  call 'lists':'flatten'
+				      (%% Line 1119
+				       [_2|%% Line 1120
+					   [_5|%% Line 1121
+					       [_9|%% Line 1122
+						   [_10|[]]]]])
+	      ( <_11> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_11})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'uptime',1}}] )
+      -| [{'function',{'uptime',1}}] )
+'get_uptime'/0 =
+    %% Line 1124
+    ( fun () ->
+	  %% Line 1125
+	  case call 'erlang':'statistics'
+		   ('wall_clock') of
+	    <{UpTime,_2}> when 'true' ->
+		let <_1> =
+		    call %% Line 1126
+			 'erlang':%% Line 1126
+				  'div'
+			(%% Line 1126
+			 UpTime, %% Line 1126
+				 1000)
+		in  %% Line 1126
+		    call 'calendar':'seconds_to_daystime'
+			(_1)
+	    ( <_0> when 'true' ->
+		  primop 'match_fail'
+		      ({'badmatch',_0})
+	      -| ['compiler_generated'] )
+	  end
+      -| [{'function',{'get_uptime',0}}] )
+'xm'/1 =
+    %% Line 1132
+    ( fun (_0) ->
+	  %% Line 1133
+	  apply 'appcall'/4
+	      ('tools', 'xref', 'm', [( _0
+					-| [{'function',{'xm',1}}] )|[]])
+      -| [{'function',{'xm',1}}] )
+'y'/1 =
+    %% Line 1139
+    ( fun (_0) ->
+	  apply 'y'/2
+	      (( _0
+		 -| [{'function',{'y',1}}] ), [])
+      -| [{'function',{'y',1}}] )
+'y'/2 =
+    %% Line 1142
+    ( fun (_0,_1) ->
+	  %% Line 1143
+	  apply 'appcall'/4
+	      ('parsetools', 'yecc', 'file', [_0|[_1|[]]])
+      -| [{'function',{'y',2}}] )
+'appcall'/4 =
+    %% Line 1151
+    ( fun (_0,_1,_2,_3) ->
+	  %% Line 1152
+	  try
+	      %% Line 1153
+	      call 'erlang':'apply'
+		  (_1, _2, _3)
+	  of <_4> ->
+	      _4
+	  catch <_7,_6,_5> ->
+	      %% Line 1155
+	      case <_7,_6,_5> of
+		<( 'error'
+		   -| ['compiler_generated'] ),( 'undef'
+						 -| ['compiler_generated'] ),_23> when 'true' ->
+		    let <S> =
+			primop 'build_stacktrace'
+			    (_23)
+		    in  %% Line 1156
+			case S of
+			  %% Line 1157
+			  <[{_14,_15,_16,_17}|_18]>
+			      when let <_21> =
+				    call 'erlang':'=:='
+					(_14, _1)
+				in  let <_19> =
+					call 'erlang':'=:='
+					    (_15, _2)
+				    in  let <_20> =
+					    call 'erlang':'=:='
+						(_16, _3)
+					in  let <_22> =
+						call 'erlang':'and'
+						    (_19, _20)
+					    in  call 'erlang':'and'
+						    (_21, _22) ->
+			      let <Arity> =
+				  call %% Line 1158
+				       'erlang':%% Line 1158
+						'length'
+				      (_3)
+			      in  %% Line 1159
+				  call 'io':'format'
+				      ([67|[97|[108|[108|[32|[116|[111|[32|[126|[119|[58|[126|[119|[47|[126|[119|[32|[105|[110|[32|[97|[112|[112|[108|[105|[99|[97|[116|[105|[111|[110|[32|[126|[119|[32|[102|[97|[105|[108|[101|[100|[46|[10]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]], %% Line 1160
+																																			  [_1|[_2|[Arity|[_0|[]]]]])
+			  %% Line 1161
+			  <Stk> when 'true' ->
+			      %% Line 1162
+			      call 'erlang':'raise'
+				  ('error', 'undef', Stk)
+			end
+		( <_24,_25,_26> when 'true' ->
+		      primop 'raise'
+			  (_26, _25)
+		  -| ['compiler_generated'] )
+	      end
+      -| [{'function',{'appcall',4}}] )
+'module_info'/0 =
+    ( fun () ->
+	  call 'erlang':'get_module_info'
+	      ('c')
+      -| [{'function',{'module_info',0}}] )
+'module_info'/1 =
+    ( fun (_0) ->
+	  call 'erlang':'get_module_info'
+	      ('c', ( _0
+		      -| [{'function',{'module_info',1}}] ))
+      -| [{'function',{'module_info',1}}] )
+end

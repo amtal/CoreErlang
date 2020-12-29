@@ -1,0 +1,778 @@
+module 'binary' ['at'/2,
+		 'bin_to_list'/1,
+		 'bin_to_list'/2,
+		 'bin_to_list'/3,
+		 'compile_pattern'/1,
+		 'copy'/1,
+		 'copy'/2,
+		 'decode_unsigned'/1,
+		 'decode_unsigned'/2,
+		 'encode_unsigned'/1,
+		 'encode_unsigned'/2,
+		 'first'/1,
+		 'last'/1,
+		 'list_to_bin'/1,
+		 'longest_common_prefix'/1,
+		 'longest_common_suffix'/1,
+		 'match'/2,
+		 'match'/3,
+		 'matches'/2,
+		 'matches'/3,
+		 'module_info'/0,
+		 'module_info'/1,
+		 'part'/2,
+		 'part'/3,
+		 'referenced_byte_size'/1,
+		 'replace'/3,
+		 'replace'/4,
+		 'split'/2,
+		 'split'/3]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[115|[114|[99|[47|[98|[105|[110|[97|[114|[121|[46|[101|[114|[108]]]]]]]]]]]]]],1}],
+		%% Line 25
+		'export_type' =
+		    %% Line 25
+		    [{'cp',0}],
+		%% Line 27
+		'opaque' =
+		    %% Line 27
+		    [{'cp',{'type',27,'tuple',[{'type',27,'union',[{'atom',27,'am'}|[{'atom',27,'bm'}]]}|[{'type',27,'reference',[]}]]},[]}],
+		%% Line 28
+		'type' =
+		    %% Line 28
+		    [{'part',{'type',28,'tuple',[{'ann_type',28,[{'var',28,'Start'}|[{'type',28,'non_neg_integer',[]}]]}|[{'ann_type',28,[{'var',28,'Length'}|[{'type',28,'integer',[]}]]}]]},[]}],
+		%% Line 40
+		'spec' =
+		    %% Line 40
+		    [{{'at',2},[{'type',40,'bounded_fun',[{'type',40,'fun',[{'type',40,'product',[{'var',40,'Subject'}|[{'var',40,'Pos'}]]}|[{'type',40,'byte',[]}]]}|[[{'type',41,'constraint',[{'atom',41,'is_subtype'}|[[{'var',41,'Subject'}|[{'type',41,'binary',[]}]]]]}|[{'type',42,'constraint',[{'atom',42,'is_subtype'}|[[{'var',42,'Pos'}|[{'type',42,'non_neg_integer',[]}]]]]}]]]]}]}],
+		%% Line 47
+		'spec' =
+		    %% Line 47
+		    [{{'bin_to_list',1},[{'type',47,'bounded_fun',[{'type',47,'fun',[{'type',47,'product',[{'var',47,'Subject'}]}|[{'type',47,'list',[{'type',47,'byte',[]}]}]]}|[[{'type',48,'constraint',[{'atom',48,'is_subtype'}|[[{'var',48,'Subject'}|[{'type',48,'binary',[]}]]]]}]]]}]}],
+		%% Line 53
+		'spec' =
+		    %% Line 53
+		    [{{'bin_to_list',2},[{'type',53,'bounded_fun',[{'type',53,'fun',[{'type',53,'product',[{'var',53,'Subject'}|[{'var',53,'PosLen'}]]}|[{'type',53,'list',[{'type',53,'byte',[]}]}]]}|[[{'type',54,'constraint',[{'atom',54,'is_subtype'}|[[{'var',54,'Subject'}|[{'type',54,'binary',[]}]]]]}|[{'type',55,'constraint',[{'atom',55,'is_subtype'}|[[{'var',55,'PosLen'}|[{'user_type',55,'part',[]}]]]]}]]]]}]}],
+		%% Line 62
+		'spec' =
+		    %% Line 62
+		    [{{'bin_to_list',3},[{'type',62,'bounded_fun',[{'type',62,'fun',[{'type',62,'product',[{'var',62,'Subject'}|[{'var',62,'Pos'}|[{'var',62,'Len'}]]]}|[{'type',62,'list',[{'type',62,'byte',[]}]}]]}|[[{'type',63,'constraint',[{'atom',63,'is_subtype'}|[[{'var',63,'Subject'}|[{'type',63,'binary',[]}]]]]}|[{'type',64,'constraint',[{'atom',64,'is_subtype'}|[[{'var',64,'Pos'}|[{'type',64,'non_neg_integer',[]}]]]]}|[{'type',65,'constraint',[{'atom',65,'is_subtype'}|[[{'var',65,'Len'}|[{'type',65,'integer',[]}]]]]}]]]]]}]}],
+		%% Line 84
+		'spec' =
+		    %% Line 84
+		    [{{'compile_pattern',1},[{'type',84,'bounded_fun',[{'type',84,'fun',[{'type',84,'product',[{'var',84,'Pattern'}]}|[{'user_type',84,'cp',[]}]]}|[[{'type',85,'constraint',[{'atom',85,'is_subtype'}|[[{'var',85,'Pattern'}|[{'type',85,'union',[{'type',85,'binary',[]}|[{'type',85,'list',[{'type',85,'binary',[]}]}]]}]]]]}]]]}]}],
+		%% Line 90
+		'spec' =
+		    %% Line 90
+		    [{{'copy',1},[{'type',90,'bounded_fun',[{'type',90,'fun',[{'type',90,'product',[{'var',90,'Subject'}]}|[{'type',90,'binary',[]}]]}|[[{'type',91,'constraint',[{'atom',91,'is_subtype'}|[[{'var',91,'Subject'}|[{'type',91,'binary',[]}]]]]}]]]}]}],
+		%% Line 96
+		'spec' =
+		    %% Line 96
+		    [{{'copy',2},[{'type',96,'bounded_fun',[{'type',96,'fun',[{'type',96,'product',[{'var',96,'Subject'}|[{'var',96,'N'}]]}|[{'type',96,'binary',[]}]]}|[[{'type',97,'constraint',[{'atom',97,'is_subtype'}|[[{'var',97,'Subject'}|[{'type',97,'binary',[]}]]]]}|[{'type',98,'constraint',[{'atom',98,'is_subtype'}|[[{'var',98,'N'}|[{'type',98,'non_neg_integer',[]}]]]]}]]]]}]}],
+		%% Line 103
+		'spec' =
+		    %% Line 103
+		    [{{'decode_unsigned',1},[{'type',103,'bounded_fun',[{'type',103,'fun',[{'type',103,'product',[{'var',103,'Subject'}]}|[{'var',103,'Unsigned'}]]}|[[{'type',104,'constraint',[{'atom',104,'is_subtype'}|[[{'var',104,'Subject'}|[{'type',104,'binary',[]}]]]]}|[{'type',105,'constraint',[{'atom',105,'is_subtype'}|[[{'var',105,'Unsigned'}|[{'type',105,'non_neg_integer',[]}]]]]}]]]]}]}],
+		%% Line 110
+		'spec' =
+		    %% Line 110
+		    [{{'decode_unsigned',2},[{'type',110,'bounded_fun',[{'type',110,'fun',[{'type',110,'product',[{'var',110,'Subject'}|[{'var',110,'Endianness'}]]}|[{'var',110,'Unsigned'}]]}|[[{'type',111,'constraint',[{'atom',111,'is_subtype'}|[[{'var',111,'Subject'}|[{'type',111,'binary',[]}]]]]}|[{'type',112,'constraint',[{'atom',112,'is_subtype'}|[[{'var',112,'Endianness'}|[{'type',112,'union',[{'atom',112,'big'}|[{'atom',112,'little'}]]}]]]]}|[{'type',113,'constraint',[{'atom',113,'is_subtype'}|[[{'var',113,'Unsigned'}|[{'type',113,'non_neg_integer',[]}]]]]}]]]]]}]}],
+		%% Line 118
+		'spec' =
+		    %% Line 118
+		    [{{'encode_unsigned',1},[{'type',118,'bounded_fun',[{'type',118,'fun',[{'type',118,'product',[{'var',118,'Unsigned'}]}|[{'type',118,'binary',[]}]]}|[[{'type',119,'constraint',[{'atom',119,'is_subtype'}|[[{'var',119,'Unsigned'}|[{'type',119,'non_neg_integer',[]}]]]]}]]]}]}],
+		%% Line 124
+		'spec' =
+		    %% Line 124
+		    [{{'encode_unsigned',2},[{'type',124,'bounded_fun',[{'type',124,'fun',[{'type',124,'product',[{'var',124,'Unsigned'}|[{'var',124,'Endianness'}]]}|[{'type',124,'binary',[]}]]}|[[{'type',125,'constraint',[{'atom',125,'is_subtype'}|[[{'var',125,'Unsigned'}|[{'type',125,'non_neg_integer',[]}]]]]}|[{'type',126,'constraint',[{'atom',126,'is_subtype'}|[[{'var',126,'Endianness'}|[{'type',126,'union',[{'atom',126,'big'}|[{'atom',126,'little'}]]}]]]]}]]]]}]}],
+		%% Line 131
+		'spec' =
+		    %% Line 131
+		    [{{'first',1},[{'type',131,'bounded_fun',[{'type',131,'fun',[{'type',131,'product',[{'var',131,'Subject'}]}|[{'type',131,'byte',[]}]]}|[[{'type',132,'constraint',[{'atom',132,'is_subtype'}|[[{'var',132,'Subject'}|[{'type',132,'binary',[]}]]]]}]]]}]}],
+		%% Line 137
+		'spec' =
+		    %% Line 137
+		    [{{'last',1},[{'type',137,'bounded_fun',[{'type',137,'fun',[{'type',137,'product',[{'var',137,'Subject'}]}|[{'type',137,'byte',[]}]]}|[[{'type',138,'constraint',[{'atom',138,'is_subtype'}|[[{'var',138,'Subject'}|[{'type',138,'binary',[]}]]]]}]]]}]}],
+		%% Line 143
+		'spec' =
+		    %% Line 143
+		    [{{'list_to_bin',1},[{'type',143,'bounded_fun',[{'type',143,'fun',[{'type',143,'product',[{'var',143,'ByteList'}]}|[{'type',143,'binary',[]}]]}|[[{'type',144,'constraint',[{'atom',144,'is_subtype'}|[[{'var',144,'ByteList'}|[{'type',144,'iolist',[]}]]]]}]]]}]}],
+		%% Line 149
+		'spec' =
+		    %% Line 149
+		    [{{'longest_common_prefix',1},[{'type',149,'bounded_fun',[{'type',149,'fun',[{'type',149,'product',[{'var',149,'Binaries'}]}|[{'type',149,'non_neg_integer',[]}]]}|[[{'type',150,'constraint',[{'atom',150,'is_subtype'}|[[{'var',150,'Binaries'}|[{'type',150,'list',[{'type',150,'binary',[]}]}]]]]}]]]}]}],
+		%% Line 155
+		'spec' =
+		    %% Line 155
+		    [{{'longest_common_suffix',1},[{'type',155,'bounded_fun',[{'type',155,'fun',[{'type',155,'product',[{'var',155,'Binaries'}]}|[{'type',155,'non_neg_integer',[]}]]}|[[{'type',156,'constraint',[{'atom',156,'is_subtype'}|[[{'var',156,'Binaries'}|[{'type',156,'list',[{'type',156,'binary',[]}]}]]]]}]]]}]}],
+		%% Line 161
+		'spec' =
+		    %% Line 161
+		    [{{'match',2},[{'type',161,'bounded_fun',[{'type',161,'fun',[{'type',161,'product',[{'var',161,'Subject'}|[{'var',161,'Pattern'}]]}|[{'type',161,'union',[{'var',161,'Found'}|[{'atom',161,'nomatch'}]]}]]}|[[{'type',162,'constraint',[{'atom',162,'is_subtype'}|[[{'var',162,'Subject'}|[{'type',162,'binary',[]}]]]]}|[{'type',163,'constraint',[{'atom',163,'is_subtype'}|[[{'var',163,'Pattern'}|[{'type',163,'union',[{'type',163,'binary',[]}|[{'type',163,'list',[{'type',163,'binary',[]}]}|[{'user_type',163,'cp',[]}]]]}]]]]}|[{'type',164,'constraint',[{'atom',164,'is_subtype'}|[[{'var',164,'Found'}|[{'user_type',164,'part',[]}]]]]}]]]]]}]}],
+		%% Line 169
+		'spec' =
+		    %% Line 169
+		    [{{'match',3},[{'type',169,'bounded_fun',[{'type',169,'fun',[{'type',169,'product',[{'var',169,'Subject'}|[{'var',169,'Pattern'}|[{'var',169,'Options'}]]]}|[{'type',169,'union',[{'var',169,'Found'}|[{'atom',169,'nomatch'}]]}]]}|[[{'type',170,'constraint',[{'atom',170,'is_subtype'}|[[{'var',170,'Subject'}|[{'type',170,'binary',[]}]]]]}|[{'type',171,'constraint',[{'atom',171,'is_subtype'}|[[{'var',171,'Pattern'}|[{'type',171,'union',[{'type',171,'binary',[]}|[{'type',171,'list',[{'type',171,'binary',[]}]}|[{'user_type',171,'cp',[]}]]]}]]]]}|[{'type',172,'constraint',[{'atom',172,'is_subtype'}|[[{'var',172,'Found'}|[{'user_type',172,'part',[]}]]]]}|[{'type',173,'constraint',[{'atom',173,'is_subtype'}|[[{'var',173,'Options'}|[{'type',173,'list',[{'var',173,'Option'}]}]]]]}|[{'type',174,'constraint',[{'atom',174,'is_subtype'}|[[{'var',174,'Option'}|[{'type',174,'tuple',[{'atom',174,'scope'}|[{'user_type',174,'part',[]}]]}]]]]}]]]]]]]}]}],
+		%% Line 179
+		'spec' =
+		    %% Line 179
+		    [{{'matches',2},[{'type',179,'bounded_fun',[{'type',179,'fun',[{'type',179,'product',[{'var',179,'Subject'}|[{'var',179,'Pattern'}]]}|[{'var',179,'Found'}]]}|[[{'type',180,'constraint',[{'atom',180,'is_subtype'}|[[{'var',180,'Subject'}|[{'type',180,'binary',[]}]]]]}|[{'type',181,'constraint',[{'atom',181,'is_subtype'}|[[{'var',181,'Pattern'}|[{'type',181,'union',[{'type',181,'binary',[]}|[{'type',181,'list',[{'type',181,'binary',[]}]}|[{'user_type',181,'cp',[]}]]]}]]]]}|[{'type',182,'constraint',[{'atom',182,'is_subtype'}|[[{'var',182,'Found'}|[{'type',182,'list',[{'user_type',182,'part',[]}]}]]]]}]]]]]}]}],
+		%% Line 187
+		'spec' =
+		    %% Line 187
+		    [{{'matches',3},[{'type',187,'bounded_fun',[{'type',187,'fun',[{'type',187,'product',[{'var',187,'Subject'}|[{'var',187,'Pattern'}|[{'var',187,'Options'}]]]}|[{'var',187,'Found'}]]}|[[{'type',188,'constraint',[{'atom',188,'is_subtype'}|[[{'var',188,'Subject'}|[{'type',188,'binary',[]}]]]]}|[{'type',189,'constraint',[{'atom',189,'is_subtype'}|[[{'var',189,'Pattern'}|[{'type',189,'union',[{'type',189,'binary',[]}|[{'type',189,'list',[{'type',189,'binary',[]}]}|[{'user_type',189,'cp',[]}]]]}]]]]}|[{'type',190,'constraint',[{'atom',190,'is_subtype'}|[[{'var',190,'Found'}|[{'type',190,'list',[{'user_type',190,'part',[]}]}]]]]}|[{'type',191,'constraint',[{'atom',191,'is_subtype'}|[[{'var',191,'Options'}|[{'type',191,'list',[{'var',191,'Option'}]}]]]]}|[{'type',192,'constraint',[{'atom',192,'is_subtype'}|[[{'var',192,'Option'}|[{'type',192,'tuple',[{'atom',192,'scope'}|[{'user_type',192,'part',[]}]]}]]]]}]]]]]]]}]}],
+		%% Line 197
+		'spec' =
+		    %% Line 197
+		    [{{'part',2},[{'type',197,'bounded_fun',[{'type',197,'fun',[{'type',197,'product',[{'var',197,'Subject'}|[{'var',197,'PosLen'}]]}|[{'type',197,'binary',[]}]]}|[[{'type',198,'constraint',[{'atom',198,'is_subtype'}|[[{'var',198,'Subject'}|[{'type',198,'binary',[]}]]]]}|[{'type',199,'constraint',[{'atom',199,'is_subtype'}|[[{'var',199,'PosLen'}|[{'user_type',199,'part',[]}]]]]}]]]]}]}],
+		%% Line 204
+		'spec' =
+		    %% Line 204
+		    [{{'part',3},[{'type',204,'bounded_fun',[{'type',204,'fun',[{'type',204,'product',[{'var',204,'Subject'}|[{'var',204,'Pos'}|[{'var',204,'Len'}]]]}|[{'type',204,'binary',[]}]]}|[[{'type',205,'constraint',[{'atom',205,'is_subtype'}|[[{'var',205,'Subject'}|[{'type',205,'binary',[]}]]]]}|[{'type',206,'constraint',[{'atom',206,'is_subtype'}|[[{'var',206,'Pos'}|[{'type',206,'non_neg_integer',[]}]]]]}|[{'type',207,'constraint',[{'atom',207,'is_subtype'}|[[{'var',207,'Len'}|[{'type',207,'integer',[]}]]]]}]]]]]}]}],
+		%% Line 212
+		'spec' =
+		    %% Line 212
+		    [{{'referenced_byte_size',1},[{'type',212,'bounded_fun',[{'type',212,'fun',[{'type',212,'product',[{'var',212,'Binary'}]}|[{'type',212,'non_neg_integer',[]}]]}|[[{'type',213,'constraint',[{'atom',213,'is_subtype'}|[[{'var',213,'Binary'}|[{'type',213,'binary',[]}]]]]}]]]}]}],
+		%% Line 218
+		'spec' =
+		    %% Line 218
+		    [{{'split',2},[{'type',218,'bounded_fun',[{'type',218,'fun',[{'type',218,'product',[{'var',218,'Subject'}|[{'var',218,'Pattern'}]]}|[{'var',218,'Parts'}]]}|[[{'type',219,'constraint',[{'atom',219,'is_subtype'}|[[{'var',219,'Subject'}|[{'type',219,'binary',[]}]]]]}|[{'type',220,'constraint',[{'atom',220,'is_subtype'}|[[{'var',220,'Pattern'}|[{'type',220,'union',[{'type',220,'binary',[]}|[{'type',220,'list',[{'type',220,'binary',[]}]}|[{'user_type',220,'cp',[]}]]]}]]]]}|[{'type',221,'constraint',[{'atom',221,'is_subtype'}|[[{'var',221,'Parts'}|[{'type',221,'list',[{'type',221,'binary',[]}]}]]]]}]]]]]}]}],
+		%% Line 226
+		'spec' =
+		    %% Line 226
+		    [{{'split',3},[{'type',226,'bounded_fun',[{'type',226,'fun',[{'type',226,'product',[{'var',226,'Subject'}|[{'var',226,'Pattern'}|[{'var',226,'Options'}]]]}|[{'var',226,'Parts'}]]}|[[{'type',227,'constraint',[{'atom',227,'is_subtype'}|[[{'var',227,'Subject'}|[{'type',227,'binary',[]}]]]]}|[{'type',228,'constraint',[{'atom',228,'is_subtype'}|[[{'var',228,'Pattern'}|[{'type',228,'union',[{'type',228,'binary',[]}|[{'type',228,'list',[{'type',228,'binary',[]}]}|[{'user_type',228,'cp',[]}]]]}]]]]}|[{'type',229,'constraint',[{'atom',229,'is_subtype'}|[[{'var',229,'Options'}|[{'type',229,'list',[{'var',229,'Option'}]}]]]]}|[{'type',230,'constraint',[{'atom',230,'is_subtype'}|[[{'var',230,'Option'}|[{'type',230,'union',[{'type',230,'tuple',[{'atom',230,'scope'}|[{'user_type',230,'part',[]}]]}|[{'atom',230,'trim'}|[{'atom',230,'global'}|[{'atom',230,'trim_all'}]]]]}]]]]}|[{'type',231,'constraint',[{'atom',231,'is_subtype'}|[[{'var',231,'Parts'}|[{'type',231,'list',[{'type',231,'binary',[]}]}]]]]}]]]]]]]}]}],
+		%% Line 242
+		'spec' =
+		    %% Line 242
+		    [{{'replace',3},[{'type',242,'bounded_fun',[{'type',242,'fun',[{'type',242,'product',[{'var',242,'Subject'}|[{'var',242,'Pattern'}|[{'var',242,'Replacement'}]]]}|[{'var',242,'Result'}]]}|[[{'type',243,'constraint',[{'atom',243,'is_subtype'}|[[{'var',243,'Subject'}|[{'type',243,'binary',[]}]]]]}|[{'type',244,'constraint',[{'atom',244,'is_subtype'}|[[{'var',244,'Pattern'}|[{'type',244,'union',[{'type',244,'binary',[]}|[{'type',244,'list',[{'type',244,'binary',[]}]}|[{'user_type',244,'cp',[]}]]]}]]]]}|[{'type',245,'constraint',[{'atom',245,'is_subtype'}|[[{'var',245,'Replacement'}|[{'type',245,'binary',[]}]]]]}|[{'type',246,'constraint',[{'atom',246,'is_subtype'}|[[{'var',246,'Result'}|[{'type',246,'binary',[]}]]]]}]]]]]]}]}],
+		%% Line 251
+		'spec' =
+		    %% Line 251
+		    [{{'replace',4},[{'type',251,'bounded_fun',[{'type',251,'fun',[{'type',251,'product',[{'var',251,'Subject'}|[{'var',251,'Pattern'}|[{'var',251,'Replacement'}|[{'var',251,'Options'}]]]]}|[{'var',251,'Result'}]]}|[[{'type',252,'constraint',[{'atom',252,'is_subtype'}|[[{'var',252,'Subject'}|[{'type',252,'binary',[]}]]]]}|[{'type',253,'constraint',[{'atom',253,'is_subtype'}|[[{'var',253,'Pattern'}|[{'type',253,'union',[{'type',253,'binary',[]}|[{'type',253,'list',[{'type',253,'binary',[]}]}|[{'user_type',253,'cp',[]}]]]}]]]]}|[{'type',254,'constraint',[{'atom',254,'is_subtype'}|[[{'var',254,'Replacement'}|[{'type',254,'binary',[]}]]]]}|[{'type',255,'constraint',[{'atom',255,'is_subtype'}|[[{'var',255,'Options'}|[{'type',255,'list',[{'var',255,'Option'}]}]]]]}|[{'type',256,'constraint',[{'atom',256,'is_subtype'}|[[{'var',256,'Option'}|[{'type',256,'union',[{'atom',256,'global'}|[{'type',256,'tuple',[{'atom',256,'scope'}|[{'user_type',256,'part',[]}]]}|[{'type',256,'tuple',[{'atom',256,'insert_replaced'}|[{'var',256,'InsPos'}]]}]]]}]]]]}|[{'type',257,'constraint',[{'atom',257,'is_subtype'}|[[{'var',257,'InsPos'}|[{'type',257,'union',[{'var',257,'OnePos'}|[{'type',257,'list',[{'var',257,'OnePos'}]}]]}]]]]}|[{'type',258,'constraint',[{'atom',258,'is_subtype'}|[[{'var',258,'OnePos'}|[{'type',258,'non_neg_integer',[]}]]]]}|[{'type',259,'constraint',[{'atom',259,'is_subtype'}|[[{'var',259,'Result'}|[{'type',259,'binary',[]}]]]]}]]]]]]]]]]}]}]]
+'at'/2 =
+    %% Line 44
+    ( fun (_0,_1) ->
+	  %% Line 45
+	  call 'erlang':'nif_error'
+	      ('undef')
+      -| [{'function',{'at',2}}] )
+'bin_to_list'/1 =
+    %% Line 50
+    ( fun (_0) ->
+	  %% Line 51
+	  call 'erlang':'binary_to_list'
+	      (( _0
+		 -| [{'function',{'bin_to_list',1}}] ))
+      -| [{'function',{'bin_to_list',1}}] )
+'bin_to_list'/2 =
+    %% Line 57
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <Subject,{Pos,Len}> when 'true' ->
+		  %% Line 58
+		  apply 'bin_to_list'/3
+		      (Subject, Pos, Len)
+	      %% Line 59
+	      <_X_Subject,_X_BadArg> when 'true' ->
+		  %% Line 60
+		  call 'erlang':'error'
+		      ('badarg')
+	    end
+	    -| [{'function',{'bin_to_list',2}}] )
+      -| [{'function',{'bin_to_list',2}}] )
+'bin_to_list'/3 =
+    %% Line 67
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <Subject,Pos,Len>
+		  when let <_3> =
+			call 'erlang':'is_binary'
+			    (Subject)
+		    in  let <_4> =
+			    call 'erlang':'not'
+				(_3)
+			in  let <_5> =
+				call %% Line 68
+				     'erlang':%% Line 68
+					      'is_integer'
+				    (%% Line 68
+				     Pos)
+			    in  let <_6> =
+				    call %% Line 68
+					 'erlang':%% Line 68
+						  'not'
+					(_5)
+				in  let <_7> =
+					call %% Line 69
+					     'erlang':%% Line 69
+						      'is_integer'
+					    (%% Line 69
+					     Len)
+				    in  let <_8> =
+					    call %% Line 69
+						 'erlang':%% Line 69
+							  'not'
+						(_7)
+					in  let <_9> =
+						call %% Line 68
+						     'erlang':%% Line 68
+							      'or'
+						    (_6, _8)
+					    in  call 'erlang':'or'
+						    (_4, _9) ->
+		  %% Line 73
+		  call 'erlang':'error'
+		      ('badarg')
+	      %% Line 74
+	      <Subject,Pos,0>
+		  when try
+			let <_10> =
+			    call 'erlang':'>='
+				(Pos, 0)
+			in  let <_11> =
+				call 'erlang':'byte_size'
+				    (Subject)
+			    in  let <_12> =
+				    call 'erlang':'=<'
+					(Pos, _11)
+				in  call 'erlang':'and'
+					(_10, _12)
+		    of <Try> ->
+			Try
+		    catch <T,R> ->
+			'false' ->
+		  %% Line 76
+		  []
+	      %% Line 77
+	      <_X_Subject,_X_Pos,0> when 'true' ->
+		  %% Line 78
+		  call 'erlang':'error'
+		      ('badarg')
+	      %% Line 79
+	      <Subject,Pos,Len>
+		  when call 'erlang':'<'
+			(Len,
+			 0) ->
+		  let <_14> =
+		      call %% Line 80
+			   'erlang':%% Line 80
+				    '+'
+			  (%% Line 80
+			   Pos, %% Line 80
+				Len)
+		  in  let <_13> =
+			  call %% Line 80
+			       'erlang':%% Line 80
+					'-'
+			      (%% Line 80
+			       Len)
+		      in  %% Line 80
+			  apply 'bin_to_list'/3
+			      (Subject, _14, _13)
+	      %% Line 81
+	      <Subject,Pos,Len>
+		  when call 'erlang':'>'
+			(Len,
+			 0) ->
+		  let <_16> =
+		      call %% Line 82
+			   'erlang':%% Line 82
+				    '+'
+			  (%% Line 82
+			   Pos, %% Line 82
+				1)
+		  in  let <_15> =
+			  call %% Line 82
+			       'erlang':%% Line 82
+					'+'
+			      (%% Line 82
+			       Pos, %% Line 82
+				    Len)
+		      in  %% Line 82
+			  call 'erlang':'binary_to_list'
+			      (Subject, _16, _15)
+	      ( <_19,_18,_17> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_19,_18,_17})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'bin_to_list',3}}] )
+      -| [{'function',{'bin_to_list',3}}] )
+'compile_pattern'/1 =
+    %% Line 87
+    ( fun (_0) ->
+	  %% Line 88
+	  call 'erlang':'nif_error'
+	      ('undef')
+      -| [{'function',{'compile_pattern',1}}] )
+'copy'/1 =
+    %% Line 93
+    ( fun (_0) ->
+	  %% Line 94
+	  call 'erlang':'nif_error'
+	      ('undef')
+      -| [{'function',{'copy',1}}] )
+'copy'/2 =
+    %% Line 100
+    ( fun (_0,_1) ->
+	  %% Line 101
+	  call 'erlang':'nif_error'
+	      ('undef')
+      -| [{'function',{'copy',2}}] )
+'decode_unsigned'/1 =
+    %% Line 107
+    ( fun (_0) ->
+	  %% Line 108
+	  call 'erlang':'nif_error'
+	      ('undef')
+      -| [{'function',{'decode_unsigned',1}}] )
+'decode_unsigned'/2 =
+    %% Line 115
+    ( fun (_0,_1) ->
+	  %% Line 116
+	  call 'erlang':'nif_error'
+	      ('undef')
+      -| [{'function',{'decode_unsigned',2}}] )
+'encode_unsigned'/1 =
+    %% Line 121
+    ( fun (_0) ->
+	  %% Line 122
+	  call 'erlang':'nif_error'
+	      ('undef')
+      -| [{'function',{'encode_unsigned',1}}] )
+'encode_unsigned'/2 =
+    %% Line 128
+    ( fun (_0,_1) ->
+	  %% Line 129
+	  call 'erlang':'nif_error'
+	      ('undef')
+      -| [{'function',{'encode_unsigned',2}}] )
+'first'/1 =
+    %% Line 134
+    ( fun (_0) ->
+	  %% Line 135
+	  call 'erlang':'nif_error'
+	      ('undef')
+      -| [{'function',{'first',1}}] )
+'last'/1 =
+    %% Line 140
+    ( fun (_0) ->
+	  %% Line 141
+	  call 'erlang':'nif_error'
+	      ('undef')
+      -| [{'function',{'last',1}}] )
+'list_to_bin'/1 =
+    %% Line 146
+    ( fun (_0) ->
+	  %% Line 147
+	  call 'erlang':'nif_error'
+	      ('undef')
+      -| [{'function',{'list_to_bin',1}}] )
+'longest_common_prefix'/1 =
+    %% Line 152
+    ( fun (_0) ->
+	  %% Line 153
+	  call 'erlang':'nif_error'
+	      ('undef')
+      -| [{'function',{'longest_common_prefix',1}}] )
+'longest_common_suffix'/1 =
+    %% Line 158
+    ( fun (_0) ->
+	  %% Line 159
+	  call 'erlang':'nif_error'
+	      ('undef')
+      -| [{'function',{'longest_common_suffix',1}}] )
+'match'/2 =
+    %% Line 166
+    ( fun (_0,_1) ->
+	  %% Line 167
+	  call 'erlang':'nif_error'
+	      ('undef')
+      -| [{'function',{'match',2}}] )
+'match'/3 =
+    %% Line 176
+    ( fun (_0,_1,_2) ->
+	  %% Line 177
+	  call 'erlang':'nif_error'
+	      ('undef')
+      -| [{'function',{'match',3}}] )
+'matches'/2 =
+    %% Line 184
+    ( fun (_0,_1) ->
+	  %% Line 185
+	  call 'erlang':'nif_error'
+	      ('undef')
+      -| [{'function',{'matches',2}}] )
+'matches'/3 =
+    %% Line 194
+    ( fun (_0,_1,_2) ->
+	  %% Line 195
+	  call 'erlang':'nif_error'
+	      ('undef')
+      -| [{'function',{'matches',3}}] )
+'part'/2 =
+    %% Line 201
+    ( fun (_0,_1) ->
+	  %% Line 202
+	  call 'erlang':'nif_error'
+	      ('undef')
+      -| [{'function',{'part',2}}] )
+'part'/3 =
+    %% Line 209
+    ( fun (_0,_1,_2) ->
+	  %% Line 210
+	  call 'erlang':'nif_error'
+	      ('undef')
+      -| [{'function',{'part',3}}] )
+'referenced_byte_size'/1 =
+    %% Line 215
+    ( fun (_0) ->
+	  %% Line 216
+	  call 'erlang':'nif_error'
+	      ('undef')
+      -| [{'function',{'referenced_byte_size',1}}] )
+'split'/2 =
+    %% Line 223
+    ( fun (_0,_1) ->
+	  %% Line 224
+	  call 'erlang':'nif_error'
+	      ('undef')
+      -| [{'function',{'split',2}}] )
+'split'/3 =
+    %% Line 233
+    ( fun (_0,_1,_2) ->
+	  %% Line 234
+	  call 'erlang':'nif_error'
+	      ('undef')
+      -| [{'function',{'split',3}}] )
+'replace'/3 =
+    %% Line 248
+    ( fun (_0,_1,_2) ->
+	  %% Line 249
+	  apply 'replace'/4
+	      (_0, _1, _2, [])
+      -| [{'function',{'replace',3}}] )
+'replace'/4 =
+    %% Line 261
+    ( fun (_0,_1,_2,_3) ->
+	  %% Line 262
+	  try
+	      %% Line 263
+	      case call 'erlang':'is_binary'
+		       (_2) of
+		<'true'> when 'true' ->
+		    %% Line 264
+		    case apply 'get_opts_replace'/2
+			     (_3, {'no','false',[]}) of
+		      <{Part,Global,Insert}> when 'true' ->
+			  let <_7> =
+			      case %% Line 265
+				   Part of
+				%% Line 266
+				<'no'> when 'true' ->
+				    %% Line 267
+				    []
+				%% Line 268
+				<_@r0 = {A,B}> when 'true' ->
+				    %% Line 269
+				    [{'scope',_@r0}|[]]
+				( <_6> when 'true' ->
+				      %% Line 265
+				      primop 'match_fail'
+					  ({'case_clause',_6})
+				  -| ['compiler_generated'] )
+			      end
+			  in  let <_10> =
+				  case <> of
+				    %% Line 272
+				    <>
+					when ( call 'erlang':'=:='
+						(Global,
+						 'true')
+					    -| ['compiler_generated'] ) ->
+					%% Line 273
+					call 'binary':'matches'
+					    (_0, _1, _7)
+				    %% Line 274
+				    <> when 'true' ->
+					%% Line 275
+					case call 'binary':'match'
+						 (_0, _1, _7) of
+					  %% Line 276
+					  <'nomatch'> when 'true' ->
+					      []
+					  %% Line 277
+					  <Match> when 'true' ->
+					      [Match|[]]
+					end
+				  end
+			      in  let <_14> =
+				      case %% Line 280
+					   Insert of
+					%% Line 281
+					<[]> when 'true' ->
+					    _2
+					%% Line 283
+					<Y>
+					    when call 'erlang':'is_integer'
+						  (Insert) ->
+					    %% Line 284
+					    apply 'splitat'/3
+						(_2, 0, [Y|[]])
+					%% Line 285
+					<Li>
+					    when call 'erlang':'is_list'
+						  (Insert) ->
+					    let <_12> =
+						call %% Line 286
+						     'lists':%% Line 286
+							     'sort'
+						    (%% Line 286
+						     Li)
+					    in  %% Line 286
+						apply 'splitat'/3
+						    (_2, 0, _12)
+					( <_13> when 'true' ->
+					      %% Line 280
+					      primop 'match_fail'
+						  ({'case_clause',_13})
+					  -| ['compiler_generated'] )
+				      end
+				  in  let <_16> =
+					  apply %% Line 288
+						'do_replace'/4
+					      (_0, _10, _14, %% Line 288
+							     0)
+				      in  %% Line 288
+					  call 'erlang':'iolist_to_binary'
+					      (_16)
+		      ( <_5> when 'true' ->
+			    primop 'match_fail'
+				({'badmatch',_5})
+			-| ['compiler_generated'] )
+		    end
+		( <_4> when 'true' ->
+		      primop 'match_fail'
+			  ({'badmatch',_4})
+		  -| ['compiler_generated'] )
+	      end
+	  of <_17> ->
+	      _17
+	  catch <_20,_19,_18> ->
+	      %% Line 291
+	      call 'erlang':'error'
+		  ('badarg')
+      -| [{'function',{'replace',4}}] )
+'do_replace'/4 =
+    %% Line 295
+    ( fun (_0,_1,_2,_3) ->
+	  ( case <_0,_1,_2,_3> of
+	      <H,[],_17,N> when 'true' ->
+		  let <_4> =
+		      call %% Line 296
+			   'erlang':%% Line 296
+				    'byte_size'
+			  (%% Line 296
+			   H)
+		  in  let <_5> =
+			  call %% Line 296
+			       'erlang':%% Line 296
+					'-'
+			      (_4, %% Line 296
+				   N)
+		      in  let <_6> =
+			      call %% Line 296
+				   'binary':%% Line 296
+					    'part'
+				  (%% Line 296
+				   H, %% Line 296
+				      {N,_5})
+			  in  %% Line 296
+			      [_6|[]]
+	      %% Line 297
+	      <H,[_@r0 = {A,B}|T],Replacement,N> when 'true' ->
+		  let <_7> =
+		      call %% Line 298
+			   'erlang':%% Line 298
+				    '-'
+			  (%% Line 298
+			   A, %% Line 298
+			      N)
+		  in  let <_8> =
+			  call %% Line 298
+			       'binary':%% Line 298
+					'part'
+			      (%% Line 298
+			       H, %% Line 298
+				  {N,_7})
+		      in  let <_10> =
+			      case <> of
+				%% Line 300
+				<>
+				    when call 'erlang':'is_list'
+					  (Replacement) ->
+				    let <_9> =
+					call %% Line 301
+					     'binary':%% Line 301
+						      'part'
+					    (%% Line 301
+					     H, %% Line 301
+						_@r0)
+				    in  %% Line 301
+					apply 'do_insert'/2
+					    (Replacement, _9)
+				%% Line 302
+				<> when 'true' ->
+				    %% Line 303
+				    Replacement
+			      end
+			  in  let <_11> =
+				  call %% Line 305
+				       'erlang':%% Line 305
+						'+'
+				      (%% Line 305
+				       A, %% Line 305
+					  B)
+			      in  let <_12> =
+				      apply %% Line 305
+					    'do_replace'/4
+					  (%% Line 305
+					   H, %% Line 305
+					      T, %% Line 305
+						 Replacement, _11)
+				  in  %% Line 298
+				      [_8|%% Line 299
+					  [_10|_12]]
+	      ( <_16,_15,_14,_13> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_16,_15,_14,_13})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'do_replace',4}}] )
+      -| [{'function',{'do_replace',4}}] )
+'do_insert'/2 =
+    %% Line 307
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <_@r0 = [X|[]],_5> when 'true' ->
+		  %% Line 308
+		  _@r0
+	      %% Line 309
+	      <[H|T],R> when 'true' ->
+		  let <_2> =
+		      apply %% Line 310
+			    'do_insert'/2
+			  (%% Line 310
+			   T, %% Line 310
+			      R)
+		  in  %% Line 310
+		      [H|[R|_2]]
+	      ( <_4,_3> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_4,_3})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'do_insert',2}}] )
+      -| [{'function',{'do_insert',2}}] )
+'splitat'/3 =
+    %% Line 312
+    ( fun (_0,_1,_2) ->
+	  ( case <_0,_1,_2> of
+	      <H,N,[]> when 'true' ->
+		  let <_3> =
+		      call %% Line 313
+			   'erlang':%% Line 313
+				    'byte_size'
+			  (%% Line 313
+			   H)
+		  in  let <_4> =
+			  call %% Line 313
+			       'erlang':%% Line 313
+					'-'
+			      (_3, %% Line 313
+				   N)
+		      in  let <_5> =
+			      call %% Line 313
+				   'binary':%% Line 313
+					    'part'
+				  (%% Line 313
+				   H, %% Line 313
+				      {N,_4})
+			  in  %% Line 313
+			      [_5|[]]
+	      %% Line 314
+	      <H,N,[I|T]> when 'true' ->
+		  let <_6> =
+		      call %% Line 315
+			   'erlang':%% Line 315
+				    '-'
+			  (%% Line 315
+			   I, %% Line 315
+			      N)
+		  in  let <_7> =
+			  call %% Line 315
+			       'binary':%% Line 315
+					'part'
+			      (%% Line 315
+			       H, %% Line 315
+				  {N,_6})
+		      in  let <_8> =
+			      apply %% Line 315
+				    'splitat'/3
+				  (%% Line 315
+				   H, %% Line 315
+				      I, %% Line 315
+					 T)
+			  in  %% Line 315
+			      [_7|_8]
+	      ( <_11,_10,_9> when 'true' ->
+		    primop 'match_fail'
+			({'function_clause',_11,_10,_9})
+		-| ['compiler_generated'] )
+	    end
+	    -| [{'function',{'splitat',3}}] )
+      -| [{'function',{'splitat',3}}] )
+'get_opts_replace'/2 =
+    %% Line 323
+    ( fun (_0,_1) ->
+	  ( case <_0,_1> of
+	      <[],_@r0 = {Part,Global,Insert}> when 'true' ->
+		  %% Line 324
+		  _@r0
+	      %% Line 325
+	      <[{'scope',_@r1 = {A,B}}|T],{_X_Part,Global,Insert}> when 'true' ->
+		  %% Line 326
+		  apply 'get_opts_replace'/2
+		      (T, {_@r1,Global,Insert})
+	      %% Line 327
+	      <['global'|T],{Part,_X_Global,Insert}> when 'true' ->
+		  %% Line 328
+		  apply 'get_opts_replace'/2
+		      (T, {Part,'true',Insert})
+	      %% Line 329
+	      <[{'insert_replaced',N}|T],{Part,Global,_X_Insert}> when 'true' ->
+		  %% Line 330
+		  apply 'get_opts_replace'/2
+		      (T, {Part,Global,N})
+	      %% Line 331
+	      <_4,_5> when 'true' ->
+		  %% Line 332
+		  call 'erlang':'throw'
+		      ('badopt')
+	    end
+	    -| [{'function',{'get_opts_replace',2}}] )
+      -| [{'function',{'get_opts_replace',2}}] )
+'module_info'/0 =
+    ( fun () ->
+	  call 'erlang':'get_module_info'
+	      ('binary')
+      -| [{'function',{'module_info',0}}] )
+'module_info'/1 =
+    ( fun (_0) ->
+	  call 'erlang':'get_module_info'
+	      ('binary', ( _0
+			   -| [{'function',{'module_info',1}}] ))
+      -| [{'function',{'module_info',1}}] )
+end
