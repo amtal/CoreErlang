@@ -26,6 +26,8 @@ import Language.CoreErlang.Syntax
 
 import qualified Text.PrettyPrint as P
 
+import Prelude hiding ((<>))
+
 infixl 5 $$$
 
 -------------------------------------------------------------------------------
