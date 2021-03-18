@@ -4,3 +4,4 @@ stack.yaml.lock
 *~
 .DS_Store
 *.swp
+test/generated/
