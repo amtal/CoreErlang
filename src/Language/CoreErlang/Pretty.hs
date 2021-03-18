@@ -41,7 +41,7 @@ varsPretty xs = angles (commaSep xs)
 instance {-# OVERLAPPING #-} Pretty a => Pretty (Atom a, Const a) where
   pretty (x, y) = nest 4 $ pretty x <+> "=" <> hardline <+> pretty y
 --
-instance (VisualStream s, TraversableStream s, ShowErrorComponent e , Stream s, ShowErrorComponent e, Pretty a) => Pretty (Either (ParseErrorBundle s e) a) where
+instance (VisualStream s, TraversableStream s, Stream s, ShowErrorComponent e, Pretty a) => Pretty (Either (ParseErrorBundle s e) a) where
   pretty (Right x) = pretty x
   pretty (Left  r) = error ("parseFail" ++ errorBundlePretty r)
 
